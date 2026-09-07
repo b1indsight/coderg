@@ -1,0 +1,1076 @@
+{
+  "literal_parallel": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-F",
+      "get_tensor_model_parallel_world_size",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-F",
+      "get_tensor_model_parallel_world_size",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-F",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "get_tensor_model_parallel_world_size",
+      "."
+    ]
+  },
+  "word_sampling": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bSamplingParams\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bSamplingParams\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\bSamplingParams\\b",
+      "."
+    ]
+  },
+  "word_asyncmock": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bAsyncMock\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bAsyncMock\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\bAsyncMock\\b",
+      "."
+    ]
+  },
+  "def_forward": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "def\\s+forward\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "def\\s+forward\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "def\\s+forward\\b",
+      "."
+    ]
+  },
+  "async_def": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "async\\s+def\\s+\\w+",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "async\\s+def\\s+\\w+",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "async\\s+def\\s+\\w+",
+      "."
+    ]
+  },
+  "class_attention": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^class[ \\t]+\\w*Attention\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^class[ \\t]+\\w*Attention\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "^class[ \\t]+\\w*Attention\\b",
+      "."
+    ]
+  },
+  "python_import": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^from[ \\t]+vllm(?:\\.[\\w.]+)?[ \\t]+import\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^from[ \\t]+vllm(?:\\.[\\w.]+)?[ \\t]+import\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "^from[ \\t]+vllm(?:\\.[\\w.]+)?[ \\t]+import\\b",
+      "."
+    ]
+  },
+  "decorator": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^[ \\t]*@(?:torch|pytest)\\.[A-Za-z_]+",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^[ \\t]*@(?:torch|pytest)\\.[A-Za-z_]+",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "^[ \\t]*@(?:torch|pytest)\\.[A-Za-z_]+",
+      "."
+    ]
+  },
+  "logger": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "logger\\.(warning|error)\\(",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "logger\\.(warning|error)\\(",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "logger\\.(warning|error)\\(",
+      "."
+    ]
+  },
+  "exceptions": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b(ValueError|RuntimeError|NotImplementedError)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b(ValueError|RuntimeError|NotImplementedError)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\b(ValueError|RuntimeError|NotImplementedError)\\b",
+      "."
+    ]
+  },
+  "cache": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b(kv_cache|block_size)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b(kv_cache|block_size)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\b(kv_cache|block_size)\\b",
+      "."
+    ]
+  },
+  "tensor_creation": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b(torch|numpy)\\.(empty|zeros|ones)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b(torch|numpy)\\.(empty|zeros|ones)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\b(torch|numpy)\\.(empty|zeros|ones)\\b",
+      "."
+    ]
+  },
+  "env_vars": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+      "."
+    ]
+  },
+  "cuda_call": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\btorch\\.cuda\\.[a-z_]+\\(",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\btorch\\.cuda\\.[a-z_]+\\(",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\btorch\\.cuda\\.[a-z_]+\\(",
+      "."
+    ]
+  },
+  "config_assignment": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bmax_(model_len|num_seqs)[ \\t]*=",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bmax_(model_len|num_seqs)[ \\t]*=",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\bmax_(model_len|num_seqs)[ \\t]*=",
+      "."
+    ]
+  },
+  "raise_error": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "raise[ \\t]+\\w*Error\\(",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "raise[ \\t]+\\w*Error\\(",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "raise[ \\t]+\\w*Error\\(",
+      "."
+    ]
+  },
+  "todo_comment": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^[ \\t]*#.*\\b(TODO|FIXME)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^[ \\t]*#.*\\b(TODO|FIXME)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "^[ \\t]*#.*\\b(TODO|FIXME)\\b",
+      "."
+    ]
+  },
+  "return_none": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^[ \\t]*return[ \\t]+None[ \\t]*$",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^[ \\t]*return[ \\t]+None[ \\t]*$",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "^[ \\t]*return[ \\t]+None[ \\t]*$",
+      "."
+    ]
+  },
+  "quoted_device": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "[\\\"'](?:cuda|cpu|rocm)[\\\"']",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "[\\\"'](?:cuda|cpu|rocm)[\\\"']",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "[\\\"'](?:cuda|cpu|rocm)[\\\"']",
+      "."
+    ]
+  },
+  "icase_sampling": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "\\bSamplingParams\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "\\bSamplingParams\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-i",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\bSamplingParams\\b",
+      "."
+    ]
+  },
+  "icase_platform": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "\\b(cuda|rocm)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "\\b(cuda|rocm)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-i",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\b(cuda|rocm)\\b",
+      "."
+    ]
+  },
+  "icase_todo": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "\\b(TODO|FIXME)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "\\b(TODO|FIXME)\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-i",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\b(TODO|FIXME)\\b",
+      "."
+    ]
+  },
+  "icase_env": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-i",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+      "."
+    ]
+  },
+  "icase_logger": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "logger\\.(warning|error)\\(",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "logger\\.(warning|error)\\(",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-i",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "logger\\.(warning|error)\\(",
+      "."
+    ]
+  },
+  "icase_literal": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "-F",
+      "get_tensor_model_parallel_world_size",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-i",
+      "-F",
+      "get_tensor_model_parallel_world_size",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-i",
+      "-F",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "get_tensor_model_parallel_world_size",
+      "."
+    ]
+  },
+  "digits": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b[0-9]{2,4}\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b[0-9]{2,4}\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\b[0-9]{2,4}\\b",
+      "."
+    ]
+  },
+  "hex_number": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b0x[0-9A-Fa-f]+\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\b0x[0-9A-Fa-f]+\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\b0x[0-9A-Fa-f]+\\b",
+      "."
+    ]
+  },
+  "short_word": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bif\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bif\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\bif\\b",
+      "."
+    ]
+  },
+  "blank_lines": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^[ \\t]*$",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "^[ \\t]*$",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "^[ \\t]*$",
+      "."
+    ]
+  },
+  "absent_regex": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bCODERG_BENCH_ABSENT_[0-9]{8}\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "\\bCODERG_BENCH_ABSENT_[0-9]{8}\\b",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+      "--no-refresh"
+    ],
+    "rg": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "-H",
+      "--hidden",
+      "--glob",
+      "!.git/**",
+      "--glob",
+      "!.coderg-index/**",
+      "--color",
+      "never",
+      "--no-heading",
+      "\\bCODERG_BENCH_ABSENT_[0-9]{8}\\b",
+      "."
+    ]
+  }
+}

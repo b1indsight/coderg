@@ -1,0 +1,1764 @@
+{
+  "metadata": {
+    "baseline_sha256": "e818e45582a127a9c3e23502e5ee05b84f2968005c4745b54aefa3503b7478d2",
+    "prototype_sha256": "dc3971f83296982733dc4fd7429b9bf99b9d753bab21e171ffe04a402a4540ec",
+    "source_sha256": {
+      "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+      "src/index.rs": "aa05baceb1e1c6766a6bfb9eefaa2c4ae38bd356ebddc693ec488d5c1c9afc90",
+      "src/main.rs": "f73b7ffa272f30dbf40bb92d4bc0cd20ea4e9680586f91b26a191cf4ab06446b",
+      "src/ngram.rs": "863082b198417fa2fbc829af355a067c4e1b2225ff0712ba9116c46affd1ea41",
+      "src/query.rs": "b7eb3c1662c66113c4b0752bc4f270ba91db4361c7635cee3a22146ff5ac4812",
+      "src/search.rs": "9f85d7aeafbd94b68ea929b06bbc631209289a79f4ef491c49234171b886ef9c",
+      "src/segment.rs": "108fd843d91c2263f47f2d9f6ddb74a98a03a9b6a4ea56b5f165e810a3cee1d9"
+    },
+    "index_sha256": {
+      "manifest.json": "95b98ce97e6afd2f7c813a3e3fb5470cc51ab70a447abbedbe9b9500c5a42c2b",
+      "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": "95b98ce97e6afd2f7c813a3e3fb5470cc51ab70a447abbedbe9b9500c5a42c2b",
+      "segments/01788765965925638000.lookup": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380",
+      "segments/01788765965925638000.postings": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+    },
+    "vllm_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "vllm_status": "",
+    "recorded_at": "2026-09-07T07:50:42.083556+00:00",
+    "seed": 20260907,
+    "root": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+    "index_dir": "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+    "harness_sha256": "53b215c050a4d2c297844378ff1c58118fb7f973f57513b1467652d451bc8667"
+  },
+  "queries": [
+    {
+      "id": "if",
+      "pattern": "\\bif\\b",
+      "flags": [],
+      "matching_lines": 68895,
+      "matching_files": 4252,
+      "output_sha256": "5fe37d71c54a4375af64a96aa7c6e66871165a891f8ab05d4fe48fb4eb500b0f",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bif\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bif\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.037834,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bif\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bif\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 5440,
+            "keys": 512,
+            "planning_ms": 1.54325,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bif\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bif\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 4348,
+            "keys": 386,
+            "planning_ms": 0.882625,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bif\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "in",
+      "pattern": "\\bin\\b",
+      "flags": [],
+      "matching_lines": 48983,
+      "matching_files": 4371,
+      "output_sha256": "eb47e3acb9d3fa580ad19d997e4bcd02df4e6f8a2277f6b7f8f09c147e668a87",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bin\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bin\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.008708,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bin\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bin\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 5841,
+            "keys": 512,
+            "planning_ms": 3.631125,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bin\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bin\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 5332,
+            "keys": 386,
+            "planning_ms": 1.290833,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bin\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "is",
+      "pattern": "\\bis\\b",
+      "flags": [],
+      "matching_lines": 49811,
+      "matching_files": 4402,
+      "output_sha256": "753fb1e6cef7dadc4a8fa830a57a88fbbc5fe26c792df5568e7e1ebc15e56b4a",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bis\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bis\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.008917,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bis\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bis\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 5377,
+            "keys": 512,
+            "planning_ms": 2.2015,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bis\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bis\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 4892,
+            "keys": 386,
+            "planning_ms": 1.054333,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bis\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "as",
+      "pattern": "\\bas\\b",
+      "flags": [],
+      "matching_lines": 12938,
+      "matching_files": 3500,
+      "output_sha256": "787813635bddea3861d59d8817698e8432e31ada100d04a3eb4aaf7c3e34060d",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bas\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bas\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.008333,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bas\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bas\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 5520,
+            "keys": 512,
+            "planning_ms": 2.1648750000000003,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bas\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bas\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 4777,
+            "keys": 386,
+            "planning_ms": 1.017167,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bas\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "id",
+      "pattern": "\\bid\\b",
+      "flags": [],
+      "matching_lines": 6277,
+      "matching_files": 934,
+      "output_sha256": "08cb7168e8a591fb78095bcc26ffa7886cce184e31e7db418d00d4a8aa8a591f",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bid\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bid\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.0085,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bid\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bid\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 4679,
+            "keys": 512,
+            "planning_ms": 1.695667,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bid\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bid\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 3484,
+            "keys": 386,
+            "planning_ms": 0.946125,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bid\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "os",
+      "pattern": "\\bos\\b",
+      "flags": [],
+      "matching_lines": 2479,
+      "matching_files": 426,
+      "output_sha256": "2301f15a312d5d44160b35f777234ffad2aab22e60132b10c7f645348731d783",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bos\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bos\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.009000000000000001,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bos\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bos\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 4001,
+            "keys": 512,
+            "planning_ms": 1.23,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bos\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bos\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 1835,
+            "keys": 386,
+            "planning_ms": 0.687667,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bos\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "io",
+      "pattern": "\\bio\\b",
+      "flags": [],
+      "matching_lines": 1054,
+      "matching_files": 180,
+      "output_sha256": "a018f9a8ae30c3b1792f7af9e52805c707ca43ea7049baacfe5311d3f02708e2",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bio\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bio\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.009417,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bio\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bio\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 5485,
+            "keys": 512,
+            "planning_ms": 1.365375,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bio\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bio\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 1067,
+            "keys": 386,
+            "planning_ms": 0.6389170000000001,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bio\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "kv",
+      "pattern": "\\bkv\\b",
+      "flags": [],
+      "matching_lines": 1287,
+      "matching_files": 356,
+      "output_sha256": "44a19f9feee8ae6946d1787d5f53b515d97efc232675e5ecfc49cf4a46d1be3d",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bkv\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bkv\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.00975,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bkv\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bkv\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 1453,
+            "keys": 512,
+            "planning_ms": 0.900292,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bkv\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bkv\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 1282,
+            "keys": 386,
+            "planning_ms": 0.648791,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bkv\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "qx",
+      "pattern": "\\bqx\\b",
+      "flags": [],
+      "matching_lines": 20,
+      "matching_files": 12,
+      "output_sha256": "f4948e09e1f1d15e687824efddfc862d4f5f295fcd2799d66d70491b713ef70a",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bqx\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bqx\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.009375,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bqx\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bqx\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 13,
+            "keys": 512,
+            "planning_ms": 0.597958,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bqx\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bqx\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 12,
+            "keys": 386,
+            "planning_ms": 0.494333,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bqx\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "QZ",
+      "pattern": "\\bQZ\\b",
+      "flags": [],
+      "matching_lines": 1,
+      "matching_files": 1,
+      "output_sha256": "019ee815f6f85800e7cb55a79b9b755f09a5b2e8feffb76debfb43f0b976f89e",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bQZ\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bQZ\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.008208,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bQZ\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bQZ\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 3,
+            "keys": 512,
+            "planning_ms": 0.535083,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bQZ\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bQZ\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 3,
+            "keys": 386,
+            "planning_ms": 0.42858399999999996,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bQZ\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "def",
+      "pattern": "\\bdef\\b",
+      "flags": [],
+      "matching_lines": 54139,
+      "matching_files": 4020,
+      "output_sha256": "745c984a26534a104cae765adfc13ec74f2fb39092133f774961e128f9b57669",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "\\bdef\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bdef\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 4808,
+            "keys": 0,
+            "planning_ms": 0.211583,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bdef\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bdef\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 4808,
+            "keys": 0,
+            "planning_ms": 0.202917,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bdef\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "\\bdef\\b",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 4808,
+            "keys": 0,
+            "planning_ms": 0.203292,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "\\bdef\\b",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "fixed_if",
+      "pattern": "if",
+      "flags": [
+        "-F"
+      ],
+      "matching_lines": 97484,
+      "matching_files": 5440,
+      "output_sha256": "8a3bfaf780108bc48a3c16c580c0776211f8e8fc27f606ae3d0b27614d55a1bc",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "-F",
+            "if",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "if",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.009208000000000001,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "if",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "if",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 5440,
+            "keys": 512,
+            "planning_ms": 1.606,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "if",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "if",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 5440,
+            "keys": 512,
+            "planning_ms": 1.5614999999999999,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "-F",
+            "if",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    },
+    {
+      "id": "fixed_qx",
+      "pattern": "qx",
+      "flags": [
+        "-F"
+      ],
+      "matching_lines": 23,
+      "matching_files": 13,
+      "output_sha256": "a6b40654c7cfea5a173f83b4a1ce74f5997ee3fc228515065d7161661fcb7e5e",
+      "exit_code": 0,
+      "modes": {
+        "baseline_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+            "search",
+            "-F",
+            "qx",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {},
+          "parity": true
+        },
+        "baseline_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "qx",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {},
+          "parity": true,
+          "trace": {
+            "candidates": 6835,
+            "keys": 0,
+            "planning_ms": 0.008875000000000001,
+            "probe": ""
+          }
+        },
+        "all_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "qx",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true
+        },
+        "all_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "qx",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "all"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 13,
+            "keys": 512,
+            "planning_ms": 0.588209,
+            "probe": "all"
+          }
+        },
+        "boundary_default": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "qx",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true
+        },
+        "boundary_no_refresh": {
+          "command": [
+            "/Users/b1indsight/personal_work/coderg/target/release/coderg-short-probe",
+            "search",
+            "-F",
+            "qx",
+            ".",
+            "--index-dir",
+            "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+            "--no-refresh"
+          ],
+          "env": {
+            "CODERG_SHORT_PROBE": "boundary"
+          },
+          "parity": true,
+          "trace": {
+            "candidates": 13,
+            "keys": 512,
+            "planning_ms": 0.6382920000000001,
+            "probe": "boundary"
+          }
+        },
+        "rg_default": {
+          "command": [
+            "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+            "--no-config",
+            "-n",
+            "-H",
+            "--hidden",
+            "--glob",
+            "!.git/**",
+            "--glob",
+            "!.coderg-index/**",
+            "--color",
+            "never",
+            "--no-heading",
+            "-F",
+            "qx",
+            "."
+          ],
+          "env": {},
+          "parity": true
+        }
+      }
+    }
+  ]
+}

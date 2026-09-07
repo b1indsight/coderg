@@ -1,0 +1,80 @@
+{
+  "blank_lines": {
+    "trailing_newline_virtual_line": 6177,
+    "empty_file": 263,
+    "other": 0
+  },
+  "async_def_extra": [
+    {
+      "line": "tests/distributed/test_sharded_rdt_producer.py:914:        orig_pub = engine._publish_async",
+      "cross_line_matches": [
+        "async\n\n        def _pack"
+      ]
+    },
+    {
+      "line": "tests/entrypoints/openai/test_render_parity.py:130:        online_renderer.renderer.render_chat_async = fake_render_chat_async",
+      "cross_line_matches": [
+        "async\n\n    def take"
+      ]
+    },
+    {
+      "line": "vllm/distributed/eplb/async_worker.py:30:    assert state.is_async",
+      "cross_line_matches": [
+        "async\n\n    def thread_target"
+      ]
+    },
+    {
+      "line": "vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/scheduler.py:165:        return need_to_allocate, self.load_async",
+      "cross_line_matches": [
+        "async\n\n    def update_state_after_alloc"
+      ]
+    }
+  ],
+  "same_line_async_alternative": {
+    "coderg_default": {
+      "lines": 1974,
+      "sha256": "01bcbd56be03bc7867d1560482b580903e8232ca7f409fd93693e0a367caa388",
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "search",
+        "async[ \\t]+def[ \\t]+\\w+",
+        ".",
+        "--index-dir",
+        "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index"
+      ]
+    },
+    "coderg_no_refresh": {
+      "lines": 1974,
+      "sha256": "01bcbd56be03bc7867d1560482b580903e8232ca7f409fd93693e0a367caa388",
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "search",
+        "async[ \\t]+def[ \\t]+\\w+",
+        ".",
+        "--index-dir",
+        "/private/tmp/coderg-vllm-regex-suite-2026-09-07-index",
+        "--no-refresh"
+      ]
+    },
+    "rg": {
+      "lines": 1974,
+      "sha256": "01bcbd56be03bc7867d1560482b580903e8232ca7f409fd93693e0a367caa388",
+      "command": [
+        "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+        "--no-config",
+        "-n",
+        "-H",
+        "--hidden",
+        "--glob",
+        "!.git/**",
+        "--glob",
+        "!.coderg-index/**",
+        "--color",
+        "never",
+        "--no-heading",
+        "async[ \\t]+def[ \\t]+\\w+",
+        "."
+      ]
+    }
+  }
+}

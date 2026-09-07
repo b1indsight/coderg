@@ -1,0 +1,167 @@
+{
+  "recorded_at": "2026-09-07T14:01:09.977272+08:00",
+  "corpus_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+  "variants": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "keys": [
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+    512
+  ],
+  "queries": [
+    {
+      "id": "asyncmock",
+      "split": "train",
+      "pattern": "\\basyncmock\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "platforms",
+      "split": "train",
+      "pattern": "\\b(cuda|rocm)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "sampling",
+      "split": "train",
+      "pattern": "\\bSamplingParams\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "logger",
+      "split": "train",
+      "pattern": "logger\\.(warning|error)\\(",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "parallel",
+      "split": "train",
+      "pattern": "get_tensor_model_parallel_world_size",
+      "flags": [
+        "-i",
+        "-F"
+      ]
+    },
+    {
+      "id": "cache",
+      "split": "train",
+      "pattern": "\\b(kv_cache|block_size)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "todos",
+      "split": "train",
+      "pattern": "\\b(TODO|FIXME)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "envvars",
+      "split": "train",
+      "pattern": "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "attention",
+      "split": "holdout",
+      "pattern": "class[ \\t]+\\w*Attention\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "forward",
+      "split": "holdout",
+      "pattern": "def[ \\t]+forward\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "maxconfig",
+      "split": "holdout",
+      "pattern": "\\bmax_(model_len|num_seqs)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "exceptions",
+      "split": "holdout",
+      "pattern": "\\b(ValueError|RuntimeError|NotImplementedError)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "tensors",
+      "split": "holdout",
+      "pattern": "\\b(torch|numpy)\\.(empty|zeros|ones)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "asyncdef",
+      "split": "holdout",
+      "pattern": "async[ \\t]+def[ \\t]+\\w+",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "sensitive_parallel",
+      "split": "control",
+      "pattern": "get_tensor_model_parallel_world_size",
+      "flags": [
+        "-F"
+      ]
+    },
+    {
+      "id": "sensitive_sampling",
+      "split": "control",
+      "pattern": "\\bSamplingParams\\b",
+      "flags": []
+    },
+    {
+      "id": "sensitive_forward",
+      "split": "control",
+      "pattern": "def[ \\t]+forward\\b",
+      "flags": []
+    }
+  ],
+  "warmup": 2,
+  "iterations": 7,
+  "primary_objective": "Equal-weight arithmetic mean of per-query median no-refresh latency on training queries",
+  "confirmation": "Real constant binaries; default and no-refresh; heldout queries; three case-sensitive controls; peak RSS",
+  "coupled_cap": "Key limit also caps the number of planned strategy groups, exactly as in current source",
+  "output": "Matching filename:line:content; stdout to /dev/null; rg sorted only for correctness",
+  "harness_only_env": [
+    "CODERG_BENCH_VARIANTS",
+    "CODERG_BENCH_KEYS",
+    "CODERG_BENCH_TRACE"
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "recorded_at": "2026-09-07T14:44:24.026289+08:00",
+  "iterations": 101,
+  "warmup": 5,
+  "queries": [
+    {
+      "id": "asyncmock",
+      "split": "train",
+      "pattern": "\\basyncmock\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "platforms",
+      "split": "train",
+      "pattern": "\\b(cuda|rocm)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "sampling",
+      "split": "train",
+      "pattern": "\\bSamplingParams\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "logger",
+      "split": "train",
+      "pattern": "logger\\.(warning|error)\\(",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "parallel",
+      "split": "train",
+      "pattern": "get_tensor_model_parallel_world_size",
+      "flags": [
+        "-i",
+        "-F"
+      ]
+    },
+    {
+      "id": "cache",
+      "split": "train",
+      "pattern": "\\b(kv_cache|block_size)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "todos",
+      "split": "train",
+      "pattern": "\\b(TODO|FIXME)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "envvars",
+      "split": "train",
+      "pattern": "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "attention",
+      "split": "holdout",
+      "pattern": "class[ \\t]+\\w*Attention\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "forward",
+      "split": "holdout",
+      "pattern": "def[ \\t]+forward\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "maxconfig",
+      "split": "holdout",
+      "pattern": "\\bmax_(model_len|num_seqs)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "exceptions",
+      "split": "holdout",
+      "pattern": "\\b(ValueError|RuntimeError|NotImplementedError)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "tensors",
+      "split": "holdout",
+      "pattern": "\\b(torch|numpy)\\.(empty|zeros|ones)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "asyncdef",
+      "split": "holdout",
+      "pattern": "async[ \\t]+def[ \\t]+\\w+",
+      "flags": [
+        "-i"
+      ]
+    }
+  ],
+  "configs": [
+    "v128-k128",
+    "v128-k256"
+  ],
+  "seed": 2026090704,
+  "mode": "Warm filesystem caches; default matching-line output to /dev/null",
+  "metric": "Mean of per-query medians and per-query nearest-rank p95; also report equal-weight mixed-workload p95 separately",
+  "p95": "Sample at rank ceil(0.95 * n), 1-based; 96th of 101 samples",
+  "binaries": {
+    "v128-k128": "e818e45582a127a9c3e23502e5ee05b84f2968005c4745b54aefa3503b7478d2",
+    "v128-k256": "f1305ee29dcc6f29b9a23b55a8c6f0be23303f6727489154449029ddf4c2977d"
+  }
+}

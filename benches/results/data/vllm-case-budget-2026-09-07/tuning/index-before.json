@@ -1,0 +1,18 @@
+{
+  "manifest.json": {
+    "bytes": 2640013,
+    "sha256": "91bd42c0cdc4f0ecd78d9c720a23db7b21fb88fef7edb9595573d8eef6696326"
+  },
+  "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+    "bytes": 2640013,
+    "sha256": "91bd42c0cdc4f0ecd78d9c720a23db7b21fb88fef7edb9595573d8eef6696326"
+  },
+  "segments/01788696484086088000.lookup": {
+    "bytes": 29206668,
+    "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+  },
+  "segments/01788696484086088000.postings": {
+    "bytes": 35141250,
+    "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+  }
+}

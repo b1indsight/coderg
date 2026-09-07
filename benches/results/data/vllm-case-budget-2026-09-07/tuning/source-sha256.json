@@ -1,0 +1,12 @@
+{
+  "Cargo.toml": "8233f59451cfd06570901834396895f24185e18e0cd6de3c5231759e0ff673fe",
+  "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+  "benches/compare_rg.rs": "764a79f7ddb6b67995c58b79e33690507e601f2c90be31dac6767dc800bc92fe",
+  "src/query.rs": "df67dee00ac236def52e763553aa9e2c0d47173bf5d2444625ae60d2233012c7",
+  "src/index.rs": "aa05baceb1e1c6766a6bfb9eefaa2c4ae38bd356ebddc693ec488d5c1c9afc90",
+  "src/ngram.rs": "863082b198417fa2fbc829af355a067c4e1b2225ff0712ba9116c46affd1ea41",
+  "src/segment.rs": "108fd843d91c2263f47f2d9f6ddb74a98a03a9b6a4ea56b5f165e810a3cee1d9",
+  "src/main.rs": "f73b7ffa272f30dbf40bb92d4bc0cd20ea4e9680586f91b26a191cf4ab06446b",
+  "src/search.rs": "9f85d7aeafbd94b68ea929b06bbc631209289a79f4ef491c49234171b886ef9c",
+  "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b"
+}

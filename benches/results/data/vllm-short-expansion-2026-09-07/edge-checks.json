@@ -1,0 +1,55 @@
+{
+  "fixture": "/private/tmp/coderg-short-edges-nociclnl",
+  "documents": 1047,
+  "checks": [
+    {
+      "query": "if",
+      "implementation": "all",
+      "output_sha256": "7d325522a0a620a7697967434cfdb0f756b78d47a4eb0a5101fb8d7a575cfa31",
+      "passed": true
+    },
+    {
+      "query": "if",
+      "implementation": "boundary",
+      "output_sha256": "7d325522a0a620a7697967434cfdb0f756b78d47a4eb0a5101fb8d7a575cfa31",
+      "passed": true
+    },
+    {
+      "query": "qx",
+      "implementation": "all",
+      "output_sha256": "18c93c2ceb1607badf9013e530686d6469e07bea873d7d2ed9e79c88fb2576c0",
+      "passed": true
+    },
+    {
+      "query": "qx",
+      "implementation": "boundary",
+      "output_sha256": "18c93c2ceb1607badf9013e530686d6469e07bea873d7d2ed9e79c88fb2576c0",
+      "passed": true
+    },
+    {
+      "query": "fixed_if",
+      "implementation": "all",
+      "output_sha256": "7b0185b9b7ea324a960fa99cd3d07651f0fe2b9ea1517efea410b6cd077c67d9",
+      "passed": true
+    },
+    {
+      "query": "fixed_if",
+      "implementation": "boundary",
+      "output_sha256": "7b0185b9b7ea324a960fa99cd3d07651f0fe2b9ea1517efea410b6cd077c67d9",
+      "passed": true
+    },
+    {
+      "query": "fixed_qx",
+      "implementation": "all",
+      "output_sha256": "a910d977c44e11671f8570795891ce226ec875d4ee40f8bfc33c140495760ce7",
+      "passed": true
+    },
+    {
+      "query": "fixed_qx",
+      "implementation": "boundary",
+      "output_sha256": "a910d977c44e11671f8570795891ce226ec875d4ee40f8bfc33c140495760ce7",
+      "passed": true
+    }
+  ],
+  "coverage": "BOF, EOF, exact two-byte file, empty/one-byte file, bytes 1..255 on either side, Unicode contexts"
+}

@@ -1,0 +1,196 @@
+{
+  "archived_at": "2026-09-07T15:10:40.338507+08:00",
+  "purpose": "Evidence for the accepted 128/128 case-insensitive index-budget decision",
+  "coderg_base_commit": "bdedff2affe7901c566ded4e2551d64c0a87ab1e",
+  "vllm_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+  "notes": [
+    "Copied historical JSON and scripts are byte-for-byte archives.",
+    "Raw timing samples, resource measurements, diagnostics and protocols are embedded in the JSON.",
+    "Original scripts retain historical absolute paths; inspect and update paths before rerunning.",
+    "No corpus, index files or compiled binaries are archived; their commits and hashes are retained.",
+    "source/decision-source.diff contains only implementation and test changes against coderg_base_commit."
+  ],
+  "total_payload_bytes": 1103793,
+  "files": [
+    {
+      "path": "baseline/results.json",
+      "source_path": "/private/tmp/coderg-vllm-metrics.41MLD8/results.json",
+      "bytes": 35974,
+      "sha256": "b698db746a87ef27e30b7bc1972704da88f529e0dd86e28eb8e29d9e0043d973"
+    },
+    {
+      "path": "baseline/regex-results.json",
+      "source_path": "/private/tmp/coderg-vllm-metrics.41MLD8/regex-results.json",
+      "bytes": 54940,
+      "sha256": "9eaac3f397fe5e8f06fd88ee854bfc0c8a2e13547a76543d2eae154a49f714ec"
+    },
+    {
+      "path": "baseline/slow-cases-results.json",
+      "source_path": "/private/tmp/coderg-vllm-metrics.41MLD8/slow-cases-results.json",
+      "bytes": 15172,
+      "sha256": "d7c7e0d551b0d55fc3fd055ed691cb19b1a315e48c9a7b4c9077120e8c1f4228"
+    },
+    {
+      "path": "baseline/common-search-results.json",
+      "source_path": "/private/tmp/coderg-vllm-metrics.41MLD8/common-search-results.json",
+      "bytes": 31264,
+      "sha256": "53ded2c95c23f2c663b5da98f8a43c250f4c057ef33a6890455eb9a3254a04f6"
+    },
+    {
+      "path": "baseline/case-index-results.json",
+      "source_path": "/private/tmp/coderg-case-index.R5pfP5/results.json",
+      "bytes": 57788,
+      "sha256": "9e33dc4a985fa76ed07548252af6af39775be234f3903d8f7f5dc5b455c48321"
+    },
+    {
+      "path": "tuning/protocol.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/protocol.json",
+      "bytes": 3383,
+      "sha256": "b2317f683e6e63747c932b79bcfc1e592957a9657b887e8219dcfd24df1c24f2"
+    },
+    {
+      "path": "tuning/coarse-results.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/coarse-results.json",
+      "bytes": 219116,
+      "sha256": "bbee81e560e19115f8559b4ca5514d811ad3acc511769587d3ef187b9afb1dfb"
+    },
+    {
+      "path": "tuning/fine-protocol.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/fine-protocol.json",
+      "bytes": 4206,
+      "sha256": "f9dd6b6649d014d17a93611bef69b8afdd3ab0b38353b4fbafde49674945ad00"
+    },
+    {
+      "path": "tuning/fine-results.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/fine-results.json",
+      "bytes": 131867,
+      "sha256": "25f16446a8ab8a8b0a3a20674693fddbed7a0d79e3ab3aa4cc36ba92cc53a7c8"
+    },
+    {
+      "path": "tuning/confirmation-protocol.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/confirmation-protocol.json",
+      "bytes": 3513,
+      "sha256": "327d925f597cd10fa555ea21477e2d232523732e36bc8b6ac6d9be2ad9374a8e"
+    },
+    {
+      "path": "tuning/confirmation-results.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/confirmation-results.json",
+      "bytes": 282844,
+      "sha256": "6703e56e2de86ffe43ea3f009f434089097aed376c4a8b9e5578e41f17ec1194"
+    },
+    {
+      "path": "tuning/summary.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/summary.json",
+      "bytes": 18506,
+      "sha256": "83780a6cf51466b696d9d12434bdfada7b04b7de23772bfe858e9f8cc37e34ef"
+    },
+    {
+      "path": "tuning/index-before.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/index-before.json",
+      "bytes": 611,
+      "sha256": "91ede50b848b2f01722aabe4037d658427f73e7d4376c74c6cc401e4c56dc723"
+    },
+    {
+      "path": "tuning/source-sha256.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/source-sha256.json",
+      "bytes": 874,
+      "sha256": "f979172549da7c4946d08e23da5f67858db63e1428d72b934cae5e0b21e3b6fa"
+    },
+    {
+      "path": "tuning/final-validation.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/final-validation.json",
+      "bytes": 1912,
+      "sha256": "f25d0b7d7bed37c7015c4b478f7bb7c70c2863c1b3121e4f8dd09fe2e6a60f1e"
+    },
+    {
+      "path": "key256/protocol.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/key256-addendum/protocol.json",
+      "bytes": 2739,
+      "sha256": "817b51278b0d4b3b7b5d6826683c9ea46966a505334951518e8bb6054bb5903d"
+    },
+    {
+      "path": "key256/results.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/key256-addendum/results.json",
+      "bytes": 155393,
+      "sha256": "fe95c4949c7def6eec0bb978bb0cef1a11f68ef8b9c6a5261b797035d7af3aa1"
+    },
+    {
+      "path": "key256/summary.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/key256-addendum/summary.json",
+      "bytes": 2158,
+      "sha256": "26285f43da918e2bc44306f3c8b96c38e7977769ec8d7113d012e5fd56102a9d"
+    },
+    {
+      "path": "key256/previous-p95.json",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/key256-addendum/previous-p95.json",
+      "bytes": 570,
+      "sha256": "e5078b0a6b9d4b55dd54ff40e89fc50abe52453b212f60276855b733d6a42055"
+    },
+    {
+      "path": "scripts/prepare.py",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/prepare.py",
+      "bytes": 4003,
+      "sha256": "58ad0054defc24248b1c68fe139cd69435d8696d54a6e6a31541f792b4124649"
+    },
+    {
+      "path": "scripts/common.py",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/common.py",
+      "bytes": 5050,
+      "sha256": "23093d37b3ee8eb02c3937e46cc35abb3134e26e392f6f84f22713c1439c7264"
+    },
+    {
+      "path": "scripts/sweep.py",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/sweep.py",
+      "bytes": 4121,
+      "sha256": "028151f1e75b45d39a028663c17eecc3cd0dcbbb87b8bfb52d2f350841f737bc"
+    },
+    {
+      "path": "scripts/confirm.py",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/confirm.py",
+      "bytes": 4551,
+      "sha256": "9fb8a1a6ef90ec5daed5b641516920be65c9577b301c23f0b0ab277eca000765"
+    },
+    {
+      "path": "scripts/analyze.py",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/analyze.py",
+      "bytes": 6354,
+      "sha256": "b8e00fabee0ffdcb4a3d90cfd45efbb4d8131b6bca0694eaa1d43b7da8d59ff2"
+    },
+    {
+      "path": "scripts/key256_addendum.py",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/key256_addendum.py",
+      "bytes": 5239,
+      "sha256": "27981b3a2dfc0ce8a08ffb3ee94e99a91d1150a0b11c89c90bfb60493d2546c8"
+    },
+    {
+      "path": "scripts/analyze_key256.py",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/analyze_key256.py",
+      "bytes": 5604,
+      "sha256": "88baeb12a3abff93b36a5d3ae84e3e6fb49c999889045eda14caf95d56ce5d65"
+    },
+    {
+      "path": "scripts/case_index_benchmark.py",
+      "source_path": "/private/tmp/coderg-case-index.R5pfP5/benchmark.py",
+      "bytes": 8113,
+      "sha256": "1147d39eb81f44bf97231cc3489c72a132144b3be4674ca40cd52d97b1a2811c"
+    },
+    {
+      "path": "scripts/benchmark_helpers.py",
+      "source_path": "/private/tmp/coderg-vllm-metrics.41MLD8/benchmark_helpers.py",
+      "bytes": 2423,
+      "sha256": "5d960e03a9aadb2cf26cdef550a9e54de24c067795e6193e410935600f4b3d0d"
+    },
+    {
+      "path": "source/initial-case-index.diff",
+      "source_path": "/private/tmp/coderg-budget-sweep.XV9mfy/before.diff",
+      "bytes": 18263,
+      "sha256": "1c8c7fb2cc62788ab832c349688645f2f8bf3ac9291c1bb95e9f3db36aec8e53"
+    },
+    {
+      "path": "source/decision-source.diff",
+      "source_path": "git diff --binary -- src/query.rs src/search.rs tests/cli.rs",
+      "bytes": 17242,
+      "sha256": "9b58ef3eb24fc8c229190cb3a1b8a4671bd937d460f138d73cd9660c11897f9c"
+    }
+  ]
+}

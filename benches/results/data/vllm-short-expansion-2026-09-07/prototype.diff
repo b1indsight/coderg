@@ -1,0 +1,113 @@
+--- src/search.rs
++++ src/search.rs
+@@ -74,7 +74,21 @@
+     } else {
+         query::literal_strategies(&regex_pattern, options.ignore_case)?
+     };
+-    let candidates = choose_candidates(&disk_index, &strategies)?;
++    let probe = std::env::var("CODERG_SHORT_PROBE").unwrap_or_default();
++    let started = std::time::Instant::now();
++    let (candidates, probe_keys) = if !options.ignore_case && matches!(probe.as_str(), "all" | "boundary") {
++        if let Some((literal, bounded)) = probe_literal(pattern, options.fixed_strings) {
++            expanded_candidates(&disk_index, literal, bounded && probe == "boundary")?
++        } else {
++            (choose_candidates(&disk_index, &strategies)?, 0)
++        }
++    } else {
++        (choose_candidates(&disk_index, &strategies)?, 0)
++    };
++    if std::env::var_os("CODERG_SHORT_TRACE").is_some() {
++        eprintln!("{}", serde_json::json!({"probe": probe, "keys": probe_keys,
++            "candidates": candidates.len(), "planning_ms": started.elapsed().as_secs_f64() * 1000.0}));
++    }
+     let root = &disk_index.manifest.root;
+     let results: Vec<Option<FileResult>> = candidates
+         .par_iter()
+@@ -279,3 +293,87 @@
+         assert!(candidates.is_none());
+     }
+ }
++
++
++// Experimental query-only expansion. All postings are unioned, and original
++// regex verification is unchanged. No production budget or index format change.
++fn probe_literal(pattern: &str, fixed: bool) -> Option<(&[u8], bool)> {
++    let (literal, bounded) = if !fixed {
++        if let Some(inner) = pattern.strip_prefix(r"\b").and_then(|p| p.strip_suffix(r"\b")) {
++            (inner.as_bytes(), true)
++        } else {
++            (pattern.as_bytes(), false)
++        }
++    } else {
++        (pattern.as_bytes(), false)
++    };
++    (literal.len() == 2 && literal.iter().all(u8::is_ascii_alphanumeric))
++        .then_some((literal, bounded))
++}
++
++fn expanded_hashes(literal: &[u8], bounded: bool) -> BTreeSet<ngram::GramHash> {
++    let mut hashes = BTreeSet::new();
++    for adjacent in 0..=255_u8 {
++        // Non-ASCII bytes are retained conservatively: \b is Unicode-aware.
++        if bounded && (adjacent.is_ascii_alphanumeric() || adjacent == b'_') {
++            continue;
++        }
++        hashes.insert(ngram::best_hash(&[adjacent, literal[0], literal[1]]).unwrap());
++        hashes.insert(ngram::best_hash(&[literal[0], literal[1], adjacent]).unwrap());
++    }
++    hashes
++}
++
++fn expanded_candidates(index: &index::DiskIndex, literal: &[u8], bounded: bool) -> Result<(Vec<u32>, usize)> {
++    let hashes = expanded_hashes(literal, bounded);
++    let mut seen = vec![false; index.manifest.documents.len()];
++    // A whole two-byte document has no trigram. Longer files always have a
++    // preceding OR following byte, including occurrences exactly at BOF/EOF.
++    for (id, document) in index.manifest.documents.iter().enumerate() {
++        if document.active && document.searchable && document.len == 2 {
++            seen[id] = true;
++        }
++    }
++    for &hash in &hashes {
++        for id in index.postings(hash)? {
++            seen[id as usize] = true;
++        }
++    }
++    let candidates = seen.into_iter().enumerate()
++        .filter_map(|(id, present)| present.then_some(id as u32)).collect();
++    Ok((candidates, hashes.len()))
++}
++
++#[cfg(test)]
++mod short_probe_tests {
++    use super::*;
++
++    #[test]
++    fn expanded_filter_covers_byte_contexts_and_document_edges() {
++        for literal in [b"if".as_slice(), b"qx".as_slice()] {
++            for bounded in [false, true] {
++                let hashes = expanded_hashes(literal, bounded);
++                let pattern = if bounded { format!(r"\b{}\b", std::str::from_utf8(literal).unwrap()) }
++                              else { std::str::from_utf8(literal).unwrap().to_owned() };
++                let regex = Regex::new(&pattern).unwrap();
++                let check = |document: &[u8]| {
++                    if regex.is_match(document) && document.len() != 2 {
++                        let grams = ngram::hashes_for_document(document);
++                        assert!(hashes.iter().any(|hash| grams.contains(hash)), "{document:?}");
++                    }
++                };
++                check(literal);
++                for left in 0..=255_u8 {
++                    check(&[left, literal[0], literal[1]]);
++                    check(&[literal[0], literal[1], left]);
++                    for right in 0..=255_u8 {
++                        check(&[left, literal[0], literal[1], right]);
++                    }
++                }
++                for context in ["。", "é", "中", "\u{2003}", "\n", "(", " "] {
++                    check(format!("{context}{}{context}", std::str::from_utf8(literal).unwrap()).as_bytes());
++                }
++            }
++        }
++    }
++}

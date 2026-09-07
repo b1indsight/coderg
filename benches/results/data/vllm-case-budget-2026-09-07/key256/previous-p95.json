@@ -1,0 +1,22 @@
+{
+  "default": {
+    "old_p95_mean_ms": 44.817669571428574,
+    "new_p95_mean_ms": 44.02519642857143,
+    "reduction_ms": 0.7924731428571476,
+    "reduction_pct": 1.7682158631522245,
+    "reduction_bootstrap_95pct_ci": [
+      -8.999919802928122,
+      7.474313246356439
+    ]
+  },
+  "norefresh": {
+    "old_p95_mean_ms": 27.303315285714284,
+    "new_p95_mean_ms": 27.25405064285714,
+    "reduction_ms": 0.049264642857142604,
+    "reduction_pct": 0.18043465543145593,
+    "reduction_bootstrap_95pct_ci": [
+      -1.0912215571371917,
+      2.2026255588757633
+    ]
+  }
+}

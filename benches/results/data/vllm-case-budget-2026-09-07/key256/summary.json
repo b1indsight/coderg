@@ -1,0 +1,82 @@
+{
+  "default": {
+    "v128-k128": {
+      "avg_median_ms": 42.12349135714285,
+      "avg_p95_ms": 45.88594657142857,
+      "mixed_workload_p95_ms": 59.470708
+    },
+    "v128-k256": {
+      "avg_median_ms": 42.3604525,
+      "avg_p95_ms": 45.84488985714286,
+      "mixed_workload_p95_ms": 59.587083
+    },
+    "difference_256_minus_128": {
+      "avg_median_ms": {
+        "delta_ms": 0.23696114285714742,
+        "slower_pct": 0.5625391799746107,
+        "slower_pct_bootstrap_95pct_ci": [
+          0.27582810277176556,
+          0.8383015174699331
+        ]
+      },
+      "avg_p95_ms": {
+        "delta_ms": -0.041056714285709006,
+        "slower_pct": -0.08947557444804562,
+        "slower_pct_bootstrap_95pct_ci": [
+          -2.674691383453915,
+          3.228678842250491
+        ]
+      },
+      "mixed_workload_p95_ms": {
+        "delta_ms": 0.1163749999999979,
+        "slower_pct": 0.1956845713018885
+      }
+    }
+  },
+  "norefresh": {
+    "v128-k128": {
+      "avg_median_ms": 25.25904757142857,
+      "avg_p95_ms": 27.11283057142857,
+      "mixed_workload_p95_ms": 43.160667
+    },
+    "v128-k256": {
+      "avg_median_ms": 25.4448245,
+      "avg_p95_ms": 27.17137507142857,
+      "mixed_workload_p95_ms": 42.6855
+    },
+    "difference_256_minus_128": {
+      "avg_median_ms": {
+        "delta_ms": 0.18577692857142836,
+        "slower_pct": 0.7354866728291347,
+        "slower_pct_bootstrap_95pct_ci": [
+          0.46626927477602115,
+          1.0743834529083907
+        ]
+      },
+      "avg_p95_ms": {
+        "delta_ms": 0.0585445,
+        "slower_pct": 0.21592913305663497,
+        "slower_pct_bootstrap_95pct_ci": [
+          -3.843805126282629,
+          2.540200509520563
+        ]
+      },
+      "mixed_workload_p95_ms": {
+        "delta_ms": -0.475166999999999,
+        "slower_pct": -1.100925988933394
+      }
+    }
+  },
+  "diagnostics": {
+    "v128-k128": {
+      "avg_keys_loaded": 83.42857142857143,
+      "avg_candidate_files": 1540.5,
+      "max_keys_loaded": 128
+    },
+    "v128-k256": {
+      "avg_keys_loaded": 103.85714285714286,
+      "avg_candidate_files": 1510.9285714285713,
+      "max_keys_loaded": 256
+    }
+  }
+}

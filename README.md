@@ -53,14 +53,26 @@ from older versions are ignored. A normal edit creates one batched delta;
 creating a Git commit for already-indexed content only updates the manifest.
 Returning to a cached Git tree switches manifests without rebuilding. Large
 uncached changes and excessive segment counts fall back to a fresh base build.
-Git HEAD, tree, and worktree status are read in-process through libgit2. A clean
-cached tree is selected before the filesystem walker runs; dirty trees use the
-changed paths reported by Git as a small overlay over the cached base.
+Git HEAD, tree, and worktree status are read in-process through libgit2. When
+HEAD and tree are unchanged, a file-metadata snapshot check avoids a full Git
+status walk. Clean cached trees reuse existing segments and refresh their
+metadata snapshots; small changes update only the affected file contents.
 
-Patterns without a safe literal of at least three bytes (including current
-case-insensitive searches) fall back to scanning all indexed text files. This
-keeps behavior correct while reserving indexed acceleration for queries that
-can use it safely.
+The [implemented optimizations and strategies](docs/implemented-optimizations.md)
+document describes the current pipeline, storage layout, query budgets, refresh
+paths, fallback behavior, and known limitations, with links to the implementation.
+
+Case-insensitive searches reuse the same index by looking up bounded Unicode
+case variants. Each extracted fragment has at most 128 alternatives, and a query
+reads at most 128 distinct index keys. Complete alternative lists are unioned;
+required fragments are intersected. When the lookup budget is exhausted, prior
+complete filters remain usable. Patterns without a safe literal of at least
+three bytes fall back to scanning all indexed text files.
+
+The [decision record](docs/decisions/2026-09-07-case-insensitive-index-budget.md)
+documents the budget definitions, rationale, measurements, and limitations.
+The [vLLM experiment report](benches/results/vllm-case-budget-2026-09-07.md)
+includes the detailed comparisons and archived evidence.
 
 ## Benchmark against ripgrep
 

@@ -1,0 +1,175 @@
+{
+  "recorded_at": "2026-09-07T14:08:57.570564+08:00",
+  "finalists": [
+    {
+      "variants": 32,
+      "keys": 64
+    },
+    {
+      "variants": 32,
+      "keys": 128
+    },
+    {
+      "variants": 48,
+      "keys": 128
+    },
+    {
+      "variants": 64,
+      "keys": 128
+    },
+    {
+      "variants": 128,
+      "keys": 128
+    },
+    {
+      "variants": 64,
+      "keys": 256
+    }
+  ],
+  "queries": [
+    {
+      "id": "asyncmock",
+      "split": "train",
+      "pattern": "\\basyncmock\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "platforms",
+      "split": "train",
+      "pattern": "\\b(cuda|rocm)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "sampling",
+      "split": "train",
+      "pattern": "\\bSamplingParams\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "logger",
+      "split": "train",
+      "pattern": "logger\\.(warning|error)\\(",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "parallel",
+      "split": "train",
+      "pattern": "get_tensor_model_parallel_world_size",
+      "flags": [
+        "-i",
+        "-F"
+      ]
+    },
+    {
+      "id": "cache",
+      "split": "train",
+      "pattern": "\\b(kv_cache|block_size)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "todos",
+      "split": "train",
+      "pattern": "\\b(TODO|FIXME)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "envvars",
+      "split": "train",
+      "pattern": "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "attention",
+      "split": "holdout",
+      "pattern": "class[ \\t]+\\w*Attention\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "forward",
+      "split": "holdout",
+      "pattern": "def[ \\t]+forward\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "maxconfig",
+      "split": "holdout",
+      "pattern": "\\bmax_(model_len|num_seqs)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "exceptions",
+      "split": "holdout",
+      "pattern": "\\b(ValueError|RuntimeError|NotImplementedError)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "tensors",
+      "split": "holdout",
+      "pattern": "\\b(torch|numpy)\\.(empty|zeros|ones)\\b",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "asyncdef",
+      "split": "holdout",
+      "pattern": "async[ \\t]+def[ \\t]+\\w+",
+      "flags": [
+        "-i"
+      ]
+    },
+    {
+      "id": "sensitive_parallel",
+      "split": "control",
+      "pattern": "get_tensor_model_parallel_world_size",
+      "flags": [
+        "-F"
+      ]
+    },
+    {
+      "id": "sensitive_sampling",
+      "split": "control",
+      "pattern": "\\bSamplingParams\\b",
+      "flags": []
+    },
+    {
+      "id": "sensitive_forward",
+      "split": "control",
+      "pattern": "def[ \\t]+forward\\b",
+      "flags": []
+    }
+  ],
+  "iterations": 31,
+  "warmup": 3,
+  "memory_runs": 3,
+  "binary_sha256": {
+    "v32-k64": "7d2bde22bc1abd88cb11caa1fe3f61bc8f0f90b343052d1881a8262f8d37ea51",
+    "v32-k128": "3d4f8a3889938d8b970eedbb619c7b64537e0fadaab0c3a0afc5765e92d4d62c",
+    "v48-k128": "4e8056bb3a25f374b9bb460865fbb9cfb31149fcf22f795300c4188404b6b727",
+    "v64-k128": "ec2631e13cca24eb94fd5b14bc8e76e112163d9478a46f1922dc1dd3db0e668f",
+    "v128-k128": "254dd7236046e682b5e2a4a5f4ae11211bfd2b4c6e992ed74e1b2bb46082aac2",
+    "v64-k256": "0d2572f58f6269ba96fbc10f7faffb67c7a822d80053a0f9284758a677f8c436"
+  }
+}
