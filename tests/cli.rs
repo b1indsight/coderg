@@ -114,6 +114,55 @@ fn case_insensitive_index_search_agrees_with_regex_matching() {
     assert_eq!(fs::read(manifest_path).unwrap(), original_manifest);
 }
 
+#[test]
+fn refresh_tracks_nested_files_and_changed_ignore_rules() {
+    let root = tempfile::tempdir().unwrap();
+    fs::write(root.path().join(".ignore"), "*.skip\n").unwrap();
+    let mut expected = Vec::new();
+    for shard in 0..32 {
+        let directory = root.path().join(format!("shard-{shard:02}"));
+        fs::create_dir(&directory).unwrap();
+        fs::write(directory.join("source.txt"), "needle\n").unwrap();
+        fs::write(directory.join("hidden.skip"), "needle\n").unwrap();
+        expected.push(format!("shard-{shard:02}/source.txt"));
+    }
+    let check = |expected: &[String]| {
+        let output = coderg(root.path(), &["search", "-l", "needle"]);
+        assert!(output.status.success(), "{:?}", output);
+        let mut actual: Vec<_> = String::from_utf8(output.stdout)
+            .unwrap()
+            .lines()
+            .map(str::to_owned)
+            .collect();
+        actual.sort_by(|left, right| std::path::Path::new(left).cmp(std::path::Path::new(right)));
+        assert_eq!(actual, expected);
+        output.stderr
+    };
+    check(&expected);
+
+    fs::write(root.path().join(".ignore"), "").unwrap();
+    fs::remove_file(root.path().join("shard-00/source.txt")).unwrap();
+    fs::rename(
+        root.path().join("shard-01/source.txt"),
+        root.path().join("shard-01/renamed.txt"),
+    )
+    .unwrap();
+    fs::write(root.path().join("shard-02/source.txt"), "haystack\n").unwrap();
+    fs::create_dir_all(root.path().join(".hidden/deep")).unwrap();
+    fs::write(root.path().join(".hidden/deep/new.txt"), "needle\n").unwrap();
+    expected.retain(|path| !path.starts_with("shard-00/") && !path.starts_with("shard-02/"));
+    expected[0] = "shard-01/renamed.txt".to_owned();
+    expected.push(".hidden/deep/new.txt".to_owned());
+    expected.extend((0..32).map(|shard| format!("shard-{shard:02}/hidden.skip")));
+    expected.sort_by(|left, right| std::path::Path::new(left).cmp(std::path::Path::new(right)));
+    assert!(!check(&expected).is_empty());
+
+    let manifest_path = root.path().join(".coderg-index/manifest.json");
+    let manifest = fs::read(&manifest_path).unwrap();
+    assert!(check(&expected).is_empty());
+    assert_eq!(fs::read(manifest_path).unwrap(), manifest);
+}
+
 fn coderg(root: &std::path::Path, arguments: &[&str]) -> std::process::Output {
     let mut command = Command::new(env!("CARGO_BIN_EXE_coderg"));
     command.args(arguments).arg(root);

@@ -1,8 +1,10 @@
 # coderg 已实现的优化与策略
 
-本文按 2026-09-07 的当前工作区代码整理，覆盖 `src/` 中实际参与构建和搜索的实现，包括尚未提交的现有改动。源码是行为依据；实验报告用于说明测量结果。两字节查询扩展已由用户决定**暂缓采用**，不属于本文的已实现优化。
+本文按 2026-09-07 的实现整理，覆盖 `src/` 中实际参与构建和搜索的代码。源码是行为依据；实验报告用于说明测量结果。两字节查询扩展已由用户决定**暂缓采用**，不属于本文的已实现优化。
 
 coderg 的主要收益来自三件事：提前用索引排除不可能匹配的文件；以紧凑格式按需读取索引；文件或 Git 状态变化时尽量复用已有内容索引。最终匹配仍由 Rust `regex` 引擎读取候选文件后完成。
+
+[刷新路径优化](refresh-path-optimization.md)进一步解释批次收集、manifest 解析和小仓库串行遍历的设计、测量与取舍。
 
 ## 1. 搜索流程与模块分工
 
@@ -35,9 +37,9 @@ flowchart TD
 
 ## 2. 文件收集、编号与并行构建
 
-文件遍历使用 `ignore::WalkBuilder::build_parallel`，遍历线程数取自 Rayon 当前线程池。遵守默认 ignore 规则，包含隐藏文件，不跟随符号链接，排除 `.git` 和实际选用的索引目录。默认索引目录为 `<root>/.coderg-index`；相对 `--index-dir` 按搜索根目录解析。[collect_files](../src/index.rs#L547)、[resolve_index_dir](../src/index.rs#L93)
+文件遍历根据上次元数据快照的文件数选择执行方式：不超过 512 个文件时，使用 `ignore::WalkBuilder::build` 在当前线程完成遍历和路径排序；更大的快照和没有历史快照的首次构建使用 `build_parallel`，线程数取自 Rayon 当前线程池。候选文件匹配仍使用 Rayon，因此小仓库的串行遍历不会把匹配也限制为单线程。两条遍历路径共用 ignore 配置，包含隐藏文件，不跟随符号链接，排除 `.git` 和实际选用的索引目录。默认索引目录为 `<root>/.coderg-index`；相对 `--index-dir` 按搜索根目录解析。[collect_files](../src/index.rs)、[resolve_index_dir](../src/index.rs)
 
-每个普通文件记录相对路径、长度和纳秒修改时间，最终按路径排序。这个有序快照用于比较工作区变化；全量构建也按它分配 `u32` 文档 ID。增量修改现有文件时复用 ID，新增文件追加 ID，删除文件标记失效；全量重建会重新编号。
+每个普通文件记录相对路径、长度和纳秒修改时间。并行路径中，每个遍历 visitor 独立收集结果，退出时只获取一次锁发布整批结果；主线程检查所有批次的错误、按总文件数预分配快照，再使用 Rayon 按路径并行排序。串行路径直接收集结果并传播错误。两条路径都完整遍历、按同一条路径比较规则排序；历史文件数只是性能提示，仓库突然增长超过阈值时也不会提前结束或漏掉新增文件。这个有序快照用于比较工作区变化；全量构建也按它分配 `u32` 文档 ID。增量修改现有文件时复用 ID，新增文件追加 ID，删除文件标记失效；全量重建会重新编号。
 
 文件内容读取及 gram 生成使用 Rayon 并行处理。当前先 `fs::read` 整个文件，再根据前 8 KiB 是否含 NUL 判定二进制文件。二进制文件保留元数据，但 `searchable = false`，不生成 postings，也不进入正常搜索候选。[index_files](../src/index.rs#L370)
 
@@ -97,6 +99,8 @@ flowchart TD
 lookup 和 postings 使用只读内存映射。查询先在块目录二分定位，再顺序解码目标块内的键；遇到大于目标的键就结束。仅命中目标键时才解码对应的文件 ID 列表，单文档内联项直接返回。[Segment::postings](../src/segment.rs#L153)
 
 加载时检查 magic、头部、块目录和边界；读取条目时继续检查偏移、varint 和整数溢出。mmap 复用文件系统页缓存，但返回的 postings 和候选集合仍会分配内存，索引读取不是全程零分配。
+
+manifest 先用 `fs::read` 读入临时缓冲区，再通过 `serde_json::from_slice` 解析，减少 reader adapter 的逐字节处理开销。JSON 缓冲区在解析返回前释放；解析期间会额外占用与 manifest 文件大小相当的内存。索引格式保持版本 4，现有索引和 Git tree 缓存可继续使用。
 
 写入段文件和 manifest 时，先写临时文件、flush，再 rename 到目标路径；Windows 下替换已有目标前会先删除目标。构建/增量更新先发布段，再更新引用它的 manifest。[manifest 写入](../src/index.rs#L506)
 
@@ -174,6 +178,12 @@ Git 操作使用 `git2`/libgit2，在进程内完成。`identity` 只读取 HEAD
 
 这条快路径仍会遍历文件并读取元数据。新鲜度判断主要依赖路径、长度和修改时间，没有为每次搜索重新计算全部文件内容哈希。[refresh](../src/index.rs#L163)
 
+批次收集、并行快照排序和 manifest 切片解析的组合优化，在 vLLM 四项查询中把默认搜索中位数平均值从 29.98 ms 降到 25.30 ms，峰值 RSS 中位数平均值增加 2.80 MiB。默认与 no-refresh 的汇总耗时差从 16.32 ms 降到 14.54 ms；该差值不等于独立计时的刷新阶段。完整查询、Git 状态转换、测量口径与内存取舍见[刷新路径 benchmark](../benches/results/vllm-refresh-2026-09-07.md)。
+
+后续[广泛 benchmark](../benches/results/refresh-matrix-2026-09-07.md)覆盖 7 组语料和 102 项查询组合：vLLM 的 36 项等语义查询平均耗时下降 9.9%，4,096 和 16,384 文件的生成语料分别下降 7.1% 和 11.1%，小型真实仓库基本持平。追加复测保留了一个约 0.21 ms 的小幅回退及大量文件场景的偶发延迟尖峰；收益和长尾应分别评估。
+
+随后增加了小仓库串行遍历策略。在同一轮 21 次随机交错计时中，viberwhisper 默认搜索从 8.30 ms 降到 6.40 ms（−22.8%），agentflow 从 8.56 ms 降到 6.42 ms（−25.0%），256 文件语料下降 23.2%。三组大仓库的汇总变化区间均覆盖零；对初测增长最大的三条查询追加 101 次复测，也未稳定复现回退。102 项查询输出与优化前一致。阈值校准、无刷新对照和原始样本见[小仓库线程策略 benchmark](../benches/results/small-repo-threads-2026-09-07.md)。
+
 ### 6.4 提交推进与树缓存
 
 HEAD/tree 变化等情况下进入 Git status 路径。只有 status 路径完整、没有相关变更且仓库状态正常时，才把工作区视为干净；路径不能完整转换成 UTF-8 时，不使用不完整的变更路径集合。
@@ -243,12 +253,13 @@ release profile 使用 thin LTO、`codegen-units = 1` 和 strip。profiling prof
 | `src/segment.rs` 单测 | posting varint、内联 ID、跨块 lookup 读写往返 |
 | `src/query.rs` 单测 | 前后缀、分支、大小写变体、Unicode、可选/重复结构和字节模式的过滤保守性 |
 | `src/search.rs` 单测 | 匹配行去重；组内并集/组间交集；重复键缓存；预算不能截断替代列表；无过滤时全扫描 |
-| [tests/cli.rs](../tests/cli.rs) | 构建、更新、删除、无字面量查询、大小写查询与直接正则匹配一致 |
+| `src/index.rs` 单测 | 串行与并行快照一致；陈旧文件数提示下仍完整发现 600 个新增文件；隐藏文件、忽略规则、索引目录排除、符号链接及遍历错误 |
+| [tests/cli.rs](../tests/cli.rs) | 构建、更新、删除、无字面量查询、大小写查询与直接正则匹配一致；跨目录新增、重命名、忽略规则变更及无变化时不写 manifest |
 | [tests/git_incremental.rs](../tests/git_incremental.rs) | overlay 更新、提交推进、同树新提交、回退复用树缓存，以及回退后的继续增量 |
 | [compare_rg.rs](../benches/compare_rg.rs) | 固定字符串、文件列表输出的进程级对比；生成语料时另测增量、提交推进和回退 |
 | [regex_suite.py](../benches/regex_suite.py) | 常见正则的完整输出校验、默认/no-refresh/rg 随机交错计时及可选 RSS 测量 |
 
-内存优化后执行 `cargo test --locked`，18 个单元测试、2 个 CLI 集成测试和 1 个 Git 增量集成测试全部通过；`cargo fmt --check`、`git diff --check` 通过。
+小仓库遍历策略优化后执行 `cargo test --locked`，19 个单元测试、3 个 CLI 集成测试和 1 个 Git 增量集成测试全部通过；`cargo fmt --check` 和 Clippy（`-D warnings`）通过。
 
 最近一次完整正则 benchmark 使用 vLLM 6,835 个文本文件、82.38 MiB，Apple M5 / 24 GiB，release、热缓存、每项 3 次预热和 31 次计时。30 个查询中 28 个与 rg 输出一致；这些查询的中位数等权平均为默认 47.75 ms、no-refresh 31.07 ms、rg 71.55 ms。全部 30 项输出与修改前相同，两项既有语义差异未计入性能汇总。[完整报告与原始样本](../benches/results/vllm-memory-2026-09-07.md)
 
