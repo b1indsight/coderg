@@ -4,7 +4,7 @@ use anyhow::{Context, Result};
 use rayon::prelude::*;
 use regex::bytes::{Regex, RegexBuilder};
 
-use crate::{index, query};
+use crate::{index, ngram, query};
 
 pub struct Options {
     pub ignore_case: bool,
@@ -69,10 +69,10 @@ pub fn run(
         }
     }
 
-    let strategies = if options.fixed_strings {
-        query::fixed_strategy(pattern.as_bytes(), options.ignore_case)
+    let strategies = if options.fixed_strings && !options.ignore_case {
+        query::fixed_strategy(pattern.as_bytes())
     } else {
-        query::literal_strategies(pattern, options.ignore_case)?
+        query::literal_strategies(&regex_pattern, options.ignore_case)?
     };
     let candidates = choose_candidates(&disk_index, &strategies)?;
     let root = &disk_index.manifest.root;
@@ -115,29 +115,53 @@ pub fn run(
 
 fn choose_candidates(
     index: &index::DiskIndex,
-    strategies: &[Vec<crate::ngram::GramHash>],
+    strategies: &[Vec<ngram::GramHash>],
 ) -> Result<Vec<u32>> {
-    let all = || index.all_document_ids();
-    if strategies.is_empty() {
-        return Ok(all());
-    }
-    let mut best: Option<BTreeSet<u32>> = None;
+    Ok(
+        match intersect_postings(strategies, |hash| index.postings(hash))? {
+            Some(candidates) => candidates.into_iter().collect(),
+            None => index.all_document_ids(),
+        },
+    )
+}
+
+fn intersect_postings(
+    strategies: &[Vec<ngram::GramHash>],
+    mut load_postings: impl FnMut(ngram::GramHash) -> Result<Vec<u32>>,
+) -> Result<Option<BTreeSet<u32>>> {
+    let mut cache = ngram::GramHashMap::default();
+    let mut candidates: Option<BTreeSet<u32>> = None;
     for alternatives in strategies {
         if alternatives.is_empty() {
             continue;
         }
-        let mut union = BTreeSet::new();
-        for &hash in alternatives {
-            union.extend(index.postings(hash)?);
+        let new_hashes: BTreeSet<_> = alternatives
+            .iter()
+            .copied()
+            .filter(|hash| !cache.contains_key(hash))
+            .collect();
+        if cache.len() + new_hashes.len() > query::MAX_INDEX_LOOKUPS {
+            // A partial union could exclude an unvisited case variant or regex
+            // branch. Keep earlier complete filters and skip this whole one.
+            continue;
         }
-        if best
-            .as_ref()
-            .is_none_or(|current| union.len() < current.len())
-        {
-            best = Some(union);
+        for hash in new_hashes {
+            cache.insert(hash, load_postings(hash)?);
+        }
+        let union: BTreeSet<_> = alternatives
+            .iter()
+            .flat_map(|hash| cache[hash].iter().copied())
+            .collect();
+        if let Some(current) = &mut candidates {
+            current.retain(|id| union.contains(id));
+        } else {
+            candidates = Some(union);
+        }
+        if candidates.as_ref().is_some_and(BTreeSet::is_empty) {
+            break;
         }
     }
-    Ok(best.map_or_else(all, |set| set.into_iter().collect()))
+    Ok(candidates)
 }
 
 fn match_file(regex: &Regex, bytes: &[u8], path: &Path, options: &Options) -> (Vec<String>, usize) {
@@ -198,5 +222,60 @@ mod tests {
         let (lines, count) = match_file(&regex, b"foo foo\nbar\nfoo\n", Path::new("x"), &options());
         assert_eq!(count, 2);
         assert_eq!(lines, ["x:1:foo foo", "x:3:foo"]);
+    }
+
+    #[test]
+    fn unions_variants_intersects_fragments_and_reuses_lookups() {
+        let mut looked_up = BTreeSet::new();
+        let candidates = intersect_postings(&[vec![1, 2], vec![2, 3]], |hash| {
+            assert!(looked_up.insert(hash), "each key should be read only once");
+            Ok(match hash {
+                1 => vec![10, 20],
+                2 => vec![30],
+                3 => vec![20],
+                _ => unreachable!(),
+            })
+        })
+        .unwrap()
+        .unwrap();
+        assert_eq!(candidates, BTreeSet::from([20, 30]));
+        assert_eq!(looked_up.len(), 3);
+    }
+
+    #[test]
+    fn budget_never_applies_an_incomplete_alternative_union() {
+        let limit = query::MAX_INDEX_LOOKUPS as u32;
+        let mut strategies: Vec<Vec<_>> = (0..limit)
+            .collect::<Vec<_>>()
+            .chunks(query::MAX_LITERAL_VARIANTS)
+            .map(<[u32]>::to_vec)
+            .collect();
+        // The cached alternative only contains document 9. Document 7 is in
+        // the unvisited alternative, so applying a partial union would lose it.
+        strategies.push(vec![limit - 1, limit]);
+        let mut looked_up = BTreeSet::new();
+        let candidates = intersect_postings(&strategies, |hash| {
+            assert!(looked_up.insert(hash));
+            Ok(if hash.is_multiple_of(query::MAX_LITERAL_VARIANTS as u32) {
+                vec![7, 9]
+            } else {
+                vec![9]
+            })
+        })
+        .unwrap()
+        .unwrap();
+        assert_eq!(candidates, BTreeSet::from([7, 9]));
+        assert_eq!(looked_up.len(), query::MAX_INDEX_LOOKUPS);
+        assert!(!looked_up.contains(&limit));
+    }
+
+    #[test]
+    fn no_complete_filter_means_full_scan() {
+        let alternatives = (0..=query::MAX_INDEX_LOOKUPS as u32).collect();
+        let candidates = intersect_postings(&[alternatives], |_| {
+            panic!("an over-budget condition must be skipped before any reads")
+        })
+        .unwrap();
+        assert!(candidates.is_none());
     }
 }
