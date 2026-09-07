@@ -1,0 +1,383 @@
+{
+  "recorded_at": "2026-09-07T09:16:15.976576+00:00",
+  "root": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+  "binary": "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+  "binary_sha256": "c1ff1457264ea89c6a47fe8ad4c9e5976ef557d1ed3975d9b4d41903c6dcd66a",
+  "harness_sha256": "040285eac7dbd7c82522bea435d5e4c24fff92f180c3a8038f723e461d1ee12d",
+  "corpus_before": {
+    "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "status": ""
+  },
+  "warmup_runs": 1,
+  "timing_runs": 5,
+  "rss_runs": 3,
+  "runs": [
+    {
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        ".",
+        "--index-dir",
+        "/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-k8nhskkp/index"
+      ],
+      "elapsed_ms": 1365.514958,
+      "stdout": "",
+      "stats": "root: /private/tmp/coderg-vllm-bench.7cZ1iI/vllm\nfiles: 6835\nsource bytes: 86384180\nn-grams: 7980942\nsegments: 1\nindex bytes: 66987931\ngit tree: d4c097cc8270bbd955b45e6c605a578b0590275e",
+      "files": {
+        "manifest.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "c3e27266a9f848aa892aba176c6d1b83e351ab6f62af2edd9ba61c8e2cdc0a7a"
+        },
+        "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "c3e27266a9f848aa892aba176c6d1b83e351ab6f62af2edd9ba61c8e2cdc0a7a"
+        },
+        "segments/01788772576710826000.lookup": {
+          "bytes": 29206668,
+          "allocated_bytes": 29208576,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "segments/01788772576710826000.postings": {
+          "bytes": 35141250,
+          "allocated_bytes": 35143680,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "total_file_bytes": 69627944,
+      "allocated_file_bytes": 69636096
+    },
+    {
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        ".",
+        "--index-dir",
+        "/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-mgaf8sru/index"
+      ],
+      "elapsed_ms": 753.853916,
+      "stdout": "",
+      "stats": "root: /private/tmp/coderg-vllm-bench.7cZ1iI/vllm\nfiles: 6835\nsource bytes: 86384180\nn-grams: 7980942\nsegments: 1\nindex bytes: 66987931\ngit tree: d4c097cc8270bbd955b45e6c605a578b0590275e",
+      "files": {
+        "manifest.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "f33cd60147fe27960cd01f7ff8780e7ea7df0b889c8cee36672ae06cd5381a8c"
+        },
+        "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "f33cd60147fe27960cd01f7ff8780e7ea7df0b889c8cee36672ae06cd5381a8c"
+        },
+        "segments/01788772577446689000.lookup": {
+          "bytes": 29206668,
+          "allocated_bytes": 29208576,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "segments/01788772577446689000.postings": {
+          "bytes": 35141250,
+          "allocated_bytes": 35143680,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "total_file_bytes": 69627944,
+      "allocated_file_bytes": 69636096
+    },
+    {
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        ".",
+        "--index-dir",
+        "/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-dsv9qbt0/index"
+      ],
+      "elapsed_ms": 766.055833,
+      "stdout": "",
+      "stats": "root: /private/tmp/coderg-vllm-bench.7cZ1iI/vllm\nfiles: 6835\nsource bytes: 86384180\nn-grams: 7980942\nsegments: 1\nindex bytes: 66987931\ngit tree: d4c097cc8270bbd955b45e6c605a578b0590275e",
+      "files": {
+        "manifest.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "84887964b49369155dd105ec090e3dd858644a5b6998dfcd715237eddfa8883b"
+        },
+        "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "84887964b49369155dd105ec090e3dd858644a5b6998dfcd715237eddfa8883b"
+        },
+        "segments/01788772578238505000.lookup": {
+          "bytes": 29206668,
+          "allocated_bytes": 29208576,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "segments/01788772578238505000.postings": {
+          "bytes": 35141250,
+          "allocated_bytes": 35143680,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "total_file_bytes": 69627944,
+      "allocated_file_bytes": 69636096
+    },
+    {
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        ".",
+        "--index-dir",
+        "/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-_exomqvz/index"
+      ],
+      "elapsed_ms": 778.454166,
+      "stdout": "",
+      "stats": "root: /private/tmp/coderg-vllm-bench.7cZ1iI/vllm\nfiles: 6835\nsource bytes: 86384180\nn-grams: 7980942\nsegments: 1\nindex bytes: 66987931\ngit tree: d4c097cc8270bbd955b45e6c605a578b0590275e",
+      "files": {
+        "manifest.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "13f666a11c3b71cf28b3e48a2c6fabf4eab67884e7bd2e564f8eac6e4226127a"
+        },
+        "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "13f666a11c3b71cf28b3e48a2c6fabf4eab67884e7bd2e564f8eac6e4226127a"
+        },
+        "segments/01788772579044613000.lookup": {
+          "bytes": 29206668,
+          "allocated_bytes": 29208576,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "segments/01788772579044613000.postings": {
+          "bytes": 35141250,
+          "allocated_bytes": 35143680,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "total_file_bytes": 69627944,
+      "allocated_file_bytes": 69636096
+    },
+    {
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        ".",
+        "--index-dir",
+        "/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-4fuy6cb0/index"
+      ],
+      "elapsed_ms": 737.041458,
+      "stdout": "",
+      "stats": "root: /private/tmp/coderg-vllm-bench.7cZ1iI/vllm\nfiles: 6835\nsource bytes: 86384180\nn-grams: 7980942\nsegments: 1\nindex bytes: 66987931\ngit tree: d4c097cc8270bbd955b45e6c605a578b0590275e",
+      "files": {
+        "manifest.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "87e7230e06beb00d4ddf9ff367ae2e19586131420770a11f458a0204c1688a8b"
+        },
+        "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "87e7230e06beb00d4ddf9ff367ae2e19586131420770a11f458a0204c1688a8b"
+        },
+        "segments/01788772579861505000.lookup": {
+          "bytes": 29206668,
+          "allocated_bytes": 29208576,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "segments/01788772579861505000.postings": {
+          "bytes": 35141250,
+          "allocated_bytes": 35143680,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "total_file_bytes": 69627944,
+      "allocated_file_bytes": 69636096
+    },
+    {
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        ".",
+        "--index-dir",
+        "/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-q_iqcw3t/index"
+      ],
+      "elapsed_ms": 750.807917,
+      "stdout": "",
+      "stats": "root: /private/tmp/coderg-vllm-bench.7cZ1iI/vllm\nfiles: 6835\nsource bytes: 86384180\nn-grams: 7980942\nsegments: 1\nindex bytes: 66987931\ngit tree: d4c097cc8270bbd955b45e6c605a578b0590275e",
+      "files": {
+        "manifest.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "a0018f7a8f58d78fe443899dea545982e31f77679d794a6eb9725c83694312cf"
+        },
+        "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "a0018f7a8f58d78fe443899dea545982e31f77679d794a6eb9725c83694312cf"
+        },
+        "segments/01788772580633528000.lookup": {
+          "bytes": 29206668,
+          "allocated_bytes": 29208576,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "segments/01788772580633528000.postings": {
+          "bytes": 35141250,
+          "allocated_bytes": 35143680,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "total_file_bytes": 69627944,
+      "allocated_file_bytes": 69636096
+    },
+    {
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        ".",
+        "--index-dir",
+        "/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-hprd3qp1/index"
+      ],
+      "elapsed_ms": 725.036167,
+      "stdout": "",
+      "stats": "root: /private/tmp/coderg-vllm-bench.7cZ1iI/vllm\nfiles: 6835\nsource bytes: 86384180\nn-grams: 7980942\nsegments: 1\nindex bytes: 66987931\ngit tree: d4c097cc8270bbd955b45e6c605a578b0590275e",
+      "files": {
+        "manifest.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "6bfb8082df85ed6c52315edc5a9f349fc184e152ffeaa3cf8de5af86e8eb80ad"
+        },
+        "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "6bfb8082df85ed6c52315edc5a9f349fc184e152ffeaa3cf8de5af86e8eb80ad"
+        },
+        "segments/01788772581422421000.lookup": {
+          "bytes": 29206668,
+          "allocated_bytes": 29208576,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "segments/01788772581422421000.postings": {
+          "bytes": 35141250,
+          "allocated_bytes": 35143680,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "total_file_bytes": 69627944,
+      "allocated_file_bytes": 69636096,
+      "rss_bytes": 626753536
+    },
+    {
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        ".",
+        "--index-dir",
+        "/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-4a91nnvd/index"
+      ],
+      "elapsed_ms": 750.353917,
+      "stdout": "",
+      "stats": "root: /private/tmp/coderg-vllm-bench.7cZ1iI/vllm\nfiles: 6835\nsource bytes: 86384180\nn-grams: 7980942\nsegments: 1\nindex bytes: 66987931\ngit tree: d4c097cc8270bbd955b45e6c605a578b0590275e",
+      "files": {
+        "manifest.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "9e40e87f33ddb8b9e40734ff66d4cdb54b02410420b819ae76b1a236d96fbb0a"
+        },
+        "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "9e40e87f33ddb8b9e40734ff66d4cdb54b02410420b819ae76b1a236d96fbb0a"
+        },
+        "segments/01788772582188355000.lookup": {
+          "bytes": 29206668,
+          "allocated_bytes": 29208576,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "segments/01788772582188355000.postings": {
+          "bytes": 35141250,
+          "allocated_bytes": 35143680,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "total_file_bytes": 69627944,
+      "allocated_file_bytes": 69636096,
+      "rss_bytes": 623755264
+    },
+    {
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        ".",
+        "--index-dir",
+        "/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-hd_bjdqd/index"
+      ],
+      "elapsed_ms": 704.115917,
+      "stdout": "",
+      "stats": "root: /private/tmp/coderg-vllm-bench.7cZ1iI/vllm\nfiles: 6835\nsource bytes: 86384180\nn-grams: 7980942\nsegments: 1\nindex bytes: 66987931\ngit tree: d4c097cc8270bbd955b45e6c605a578b0590275e",
+      "files": {
+        "manifest.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "bfb9bbc725a7ef4e4371f2bc7a516cc7c09bcdeb388c3f47401b7ba2a0870efa"
+        },
+        "manifests/d4c097cc8270bbd955b45e6c605a578b0590275e.json": {
+          "bytes": 2640013,
+          "allocated_bytes": 2641920,
+          "sha256": "bfb9bbc725a7ef4e4371f2bc7a516cc7c09bcdeb388c3f47401b7ba2a0870efa"
+        },
+        "segments/01788772582974860000.lookup": {
+          "bytes": 29206668,
+          "allocated_bytes": 29208576,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "segments/01788772582974860000.postings": {
+          "bytes": 35141250,
+          "allocated_bytes": 35143680,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "total_file_bytes": 69627944,
+      "allocated_file_bytes": 69636096,
+      "rss_bytes": 622215168
+    }
+  ],
+  "summary": {
+    "build_median_ms": 753.853916,
+    "build_min_ms": 737.041458,
+    "build_max_ms": 778.454166,
+    "build_mean_ms": 757.242658,
+    "rss_median_bytes": 623755264,
+    "rss_max_bytes": 626753536,
+    "index_file_bytes": 69627944,
+    "allocated_file_bytes": 69636096
+  },
+  "corpus_after": {
+    "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "status": ""
+  },
+  "corpus_unchanged": true,
+  "binary_unchanged": true
+}

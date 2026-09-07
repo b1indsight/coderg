@@ -1,0 +1,55 @@
+{
+  "baseline": {
+    "build_median_ms": 2477.762042,
+    "build_min_ms": 2452.569375,
+    "build_max_ms": 2497.454,
+    "build_mean_ms": 2478.5916252,
+    "rss_median_bytes": 2183872512,
+    "rss_max_bytes": 2219819008,
+    "index_file_bytes": 69627944,
+    "allocated_file_bytes": 69636096
+  },
+  "flat_postings": {
+    "build_median_ms": 753.853916,
+    "build_min_ms": 737.041458,
+    "build_max_ms": 778.454166,
+    "build_mean_ms": 757.242658,
+    "rss_median_bytes": 623755264,
+    "rss_max_bytes": 626753536,
+    "index_file_bytes": 69627944,
+    "allocated_file_bytes": 69636096
+  },
+  "optimized": {
+    "build_median_ms": 743.134625,
+    "build_min_ms": 710.026666,
+    "build_max_ms": 772.711584,
+    "build_mean_ms": 738.7734752,
+    "rss_median_bytes": 542851072,
+    "rss_max_bytes": 548995072,
+    "index_file_bytes": 69627944,
+    "allocated_file_bytes": 69636096
+  },
+  "rss_reduction_percent": 75.1427306760295,
+  "build_time_reduction_percent": 70.00782914568518,
+  "build_speedup": 3.3342034654891766,
+  "search": {
+    "coderg_default": {
+      "before_ms": 47.7536875,
+      "after_ms": 47.751930071428575,
+      "after_rss_mean_mib": 23.082589285714285,
+      "after_rss_max_mib": 61.625
+    },
+    "coderg_no_refresh": {
+      "before_ms": 31.29777525,
+      "after_ms": 31.07274267857143,
+      "after_rss_mean_mib": 20.206473214285715,
+      "after_rss_max_mib": 60.0
+    },
+    "rg": {
+      "before_ms": 71.56560414285714,
+      "after_ms": 71.55106989285714,
+      "after_rss_mean_mib": 16.59375,
+      "after_rss_max_mib": 26.75
+    }
+  }
+}

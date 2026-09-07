@@ -1,0 +1,14 @@
+{
+  "byte_identical": true,
+  "builds_checked": 10,
+  "expected": {
+    ".lookup": [
+      29206668,
+      "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+    ],
+    ".postings": [
+      35141250,
+      "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+    ]
+  }
+}

@@ -41,7 +41,7 @@ flowchart TD
 
 文件内容读取及 gram 生成使用 Rayon 并行处理。当前先 `fs::read` 整个文件，再根据前 8 KiB 是否含 NUL 判定二进制文件。二进制文件保留元数据，但 `searchable = false`，不生成 postings，也不进入正常搜索候选。[index_files](../src/index.rs#L370)
 
-每个文件先把 gram 哈希放入集合，同一 gram 在文件内重复出现只产生一个文件关联。然后按哈希汇总文档 ID，写段前再次排序、去重。索引保存的是“哪些文件含有这个片段”，没有记录片段在文件内的位置或出现次数。[postings_from_files](../src/index.rs#L397)
+每个文件先用集合去重 gram，再立即转成紧凑的 `Vec<u32>` 并释放集合桶。汇总阶段预分配连续的 `(gram, document_id)` 记录，每条 8 字节，逐文件转移并释放临时键数组；写段前按键和文档 ID 并行原地排序、去重。这样避免同时保留全语料的哈希集合、全局 postings 哈希表及每个键独立的文档列表分配。索引仍只保存“哪些文件含有这个片段”，没有记录位置或出现次数。[postings_from_files](../src/index.rs#L398)、[segment::write](../src/segment.rs#L42)
 
 ## 3. 字节 gram 的生成和选择
 
@@ -68,10 +68,11 @@ flowchart TD
 | 提前结束扩展 | 内部最大权重一旦不小于左端点权重，更长片段也无法满足条件，立即结束该起点的扩展 |
 | 字节对权重查表 | 输入长度达到 4,096 字节时，使用 `OnceLock` 延迟初始化的 65,536 项 `u64` 表；表数据约 512 KiB，进程内共享 |
 | 小输入直接计算 | 不足 4,096 字节时直接计算权重，短查询无需为了查表初始化完整权重表 |
+| 按需读取字节对权重 | 扩展窗口需要某个权重时才查表或计算，避免为每个文件分配长度接近文件字节数的 `Vec<u64>` |
 | 紧凑哈希键 | 将混合后的 64 位哈希高低半部异或，得到 `u32` 索引键 |
 | 专用整数哈希器 | gram 集合/映射使用 `IdentityHasher`，整数键复用已计算的哈希值 |
 
-实现见 [ngram.rs](../src/ngram.rs#L15) 和 [pair_weights](../src/ngram.rs#L104)。32 位键可能碰撞；碰撞会合并额外文件候选，最终是否匹配仍由原正则决定。
+实现见 [ngram.rs](../src/ngram.rs#L15) 和 [for_each_sparse_gram](../src/ngram.rs#L68)。32 位键可能碰撞；碰撞会合并额外文件候选，最终是否匹配仍由原正则决定。
 
 ## 4. 紧凑、不可变的索引段
 
@@ -89,7 +90,7 @@ flowchart TD
 | 多文档 posting | 有序文件 ID 差分后用 varint 编码；lookup 记录编码数据长度 |
 | posting 地址 | 由块基址加之前条目的编码长度推进，减少每个键单独保存完整偏移的开销 |
 
-描述符最低位区分内联 ID 和外部 posting。写入时使用缓冲输出，并逐项从待写 postings 映射取走列表。40 位偏移字段可表示的范围小于 1 TiB，写入时会检查上限。[segment::write](../src/segment.rs#L41)
+描述符最低位区分内联 ID 和外部 posting。写入时直接遍历已排序记录中同键的连续切片，以缓冲输出编码，无需额外复制键数组或文档列表。40 位偏移字段可表示的范围小于 1 TiB，写入时会检查上限；磁盘格式仍为版本 4。[segment::write](../src/segment.rs#L42)
 
 ### 4.2 mmap 与局部解码
 
@@ -247,9 +248,11 @@ release profile 使用 thin LTO、`codegen-units = 1` 和 strip。profiling prof
 | [compare_rg.rs](../benches/compare_rg.rs) | 固定字符串、文件列表输出的进程级对比；生成语料时另测增量、提交推进和回退 |
 | [regex_suite.py](../benches/regex_suite.py) | 常见正则的完整输出校验、默认/no-refresh/rg 随机交错计时及可选 RSS 测量 |
 
-本次整理时执行 `cargo test --locked`，17 个单元测试、2 个 CLI 集成测试和 1 个 Git 增量集成测试全部通过。正文中的本地文件链接和源码行号已核对。
+内存优化后执行 `cargo test --locked`，18 个单元测试、2 个 CLI 集成测试和 1 个 Git 增量集成测试全部通过；`cargo fmt --check`、`git diff --check` 通过。
 
-最近一次完整正则 benchmark 使用 vLLM 6,835 个文本文件、82.38 MiB，Apple M5 / 24 GiB，release、热缓存、每项 3 次预热和 31 次计时。30 个查询中 28 个输出一致；这些查询的中位数等权平均为默认 48.79 ms、no-refresh 31.79 ms、rg 71.92 ms。两项语义不一致的查询未计入性能汇总。[完整报告与原始样本](../benches/results/vllm-regex-suite-2026-09-07.md)
+最近一次完整正则 benchmark 使用 vLLM 6,835 个文本文件、82.38 MiB，Apple M5 / 24 GiB，release、热缓存、每项 3 次预热和 31 次计时。30 个查询中 28 个与 rg 输出一致；这些查询的中位数等权平均为默认 47.75 ms、no-refresh 31.07 ms、rg 71.55 ms。全部 30 项输出与修改前相同，两项既有语义差异未计入性能汇总。[完整报告与原始样本](../benches/results/vllm-memory-2026-09-07.md)
+
+同一语料的全量建索引峰值 RSS 中位数从 2,082.70 MiB 降至 517.70 MiB（减少 75.1%），耗时中位数从 2.478 秒降至 0.743 秒。整个索引目录仍为 66.40 MiB，lookup 和 postings 字节内容与原版一致。耗时各测 5 次，RSS 各另测 3 次；构建仍需要与 gram—文件关联数量成比例的内存。[构建内存优化与证据](../benches/results/vllm-memory-2026-09-07.md)
 
 这是当前整条处理路径的测量，不是本文各项优化的独立消融结果。索引构建成本单独记录；`stats` 的 `index bytes` 只包含当前 manifest 和它引用的段，不包含所有历史段及树缓存文件，也不同于进程 RSS。[stats](../src/index.rs#L639)
 

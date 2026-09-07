@@ -1,0 +1,19 @@
+indexed 6835 files (86384180 bytes, 7980942 n-grams) in /var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-4a91nnvd/index
+        0.74 real         3.60 user         0.46 sys
+           623755264  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               38845  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   1  voluntary context switches
+                4445  involuntary context switches
+         41938154668  instructions retired
+         14528221034  cycles elapsed
+           617776016  peak memory footprint

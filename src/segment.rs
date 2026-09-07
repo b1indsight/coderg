@@ -6,6 +6,7 @@ use std::{
 
 use anyhow::{Result, bail};
 use memmap2::Mmap;
+use rayon::prelude::*;
 use serde::{Deserialize, Serialize};
 
 use crate::ngram;
@@ -41,8 +42,13 @@ pub struct Segment {
 pub fn write(
     index_dir: &Path,
     id: u64,
-    postings: &mut ngram::GramHashMap<Vec<u32>>,
+    mut postings: Vec<(ngram::GramHash, u32)>,
 ) -> Result<SegmentMeta> {
+    // Sorting eight-byte (key, document) records avoids a hash table and a
+    // separate allocation for every key. The unstable sort works in place.
+    postings.par_sort_unstable();
+    postings.dedup();
+    let ngrams = postings.chunk_by(|a, b| a.0 == b.0).count();
     let segments_dir = index_dir.join("segments");
     fs::create_dir_all(&segments_dir)?;
     let lookup_name = PathBuf::from(format!("segments/{id:020}.lookup"));
@@ -52,9 +58,7 @@ pub fn write(
     let lookup_tmp = lookup_path.with_extension("lookup.tmp");
     let postings_tmp = postings_path.with_extension("postings.tmp");
 
-    let mut hashes: Vec<ngram::GramHash> = postings.keys().copied().collect();
-    hashes.sort_unstable();
-    let block_count = hashes.len().div_ceil(BLOCK_SIZE);
+    let block_count = ngrams.div_ceil(BLOCK_SIZE);
     let directory_len = block_count
         .checked_mul(BLOCK_ENTRY_SIZE)
         .ok_or_else(|| anyhow::anyhow!("too many lookup blocks"))?;
@@ -64,7 +68,7 @@ pub fn write(
         as u64;
     let mut lookup_file = BufWriter::new(File::create(&lookup_tmp)?);
     lookup_file.write_all(LOOKUP_MAGIC)?;
-    lookup_file.write_all(&(hashes.len() as u64).to_le_bytes())?;
+    lookup_file.write_all(&(ngrams as u64).to_le_bytes())?;
     lookup_file.write_all(&(block_count as u64).to_le_bytes())?;
     lookup_file.write_all(&(BLOCK_SIZE as u64).to_le_bytes())?;
     lookup_file.write_all(&vec![0_u8; directory_len])?;
@@ -73,32 +77,33 @@ pub fn write(
     let mut postings_offset = POSTINGS_MAGIC.len() as u64;
     let mut directory = Vec::with_capacity(block_count);
 
-    for block in hashes.chunks(BLOCK_SIZE) {
-        let mut encoded_block = Vec::with_capacity(block.len() * 4);
+    let mut groups = postings.chunk_by(|a, b| a.0 == b.0);
+    while let Some(first) = groups.next() {
+        let entry_count = (ngrams - directory.len() * BLOCK_SIZE).min(BLOCK_SIZE);
+        let mut encoded_block = Vec::with_capacity(entry_count * 4);
         directory.push(BlockDescriptor {
-            first_key: block[0],
+            first_key: first[0].0,
             stream_offset,
             postings_base: postings_offset,
-            entry_count: block.len() as u16,
+            entry_count: entry_count as u16,
         });
-        let mut previous_key = block[0];
-        for (position, hash) in block.iter().copied().enumerate() {
+        let mut previous_key = first[0].0;
+        for (position, list) in std::iter::once(first)
+            .chain(groups.by_ref().take(BLOCK_SIZE - 1))
+            .enumerate()
+        {
+            let hash = list[0].0;
             if position > 0 {
                 write_varint(u64::from(hash - previous_key), &mut encoded_block);
                 previous_key = hash;
             }
-            let mut list = postings
-                .remove(&hash)
-                .expect("hash originated from postings map");
-            list.sort_unstable();
-            list.dedup();
             if list.len() == 1 {
-                write_varint(u64::from(list[0]) << 1, &mut encoded_block);
+                write_varint(u64::from(list[0].1) << 1, &mut encoded_block);
                 continue;
             }
             let mut encoded_postings = Vec::with_capacity(list.len() * 2);
             let mut previous = 0_u32;
-            for (list_position, &id) in list.iter().enumerate() {
+            for (list_position, &(_, id)) in list.iter().enumerate() {
                 let delta = if list_position == 0 {
                     id
                 } else {
@@ -130,7 +135,7 @@ pub fn write(
         id,
         lookup: lookup_name,
         postings: postings_name,
-        ngrams: hashes.len() as u64,
+        ngrams: ngrams as u64,
     })
 }
 
@@ -372,21 +377,35 @@ mod tests {
     #[test]
     fn block_lookup_round_trips_inline_and_external_postings() {
         let directory = tempfile::tempdir().unwrap();
-        let mut source = ngram::GramHashMap::default();
+        let mut source = Vec::new();
         for key in 0..300_u32 {
             let ids = if key % 3 == 0 {
                 vec![key % 17]
             } else {
                 vec![key % 11, 100 + key % 13, 300 + key]
             };
-            source.insert(key * 10, ids);
+            source.extend(ids.into_iter().map(|id| (key * 10, id)));
         }
-        let meta = write(directory.path(), 1, &mut source).unwrap();
+        source.extend([(0, 0), (1_280, 111), (u32::MAX, u32::MAX), (u32::MAX, 0)]);
+        source.reverse();
+        let meta = write(directory.path(), 1, source).unwrap();
+        assert_eq!(meta.ngrams, 301);
         let segment = load(directory.path(), &meta).unwrap();
         assert_eq!(segment.postings(0).unwrap(), vec![0]);
         assert_eq!(segment.postings(1_280).unwrap(), vec![7, 111, 428]);
         assert_eq!(segment.postings(2_970).unwrap(), vec![8]);
         assert!(segment.postings(1_281).unwrap().is_empty());
         assert!(segment.postings(4_000).unwrap().is_empty());
+        assert_eq!(segment.postings(u32::MAX).unwrap(), vec![0, u32::MAX]);
+    }
+
+    #[test]
+    fn empty_segment_round_trips() {
+        let directory = tempfile::tempdir().unwrap();
+        let meta = write(directory.path(), 1, Vec::new()).unwrap();
+        assert_eq!(meta.ngrams, 0);
+        let segment = load(directory.path(), &meta).unwrap();
+        assert!(segment.postings(0).unwrap().is_empty());
+        assert!(segment.postings(u32::MAX).unwrap().is_empty());
     }
 }

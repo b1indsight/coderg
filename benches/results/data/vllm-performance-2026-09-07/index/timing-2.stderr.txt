@@ -1,0 +1,1 @@
+indexed 6835 files (86384180 bytes, 7980942 n-grams) in /var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-index-resources-0hvy1sgm/index

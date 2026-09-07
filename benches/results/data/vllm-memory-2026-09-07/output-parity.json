@@ -1,0 +1,9 @@
+{
+  "all_30_query_outputs_identical_to_baseline": true,
+  "manifest_identical_except_segment_identifiers": true,
+  "eligible_queries": 28,
+  "known_mismatches": [
+    "async_def",
+    "blank_lines"
+  ]
+}

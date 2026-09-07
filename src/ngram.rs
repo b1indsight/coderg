@@ -70,7 +70,16 @@ fn for_each_sparse_gram<'a>(bytes: &'a [u8], mut emit: impl FnMut(&'a [u8], u64)
         return;
     }
 
-    let weights = pair_weights(bytes);
+    // Only nearby pairs are inspected. Look up their weights as needed instead
+    // of allocating an eight-byte weight for every byte in the document.
+    let table = (bytes.len() >= PAIR_TABLE_THRESHOLD).then(pair_weight_table);
+    let weight = |index: usize| {
+        let pair = &bytes[index..index + 2];
+        match table {
+            Some(table) => table[usize::from(u16::from_le_bytes([pair[0], pair[1]]))],
+            None => pair_weight(pair),
+        }
+    };
     for start in 0..=bytes.len() - MIN_GRAM {
         let max_len = (bytes.len() - start).min(MAX_GRAM);
         let mut hash_state = HASH_OFFSET;
@@ -81,15 +90,15 @@ fn for_each_sparse_gram<'a>(bytes: &'a [u8], mut emit: impl FnMut(&'a [u8], u64)
             &bytes[start..start + MIN_GRAM],
             finish_hash(hash_state, MIN_GRAM),
         );
-        let left = weights[start];
-        let mut max_inside = weights[start + 1];
+        let left = weight(start);
+        let mut max_inside = weight(start + 1);
         if max_inside >= left {
             continue;
         }
         for len in MIN_GRAM + 1..=max_len {
             hash_state = extend_hash(hash_state, bytes[start + len - 1]);
             let right_index = start + len - 2;
-            let right = weights[right_index];
+            let right = weight(right_index);
             if left > max_inside && right > max_inside {
                 emit(&bytes[start..start + len], finish_hash(hash_state, len));
             }
@@ -99,17 +108,6 @@ fn for_each_sparse_gram<'a>(bytes: &'a [u8], mut emit: impl FnMut(&'a [u8], u64)
             }
         }
     }
-}
-
-fn pair_weights(bytes: &[u8]) -> Vec<u64> {
-    if bytes.len() < PAIR_TABLE_THRESHOLD {
-        return bytes.windows(2).map(pair_weight).collect();
-    }
-    let table = pair_weight_table();
-    bytes
-        .windows(2)
-        .map(|pair| table[usize::from(u16::from_le_bytes([pair[0], pair[1]]))])
-        .collect()
 }
 
 fn pair_weight_table() -> &'static [u64] {
@@ -172,10 +170,16 @@ mod tests {
 
     #[test]
     fn incremental_maximum_preserves_sparse_selection() {
+        let long: Vec<u8> = (0..PAIR_TABLE_THRESHOLD + MAX_GRAM)
+            .map(|i| (i * 73 + i / 256) as u8)
+            .collect();
         for bytes in [
             b"abc".as_slice(),
             b"MAX_FILE_SIZE".as_slice(),
             b"0123456789abcdefghijklmnopqrstuvwxyz".as_slice(),
+            &long[..PAIR_TABLE_THRESHOLD - 1],
+            &long[..PAIR_TABLE_THRESHOLD],
+            long.as_slice(),
         ] {
             let mut actual = Vec::new();
             for_each_sparse_gram(bytes, |gram, gram_hash| {

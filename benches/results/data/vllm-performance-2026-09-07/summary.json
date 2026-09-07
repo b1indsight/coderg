@@ -1,0 +1,32 @@
+{
+  "build": {
+    "build_median_ms": 2477.762042,
+    "build_min_ms": 2452.569375,
+    "build_max_ms": 2497.454,
+    "build_mean_ms": 2478.5916252,
+    "rss_median_bytes": 2183872512,
+    "rss_max_bytes": 2219819008,
+    "index_file_bytes": 69627944,
+    "allocated_file_bytes": 69636096
+  },
+  "search": {
+    "coderg_default": {
+      "mean_query_median_ms": 47.7536875,
+      "mean_query_median_rss_mib": 22.895647321428573,
+      "observed_max_rss_mib": 60.609375,
+      "wins_vs_rg": 25
+    },
+    "coderg_no_refresh": {
+      "mean_query_median_ms": 31.29777525,
+      "mean_query_median_rss_mib": 20.281808035714285,
+      "observed_max_rss_mib": 59.421875,
+      "wins_vs_rg": 26
+    },
+    "rg": {
+      "mean_query_median_ms": 71.56560414285714,
+      "mean_query_median_rss_mib": 16.62109375,
+      "observed_max_rss_mib": 27.265625,
+      "wins_vs_rg": null
+    }
+  }
+}
