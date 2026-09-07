@@ -1,0 +1,2 @@
+# Preserve whitespace in archived patches, including blank context lines.
+benches/results/data/**/*.diff -whitespace

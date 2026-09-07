@@ -76,6 +76,9 @@ includes the detailed comparisons and archived evidence.
 
 ## Benchmark against ripgrep
 
+The [index-build memory optimization](docs/index-build-memory-optimization.md)
+explains the construction data structures and their measured memory savings.
+
 The repository includes a process-level benchmark that compares the release
 build of `coderg` with `rg`. It checks that both tools return the same files,
 then reports minimum, median, p95, and mean wall-clock latency.

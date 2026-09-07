@@ -82,7 +82,7 @@ struct IndexedFile {
     id: u32,
     state: FileState,
     searchable: bool,
-    hashes: ngram::GramHashSet,
+    hashes: Vec<ngram::GramHash>,
 }
 
 pub fn resolve_root(path: &Path) -> Result<PathBuf> {
@@ -105,7 +105,7 @@ pub fn build(path: &Path, requested_index_dir: Option<&Path>) -> Result<BuildSum
     let source_state = collect_files(&root, &index_dir)?;
     let repository_state = git_state::inspect(&root, &index_dir)?;
     let segment_id = next_segment_id(&index_dir);
-    let indexed = index_files(
+    let mut indexed = index_files(
         &root,
         source_state
             .iter()
@@ -113,8 +113,8 @@ pub fn build(path: &Path, requested_index_dir: Option<&Path>) -> Result<BuildSum
             .enumerate()
             .map(|(id, state)| (id as u32, state)),
     )?;
-    let mut postings = postings_from_files(&indexed);
-    let segment = segment::write(&index_dir, segment_id, &mut postings)?;
+    let postings = postings_from_files(&mut indexed);
+    let segment = segment::write(&index_dir, segment_id, postings)?;
     let ngrams = segment.ngrams as usize;
     let documents = indexed
         .iter()
@@ -344,9 +344,9 @@ fn write_incremental(
 
     if !pending.is_empty() {
         let segment_id = next_segment_id(index_dir);
-        let indexed = index_files(&manifest.root, pending)?;
-        let mut postings = postings_from_files(&indexed);
-        let segment = segment::write(index_dir, segment_id, &mut postings)?;
+        let mut indexed = index_files(&manifest.root, pending)?;
+        let postings = postings_from_files(&mut indexed);
+        let segment = segment::write(index_dir, segment_id, postings)?;
         for file in indexed {
             let document = &mut manifest.documents[file.id as usize];
             document.path = file.state.path;
@@ -380,9 +380,10 @@ where
                 .with_context(|| format!("cannot read {}", full_path.display()))?;
             let searchable = !is_binary(&bytes);
             let hashes = if searchable {
-                ngram::hashes_for_document(&bytes)
+                // Keep only the unique keys, not the hash table's spare buckets.
+                ngram::hashes_for_document(&bytes).into_iter().collect()
             } else {
-                ngram::GramHashSet::default()
+                Vec::new()
             };
             Ok(IndexedFile {
                 id,
@@ -394,12 +395,16 @@ where
         .collect()
 }
 
-fn postings_from_files(files: &[IndexedFile]) -> ngram::GramHashMap<Vec<u32>> {
-    let mut postings: ngram::GramHashMap<Vec<u32>> = ngram::GramHashMap::default();
+fn postings_from_files(files: &mut [IndexedFile]) -> Vec<(ngram::GramHash, u32)> {
+    let count = files.iter().map(|file| file.hashes.len()).sum();
+    let mut postings = Vec::with_capacity(count);
     for file in files {
-        for &hash in &file.hashes {
-            postings.entry(hash).or_default().push(file.id);
-        }
+        // Release each file's keys as we assemble the contiguous posting records.
+        postings.extend(
+            std::mem::take(&mut file.hashes)
+                .into_iter()
+                .map(|hash| (hash, file.id)),
+        );
     }
     postings
 }
