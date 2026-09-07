@@ -1,0 +1,30 @@
+{
+  "baseline_commit": "403fd12bfc7c612181773ae5fa7a49e87bb045bf",
+  "optimized_source": "baseline_commit plus source.diff",
+  "files": {
+    "git-transitions/harness.py": {
+      "bytes": 14527,
+      "sha256": "234feaa8ed2c35ccafdff0984b61cb611d671ab02afa62caded21a2fefaeef4c"
+    },
+    "git-transitions/results.json": {
+      "bytes": 490723,
+      "sha256": "84c27cc3d67a6255057a5f6bdb9f513d693af07d00b909a68aecea327ba86872"
+    },
+    "git-transitions/rss-logs.tar.gz": {
+      "bytes": 3864,
+      "sha256": "d2f8be802430fe9cb5563b0e5b8c31b791cbd294e669ebbc6dd7e0276053e7c6"
+    },
+    "search/harness.py": {
+      "bytes": 5644,
+      "sha256": "6af0b5e5a83d59e068063e5399ca3d95ebfaa44c2a9183e2ea7f530e23d06224"
+    },
+    "search/results.json": {
+      "bytes": 51446,
+      "sha256": "cec05fd46cdfb20626c093c63d20883343ec7f4ca1b71a017ef5c2303cdd6ffd"
+    },
+    "source.diff": {
+      "bytes": 6663,
+      "sha256": "6091602fe25fbfb91924eef038c53840dfd546164d520ce77386051fe9058cdd"
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "baseline_commit": "403fd12bfc7c612181773ae5fa7a49e87bb045bf",
+  "optimized_source": "baseline commit plus source.diff",
+  "main_matrix": {
+    "datasets": 7,
+    "queries": 102,
+    "modes": 5,
+    "timed_samples": 15810,
+    "search_rss_samples": 1530
+  },
+  "files": {
+    "agentflow/results.json": {
+      "bytes": 135157,
+      "sha256": "c33fea94055a93195825a166cd8565c2b898ad2f2d27d7d5e8c397fa82d9de98"
+    },
+    "agentflow/rss-logs.tar.gz": {
+      "bytes": 15712,
+      "sha256": "97e741ae76193a02b4bdc44ce779972c9bfd97cb3090223c6f2656e65996389d"
+    },
+    "analyze.py": {
+      "bytes": 5180,
+      "sha256": "47096620f4daac47b9cfebfdf8dcbb8c82e8471425e71db775ec21c07d59d658"
+    },
+    "confirmation/harness.py": {
+      "bytes": 3840,
+      "sha256": "3b47acc0fceb18b6fc2c30fae409a1882a0810e18ea3bbd204d43d0e3430faf9"
+    },
+    "confirmation/results.json": {
+      "bytes": 19727,
+      "sha256": "f6f43fe5bad54080ec8a95c44388657f6ce47e0646fa335fcb2563959ee1d3a5"
+    },
+    "few_large_64/results.json": {
+      "bytes": 70123,
+      "sha256": "2fa8aa232337911067bb632493acdbe80ccc09625340ad859b73fc679515aa7e"
+    },
+    "few_large_64/rss-logs.tar.gz": {
+      "bytes": 8448,
+      "sha256": "d7a380e616a691b35d885129292c303dc9b40bf508f8eee0935d330c95e61bb4"
+    },
+    "harness.py": {
+      "bytes": 15460,
+      "sha256": "48044ce37127b2aeeae6bacdb18a0b789d99b5319a2497c9a281fdf0ed0d2619"
+    },
+    "many_small_16384/results.json": {
+      "bytes": 71937,
+      "sha256": "8737299a43311d65452c7a828148510462ba0abe344c355d7ece62a7acc5faed"
+    },
+    "many_small_16384/rss-logs.tar.gz": {
+      "bytes": 9878,
+      "sha256": "f8165c3a9fa1831fa5ae22d34f4ab536bf92c7a5d08953ef3183c8be0d668ac6"
+    },
+    "metadata.json": {
+      "bytes": 3863,
+      "sha256": "f535aa222a70647e897cecc78aaf4184443d80d2e0cafe614300b756c43006bd"
+    },
+    "per-query.csv": {
+      "bytes": 22652,
+      "sha256": "b9bdafc619694e1181e9afe892ca34d7473479ae569282304e46bf480dc24cd4"
+    },
+    "plan.json": {
+      "bytes": 1866,
+      "sha256": "2e0f187b4c6aa066d3a3c244fd2b3c68e93675ddb841aff57bdbb1e81ab7e3fa"
+    },
+    "prepare.py": {
+      "bytes": 2823,
+      "sha256": "36eee610e37662aba2427cec50411b36ef44b5ed041211f6f63ae27733f7d37c"
+    },
+    "regex_suite.py": {
+      "bytes": 13697,
+      "sha256": "30a163484e2b70e5ca137c55c027edd9760cc1808e7a93e0baacbcb1cb53a461"
+    },
+    "regular_4096/results.json": {
+      "bytes": 70582,
+      "sha256": "08c84d72be9ec5b2c181a04b7af18b2b5a3372eb2eaceafdfb4f484bae35372b"
+    },
+    "regular_4096/rss-logs.tar.gz": {
+      "bytes": 9263,
+      "sha256": "7826048a028459624bfb1bf8004e48e9b469860d51bfecd03d57fb79b1a9fbf0"
+    },
+    "small_256/results.json": {
+      "bytes": 69394,
+      "sha256": "6312d34d62f4c1c22b4539e913fa90f8d0cbd5b4edb9ee43ae11d3a0c2749d68"
+    },
+    "small_256/rss-logs.tar.gz": {
+      "bytes": 8231,
+      "sha256": "4b0f8715a45583e6526213d0d1768413c597dcbf5f437b4be95b1e1957bde36c"
+    },
+    "source.diff": {
+      "bytes": 6663,
+      "sha256": "6091602fe25fbfb91924eef038c53840dfd546164d520ce77386051fe9058cdd"
+    },
+    "summary.json": {
+      "bytes": 111024,
+      "sha256": "edf0efbbecb2fa8c1bc52128b39291672ab289487a6f6f171523ab7454775601"
+    },
+    "tail-confirm.py": {
+      "bytes": 3276,
+      "sha256": "9ea4542971f88f0ff32da28491c4a3bee24bb1f542ab56d53fcb51d82472b4c2"
+    },
+    "tail-confirmation/results.json": {
+      "bytes": 18444,
+      "sha256": "3eef379479b92a14fea62199a6c2963b03817c30e0ad592098e2c7e264acea2d"
+    },
+    "viberwhisper/results.json": {
+      "bytes": 135066,
+      "sha256": "150528727fa77f15dd6b83242ca697f434b739d836e0995d67b974de04e02071"
+    },
+    "viberwhisper/rss-logs.tar.gz": {
+      "bytes": 15722,
+      "sha256": "b25a01201c0217b4c6b93aa5445880fcbe7dac695b3a563fdbda81a81d4582ec"
+    },
+    "vllm/results.json": {
+      "bytes": 325656,
+      "sha256": "56d53ec4484edba70db887ac207b71ddfe006080b8e030dd10268e48669917c2"
+    },
+    "vllm/rss-logs.tar.gz": {
+      "bytes": 42540,
+      "sha256": "9a39cf658e818bec22734fd75a38fb50337586c07be376623393746379254895"
+    }
+  }
+}

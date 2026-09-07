@@ -58,6 +58,23 @@ HEAD and tree are unchanged, a file-metadata snapshot check avoids a full Git
 status walk. Clean cached trees reuse existing segments and refresh their
 metadata snapshots; small changes update only the affected file contents.
 
+The [refresh-path benchmark](benches/results/vllm-refresh-2026-09-07.md)
+measures per-worker snapshot batches, parallel path sorting, and faster manifest
+parsing, including repeated searches and Git state transitions. Refresh still
+checks the complete file tree on every default search.
+When the previous snapshot has at most 512 files, refresh collects and sorts
+metadata on the calling thread to avoid parallel walker startup and shutdown
+costs. Larger snapshots and initial builds use the parallel walker; candidate
+matching continues to use Rayon. The previous file count is only a scheduling
+hint, so newly added files are still discovered by a complete walk.
+The [small-repository thread benchmark](benches/results/small-repo-threads-2026-09-07.md)
+measures this policy: default searches improved by about 23–25% on the two
+small real repositories, while large-repository aggregates remained within
+the measured uncertainty intervals.
+The [broader benchmark](benches/results/refresh-matrix-2026-09-07.md) covers
+three real repositories and four generated corpora, with per-query comparisons
+against the previous build and rg, memory measurements, and regression checks.
+
 The [implemented optimizations and strategies](docs/implemented-optimizations.md)
 document describes the current pipeline, storage layout, query budgets, refresh
 paths, fallback behavior, and known limitations, with links to the implementation.
@@ -78,6 +95,9 @@ includes the detailed comparisons and archived evidence.
 
 The [index-build memory optimization](docs/index-build-memory-optimization.md)
 explains the construction data structures and their measured memory savings.
+The [refresh-path optimization](docs/refresh-path-optimization.md) explains
+snapshot batching, manifest parsing, and the small-repository traversal policy,
+including profiling evidence, threshold selection, and comparisons with rg.
 
 The repository includes a process-level benchmark that compares the release
 build of `coderg` with `rg`. It checks that both tools return the same files,

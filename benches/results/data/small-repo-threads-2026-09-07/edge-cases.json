@@ -1,0 +1,44 @@
+[
+  {
+    "stage": "clean_small",
+    "matching_files": 1,
+    "outputs_equal": true,
+    "stderr": ""
+  },
+  {
+    "stage": "grow_past_threshold",
+    "matching_files": 601,
+    "outputs_equal": true,
+    "stderr": "coderg: rebuilt index after a large change\n"
+  },
+  {
+    "stage": "clean_large",
+    "matching_files": 601,
+    "outputs_equal": true,
+    "stderr": ""
+  },
+  {
+    "stage": "shrink_below_threshold",
+    "matching_files": 2,
+    "outputs_equal": true,
+    "stderr": "coderg: rebuilt index after a large change\n"
+  },
+  {
+    "stage": "clean_small_again",
+    "matching_files": 2,
+    "outputs_equal": true,
+    "stderr": ""
+  },
+  {
+    "stage": "invalid_ignore_rule",
+    "matching_files": 3,
+    "outputs_equal": true,
+    "stderr": "coderg: incrementally indexed 2 changed files\n"
+  },
+  {
+    "stage": "restore_ignore_rule",
+    "matching_files": 2,
+    "outputs_equal": true,
+    "stderr": "coderg: incrementally indexed 2 changed files\n"
+  }
+]

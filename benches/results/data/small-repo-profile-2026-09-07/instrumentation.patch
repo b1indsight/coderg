@@ -1,0 +1,252 @@
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -1,3 +1,4 @@
++mod probe;
+ mod git_state;
+ mod index;
+ mod ngram;
+@@ -61,14 +62,22 @@
+ }
+ 
+ fn main() {
+-    if let Err(error) = run() {
++    let result = {
++    let _main = crate::probe::Span::new("main.run");
++        run()
++    };
++    probe::emit();
++    if let Err(error) = result {
+         eprintln!("coderg: {error:#}");
+         std::process::exit(2);
+     }
+ }
+ 
+ fn run() -> Result<()> {
+-    match Cli::parse().command {
++    let phase = crate::probe::Span::new("cli.parse");
++    let cli = Cli::parse();
++    drop(phase);
++    match cli.command {
+         Command::Index { path, index_dir } => {
+             let summary = index::build(&path, index_dir.as_deref())?;
+             eprintln!(
+--- a/src/search.rs
++++ b/src/search.rs
+@@ -27,6 +27,8 @@
+     pattern: &str,
+     options: &Options,
+ ) -> Result<bool> {
++    let _search = crate::probe::Span::new("search.total");
++    let phase = crate::probe::Span::new("search.regex_compile");
+     let regex_pattern = if options.fixed_strings {
+         regex::escape(pattern)
+     } else {
+@@ -38,6 +40,7 @@
+         .build()
+         .with_context(|| format!("invalid regular expression {pattern:?}"))?;
+ 
++    drop(phase);
+     let mut disk_index = match index::load(path, requested_index_dir) {
+         Ok(index) => index,
+         Err(error) if !options.no_refresh => {
+@@ -69,12 +72,19 @@
+         }
+     }
+ 
++    let phase = crate::probe::Span::new("search.query_plan");
+     let strategies = if options.fixed_strings && !options.ignore_case {
+         query::fixed_strategy(pattern.as_bytes())
+     } else {
+         query::literal_strategies(&regex_pattern, options.ignore_case)?
+     };
++    drop(phase);
++    let phase = crate::probe::Span::new("search.postings");
+     let candidates = choose_candidates(&disk_index, &strategies)?;
++    drop(phase);
++    crate::probe::count("candidate_files", candidates.len());
++    let phase = crate::probe::Span::new("search.read_and_match");
++
+     let root = &disk_index.manifest.root;
+     let results: Vec<Option<FileResult>> = candidates
+         .par_iter()
+@@ -95,9 +105,15 @@
+             }))
+         })
+         .collect::<Result<_>>()?;
++    drop(phase);
++    let phase = crate::probe::Span::new("search.result_sort");
+     let mut results: Vec<FileResult> = results.into_iter().flatten().collect();
+     results.sort_by_key(|result| result.id);
+ 
++    drop(phase);
++    crate::probe::count("matched_files", results.len());
++    crate::probe::count("matching_lines", results.iter().map(|r| r.matches).sum());
++    let phase = crate::probe::Span::new("search.output");
+     for result in &results {
+         let path = &disk_index.manifest.documents[result.id as usize].path;
+         if options.files_with_matches {
+@@ -110,6 +126,7 @@
+             }
+         }
+     }
++    drop(phase);
+     Ok(!results.is_empty())
+ }
+ 
+--- a/src/index.rs
++++ b/src/index.rs
+@@ -199,6 +199,8 @@
+ }
+ 
+ pub fn refresh(index: &DiskIndex, requested_index_dir: Option<&Path>) -> Result<RefreshOutcome> {
++    let _refresh = crate::probe::Span::new("refresh.total");
++
+     let root = &index.manifest.root;
+     let index_dir = resolve_index_dir(root, requested_index_dir);
+ 
+@@ -212,7 +214,11 @@
+         && identity.tree == index.manifest.git_tree
+     {
+         let current_state = collect_files(root, &index_dir)?;
+-        if current_state == index.manifest.source_state {
++        let unchanged = {
++    let _compare = crate::probe::Span::new("refresh.compare_snapshot");
++            current_state == index.manifest.source_state
++        };
++        if unchanged {
+             return Ok(RefreshOutcome::Unchanged);
+         }
+         let changed = changed_file_count(&index.manifest.source_state, &current_state);
+@@ -448,6 +454,8 @@
+ }
+ 
+ pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
++    let _load = crate::probe::Span::new("index.load");
++
+     let root = resolve_root(path)?;
+     let index_dir = resolve_index_dir(&root, requested_index_dir);
+     let manifest = read_manifest(&index_dir.join("manifest.json"))
+@@ -460,6 +468,9 @@
+         .iter()
+         .map(|meta| segment::load(&index_dir, meta))
+         .collect::<Result<_>>()?;
++    crate::probe::count("indexed_files", manifest.documents.len());
++    crate::probe::count("indexed_snapshot_files", manifest.source_state.len());
++    crate::probe::count("index_segments", manifest.segments.len());
+     Ok(DiskIndex { manifest, segments })
+ }
+ 
+@@ -545,7 +556,14 @@
+ fn read_manifest(path: &Path) -> Result<Manifest> {
+     // Parsing a slice avoids the per-byte Read overhead of serde's reader
+     // adapter. The temporary JSON buffer is released before walking the tree.
+-    Ok(serde_json::from_slice(&fs::read(path)?)?)
++    let _manifest = crate::probe::Span::new("manifest.total");
++    let phase = crate::probe::Span::new("manifest.read");
++    let bytes = fs::read(path)?;
++    drop(phase);
++    let phase = crate::probe::Span::new("manifest.parse");
++    let manifest = serde_json::from_slice(&bytes)?;
++    drop(phase);
++    Ok(manifest)
+ }
+ 
+ fn write_manifest(index_dir: &Path, manifest: &Manifest) -> Result<()> {
+@@ -590,16 +608,24 @@
+ }
+ 
+ fn collect_files(root: &Path, index_dir: &Path) -> Result<Vec<FileState>> {
++    let _collect = crate::probe::Span::new("collect.total");
++    let phase = crate::probe::Span::new("collect.setup");
++
+     let mut builder = WalkBuilder::new(root);
+     builder
+         .hidden(false)
+         .follow_links(false)
+-        .threads(rayon::current_num_threads())
++        .threads({
++    let _rayon = crate::probe::Span::new("collect.rayon_init");
++            rayon::current_num_threads()
++        })
+         .filter_entry({
+             let index_dir = index_dir.to_path_buf();
+             move |entry| should_visit(entry, &index_dir)
+         });
+     let batches = Mutex::new(Vec::new());
++    drop(phase);
++    let phase = crate::probe::Span::new("collect.walk_metadata");
+     builder.build_parallel().run(|| {
+         let mut collector = FileCollector {
+             root,
+@@ -608,6 +634,8 @@
+         };
+         Box::new(move |entry| collector.visit(entry))
+     });
++    drop(phase);
++    let phase = crate::probe::Span::new("collect.merge");
+     let batches = batches
+         .into_inner()
+         .unwrap()
+@@ -617,7 +645,11 @@
+     for batch in batches {
+         files.extend(batch);
+     }
++    drop(phase);
++    let phase = crate::probe::Span::new("collect.sort");
+     files.par_sort_unstable_by(|left, right| left.path.cmp(&right.path));
++    drop(phase);
++    crate::probe::count("walked_files", files.len());
+     Ok(files)
+ }
+ 
+--- a/src/git_state.rs
++++ b/src/git_state.rs
+@@ -23,6 +23,8 @@
+ /// Read only the current commit identity. Unlike `inspect`, this does not walk
+ /// the worktree, so it is suitable for the common per-search freshness check.
+ pub fn identity(root: &Path) -> Result<Option<GitIdentity>> {
++    let _git = crate::probe::Span::new("git.identity");
++
+     let Some(repository) = discover(root)? else {
+         return Ok(None);
+     };
+@@ -83,6 +85,8 @@
+ }
+ 
+ fn discover(root: &Path) -> Result<Option<Repository>> {
++    let _git = crate::probe::Span::new("git.discover");
++
+     match Repository::discover(root) {
+         Ok(repository) => Ok(Some(repository)),
+         Err(error) if error.code() == ErrorCode::NotFound => Ok(None),
+@@ -91,6 +95,8 @@
+ }
+ 
+ fn read_identity(repository: &Repository) -> Result<GitIdentity> {
++    let _git = crate::probe::Span::new("git.read_head");
++
+     let (head, tree) = match repository.head() {
+         Ok(reference) => {
+             let commit = reference
+--- a/src/segment.rs
++++ b/src/segment.rs
+@@ -140,13 +140,18 @@
+ }
+ 
+ pub fn load(index_dir: &Path, meta: &SegmentMeta) -> Result<Segment> {
++    let _segment = crate::probe::Span::new("segment.load");
++
+     let lookup_file = File::open(index_dir.join(&meta.lookup))?;
+     let postings_file = File::open(index_dir.join(&meta.postings))?;
+     // SAFETY: published segment files are immutable.
+     let lookup = unsafe { Mmap::map(&lookup_file)? };
+     // SAFETY: published segment files are immutable.
+     let postings = unsafe { Mmap::map(&postings_file)? };
+-    validate(&lookup, &postings)?;
++    {
++    let _validate = crate::probe::Span::new("segment.validate");
++        validate(&lookup, &postings)?;
++    }
+     Ok(Segment {
+         meta: meta.clone(),
+         lookup,

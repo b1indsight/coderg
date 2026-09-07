@@ -1,7 +1,7 @@
 use std::{
     collections::{BTreeSet, HashMap, HashSet},
     fs::{self, File},
-    io::{BufReader, BufWriter, Write},
+    io::{BufWriter, Write},
     path::{Path, PathBuf},
     sync::Mutex,
     time::{SystemTime, UNIX_EPOCH},
@@ -17,6 +17,9 @@ use crate::{git_state, ngram, segment};
 const VERSION: u32 = 4;
 const MAX_SEGMENTS: usize = 8;
 const MIN_LARGE_CHANGE: usize = 64;
+// Small snapshots do not amortize the parallel walker's worker startup and
+// shutdown costs. This hint only selects how to walk; every file is checked.
+const MAX_SERIAL_WALK_FILES: usize = 512;
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Manifest {
@@ -36,6 +39,44 @@ struct FileState {
     path: PathBuf,
     len: u64,
     modified_nanos: u128,
+}
+
+// Each walker owns its batch and publishes it once, when traversal finishes.
+// File metadata checks must not contend on a shared lock for every file.
+struct FileCollector<'a> {
+    root: &'a Path,
+    batches: &'a Mutex<Vec<Result<Vec<FileState>>>>,
+    files: Result<Vec<FileState>>,
+}
+
+impl FileCollector<'_> {
+    fn visit(&mut self, entry: std::result::Result<DirEntry, ignore::Error>) -> WalkState {
+        let state = entry
+            .map_err(anyhow::Error::from)
+            .and_then(|entry| file_state(self.root, &entry));
+        match state {
+            Ok(Some(state)) => {
+                if let Ok(files) = &mut self.files {
+                    files.push(state);
+                }
+            }
+            Ok(None) => {}
+            Err(error) => {
+                self.files = Err(error);
+                return WalkState::Quit;
+            }
+        }
+        WalkState::Continue
+    }
+}
+
+impl Drop for FileCollector<'_> {
+    fn drop(&mut self) {
+        self.batches
+            .lock()
+            .unwrap()
+            .push(std::mem::replace(&mut self.files, Ok(Vec::new())));
+    }
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -102,7 +143,7 @@ pub fn build(path: &Path, requested_index_dir: Option<&Path>) -> Result<BuildSum
     let root = resolve_root(path)?;
     let index_dir = resolve_index_dir(&root, requested_index_dir);
     prepare_index_dir(&root, &index_dir)?;
-    let source_state = collect_files(&root, &index_dir)?;
+    let source_state = collect_files(&root, &index_dir, None)?;
     let repository_state = git_state::inspect(&root, &index_dir)?;
     let segment_id = next_segment_id(&index_dir);
     let mut indexed = index_files(
@@ -173,7 +214,8 @@ pub fn refresh(index: &DiskIndex, requested_index_dir: Option<&Path>) -> Result<
         && identity.head == index.manifest.git_head
         && identity.tree == index.manifest.git_tree
     {
-        let current_state = collect_files(root, &index_dir)?;
+        let current_state =
+            collect_files(root, &index_dir, Some(index.manifest.source_state.len()))?;
         if current_state == index.manifest.source_state {
             return Ok(RefreshOutcome::Unchanged);
         }
@@ -233,7 +275,7 @@ pub fn refresh(index: &DiskIndex, requested_index_dir: Option<&Path>) -> Result<
         }
     }
 
-    let current_state = collect_files(root, &index_dir)?;
+    let current_state = collect_files(root, &index_dir, Some(index.manifest.source_state.len()))?;
     if current_state == index.manifest.source_state {
         if current_head == index.manifest.git_head && current_tree == index.manifest.git_tree {
             return Ok(RefreshOutcome::Unchanged);
@@ -476,7 +518,7 @@ fn restore_cached_tree(
     // Checkout/reset commonly changes mtimes even when the cached Git tree is
     // byte-for-byte identical. Rebase the metadata snapshot so the next search
     // does not create a redundant overlay segment.
-    let source_state = collect_files(&cached.root, index_dir)?;
+    let source_state = collect_files(&cached.root, index_dir, Some(cached.source_state.len()))?;
     let state_by_path: HashMap<&Path, &FileState> = source_state
         .iter()
         .map(|state| (state.path.as_path(), state))
@@ -505,7 +547,9 @@ fn cache_manifest_if_clean(index_dir: &Path, manifest: &Manifest, clean: bool) -
 }
 
 fn read_manifest(path: &Path) -> Result<Manifest> {
-    Ok(serde_json::from_reader(BufReader::new(File::open(path)?))?)
+    // Parsing a slice avoids the per-byte Read overhead of serde's reader
+    // adapter. The temporary JSON buffer is released before walking the tree.
+    Ok(serde_json::from_slice(&fs::read(path)?)?)
 }
 
 fn write_manifest(index_dir: &Path, manifest: &Manifest) -> Result<()> {
@@ -549,41 +593,46 @@ fn next_segment_id(index_dir: &Path) -> u64 {
     id
 }
 
-fn collect_files(root: &Path, index_dir: &Path) -> Result<Vec<FileState>> {
+fn collect_files(
+    root: &Path,
+    index_dir: &Path,
+    previous_file_count: Option<usize>,
+) -> Result<Vec<FileState>> {
     let mut builder = WalkBuilder::new(root);
-    builder
-        .hidden(false)
-        .follow_links(false)
-        .threads(rayon::current_num_threads())
-        .filter_entry({
-            let index_dir = index_dir.to_path_buf();
-            move |entry| should_visit(entry, &index_dir)
-        });
-    let files = Mutex::new(Vec::new());
-    let error = Mutex::new(None);
-    builder.build_parallel().run(|| {
-        let files = &files;
-        let error = &error;
-        Box::new(move |result| {
-            let state = result
-                .map_err(anyhow::Error::from)
-                .and_then(|entry| file_state(root, &entry));
-            match state {
-                Ok(Some(state)) => files.lock().unwrap().push(state),
-                Ok(None) => {}
-                Err(cause) => {
-                    *error.lock().unwrap() = Some(cause);
-                    return WalkState::Quit;
-                }
-            }
-            WalkState::Continue
-        })
+    builder.hidden(false).follow_links(false).filter_entry({
+        let index_dir = index_dir.to_path_buf();
+        move |entry| should_visit(entry, &index_dir)
     });
-    if let Some(error) = error.into_inner().unwrap() {
-        return Err(error);
+    if let Some(file_count) = previous_file_count.filter(|&count| count <= MAX_SERIAL_WALK_FILES) {
+        let mut files = Vec::with_capacity(file_count);
+        for entry in builder.build() {
+            if let Some(state) = file_state(root, &entry?)? {
+                files.push(state);
+            }
+        }
+        files.sort_unstable_by(|left, right| left.path.cmp(&right.path));
+        return Ok(files);
     }
-    let mut files = files.into_inner().unwrap();
-    files.sort_by(|left, right| left.path.cmp(&right.path));
+    builder.threads(rayon::current_num_threads());
+    let batches = Mutex::new(Vec::new());
+    builder.build_parallel().run(|| {
+        let mut collector = FileCollector {
+            root,
+            batches: &batches,
+            files: Ok(Vec::new()),
+        };
+        Box::new(move |entry| collector.visit(entry))
+    });
+    let batches = batches
+        .into_inner()
+        .unwrap()
+        .into_iter()
+        .collect::<Result<Vec<_>>>()?;
+    let mut files = Vec::with_capacity(batches.iter().map(Vec::len).sum());
+    for batch in batches {
+        files.extend(batch);
+    }
+    files.par_sort_unstable_by(|left, right| left.path.cmp(&right.path));
     Ok(files)
 }
 
@@ -673,6 +722,49 @@ pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn serial_and_parallel_snapshots_agree_even_with_a_stale_size_hint() {
+        let root = tempfile::tempdir().unwrap();
+        let index_dir = root.path().join("custom-index");
+        for directory in [".git", "custom-index", ".hidden", "nested"] {
+            fs::create_dir(root.path().join(directory)).unwrap();
+        }
+        fs::write(root.path().join(".ignore"), "*.skip\n!keep.skip\n").unwrap();
+        for path in [
+            ".git/config",
+            "custom-index/manifest.json",
+            ".hidden/source.rs",
+            "nested/source.rs",
+            "nested/hidden.skip",
+            "nested/keep.skip",
+        ] {
+            fs::write(root.path().join(path), "contents\n").unwrap();
+        }
+        // The old snapshot can be tiny even after a large directory is added.
+        for number in 0..600 {
+            fs::write(root.path().join(format!("nested/{number:04}.rs")), "x\n").unwrap();
+        }
+        #[cfg(unix)]
+        {
+            std::os::unix::fs::symlink("nested", root.path().join("linked-dir")).unwrap();
+            std::os::unix::fs::symlink("nested/source.rs", root.path().join("linked-file"))
+                .unwrap();
+        }
+
+        let serial = collect_files(root.path(), &index_dir, Some(0)).unwrap();
+        let parallel = collect_files(root.path(), &index_dir, None).unwrap();
+        assert_eq!(serial, parallel);
+        assert_eq!(serial.len(), 604);
+        let paths: Vec<_> = serial.iter().map(|file| file.path.as_path()).collect();
+        assert!(paths.contains(&Path::new(".hidden/source.rs")));
+        assert!(paths.contains(&Path::new("nested/keep.skip")));
+        assert!(!paths.contains(&Path::new("nested/hidden.skip")));
+
+        let missing = root.path().join("missing");
+        assert!(collect_files(&missing, &index_dir, Some(0)).is_err());
+        assert!(collect_files(&missing, &index_dir, None).is_err());
+    }
 
     #[test]
     fn counts_added_changed_and_deleted_files() {

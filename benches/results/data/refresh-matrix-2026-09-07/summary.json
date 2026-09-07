@@ -1,0 +1,3569 @@
+{
+  "bootstrap_repeats": 1000,
+  "bootstrap_seed": 90210,
+  "datasets": {
+    "vllm": {
+      "kind": "vllm",
+      "queries": 38,
+      "rg_compatible": 36,
+      "rg_differences": [
+        "async_def",
+        "blank_lines"
+      ],
+      "matching_queries": 37,
+      "files": 6835,
+      "source_mib": 82.38237380981445,
+      "index_mib": 66.40238189697266,
+      "builds": {
+        "baseline": {
+          "median_ms": 778.2765,
+          "rss_median_mib": 514.3125,
+          "rss_max_mib": 520.25
+        },
+        "optimized": {
+          "median_ms": 764.037209,
+          "rss_median_mib": 522.703125,
+          "rss_max_mib": 523.734375
+        }
+      },
+      "aggregate": {
+        "all": {
+          "medians_mean_ms": {
+            "baseline": 51.24619739473684,
+            "optimized": 46.49938047368421,
+            "baseline_no_refresh": 34.35496386842105,
+            "optimized_no_refresh": 31.603152368421053,
+            "rg": 72.424227
+          },
+          "p95_mean_ms": {
+            "baseline": 54.05769518421052,
+            "optimized": 49.78011947368421,
+            "baseline_no_refresh": 36.72543636842105,
+            "optimized_no_refresh": 33.84793315789474,
+            "rg": 74.78846828947368
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 24.390625,
+            "optimized": 26.979440789473685,
+            "baseline_no_refresh": 21.543174342105264,
+            "optimized_no_refresh": 24.050986842105264,
+            "rg": 16.307154605263158
+          },
+          "max_peak_rss_mib": {
+            "baseline": 60.625,
+            "optimized": 60.734375,
+            "baseline_no_refresh": 59.53125,
+            "optimized_no_refresh": 59.28125,
+            "rg": 27.46875
+          },
+          "optimized_change_pct": -9.262769068481447,
+          "optimized_change_bootstrap_95": [
+            -9.903381991732651,
+            -8.869588599667445
+          ],
+          "faster_than_baseline": 38,
+          "faster_than_rg": 34,
+          "baseline_faster_than_rg": 34
+        },
+        "rg_compatible": {
+          "medians_mean_ms": {
+            "baseline": 47.93651625,
+            "optimized": 43.180480333333335,
+            "baseline_no_refresh": 31.018410972222224,
+            "optimized_no_refresh": 28.29357402777778,
+            "rg": 71.73085999999999
+          },
+          "p95_mean_ms": {
+            "baseline": 50.589379638888886,
+            "optimized": 45.910461749999996,
+            "baseline_no_refresh": 33.26124302777778,
+            "optimized_no_refresh": 30.208588,
+            "rg": 74.13939938888889
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 23.48480902777778,
+            "optimized": 26.06032986111111,
+            "baseline_no_refresh": 20.62065972222222,
+            "optimized_no_refresh": 23.118489583333332,
+            "rg": 16.325086805555557
+          },
+          "max_peak_rss_mib": {
+            "baseline": 60.625,
+            "optimized": 60.734375,
+            "baseline_no_refresh": 59.53125,
+            "optimized_no_refresh": 59.28125,
+            "rg": 27.46875
+          },
+          "optimized_change_pct": -9.921530158476344,
+          "optimized_change_bootstrap_95": [
+            -10.65135940080416,
+            -9.471240624622723
+          ],
+          "faster_than_baseline": 36,
+          "faster_than_rg": 33,
+          "baseline_faster_than_rg": 33
+        }
+      }
+    },
+    "viberwhisper": {
+      "kind": "rust",
+      "queries": 16,
+      "rg_compatible": 16,
+      "rg_differences": [],
+      "matching_queries": 14,
+      "files": 123,
+      "source_mib": 1.301767349243164,
+      "index_mib": 1.8704404830932617,
+      "builds": {
+        "baseline": {
+          "median_ms": 24.984333,
+          "rss_median_mib": 23.984375,
+          "rss_max_mib": 24.28125
+        },
+        "optimized": {
+          "median_ms": 25.177709,
+          "rss_median_mib": 23.71875,
+          "rss_max_mib": 23.9375
+        }
+      },
+      "aggregate": {
+        "all": {
+          "medians_mean_ms": {
+            "baseline": 8.0791588125,
+            "optimized": 8.039572937500001,
+            "baseline_no_refresh": 4.70422925,
+            "optimized_no_refresh": 4.6580418125,
+            "rg": 7.3265703125
+          },
+          "p95_mean_ms": {
+            "baseline": 9.015690125,
+            "optimized": 8.839367125,
+            "baseline_no_refresh": 5.1796614375,
+            "optimized_no_refresh": 5.1354036875,
+            "rg": 8.285562562500001
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 10.271484375,
+            "optimized": 10.2275390625,
+            "baseline_no_refresh": 8.8359375,
+            "optimized_no_refresh": 8.8271484375,
+            "rg": 6.041015625
+          },
+          "max_peak_rss_mib": {
+            "baseline": 11.828125,
+            "optimized": 11.71875,
+            "baseline_no_refresh": 10.5625,
+            "optimized_no_refresh": 10.578125,
+            "rg": 6.53125
+          },
+          "optimized_change_pct": -0.4899752055715467,
+          "optimized_change_bootstrap_95": [
+            -1.1207758376701626,
+            0.522980472300838
+          ],
+          "faster_than_baseline": 13,
+          "faster_than_rg": 0,
+          "baseline_faster_than_rg": 0
+        },
+        "rg_compatible": {
+          "medians_mean_ms": {
+            "baseline": 8.0791588125,
+            "optimized": 8.039572937500001,
+            "baseline_no_refresh": 4.70422925,
+            "optimized_no_refresh": 4.6580418125,
+            "rg": 7.3265703125
+          },
+          "p95_mean_ms": {
+            "baseline": 9.015690125,
+            "optimized": 8.839367125,
+            "baseline_no_refresh": 5.1796614375,
+            "optimized_no_refresh": 5.1354036875,
+            "rg": 8.285562562500001
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 10.271484375,
+            "optimized": 10.2275390625,
+            "baseline_no_refresh": 8.8359375,
+            "optimized_no_refresh": 8.8271484375,
+            "rg": 6.041015625
+          },
+          "max_peak_rss_mib": {
+            "baseline": 11.828125,
+            "optimized": 11.71875,
+            "baseline_no_refresh": 10.5625,
+            "optimized_no_refresh": 10.578125,
+            "rg": 6.53125
+          },
+          "optimized_change_pct": -0.4899752055715467,
+          "optimized_change_bootstrap_95": [
+            -1.1443976277445422,
+            0.4446703352868786
+          ],
+          "faster_than_baseline": 13,
+          "faster_than_rg": 0,
+          "baseline_faster_than_rg": 0
+        }
+      }
+    },
+    "agentflow": {
+      "kind": "python",
+      "queries": 16,
+      "rg_compatible": 16,
+      "rg_differences": [],
+      "matching_queries": 15,
+      "files": 114,
+      "source_mib": 1.3813295364379883,
+      "index_mib": 2.0575199127197266,
+      "builds": {
+        "baseline": {
+          "median_ms": 31.290334,
+          "rss_median_mib": 24.5,
+          "rss_max_mib": 24.71875
+        },
+        "optimized": {
+          "median_ms": 31.210458,
+          "rss_median_mib": 24.515625,
+          "rss_max_mib": 24.59375
+        }
+      },
+      "aggregate": {
+        "all": {
+          "medians_mean_ms": {
+            "baseline": 8.3857604375,
+            "optimized": 8.4017473125,
+            "baseline_no_refresh": 5.053961,
+            "optimized_no_refresh": 5.035296875,
+            "rg": 8.39055725
+          },
+          "p95_mean_ms": {
+            "baseline": 9.2934089375,
+            "optimized": 9.3003281875,
+            "baseline_no_refresh": 5.6805389375,
+            "optimized_no_refresh": 5.7321094375,
+            "rg": 9.3002449375
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 10.7294921875,
+            "optimized": 10.6708984375,
+            "baseline_no_refresh": 9.298828125,
+            "optimized_no_refresh": 9.310546875,
+            "rg": 6.2666015625
+          },
+          "max_peak_rss_mib": {
+            "baseline": 12.234375,
+            "optimized": 12.109375,
+            "baseline_no_refresh": 10.890625,
+            "optimized_no_refresh": 11.0,
+            "rg": 6.96875
+          },
+          "optimized_change_pct": 0.1906431160197286,
+          "optimized_change_bootstrap_95": [
+            -0.27907664303638,
+            0.7189202158881081
+          ],
+          "faster_than_baseline": 6,
+          "faster_than_rg": 2,
+          "baseline_faster_than_rg": 2
+        },
+        "rg_compatible": {
+          "medians_mean_ms": {
+            "baseline": 8.3857604375,
+            "optimized": 8.4017473125,
+            "baseline_no_refresh": 5.053961,
+            "optimized_no_refresh": 5.035296875,
+            "rg": 8.39055725
+          },
+          "p95_mean_ms": {
+            "baseline": 9.2934089375,
+            "optimized": 9.3003281875,
+            "baseline_no_refresh": 5.6805389375,
+            "optimized_no_refresh": 5.7321094375,
+            "rg": 9.3002449375
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 10.7294921875,
+            "optimized": 10.6708984375,
+            "baseline_no_refresh": 9.298828125,
+            "optimized_no_refresh": 9.310546875,
+            "rg": 6.2666015625
+          },
+          "max_peak_rss_mib": {
+            "baseline": 12.234375,
+            "optimized": 12.109375,
+            "baseline_no_refresh": 10.890625,
+            "optimized_no_refresh": 11.0,
+            "rg": 6.96875
+          },
+          "optimized_change_pct": 0.1906431160197286,
+          "optimized_change_bootstrap_95": [
+            -0.2755884031974132,
+            0.7002604421041392
+          ],
+          "faster_than_baseline": 6,
+          "faster_than_rg": 2,
+          "baseline_faster_than_rg": 2
+        }
+      }
+    },
+    "small_256": {
+      "kind": "synthetic",
+      "queries": 8,
+      "rg_compatible": 8,
+      "rg_differences": [],
+      "matching_queries": 7,
+      "files": 256,
+      "source_mib": 4.0,
+      "index_mib": 0.8412389755249023,
+      "builds": {
+        "baseline": {
+          "median_ms": 20.850166,
+          "rss_median_mib": 18.40625,
+          "rss_max_mib": 18.796875
+        },
+        "optimized": {
+          "median_ms": 20.58975,
+          "rss_median_mib": 18.390625,
+          "rss_max_mib": 18.5
+        }
+      },
+      "aggregate": {
+        "all": {
+          "medians_mean_ms": {
+            "baseline": 8.734926875,
+            "optimized": 8.64150525,
+            "baseline_no_refresh": 5.3183905,
+            "optimized_no_refresh": 5.22744275,
+            "rg": 8.284224125
+          },
+          "p95_mean_ms": {
+            "baseline": 10.002734125,
+            "optimized": 9.631109375,
+            "baseline_no_refresh": 5.8969065,
+            "optimized_no_refresh": 5.938338625,
+            "rg": 9.646218875
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 9.78125,
+            "optimized": 9.759765625,
+            "baseline_no_refresh": 8.01171875,
+            "optimized_no_refresh": 8.09375,
+            "rg": 5.958984375
+          },
+          "max_peak_rss_mib": {
+            "baseline": 10.15625,
+            "optimized": 10.15625,
+            "baseline_no_refresh": 8.828125,
+            "optimized_no_refresh": 8.796875,
+            "rg": 6.1875
+          },
+          "optimized_change_pct": -1.0695181120219721,
+          "optimized_change_bootstrap_95": [
+            -2.0205669653097225,
+            -0.4497210604740953
+          ],
+          "faster_than_baseline": 6,
+          "faster_than_rg": 1,
+          "baseline_faster_than_rg": 0
+        },
+        "rg_compatible": {
+          "medians_mean_ms": {
+            "baseline": 8.734926875,
+            "optimized": 8.64150525,
+            "baseline_no_refresh": 5.3183905,
+            "optimized_no_refresh": 5.22744275,
+            "rg": 8.284224125
+          },
+          "p95_mean_ms": {
+            "baseline": 10.002734125,
+            "optimized": 9.631109375,
+            "baseline_no_refresh": 5.8969065,
+            "optimized_no_refresh": 5.938338625,
+            "rg": 9.646218875
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 9.78125,
+            "optimized": 9.759765625,
+            "baseline_no_refresh": 8.01171875,
+            "optimized_no_refresh": 8.09375,
+            "rg": 5.958984375
+          },
+          "max_peak_rss_mib": {
+            "baseline": 10.15625,
+            "optimized": 10.15625,
+            "baseline_no_refresh": 8.828125,
+            "optimized_no_refresh": 8.796875,
+            "rg": 6.1875
+          },
+          "optimized_change_pct": -1.0695181120219721,
+          "optimized_change_bootstrap_95": [
+            -2.0350500309850084,
+            -0.36740203451368636
+          ],
+          "faster_than_baseline": 6,
+          "faster_than_rg": 1,
+          "baseline_faster_than_rg": 0
+        }
+      }
+    },
+    "regular_4096": {
+      "kind": "synthetic",
+      "queries": 8,
+      "rg_compatible": 8,
+      "rg_differences": [],
+      "matching_queries": 7,
+      "files": 4096,
+      "source_mib": 64.0,
+      "index_mib": 12.148969650268555,
+      "builds": {
+        "baseline": {
+          "median_ms": 187.022042,
+          "rss_median_mib": 114.375,
+          "rss_max_mib": 114.5
+        },
+        "optimized": {
+          "median_ms": 186.176625,
+          "rss_median_mib": 114.15625,
+          "rss_max_mib": 114.359375
+        }
+      },
+      "aggregate": {
+        "all": {
+          "medians_mean_ms": {
+            "baseline": 32.616577875,
+            "optimized": 30.28609375,
+            "baseline_no_refresh": 23.8344585,
+            "optimized_no_refresh": 22.269656375,
+            "rg": 46.76821875
+          },
+          "p95_mean_ms": {
+            "baseline": 33.607906125,
+            "optimized": 31.393489875,
+            "baseline_no_refresh": 24.377916875,
+            "optimized_no_refresh": 22.89439575,
+            "rg": 48.009317875
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 12.587890625,
+            "optimized": 13.533203125,
+            "baseline_no_refresh": 9.509765625,
+            "optimized_no_refresh": 10.666015625,
+            "rg": 6.77734375
+          },
+          "max_peak_rss_mib": {
+            "baseline": 13.640625,
+            "optimized": 14.65625,
+            "baseline_no_refresh": 10.90625,
+            "optimized_no_refresh": 12.125,
+            "rg": 7.0625
+          },
+          "optimized_change_pct": -7.1450908612527115,
+          "optimized_change_bootstrap_95": [
+            -7.8534784002392,
+            -6.307717706666105
+          ],
+          "faster_than_baseline": 8,
+          "faster_than_rg": 7,
+          "baseline_faster_than_rg": 7
+        },
+        "rg_compatible": {
+          "medians_mean_ms": {
+            "baseline": 32.616577875,
+            "optimized": 30.28609375,
+            "baseline_no_refresh": 23.8344585,
+            "optimized_no_refresh": 22.269656375,
+            "rg": 46.76821875
+          },
+          "p95_mean_ms": {
+            "baseline": 33.607906125,
+            "optimized": 31.393489875,
+            "baseline_no_refresh": 24.377916875,
+            "optimized_no_refresh": 22.89439575,
+            "rg": 48.009317875
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 12.587890625,
+            "optimized": 13.533203125,
+            "baseline_no_refresh": 9.509765625,
+            "optimized_no_refresh": 10.666015625,
+            "rg": 6.77734375
+          },
+          "max_peak_rss_mib": {
+            "baseline": 13.640625,
+            "optimized": 14.65625,
+            "baseline_no_refresh": 10.90625,
+            "optimized_no_refresh": 12.125,
+            "rg": 7.0625
+          },
+          "optimized_change_pct": -7.1450908612527115,
+          "optimized_change_bootstrap_95": [
+            -7.834201052960421,
+            -6.3504153228946425
+          ],
+          "faster_than_baseline": 8,
+          "faster_than_rg": 7,
+          "baseline_faster_than_rg": 7
+        }
+      }
+    },
+    "many_small_16384": {
+      "kind": "synthetic",
+      "queries": 8,
+      "rg_compatible": 8,
+      "rg_differences": [],
+      "matching_queries": 7,
+      "files": 16384,
+      "source_mib": 64.0,
+      "index_mib": 23.797283172607422,
+      "builds": {
+        "baseline": {
+          "median_ms": 480.160084,
+          "rss_median_mib": 164.25,
+          "rss_max_mib": 164.46875
+        },
+        "optimized": {
+          "median_ms": 477.6255,
+          "rss_median_mib": 163.609375,
+          "rss_max_mib": 163.84375
+        }
+      },
+      "aggregate": {
+        "all": {
+          "medians_mean_ms": {
+            "baseline": 117.96376575,
+            "optimized": 104.8788645,
+            "baseline_no_refresh": 92.734239625,
+            "optimized_no_refresh": 85.614760375,
+            "rg": 183.4014685
+          },
+          "p95_mean_ms": {
+            "baseline": 125.76606775,
+            "optimized": 139.11572925000002,
+            "baseline_no_refresh": 97.845411375,
+            "optimized_no_refresh": 125.64813012500001,
+            "rg": 204.458437625
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 16.736328125,
+            "optimized": 22.2578125,
+            "baseline_no_refresh": 12.263671875,
+            "optimized_no_refresh": 17.544921875,
+            "rg": 7.380859375
+          },
+          "max_peak_rss_mib": {
+            "baseline": 17.796875,
+            "optimized": 23.421875,
+            "baseline_no_refresh": 13.53125,
+            "optimized_no_refresh": 18.8125,
+            "rg": 7.765625
+          },
+          "optimized_change_pct": -11.092305477709786,
+          "optimized_change_bootstrap_95": [
+            -11.769941769748439,
+            -9.96022183412496
+          ],
+          "faster_than_baseline": 8,
+          "faster_than_rg": 7,
+          "baseline_faster_than_rg": 7
+        },
+        "rg_compatible": {
+          "medians_mean_ms": {
+            "baseline": 117.96376575,
+            "optimized": 104.8788645,
+            "baseline_no_refresh": 92.734239625,
+            "optimized_no_refresh": 85.614760375,
+            "rg": 183.4014685
+          },
+          "p95_mean_ms": {
+            "baseline": 125.76606775,
+            "optimized": 139.11572925000002,
+            "baseline_no_refresh": 97.845411375,
+            "optimized_no_refresh": 125.64813012500001,
+            "rg": 204.458437625
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 16.736328125,
+            "optimized": 22.2578125,
+            "baseline_no_refresh": 12.263671875,
+            "optimized_no_refresh": 17.544921875,
+            "rg": 7.380859375
+          },
+          "max_peak_rss_mib": {
+            "baseline": 17.796875,
+            "optimized": 23.421875,
+            "baseline_no_refresh": 13.53125,
+            "optimized_no_refresh": 18.8125,
+            "rg": 7.765625
+          },
+          "optimized_change_pct": -11.092305477709786,
+          "optimized_change_bootstrap_95": [
+            -11.80745681891231,
+            -9.940244035571544
+          ],
+          "faster_than_baseline": 8,
+          "faster_than_rg": 7,
+          "baseline_faster_than_rg": 7
+        }
+      }
+    },
+    "few_large_64": {
+      "kind": "synthetic",
+      "queries": 8,
+      "rg_compatible": 8,
+      "rg_differences": [],
+      "matching_queries": 7,
+      "files": 64,
+      "source_mib": 64.0,
+      "index_mib": 4.3381853103637695,
+      "builds": {
+        "baseline": {
+          "median_ms": 137.289875,
+          "rss_median_mib": 160.375,
+          "rss_max_mib": 162.09375
+        },
+        "optimized": {
+          "median_ms": 137.258333,
+          "rss_median_mib": 159.546875,
+          "rss_max_mib": 161.265625
+        }
+      },
+      "aggregate": {
+        "all": {
+          "medians_mean_ms": {
+            "baseline": 12.3654685,
+            "optimized": 12.1172345,
+            "baseline_no_refresh": 9.145895874999999,
+            "optimized_no_refresh": 8.954932375,
+            "rg": 8.382703
+          },
+          "p95_mean_ms": {
+            "baseline": 13.57058325,
+            "optimized": 13.511323,
+            "baseline_no_refresh": 9.879151,
+            "optimized_no_refresh": 9.950640375,
+            "rg": 9.64422375
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 17.787109375,
+            "optimized": 17.64453125,
+            "baseline_no_refresh": 16.26171875,
+            "optimized_no_refresh": 16.138671875,
+            "rg": 5.822265625
+          },
+          "max_peak_rss_mib": {
+            "baseline": 28.25,
+            "optimized": 30.84375,
+            "baseline_no_refresh": 29.3125,
+            "optimized_no_refresh": 27.640625,
+            "rg": 5.984375
+          },
+          "optimized_change_pct": -2.00747751692546,
+          "optimized_change_bootstrap_95": [
+            -3.162808721164778,
+            0.7558686759821187
+          ],
+          "faster_than_baseline": 6,
+          "faster_than_rg": 2,
+          "baseline_faster_than_rg": 2
+        },
+        "rg_compatible": {
+          "medians_mean_ms": {
+            "baseline": 12.3654685,
+            "optimized": 12.1172345,
+            "baseline_no_refresh": 9.145895874999999,
+            "optimized_no_refresh": 8.954932375,
+            "rg": 8.382703
+          },
+          "p95_mean_ms": {
+            "baseline": 13.57058325,
+            "optimized": 13.511323,
+            "baseline_no_refresh": 9.879151,
+            "optimized_no_refresh": 9.950640375,
+            "rg": 9.64422375
+          },
+          "median_peak_rss_mean_mib": {
+            "baseline": 17.787109375,
+            "optimized": 17.64453125,
+            "baseline_no_refresh": 16.26171875,
+            "optimized_no_refresh": 16.138671875,
+            "rg": 5.822265625
+          },
+          "max_peak_rss_mib": {
+            "baseline": 28.25,
+            "optimized": 30.84375,
+            "baseline_no_refresh": 29.3125,
+            "optimized_no_refresh": 27.640625,
+            "rg": 5.984375
+          },
+          "optimized_change_pct": -2.00747751692546,
+          "optimized_change_bootstrap_95": [
+            -3.3451156622852696,
+            0.5401854646921223
+          ],
+          "faster_than_baseline": 6,
+          "faster_than_rg": 2,
+          "baseline_faster_than_rg": 2
+        }
+      }
+    }
+  },
+  "regressions": [
+    {
+      "dataset": "few_large_64",
+      "query": "absent",
+      "category": "no matches",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 7.432,
+      "optimized_ms": 7.976042,
+      "baseline_no_refresh_ms": 4.9295,
+      "optimized_no_refresh_ms": 4.650292,
+      "rg_ms": 8.023583,
+      "baseline_p95_ms": 8.435333,
+      "optimized_p95_ms": 8.651583,
+      "change_pct": 7.320263724434861,
+      "change_bootstrap_95": [
+        -0.4227710863341949,
+        13.164499442134092
+      ],
+      "baseline_rss_mib": 9.3125,
+      "optimized_rss_mib": 9.28125,
+      "baseline_no_refresh_rss_mib": 7.453125,
+      "optimized_no_refresh_rss_mib": 7.453125,
+      "rg_rss_mib": 5.65625
+    },
+    {
+      "dataset": "agentflow",
+      "query": "word_return",
+      "category": "common word",
+      "rg_compatible": true,
+      "matching_lines": 689,
+      "baseline_ms": 8.185791,
+      "optimized_ms": 8.331958,
+      "baseline_no_refresh_ms": 4.957833,
+      "optimized_no_refresh_ms": 4.872,
+      "rg_ms": 7.174875,
+      "baseline_p95_ms": 8.974625,
+      "optimized_p95_ms": 9.488542,
+      "change_pct": 1.7856185187234752,
+      "change_bootstrap_95": [
+        -0.915950249866726,
+        3.2824030129520176
+      ],
+      "baseline_rss_mib": 10.078125,
+      "optimized_rss_mib": 9.953125,
+      "baseline_no_refresh_rss_mib": 8.59375,
+      "optimized_no_refresh_rss_mib": 8.671875,
+      "rg_rss_mib": 6.0
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "impl",
+      "category": "anchor",
+      "rg_compatible": true,
+      "matching_lines": 152,
+      "baseline_ms": 8.0975,
+      "optimized_ms": 8.236625,
+      "baseline_no_refresh_ms": 4.857667,
+      "optimized_no_refresh_ms": 4.777708,
+      "rg_ms": 6.986583,
+      "baseline_p95_ms": 9.389,
+      "optimized_p95_ms": 8.765208,
+      "change_pct": 1.7181228774313162,
+      "change_bootstrap_95": [
+        -0.2185187791581944,
+        15.067221819113175
+      ],
+      "baseline_rss_mib": 10.4375,
+      "optimized_rss_mib": 10.375,
+      "baseline_no_refresh_rss_mib": 9.015625,
+      "optimized_no_refresh_rss_mib": 9.03125,
+      "rg_rss_mib": 5.984375
+    },
+    {
+      "dataset": "agentflow",
+      "query": "common_files",
+      "category": "common / files",
+      "rg_compatible": true,
+      "matching_lines": 58,
+      "baseline_ms": 7.910167,
+      "optimized_ms": 8.020459,
+      "baseline_no_refresh_ms": 4.547417,
+      "optimized_no_refresh_ms": 4.609708,
+      "rg_ms": 7.254375,
+      "baseline_p95_ms": 9.287208,
+      "optimized_p95_ms": 9.24925,
+      "change_pct": 1.3943068458605268,
+      "change_bootstrap_95": [
+        -1.1566359586706154,
+        2.7121706876327423
+      ],
+      "baseline_rss_mib": 9.890625,
+      "optimized_rss_mib": 9.828125,
+      "baseline_no_refresh_rss_mib": 8.25,
+      "optimized_no_refresh_rss_mib": 8.28125,
+      "rg_rss_mib": 5.90625
+    },
+    {
+      "dataset": "agentflow",
+      "query": "async",
+      "category": "whitespace",
+      "rg_compatible": true,
+      "matching_lines": 454,
+      "baseline_ms": 8.488292,
+      "optimized_ms": 8.584708,
+      "baseline_no_refresh_ms": 5.167,
+      "optimized_no_refresh_ms": 5.130834,
+      "rg_ms": 7.703416,
+      "baseline_p95_ms": 8.957625,
+      "optimized_p95_ms": 9.838208,
+      "change_pct": 1.1358704436652323,
+      "change_bootstrap_95": [
+        -0.5771493971059471,
+        3.6070781729670154
+      ],
+      "baseline_rss_mib": 11.890625,
+      "optimized_rss_mib": 11.9375,
+      "baseline_no_refresh_rss_mib": 10.65625,
+      "optimized_no_refresh_rss_mib": 10.65625,
+      "rg_rss_mib": 6.953125
+    },
+    {
+      "dataset": "agentflow",
+      "query": "class",
+      "category": "class definitions",
+      "rg_compatible": true,
+      "matching_lines": 198,
+      "baseline_ms": 8.245792,
+      "optimized_ms": 8.311125,
+      "baseline_no_refresh_ms": 4.980208,
+      "optimized_no_refresh_ms": 4.907542,
+      "rg_ms": 9.087625,
+      "baseline_p95_ms": 8.719667,
+      "optimized_p95_ms": 9.000583,
+      "change_pct": 0.7923192823685143,
+      "change_bootstrap_95": [
+        -0.8251883613384359,
+        2.9775721334911465
+      ],
+      "baseline_rss_mib": 11.046875,
+      "optimized_rss_mib": 11.0,
+      "baseline_no_refresh_rss_mib": 9.625,
+      "optimized_no_refresh_rss_mib": 9.8125,
+      "rg_rss_mib": 6.4375
+    },
+    {
+      "dataset": "agentflow",
+      "query": "import",
+      "category": "imports",
+      "rg_compatible": true,
+      "matching_lines": 499,
+      "baseline_ms": 8.6295,
+      "optimized_ms": 8.697375,
+      "baseline_no_refresh_ms": 5.385291,
+      "optimized_no_refresh_ms": 5.350166,
+      "rg_ms": 7.765541,
+      "baseline_p95_ms": 10.010417,
+      "optimized_p95_ms": 9.125625,
+      "change_pct": 0.7865461498348658,
+      "change_bootstrap_95": [
+        -0.2523268619382235,
+        2.527135551183801
+      ],
+      "baseline_rss_mib": 12.171875,
+      "optimized_rss_mib": 12.09375,
+      "baseline_no_refresh_rss_mib": 10.859375,
+      "optimized_no_refresh_rss_mib": 10.84375,
+      "rg_rss_mib": 6.9375
+    },
+    {
+      "dataset": "agentflow",
+      "query": "errors",
+      "category": "alternation",
+      "rg_compatible": true,
+      "matching_lines": 110,
+      "baseline_ms": 8.113167,
+      "optimized_ms": 8.1715,
+      "baseline_no_refresh_ms": 4.783625,
+      "optimized_no_refresh_ms": 4.774583,
+      "rg_ms": 7.486084,
+      "baseline_p95_ms": 9.539583,
+      "optimized_p95_ms": 9.260917,
+      "change_pct": 0.7189917328214612,
+      "change_bootstrap_95": [
+        -0.7859543020579451,
+        2.203355509673477
+      ],
+      "baseline_rss_mib": 10.421875,
+      "optimized_rss_mib": 10.421875,
+      "baseline_no_refresh_rss_mib": 9.109375,
+      "optimized_no_refresh_rss_mib": 9.140625,
+      "rg_rss_mib": 6.140625
+    },
+    {
+      "dataset": "agentflow",
+      "query": "db",
+      "category": "alternation",
+      "rg_compatible": true,
+      "matching_lines": 525,
+      "baseline_ms": 8.833459,
+      "optimized_ms": 8.893917,
+      "baseline_no_refresh_ms": 5.43575,
+      "optimized_no_refresh_ms": 5.60575,
+      "rg_ms": 7.136042,
+      "baseline_p95_ms": 9.235,
+      "optimized_p95_ms": 9.492792,
+      "change_pct": 0.6844204518298147,
+      "change_bootstrap_95": [
+        -1.3932082493409825,
+        2.8756483819141643
+      ],
+      "baseline_rss_mib": 11.78125,
+      "optimized_rss_mib": 11.796875,
+      "baseline_no_refresh_rss_mib": 10.71875,
+      "optimized_no_refresh_rss_mib": 10.671875,
+      "rg_rss_mib": 6.40625
+    },
+    {
+      "dataset": "agentflow",
+      "query": "short",
+      "category": "scan fallback",
+      "rg_compatible": true,
+      "matching_lines": 85,
+      "baseline_ms": 8.419542,
+      "optimized_ms": 8.470208,
+      "baseline_no_refresh_ms": 5.200834,
+      "optimized_no_refresh_ms": 5.128417,
+      "rg_ms": 6.729166,
+      "baseline_p95_ms": 9.122709,
+      "optimized_p95_ms": 8.793042,
+      "change_pct": 0.601766699423778,
+      "change_bootstrap_95": [
+        -1.3279972130016415,
+        2.4842980175927565
+      ],
+      "baseline_rss_mib": 10.21875,
+      "optimized_rss_mib": 10.234375,
+      "baseline_no_refresh_rss_mib": 8.609375,
+      "optimized_no_refresh_rss_mib": 8.578125,
+      "rg_rss_mib": 5.96875
+    },
+    {
+      "dataset": "few_large_64",
+      "query": "common_count",
+      "category": "common / count",
+      "rg_compatible": true,
+      "matching_lines": 64,
+      "baseline_ms": 17.117916,
+      "optimized_ms": 17.217917,
+      "baseline_no_refresh_ms": 13.959041,
+      "optimized_no_refresh_ms": 13.597458,
+      "rg_ms": 9.511792,
+      "baseline_p95_ms": 18.324583,
+      "optimized_p95_ms": 19.226792,
+      "change_pct": 0.5841891033931956,
+      "change_bootstrap_95": [
+        -1.923959036356715,
+        4.238734152351742
+      ],
+      "baseline_rss_mib": 27.671875,
+      "optimized_rss_mib": 24.875,
+      "baseline_no_refresh_rss_mib": 25.140625,
+      "optimized_no_refresh_rss_mib": 22.953125,
+      "rg_rss_mib": 5.859375
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "function",
+      "category": "function definitions",
+      "rg_compatible": true,
+      "matching_lines": 813,
+      "baseline_ms": 8.303708,
+      "optimized_ms": 8.332125,
+      "baseline_no_refresh_ms": 4.925583,
+      "optimized_no_refresh_ms": 4.97225,
+      "rg_ms": 7.994208,
+      "baseline_p95_ms": 8.650292,
+      "optimized_p95_ms": 9.012416,
+      "change_pct": 0.34222060795008336,
+      "change_bootstrap_95": [
+        -0.7363436222312059,
+        1.2976973956325244
+      ],
+      "baseline_rss_mib": 10.296875,
+      "optimized_rss_mib": 10.203125,
+      "baseline_no_refresh_rss_mib": 8.96875,
+      "optimized_no_refresh_rss_mib": 8.953125,
+      "rg_rss_mib": 6.078125
+    },
+    {
+      "dataset": "agentflow",
+      "query": "decorator",
+      "category": "escaped punctuation",
+      "rg_compatible": true,
+      "matching_lines": 199,
+      "baseline_ms": 8.694375,
+      "optimized_ms": 8.72,
+      "baseline_no_refresh_ms": 5.375833,
+      "optimized_no_refresh_ms": 5.374334,
+      "rg_ms": 23.30775,
+      "baseline_p95_ms": 9.733583,
+      "optimized_p95_ms": 10.352792,
+      "change_pct": 0.294730788584574,
+      "change_bootstrap_95": [
+        -1.2001532110482271,
+        2.1616633781038397
+      ],
+      "baseline_rss_mib": 11.296875,
+      "optimized_rss_mib": 11.09375,
+      "baseline_no_refresh_rss_mib": 9.890625,
+      "optimized_no_refresh_rss_mib": 9.78125,
+      "rg_rss_mib": 6.5
+    },
+    {
+      "dataset": "agentflow",
+      "query": "literal",
+      "category": "fixed string",
+      "rg_compatible": true,
+      "matching_lines": 25,
+      "baseline_ms": 7.504541,
+      "optimized_ms": 7.52225,
+      "baseline_no_refresh_ms": 4.12875,
+      "optimized_no_refresh_ms": 4.118125,
+      "rg_ms": 7.364584,
+      "baseline_p95_ms": 8.706167,
+      "optimized_p95_ms": 8.656541,
+      "change_pct": 0.23597712371750124,
+      "change_bootstrap_95": [
+        -1.7880343311437397,
+        2.8066037735849036
+      ],
+      "baseline_rss_mib": 9.53125,
+      "optimized_rss_mib": 9.421875,
+      "baseline_no_refresh_rss_mib": 7.640625,
+      "optimized_no_refresh_rss_mib": 7.6875,
+      "rg_rss_mib": 5.90625
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "literal",
+      "category": "fixed string",
+      "rg_compatible": true,
+      "matching_lines": 66,
+      "baseline_ms": 7.965833,
+      "optimized_ms": 7.970709,
+      "baseline_no_refresh_ms": 4.598458,
+      "optimized_no_refresh_ms": 4.496208,
+      "rg_ms": 7.299917,
+      "baseline_p95_ms": 8.538083,
+      "optimized_p95_ms": 8.838542,
+      "change_pct": 0.06121142635051591,
+      "change_bootstrap_95": [
+        -2.3303989038227724,
+        2.136597492093961
+      ],
+      "baseline_rss_mib": 9.90625,
+      "optimized_rss_mib": 9.8125,
+      "baseline_no_refresh_rss_mib": 8.296875,
+      "optimized_no_refresh_rss_mib": 8.34375,
+      "rg_rss_mib": 5.859375
+    },
+    {
+      "dataset": "small_256",
+      "query": "absent",
+      "category": "no matches",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 7.570583,
+      "optimized_ms": 7.572,
+      "baseline_no_refresh_ms": 4.194042,
+      "optimized_no_refresh_ms": 4.084041,
+      "rg_ms": 7.179709,
+      "baseline_p95_ms": 8.818958,
+      "optimized_p95_ms": 8.169917,
+      "change_pct": 0.01871718466068817,
+      "change_bootstrap_95": [
+        -2.120193101198986,
+        1.8662391270420242
+      ],
+      "baseline_rss_mib": 9.46875,
+      "optimized_rss_mib": 9.40625,
+      "baseline_no_refresh_rss_mib": 7.359375,
+      "optimized_no_refresh_rss_mib": 7.515625,
+      "rg_rss_mib": 5.828125
+    },
+    {
+      "dataset": "small_256",
+      "query": "common_files",
+      "category": "common / files",
+      "rg_compatible": true,
+      "matching_lines": 256,
+      "baseline_ms": 9.788333,
+      "optimized_ms": 9.788583,
+      "baseline_no_refresh_ms": 6.364792,
+      "optimized_no_refresh_ms": 6.2435,
+      "rg_ms": 9.522166,
+      "baseline_p95_ms": 11.138708,
+      "optimized_p95_ms": 11.73875,
+      "change_pct": 0.0025540610439023226,
+      "change_bootstrap_95": [
+        -2.999734479813876,
+        2.6763509647891093
+      ],
+      "baseline_rss_mib": 9.875,
+      "optimized_rss_mib": 9.875,
+      "baseline_no_refresh_rss_mib": 8.1875,
+      "optimized_no_refresh_rss_mib": 8.21875,
+      "rg_rss_mib": 6.0
+    }
+  ],
+  "queries": [
+    {
+      "dataset": "vllm",
+      "query": "literal_parallel",
+      "category": "fixed string",
+      "rg_compatible": true,
+      "matching_lines": 580,
+      "baseline_ms": 30.597292,
+      "optimized_ms": 26.289625,
+      "baseline_no_refresh_ms": 13.791125,
+      "optimized_no_refresh_ms": 10.798083,
+      "rg_ms": 67.046291,
+      "baseline_p95_ms": 32.353208,
+      "optimized_p95_ms": 28.072375,
+      "change_pct": -14.078589046377044,
+      "change_bootstrap_95": [
+        -17.1888307587867,
+        -11.512344447907685
+      ],
+      "baseline_rss_mib": 14.578125,
+      "optimized_rss_mib": 17.75,
+      "baseline_no_refresh_rss_mib": 11.171875,
+      "optimized_no_refresh_rss_mib": 13.59375,
+      "rg_rss_mib": 14.6875
+    },
+    {
+      "dataset": "vllm",
+      "query": "word_sampling",
+      "category": "word boundary",
+      "rg_compatible": true,
+      "matching_lines": 1348,
+      "baseline_ms": 32.25475,
+      "optimized_ms": 27.866458,
+      "baseline_no_refresh_ms": 15.611917,
+      "optimized_no_refresh_ms": 12.592666,
+      "rg_ms": 68.314084,
+      "baseline_p95_ms": 34.183917,
+      "optimized_p95_ms": 28.978417,
+      "change_pct": -13.60510312434603,
+      "change_bootstrap_95": [
+        -15.85382096319875,
+        -11.503891314135817
+      ],
+      "baseline_rss_mib": 14.828125,
+      "optimized_rss_mib": 17.59375,
+      "baseline_no_refresh_rss_mib": 12.109375,
+      "optimized_no_refresh_rss_mib": 14.65625,
+      "rg_rss_mib": 15.015625
+    },
+    {
+      "dataset": "vllm",
+      "query": "word_asyncmock",
+      "category": "word boundary",
+      "rg_compatible": true,
+      "matching_lines": 87,
+      "baseline_ms": 29.425458,
+      "optimized_ms": 24.922125,
+      "baseline_no_refresh_ms": 12.227833,
+      "optimized_no_refresh_ms": 9.224042,
+      "rg_ms": 65.551166,
+      "baseline_p95_ms": 35.20325,
+      "optimized_p95_ms": 25.655833,
+      "change_pct": -15.304206989743363,
+      "change_bootstrap_95": [
+        -17.983500759666025,
+        -12.486037907082281
+      ],
+      "baseline_rss_mib": 14.578125,
+      "optimized_rss_mib": 17.34375,
+      "baseline_no_refresh_rss_mib": 10.9375,
+      "optimized_no_refresh_rss_mib": 13.5,
+      "rg_rss_mib": 16.234375
+    },
+    {
+      "dataset": "vllm",
+      "query": "def_forward",
+      "category": "whitespace",
+      "rg_compatible": true,
+      "matching_lines": 1733,
+      "baseline_ms": 38.855917,
+      "optimized_ms": 33.658125,
+      "baseline_no_refresh_ms": 21.380292,
+      "optimized_no_refresh_ms": 18.354708,
+      "rg_ms": 68.327666,
+      "baseline_p95_ms": 41.448,
+      "optimized_p95_ms": 35.117625,
+      "change_pct": -13.377092605998719,
+      "change_bootstrap_95": [
+        -14.867313695682205,
+        -11.690239401431935
+      ],
+      "baseline_rss_mib": 23.390625,
+      "optimized_rss_mib": 26.140625,
+      "baseline_no_refresh_rss_mib": 20.34375,
+      "optimized_no_refresh_rss_mib": 23.078125,
+      "rg_rss_mib": 16.046875
+    },
+    {
+      "dataset": "vllm",
+      "query": "async_def",
+      "category": "whitespace",
+      "rg_compatible": false,
+      "matching_lines": 1978,
+      "baseline_ms": 35.6735,
+      "optimized_ms": 30.889583,
+      "baseline_no_refresh_ms": 18.708166,
+      "optimized_no_refresh_ms": 16.188167,
+      "rg_ms": 68.224083,
+      "baseline_p95_ms": 37.522625,
+      "optimized_p95_ms": 32.813875,
+      "change_pct": -13.410282142206398,
+      "change_bootstrap_95": [
+        -14.909993119754683,
+        -10.901217364245907
+      ],
+      "baseline_rss_mib": 24.546875,
+      "optimized_rss_mib": 27.34375,
+      "baseline_no_refresh_rss_mib": 22.125,
+      "optimized_no_refresh_rss_mib": 24.796875,
+      "rg_rss_mib": 16.03125
+    },
+    {
+      "dataset": "vllm",
+      "query": "class_attention",
+      "category": "anchor / repetition",
+      "rg_compatible": true,
+      "matching_lines": 220,
+      "baseline_ms": 36.279042,
+      "optimized_ms": 31.608334,
+      "baseline_no_refresh_ms": 19.815458,
+      "optimized_no_refresh_ms": 16.7795,
+      "rg_ms": 67.011709,
+      "baseline_p95_ms": 37.830791,
+      "optimized_p95_ms": 33.522333,
+      "change_pct": -12.874397289763051,
+      "change_bootstrap_95": [
+        -13.89374174264859,
+        -11.011407081807734
+      ],
+      "baseline_rss_mib": 17.59375,
+      "optimized_rss_mib": 19.890625,
+      "baseline_no_refresh_rss_mib": 14.5625,
+      "optimized_no_refresh_rss_mib": 17.390625,
+      "rg_rss_mib": 15.359375
+    },
+    {
+      "dataset": "vllm",
+      "query": "python_import",
+      "category": "anchor / optional group",
+      "rg_compatible": true,
+      "matching_lines": 18746,
+      "baseline_ms": 65.577792,
+      "optimized_ms": 61.181958,
+      "baseline_no_refresh_ms": 48.742834,
+      "optimized_no_refresh_ms": 45.826542,
+      "rg_ms": 89.39375,
+      "baseline_p95_ms": 67.441666,
+      "optimized_p95_ms": 63.309959,
+      "change_pct": -6.7032357539576815,
+      "change_bootstrap_95": [
+        -8.586189814298596,
+        -5.2145882090502305
+      ],
+      "baseline_rss_mib": 22.578125,
+      "optimized_rss_mib": 25.71875,
+      "baseline_no_refresh_rss_mib": 21.15625,
+      "optimized_no_refresh_rss_mib": 23.34375,
+      "rg_rss_mib": 17.421875
+    },
+    {
+      "dataset": "vllm",
+      "query": "decorator",
+      "category": "anchor / character class",
+      "rg_compatible": true,
+      "matching_lines": 8968,
+      "baseline_ms": 42.986334,
+      "optimized_ms": 39.112542,
+      "baseline_no_refresh_ms": 26.266667,
+      "optimized_no_refresh_ms": 23.322041,
+      "rg_ms": 74.227875,
+      "baseline_p95_ms": 44.752583,
+      "optimized_p95_ms": 40.127958,
+      "change_pct": -9.011682643139562,
+      "change_bootstrap_95": [
+        -10.99322671945523,
+        -8.019216131111817
+      ],
+      "baseline_rss_mib": 18.703125,
+      "optimized_rss_mib": 21.0625,
+      "baseline_no_refresh_rss_mib": 15.765625,
+      "optimized_no_refresh_rss_mib": 17.984375,
+      "rg_rss_mib": 16.328125
+    },
+    {
+      "dataset": "vllm",
+      "query": "logger",
+      "category": "group / alternation",
+      "rg_compatible": true,
+      "matching_lines": 831,
+      "baseline_ms": 32.8835,
+      "optimized_ms": 28.080666,
+      "baseline_no_refresh_ms": 15.89775,
+      "optimized_no_refresh_ms": 13.010292,
+      "rg_ms": 67.427084,
+      "baseline_p95_ms": 34.152875,
+      "optimized_p95_ms": 29.324,
+      "change_pct": -14.605604634543157,
+      "change_bootstrap_95": [
+        -15.94238703520874,
+        -12.792894536808852
+      ],
+      "baseline_rss_mib": 15.34375,
+      "optimized_rss_mib": 18.1875,
+      "baseline_no_refresh_rss_mib": 12.59375,
+      "optimized_no_refresh_rss_mib": 15.015625,
+      "rg_rss_mib": 15.265625
+    },
+    {
+      "dataset": "vllm",
+      "query": "exceptions",
+      "category": "group / alternation",
+      "rg_compatible": true,
+      "matching_lines": 6725,
+      "baseline_ms": 43.309709,
+      "optimized_ms": 38.793083,
+      "baseline_no_refresh_ms": 26.61625,
+      "optimized_no_refresh_ms": 23.643,
+      "rg_ms": 75.827584,
+      "baseline_p95_ms": 45.307167,
+      "optimized_p95_ms": 40.150666,
+      "change_pct": -10.42866854635296,
+      "change_bootstrap_95": [
+        -12.498351532575347,
+        -8.906310506358238
+      ],
+      "baseline_rss_mib": 19.3125,
+      "optimized_rss_mib": 23.203125,
+      "baseline_no_refresh_rss_mib": 16.78125,
+      "optimized_no_refresh_rss_mib": 19.40625,
+      "rg_rss_mib": 16.578125
+    },
+    {
+      "dataset": "vllm",
+      "query": "cache",
+      "category": "group / alternation",
+      "rg_compatible": true,
+      "matching_lines": 8041,
+      "baseline_ms": 45.421375,
+      "optimized_ms": 40.768417,
+      "baseline_no_refresh_ms": 28.667417,
+      "optimized_no_refresh_ms": 26.059917,
+      "rg_ms": 69.515958,
+      "baseline_p95_ms": 47.902375,
+      "optimized_p95_ms": 42.340917,
+      "change_pct": -10.243983146701297,
+      "change_bootstrap_95": [
+        -11.497849347343713,
+        -8.499565695990052
+      ],
+      "baseline_rss_mib": 25.0625,
+      "optimized_rss_mib": 27.90625,
+      "baseline_no_refresh_rss_mib": 22.03125,
+      "optimized_no_refresh_rss_mib": 25.109375,
+      "rg_rss_mib": 16.515625
+    },
+    {
+      "dataset": "vllm",
+      "query": "tensor_creation",
+      "category": "two alternative groups",
+      "rg_compatible": true,
+      "matching_lines": 5133,
+      "baseline_ms": 43.55375,
+      "optimized_ms": 38.382083,
+      "baseline_no_refresh_ms": 26.352959,
+      "optimized_no_refresh_ms": 23.33825,
+      "rg_ms": 72.857125,
+      "baseline_p95_ms": 44.553958,
+      "optimized_p95_ms": 54.118459,
+      "change_pct": -11.874217489883188,
+      "change_bootstrap_95": [
+        -12.815263195424931,
+        -9.310741371530051
+      ],
+      "baseline_rss_mib": 25.140625,
+      "optimized_rss_mib": 27.5625,
+      "baseline_no_refresh_rss_mib": 22.09375,
+      "optimized_no_refresh_rss_mib": 24.96875,
+      "rg_rss_mib": 15.390625
+    },
+    {
+      "dataset": "vllm",
+      "query": "env_vars",
+      "category": "character class / repetition",
+      "rg_compatible": true,
+      "matching_lines": 6332,
+      "baseline_ms": 40.446583,
+      "optimized_ms": 36.389167,
+      "baseline_no_refresh_ms": 23.872042,
+      "optimized_no_refresh_ms": 21.026834,
+      "rg_ms": 72.782917,
+      "baseline_p95_ms": 42.236292,
+      "optimized_p95_ms": 37.444542,
+      "change_pct": -10.03154209590461,
+      "change_bootstrap_95": [
+        -12.114904453275543,
+        -9.082994494186247
+      ],
+      "baseline_rss_mib": 18.46875,
+      "optimized_rss_mib": 21.484375,
+      "baseline_no_refresh_rss_mib": 15.578125,
+      "optimized_no_refresh_rss_mib": 17.96875,
+      "rg_rss_mib": 15.421875
+    },
+    {
+      "dataset": "vllm",
+      "query": "cuda_call",
+      "category": "escaped punctuation",
+      "rg_compatible": true,
+      "matching_lines": 611,
+      "baseline_ms": 31.302875,
+      "optimized_ms": 26.749584,
+      "baseline_no_refresh_ms": 14.231958,
+      "optimized_no_refresh_ms": 11.6015,
+      "rg_ms": 67.279917,
+      "baseline_p95_ms": 40.144875,
+      "optimized_p95_ms": 28.540333,
+      "change_pct": -14.545919504198901,
+      "change_bootstrap_95": [
+        -16.743603613607327,
+        -12.579929629626395
+      ],
+      "baseline_rss_mib": 15.296875,
+      "optimized_rss_mib": 17.890625,
+      "baseline_no_refresh_rss_mib": 12.09375,
+      "optimized_no_refresh_rss_mib": 14.515625,
+      "rg_rss_mib": 16.0625
+    },
+    {
+      "dataset": "vllm",
+      "query": "config_assignment",
+      "category": "optional whitespace",
+      "rg_compatible": true,
+      "matching_lines": 1547,
+      "baseline_ms": 34.577042,
+      "optimized_ms": 29.485958,
+      "baseline_no_refresh_ms": 17.729417,
+      "optimized_no_refresh_ms": 14.712958,
+      "rg_ms": 68.16025,
+      "baseline_p95_ms": 35.726458,
+      "optimized_p95_ms": 31.454542,
+      "change_pct": -14.723885287816119,
+      "change_bootstrap_95": [
+        -16.086444910352593,
+        -11.931541258787338
+      ],
+      "baseline_rss_mib": 15.703125,
+      "optimized_rss_mib": 18.265625,
+      "baseline_no_refresh_rss_mib": 12.734375,
+      "optimized_no_refresh_rss_mib": 15.3125,
+      "rg_rss_mib": 14.828125
+    },
+    {
+      "dataset": "vllm",
+      "query": "raise_error",
+      "category": "wildcard",
+      "rg_compatible": true,
+      "matching_lines": 5675,
+      "baseline_ms": 41.84775,
+      "optimized_ms": 37.240375,
+      "baseline_no_refresh_ms": 25.010375,
+      "optimized_no_refresh_ms": 22.329583,
+      "rg_ms": 75.212584,
+      "baseline_p95_ms": 42.9905,
+      "optimized_p95_ms": 38.379167,
+      "change_pct": -11.009851186742415,
+      "change_bootstrap_95": [
+        -12.75035667949098,
+        -9.448191002674166
+      ],
+      "baseline_rss_mib": 17.578125,
+      "optimized_rss_mib": 20.09375,
+      "baseline_no_refresh_rss_mib": 14.390625,
+      "optimized_no_refresh_rss_mib": 17.125,
+      "rg_rss_mib": 16.671875
+    },
+    {
+      "dataset": "vllm",
+      "query": "todo_comment",
+      "category": "anchor / wildcard",
+      "rg_compatible": true,
+      "matching_lines": 726,
+      "baseline_ms": 105.581167,
+      "optimized_ms": 101.04725,
+      "baseline_no_refresh_ms": 90.326125,
+      "optimized_no_refresh_ms": 87.333375,
+      "rg_ms": 68.535834,
+      "baseline_p95_ms": 109.8795,
+      "optimized_p95_ms": 104.170791,
+      "change_pct": -4.294247855775257,
+      "change_bootstrap_95": [
+        -6.402710214339535,
+        -3.171358214654929
+      ],
+      "baseline_rss_mib": 26.65625,
+      "optimized_rss_mib": 29.46875,
+      "baseline_no_refresh_rss_mib": 23.15625,
+      "optimized_no_refresh_rss_mib": 27.140625,
+      "rg_rss_mib": 16.421875
+    },
+    {
+      "dataset": "vllm",
+      "query": "return_none",
+      "category": "both anchors",
+      "rg_compatible": true,
+      "matching_lines": 1742,
+      "baseline_ms": 56.45775,
+      "optimized_ms": 51.69225,
+      "baseline_no_refresh_ms": 39.476584,
+      "optimized_no_refresh_ms": 36.663,
+      "rg_ms": 69.454875,
+      "baseline_p95_ms": 57.986625,
+      "optimized_p95_ms": 53.336208,
+      "change_pct": -8.44082521885834,
+      "change_bootstrap_95": [
+        -9.614681002067439,
+        -7.563394440240456
+      ],
+      "baseline_rss_mib": 23.953125,
+      "optimized_rss_mib": 26.53125,
+      "baseline_no_refresh_rss_mib": 21.25,
+      "optimized_no_refresh_rss_mib": 23.59375,
+      "rg_rss_mib": 15.140625
+    },
+    {
+      "dataset": "vllm",
+      "query": "quoted_device",
+      "category": "quote character class",
+      "rg_compatible": true,
+      "matching_lines": 2916,
+      "baseline_ms": 35.53125,
+      "optimized_ms": 30.852834,
+      "baseline_no_refresh_ms": 18.851708,
+      "optimized_no_refresh_ms": 16.031167,
+      "rg_ms": 69.719459,
+      "baseline_p95_ms": 37.105625,
+      "optimized_p95_ms": 31.953083,
+      "change_pct": -13.16704591029023,
+      "change_bootstrap_95": [
+        -14.778611083781923,
+        -11.567764901431554
+      ],
+      "baseline_rss_mib": 22.96875,
+      "optimized_rss_mib": 26.0,
+      "baseline_no_refresh_rss_mib": 20.234375,
+      "optimized_no_refresh_rss_mib": 22.609375,
+      "rg_rss_mib": 14.9375
+    },
+    {
+      "dataset": "vllm",
+      "query": "icase_sampling",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 1348,
+      "baseline_ms": 34.448708,
+      "optimized_ms": 29.679792,
+      "baseline_no_refresh_ms": 18.300417,
+      "optimized_no_refresh_ms": 14.820584,
+      "rg_ms": 68.16525,
+      "baseline_p95_ms": 35.607084,
+      "optimized_p95_ms": 35.462583,
+      "change_pct": -13.843526439366038,
+      "change_bootstrap_95": [
+        -15.484684349671197,
+        -11.343313659252486
+      ],
+      "baseline_rss_mib": 25.734375,
+      "optimized_rss_mib": 28.234375,
+      "baseline_no_refresh_rss_mib": 22.609375,
+      "optimized_no_refresh_rss_mib": 25.25,
+      "rg_rss_mib": 15.21875
+    },
+    {
+      "dataset": "vllm",
+      "query": "icase_platform",
+      "category": "ignore case / alternation",
+      "rg_compatible": true,
+      "matching_lines": 9805,
+      "baseline_ms": 47.135041,
+      "optimized_ms": 42.46075,
+      "baseline_no_refresh_ms": 30.457458,
+      "optimized_no_refresh_ms": 27.342833,
+      "rg_ms": 75.499708,
+      "baseline_p95_ms": 48.031,
+      "optimized_p95_ms": 44.249792,
+      "change_pct": -9.916806903806453,
+      "change_bootstrap_95": [
+        -11.385373342049432,
+        -7.600906670855179
+      ],
+      "baseline_rss_mib": 25.015625,
+      "optimized_rss_mib": 28.296875,
+      "baseline_no_refresh_rss_mib": 22.484375,
+      "optimized_no_refresh_rss_mib": 25.078125,
+      "rg_rss_mib": 15.140625
+    },
+    {
+      "dataset": "vllm",
+      "query": "icase_todo",
+      "category": "ignore case / alternation",
+      "rg_compatible": true,
+      "matching_lines": 890,
+      "baseline_ms": 35.610583,
+      "optimized_ms": 30.864125,
+      "baseline_no_refresh_ms": 18.294291,
+      "optimized_no_refresh_ms": 16.140208,
+      "rg_ms": 69.08975,
+      "baseline_p95_ms": 38.421709,
+      "optimized_p95_ms": 32.288041,
+      "change_pct": -13.328784872744137,
+      "change_bootstrap_95": [
+        -15.052833058244408,
+        -11.204621333627674
+      ],
+      "baseline_rss_mib": 25.84375,
+      "optimized_rss_mib": 28.109375,
+      "baseline_no_refresh_rss_mib": 22.9375,
+      "optimized_no_refresh_rss_mib": 25.34375,
+      "rg_rss_mib": 17.21875
+    },
+    {
+      "dataset": "vllm",
+      "query": "icase_env",
+      "category": "ignore case / character class",
+      "rg_compatible": true,
+      "matching_lines": 20751,
+      "baseline_ms": 57.79325,
+      "optimized_ms": 53.239375,
+      "baseline_no_refresh_ms": 41.302917,
+      "optimized_no_refresh_ms": 38.426625,
+      "rg_ms": 80.360375,
+      "baseline_p95_ms": 60.834583,
+      "optimized_p95_ms": 55.508417,
+      "change_pct": -7.879596665700572,
+      "change_bootstrap_95": [
+        -8.954520385029763,
+        -6.479851885817112
+      ],
+      "baseline_rss_mib": 20.4375,
+      "optimized_rss_mib": 23.125,
+      "baseline_no_refresh_rss_mib": 17.921875,
+      "optimized_no_refresh_rss_mib": 20.375,
+      "rg_rss_mib": 15.5625
+    },
+    {
+      "dataset": "vllm",
+      "query": "icase_logger",
+      "category": "ignore case / escaped punctuation",
+      "rg_compatible": true,
+      "matching_lines": 831,
+      "baseline_ms": 36.940041,
+      "optimized_ms": 32.755,
+      "baseline_no_refresh_ms": 19.954333,
+      "optimized_no_refresh_ms": 17.152833,
+      "rg_ms": 67.487083,
+      "baseline_p95_ms": 39.922042,
+      "optimized_p95_ms": 34.399417,
+      "change_pct": -11.329280874376934,
+      "change_bootstrap_95": [
+        -12.735199603169534,
+        -9.81356449695806
+      ],
+      "baseline_rss_mib": 26.734375,
+      "optimized_rss_mib": 29.1875,
+      "baseline_no_refresh_rss_mib": 23.78125,
+      "optimized_no_refresh_rss_mib": 26.453125,
+      "rg_rss_mib": 15.484375
+    },
+    {
+      "dataset": "vllm",
+      "query": "icase_literal",
+      "category": "ignore case / fixed string",
+      "rg_compatible": true,
+      "matching_lines": 580,
+      "baseline_ms": 35.885167,
+      "optimized_ms": 31.248833,
+      "baseline_no_refresh_ms": 19.355625,
+      "optimized_no_refresh_ms": 16.29925,
+      "rg_ms": 67.068208,
+      "baseline_p95_ms": 38.648,
+      "optimized_p95_ms": 33.4015,
+      "change_pct": -12.91991758043094,
+      "change_bootstrap_95": [
+        -14.532646923198689,
+        -10.222180920006863
+      ],
+      "baseline_rss_mib": 26.125,
+      "optimized_rss_mib": 28.84375,
+      "baseline_no_refresh_rss_mib": 23.375,
+      "optimized_no_refresh_rss_mib": 25.78125,
+      "rg_rss_mib": 15.125
+    },
+    {
+      "dataset": "vllm",
+      "query": "digits",
+      "category": "scan fallback / bounded repetition",
+      "rg_compatible": true,
+      "matching_lines": 106132,
+      "baseline_ms": 164.347667,
+      "optimized_ms": 154.705084,
+      "baseline_no_refresh_ms": 141.913958,
+      "optimized_no_refresh_ms": 145.116375,
+      "rg_ms": 95.9655,
+      "baseline_p95_ms": 176.994,
+      "optimized_p95_ms": 172.567958,
+      "change_pct": -5.867185811648912,
+      "change_bootstrap_95": [
+        -12.307902125559234,
+        -1.13979965081904
+      ],
+      "baseline_rss_mib": 60.34375,
+      "optimized_rss_mib": 60.390625,
+      "baseline_no_refresh_rss_mib": 58.359375,
+      "optimized_no_refresh_rss_mib": 58.890625,
+      "rg_rss_mib": 25.703125
+    },
+    {
+      "dataset": "vllm",
+      "query": "hex_number",
+      "category": "hexadecimal / short prefix",
+      "rg_compatible": true,
+      "matching_lines": 1867,
+      "baseline_ms": 33.957792,
+      "optimized_ms": 29.425584,
+      "baseline_no_refresh_ms": 16.941583,
+      "optimized_no_refresh_ms": 14.098833,
+      "rg_ms": 66.793208,
+      "baseline_p95_ms": 35.276167,
+      "optimized_p95_ms": 30.6835,
+      "change_pct": -13.346592145920432,
+      "change_bootstrap_95": [
+        -16.81449258351668,
+        -11.965749572204443
+      ],
+      "baseline_rss_mib": 25.890625,
+      "optimized_rss_mib": 28.484375,
+      "baseline_no_refresh_rss_mib": 23.390625,
+      "optimized_no_refresh_rss_mib": 25.796875,
+      "rg_rss_mib": 18.671875
+    },
+    {
+      "dataset": "vllm",
+      "query": "short_word",
+      "category": "scan fallback / short literal",
+      "rg_compatible": true,
+      "matching_lines": 68895,
+      "baseline_ms": 105.84975,
+      "optimized_ms": 101.499583,
+      "baseline_no_refresh_ms": 89.517417,
+      "optimized_no_refresh_ms": 86.474125,
+      "rg_ms": 93.310167,
+      "baseline_p95_ms": 107.722041,
+      "optimized_p95_ms": 105.080333,
+      "change_pct": -4.109756518083419,
+      "change_bootstrap_95": [
+        -5.289969096784675,
+        -3.362709380571949
+      ],
+      "baseline_rss_mib": 43.65625,
+      "optimized_rss_mib": 43.203125,
+      "baseline_no_refresh_rss_mib": 40.28125,
+      "optimized_no_refresh_rss_mib": 41.625,
+      "rg_rss_mib": 24.203125
+    },
+    {
+      "dataset": "vllm",
+      "query": "blank_lines",
+      "category": "scan fallback / empty match",
+      "rg_compatible": false,
+      "matching_lines": 263971,
+      "baseline_ms": 185.967416,
+      "optimized_ms": 181.589583,
+      "baseline_no_refresh_ms": 170.117666,
+      "optimized_no_refresh_ms": 166.162958,
+      "rg_ms": 101.585583,
+      "baseline_p95_ms": 195.452125,
+      "optimized_p95_ms": 206.054042,
+      "change_pct": -2.35408605128975,
+      "change_bootstrap_95": [
+        -3.5153191201340195,
+        -1.907143306865433
+      ],
+      "baseline_rss_mib": 56.84375,
+      "optimized_rss_mib": 59.703125,
+      "baseline_no_refresh_rss_mib": 54.171875,
+      "optimized_no_refresh_rss_mib": 56.875,
+      "rg_rss_mib": 15.9375
+    },
+    {
+      "dataset": "vllm",
+      "query": "absent_regex",
+      "category": "no matches",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 28.699708,
+      "optimized_ms": 24.247917,
+      "baseline_no_refresh_ms": 11.819208,
+      "optimized_no_refresh_ms": 8.816625,
+      "rg_ms": 65.188041,
+      "baseline_p95_ms": 30.753667,
+      "optimized_p95_ms": 25.258291,
+      "change_pct": -15.511624717575522,
+      "change_bootstrap_95": [
+        -18.31664999871785,
+        -13.249398732065398
+      ],
+      "baseline_rss_mib": 15.15625,
+      "optimized_rss_mib": 17.734375,
+      "baseline_no_refresh_rss_mib": 10.421875,
+      "optimized_no_refresh_rss_mib": 12.953125,
+      "rg_rss_mib": 15.015625
+    },
+    {
+      "dataset": "vllm",
+      "query": "wide_icase_asyncmock",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 87,
+      "baseline_ms": 29.82675,
+      "optimized_ms": 25.372208,
+      "baseline_no_refresh_ms": 12.893709,
+      "optimized_no_refresh_ms": 9.829041,
+      "rg_ms": 65.873542,
+      "baseline_p95_ms": 31.462875,
+      "optimized_p95_ms": 26.553542,
+      "change_pct": -14.934721349124525,
+      "change_bootstrap_95": [
+        -17.52648828734812,
+        -13.162328173999304
+      ],
+      "baseline_rss_mib": 17.765625,
+      "optimized_rss_mib": 20.28125,
+      "baseline_no_refresh_rss_mib": 14.265625,
+      "optimized_no_refresh_rss_mib": 16.90625,
+      "rg_rss_mib": 15.171875
+    },
+    {
+      "dataset": "vllm",
+      "query": "wide_icase_cache",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 9166,
+      "baseline_ms": 60.251958,
+      "optimized_ms": 55.597916,
+      "baseline_no_refresh_ms": 43.15375,
+      "optimized_no_refresh_ms": 40.457333,
+      "rg_ms": 69.685666,
+      "baseline_p95_ms": 61.996042,
+      "optimized_p95_ms": 57.322959,
+      "change_pct": -7.724300013619478,
+      "change_bootstrap_95": [
+        -8.74609908458065,
+        -6.202640258458536
+      ],
+      "baseline_rss_mib": 26.140625,
+      "optimized_rss_mib": 29.5625,
+      "baseline_no_refresh_rss_mib": 24.046875,
+      "optimized_no_refresh_rss_mib": 26.625,
+      "rg_rss_mib": 15.46875
+    },
+    {
+      "dataset": "vllm",
+      "query": "wide_icase_class_attention",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 227,
+      "baseline_ms": 38.644833,
+      "optimized_ms": 33.282166,
+      "baseline_no_refresh_ms": 21.588292,
+      "optimized_no_refresh_ms": 18.43725,
+      "rg_ms": 66.721292,
+      "baseline_p95_ms": 40.327542,
+      "optimized_p95_ms": 34.640375,
+      "change_pct": -13.876802107024243,
+      "change_bootstrap_95": [
+        -14.751528831342831,
+        -12.20648296598279
+      ],
+      "baseline_rss_mib": 20.6875,
+      "optimized_rss_mib": 23.421875,
+      "baseline_no_refresh_rss_mib": 18.078125,
+      "optimized_no_refresh_rss_mib": 20.78125,
+      "rg_rss_mib": 15.21875
+    },
+    {
+      "dataset": "vllm",
+      "query": "wide_icase_def_forward",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 1733,
+      "baseline_ms": 39.929292,
+      "optimized_ms": 35.20275,
+      "baseline_no_refresh_ms": 23.145542,
+      "optimized_no_refresh_ms": 20.092667,
+      "rg_ms": 68.70875,
+      "baseline_p95_ms": 41.839625,
+      "optimized_p95_ms": 38.700916,
+      "change_pct": -11.83727975943073,
+      "change_bootstrap_95": [
+        -13.34654922076478,
+        -10.30399104082581
+      ],
+      "baseline_rss_mib": 25.84375,
+      "optimized_rss_mib": 28.578125,
+      "baseline_no_refresh_rss_mib": 22.984375,
+      "optimized_no_refresh_rss_mib": 25.296875,
+      "rg_rss_mib": 15.15625
+    },
+    {
+      "dataset": "vllm",
+      "query": "wide_icase_config",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 2905,
+      "baseline_ms": 45.70225,
+      "optimized_ms": 41.145791,
+      "baseline_no_refresh_ms": 28.612292,
+      "optimized_no_refresh_ms": 26.114709,
+      "rg_ms": 70.357,
+      "baseline_p95_ms": 48.744959,
+      "optimized_p95_ms": 43.30775,
+      "change_pct": -9.969878944690901,
+      "change_bootstrap_95": [
+        -11.517144041694817,
+        -8.196296347365662
+      ],
+      "baseline_rss_mib": 26.15625,
+      "optimized_rss_mib": 28.71875,
+      "baseline_no_refresh_rss_mib": 23.21875,
+      "optimized_no_refresh_rss_mib": 25.9375,
+      "rg_rss_mib": 15.28125
+    },
+    {
+      "dataset": "vllm",
+      "query": "wide_icase_exceptions",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 6725,
+      "baseline_ms": 60.434584,
+      "optimized_ms": 54.779709,
+      "baseline_no_refresh_ms": 43.865042,
+      "optimized_no_refresh_ms": 41.21725,
+      "rg_ms": 74.997875,
+      "baseline_p95_ms": 62.120916,
+      "optimized_p95_ms": 57.69275,
+      "change_pct": -9.357018160330188,
+      "change_bootstrap_95": [
+        -10.352498889726613,
+        -6.84026246937165
+      ],
+      "baseline_rss_mib": 27.359375,
+      "optimized_rss_mib": 30.140625,
+      "baseline_no_refresh_rss_mib": 25.1875,
+      "optimized_no_refresh_rss_mib": 27.734375,
+      "rg_rss_mib": 16.765625
+    },
+    {
+      "dataset": "vllm",
+      "query": "wide_icase_tensor_creation",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 5133,
+      "baseline_ms": 47.908833,
+      "optimized_ms": 43.419917,
+      "baseline_no_refresh_ms": 31.305,
+      "optimized_no_refresh_ms": 28.912541,
+      "rg_ms": 72.203209,
+      "baseline_p95_ms": 52.334875,
+      "optimized_p95_ms": 45.584083,
+      "change_pct": -9.369704329888407,
+      "change_bootstrap_95": [
+        -10.70767210606174,
+        -8.15072179616898
+      ],
+      "baseline_rss_mib": 27.25,
+      "optimized_rss_mib": 29.875,
+      "baseline_no_refresh_rss_mib": 24.734375,
+      "optimized_no_refresh_rss_mib": 27.5,
+      "rg_rss_mib": 16.203125
+    },
+    {
+      "dataset": "vllm",
+      "query": "wide_icase_async_def",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 1974,
+      "baseline_ms": 35.459042,
+      "optimized_ms": 31.449958,
+      "baseline_no_refresh_ms": 19.37325,
+      "optimized_no_refresh_ms": 16.172125,
+      "rg_ms": 68.190208,
+      "baseline_p95_ms": 38.980875,
+      "optimized_p95_ms": 34.077208,
+      "change_pct": -11.306238899516796,
+      "change_bootstrap_95": [
+        -14.012440394375114,
+        -9.505080220075834
+      ],
+      "baseline_rss_mib": 27.578125,
+      "optimized_rss_mib": 29.890625,
+      "baseline_no_refresh_rss_mib": 25.28125,
+      "optimized_no_refresh_rss_mib": 27.625,
+      "rg_rss_mib": 16.765625
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "word_return",
+      "category": "common word",
+      "rg_compatible": true,
+      "matching_lines": 268,
+      "baseline_ms": 8.091875,
+      "optimized_ms": 8.072917,
+      "baseline_no_refresh_ms": 4.661292,
+      "optimized_no_refresh_ms": 4.671459,
+      "rg_ms": 6.861375,
+      "baseline_p95_ms": 9.123333,
+      "optimized_p95_ms": 8.697333,
+      "change_pct": -0.2342843902062186,
+      "change_bootstrap_95": [
+        -2.0194040836600147,
+        0.7892796034981719
+      ],
+      "baseline_rss_mib": 10.109375,
+      "optimized_rss_mib": 10.09375,
+      "baseline_no_refresh_rss_mib": 8.640625,
+      "optimized_no_refresh_rss_mib": 8.734375,
+      "rg_rss_mib": 6.0
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "errors",
+      "category": "alternation",
+      "rg_compatible": true,
+      "matching_lines": 420,
+      "baseline_ms": 8.380208,
+      "optimized_ms": 8.309708,
+      "baseline_no_refresh_ms": 4.995333,
+      "optimized_no_refresh_ms": 4.938375,
+      "rg_ms": 7.244209,
+      "baseline_p95_ms": 9.737417,
+      "optimized_p95_ms": 9.272958,
+      "change_pct": -0.841267901703624,
+      "change_bootstrap_95": [
+        -2.923441518859371,
+        -0.03540094986563824
+      ],
+      "baseline_rss_mib": 10.46875,
+      "optimized_rss_mib": 10.53125,
+      "baseline_no_refresh_rss_mib": 9.328125,
+      "optimized_no_refresh_rss_mib": 9.203125,
+      "rg_rss_mib": 6.21875
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "todo",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 1,
+      "baseline_ms": 7.637167,
+      "optimized_ms": 7.601084,
+      "baseline_no_refresh_ms": 4.297917,
+      "optimized_no_refresh_ms": 4.244292,
+      "rg_ms": 7.532417,
+      "baseline_p95_ms": 8.970292,
+      "optimized_p95_ms": 8.836625,
+      "change_pct": -0.47246577166637493,
+      "change_bootstrap_95": [
+        -1.7517785088254412,
+        1.6431209188083606
+      ],
+      "baseline_rss_mib": 9.921875,
+      "optimized_rss_mib": 9.875,
+      "baseline_no_refresh_rss_mib": 8.4375,
+      "optimized_no_refresh_rss_mib": 8.4375,
+      "rg_rss_mib": 5.984375
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "short",
+      "category": "scan fallback",
+      "rg_compatible": true,
+      "matching_lines": 97,
+      "baseline_ms": 8.418041,
+      "optimized_ms": 8.389041,
+      "baseline_no_refresh_ms": 4.999083,
+      "optimized_no_refresh_ms": 4.947542,
+      "rg_ms": 7.127292,
+      "baseline_p95_ms": 9.074,
+      "optimized_p95_ms": 9.061875,
+      "change_pct": -0.3444982033230737,
+      "change_bootstrap_95": [
+        -2.1216738924468292,
+        1.653962136310616
+      ],
+      "baseline_rss_mib": 10.078125,
+      "optimized_rss_mib": 9.984375,
+      "baseline_no_refresh_rss_mib": 8.484375,
+      "optimized_no_refresh_rss_mib": 8.5,
+      "rg_rss_mib": 5.984375
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "digits",
+      "category": "scan fallback",
+      "rg_compatible": true,
+      "matching_lines": 88,
+      "baseline_ms": 8.560542,
+      "optimized_ms": 8.511625,
+      "baseline_no_refresh_ms": 5.349375,
+      "optimized_no_refresh_ms": 5.255667,
+      "rg_ms": 7.461375,
+      "baseline_p95_ms": 8.957875,
+      "optimized_p95_ms": 9.898917,
+      "change_pct": -0.5714240990815744,
+      "change_bootstrap_95": [
+        -2.8100934908121156,
+        1.141759169410439
+      ],
+      "baseline_rss_mib": 10.59375,
+      "optimized_rss_mib": 10.5625,
+      "baseline_no_refresh_rss_mib": 9.421875,
+      "optimized_no_refresh_rss_mib": 9.453125,
+      "rg_rss_mib": 6.53125
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "absent",
+      "category": "no matches",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 7.357333,
+      "optimized_ms": 7.355916,
+      "baseline_no_refresh_ms": 4.052333,
+      "optimized_no_refresh_ms": 4.013417,
+      "rg_ms": 7.267916,
+      "baseline_p95_ms": 8.691375,
+      "optimized_p95_ms": 7.909167,
+      "change_pct": -0.01925969641445313,
+      "change_bootstrap_95": [
+        -1.4533377210852128,
+        2.6403749906739105
+      ],
+      "baseline_rss_mib": 9.4375,
+      "optimized_rss_mib": 9.359375,
+      "baseline_no_refresh_rss_mib": 7.453125,
+      "optimized_no_refresh_rss_mib": 7.515625,
+      "rg_rss_mib": 5.71875
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "literal",
+      "category": "fixed string",
+      "rg_compatible": true,
+      "matching_lines": 66,
+      "baseline_ms": 7.965833,
+      "optimized_ms": 7.970709,
+      "baseline_no_refresh_ms": 4.598458,
+      "optimized_no_refresh_ms": 4.496208,
+      "rg_ms": 7.299917,
+      "baseline_p95_ms": 8.538083,
+      "optimized_p95_ms": 8.838542,
+      "change_pct": 0.06121142635051591,
+      "change_bootstrap_95": [
+        -2.3303989038227724,
+        2.136597492093961
+      ],
+      "baseline_rss_mib": 9.90625,
+      "optimized_rss_mib": 9.8125,
+      "baseline_no_refresh_rss_mib": 8.296875,
+      "optimized_no_refresh_rss_mib": 8.34375,
+      "rg_rss_mib": 5.859375
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "icase_literal",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 318,
+      "baseline_ms": 8.3785,
+      "optimized_ms": 8.323459,
+      "baseline_no_refresh_ms": 5.059584,
+      "optimized_no_refresh_ms": 4.931792,
+      "rg_ms": 7.199792,
+      "baseline_p95_ms": 9.457125,
+      "optimized_p95_ms": 9.686792,
+      "change_pct": -0.6569314316405173,
+      "change_bootstrap_95": [
+        -11.007569766829594,
+        1.6087667493382751
+      ],
+      "baseline_rss_mib": 11.765625,
+      "optimized_rss_mib": 11.640625,
+      "baseline_no_refresh_rss_mib": 10.546875,
+      "optimized_no_refresh_rss_mib": 10.5,
+      "rg_rss_mib": 6.15625
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "function",
+      "category": "function definitions",
+      "rg_compatible": true,
+      "matching_lines": 813,
+      "baseline_ms": 8.303708,
+      "optimized_ms": 8.332125,
+      "baseline_no_refresh_ms": 4.925583,
+      "optimized_no_refresh_ms": 4.97225,
+      "rg_ms": 7.994208,
+      "baseline_p95_ms": 8.650292,
+      "optimized_p95_ms": 9.012416,
+      "change_pct": 0.34222060795008336,
+      "change_bootstrap_95": [
+        -0.7363436222312059,
+        1.2976973956325244
+      ],
+      "baseline_rss_mib": 10.296875,
+      "optimized_rss_mib": 10.203125,
+      "baseline_no_refresh_rss_mib": 8.96875,
+      "optimized_no_refresh_rss_mib": 8.953125,
+      "rg_rss_mib": 6.078125
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "public",
+      "category": "optional group",
+      "rg_compatible": true,
+      "matching_lines": 357,
+      "baseline_ms": 8.253542,
+      "optimized_ms": 8.197042,
+      "baseline_no_refresh_ms": 4.894833,
+      "optimized_no_refresh_ms": 4.894583,
+      "rg_ms": 7.818041,
+      "baseline_p95_ms": 9.201834,
+      "optimized_p95_ms": 8.719291,
+      "change_pct": -0.6845545827476207,
+      "change_bootstrap_95": [
+        -2.7053350751535254,
+        1.5649415556971968
+      ],
+      "baseline_rss_mib": 10.75,
+      "optimized_rss_mib": 10.71875,
+      "baseline_no_refresh_rss_mib": 9.453125,
+      "optimized_no_refresh_rss_mib": 9.40625,
+      "rg_rss_mib": 6.140625
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "impl",
+      "category": "anchor",
+      "rg_compatible": true,
+      "matching_lines": 152,
+      "baseline_ms": 8.0975,
+      "optimized_ms": 8.236625,
+      "baseline_no_refresh_ms": 4.857667,
+      "optimized_no_refresh_ms": 4.777708,
+      "rg_ms": 6.986583,
+      "baseline_p95_ms": 9.389,
+      "optimized_p95_ms": 8.765208,
+      "change_pct": 1.7181228774313162,
+      "change_bootstrap_95": [
+        -0.2185187791581944,
+        15.067221819113175
+      ],
+      "baseline_rss_mib": 10.4375,
+      "optimized_rss_mib": 10.375,
+      "baseline_no_refresh_rss_mib": 9.015625,
+      "optimized_no_refresh_rss_mib": 9.03125,
+      "rg_rss_mib": 5.984375
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "use",
+      "category": "imports",
+      "rg_compatible": true,
+      "matching_lines": 184,
+      "baseline_ms": 8.131708,
+      "optimized_ms": 8.050333,
+      "baseline_no_refresh_ms": 4.624792,
+      "optimized_no_refresh_ms": 4.620334,
+      "rg_ms": 7.393917,
+      "baseline_p95_ms": 9.503333,
+      "optimized_p95_ms": 8.705417,
+      "change_pct": -1.0007122734854712,
+      "change_bootstrap_95": [
+        -2.164755271916652,
+        0.8019839787108518
+      ],
+      "baseline_rss_mib": 10.171875,
+      "optimized_rss_mib": 10.234375,
+      "baseline_no_refresh_rss_mib": 8.90625,
+      "optimized_no_refresh_rss_mib": 8.859375,
+      "rg_rss_mib": 5.953125
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "derive",
+      "category": "escaped punctuation",
+      "rg_compatible": true,
+      "matching_lines": 125,
+      "baseline_ms": 7.760875,
+      "optimized_ms": 7.647791,
+      "baseline_no_refresh_ms": 4.392667,
+      "optimized_no_refresh_ms": 4.3105,
+      "rg_ms": 7.283583,
+      "baseline_p95_ms": 8.727625,
+      "optimized_p95_ms": 8.114834,
+      "change_pct": -1.4571037415240018,
+      "change_bootstrap_95": [
+        -5.229400746065538,
+        0.061556405105944734
+      ],
+      "baseline_rss_mib": 9.8125,
+      "optimized_rss_mib": 9.703125,
+      "baseline_no_refresh_rss_mib": 8.1875,
+      "optimized_no_refresh_rss_mib": 8.203125,
+      "rg_rss_mib": 5.875
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "unwrap",
+      "category": "method call",
+      "rg_compatible": true,
+      "matching_lines": 413,
+      "baseline_ms": 7.983459,
+      "optimized_ms": 7.883667,
+      "baseline_no_refresh_ms": 4.486833,
+      "optimized_no_refresh_ms": 4.499583,
+      "rg_ms": 7.333792,
+      "baseline_p95_ms": 8.93575,
+      "optimized_p95_ms": 8.311083,
+      "change_pct": -1.2499844992001519,
+      "change_bootstrap_95": [
+        -2.4716446837388273,
+        0.6259720150711745
+      ],
+      "baseline_rss_mib": 9.96875,
+      "optimized_rss_mib": 9.984375,
+      "baseline_no_refresh_rss_mib": 8.546875,
+      "optimized_no_refresh_rss_mib": 8.625,
+      "rg_rss_mib": 5.875
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "async",
+      "category": "whitespace",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 7.992917,
+      "optimized_ms": 7.866792,
+      "baseline_no_refresh_ms": 4.522959,
+      "optimized_no_refresh_ms": 4.411334,
+      "rg_ms": 6.988875,
+      "baseline_p95_ms": 8.51075,
+      "optimized_p95_ms": 9.183416,
+      "change_pct": -1.5779595859684248,
+      "change_bootstrap_95": [
+        -3.2359910383967128,
+        1.111866765780456
+      ],
+      "baseline_rss_mib": 10.703125,
+      "optimized_rss_mib": 10.625,
+      "baseline_no_refresh_rss_mib": 9.375,
+      "optimized_no_refresh_rss_mib": 9.234375,
+      "rg_rss_mib": 6.4375
+    },
+    {
+      "dataset": "viberwhisper",
+      "query": "common_files",
+      "category": "common / files",
+      "rg_compatible": true,
+      "matching_lines": 54,
+      "baseline_ms": 7.953333,
+      "optimized_ms": 7.884333,
+      "baseline_no_refresh_ms": 4.548959,
+      "optimized_no_refresh_ms": 4.543625,
+      "rg_ms": 7.431833,
+      "baseline_p95_ms": 8.782958,
+      "optimized_p95_ms": 8.416,
+      "change_pct": -0.8675608075256025,
+      "change_bootstrap_95": [
+        -2.184042305723999,
+        0.3819419953365877
+      ],
+      "baseline_rss_mib": 9.921875,
+      "optimized_rss_mib": 9.9375,
+      "baseline_no_refresh_rss_mib": 8.3125,
+      "optimized_no_refresh_rss_mib": 8.234375,
+      "rg_rss_mib": 5.859375
+    },
+    {
+      "dataset": "agentflow",
+      "query": "word_return",
+      "category": "common word",
+      "rg_compatible": true,
+      "matching_lines": 689,
+      "baseline_ms": 8.185791,
+      "optimized_ms": 8.331958,
+      "baseline_no_refresh_ms": 4.957833,
+      "optimized_no_refresh_ms": 4.872,
+      "rg_ms": 7.174875,
+      "baseline_p95_ms": 8.974625,
+      "optimized_p95_ms": 9.488542,
+      "change_pct": 1.7856185187234752,
+      "change_bootstrap_95": [
+        -0.915950249866726,
+        3.2824030129520176
+      ],
+      "baseline_rss_mib": 10.078125,
+      "optimized_rss_mib": 9.953125,
+      "baseline_no_refresh_rss_mib": 8.59375,
+      "optimized_no_refresh_rss_mib": 8.671875,
+      "rg_rss_mib": 6.0
+    },
+    {
+      "dataset": "agentflow",
+      "query": "errors",
+      "category": "alternation",
+      "rg_compatible": true,
+      "matching_lines": 110,
+      "baseline_ms": 8.113167,
+      "optimized_ms": 8.1715,
+      "baseline_no_refresh_ms": 4.783625,
+      "optimized_no_refresh_ms": 4.774583,
+      "rg_ms": 7.486084,
+      "baseline_p95_ms": 9.539583,
+      "optimized_p95_ms": 9.260917,
+      "change_pct": 0.7189917328214612,
+      "change_bootstrap_95": [
+        -0.7859543020579451,
+        2.203355509673477
+      ],
+      "baseline_rss_mib": 10.421875,
+      "optimized_rss_mib": 10.421875,
+      "baseline_no_refresh_rss_mib": 9.109375,
+      "optimized_no_refresh_rss_mib": 9.140625,
+      "rg_rss_mib": 6.140625
+    },
+    {
+      "dataset": "agentflow",
+      "query": "todo",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 12,
+      "baseline_ms": 7.840792,
+      "optimized_ms": 7.702333,
+      "baseline_no_refresh_ms": 4.405042,
+      "optimized_no_refresh_ms": 4.326625,
+      "rg_ms": 6.736584,
+      "baseline_p95_ms": 9.076292,
+      "optimized_p95_ms": 8.875916,
+      "change_pct": -1.7658802835223808,
+      "change_bootstrap_95": [
+        -3.072703167669266,
+        -0.18717450945787695
+      ],
+      "baseline_rss_mib": 10.046875,
+      "optimized_rss_mib": 10.0,
+      "baseline_no_refresh_rss_mib": 8.671875,
+      "optimized_no_refresh_rss_mib": 8.640625,
+      "rg_rss_mib": 6.046875
+    },
+    {
+      "dataset": "agentflow",
+      "query": "short",
+      "category": "scan fallback",
+      "rg_compatible": true,
+      "matching_lines": 85,
+      "baseline_ms": 8.419542,
+      "optimized_ms": 8.470208,
+      "baseline_no_refresh_ms": 5.200834,
+      "optimized_no_refresh_ms": 5.128417,
+      "rg_ms": 6.729166,
+      "baseline_p95_ms": 9.122709,
+      "optimized_p95_ms": 8.793042,
+      "change_pct": 0.601766699423778,
+      "change_bootstrap_95": [
+        -1.3279972130016415,
+        2.4842980175927565
+      ],
+      "baseline_rss_mib": 10.21875,
+      "optimized_rss_mib": 10.234375,
+      "baseline_no_refresh_rss_mib": 8.609375,
+      "optimized_no_refresh_rss_mib": 8.578125,
+      "rg_rss_mib": 5.96875
+    },
+    {
+      "dataset": "agentflow",
+      "query": "digits",
+      "category": "scan fallback",
+      "rg_compatible": true,
+      "matching_lines": 81,
+      "baseline_ms": 11.003833,
+      "optimized_ms": 10.916708,
+      "baseline_no_refresh_ms": 7.601125,
+      "optimized_no_refresh_ms": 7.559541,
+      "rg_ms": 7.380916,
+      "baseline_p95_ms": 11.487167,
+      "optimized_p95_ms": 11.828417,
+      "change_pct": -0.7917695588437246,
+      "change_bootstrap_95": [
+        -1.5616968020891409,
+        1.4744877795836109
+      ],
+      "baseline_rss_mib": 11.0,
+      "optimized_rss_mib": 10.890625,
+      "baseline_no_refresh_rss_mib": 9.75,
+      "optimized_no_refresh_rss_mib": 9.75,
+      "rg_rss_mib": 6.34375
+    },
+    {
+      "dataset": "agentflow",
+      "query": "absent",
+      "category": "no matches",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 7.474708,
+      "optimized_ms": 7.374,
+      "baseline_no_refresh_ms": 4.015459,
+      "optimized_no_refresh_ms": 4.015791,
+      "rg_ms": 7.13275,
+      "baseline_p95_ms": 8.3755,
+      "optimized_p95_ms": 7.963209,
+      "change_pct": -1.3473168450192308,
+      "change_bootstrap_95": [
+        -3.9204380235873915,
+        1.028481647711188
+      ],
+      "baseline_rss_mib": 9.46875,
+      "optimized_rss_mib": 9.46875,
+      "baseline_no_refresh_rss_mib": 7.4375,
+      "optimized_no_refresh_rss_mib": 7.5,
+      "rg_rss_mib": 5.796875
+    },
+    {
+      "dataset": "agentflow",
+      "query": "literal",
+      "category": "fixed string",
+      "rg_compatible": true,
+      "matching_lines": 25,
+      "baseline_ms": 7.504541,
+      "optimized_ms": 7.52225,
+      "baseline_no_refresh_ms": 4.12875,
+      "optimized_no_refresh_ms": 4.118125,
+      "rg_ms": 7.364584,
+      "baseline_p95_ms": 8.706167,
+      "optimized_p95_ms": 8.656541,
+      "change_pct": 0.23597712371750124,
+      "change_bootstrap_95": [
+        -1.7880343311437397,
+        2.8066037735849036
+      ],
+      "baseline_rss_mib": 9.53125,
+      "optimized_rss_mib": 9.421875,
+      "baseline_no_refresh_rss_mib": 7.640625,
+      "optimized_no_refresh_rss_mib": 7.6875,
+      "rg_rss_mib": 5.90625
+    },
+    {
+      "dataset": "agentflow",
+      "query": "icase_literal",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 25,
+      "baseline_ms": 8.024625,
+      "optimized_ms": 7.999083,
+      "baseline_no_refresh_ms": 4.73325,
+      "optimized_no_refresh_ms": 4.630125,
+      "rg_ms": 7.627417,
+      "baseline_p95_ms": 9.53825,
+      "optimized_p95_ms": 8.278708,
+      "change_pct": -0.3182952474414802,
+      "change_bootstrap_95": [
+        -1.5272993855178663,
+        0.7048050884816526
+      ],
+      "baseline_rss_mib": 11.328125,
+      "optimized_rss_mib": 11.234375,
+      "baseline_no_refresh_rss_mib": 10.15625,
+      "optimized_no_refresh_rss_mib": 10.078125,
+      "rg_rss_mib": 6.015625
+    },
+    {
+      "dataset": "agentflow",
+      "query": "function",
+      "category": "function definitions",
+      "rg_compatible": true,
+      "matching_lines": 1046,
+      "baseline_ms": 8.479333,
+      "optimized_ms": 8.473958,
+      "baseline_no_refresh_ms": 5.194167,
+      "optimized_no_refresh_ms": 5.2225,
+      "rg_ms": 6.97625,
+      "baseline_p95_ms": 8.994666,
+      "optimized_p95_ms": 9.651375,
+      "change_pct": -0.06338941989895153,
+      "change_bootstrap_95": [
+        -3.26947546432631,
+        2.19720428146597
+      ],
+      "baseline_rss_mib": 10.21875,
+      "optimized_rss_mib": 10.15625,
+      "baseline_no_refresh_rss_mib": 8.859375,
+      "optimized_no_refresh_rss_mib": 8.921875,
+      "rg_rss_mib": 6.1875
+    },
+    {
+      "dataset": "agentflow",
+      "query": "class",
+      "category": "class definitions",
+      "rg_compatible": true,
+      "matching_lines": 198,
+      "baseline_ms": 8.245792,
+      "optimized_ms": 8.311125,
+      "baseline_no_refresh_ms": 4.980208,
+      "optimized_no_refresh_ms": 4.907542,
+      "rg_ms": 9.087625,
+      "baseline_p95_ms": 8.719667,
+      "optimized_p95_ms": 9.000583,
+      "change_pct": 0.7923192823685143,
+      "change_bootstrap_95": [
+        -0.8251883613384359,
+        2.9775721334911465
+      ],
+      "baseline_rss_mib": 11.046875,
+      "optimized_rss_mib": 11.0,
+      "baseline_no_refresh_rss_mib": 9.625,
+      "optimized_no_refresh_rss_mib": 9.8125,
+      "rg_rss_mib": 6.4375
+    },
+    {
+      "dataset": "agentflow",
+      "query": "import",
+      "category": "imports",
+      "rg_compatible": true,
+      "matching_lines": 499,
+      "baseline_ms": 8.6295,
+      "optimized_ms": 8.697375,
+      "baseline_no_refresh_ms": 5.385291,
+      "optimized_no_refresh_ms": 5.350166,
+      "rg_ms": 7.765541,
+      "baseline_p95_ms": 10.010417,
+      "optimized_p95_ms": 9.125625,
+      "change_pct": 0.7865461498348658,
+      "change_bootstrap_95": [
+        -0.2523268619382235,
+        2.527135551183801
+      ],
+      "baseline_rss_mib": 12.171875,
+      "optimized_rss_mib": 12.09375,
+      "baseline_no_refresh_rss_mib": 10.859375,
+      "optimized_no_refresh_rss_mib": 10.84375,
+      "rg_rss_mib": 6.9375
+    },
+    {
+      "dataset": "agentflow",
+      "query": "decorator",
+      "category": "escaped punctuation",
+      "rg_compatible": true,
+      "matching_lines": 199,
+      "baseline_ms": 8.694375,
+      "optimized_ms": 8.72,
+      "baseline_no_refresh_ms": 5.375833,
+      "optimized_no_refresh_ms": 5.374334,
+      "rg_ms": 23.30775,
+      "baseline_p95_ms": 9.733583,
+      "optimized_p95_ms": 10.352792,
+      "change_pct": 0.294730788584574,
+      "change_bootstrap_95": [
+        -1.2001532110482271,
+        2.1616633781038397
+      ],
+      "baseline_rss_mib": 11.296875,
+      "optimized_rss_mib": 11.09375,
+      "baseline_no_refresh_rss_mib": 9.890625,
+      "optimized_no_refresh_rss_mib": 9.78125,
+      "rg_rss_mib": 6.5
+    },
+    {
+      "dataset": "agentflow",
+      "query": "async",
+      "category": "whitespace",
+      "rg_compatible": true,
+      "matching_lines": 454,
+      "baseline_ms": 8.488292,
+      "optimized_ms": 8.584708,
+      "baseline_no_refresh_ms": 5.167,
+      "optimized_no_refresh_ms": 5.130834,
+      "rg_ms": 7.703416,
+      "baseline_p95_ms": 8.957625,
+      "optimized_p95_ms": 9.838208,
+      "change_pct": 1.1358704436652323,
+      "change_bootstrap_95": [
+        -0.5771493971059471,
+        3.6070781729670154
+      ],
+      "baseline_rss_mib": 11.890625,
+      "optimized_rss_mib": 11.9375,
+      "baseline_no_refresh_rss_mib": 10.65625,
+      "optimized_no_refresh_rss_mib": 10.65625,
+      "rg_rss_mib": 6.953125
+    },
+    {
+      "dataset": "agentflow",
+      "query": "db",
+      "category": "alternation",
+      "rg_compatible": true,
+      "matching_lines": 525,
+      "baseline_ms": 8.833459,
+      "optimized_ms": 8.893917,
+      "baseline_no_refresh_ms": 5.43575,
+      "optimized_no_refresh_ms": 5.60575,
+      "rg_ms": 7.136042,
+      "baseline_p95_ms": 9.235,
+      "optimized_p95_ms": 9.492792,
+      "change_pct": 0.6844204518298147,
+      "change_bootstrap_95": [
+        -1.3932082493409825,
+        2.8756483819141643
+      ],
+      "baseline_rss_mib": 11.78125,
+      "optimized_rss_mib": 11.796875,
+      "baseline_no_refresh_rss_mib": 10.71875,
+      "optimized_no_refresh_rss_mib": 10.671875,
+      "rg_rss_mib": 6.40625
+    },
+    {
+      "dataset": "agentflow",
+      "query": "test",
+      "category": "test definitions",
+      "rg_compatible": true,
+      "matching_lines": 224,
+      "baseline_ms": 8.32425,
+      "optimized_ms": 8.238375,
+      "baseline_no_refresh_ms": 4.951792,
+      "optimized_no_refresh_ms": 4.938709,
+      "rg_ms": 7.385541,
+      "baseline_p95_ms": 8.936084,
+      "optimized_p95_ms": 8.949334,
+      "change_pct": -1.0316244706730315,
+      "change_bootstrap_95": [
+        -1.7298751353884256,
+        0.8277278435683932
+      ],
+      "baseline_rss_mib": 11.28125,
+      "optimized_rss_mib": 11.203125,
+      "baseline_no_refresh_rss_mib": 9.953125,
+      "optimized_no_refresh_rss_mib": 9.953125,
+      "rg_rss_mib": 6.71875
+    },
+    {
+      "dataset": "agentflow",
+      "query": "common_files",
+      "category": "common / files",
+      "rg_compatible": true,
+      "matching_lines": 58,
+      "baseline_ms": 7.910167,
+      "optimized_ms": 8.020459,
+      "baseline_no_refresh_ms": 4.547417,
+      "optimized_no_refresh_ms": 4.609708,
+      "rg_ms": 7.254375,
+      "baseline_p95_ms": 9.287208,
+      "optimized_p95_ms": 9.24925,
+      "change_pct": 1.3943068458605268,
+      "change_bootstrap_95": [
+        -1.1566359586706154,
+        2.7121706876327423
+      ],
+      "baseline_rss_mib": 9.890625,
+      "optimized_rss_mib": 9.828125,
+      "baseline_no_refresh_rss_mib": 8.25,
+      "optimized_no_refresh_rss_mib": 8.28125,
+      "rg_rss_mib": 5.90625
+    },
+    {
+      "dataset": "small_256",
+      "query": "rare_files",
+      "category": "selective / files",
+      "rg_compatible": true,
+      "matching_lines": 3,
+      "baseline_ms": 7.709208,
+      "optimized_ms": 7.537083,
+      "baseline_no_refresh_ms": 4.27025,
+      "optimized_no_refresh_ms": 4.238917,
+      "rg_ms": 7.210042,
+      "baseline_p95_ms": 9.154833,
+      "optimized_p95_ms": 8.428208,
+      "change_pct": -2.232719625673618,
+      "change_bootstrap_95": [
+        -4.245013022875755,
+        0.5823557369257548
+      ],
+      "baseline_rss_mib": 9.484375,
+      "optimized_rss_mib": 9.546875,
+      "baseline_no_refresh_rss_mib": 7.53125,
+      "optimized_no_refresh_rss_mib": 7.640625,
+      "rg_rss_mib": 5.796875
+    },
+    {
+      "dataset": "small_256",
+      "query": "rare_lines",
+      "category": "selective / lines",
+      "rg_compatible": true,
+      "matching_lines": 3,
+      "baseline_ms": 7.701709,
+      "optimized_ms": 7.650375,
+      "baseline_no_refresh_ms": 4.352208,
+      "optimized_no_refresh_ms": 4.164167,
+      "rg_ms": 7.327459,
+      "baseline_p95_ms": 8.833084,
+      "optimized_p95_ms": 8.774,
+      "change_pct": -0.6665273902194957,
+      "change_bootstrap_95": [
+        -2.997631990294658,
+        2.0860478104248514
+      ],
+      "baseline_rss_mib": 9.484375,
+      "optimized_rss_mib": 9.421875,
+      "baseline_no_refresh_rss_mib": 7.609375,
+      "optimized_no_refresh_rss_mib": 7.640625,
+      "rg_rss_mib": 5.875
+    },
+    {
+      "dataset": "small_256",
+      "query": "common_files",
+      "category": "common / files",
+      "rg_compatible": true,
+      "matching_lines": 256,
+      "baseline_ms": 9.788333,
+      "optimized_ms": 9.788583,
+      "baseline_no_refresh_ms": 6.364792,
+      "optimized_no_refresh_ms": 6.2435,
+      "rg_ms": 9.522166,
+      "baseline_p95_ms": 11.138708,
+      "optimized_p95_ms": 11.73875,
+      "change_pct": 0.0025540610439023226,
+      "change_bootstrap_95": [
+        -2.999734479813876,
+        2.6763509647891093
+      ],
+      "baseline_rss_mib": 9.875,
+      "optimized_rss_mib": 9.875,
+      "baseline_no_refresh_rss_mib": 8.1875,
+      "optimized_no_refresh_rss_mib": 8.21875,
+      "rg_rss_mib": 6.0
+    },
+    {
+      "dataset": "small_256",
+      "query": "common_count",
+      "category": "common / count",
+      "rg_compatible": true,
+      "matching_lines": 256,
+      "baseline_ms": 9.773,
+      "optimized_ms": 9.734084,
+      "baseline_no_refresh_ms": 6.372166,
+      "optimized_no_refresh_ms": 6.27025,
+      "rg_ms": 9.340875,
+      "baseline_p95_ms": 11.198166,
+      "optimized_p95_ms": 10.899917,
+      "change_pct": -0.39819912002455604,
+      "change_bootstrap_95": [
+        -4.036754847455937,
+        0.8792412586263065
+      ],
+      "baseline_rss_mib": 9.9375,
+      "optimized_rss_mib": 9.875,
+      "baseline_no_refresh_rss_mib": 8.15625,
+      "optimized_no_refresh_rss_mib": 8.21875,
+      "rg_rss_mib": 6.0
+    },
+    {
+      "dataset": "small_256",
+      "query": "alternation",
+      "category": "alternation",
+      "rg_compatible": true,
+      "matching_lines": 13,
+      "baseline_ms": 9.581125,
+      "optimized_ms": 9.57175,
+      "baseline_no_refresh_ms": 6.125875,
+      "optimized_no_refresh_ms": 6.081,
+      "rg_ms": 8.655584,
+      "baseline_p95_ms": 10.371083,
+      "optimized_p95_ms": 10.481875,
+      "change_pct": -0.09784863468538241,
+      "change_bootstrap_95": [
+        -2.64898330381782,
+        3.2725293573277803
+      ],
+      "baseline_rss_mib": 10.046875,
+      "optimized_rss_mib": 9.90625,
+      "baseline_no_refresh_rss_mib": 8.453125,
+      "optimized_no_refresh_rss_mib": 8.53125,
+      "rg_rss_mib": 5.984375
+    },
+    {
+      "dataset": "small_256",
+      "query": "ignore_case",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 3,
+      "baseline_ms": 7.875666,
+      "optimized_ms": 7.677792,
+      "baseline_no_refresh_ms": 4.566333,
+      "optimized_no_refresh_ms": 4.493,
+      "rg_ms": 7.776708,
+      "baseline_p95_ms": 9.246541,
+      "optimized_p95_ms": 8.232208,
+      "change_pct": -2.5124732308353326,
+      "change_bootstrap_95": [
+        -4.773618381868905,
+        -0.9671055120925587
+      ],
+      "baseline_rss_mib": 10.09375,
+      "optimized_rss_mib": 10.15625,
+      "baseline_no_refresh_rss_mib": 8.734375,
+      "optimized_no_refresh_rss_mib": 8.78125,
+      "rg_rss_mib": 6.0625
+    },
+    {
+      "dataset": "small_256",
+      "query": "short_files",
+      "category": "scan fallback",
+      "rg_compatible": true,
+      "matching_lines": 256,
+      "baseline_ms": 9.879791,
+      "optimized_ms": 9.600375,
+      "baseline_no_refresh_ms": 6.301458,
+      "optimized_no_refresh_ms": 6.244667,
+      "rg_ms": 9.26125,
+      "baseline_p95_ms": 11.2605,
+      "optimized_p95_ms": 10.324,
+      "change_pct": -2.8281569923898298,
+      "change_bootstrap_95": [
+        -4.325441210802328,
+        -1.108411424574085
+      ],
+      "baseline_rss_mib": 9.859375,
+      "optimized_rss_mib": 9.890625,
+      "baseline_no_refresh_rss_mib": 8.0625,
+      "optimized_no_refresh_rss_mib": 8.203125,
+      "rg_rss_mib": 6.125
+    },
+    {
+      "dataset": "small_256",
+      "query": "absent",
+      "category": "no matches",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 7.570583,
+      "optimized_ms": 7.572,
+      "baseline_no_refresh_ms": 4.194042,
+      "optimized_no_refresh_ms": 4.084041,
+      "rg_ms": 7.179709,
+      "baseline_p95_ms": 8.818958,
+      "optimized_p95_ms": 8.169917,
+      "change_pct": 0.01871718466068817,
+      "change_bootstrap_95": [
+        -2.120193101198986,
+        1.8662391270420242
+      ],
+      "baseline_rss_mib": 9.46875,
+      "optimized_rss_mib": 9.40625,
+      "baseline_no_refresh_rss_mib": 7.359375,
+      "optimized_no_refresh_rss_mib": 7.515625,
+      "rg_rss_mib": 5.828125
+    },
+    {
+      "dataset": "regular_4096",
+      "query": "rare_files",
+      "category": "selective / files",
+      "rg_compatible": true,
+      "matching_lines": 43,
+      "baseline_ms": 17.784542,
+      "optimized_ms": 15.610167,
+      "baseline_no_refresh_ms": 8.881,
+      "optimized_no_refresh_ms": 7.350417,
+      "rg_ms": 36.369667,
+      "baseline_p95_ms": 18.776,
+      "optimized_p95_ms": 16.065959,
+      "change_pct": -12.226207455890615,
+      "change_bootstrap_95": [
+        -16.308858874782405,
+        -9.06814899746735
+      ],
+      "baseline_rss_mib": 12.0,
+      "optimized_rss_mib": 12.796875,
+      "baseline_no_refresh_rss_mib": 8.6875,
+      "optimized_no_refresh_rss_mib": 10.015625,
+      "rg_rss_mib": 6.5625
+    },
+    {
+      "dataset": "regular_4096",
+      "query": "rare_lines",
+      "category": "selective / lines",
+      "rg_compatible": true,
+      "matching_lines": 43,
+      "baseline_ms": 17.812375,
+      "optimized_ms": 15.320959,
+      "baseline_no_refresh_ms": 8.981917,
+      "optimized_no_refresh_ms": 7.315458,
+      "rg_ms": 36.643625,
+      "baseline_p95_ms": 18.412459,
+      "optimized_p95_ms": 16.343,
+      "change_pct": -13.986994996456115,
+      "change_bootstrap_95": [
+        -18.117260243462763,
+        -9.935640248132982
+      ],
+      "baseline_rss_mib": 12.25,
+      "optimized_rss_mib": 12.953125,
+      "baseline_no_refresh_rss_mib": 8.703125,
+      "optimized_no_refresh_rss_mib": 10.015625,
+      "rg_rss_mib": 6.890625
+    },
+    {
+      "dataset": "regular_4096",
+      "query": "common_files",
+      "category": "common / files",
+      "rg_compatible": true,
+      "matching_lines": 4096,
+      "baseline_ms": 48.115791,
+      "optimized_ms": 45.620041,
+      "baseline_no_refresh_ms": 39.245875,
+      "optimized_no_refresh_ms": 37.631209,
+      "rg_ms": 63.605209,
+      "baseline_p95_ms": 49.219125,
+      "optimized_p95_ms": 46.958958,
+      "change_pct": -5.1869665823430005,
+      "change_bootstrap_95": [
+        -6.3171002379528325,
+        -3.9805407045161334
+      ],
+      "baseline_rss_mib": 12.78125,
+      "optimized_rss_mib": 13.90625,
+      "baseline_no_refresh_rss_mib": 9.921875,
+      "optimized_no_refresh_rss_mib": 10.9375,
+      "rg_rss_mib": 6.859375
+    },
+    {
+      "dataset": "regular_4096",
+      "query": "common_count",
+      "category": "common / count",
+      "rg_compatible": true,
+      "matching_lines": 4096,
+      "baseline_ms": 48.007375,
+      "optimized_ms": 45.909667,
+      "baseline_no_refresh_ms": 39.349,
+      "optimized_no_refresh_ms": 37.741417,
+      "rg_ms": 63.803917,
+      "baseline_p95_ms": 49.192208,
+      "optimized_p95_ms": 46.940167,
+      "change_pct": -4.369553636290268,
+      "change_bootstrap_95": [
+        -5.5170335807779525,
+        -3.083235323122746
+      ],
+      "baseline_rss_mib": 12.671875,
+      "optimized_rss_mib": 13.78125,
+      "baseline_no_refresh_rss_mib": 9.90625,
+      "optimized_no_refresh_rss_mib": 10.84375,
+      "rg_rss_mib": 6.71875
+    },
+    {
+      "dataset": "regular_4096",
+      "query": "alternation",
+      "category": "alternation",
+      "rg_compatible": true,
+      "matching_lines": 200,
+      "baseline_ms": 45.855375,
+      "optimized_ms": 43.914708,
+      "baseline_no_refresh_ms": 37.339625,
+      "optimized_no_refresh_ms": 35.948625,
+      "rg_ms": 37.133833,
+      "baseline_p95_ms": 46.9495,
+      "optimized_p95_ms": 45.904917,
+      "change_pct": -4.23214726735962,
+      "change_bootstrap_95": [
+        -6.084180874642165,
+        -3.2640052542280085
+      ],
+      "baseline_rss_mib": 12.84375,
+      "optimized_rss_mib": 13.875,
+      "baseline_no_refresh_rss_mib": 9.984375,
+      "optimized_no_refresh_rss_mib": 11.078125,
+      "rg_rss_mib": 6.859375
+    },
+    {
+      "dataset": "regular_4096",
+      "query": "ignore_case",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 43,
+      "baseline_ms": 18.092458,
+      "optimized_ms": 15.426459,
+      "baseline_no_refresh_ms": 9.253875,
+      "optimized_no_refresh_ms": 7.727,
+      "rg_ms": 36.347291,
+      "baseline_p95_ms": 18.799375,
+      "optimized_p95_ms": 16.207959,
+      "change_pct": -14.735416271244084,
+      "change_bootstrap_95": [
+        -17.58582498851179,
+        -9.690682291482833
+      ],
+      "baseline_rss_mib": 13.46875,
+      "optimized_rss_mib": 14.609375,
+      "baseline_no_refresh_rss_mib": 10.828125,
+      "optimized_no_refresh_rss_mib": 12.109375,
+      "rg_rss_mib": 6.9375
+    },
+    {
+      "dataset": "regular_4096",
+      "query": "short_files",
+      "category": "scan fallback",
+      "rg_compatible": true,
+      "matching_lines": 4096,
+      "baseline_ms": 47.749916,
+      "optimized_ms": 45.919166,
+      "baseline_no_refresh_ms": 39.141834,
+      "optimized_no_refresh_ms": 37.50325,
+      "rg_ms": 64.145875,
+      "baseline_p95_ms": 49.368291,
+      "optimized_p95_ms": 46.964375,
+      "change_pct": -3.834038158307973,
+      "change_bootstrap_95": [
+        -5.069723837467254,
+        -3.3126679825298266
+      ],
+      "baseline_rss_mib": 12.859375,
+      "optimized_rss_mib": 13.515625,
+      "baseline_no_refresh_rss_mib": 9.75,
+      "optimized_no_refresh_rss_mib": 10.75,
+      "rg_rss_mib": 6.765625
+    },
+    {
+      "dataset": "regular_4096",
+      "query": "absent",
+      "category": "no matches",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 17.514791,
+      "optimized_ms": 14.567583,
+      "baseline_no_refresh_ms": 8.482542,
+      "optimized_no_refresh_ms": 6.939875,
+      "rg_ms": 36.096333,
+      "baseline_p95_ms": 18.146291,
+      "optimized_p95_ms": 15.762584,
+      "change_pct": -16.826966419410873,
+      "change_bootstrap_95": [
+        -17.854565521925558,
+        -11.72477902853558
+      ],
+      "baseline_rss_mib": 11.828125,
+      "optimized_rss_mib": 12.828125,
+      "baseline_no_refresh_rss_mib": 8.296875,
+      "optimized_no_refresh_rss_mib": 9.578125,
+      "rg_rss_mib": 6.625
+    },
+    {
+      "dataset": "many_small_16384",
+      "query": "rare_files",
+      "category": "selective / files",
+      "rg_compatible": true,
+      "matching_lines": 169,
+      "baseline_ms": 45.065417,
+      "optimized_ms": 32.900667,
+      "baseline_no_refresh_ms": 20.946541,
+      "optimized_no_refresh_ms": 14.239125,
+      "rg_ms": 150.965458,
+      "baseline_p95_ms": 47.689792,
+      "optimized_p95_ms": 35.184792,
+      "change_pct": -26.99353697315172,
+      "change_bootstrap_95": [
+        -29.170931779000075,
+        -25.257829399781663
+      ],
+      "baseline_rss_mib": 15.71875,
+      "optimized_rss_mib": 21.453125,
+      "baseline_no_refresh_rss_mib": 10.78125,
+      "optimized_no_refresh_rss_mib": 16.078125,
+      "rg_rss_mib": 7.390625
+    },
+    {
+      "dataset": "many_small_16384",
+      "query": "rare_lines",
+      "category": "selective / lines",
+      "rg_compatible": true,
+      "matching_lines": 169,
+      "baseline_ms": 45.327625,
+      "optimized_ms": 32.910291,
+      "baseline_no_refresh_ms": 20.758375,
+      "optimized_no_refresh_ms": 14.063958,
+      "rg_ms": 150.889625,
+      "baseline_p95_ms": 47.640833,
+      "optimized_p95_ms": 35.23275,
+      "change_pct": -27.394627448493047,
+      "change_bootstrap_95": [
+        -29.033613574133454,
+        -26.008429677017443
+      ],
+      "baseline_rss_mib": 15.890625,
+      "optimized_rss_mib": 21.5,
+      "baseline_no_refresh_rss_mib": 10.78125,
+      "optimized_no_refresh_rss_mib": 16.125,
+      "rg_rss_mib": 7.21875
+    },
+    {
+      "dataset": "many_small_16384",
+      "query": "common_files",
+      "category": "common / files",
+      "rg_compatible": true,
+      "matching_lines": 16384,
+      "baseline_ms": 190.9085,
+      "optimized_ms": 178.836584,
+      "baseline_no_refresh_ms": 166.114583,
+      "optimized_no_refresh_ms": 159.432875,
+      "rg_ms": 238.960083,
+      "baseline_p95_ms": 201.057667,
+      "optimized_p95_ms": 188.500833,
+      "change_pct": -6.323404143869982,
+      "change_bootstrap_95": [
+        -8.607916292336991,
+        -4.643913183540804
+      ],
+      "baseline_rss_mib": 17.546875,
+      "optimized_rss_mib": 22.859375,
+      "baseline_no_refresh_rss_mib": 13.515625,
+      "optimized_no_refresh_rss_mib": 18.65625,
+      "rg_rss_mib": 7.34375
+    },
+    {
+      "dataset": "many_small_16384",
+      "query": "common_count",
+      "category": "common / count",
+      "rg_compatible": true,
+      "matching_lines": 16384,
+      "baseline_ms": 193.182125,
+      "optimized_ms": 180.229167,
+      "baseline_no_refresh_ms": 169.103709,
+      "optimized_no_refresh_ms": 159.41675,
+      "rg_ms": 237.980916,
+      "baseline_p95_ms": 206.014916,
+      "optimized_p95_ms": 188.086416,
+      "change_pct": -6.705049962567722,
+      "change_bootstrap_95": [
+        -8.910454580376047,
+        -4.071236153310598
+      ],
+      "baseline_rss_mib": 17.390625,
+      "optimized_rss_mib": 22.640625,
+      "baseline_no_refresh_rss_mib": 13.453125,
+      "optimized_no_refresh_rss_mib": 18.765625,
+      "rg_rss_mib": 7.4375
+    },
+    {
+      "dataset": "many_small_16384",
+      "query": "alternation",
+      "category": "alternation",
+      "rg_compatible": true,
+      "matching_lines": 800,
+      "baseline_ms": 185.106417,
+      "optimized_ms": 171.994625,
+      "baseline_no_refresh_ms": 160.037375,
+      "optimized_no_refresh_ms": 153.271709,
+      "rg_ms": 150.826417,
+      "baseline_p95_ms": 203.453458,
+      "optimized_p95_ms": 181.654667,
+      "change_pct": -7.083380583180965,
+      "change_bootstrap_95": [
+        -9.474093018752662,
+        -4.619496978258475
+      ],
+      "baseline_rss_mib": 17.078125,
+      "optimized_rss_mib": 22.71875,
+      "baseline_no_refresh_rss_mib": 13.140625,
+      "optimized_no_refresh_rss_mib": 18.40625,
+      "rg_rss_mib": 7.609375
+    },
+    {
+      "dataset": "many_small_16384",
+      "query": "ignore_case",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 169,
+      "baseline_ms": 45.56125,
+      "optimized_ms": 32.749583,
+      "baseline_no_refresh_ms": 21.729708,
+      "optimized_no_refresh_ms": 14.483333,
+      "rg_ms": 149.928458,
+      "baseline_p95_ms": 48.781042,
+      "optimized_p95_ms": 37.923459,
+      "change_pct": -28.119656506351344,
+      "change_bootstrap_95": [
+        -29.472291015261142,
+        -26.2641306199612
+      ],
+      "baseline_rss_mib": 17.75,
+      "optimized_rss_mib": 23.234375,
+      "baseline_no_refresh_rss_mib": 13.0,
+      "optimized_no_refresh_rss_mib": 18.234375,
+      "rg_rss_mib": 7.59375
+    },
+    {
+      "dataset": "many_small_16384",
+      "query": "short_files",
+      "category": "scan fallback",
+      "rg_compatible": true,
+      "matching_lines": 16384,
+      "baseline_ms": 194.502625,
+      "optimized_ms": 177.890791,
+      "baseline_no_refresh_ms": 164.002959,
+      "optimized_no_refresh_ms": 157.371458,
+      "rg_ms": 237.78425,
+      "baseline_p95_ms": 205.358667,
+      "optimized_p95_ms": 412.225458,
+      "change_pct": -8.540673422787993,
+      "change_bootstrap_95": [
+        -9.996697257275356,
+        -5.634343719931634
+      ],
+      "baseline_rss_mib": 16.703125,
+      "optimized_rss_mib": 22.34375,
+      "baseline_no_refresh_rss_mib": 13.09375,
+      "optimized_no_refresh_rss_mib": 18.421875,
+      "rg_rss_mib": 7.140625
+    },
+    {
+      "dataset": "many_small_16384",
+      "query": "absent",
+      "category": "no matches",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 44.056167,
+      "optimized_ms": 31.519208,
+      "baseline_no_refresh_ms": 19.180667,
+      "optimized_no_refresh_ms": 12.638875,
+      "rg_ms": 149.876541,
+      "baseline_p95_ms": 46.132167,
+      "optimized_p95_ms": 34.117459,
+      "change_pct": -28.45676293173667,
+      "change_bootstrap_95": [
+        -29.5414062152921,
+        -26.731951038236843
+      ],
+      "baseline_rss_mib": 15.8125,
+      "optimized_rss_mib": 21.3125,
+      "baseline_no_refresh_rss_mib": 10.34375,
+      "optimized_no_refresh_rss_mib": 15.671875,
+      "rg_rss_mib": 7.3125
+    },
+    {
+      "dataset": "few_large_64",
+      "query": "rare_files",
+      "category": "selective / files",
+      "rg_compatible": true,
+      "matching_lines": 1,
+      "baseline_ms": 8.407083,
+      "optimized_ms": 8.231292,
+      "baseline_no_refresh_ms": 5.403334,
+      "optimized_no_refresh_ms": 4.720167,
+      "rg_ms": 7.760334,
+      "baseline_p95_ms": 9.205417,
+      "optimized_p95_ms": 9.232917,
+      "change_pct": -2.0909868500168294,
+      "change_bootstrap_95": [
+        -8.077324858137935,
+        2.650795841294329
+      ],
+      "baseline_rss_mib": 10.265625,
+      "optimized_rss_mib": 10.265625,
+      "baseline_no_refresh_rss_mib": 8.6875,
+      "optimized_no_refresh_rss_mib": 8.703125,
+      "rg_rss_mib": 5.78125
+    },
+    {
+      "dataset": "few_large_64",
+      "query": "rare_lines",
+      "category": "selective / lines",
+      "rg_compatible": true,
+      "matching_lines": 1,
+      "baseline_ms": 8.814875,
+      "optimized_ms": 8.587583,
+      "baseline_no_refresh_ms": 5.196625,
+      "optimized_no_refresh_ms": 5.168708,
+      "rg_ms": 8.041291,
+      "baseline_p95_ms": 9.177958,
+      "optimized_p95_ms": 9.116833,
+      "change_pct": -2.5785050837363044,
+      "change_bootstrap_95": [
+        -7.5071905477463785,
+        12.241981659199297
+      ],
+      "baseline_rss_mib": 10.265625,
+      "optimized_rss_mib": 10.21875,
+      "baseline_no_refresh_rss_mib": 8.65625,
+      "optimized_no_refresh_rss_mib": 8.71875,
+      "rg_rss_mib": 5.8125
+    },
+    {
+      "dataset": "few_large_64",
+      "query": "common_files",
+      "category": "common / files",
+      "rg_compatible": true,
+      "matching_lines": 64,
+      "baseline_ms": 17.093375,
+      "optimized_ms": 16.97625,
+      "baseline_no_refresh_ms": 13.909542,
+      "optimized_no_refresh_ms": 13.907667,
+      "rg_ms": 7.199041,
+      "baseline_p95_ms": 18.717291,
+      "optimized_p95_ms": 18.695375,
+      "change_pct": -0.6852069880874945,
+      "change_bootstrap_95": [
+        -4.272069789643695,
+        3.004521194021015
+      ],
+      "baseline_rss_mib": 24.765625,
+      "optimized_rss_mib": 26.640625,
+      "baseline_no_refresh_rss_mib": 23.859375,
+      "optimized_no_refresh_rss_mib": 25.390625,
+      "rg_rss_mib": 5.84375
+    },
+    {
+      "dataset": "few_large_64",
+      "query": "common_count",
+      "category": "common / count",
+      "rg_compatible": true,
+      "matching_lines": 64,
+      "baseline_ms": 17.117916,
+      "optimized_ms": 17.217917,
+      "baseline_no_refresh_ms": 13.959041,
+      "optimized_no_refresh_ms": 13.597458,
+      "rg_ms": 9.511792,
+      "baseline_p95_ms": 18.324583,
+      "optimized_p95_ms": 19.226792,
+      "change_pct": 0.5841891033931956,
+      "change_bootstrap_95": [
+        -1.923959036356715,
+        4.238734152351742
+      ],
+      "baseline_rss_mib": 27.671875,
+      "optimized_rss_mib": 24.875,
+      "baseline_no_refresh_rss_mib": 25.140625,
+      "optimized_no_refresh_rss_mib": 22.953125,
+      "rg_rss_mib": 5.859375
+    },
+    {
+      "dataset": "few_large_64",
+      "query": "alternation",
+      "category": "alternation",
+      "rg_compatible": true,
+      "matching_lines": 3,
+      "baseline_ms": 13.811833,
+      "optimized_ms": 13.192334,
+      "baseline_no_refresh_ms": 10.326208,
+      "optimized_no_refresh_ms": 10.46225,
+      "rg_ms": 10.2305,
+      "baseline_p95_ms": 15.797167,
+      "optimized_p95_ms": 15.205125,
+      "change_pct": -4.485277225694806,
+      "change_bootstrap_95": [
+        -7.765950300655722,
+        2.2430915469050516
+      ],
+      "baseline_rss_mib": 23.28125,
+      "optimized_rss_mib": 22.828125,
+      "baseline_no_refresh_rss_mib": 22.75,
+      "optimized_no_refresh_rss_mib": 22.921875,
+      "rg_rss_mib": 5.875
+    },
+    {
+      "dataset": "few_large_64",
+      "query": "ignore_case",
+      "category": "ignore case",
+      "rg_compatible": true,
+      "matching_lines": 1,
+      "baseline_ms": 8.73675,
+      "optimized_ms": 8.314625,
+      "baseline_no_refresh_ms": 5.354709,
+      "optimized_no_refresh_ms": 5.166084,
+      "rg_ms": 8.919958,
+      "baseline_p95_ms": 9.853625,
+      "optimized_p95_ms": 9.465625,
+      "change_pct": -4.831602140384028,
+      "change_bootstrap_95": [
+        -9.521421941512543,
+        0.11093013443190802
+      ],
+      "baseline_rss_mib": 11.578125,
+      "optimized_rss_mib": 11.53125,
+      "baseline_no_refresh_rss_mib": 10.421875,
+      "optimized_no_refresh_rss_mib": 10.34375,
+      "rg_rss_mib": 5.90625
+    },
+    {
+      "dataset": "few_large_64",
+      "query": "short_files",
+      "category": "scan fallback",
+      "rg_compatible": true,
+      "matching_lines": 64,
+      "baseline_ms": 17.509916,
+      "optimized_ms": 16.441833,
+      "baseline_no_refresh_ms": 14.088208,
+      "optimized_no_refresh_ms": 13.966833,
+      "rg_ms": 7.375125,
+      "baseline_p95_ms": 19.053292,
+      "optimized_p95_ms": 18.496334,
+      "change_pct": -6.09987506507742,
+      "change_bootstrap_95": [
+        -8.218933447575804,
+        0.6317060374999128
+      ],
+      "baseline_rss_mib": 25.15625,
+      "optimized_rss_mib": 25.515625,
+      "baseline_no_refresh_rss_mib": 23.125,
+      "optimized_no_refresh_rss_mib": 22.625,
+      "rg_rss_mib": 5.84375
+    },
+    {
+      "dataset": "few_large_64",
+      "query": "absent",
+      "category": "no matches",
+      "rg_compatible": true,
+      "matching_lines": 0,
+      "baseline_ms": 7.432,
+      "optimized_ms": 7.976042,
+      "baseline_no_refresh_ms": 4.9295,
+      "optimized_no_refresh_ms": 4.650292,
+      "rg_ms": 8.023583,
+      "baseline_p95_ms": 8.435333,
+      "optimized_p95_ms": 8.651583,
+      "change_pct": 7.320263724434861,
+      "change_bootstrap_95": [
+        -0.4227710863341949,
+        13.164499442134092
+      ],
+      "baseline_rss_mib": 9.3125,
+      "optimized_rss_mib": 9.28125,
+      "baseline_no_refresh_rss_mib": 7.453125,
+      "optimized_no_refresh_rss_mib": 7.453125,
+      "rg_rss_mib": 5.65625
+    }
+  ]
+}

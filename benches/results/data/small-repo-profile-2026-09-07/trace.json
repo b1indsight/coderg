@@ -1,0 +1,238 @@
+{
+  "traceEvents": [
+    {
+      "name": "cli.parse",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 0.084,
+      "dur": 41.125,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "search.regex_compile",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 43.167,
+      "dur": 38.458,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "manifest.read",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 91.084,
+      "dur": 15.875,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "manifest.parse",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 107.0,
+      "dur": 85.292,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "manifest.total",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 91.084,
+      "dur": 101.375,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "segment.validate",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 211.209,
+      "dur": 2.333,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "segment.load",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 192.625,
+      "dur": 21.5,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "index.load",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 82.334,
+      "dur": 132.166,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "git.discover",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 214.792,
+      "dur": 139.042,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "git.read_head",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 354.084,
+      "dur": 385.791,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "git.identity",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 214.709,
+      "dur": 533.0,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "collect.rayon_init",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 754.167,
+      "dur": 66.542,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "collect.setup",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 747.792,
+      "dur": 73.0,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "collect.walk_metadata",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 820.792,
+      "dur": 2788.917,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "collect.merge",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 3609.792,
+      "dur": 0.833,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "collect.sort",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 3610.667,
+      "dur": 47.583,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "collect.total",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 747.792,
+      "dur": 2922.083,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "refresh.compare_snapshot",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 3670.042,
+      "dur": 1.125,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "refresh.total",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 214.625,
+      "dur": 3458.25,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "search.query_plan",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 3672.875,
+      "dur": 5.167,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "search.postings",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 3678.125,
+      "dur": 6.542,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "search.read_and_match",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 3684.792,
+      "dur": 636.083,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "search.result_sort",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 4320.875,
+      "dur": 1.25,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "search.output",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 4322.167,
+      "dur": 64.542,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "search.total",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 43.167,
+      "dur": 4361.333,
+      "pid": 1,
+      "tid": 1
+    },
+    {
+      "name": "main.run",
+      "cat": "wall-clock span",
+      "ph": "X",
+      "ts": 0.042,
+      "dur": 4404.708,
+      "pid": 1,
+      "tid": 1
+    }
+  ]
+}

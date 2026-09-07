@@ -1,0 +1,12 @@
+{
+  "vllm": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+  "viberwhisper": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+  "agentflow": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+  "small_256": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/small_256",
+  "regular_4096": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/regular_4096",
+  "many_small_16384": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/many_small_16384",
+  "few_large_64": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+  "synthetic_512": "/private/tmp/coderg-small-threads-ok48m1su/synthetic_512",
+  "synthetic_1024": "/private/tmp/coderg-small-threads-ok48m1su/synthetic_1024",
+  "synthetic_2048": "/private/tmp/coderg-small-threads-ok48m1su/synthetic_2048"
+}

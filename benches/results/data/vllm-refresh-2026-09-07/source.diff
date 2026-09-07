@@ -1,0 +1,177 @@
+diff --git a/src/index.rs b/src/index.rs
+index 2142afd..613277f 100644
+--- a/src/index.rs
++++ b/src/index.rs
+@@ -1,7 +1,7 @@
+ use std::{
+     collections::{BTreeSet, HashMap, HashSet},
+     fs::{self, File},
+-    io::{BufReader, BufWriter, Write},
++    io::{BufWriter, Write},
+     path::{Path, PathBuf},
+     sync::Mutex,
+     time::{SystemTime, UNIX_EPOCH},
+@@ -38,6 +38,44 @@ struct FileState {
+     modified_nanos: u128,
+ }
+ 
++// Each walker owns its batch and publishes it once, when traversal finishes.
++// File metadata checks must not contend on a shared lock for every file.
++struct FileCollector<'a> {
++    root: &'a Path,
++    batches: &'a Mutex<Vec<Result<Vec<FileState>>>>,
++    files: Result<Vec<FileState>>,
++}
++
++impl FileCollector<'_> {
++    fn visit(&mut self, entry: std::result::Result<DirEntry, ignore::Error>) -> WalkState {
++        let state = entry
++            .map_err(anyhow::Error::from)
++            .and_then(|entry| file_state(self.root, &entry));
++        match state {
++            Ok(Some(state)) => {
++                if let Ok(files) = &mut self.files {
++                    files.push(state);
++                }
++            }
++            Ok(None) => {}
++            Err(error) => {
++                self.files = Err(error);
++                return WalkState::Quit;
++            }
++        }
++        WalkState::Continue
++    }
++}
++
++impl Drop for FileCollector<'_> {
++    fn drop(&mut self) {
++        self.batches
++            .lock()
++            .unwrap()
++            .push(std::mem::replace(&mut self.files, Ok(Vec::new())));
++    }
++}
++
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+ pub struct Document {
+     pub path: PathBuf,
+@@ -505,7 +543,9 @@ fn cache_manifest_if_clean(index_dir: &Path, manifest: &Manifest, clean: bool) -
+ }
+ 
+ fn read_manifest(path: &Path) -> Result<Manifest> {
+-    Ok(serde_json::from_reader(BufReader::new(File::open(path)?))?)
++    // Parsing a slice avoids the per-byte Read overhead of serde's reader
++    // adapter. The temporary JSON buffer is released before walking the tree.
++    Ok(serde_json::from_slice(&fs::read(path)?)?)
+ }
+ 
+ fn write_manifest(index_dir: &Path, manifest: &Manifest) -> Result<()> {
+@@ -559,31 +599,25 @@ fn collect_files(root: &Path, index_dir: &Path) -> Result<Vec<FileState>> {
+             let index_dir = index_dir.to_path_buf();
+             move |entry| should_visit(entry, &index_dir)
+         });
+-    let files = Mutex::new(Vec::new());
+-    let error = Mutex::new(None);
++    let batches = Mutex::new(Vec::new());
+     builder.build_parallel().run(|| {
+-        let files = &files;
+-        let error = &error;
+-        Box::new(move |result| {
+-            let state = result
+-                .map_err(anyhow::Error::from)
+-                .and_then(|entry| file_state(root, &entry));
+-            match state {
+-                Ok(Some(state)) => files.lock().unwrap().push(state),
+-                Ok(None) => {}
+-                Err(cause) => {
+-                    *error.lock().unwrap() = Some(cause);
+-                    return WalkState::Quit;
+-                }
+-            }
+-            WalkState::Continue
+-        })
++        let mut collector = FileCollector {
++            root,
++            batches: &batches,
++            files: Ok(Vec::new()),
++        };
++        Box::new(move |entry| collector.visit(entry))
+     });
+-    if let Some(error) = error.into_inner().unwrap() {
+-        return Err(error);
++    let batches = batches
++        .into_inner()
++        .unwrap()
++        .into_iter()
++        .collect::<Result<Vec<_>>>()?;
++    let mut files = Vec::with_capacity(batches.iter().map(Vec::len).sum());
++    for batch in batches {
++        files.extend(batch);
+     }
+-    let mut files = files.into_inner().unwrap();
+-    files.sort_by(|left, right| left.path.cmp(&right.path));
++    files.par_sort_unstable_by(|left, right| left.path.cmp(&right.path));
+     Ok(files)
+ }
+ 
+diff --git a/tests/cli.rs b/tests/cli.rs
+index f092d0c..b701250 100644
+--- a/tests/cli.rs
++++ b/tests/cli.rs
+@@ -114,6 +114,55 @@ fn case_insensitive_index_search_agrees_with_regex_matching() {
+     assert_eq!(fs::read(manifest_path).unwrap(), original_manifest);
+ }
+ 
++#[test]
++fn refresh_tracks_nested_files_and_changed_ignore_rules() {
++    let root = tempfile::tempdir().unwrap();
++    fs::write(root.path().join(".ignore"), "*.skip\n").unwrap();
++    let mut expected = Vec::new();
++    for shard in 0..32 {
++        let directory = root.path().join(format!("shard-{shard:02}"));
++        fs::create_dir(&directory).unwrap();
++        fs::write(directory.join("source.txt"), "needle\n").unwrap();
++        fs::write(directory.join("hidden.skip"), "needle\n").unwrap();
++        expected.push(format!("shard-{shard:02}/source.txt"));
++    }
++    let check = |expected: &[String]| {
++        let output = coderg(root.path(), &["search", "-l", "needle"]);
++        assert!(output.status.success(), "{:?}", output);
++        let mut actual: Vec<_> = String::from_utf8(output.stdout)
++            .unwrap()
++            .lines()
++            .map(str::to_owned)
++            .collect();
++        actual.sort_by(|left, right| std::path::Path::new(left).cmp(std::path::Path::new(right)));
++        assert_eq!(actual, expected);
++        output.stderr
++    };
++    check(&expected);
++
++    fs::write(root.path().join(".ignore"), "").unwrap();
++    fs::remove_file(root.path().join("shard-00/source.txt")).unwrap();
++    fs::rename(
++        root.path().join("shard-01/source.txt"),
++        root.path().join("shard-01/renamed.txt"),
++    )
++    .unwrap();
++    fs::write(root.path().join("shard-02/source.txt"), "haystack\n").unwrap();
++    fs::create_dir_all(root.path().join(".hidden/deep")).unwrap();
++    fs::write(root.path().join(".hidden/deep/new.txt"), "needle\n").unwrap();
++    expected.retain(|path| !path.starts_with("shard-00/") && !path.starts_with("shard-02/"));
++    expected[0] = "shard-01/renamed.txt".to_owned();
++    expected.push(".hidden/deep/new.txt".to_owned());
++    expected.extend((0..32).map(|shard| format!("shard-{shard:02}/hidden.skip")));
++    expected.sort_by(|left, right| std::path::Path::new(left).cmp(std::path::Path::new(right)));
++    assert!(!check(&expected).is_empty());
++
++    let manifest_path = root.path().join(".coderg-index/manifest.json");
++    let manifest = fs::read(&manifest_path).unwrap();
++    assert!(check(&expected).is_empty());
++    assert_eq!(fs::read(manifest_path).unwrap(), manifest);
++}
++
+ fn coderg(root: &std::path::Path, arguments: &[&str]) -> std::process::Output {
+     let mut command = Command::new(env!("CARGO_BIN_EXE_coderg"));
+     command.args(arguments).arg(root);

@@ -1,2 +1,5 @@
 # Preserve whitespace in archived patches, including blank context lines.
 benches/results/data/**/*.diff -whitespace
+benches/results/data/**/*.patch -whitespace
+# CSV writers use CRLF; keep archived bytes stable for checksum verification.
+benches/results/data/**/*.csv -text whitespace=cr-at-eol
