@@ -47,6 +47,15 @@ The default index directory is `<root>/.coderg-index`. Normal `.gitignore`,
 included, while `.git`, `.coderg-index`, ignored files, symlinks, and files
 whose first 8 KiB contain NUL bytes are excluded.
 
+Index construction uses a **256 MiB working-buffer budget** by default, including
+automatic rebuilds and incremental updates. Set `--build-memory-mib 256` on
+`index` or `search` to override it (minimum: 16 MiB). Excess posting records spill
+to temporary files and merge into the same index format. File metadata, Git
+state, allocator overhead, and resident mappings are outside this buffer budget;
+it is not a hard process RSS limit. See the [design and benchmark](docs/index-build-memory-budget.md).
+The [build optimization overview](docs/index-build-evolution.md) compares the
+original implementation with the current pipeline and summarizes measured gains.
+
 The index stores immutable lookup/postings pairs under `segments/`. Every
 document points to the segment containing its current version, so postings
 from older versions are ignored. A normal edit creates one batched delta;
@@ -78,6 +87,9 @@ against the previous build and rg, memory measurements, and regression checks.
 The [implemented optimizations and strategies](docs/implemented-optimizations.md)
 document describes the current pipeline, storage layout, query budgets, refresh
 paths, fallback behavior, and known limitations, with links to the implementation.
+The [remaining design gaps with Cursor](docs/cursor-design-gaps.md) distinguish
+documented algorithm differences from engineering follow-ups and outline the
+next experiments.
 
 Case-insensitive searches reuse the same index by looking up bounded Unicode
 case variants. Each extracted fragment has at most 128 alternatives, and a query
