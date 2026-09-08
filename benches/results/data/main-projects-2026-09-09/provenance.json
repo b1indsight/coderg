@@ -1,0 +1,31 @@
+{
+  "before_commit": "74387541f37851bd8df570b9663a507912178909",
+  "after_commit": "a4cfe2d7f1b56cce2e4a3cd544d61e45fdd124cd",
+  "binaries": {
+    "before": "62e5791c48954aba3663c77b941e3132998f6a4d0fc99ea40194e10c9a2784cf",
+    "after": "cfce271529f088fabb249468374a9ee4214519496f7aa79255a85e59085d60e0"
+  },
+  "checks": [
+    "52 tests passed",
+    "cargo fmt --check passed",
+    "cargo clippy --all-targets --offline -- -D warnings passed",
+    "git diff --check passed"
+  ],
+  "build_commands": [
+    "cargo rustc --release --offline --manifest-path /private/tmp/coderg-main-bench-2026-09-09/before-source/Cargo.toml --target-dir /Users/b1indsight/personal_work/coderg/target -- --cfg coderg_main_baseline",
+    "cargo rustc --release --offline -- --cfg coderg_main_optimized"
+  ],
+  "benchmark_command": "python3 benches/refresh_matrix.py --plan /private/tmp/coderg-main-bench-2026-09-09/plan.json --baseline /private/tmp/coderg-main-bench-2026-09-09/before --binary /private/tmp/coderg-main-bench-2026-09-09/after --output /private/tmp/coderg-main-bench-2026-09-09/results --iterations 31 --warmup 3 --build-iterations 7 --rss-runs 3 --seed 20260909",
+  "scope": "Three existing frozen project snapshots; all pending code and documentation integrated into local main. No Git remote configured.",
+  "source_before_sha256": {
+    "Cargo.toml": "8233f59451cfd06570901834396895f24185e18e0cd6de3c5231759e0ff673fe",
+    "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "82c36e2d70323c67e555c22d6065ecd8eae8aba7f3828bbcff53d5c55b4e0d3a",
+    "src/main.rs": "f73b7ffa272f30dbf40bb92d4bc0cd20ea4e9680586f91b26a191cf4ab06446b",
+    "src/ngram.rs": "46742cbfa7766e23bb23be2355a800b41490ed75757682d7d4b39c0762d44830",
+    "src/query.rs": "b7eb3c1662c66113c4b0752bc4f270ba91db4361c7635cee3a22146ff5ac4812",
+    "src/search.rs": "9f85d7aeafbd94b68ea929b06bbc631209289a79f4ef491c49234171b886ef9c",
+    "src/segment.rs": "af4339c6827316e7062e78c1578fd2488ca99a2a5db104968ad4e41da1a855bc"
+  }
+}

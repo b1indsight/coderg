@@ -1,0 +1,66 @@
+{
+  "recorded_at": "2026-09-08T16:06:56.710995+00:00",
+  "plan": {
+    "datasets": [
+      {
+        "id": "vllm",
+        "kind": "vllm",
+        "root": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "commit": "569adb5a9780f9c02d22a6b29826acf711512356"
+      },
+      {
+        "id": "viberwhisper",
+        "kind": "rust",
+        "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "source": "/Users/b1indsight/personal_work/viberwhisper",
+        "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233"
+      },
+      {
+        "id": "agentflow",
+        "kind": "python",
+        "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+        "source": "/Users/b1indsight/personal_work/agentflow",
+        "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30"
+      }
+    ]
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "logical_cpus": 10,
+  "binaries": {
+    "baseline": {
+      "path": "/private/tmp/coderg-main-bench-2026-09-09/before",
+      "sha256": "62e5791c48954aba3663c77b941e3132998f6a4d0fc99ea40194e10c9a2784cf"
+    },
+    "optimized": {
+      "path": "/private/tmp/coderg-main-bench-2026-09-09/after",
+      "sha256": "cfce271529f088fabb249468374a9ee4214519496f7aa79255a85e59085d60e0"
+    }
+  },
+  "source_sha256": {
+    "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+    "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+    "src/build.rs": "48a174652077b71237bd01a062d4a83b58561340b9418b184eb255da37bbb2af",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "a0463d505b93af6e13f780707dd397d961f290b736066ca4341a424fc27acf6c",
+    "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+    "src/ngram.rs": "af1e95510a056d81b9fb78eff29818164f0e88bc8498a44252cc020696828db6",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+    "src/segment.rs": "ec8efd5a9c775f6a1c7026100bfdbe8754b6add0c56205b192d8b4279bba78e7"
+  },
+  "harness_sha256": "48044ce37127b2aeeae6bacdb18a0b789d99b5319a2497c9a281fdf0ed0d2619",
+  "environment": {
+    "RAYON_NUM_THREADS": null,
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "C.UTF-8"
+  },
+  "iterations": 31,
+  "warmup": 3,
+  "build_iterations": 7,
+  "rss_runs": 3,
+  "seed": 20260909,
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "rg": "ripgrep 15.2.0 (rev e89fff89ac)\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)",
+  "cpu": "Apple M5",
+  "memory_bytes": 25769803776
+}

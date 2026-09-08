@@ -1,0 +1,15 @@
+{
+  "analyze.py": "47096620f4daac47b9cfebfdf8dcbb8c82e8471425e71db775ec21c07d59d658",
+  "per-query.csv": "d346aef7d959b661f81ca183f0e742369d7961ab5b2073f143d3d5542f8cd06c",
+  "plan.json": "1cc574355eb7f05aa0819a54823942d0de9915d52d7ee83c17bf846a04a2ddd0",
+  "provenance.json": "2ac1273d70366a1235a45025e7099bcb03b82c06bca4526f98d0d19c2b6a5ae6",
+  "refresh_matrix.py": "48044ce37127b2aeeae6bacdb18a0b789d99b5319a2497c9a281fdf0ed0d2619",
+  "regex_suite.py": "30a163484e2b70e5ca137c55c027edd9760cc1808e7a93e0baacbcb1cb53a461",
+  "results/agentflow/results.json": "ca7ce60499e7b2ee417053749c4850bb62eb009f04a058f5ba1e9aee3b23c9a5",
+  "results/metadata.json": "74141730eab099f42c17c397f8e735f891f6c39079f0fb784eb4b4c9eff8ab29",
+  "results/viberwhisper/results.json": "2d564c78fdc1c6a909abc8d3445764cad347bbb66b2b3068a0863348672bab7b",
+  "results/vllm/results.json": "2580aca7e680d2f0ff004e828f619da0c0b2f11187b14b09d3ea6a1ebf970159",
+  "rss-logs.tar.gz": "08b65a10d31e82044543018c810144b12158533042e74ce86be058ca894c09f8",
+  "summary.json": "d57c72841e9e7f02a3c85e0dbdc3dad901fa08aa98d11005041dca1703d930af",
+  "../../main-projects-2026-09-09.md": "490b3dfca3404455d9cb32e3f6b8245e9b4cc105b42333b3f8f9ed7b5da683a5"
+}
