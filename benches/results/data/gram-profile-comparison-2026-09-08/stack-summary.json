@@ -1,0 +1,274 @@
+{
+  "samples": [
+    {
+      "label": "old_8",
+      "path": "/private/tmp/coderg-gram-profile-comparison-2026-09-08/old-8-1.txt",
+      "counts": {
+        "wait": 36155,
+        "other": 119,
+        "sort": 3723,
+        "finalize_postings": 159,
+        "file_syscalls": 337,
+        "metadata": 2,
+        "collect_records": 22,
+        "gram_scan_hash_and_inline_output": 11401,
+        "hashset_insert": 6871,
+        "separate_set_to_vec": 1343,
+        "hashset_other": 72
+      }
+    },
+    {
+      "label": "old_8",
+      "path": "/private/tmp/coderg-gram-profile-comparison-2026-09-08/old-8-2.txt",
+      "counts": {
+        "wait": 38203,
+        "other": 122,
+        "sort": 3995,
+        "finalize_postings": 176,
+        "file_syscalls": 316,
+        "collect_records": 43,
+        "metadata": 4,
+        "gram_scan_hash_and_inline_output": 12116,
+        "hashset_insert": 7505,
+        "separate_set_to_vec": 1470,
+        "hashset_other": 54
+      }
+    },
+    {
+      "label": "old_8",
+      "path": "/private/tmp/coderg-gram-profile-comparison-2026-09-08/old-8-3.txt",
+      "counts": {
+        "wait": 38750,
+        "other": 136,
+        "sort": 3993,
+        "finalize_postings": 171,
+        "file_syscalls": 386,
+        "metadata": 2,
+        "collect_records": 33,
+        "gram_scan_hash_and_inline_output": 11901,
+        "hashset_insert": 7195,
+        "separate_set_to_vec": 1328,
+        "hashset_other": 60
+      }
+    },
+    {
+      "label": "current_8",
+      "path": "/private/tmp/coderg-hashset-share-2026-09-08/sample-1.txt",
+      "counts": {
+        "wait": 36771,
+        "other": 148,
+        "sort": 3873,
+        "finalize_postings": 181,
+        "file_syscalls": 269,
+        "metadata": 6,
+        "collect_records": 19,
+        "gram_scan_hash_and_inline_output": 12317,
+        "hashset_insert": 7100,
+        "hashset_other": 62
+      }
+    },
+    {
+      "label": "current_8",
+      "path": "/private/tmp/coderg-hashset-share-2026-09-08/sample-2.txt",
+      "counts": {
+        "wait": 38526,
+        "other": 155,
+        "sort": 3885,
+        "finalize_postings": 183,
+        "file_syscalls": 290,
+        "metadata": 6,
+        "collect_records": 12,
+        "gram_scan_hash_and_inline_output": 12901,
+        "hashset_insert": 7250,
+        "hashset_other": 75
+      }
+    },
+    {
+      "label": "current_8",
+      "path": "/private/tmp/coderg-hashset-share-2026-09-08/sample-3.txt",
+      "counts": {
+        "wait": 38470,
+        "other": 138,
+        "sort": 3813,
+        "finalize_postings": 186,
+        "file_syscalls": 288,
+        "metadata": 4,
+        "collect_records": 34,
+        "gram_scan_hash_and_inline_output": 12919,
+        "hashset_insert": 7395,
+        "hashset_other": 77
+      }
+    },
+    {
+      "label": "old_64",
+      "path": "/private/tmp/coderg-build-bottlenecks-2026-09-08/sample/few_large_64.sample.txt",
+      "counts": {
+        "wait": 35239,
+        "other": 181,
+        "sort": 4280,
+        "finalize_postings": 241,
+        "file_syscalls": 331,
+        "metadata": 8,
+        "collect_records": 8,
+        "gram_scan_hash_and_inline_output": 11311,
+        "hashset_insert": 7066,
+        "separate_set_to_vec": 1394,
+        "hashset_other": 58
+      }
+    },
+    {
+      "label": "current_64",
+      "path": "/private/tmp/coderg-gram-profile-comparison-2026-09-08/current-64.txt",
+      "counts": {
+        "wait": 37187,
+        "other": 141,
+        "sort": 4742,
+        "finalize_postings": 248,
+        "file_syscalls": 389,
+        "metadata": 13,
+        "collect_records": 21,
+        "gram_scan_hash_and_inline_output": 13297,
+        "hashset_insert": 7581,
+        "hashset_other": 69
+      }
+    }
+  ],
+  "groups": {
+    "old_8": {
+      "counts": {
+        "wait": 113108,
+        "other": 377,
+        "sort": 11711,
+        "finalize_postings": 506,
+        "file_syscalls": 1039,
+        "metadata": 8,
+        "collect_records": 98,
+        "gram_scan_hash_and_inline_output": 35418,
+        "hashset_insert": 21571,
+        "separate_set_to_vec": 4141,
+        "hashset_other": 186
+      },
+      "extraction_samples": 61316,
+      "nonwait_samples": 75055,
+      "within_extraction_percent": {
+        "hashset_insert": 35.18005088394546,
+        "hashset_other": 0.303346597951595,
+        "gram_scan_hash_and_inline_output": 57.763063474460175,
+        "separate_set_to_vec": 6.7535390436427685
+      },
+      "within_nonwait_percent": {
+        "other": 0.5022983145693158,
+        "sort": 15.603224302178402,
+        "finalize_postings": 0.6741722736659783,
+        "file_syscalls": 1.3843181666777697,
+        "metadata": 0.010658850176537206,
+        "collect_records": 0.13057091466258078,
+        "gram_scan_hash_and_inline_output": 47.189394444074345,
+        "hashset_insert": 28.74025714476051,
+        "separate_set_to_vec": 5.517287322630072,
+        "hashset_other": 0.24781826660449005
+      }
+    },
+    "current_8": {
+      "counts": {
+        "wait": 113767,
+        "other": 441,
+        "sort": 11571,
+        "finalize_postings": 550,
+        "file_syscalls": 847,
+        "metadata": 16,
+        "collect_records": 65,
+        "gram_scan_hash_and_inline_output": 38137,
+        "hashset_insert": 21745,
+        "hashset_other": 214
+      },
+      "extraction_samples": 60096,
+      "nonwait_samples": 73586,
+      "within_extraction_percent": {
+        "hashset_insert": 36.18377263045793,
+        "hashset_other": 0.3560969116080937,
+        "gram_scan_hash_and_inline_output": 63.46013045793397,
+        "separate_set_to_vec": 0.0
+      },
+      "within_nonwait_percent": {
+        "other": 0.5992987796591743,
+        "sort": 15.724458456771668,
+        "finalize_postings": 0.7474247818878591,
+        "file_syscalls": 1.151034164107303,
+        "metadata": 0.021743266382192265,
+        "collect_records": 0.08833201967765608,
+        "gram_scan_hash_and_inline_output": 51.82643437610415,
+        "hashset_insert": 29.550457967548176,
+        "hashset_other": 0.29081618786182156
+      }
+    },
+    "old_64": {
+      "counts": {
+        "wait": 35239,
+        "other": 181,
+        "sort": 4280,
+        "finalize_postings": 241,
+        "file_syscalls": 331,
+        "metadata": 8,
+        "collect_records": 8,
+        "gram_scan_hash_and_inline_output": 11311,
+        "hashset_insert": 7066,
+        "separate_set_to_vec": 1394,
+        "hashset_other": 58
+      },
+      "extraction_samples": 19829,
+      "nonwait_samples": 24878,
+      "within_extraction_percent": {
+        "hashset_insert": 35.63467648393767,
+        "hashset_other": 0.2925008825457663,
+        "gram_scan_hash_and_inline_output": 57.04271521508901,
+        "separate_set_to_vec": 7.030107418427556
+      },
+      "within_nonwait_percent": {
+        "other": 0.7275504461773454,
+        "sort": 17.20395530187314,
+        "finalize_postings": 0.9687273896615484,
+        "file_syscalls": 1.3304928048878528,
+        "metadata": 0.03215692579789372,
+        "collect_records": 0.03215692579789372,
+        "gram_scan_hash_and_inline_output": 45.46587346249699,
+        "hashset_insert": 28.40260471098963,
+        "separate_set_to_vec": 5.603344320282981,
+        "hashset_other": 0.23313771203472947
+      }
+    },
+    "current_64": {
+      "counts": {
+        "wait": 37187,
+        "other": 141,
+        "sort": 4742,
+        "finalize_postings": 248,
+        "file_syscalls": 389,
+        "metadata": 13,
+        "collect_records": 21,
+        "gram_scan_hash_and_inline_output": 13297,
+        "hashset_insert": 7581,
+        "hashset_other": 69
+      },
+      "extraction_samples": 20947,
+      "nonwait_samples": 26501,
+      "within_extraction_percent": {
+        "hashset_insert": 36.19134004869432,
+        "hashset_other": 0.3294027784408268,
+        "gram_scan_hash_and_inline_output": 63.47925717286485,
+        "separate_set_to_vec": 0.0
+      },
+      "within_nonwait_percent": {
+        "other": 0.5320553941360704,
+        "sort": 17.89366439002302,
+        "finalize_postings": 0.9358137428776273,
+        "file_syscalls": 1.4678691370136976,
+        "metadata": 0.049054752650843365,
+        "collect_records": 0.07924229274367005,
+        "gram_scan_hash_and_inline_output": 50.17546507678956,
+        "hashset_insert": 28.60646768046489,
+        "hashset_other": 0.26036753330063017
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ use anyhow::{Context, Result};
 use rayon::prelude::*;
 use regex::bytes::{Regex, RegexBuilder};
 
-use crate::{index, ngram, query};
+use crate::{build::MemoryBudget, index, ngram, query};
 
 pub struct Options {
     pub ignore_case: bool,
@@ -26,6 +26,7 @@ pub fn run(
     requested_index_dir: Option<&Path>,
     pattern: &str,
     options: &Options,
+    budget: MemoryBudget,
 ) -> Result<bool> {
     let regex_pattern = if options.fixed_strings {
         regex::escape(pattern)
@@ -42,13 +43,13 @@ pub fn run(
         Ok(index) => index,
         Err(error) if !options.no_refresh => {
             eprintln!("coderg: building index ({error})");
-            index::build(path, requested_index_dir)?;
+            index::build(path, requested_index_dir, budget)?;
             index::load(path, requested_index_dir)?
         }
         Err(error) => return Err(error),
     };
     if !options.no_refresh {
-        match index::refresh(&disk_index, requested_index_dir)? {
+        match index::refresh(&disk_index, requested_index_dir, budget)? {
             index::RefreshOutcome::Unchanged => {}
             index::RefreshOutcome::CommitAdvanced => {
                 eprintln!("coderg: advanced index to the current Git tree");
@@ -115,7 +116,7 @@ pub fn run(
 
 fn choose_candidates(
     index: &index::DiskIndex,
-    strategies: &[Vec<ngram::GramHash>],
+    strategies: &[query::GramGroup],
 ) -> Result<Vec<u32>> {
     Ok(
         match intersect_postings(strategies, |hash| index.postings(hash))? {
@@ -126,18 +127,21 @@ fn choose_candidates(
 }
 
 fn intersect_postings(
-    strategies: &[Vec<ngram::GramHash>],
+    strategies: &[query::GramGroup],
     mut load_postings: impl FnMut(ngram::GramHash) -> Result<Vec<u32>>,
 ) -> Result<Option<BTreeSet<u32>>> {
     let mut cache = ngram::GramHashMap::default();
     let mut candidates: Option<BTreeSet<u32>> = None;
+    let mut seeded = Vec::new();
+    // Give every group one complete OR of branch anchors before spending the
+    // shared budget on refinement. An unvisited OR branch cannot be discarded.
     for alternatives in strategies {
-        if alternatives.is_empty() {
+        if alternatives.is_empty() || alternatives.iter().any(Vec::is_empty) {
             continue;
         }
         let new_hashes: BTreeSet<_> = alternatives
             .iter()
-            .copied()
+            .map(|branch| branch[0])
             .filter(|hash| !cache.contains_key(hash))
             .collect();
         if cache.len() + new_hashes.len() > query::MAX_INDEX_LOOKUPS {
@@ -150,7 +154,7 @@ fn intersect_postings(
         }
         let union: BTreeSet<_> = alternatives
             .iter()
-            .flat_map(|hash| cache[hash].iter().copied())
+            .flat_map(|branch| cache[&branch[0]].iter().copied())
             .collect();
         if let Some(current) = &mut candidates {
             current.retain(|id| union.contains(id));
@@ -158,10 +162,72 @@ fn intersect_postings(
             candidates = Some(union);
         }
         if candidates.as_ref().is_some_and(BTreeSet::is_empty) {
+            return Ok(candidates);
+        }
+        seeded.push(alternatives);
+    }
+    let Some(mut candidates) = candidates else {
+        return Ok(None);
+    };
+    for alternatives in seeded {
+        if alternatives.iter().all(|branch| branch.len() == 1) {
+            continue;
+        }
+        let mut branches: Vec<_> = alternatives.iter().collect();
+        // Reuse free cached filters first, then prefer branches needing fewer
+        // new lookups. Posting lengths break ties using observed file counts.
+        branches.sort_by_key(|branch| {
+            (
+                branch
+                    .iter()
+                    .filter(|hash| !cache.contains_key(hash))
+                    .count(),
+                cache[&branch[0]].len(),
+            )
+        });
+        let mut accepted = BTreeSet::new();
+        for branch in branches {
+            let mut remaining: Vec<_> = cache[&branch[0]]
+                .iter()
+                .copied()
+                .filter(|id| candidates.contains(id) && !accepted.contains(id))
+                .collect();
+            if remaining.is_empty() {
+                continue;
+            }
+            let (mut cached, unread): (Vec<_>, Vec<_>) = branch[1..]
+                .iter()
+                .copied()
+                .partition(|hash| cache.contains_key(hash));
+            cached.sort_by_key(|hash| cache[hash].len());
+            for hash in cached.into_iter().chain(unread) {
+                if !cache.contains_key(&hash) {
+                    if cache.len() == query::MAX_INDEX_LOOKUPS {
+                        // Dropping a conjunction term only broadens this
+                        // branch. All alternatives still contribute to the OR.
+                        continue;
+                    }
+                    cache.insert(hash, load_postings(hash)?);
+                }
+                let posting = &cache[&hash];
+                remaining.retain(|id| posting.binary_search(id).is_ok());
+                if remaining.is_empty() {
+                    break;
+                }
+            }
+            accepted.extend(remaining);
+            // Other branches cannot add anything outside the current global
+            // candidate set, so no more refinement can change this group.
+            if accepted.len() == candidates.len() {
+                break;
+            }
+        }
+        candidates = accepted;
+        if candidates.is_empty() {
             break;
         }
     }
-    Ok(candidates)
+    Ok(Some(candidates))
 }
 
 fn match_file(regex: &Regex, bytes: &[u8], path: &Path, options: &Options) -> (Vec<String>, usize) {
@@ -227,32 +293,84 @@ mod tests {
     #[test]
     fn unions_variants_intersects_fragments_and_reuses_lookups() {
         let mut looked_up = BTreeSet::new();
-        let candidates = intersect_postings(&[vec![1, 2], vec![2, 3]], |hash| {
-            assert!(looked_up.insert(hash), "each key should be read only once");
-            Ok(match hash {
-                1 => vec![10, 20],
-                2 => vec![30],
-                3 => vec![20],
-                _ => unreachable!(),
+        let candidates =
+            intersect_postings(&[vec![vec![1], vec![2]], vec![vec![2], vec![3]]], |hash| {
+                assert!(looked_up.insert(hash), "each key should be read only once");
+                Ok(match hash {
+                    1 => vec![10, 20],
+                    2 => vec![30],
+                    3 => vec![20],
+                    _ => unreachable!(),
+                })
             })
-        })
-        .unwrap()
-        .unwrap();
+            .unwrap()
+            .unwrap();
         assert_eq!(candidates, BTreeSet::from([20, 30]));
         assert_eq!(looked_up.len(), 3);
     }
 
     #[test]
+    fn literal_branches_reject_mixed_fragments() {
+        // All 16 possible combinations of four keys, including A+D and B+C.
+        let mut looked_up = BTreeSet::new();
+        let candidates = intersect_postings(&[vec![vec![0, 1], vec![2, 3]]], |hash| {
+            assert!(looked_up.insert(hash));
+            Ok((0..16).filter(|mask| mask & (1 << hash) != 0).collect())
+        })
+        .unwrap()
+        .unwrap();
+        let expected = (0..16)
+            .filter(|mask| mask & 0b0011 == 0b0011 || mask & 0b1100 == 0b1100)
+            .collect();
+        assert_eq!(candidates, expected);
+        assert_eq!(looked_up.len(), 4);
+    }
+
+    #[test]
+    fn refinement_skips_accepted_files_and_stops_empty_branches() {
+        let mut looked_up = BTreeSet::new();
+        let candidates = intersect_postings(&[vec![vec![1, 2, 3], vec![4]]], |hash| {
+            assert!(looked_up.insert(hash));
+            Ok(match hash {
+                1 => vec![1, 2],
+                2 | 4 => vec![1],
+                3 => panic!("remaining branch files were already excluded"),
+                _ => unreachable!(),
+            })
+        })
+        .unwrap()
+        .unwrap();
+        assert_eq!(candidates, BTreeSet::from([1]));
+        assert_eq!(looked_up, BTreeSet::from([1, 2, 4]));
+    }
+
+    #[test]
+    fn refinement_budget_keeps_every_branch() {
+        let mut branches: query::GramGroup = (0..query::MAX_INDEX_LOOKUPS as u32)
+            .map(|hash| vec![hash])
+            .collect();
+        branches[0].push(query::MAX_INDEX_LOOKUPS as u32);
+        let candidates = intersect_postings(&[branches], |hash| {
+            assert!(hash < query::MAX_INDEX_LOOKUPS as u32);
+            Ok(vec![hash])
+        })
+        .unwrap()
+        .unwrap();
+        assert_eq!(candidates.len(), query::MAX_INDEX_LOOKUPS);
+        assert!(candidates.contains(&0));
+    }
+
+    #[test]
     fn budget_never_applies_an_incomplete_alternative_union() {
         let limit = query::MAX_INDEX_LOOKUPS as u32;
-        let mut strategies: Vec<Vec<_>> = (0..limit)
+        let mut strategies: Vec<query::GramGroup> = (0..limit)
             .collect::<Vec<_>>()
             .chunks(query::MAX_LITERAL_VARIANTS)
-            .map(<[u32]>::to_vec)
+            .map(|chunk| chunk.iter().map(|&hash| vec![hash]).collect())
             .collect();
         // The cached alternative only contains document 9. Document 7 is in
         // the unvisited alternative, so applying a partial union would lose it.
-        strategies.push(vec![limit - 1, limit]);
+        strategies.push(vec![vec![limit - 1], vec![limit]]);
         let mut looked_up = BTreeSet::new();
         let candidates = intersect_postings(&strategies, |hash| {
             assert!(looked_up.insert(hash));
@@ -271,11 +389,116 @@ mod tests {
 
     #[test]
     fn no_complete_filter_means_full_scan() {
-        let alternatives = (0..=query::MAX_INDEX_LOOKUPS as u32).collect();
+        let alternatives = (0..=query::MAX_INDEX_LOOKUPS as u32)
+            .map(|hash| vec![hash])
+            .collect();
         let candidates = intersect_postings(&[alternatives], |_| {
             panic!("an over-budget condition must be skipped before any reads")
         })
         .unwrap();
         assert!(candidates.is_none());
+    }
+
+    #[test]
+    fn covering_filters_files_that_only_share_the_longest_gram() {
+        let literal = b"abcdefghijklmnopqrstuvwxyz_0123456789";
+        let anchor = ngram::best_hash(literal).unwrap();
+        let shared = (3..=24)
+            .find_map(|len| {
+                literal
+                    .windows(len)
+                    .find(|bytes| ngram::hashes_for_document(bytes).contains(&anchor))
+            })
+            .unwrap();
+        let documents = [
+            ngram::hashes_for_document(literal),
+            ngram::hashes_for_document(shared),
+        ];
+        let load = |hash| {
+            Ok(documents
+                .iter()
+                .enumerate()
+                .filter(|(_, hashes)| hashes.contains(&hash))
+                .map(|(id, _)| id as u32)
+                .collect())
+        };
+        assert_eq!(
+            intersect_postings(&[vec![vec![anchor]]], load)
+                .unwrap()
+                .unwrap(),
+            BTreeSet::from([0, 1])
+        );
+        assert_eq!(
+            intersect_postings(&query::fixed_strategy(literal), load)
+                .unwrap()
+                .unwrap(),
+            BTreeSet::from([0])
+        );
+    }
+
+    #[test]
+    fn covering_execution_preserves_matches_with_case_expansion_and_budget_limits() {
+        let mut documents: Vec<Vec<u8>> = (0..512)
+            .map(|mask| {
+                b"asyncmock"
+                    .iter()
+                    .enumerate()
+                    .map(|(i, &byte)| {
+                        if mask & (1 << i) == 0 {
+                            byte
+                        } else {
+                            byte.to_ascii_uppercase()
+                        }
+                    })
+                    .collect()
+            })
+            .collect();
+        let long: String = (0..200).map(|i| format!("item{i:03}_")).collect();
+        documents.extend([long.as_bytes().to_vec(), b"x".to_vec(), b"".to_vec()]);
+        let indexed: Vec<_> = documents
+            .iter()
+            .map(|doc| ngram::hashes_for_document(doc))
+            .collect();
+        for (pattern, ignore_case, fixed) in [
+            ("AsyncMock".to_owned(), true, false),
+            (long.clone(), false, true),
+            (format!("{long}|AsyncMock"), true, false),
+            (format!("{long}|x"), false, false),
+            (format!("(?:{long})?"), false, false),
+        ] {
+            let strategies = if fixed {
+                query::fixed_strategy(pattern.as_bytes())
+            } else {
+                query::literal_strategies(&pattern, ignore_case).unwrap()
+            };
+            let mut lookups = 0;
+            let candidates = intersect_postings(&strategies, |hash| {
+                lookups += 1;
+                Ok(indexed
+                    .iter()
+                    .enumerate()
+                    .filter(|(_, hashes)| hashes.contains(&hash))
+                    .map(|(id, _)| id as u32)
+                    .collect())
+            })
+            .unwrap();
+            assert!(lookups <= query::MAX_INDEX_LOOKUPS);
+            if fixed {
+                assert_eq!(lookups, query::MAX_INDEX_LOOKUPS);
+            }
+            let regex = RegexBuilder::new(&pattern)
+                .case_insensitive(ignore_case)
+                .build()
+                .unwrap();
+            for (id, document) in documents.iter().enumerate() {
+                if regex.is_match(document) {
+                    assert!(
+                        candidates
+                            .as_ref()
+                            .is_none_or(|ids| ids.contains(&(id as u32)))
+                    );
+                }
+            }
+        }
     }
 }

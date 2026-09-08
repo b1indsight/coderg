@@ -1,0 +1,51 @@
+{
+  "recorded_at": "2026-09-08T05:19:52.694998+00:00",
+  "plan": {
+    "datasets": [
+      {
+        "id": "shared_anchor",
+        "kind": "synthetic",
+        "root": "/private/tmp/coderg-query-cover-8__b1tet/shared-anchor",
+        "commit": "8454100c0ff78ac4f27b8b4ab4eb7ed282fa3343"
+      }
+    ]
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "logical_cpus": 10,
+  "binaries": {
+    "baseline": {
+      "path": "/private/tmp/coderg-query-cover-8__b1tet/baseline",
+      "sha256": "9c7c28a03fcb4cb164c5dcbda5a3ac24f121dff0f8b6307ab05adada1f1d36e3"
+    },
+    "optimized": {
+      "path": "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "sha256": "cc28ccc7eb9ba8e4f021fcd41283825acb5faa8144f42a9888e72bc26667999b"
+    }
+  },
+  "source_sha256": {
+    "Cargo.toml": "8233f59451cfd06570901834396895f24185e18e0cd6de3c5231759e0ff673fe",
+    "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "82c36e2d70323c67e555c22d6065ecd8eae8aba7f3828bbcff53d5c55b4e0d3a",
+    "src/main.rs": "f73b7ffa272f30dbf40bb92d4bc0cd20ea4e9680586f91b26a191cf4ab06446b",
+    "src/ngram.rs": "5e5039e5a437fa2ac0a3dc8d21b3ba40ff821208431a069b41571790831adbae",
+    "src/query.rs": "0b7a317a2524c7270b89d3d24d8dfa653361c1e9ad63b09496535209a950a809",
+    "src/search.rs": "1c4ca4b5be78f115344a557324d327069983b33343504efe3b984dfe7686063d",
+    "src/segment.rs": "af4339c6827316e7062e78c1578fd2488ca99a2a5db104968ad4e41da1a855bc"
+  },
+  "harness_sha256": "48044ce37127b2aeeae6bacdb18a0b789d99b5319a2497c9a281fdf0ed0d2619",
+  "environment": {
+    "RAYON_NUM_THREADS": null,
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "C.UTF-8"
+  },
+  "iterations": 21,
+  "warmup": 3,
+  "build_iterations": 1,
+  "rss_runs": 0,
+  "seed": 20260908,
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "rg": "ripgrep 15.2.0 (rev e89fff89ac)\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)",
+  "cpu": "Apple M5",
+  "memory_bytes": 25769803776
+}

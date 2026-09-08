@@ -1,0 +1,54 @@
+{
+  "agentflow/results.json": {
+    "sha256": "955940626039dea90221f9175c8e66f6537f2ec962ca8bbf4182a7a0b654de34",
+    "bytes": 100049
+  },
+  "few_large_64/results.json": {
+    "sha256": "5318dc8247a4fa8304a32bb04498cf92d4cd78033ef40c37cf6e3b653f4fe693",
+    "bytes": 52162
+  },
+  "fixture.py": {
+    "sha256": "c00021ef32232045dadbe6494c932aa6d91da1b498b3c05eb16e5e7b7920795c",
+    "bytes": 1171
+  },
+  "many_small_16384/results.json": {
+    "sha256": "9c2c9b2725f7349c2349ac1253390b428d526a45ecd98830af583d17e5707c34",
+    "bytes": 53405
+  },
+  "metadata.json": {
+    "sha256": "06f43de0b2dae80abb4628cdd8caa96e146483ced224fe4ace694a27de94984e",
+    "bytes": 3871
+  },
+  "metrics.json": {
+    "sha256": "8ef45a124f7afd80cbbc696d2f3cd180da74567a7326cd46479c4aef5ef7465a",
+    "bytes": 955012
+  },
+  "per-query.csv": {
+    "sha256": "92bea062fd811fb3b2a9ca91e0db53e5c6376a822dd22d6360daa62434d4f6e8",
+    "bytes": 10086
+  },
+  "regular_4096/results.json": {
+    "sha256": "f8238ada0a5de28642baef3cd7ef7390dcc91fed784ed18de3bda4855254a7b6",
+    "bytes": 52543
+  },
+  "shared_anchor/results.json": {
+    "sha256": "a6d5cc7418922d85005d141c273f4521204cbc8e6e78cc38e70724868e7de0ad",
+    "bytes": 51918
+  },
+  "small_256/results.json": {
+    "sha256": "215851ff8f10ddbdad992107456624747e65e3d3b1a0fbd04236f595b3138b37",
+    "bytes": 51681
+  },
+  "targeted-metadata.json": {
+    "sha256": "e3ba12e74c0340e84c7e670bce04f80a14e5bf52a6a5b6a84726d03bc7fd2fcf",
+    "bytes": 2128
+  },
+  "viberwhisper/results.json": {
+    "sha256": "becd6ebde5cd7cda7451c5f922dc3306d34ff7f8a18c37ddfc7b465070bb0b6e",
+    "bytes": 100084
+  },
+  "vllm/results.json": {
+    "sha256": "79ef3f5e179300759ca95a2a6edb5d24c01c2241e7c05b4fcff5294bf37c9046",
+    "bytes": 240553
+  }
+}

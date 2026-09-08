@@ -1,0 +1,477 @@
+{
+  "versions": {
+    "control": {
+      "path": "target/release/coderg",
+      "sha256": "a3f0b8f26ad2447008dd28623ac8e00621c34c695411d48bba09fa1982fe3e85"
+    },
+    "probe": {
+      "path": "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+      "sha256": "eafdc61f11a8b25f7dd1274ee8f6a5f109b17103599e468a084965d78c2f432b"
+    }
+  },
+  "runs": [
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-wxyu9xw8",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 984.1004589980002,
+      "user_cpu_ms": 1017.4639999999999,
+      "system_cpu_ms": 48.662,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-nmpxow5h",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 628.7416249979287,
+      "user_cpu_ms": 1043.427,
+      "system_cpu_ms": 44.166,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-kb7qf7s0",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.07287501753308,
+      "user_cpu_ms": 943.4830000000001,
+      "system_cpu_ms": 31.918000000000003,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-t13nhucm",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.57412499259226,
+      "user_cpu_ms": 939.0160000000001,
+      "system_cpu_ms": 32.752,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-gnpck40p",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 150.00770898768678,
+      "user_cpu_ms": 943.6379999999999,
+      "system_cpu_ms": 35.15099999999999,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-6hz633zn",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 149.6512079902459,
+      "user_cpu_ms": 940.8690000000001,
+      "system_cpu_ms": 34.327,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-ot7kvwxz",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 146.44629100803286,
+      "user_cpu_ms": 944.6659999999998,
+      "system_cpu_ms": 33.427000000000014,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-zw2s4mbh",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 149.86466598929837,
+      "user_cpu_ms": 948.073,
+      "system_cpu_ms": 34.256999999999984,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-5r8dqsl4",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 147.94270799029619,
+      "user_cpu_ms": 947.1219999999994,
+      "system_cpu_ms": 35.27600000000003,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-tnxtb9x8",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.01924998755567,
+      "user_cpu_ms": 934.31,
+      "system_cpu_ms": 34.89599999999998,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-exw4d4q5",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 146.71912501216866,
+      "user_cpu_ms": 944.2220000000017,
+      "system_cpu_ms": 34.549,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-y836tqzg",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.51387499948032,
+      "user_cpu_ms": 953.913,
+      "system_cpu_ms": 34.82299999999999,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-79p5happ",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 147.57312499568798,
+      "user_cpu_ms": 948.6749999999997,
+      "system_cpu_ms": 33.75499999999998,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-hashset-share-2026-09-08/calibration/index-ivfcp0jb",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.67654198314995,
+      "user_cpu_ms": 941.3319999999992,
+      "system_cpu_ms": 33.605000000000054,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    }
+  ],
+  "samples": []
+}

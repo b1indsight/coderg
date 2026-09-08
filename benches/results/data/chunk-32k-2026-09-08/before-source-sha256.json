@@ -1,0 +1,19 @@
+{
+  "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+  "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+  "benches/compare_rg.rs": "764a79f7ddb6b67995c58b79e33690507e601f2c90be31dac6767dc800bc92fe",
+  "docs/cursor-design-gaps.md": "7e461ebc93eb43003b27d845e37e3e78b4914d92e18ff55885e5e1313c30514f",
+  "docs/implemented-optimizations.md": "5c55b72c0144a8d349b5b06580936a1b4aa821c8cea0063dcf74f7cb8b875383",
+  "docs/index-build-memory-budget.md": "b56ea22104b429c8b272215fc5132d3ba054b98419c95b1dff41b535c16d2b50",
+  "src/build.rs": "cb52a7aaabb7b51b1d0551530c84ff96d7ba4c32d15aa8f9199cfd0c17de51d2",
+  "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+  "src/index.rs": "a0463d505b93af6e13f780707dd397d961f290b736066ca4341a424fc27acf6c",
+  "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+  "src/ngram.rs": "a63c240604a9304ccb48302627e3cd71a2f03266e5597cc105f261cf56efb912",
+  "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+  "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+  "src/segment.rs": "d1c45db5781b03ed29a88a0c1bdc92c9265f33f0b3ca5b85e07f17df4c2853ad",
+  "tests/build_memory.rs": "03cf78d53db29fefef4f0755e0e45b329e983435304a0e35bdc4d4b52e47e406",
+  "tests/cli.rs": "54bbf273d9aa5910ed97168803ac308b40ce13797c763a1fa4186f46c9e465e4",
+  "tests/git_incremental.rs": "ffb0109bebc995db3f127dc74b5070ac98c4cc1c81df8e858d4086006a136b35"
+}

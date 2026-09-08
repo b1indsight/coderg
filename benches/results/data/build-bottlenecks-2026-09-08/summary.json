@@ -1,0 +1,1845 @@
+{
+  "builds_with_byte_parity": 90,
+  "corpora": {
+    "few_large_64": {
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "files": 64,
+      "source_bytes": 67108864,
+      "versions": {
+        "control": {
+          "n": 7,
+          "wall_ms": {
+            "median": 147.48700000927784,
+            "min": 144.97900000424124,
+            "max": 148.30495900241658
+          },
+          "user_cpu_ms": {
+            "median": 967.6329999999994,
+            "min": 965.9740000000002,
+            "max": 971.349
+          },
+          "system_cpu_ms": {
+            "median": 33.862,
+            "min": 32.84999999999999,
+            "max": 35.102999999999994
+          },
+          "average_cpu_cores": {
+            "median": 6.798728023059127,
+            "min": 6.76373927024379,
+            "max": 6.917863966303122
+          }
+        },
+        "probe": {
+          "n": 7,
+          "wall_ms": {
+            "median": 150.03741599502973,
+            "min": 148.0653339822311,
+            "max": 152.63329198933206
+          },
+          "user_cpu_ms": {
+            "median": 972.569,
+            "min": 969.9589999999994,
+            "max": 976.178
+          },
+          "system_cpu_ms": {
+            "median": 33.48099999999998,
+            "min": 32.270999999999994,
+            "max": 34.776
+          },
+          "average_cpu_cores": {
+            "median": 6.738012603692733,
+            "min": 6.5760030915807794,
+            "max": 6.816761039563291
+          },
+          "phases": {
+            "chunk_collect": {
+              "ms": {
+                "median": 56.180882,
+                "min": 56.123917,
+                "max": 56.477006
+              },
+              "calls": {
+                "median": 4160,
+                "min": 4160,
+                "max": 4160
+              }
+            },
+            "chunks": {
+              "median": 4160,
+              "min": 4160,
+              "max": 4160
+            },
+            "collect_files": {
+              "ms": {
+                "median": 3.018875,
+                "min": 3.004666,
+                "max": 3.0375
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "count_keys": {
+              "ms": {
+                "median": 1.490291,
+                "min": 1.467083,
+                "max": 1.796292
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "dedup": {
+              "ms": {
+                "median": 3.002916,
+                "min": 2.993666,
+                "max": 3.050917
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "emitted_records": {
+              "median": 7335895,
+              "min": 7335895,
+              "max": 7335895
+            },
+            "encode": {
+              "ms": {
+                "median": 7.706625,
+                "min": 7.5695,
+                "max": 7.928417
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "extend": {
+              "ms": {
+                "median": 8.605497,
+                "min": 8.198849,
+                "max": 8.784188
+              },
+              "calls": {
+                "median": 4160,
+                "min": 4160,
+                "max": 4160
+              }
+            },
+            "file_open": {
+              "ms": {
+                "median": 1.81171,
+                "min": 1.623958,
+                "max": 2.016712
+              },
+              "calls": {
+                "median": 64,
+                "min": 64,
+                "max": 64
+              }
+            },
+            "file_read": {
+              "ms": {
+                "median": 7.657088,
+                "min": 7.329595,
+                "max": 10.248777
+              },
+              "calls": {
+                "median": 4160,
+                "min": 4160,
+                "max": 4160
+              }
+            },
+            "final_write": {
+              "ms": {
+                "median": 35.833334,
+                "min": 34.822375,
+                "max": 37.600542
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "git": {
+              "ms": {
+                "median": 0.883084,
+                "min": 0.876375,
+                "max": 0.920209
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "gram_hash": {
+              "ms": {
+                "median": 729.316248,
+                "min": 726.473952,
+                "max": 734.402644
+              },
+              "calls": {
+                "median": 4160,
+                "min": 4160,
+                "max": 4160
+              }
+            },
+            "manifest": {
+              "ms": {
+                "median": 0.273708,
+                "min": 0.255416,
+                "max": 0.281709
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "merge": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "pipeline": {
+              "ms": {
+                "median": 104.681708,
+                "min": 104.252041,
+                "max": 106.348625
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "read_bytes": {
+              "median": 67108864,
+              "min": 67108864,
+              "max": 67108864
+            },
+            "receive_wait": {
+              "ms": {
+                "median": 94.660406,
+                "min": 94.152567,
+                "max": 96.575652
+              },
+              "calls": {
+                "median": 4161,
+                "min": 4161,
+                "max": 4161
+              }
+            },
+            "send_wait": {
+              "ms": {
+                "median": 5.650876,
+                "min": 5.606715,
+                "max": 5.866628
+              },
+              "calls": {
+                "median": 4160,
+                "min": 4160,
+                "max": 4160
+              }
+            },
+            "sort": {
+              "ms": {
+                "median": 23.537917,
+                "min": 22.365834,
+                "max": 25.326166
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "sort_input": {
+              "median": 7335895,
+              "min": 7335895,
+              "max": 7335895
+            },
+            "sort_output": {
+              "median": 3211895,
+              "min": 3211895,
+              "max": 3211895
+            },
+            "spill": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "spill_write": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "total": {
+              "ms": {
+                "median": 145.415125,
+                "min": 143.529625,
+                "max": 148.138042
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            }
+          },
+          "phase_share_of_build": {
+            "pipeline": {
+              "median": 0.7234401805687993,
+              "min": 0.7179021915248481,
+              "max": 0.7279165050420775
+            },
+            "receive_wait": {
+              "median": 0.6560690955704247,
+              "min": 0.6497159631778332,
+              "max": 0.6585769035486576
+            },
+            "final_write": {
+              "median": 0.24742731145489963,
+              "min": 0.24261454734519092,
+              "max": 0.2538209732784236
+            },
+            "sort": {
+              "median": 0.16192367867313523,
+              "min": 0.15582730046149007,
+              "max": 0.1709632830167959
+            },
+            "dedup": {
+              "median": 0.02070684339307793,
+              "min": 0.02021960031036457,
+              "max": 0.021157367337927623
+            },
+            "merge": {
+              "median": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            "encode": {
+              "median": 0.0528928266574746,
+              "min": 0.0520232675952339,
+              "max": 0.055238888835667195
+            }
+          },
+          "collector_wait_share_of_pipeline": {
+            "median": 0.9047423694707792,
+            "min": 0.9025313954564058,
+            "max": 0.9081043784063969
+          },
+          "duplicate_fraction_at_sort": {
+            "median": 0.5621672611181049,
+            "min": 0.5621672611181049,
+            "max": 0.5621672611181049
+          }
+        }
+      },
+      "probe_wall_delta_percent": 1.7292479917494052
+    },
+    "grouped_1": {
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_1",
+      "files": 1,
+      "source_bytes": 67108864,
+      "versions": {
+        "control": {
+          "n": 7,
+          "wall_ms": {
+            "median": 593.4809579921421,
+            "min": 592.3212089983281,
+            "max": 594.4655420025811
+          },
+          "user_cpu_ms": {
+            "median": 679.1249999999991,
+            "min": 678.3289999999997,
+            "max": 680.5069999999995
+          },
+          "system_cpu_ms": {
+            "median": 23.650000000000006,
+            "min": 22.902000000000033,
+            "max": 24.595000000000034
+          },
+          "average_cpu_cores": {
+            "median": 1.1842536703278637,
+            "min": 1.182993523567154,
+            "max": 1.1880682124991857
+          }
+        },
+        "probe": {
+          "n": 7,
+          "wall_ms": {
+            "median": 599.3117080070078,
+            "min": 595.9535420115571,
+            "max": 600.424208008917
+          },
+          "user_cpu_ms": {
+            "median": 682.8439999999994,
+            "min": 681.1640000000003,
+            "max": 683.4500000000005
+          },
+          "system_cpu_ms": {
+            "median": 25.26400000000001,
+            "min": 24.642999999999997,
+            "max": 26.283
+          },
+          "average_cpu_cores": {
+            "median": 1.1816531438876747,
+            "min": 1.1803787897730365,
+            "max": 1.1852299721482367
+          },
+          "phases": {
+            "chunk_collect": {
+              "ms": {
+                "median": 49.005775,
+                "min": 48.748836,
+                "max": 49.225535
+              },
+              "calls": {
+                "median": 4102,
+                "min": 4102,
+                "max": 4102
+              }
+            },
+            "chunks": {
+              "median": 4102,
+              "min": 4102,
+              "max": 4102
+            },
+            "collect_files": {
+              "ms": {
+                "median": 3.460792,
+                "min": 1.9755,
+                "max": 3.542375
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "count_keys": {
+              "ms": {
+                "median": 0.217292,
+                "min": 0.208667,
+                "max": 0.257959
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "dedup": {
+              "ms": {
+                "median": 3.266417,
+                "min": 3.21175,
+                "max": 3.326125
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "emitted_records": {
+              "median": 7323817,
+              "min": 7323817,
+              "max": 7323817
+            },
+            "encode": {
+              "ms": {
+                "median": 2.865167,
+                "min": 2.794292,
+                "max": 2.908375
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "extend": {
+              "ms": {
+                "median": 6.485128,
+                "min": 6.451055,
+                "max": 6.575223
+              },
+              "calls": {
+                "median": 4102,
+                "min": 4102,
+                "max": 4102
+              }
+            },
+            "file_open": {
+              "ms": {
+                "median": 0.013667,
+                "min": 0.012333,
+                "max": 0.01625
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "file_read": {
+              "ms": {
+                "median": 5.515696,
+                "min": 5.429064,
+                "max": 5.525286
+              },
+              "calls": {
+                "median": 4102,
+                "min": 4102,
+                "max": 4102
+              }
+            },
+            "final_write": {
+              "ms": {
+                "median": 23.17025,
+                "min": 23.071167,
+                "max": 23.864416
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "git": {
+              "ms": {
+                "median": 0.06675,
+                "min": 0.062417,
+                "max": 0.080583
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "gram_hash": {
+              "ms": {
+                "median": 508.840236,
+                "min": 506.757086,
+                "max": 509.54318
+              },
+              "calls": {
+                "median": 4102,
+                "min": 4102,
+                "max": 4102
+              }
+            },
+            "manifest": {
+              "ms": {
+                "median": 0.081083,
+                "min": 0.079167,
+                "max": 0.087042
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "merge": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "pipeline": {
+              "ms": {
+                "median": 567.34775,
+                "min": 565.687125,
+                "max": 569.112375
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "read_bytes": {
+              "median": 67108864,
+              "min": 67108864,
+              "max": 67108864
+            },
+            "receive_wait": {
+              "ms": {
+                "median": 559.81502,
+                "min": 558.132091,
+                "max": 561.516623
+              },
+              "calls": {
+                "median": 4103,
+                "min": 4103,
+                "max": 4103
+              }
+            },
+            "send_wait": {
+              "ms": {
+                "median": 3.940297,
+                "min": 3.749513,
+                "max": 4.434007
+              },
+              "calls": {
+                "median": 4102,
+                "min": 4102,
+                "max": 4102
+              }
+            },
+            "sort": {
+              "ms": {
+                "median": 16.886708,
+                "min": 16.698459,
+                "max": 17.469042
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "sort_input": {
+              "median": 7323817,
+              "min": 7323817,
+              "max": 7323817
+            },
+            "sort_output": {
+              "median": 530475,
+              "min": 530475,
+              "max": 530475
+            },
+            "spill": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "spill_write": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "total": {
+              "ms": {
+                "median": 594.753625,
+                "min": 591.395541,
+                "max": 595.930875
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            }
+          },
+          "phase_share_of_build": {
+            "pipeline": {
+              "median": 0.9547922629995838,
+              "min": 0.9537356043857655,
+              "max": 0.9573126220104523
+            },
+            "receive_wait": {
+              "median": 0.9420405356027496,
+              "min": 0.9408809706708385,
+              "max": 0.9445232492884148
+            },
+            "final_write": {
+              "median": 0.03907073039440821,
+              "min": 0.03876248906604894,
+              "max": 0.04012487691857279
+            },
+            "sort": {
+              "median": 0.02837297698327847,
+              "min": 0.02823103341457447,
+              "max": 0.029371896640394583
+            },
+            "dedup": {
+              "median": 0.005513206048891976,
+              "min": 0.005396147678957145,
+              "max": 0.005624196953490389
+            },
+            "merge": {
+              "median": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            "encode": {
+              "median": 0.0048209231064912355,
+              "min": 0.004694765249514601,
+              "max": 0.004908886600347169
+            }
+          },
+          "collector_wait_share_of_pipeline": {
+            "median": 0.9866533353803806,
+            "min": 0.9865218057752958,
+            "max": 0.9867239119887077
+          },
+          "duplicate_fraction_at_sort": {
+            "median": 0.9275685069684292,
+            "min": 0.9275685069684292,
+            "max": 0.9275685069684292
+          }
+        }
+      },
+      "probe_wall_delta_percent": 0.9824662335573997
+    },
+    "grouped_8": {
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "files": 8,
+      "source_bytes": 67108864,
+      "versions": {
+        "control": {
+          "n": 7,
+          "wall_ms": {
+            "median": 144.5104580197949,
+            "min": 138.4088330087252,
+            "max": 152.13262499310076
+          },
+          "user_cpu_ms": {
+            "median": 935.4219999999991,
+            "min": 931.5570000000015,
+            "max": 943.209000000003
+          },
+          "system_cpu_ms": {
+            "median": 29.54900000000005,
+            "min": 28.581999999999997,
+            "max": 30.058999999999948
+          },
+          "average_cpu_cores": {
+            "median": 6.700356345147219,
+            "min": 6.328497914524674,
+            "max": 7.024053153737066
+          }
+        },
+        "probe": {
+          "n": 7,
+          "wall_ms": {
+            "median": 147.89345799363218,
+            "min": 144.39533301629126,
+            "max": 151.05379102169536
+          },
+          "user_cpu_ms": {
+            "median": 939.5230000000013,
+            "min": 934.3669999999981,
+            "max": 957.4309999999997
+          },
+          "system_cpu_ms": {
+            "median": 30.282999999999948,
+            "min": 29.430000000000067,
+            "max": 30.447000000000003
+          },
+          "average_cpu_cores": {
+            "median": 6.552171491405983,
+            "min": 6.394245344436771,
+            "max": 6.732780833629969
+          },
+          "phases": {
+            "chunk_collect": {
+              "ms": {
+                "median": 56.475197,
+                "min": 55.993194,
+                "max": 57.256185
+              },
+              "calls": {
+                "median": 4104,
+                "min": 4104,
+                "max": 4104
+              }
+            },
+            "chunks": {
+              "median": 4104,
+              "min": 4104,
+              "max": 4104
+            },
+            "collect_files": {
+              "ms": {
+                "median": 3.474708,
+                "min": 2.985541,
+                "max": 3.498209
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "count_keys": {
+              "ms": {
+                "median": 1.262125,
+                "min": 0.956916,
+                "max": 1.329792
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "dedup": {
+              "ms": {
+                "median": 3.350042,
+                "min": 3.297959,
+                "max": 3.546375
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "emitted_records": {
+              "median": 7324100,
+              "min": 7324100,
+              "max": 7324100
+            },
+            "encode": {
+              "ms": {
+                "median": 4.302333,
+                "min": 4.230333,
+                "max": 4.525125
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "extend": {
+              "ms": {
+                "median": 8.118402,
+                "min": 7.847411,
+                "max": 8.495699
+              },
+              "calls": {
+                "median": 4104,
+                "min": 4104,
+                "max": 4104
+              }
+            },
+            "file_open": {
+              "ms": {
+                "median": 0.48175,
+                "min": 0.363042,
+                "max": 0.680084
+              },
+              "calls": {
+                "median": 8,
+                "min": 8,
+                "max": 8
+              }
+            },
+            "file_read": {
+              "ms": {
+                "median": 7.191513,
+                "min": 7.086665,
+                "max": 9.284511
+              },
+              "calls": {
+                "median": 4104,
+                "min": 4104,
+                "max": 4104
+              }
+            },
+            "final_write": {
+              "ms": {
+                "median": 28.87525,
+                "min": 28.570333,
+                "max": 30.052917
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "git": {
+              "ms": {
+                "median": 0.064792,
+                "min": 0.061084,
+                "max": 0.078917
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "gram_hash": {
+              "ms": {
+                "median": 727.171799,
+                "min": 719.260148,
+                "max": 739.418475
+              },
+              "calls": {
+                "median": 4104,
+                "min": 4104,
+                "max": 4104
+              }
+            },
+            "manifest": {
+              "ms": {
+                "median": 0.08425,
+                "min": 0.079625,
+                "max": 0.09575
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "merge": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "pipeline": {
+              "ms": {
+                "median": 110.8605,
+                "min": 107.567083,
+                "max": 112.731584
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "read_bytes": {
+              "median": 67108864,
+              "min": 67108864,
+              "max": 67108864
+            },
+            "receive_wait": {
+              "ms": {
+                "median": 101.167897,
+                "min": 98.340549,
+                "max": 103.096339
+              },
+              "calls": {
+                "median": 4105,
+                "min": 4105,
+                "max": 4105
+              }
+            },
+            "send_wait": {
+              "ms": {
+                "median": 5.52899,
+                "min": 5.154156,
+                "max": 5.839983
+              },
+              "calls": {
+                "median": 4104,
+                "min": 4104,
+                "max": 4104
+              }
+            },
+            "sort": {
+              "ms": {
+                "median": 20.176375,
+                "min": 19.718667,
+                "max": 20.648042
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "sort_input": {
+              "median": 7324100,
+              "min": 7324100,
+              "max": 7324100
+            },
+            "sort_output": {
+              "median": 980863,
+              "min": 980863,
+              "max": 980863
+            },
+            "spill": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "spill_write": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "total": {
+              "ms": {
+                "median": 143.386083,
+                "min": 139.815291,
+                "max": 146.468334
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            }
+          },
+          "phase_share_of_build": {
+            "pipeline": {
+              "median": 0.7710759674089596,
+              "min": 0.7693513508475979,
+              "max": 0.7767099731558087
+            },
+            "receive_wait": {
+              "median": 0.7043565587882054,
+              "min": 0.7028314412863865,
+              "max": 0.7102230949213124
+            },
+            "final_write": {
+              "median": 0.20402067108990257,
+              "min": 0.19802269900700487,
+              "max": 0.2067253821876142
+            },
+            "sort": {
+              "median": 0.14097273749286995,
+              "min": 0.1381607795227937,
+              "max": 0.14217834570977073
+            },
+            "dedup": {
+              "median": 0.023587970789260813,
+              "min": 0.022997824171804588,
+              "max": 0.024626980486752735
+            },
+            "merge": {
+              "median": 0.0,
+              "min": 0.0,
+              "max": 0.0
+            },
+            "encode": {
+              "median": 0.030742638872024376,
+              "min": 0.029330451373149696,
+              "max": 0.031029566516577477
+            }
+          },
+          "collector_wait_share_of_pipeline": {
+            "median": 0.9142253025491078,
+            "min": 0.9110091330997064,
+            "max": 0.9153039449488195
+          },
+          "duplicate_fraction_at_sort": {
+            "median": 0.8660773337338377,
+            "min": 0.8660773337338377,
+            "max": 0.8660773337338377
+          }
+        }
+      },
+      "probe_wall_delta_percent": 2.3410070248160775
+    },
+    "vllm": {
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "files": 6835,
+      "source_bytes": 86384180,
+      "versions": {
+        "control": {
+          "n": 7,
+          "wall_ms": {
+            "median": 1251.9322079897393,
+            "min": 1244.3354580027517,
+            "max": 1256.2801250023767
+          },
+          "user_cpu_ms": {
+            "median": 4430.478000000001,
+            "min": 4421.323000000001,
+            "max": 4435.808999999999
+          },
+          "system_cpu_ms": {
+            "median": 525.6499999999988,
+            "min": 518.0560000000005,
+            "max": 568.7170000000003
+          },
+          "average_cpu_cores": {
+            "median": 3.9660299119406432,
+            "min": 3.946308438858193,
+            "max": 3.991395542140871
+          }
+        },
+        "probe": {
+          "n": 7,
+          "wall_ms": {
+            "median": 1238.3255830209237,
+            "min": 1233.5284170112573,
+            "max": 1274.6979160001501
+          },
+          "user_cpu_ms": {
+            "median": 4426.162999999995,
+            "min": 4340.270000000004,
+            "max": 4430.659000000006
+          },
+          "system_cpu_ms": {
+            "median": 536.4850000000004,
+            "min": 494.707,
+            "max": 559.7949999999994
+          },
+          "average_cpu_cores": {
+            "median": 4.016515759927025,
+            "min": 3.793037502698353,
+            "max": 4.031290184662696
+          },
+          "phases": {
+            "chunk_collect": {
+              "ms": {
+                "median": 155.318178,
+                "min": 154.711978,
+                "max": 155.660785
+              },
+              "calls": {
+                "median": 9938,
+                "min": 9938,
+                "max": 9938
+              }
+            },
+            "chunks": {
+              "median": 9938,
+              "min": 9938,
+              "max": 9938
+            },
+            "collect_files": {
+              "ms": {
+                "median": 22.6135,
+                "min": 21.891166,
+                "max": 23.571208
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "count_keys": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "dedup": {
+              "ms": {
+                "median": 57.321041,
+                "min": 57.2215,
+                "max": 57.618208
+              },
+              "calls": {
+                "median": 2,
+                "min": 2,
+                "max": 2
+              }
+            },
+            "emitted_records": {
+              "median": 45120781,
+              "min": 45120781,
+              "max": 45120781
+            },
+            "encode": {
+              "ms": {
+                "median": 186.954375,
+                "min": 185.500333,
+                "max": 188.35975
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "extend": {
+              "ms": {
+                "median": 199.63071,
+                "min": 198.260126,
+                "max": 206.407161
+              },
+              "calls": {
+                "median": 9938,
+                "min": 9938,
+                "max": 9938
+              }
+            },
+            "file_open": {
+              "ms": {
+                "median": 211.882948,
+                "min": 209.081394,
+                "max": 228.09284
+              },
+              "calls": {
+                "median": 6929,
+                "min": 6929,
+                "max": 6929
+              }
+            },
+            "file_read": {
+              "ms": {
+                "median": 20.56484,
+                "min": 19.370413,
+                "max": 21.798784
+              },
+              "calls": {
+                "median": 10032,
+                "min": 10032,
+                "max": 10032
+              }
+            },
+            "final_write": {
+              "ms": {
+                "median": 641.928041,
+                "min": 640.033583,
+                "max": 662.451541
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "git": {
+              "ms": {
+                "median": 33.103,
+                "min": 32.197333,
+                "max": 34.708333
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "gram_hash": {
+              "ms": {
+                "median": 2363.960621,
+                "min": 2360.118543,
+                "max": 2381.808659
+              },
+              "calls": {
+                "median": 9938,
+                "min": 9938,
+                "max": 9938
+              }
+            },
+            "manifest": {
+              "ms": {
+                "median": 4.947333,
+                "min": 4.832167,
+                "max": 9.847584
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "merge": {
+              "ms": {
+                "median": 309.748584,
+                "min": 308.376667,
+                "max": 328.53075
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "pipeline": {
+              "ms": {
+                "median": 526.799583,
+                "min": 524.142917,
+                "max": 551.696458
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "read_bytes": {
+              "median": 87866836,
+              "min": 87866836,
+              "max": 87866836
+            },
+            "receive_wait": {
+              "ms": {
+                "median": 321.90817,
+                "min": 320.066254,
+                "max": 341.84706
+              },
+              "calls": {
+                "median": 9939,
+                "min": 9939,
+                "max": 9939
+              }
+            },
+            "send_wait": {
+              "ms": {
+                "median": 1381.486578,
+                "min": 1365.846551,
+                "max": 1554.995848
+              },
+              "calls": {
+                "median": 9938,
+                "min": 9938,
+                "max": 9938
+              }
+            },
+            "sort": {
+              "ms": {
+                "median": 168.603541,
+                "min": 165.832875,
+                "max": 184.161792
+              },
+              "calls": {
+                "median": 2,
+                "min": 2,
+                "max": 2
+              }
+            },
+            "sort_input": {
+              "median": 45120781,
+              "min": 45120781,
+              "max": 45120781
+            },
+            "sort_output": {
+              "median": 35535095,
+              "min": 35506666,
+              "max": 35598481
+            },
+            "spill": {
+              "ms": {
+                "median": 314.179292,
+                "min": 311.262001,
+                "max": 333.047667
+              },
+              "calls": {
+                "median": 2,
+                "min": 2,
+                "max": 2
+              }
+            },
+            "spill_write": {
+              "ms": {
+                "median": 88.233417,
+                "min": 87.456208,
+                "max": 91.33125
+              },
+              "calls": {
+                "median": 2,
+                "min": 2,
+                "max": 2
+              }
+            },
+            "total": {
+              "ms": {
+                "median": 1232.500833,
+                "min": 1227.644584,
+                "max": 1268.810667
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            }
+          },
+          "phase_share_of_build": {
+            "pipeline": {
+              "median": 0.4279136195288883,
+              "min": 0.42125849852995145,
+              "max": 0.4348138554859738
+            },
+            "receive_wait": {
+              "median": 0.2621516317203828,
+              "min": 0.2570301207173277,
+              "max": 0.2694232235675238
+            },
+            "final_write": {
+              "median": 0.5215615808883005,
+              "min": 0.5162317365668868,
+              "max": 0.5293381843946751
+            },
+            "sort": {
+              "median": 0.13587607530647405,
+              "min": 0.13494389940424129,
+              "max": 0.1451452110151593
+            },
+            "dedup": {
+              "median": 0.0464603815809348,
+              "min": 0.04536068737196391,
+              "max": 0.0469271080322713
+            },
+            "merge": {
+              "median": 0.25117925433635746,
+              "min": 0.24426214648146555,
+              "max": 0.26251561051591077
+            },
+            "encode": {
+              "median": 0.15134928090881392,
+              "min": 0.14734615641436755,
+              "max": 0.15340946280699347
+            }
+          },
+          "collector_wait_share_of_pipeline": {
+            "median": 0.6135509602330115,
+            "min": 0.6092189127122427,
+            "max": 0.6196288829536042
+          },
+          "duplicate_fraction_at_sort": {
+            "median": 0.21244503724348207,
+            "min": 0.21104022999956495,
+            "max": 0.21307510169205623
+          }
+        }
+      },
+      "probe_wall_delta_percent": -1.0868499813311838
+    },
+    "vllm_x4": {
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "files": 27340,
+      "source_bytes": 345536720,
+      "versions": {
+        "control": {
+          "n": 7,
+          "wall_ms": {
+            "median": 5496.505333023379,
+            "min": 5214.426666992949,
+            "max": 5661.341416998766
+          },
+          "user_cpu_ms": {
+            "median": 18131.33700000003,
+            "min": 17673.17299999999,
+            "max": 18340.635999999962
+          },
+          "system_cpu_ms": {
+            "median": 2161.9700000000003,
+            "min": 2085.0860000000002,
+            "max": 2250.5719999999983
+          },
+          "average_cpu_cores": {
+            "median": 3.7081577775507886,
+            "min": 3.5368709507392677,
+            "max": 3.9205869227017827
+          }
+        },
+        "probe": {
+          "n": 7,
+          "wall_ms": {
+            "median": 5541.994583007181,
+            "min": 5164.564500009874,
+            "max": 5647.845291998237
+          },
+          "user_cpu_ms": {
+            "median": 17986.513000000003,
+            "min": 17672.73800000001,
+            "max": 18391.88200000001
+          },
+          "system_cpu_ms": {
+            "median": 2131.269,
+            "min": 2086.551,
+            "max": 2243.6180000000013
+          },
+          "average_cpu_cores": {
+            "median": 3.621250484773698,
+            "min": 3.498553515266185,
+            "max": 3.9449647310855105
+          },
+          "phases": {
+            "chunk_collect": {
+              "ms": {
+                "median": 630.355059,
+                "min": 614.906671,
+                "max": 656.109074
+              },
+              "calls": {
+                "median": 39752,
+                "min": 39752,
+                "max": 39752
+              }
+            },
+            "chunks": {
+              "median": 39752,
+              "min": 39752,
+              "max": 39752
+            },
+            "collect_files": {
+              "ms": {
+                "median": 77.499625,
+                "min": 75.647958,
+                "max": 82.733458
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "count_keys": {
+              "ms": {
+                "median": 0.0,
+                "min": 0.0,
+                "max": 0.0
+              },
+              "calls": {
+                "median": 0,
+                "min": 0,
+                "max": 0
+              }
+            },
+            "dedup": {
+              "ms": {
+                "median": 240.591874,
+                "min": 234.31425,
+                "max": 245.720832
+              },
+              "calls": {
+                "median": 8,
+                "min": 8,
+                "max": 8
+              }
+            },
+            "emitted_records": {
+              "median": 180483124,
+              "min": 180483124,
+              "max": 180483124
+            },
+            "encode": {
+              "ms": {
+                "median": 597.897625,
+                "min": 589.457666,
+                "max": 621.7615
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "extend": {
+              "ms": {
+                "median": 1293.419224,
+                "min": 1281.265869,
+                "max": 1312.057185
+              },
+              "calls": {
+                "median": 39752,
+                "min": 39752,
+                "max": 39752
+              }
+            },
+            "file_open": {
+              "ms": {
+                "median": 772.940342,
+                "min": 756.517541,
+                "max": 809.712874
+              },
+              "calls": {
+                "median": 27340,
+                "min": 27340,
+                "max": 27340
+              }
+            },
+            "file_read": {
+              "ms": {
+                "median": 3843.444855,
+                "min": 1053.996461,
+                "max": 4932.739255
+              },
+              "calls": {
+                "median": 39752,
+                "min": 39752,
+                "max": 39752
+              }
+            },
+            "final_write": {
+              "ms": {
+                "median": 2301.670125,
+                "min": 2265.906541,
+                "max": 2329.790167
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "git": {
+              "ms": {
+                "median": 0.080958,
+                "min": 0.079542,
+                "max": 0.0855
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "gram_hash": {
+              "ms": {
+                "median": 9552.760183,
+                "min": 9349.460859,
+                "max": 9933.650169
+              },
+              "calls": {
+                "median": 39752,
+                "min": 39752,
+                "max": 39752
+              }
+            },
+            "manifest": {
+              "ms": {
+                "median": 30.833291,
+                "min": 9.851208,
+                "max": 38.550084
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "merge": {
+              "ms": {
+                "median": 1625.484292,
+                "min": 1597.010167,
+                "max": 1628.658875
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "pipeline": {
+              "ms": {
+                "median": 3100.021167,
+                "min": 2799.687916,
+                "max": 3201.003959
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            },
+            "read_bytes": {
+              "median": 345536720,
+              "min": 345536720,
+              "max": 345536720
+            },
+            "receive_wait": {
+              "ms": {
+                "median": 1796.017077,
+                "min": 1490.128096,
+                "max": 1903.421621
+              },
+              "calls": {
+                "median": 39753,
+                "min": 39753,
+                "max": 39753
+              }
+            },
+            "send_wait": {
+              "ms": {
+                "median": 9874.707633,
+                "min": 9787.451753,
+                "max": 10012.879203
+              },
+              "calls": {
+                "median": 39752,
+                "min": 39752,
+                "max": 39752
+              }
+            },
+            "sort": {
+              "ms": {
+                "median": 685.688874,
+                "min": 682.295959,
+                "max": 695.565916
+              },
+              "calls": {
+                "median": 8,
+                "min": 8,
+                "max": 8
+              }
+            },
+            "sort_input": {
+              "median": 180483124,
+              "min": 180483124,
+              "max": 180483124
+            },
+            "sort_output": {
+              "median": 142292082,
+              "min": 142245271,
+              "max": 142323768
+            },
+            "spill": {
+              "ms": {
+                "median": 1288.919375,
+                "min": 1276.240291,
+                "max": 1304.955916
+              },
+              "calls": {
+                "median": 8,
+                "min": 8,
+                "max": 8
+              }
+            },
+            "spill_write": {
+              "ms": {
+                "median": 361.766624,
+                "min": 355.414957,
+                "max": 374.509416
+              },
+              "calls": {
+                "median": 8,
+                "min": 8,
+                "max": 8
+              }
+            },
+            "total": {
+              "ms": {
+                "median": 5531.964125,
+                "min": 5156.46925,
+                "max": 5639.236583
+              },
+              "calls": {
+                "median": 1,
+                "min": 1,
+                "max": 1
+              }
+            }
+          },
+          "phase_share_of_build": {
+            "pipeline": {
+              "median": 0.5600424025185776,
+              "min": 0.5429466908970707,
+              "max": 0.5676307265862409
+            },
+            "receive_wait": {
+              "median": 0.3237008940065258,
+              "min": 0.28898225195466837,
+              "max": 0.3375317905154113
+            },
+            "final_write": {
+              "median": 0.4190327256558255,
+              "min": 0.4115686522173351,
+              "max": 0.440043503022926
+            },
+            "sort": {
+              "median": 0.125665833583275,
+              "min": 0.12156606340415352,
+              "max": 0.13278363077603925
+            },
+            "dedup": {
+              "median": 0.04349122094135055,
+              "min": 0.04172260953003539,
+              "max": 0.04701965729748122
+            },
+            "merge": {
+              "median": 0.29353748392513895,
+              "min": 0.28824545097117804,
+              "max": 0.30971001465780096
+            },
+            "encode": {
+              "median": 0.11105698540782158,
+              "min": 0.108080531885228,
+              "max": 0.11448513535875743
+            }
+          },
+          "collector_wait_share_of_pipeline": {
+            "median": 0.5793563915365356,
+            "min": 0.5322479293081323,
+            "max": 0.5946326981721799
+          },
+          "duplicate_fraction_at_sort": {
+            "median": 0.21160450436352152,
+            "min": 0.2114289422428216,
+            "max": 0.21186386933329016
+          }
+        }
+      },
+      "probe_wall_delta_percent": 0.8276031264902173
+    }
+  }
+}

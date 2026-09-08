@@ -1,0 +1,208 @@
+--- a/src/index.rs
++++ b/src/index.rs
+@@ -6,7 +6,6 @@
+     sync::{
+         Mutex,
+         atomic::{AtomicUsize, Ordering},
+-        mpsc,
+     },
+     time::{SystemTime, UNIX_EPOCH},
+ };
+@@ -153,7 +152,10 @@
+     let root = resolve_root(path)?;
+     let index_dir = resolve_index_dir(&root, requested_index_dir);
+     prepare_index_dir(&root, &index_dir)?;
+-    let source_state = collect_files(&root, &index_dir, None)?;
++    // The experiment keeps full builds within one Rayon pool plus the caller:
++    // walk on the calling thread instead of starting a second walker pool.
++    // This is only a scheduling hint; the entire source tree is still checked.
++    let source_state = collect_files(&root, &index_dir, Some(0))?;
+     let repository_state = git_state::inspect(&root, &index_dir)?;
+     let segment_id = next_segment_id(&index_dir);
+     let (indexed, segment) = index_files(
+@@ -438,41 +440,22 @@
+     let mut postings = PostingsBuilder::new(index_dir, budget.record_bytes(workers));
+     let mut searchable = vec![false; files.len()];
+     let next_file = AtomicUsize::new(0);
+-    std::thread::scope(|scope| -> Result<()> {
+-        let (sender, receiver) = mpsc::sync_channel(workers);
+-        for _ in 0..workers {
+-            let sender = sender.clone();
+-            let files = &files;
+-            let next_file = &next_file;
+-            // Separate producers let the collector use Rayon's parallel sort
+-            // without blocking Rayon workers on a full channel or a mutex.
+-            scope.spawn(move || {
+-                loop {
+-                    let position = next_file.fetch_add(1, Ordering::Relaxed);
+-                    let Some((_, state)) = files.get(position) else {
+-                        break;
+-                    };
+-                    let path = root.join(&state.path);
+-                    let result = hash_file_chunks(&path, |hashes| {
+-                        sender
+-                            .send(Ok((position, hashes)))
+-                            .map_err(|_| anyhow::anyhow!("index build cancelled"))
+-                    });
+-                    if let Err(error) = result {
+-                        let _ = sender.send(Err(error));
+-                        break;
+-                    }
+-                }
+-            });
+-        }
+-        drop(sender);
+-        for batch in receiver {
+-            let (position, hashes) = batch?;
++    let mut lanes: Vec<_> = (0..workers).map(|_| ExtractionLane::default()).collect();
++    loop {
++        // Each lane yields one bounded chunk. No producer remains blocked
++        // while the same Rayon pool sorts or spills the collected records.
++        let batches = lanes
++            .par_iter_mut()
++            .map(|lane| lane.next(root, &files, &next_file))
++            .collect::<Result<Vec<_>>>()?;
++        if batches.iter().all(Option::is_none) {
++            break;
++        }
++        for (position, hashes) in batches.into_iter().flatten() {
+             searchable[position] = true;
+             postings.extend(files[position].0, &hashes)?;
+         }
+-        Ok(())
+-    })?;
++    }
+     let segment = postings.write(segment_id)?;
+     let indexed = files
+         .into_iter()
+@@ -486,43 +469,97 @@
+     Ok((indexed, segment))
+ }
+ 
++#[derive(Default)]
++struct ExtractionLane {
++    current: Option<(usize, FileChunks)>,
++}
++
++impl ExtractionLane {
++    fn next(
++        &mut self,
++        root: &Path,
++        files: &[(u32, FileState)],
++        next_file: &AtomicUsize,
++    ) -> Result<Option<(usize, Vec<ngram::GramHash>)>> {
++        loop {
++            if self.current.is_none() {
++                let position = next_file.fetch_add(1, Ordering::Relaxed);
++                let Some((_, state)) = files.get(position) else {
++                    return Ok(None);
++                };
++                self.current = Some((position, FileChunks::open(root.join(&state.path))?));
++            }
++            let (position, chunks) = self.current.as_mut().unwrap();
++            if let Some(hashes) = chunks.next()? {
++                return Ok(Some((*position, hashes)));
++            }
++            self.current = None;
++        }
++    }
++}
++
++struct FileChunks {
++    path: PathBuf,
++    file: File,
++    bytes: Box<[u8; CHUNK_BYTES]>,
++    retained: usize,
++    done: bool,
++}
++
++impl FileChunks {
++    fn open(path: PathBuf) -> Result<Self> {
++        let file = File::open(&path).with_context(|| format!("cannot read {}", path.display()))?;
++        Ok(Self {
++            path,
++            file,
++            bytes: Box::new([0; CHUNK_BYTES]),
++            retained: 0,
++            done: false,
++        })
++    }
++
++    fn next(&mut self) -> Result<Option<Vec<ngram::GramHash>>> {
++        if self.done {
++            return Ok(None);
++        }
++        let mut len = self.retained;
++        while len < self.bytes.len() {
++            match self.file.read(&mut self.bytes[len..]) {
++                Ok(0) => break,
++                Ok(count) => len += count,
++                Err(error) if error.kind() == std::io::ErrorKind::Interrupted => continue,
++                Err(error) => {
++                    return Err(error)
++                        .with_context(|| format!("cannot read {}", self.path.display()));
++                }
++            }
++        }
++        if (self.retained == 0 && is_binary(&self.bytes[..len]))
++            || (self.retained > 0 && len == self.retained)
++        {
++            self.done = true;
++            return Ok(None);
++        }
++        let hashes = ngram::hashes_for_document(&self.bytes[..len])
++            .into_iter()
++            .collect();
++        self.done = len < self.bytes.len();
++        if !self.done {
++            self.retained = ngram::MAX_GRAM - 1;
++            self.bytes.copy_within(len - self.retained..len, 0);
++        }
++        Ok(Some(hashes))
++    }
++}
++
++#[cfg(test)]
+ fn hash_file_chunks(
+     path: &Path,
+     mut emit: impl FnMut(Vec<ngram::GramHash>) -> Result<()>,
+ ) -> Result<()> {
+-    let mut file = File::open(path).with_context(|| format!("cannot read {}", path.display()))?;
+-    let mut bytes = [0; CHUNK_BYTES];
+-    let mut retained = 0;
+-    loop {
+-        let mut len = retained;
+-        while len < bytes.len() {
+-            match file.read(&mut bytes[len..]) {
+-                Ok(0) => break,
+-                Ok(count) => len += count,
+-                Err(error) if error.kind() == std::io::ErrorKind::Interrupted => continue,
+-                Err(error) => {
+-                    return Err(error).with_context(|| format!("cannot read {}", path.display()));
+-                }
+-            }
+-        }
+-        if retained == 0 && is_binary(&bytes[..len]) {
+-            return Ok(());
+-        }
+-        if retained > 0 && len == retained {
+-            break;
+-        }
+-        emit(
+-            ngram::hashes_for_document(&bytes[..len])
+-                .into_iter()
+-                .collect(),
+-        )?;
+-        if len < bytes.len() {
+-            break;
+-        }
+-        // The predicate for any gram depends only on its own bytes. Retaining
+-        // MAX_GRAM - 1 bytes preserves every gram spanning a chunk boundary.
+-        retained = ngram::MAX_GRAM - 1;
+-        bytes.copy_within(len - retained..len, 0);
++    let mut chunks = FileChunks::open(path.to_owned())?;
++    while let Some(hashes) = chunks.next()? {
++        emit(hashes)?;
+     }
+     Ok(())
+ }

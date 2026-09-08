@@ -1,0 +1,94 @@
+--- a/docs/cursor-design-gaps.md
++++ b/docs/cursor-design-gaps.md
+@@ -68,7 +68,7 @@
+ 
+ ## 5. 构建内存：已加入 256 MiB 工作缓冲区预算
+ 
+-原基线先逐文件提取 gram，再整体排序关联记录，仍需保存全语料记录。2026-09-08 已改为 16 KiB 分块提取、有限并行队列、预算内记录排序及超预算外排，最多 32 路归并成同格式索引段。全量构建和增量刷新默认使用 `--build-memory-mib 256`，可按命令调整。
++原基线先逐文件提取 gram，再整体排序关联记录，仍需保存全语料记录。2026-09-08 已改为 32 KiB 分块提取、有限并行队列、预算内记录排序及超预算外排，最多 32 路归并成同格式索引段。全量构建和增量刷新默认使用 `--build-memory-mib 256`，可按命令调整。
+ 
+ 预算覆盖内容块、gram 临时集合、排序记录、归并和流式段编码缓冲；不直接限制文件元数据、Git 库状态、分配器保留页面及 mmap 驻留页，因此不能称为进程 RSS 硬上限。Cursor 未公开完整构建预算策略，不能据此比较双方峰值内存。
+ 
+--- a/docs/implemented-optimizations.md
++++ b/docs/implemented-optimizations.md
+@@ -43,7 +43,7 @@
+ 
+ 每个普通文件记录相对路径、长度和纳秒修改时间。并行路径中，每个遍历 visitor 独立收集结果，退出时只获取一次锁发布整批结果；主线程检查所有批次的错误、按总文件数预分配快照，再使用 Rayon 按路径并行排序。串行路径直接收集结果并传播错误。两条路径都完整遍历、按同一条路径比较规则排序；历史文件数只是性能提示，仓库突然增长超过阈值时也不会提前结束或漏掉新增文件。这个有序快照用于比较工作区变化；全量构建也按它分配 `u32` 文档 ID。增量修改现有文件时复用 ID，新增文件追加 ID，删除文件标记失效；全量重建会重新编号。
+ 
+-文件内容读取及 gram 生成由数量受预算限制的生产线程并行处理，使用 16 KiB 块并保留 23 字节重叠。根据文件前 8 KiB 是否含 NUL 判定二进制文件；二进制文件保留元数据，但 `searchable = false`，不生成 postings，也不进入正常搜索候选。[index_files](../src/index.rs)
++文件内容读取及 gram 生成由数量受预算限制的生产线程并行处理，使用 32 KiB 块并保留 23 字节重叠。根据文件前 8 KiB 是否含 NUL 判定二进制文件；二进制文件保留元数据，但 `searchable = false`，不生成 postings，也不进入正常搜索候选。[index_files](../src/index.rs)、[16/32 KiB 对照](../benches/results/chunk-32k-2026-09-08.md)
+ 
+ 每块用 `HashSet<u64>` 去重已混合的 gram 哈希，首次插入成功后才压缩为 `u32` 并追加到 `Vec<u32>`，省掉重复 gram 的压缩以及提取结束后遍历集合收集结果的步骤；数组通过有界通道交给收集端。不同 `u64` 哈希压缩后可能成为同一个键，由后续排序或归并去重消除。连续的 `(gram, document_id)` 记录每条 8 字节；排序数组满时原地排序、去重并写临时 run，最终最多 32 路归并去重并编码为一个段。默认 `--build-memory-mib 256` 为提取、记录、归并和编码的主要缓冲区分配预算，全量和增量共用；文件元数据、Git 内部状态和分配器开销等不在该预算内，因此不是硬性进程 RSS 限制。索引仍只保存文件集合，不记录位置或次数。[构建预算与验证](index-build-memory-budget.md)
+ 
+--- a/docs/index-build-memory-budget.md
++++ b/docs/index-build-memory-budget.md
+@@ -17,9 +17,9 @@
+ 
+ ## 内存分配与文件边界
+ 
+-- 每个提取线程用 16 KiB 输入块，保留前一块末尾 23 字节。最长 gram 为 24 字节，其选择谓词只依赖片段内部，因此覆盖跨块 gram；重复的 `(gram, doc_id)` 在排序、归并时去重。
++- 每个提取线程用 32 KiB 输入块，保留前一块末尾 23 字节。最长 gram 为 24 字节，其选择谓词只依赖片段内部，因此覆盖跨块 gram；重复的 `(gram, doc_id)` 在排序、归并时去重。
+ - 二进制判定仍只检查文件前 8 KiB 的 NUL；空文本文件保持可搜索，二进制文件保留元数据但没有 postings。大文件持续分块读取，不以文件总长度分配输入数组或 hash table。
+-- 每个提取线程预留 8 MiB，包含生成哈希集合和紧凑数组时的峰值、有限队列中的结果及收集端当前结果。块内用 `u64` 哈希去重，首次出现后才压缩为 `u32` 输出。对整个块计数，生成 gram 数小于输入字节数的三倍：每个较长 gram 可归属到权重较小的端点（相等时任选一端），以及该方向最近的不小于它的端点；每个字节对最多对应左右各一个，再加全部 trigram。因此 16 KiB 块产生少于 49,152 个键，集合扩容、输出数组及队列结果仍能由该预留覆盖。[后置压缩内存实测](../benches/results/deferred-gram-compaction-2026-09-08.md)
++- 每个提取线程预留 8 MiB，包含生成哈希集合和紧凑数组时的峰值、有限队列中的结果及收集端当前结果。块内用 `u64` 哈希去重，首次出现后才压缩为 `u32` 输出。对整个块计数，生成 gram 数小于输入字节数的三倍：每个较长 gram 可归属到权重较小的端点（相等时任选一端），以及该方向最近的不小于它的端点；每个字节对最多对应左右各一个，再加全部 trigram。因此 32 KiB 块产生少于 98,304 个键，集合扩容、输出数组及队列结果仍能由该预留覆盖。[后置压缩内存实测](../benches/results/deferred-gram-compaction-2026-09-08.md)、[16/32 KiB 对照](../benches/results/chunk-32k-2026-09-08.md)
+ - 提取线程数为 Rayon 线程数、待处理文件数和 `max(1, budget / 32 MiB)` 三者的最小值。线程通过容量等于线程数的通道发布结果；收集端执行 Rayon 并行排序，避免生产线程占满 Rayon 池而阻塞排序。
+ - 另外预留 4 MiB 用于共享权重表和读写缓冲区。其余空间用于 8 字节关联记录，首次需要时一次性预留容量，之后不扩容。在 10 个逻辑 CPU、文件数充足的情况下，256 MiB 配置使用 8 个提取线程及 **188 MiB** 记录容量。
+ 
+--- a/src/build.rs
++++ b/src/build.rs
+@@ -16,7 +16,7 @@
+ 
+ pub type Record = (ngram::GramHash, u32);
+ const MIB: usize = 1024 * 1024;
+-pub const CHUNK_BYTES: usize = 16 * 1024;
++pub const CHUNK_BYTES: usize = 32 * 1024;
+ // Every longer gram links a bigram to its nearest >= neighbor on one side.
+ // At most two such grams per bigram, plus trigrams: < 3 hashes per byte.
+ // Reserve space for u64 dedup, compact output, queued chunks, and I/O.
+--- a/src/ngram.rs
++++ b/src/ngram.rs
+@@ -258,7 +258,8 @@
+     #[test]
+     fn chunk_output_matches_set_extraction() {
+         let mut state = 12345_u32;
+-        let random: Vec<u8> = (0..16 * 1024 + 23)
++        let chunk_bytes = crate::build::CHUNK_BYTES;
++        let random: Vec<u8> = (0..chunk_bytes + MAX_GRAM - 1)
+             .map(|_| {
+                 state ^= state << 13;
+                 state ^= state >> 17;
+@@ -266,9 +267,21 @@
+                 state as u8
+             })
+             .collect();
+-        let repeated = b"fn repeated_name() { repeated_name(); }\n".repeat(512);
++        let repeated_line = b"fn repeated_name() { repeated_name(); }\n";
++        let repeated = repeated_line.repeat((chunk_bytes + MAX_GRAM).div_ceil(repeated_line.len()));
+         for bytes in [&random[..], &repeated[..]] {
+-            for len in [0, 1, 2, 3, 24, 4095, 4096, 16 * 1024, bytes.len()] {
++            for len in [
++                0,
++                1,
++                2,
++                3,
++                24,
++                4095,
++                4096,
++                16 * 1024,
++                chunk_bytes,
++                bytes.len(),
++            ] {
+                 let mut emitted = 0;
+                 for_each_sparse_gram(&bytes[..len], |_, _, _| emitted += 1);
+                 assert!(emitted <= 3 * len, "worker memory bound at length {len}");
+--- a/tests/build_memory.rs
++++ b/tests/build_memory.rs
+@@ -39,7 +39,7 @@
+         })
+         .collect();
+     let marker = b"unique_boundary_marker_0123456789";
+-    source[16 * 1024 - 10..16 * 1024 - 10 + marker.len()].copy_from_slice(marker);
++    source[32 * 1024 - 10..32 * 1024 - 10 + marker.len()].copy_from_slice(marker);
+     fs::write(root.join("large.txt"), &source).unwrap();
+     fs::write(root.join("empty.txt"), "").unwrap();
+     fs::write(root.join("binary.dat"), [0, 1, 2, 3]).unwrap();

@@ -1,0 +1,47 @@
+{
+  "date": "2026-09-08",
+  "versions": {
+    "control": {
+      "path": "target/release/coderg",
+      "sha256": "a3f0b8f26ad2447008dd28623ac8e00621c34c695411d48bba09fa1982fe3e85"
+    },
+    "probe": {
+      "path": "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+      "sha256": "eafdc61f11a8b25f7dd1274ee8f6a5f109b17103599e468a084965d78c2f432b"
+    }
+  },
+  "source_sha256": {
+    "src/build.rs": "af066d25c729957b74f26017fcda0ff0706bbd4ce5b906896827251561e47025",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "a0463d505b93af6e13f780707dd397d961f290b736066ca4341a424fc27acf6c",
+    "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+    "src/ngram.rs": "27a68535b6a969b033f2988cd396abfe965bdc939e7cd12c3c828a052b9dafbf",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+    "src/segment.rs": "d1c45db5781b03ed29a88a0c1bdc92c9265f33f0b3ca5b85e07f17df4c2853ad",
+    "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+    "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3"
+  },
+  "driver_main_sha256": "cdbf93ac0928521931b059a1f0d06bb3bc93e0f6174a3a9703ba139441ef32c4",
+  "corpus": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+  "sample_pid": 78807,
+  "repeat_builds": 360,
+  "sample_commands": [
+    "/usr/bin/sample coderg 5 1 -file /private/tmp/coderg-hashset-share-2026-09-08/sample-1.txt",
+    "/usr/bin/sample coderg 5 1 -file /private/tmp/coderg-hashset-share-2026-09-08/sample-2.txt",
+    "/usr/bin/sample coderg 5 1 -file /private/tmp/coderg-hashset-share-2026-09-08/sample-3.txt"
+  ],
+  "calibration_builds_with_index_parity": 14,
+  "production_sources_unchanged": true,
+  "extraction_code_unchanged_in_driver": true,
+  "artifacts_sha256": {
+    "calibration-harness.py": "03598e5b4db23ce3337ff79334e729f81d051c9a9940cc86991909e0c981a4f1",
+    "calibration.json": "bac6c5ada10c0931bbb9eabc709bff1dab11c52886cf95471977cfcd66c1d72a",
+    "driver.patch": "540905ff3537242ee94720cf75badd64f8fc78cd14aba426328af42c55601649",
+    "prepare.py": "eeeb752543720f7009f15f258f0dc0ed1965db4ccad8d48b3330f172e6579d72",
+    "samples.tar.gz": "9526a148ac3e2e57cdc9400db1fdea8d0f49bda912c57488fa66f87d60a1f579",
+    "source-sha256.json": "f2c70ed3b2f65de57f992896206a412cd493cdb2e51b8aeb29945f351ce004ef",
+    "summarize.py": "80b9ed3d0981c6ec6c0a709a4ca42c19bca76fe23b244acfbdfa08245941141e",
+    "summary.json": "745daa200adce83ece920d8e69c20e66a04503192f4c717e3c48cb1bfad0bbb1"
+  }
+}

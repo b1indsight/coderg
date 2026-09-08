@@ -1,9 +1,13 @@
 use std::{
     collections::{BTreeSet, HashMap, HashSet},
     fs::{self, File},
-    io::{BufWriter, Write},
+    io::{BufWriter, Read, Write},
     path::{Path, PathBuf},
-    sync::Mutex,
+    sync::{
+        Mutex,
+        atomic::{AtomicUsize, Ordering},
+        mpsc,
+    },
     time::{SystemTime, UNIX_EPOCH},
 };
 
@@ -12,7 +16,10 @@ use ignore::{DirEntry, WalkBuilder, WalkState};
 use rayon::prelude::*;
 use serde::{Deserialize, Serialize};
 
-use crate::{git_state, ngram, segment};
+use crate::{
+    build::{CHUNK_BYTES, MemoryBudget, PostingsBuilder},
+    git_state, ngram, segment,
+};
 
 const VERSION: u32 = 4;
 const MAX_SEGMENTS: usize = 8;
@@ -123,7 +130,6 @@ struct IndexedFile {
     id: u32,
     state: FileState,
     searchable: bool,
-    hashes: Vec<ngram::GramHash>,
 }
 
 pub fn resolve_root(path: &Path) -> Result<PathBuf> {
@@ -139,23 +145,28 @@ pub fn resolve_index_dir(root: &Path, requested: Option<&Path>) -> PathBuf {
     }
 }
 
-pub fn build(path: &Path, requested_index_dir: Option<&Path>) -> Result<BuildSummary> {
+pub fn build(
+    path: &Path,
+    requested_index_dir: Option<&Path>,
+    budget: MemoryBudget,
+) -> Result<BuildSummary> {
     let root = resolve_root(path)?;
     let index_dir = resolve_index_dir(&root, requested_index_dir);
     prepare_index_dir(&root, &index_dir)?;
     let source_state = collect_files(&root, &index_dir, None)?;
     let repository_state = git_state::inspect(&root, &index_dir)?;
     let segment_id = next_segment_id(&index_dir);
-    let mut indexed = index_files(
+    let (indexed, segment) = index_files(
         &root,
+        &index_dir,
+        segment_id,
+        budget,
         source_state
             .iter()
             .cloned()
             .enumerate()
             .map(|(id, state)| (id as u32, state)),
     )?;
-    let postings = postings_from_files(&mut indexed);
-    let segment = segment::write(&index_dir, segment_id, postings)?;
     let ngrams = segment.ngrams as usize;
     let documents = indexed
         .iter()
@@ -201,7 +212,11 @@ pub fn build(path: &Path, requested_index_dir: Option<&Path>) -> Result<BuildSum
     })
 }
 
-pub fn refresh(index: &DiskIndex, requested_index_dir: Option<&Path>) -> Result<RefreshOutcome> {
+pub fn refresh(
+    index: &DiskIndex,
+    requested_index_dir: Option<&Path>,
+    budget: MemoryBudget,
+) -> Result<RefreshOutcome> {
     let root = &index.manifest.root;
     let index_dir = resolve_index_dir(root, requested_index_dir);
 
@@ -223,17 +238,17 @@ pub fn refresh(index: &DiskIndex, requested_index_dir: Option<&Path>) -> Result<
         let large_change =
             changed >= MIN_LARGE_CHANGE && changed.saturating_mul(5) > current_state.len().max(1);
         if index.manifest.segments.len() >= MAX_SEGMENTS || large_change {
-            build(root, requested_index_dir)?;
+            build(root, requested_index_dir, budget)?;
             return Ok(RefreshOutcome::Rebuilt);
         }
         write_incremental(
             index,
             &index_dir,
             current_state,
-            identity.head,
-            identity.tree,
+            (identity.head, identity.tree),
             None,
             false,
+            budget,
         )?;
         return Ok(RefreshOutcome::Incremental { changed });
     }
@@ -304,17 +319,17 @@ pub fn refresh(index: &DiskIndex, requested_index_dir: Option<&Path>) -> Result<
     let large_change =
         changed >= MIN_LARGE_CHANGE && changed.saturating_mul(5) > current_state.len().max(1);
     if index.manifest.segments.len() >= MAX_SEGMENTS || large_change {
-        build(root, requested_index_dir)?;
+        build(root, requested_index_dir, budget)?;
         return Ok(RefreshOutcome::Rebuilt);
     }
     write_incremental(
         index,
         &index_dir,
         current_state,
-        current_head,
-        current_tree,
+        (current_head, current_tree),
         known_changed,
         repository_state.as_ref().is_some_and(|state| state.clean),
+        budget,
     )?;
     Ok(RefreshOutcome::Incremental { changed })
 }
@@ -323,10 +338,10 @@ fn write_incremental(
     index: &DiskIndex,
     index_dir: &Path,
     current_state: Vec<FileState>,
-    current_head: Option<String>,
-    current_tree: Option<String>,
+    (current_head, current_tree): (Option<String>, Option<String>),
     known_changed: Option<&HashSet<PathBuf>>,
     cache_clean: bool,
+    budget: MemoryBudget,
 ) -> Result<()> {
     let mut manifest = index.manifest.clone();
     let old_states: HashMap<&Path, &FileState> = manifest
@@ -386,9 +401,8 @@ fn write_incremental(
 
     if !pending.is_empty() {
         let segment_id = next_segment_id(index_dir);
-        let mut indexed = index_files(&manifest.root, pending)?;
-        let postings = postings_from_files(&mut indexed);
-        let segment = segment::write(index_dir, segment_id, postings)?;
+        let (indexed, segment) =
+            index_files(&manifest.root, index_dir, segment_id, budget, pending)?;
         for file in indexed {
             let document = &mut manifest.documents[file.id as usize];
             document.path = file.state.path;
@@ -409,46 +423,104 @@ fn write_incremental(
     Ok(())
 }
 
-fn index_files<I>(root: &Path, files: I) -> Result<Vec<IndexedFile>>
+fn index_files<I>(
+    root: &Path,
+    index_dir: &Path,
+    segment_id: u64,
+    budget: MemoryBudget,
+    files: I,
+) -> Result<(Vec<IndexedFile>, segment::SegmentMeta)>
 where
     I: IntoIterator<Item = (u32, FileState)>,
 {
     let files: Vec<_> = files.into_iter().collect();
-    files
-        .into_par_iter()
-        .map(|(id, state)| {
-            let full_path = root.join(&state.path);
-            let bytes = fs::read(&full_path)
-                .with_context(|| format!("cannot read {}", full_path.display()))?;
-            let searchable = !is_binary(&bytes);
-            let hashes = if searchable {
-                // Keep only the unique keys, not the hash table's spare buckets.
-                ngram::hashes_for_document(&bytes).into_iter().collect()
-            } else {
-                Vec::new()
-            };
-            Ok(IndexedFile {
-                id,
-                state,
-                searchable,
-                hashes,
-            })
+    let workers = budget.workers(files.len());
+    let mut postings = PostingsBuilder::new(index_dir, budget.record_bytes(workers));
+    let mut searchable = vec![false; files.len()];
+    let next_file = AtomicUsize::new(0);
+    std::thread::scope(|scope| -> Result<()> {
+        let (sender, receiver) = mpsc::sync_channel(workers);
+        for _ in 0..workers {
+            let sender = sender.clone();
+            let files = &files;
+            let next_file = &next_file;
+            // Separate producers let the collector use Rayon's parallel sort
+            // without blocking Rayon workers on a full channel or a mutex.
+            scope.spawn(move || {
+                loop {
+                    let position = next_file.fetch_add(1, Ordering::Relaxed);
+                    let Some((_, state)) = files.get(position) else {
+                        break;
+                    };
+                    let path = root.join(&state.path);
+                    let result = hash_file_chunks(&path, |hashes| {
+                        sender
+                            .send(Ok((position, hashes)))
+                            .map_err(|_| anyhow::anyhow!("index build cancelled"))
+                    });
+                    if let Err(error) = result {
+                        let _ = sender.send(Err(error));
+                        break;
+                    }
+                }
+            });
+        }
+        drop(sender);
+        for batch in receiver {
+            let (position, hashes) = batch?;
+            searchable[position] = true;
+            postings.extend(files[position].0, &hashes)?;
+        }
+        Ok(())
+    })?;
+    let segment = postings.write(segment_id)?;
+    let indexed = files
+        .into_iter()
+        .zip(searchable)
+        .map(|((id, state), searchable)| IndexedFile {
+            id,
+            state,
+            searchable,
         })
-        .collect()
+        .collect();
+    Ok((indexed, segment))
 }
 
-fn postings_from_files(files: &mut [IndexedFile]) -> Vec<(ngram::GramHash, u32)> {
-    let count = files.iter().map(|file| file.hashes.len()).sum();
-    let mut postings = Vec::with_capacity(count);
-    for file in files {
-        // Release each file's keys as we assemble the contiguous posting records.
-        postings.extend(
-            std::mem::take(&mut file.hashes)
-                .into_iter()
-                .map(|hash| (hash, file.id)),
-        );
+fn hash_file_chunks(
+    path: &Path,
+    mut emit: impl FnMut(Vec<ngram::GramHash>) -> Result<()>,
+) -> Result<()> {
+    let mut file = File::open(path).with_context(|| format!("cannot read {}", path.display()))?;
+    let mut bytes = [0; CHUNK_BYTES];
+    let mut retained = 0;
+    loop {
+        let mut len = retained;
+        while len < bytes.len() {
+            match file.read(&mut bytes[len..]) {
+                Ok(0) => break,
+                Ok(count) => len += count,
+                Err(error) if error.kind() == std::io::ErrorKind::Interrupted => continue,
+                Err(error) => {
+                    return Err(error).with_context(|| format!("cannot read {}", path.display()));
+                }
+            }
+        }
+        if retained == 0 && is_binary(&bytes[..len]) {
+            return Ok(());
+        }
+        if retained > 0 && len == retained {
+            break;
+        }
+        emit(ngram::hashes_for_chunk(&bytes[..len]))?;
+        if len < bytes.len() {
+            break;
+        }
+        // The predicate for any gram depends only on its own bytes. Retaining
+        // MAX_GRAM - 1 bytes preserves every gram spanning a chunk boundary.
+        retained = ngram::MAX_GRAM - 1;
+        bytes.copy_within(len - retained..len, 0);
     }
-    postings
+    Ok(())
 }
 
 pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
@@ -722,6 +794,81 @@ pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn chunked_hashes_match_whole_files_including_boundaries() {
+        let directory = tempfile::tempdir().unwrap();
+        let path = directory.path().join("source");
+        let mut random = 12345_u32;
+        let bytes: Vec<_> = (0..CHUNK_BYTES * 5 + 17)
+            .map(|_| {
+                random ^= random << 13;
+                random ^= random >> 17;
+                random ^= random << 5;
+                (random % 255 + 1) as u8
+            })
+            .collect();
+        for len in [
+            0,
+            1,
+            2,
+            3,
+            24,
+            CHUNK_BYTES - 1,
+            CHUNK_BYTES,
+            CHUNK_BYTES + 1,
+            bytes.len(),
+        ] {
+            fs::write(&path, &bytes[..len]).unwrap();
+            let mut actual = ngram::GramHashSet::default();
+            let mut batches = 0;
+            hash_file_chunks(&path, |hashes| {
+                actual.extend(hashes);
+                batches += 1;
+                Ok(())
+            })
+            .unwrap();
+            assert!(batches >= 1, "even an empty text file is searchable");
+            assert_eq!(
+                actual,
+                ngram::hashes_for_document(&bytes[..len]),
+                "length {len}"
+            );
+        }
+        for nul_position in [0, 8191, 8192, CHUNK_BYTES + 1] {
+            let mut bytes = bytes.clone();
+            bytes[nul_position] = 0;
+            fs::write(&path, &bytes).unwrap();
+            let mut actual = ngram::GramHashSet::default();
+            hash_file_chunks(&path, |hashes| {
+                actual.extend(hashes);
+                Ok(())
+            })
+            .unwrap();
+            if nul_position < 8192 {
+                assert!(actual.is_empty());
+            } else {
+                assert_eq!(actual, ngram::hashes_for_document(&bytes));
+            }
+        }
+    }
+
+    #[test]
+    fn read_failure_keeps_published_index_and_cancels_workers() {
+        let directory = tempfile::tempdir().unwrap();
+        let manifest = directory.path().join("manifest.json");
+        fs::write(&manifest, "previous manifest").unwrap();
+        let result = index_files(
+            directory.path(),
+            directory.path(),
+            1,
+            "16".parse().unwrap(),
+            (0..100).map(|id| (id, state(&format!("missing-{id}"), 0))),
+        );
+        assert!(result.is_err());
+        assert_eq!(fs::read_to_string(manifest).unwrap(), "previous manifest");
+        assert_eq!(fs::read_dir(directory.path()).unwrap().count(), 1);
+    }
 
     #[test]
     fn serial_and_parallel_snapshots_agree_even_with_a_stale_size_hint() {

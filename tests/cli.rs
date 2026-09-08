@@ -58,6 +58,24 @@ fn case_insensitive_index_search_agrees_with_regex_matching() {
         ("short.txt", "x\nbar\n42\n"),
         ("optional.txt", "foofooBAR\n"),
         ("unrelated.txt", "ordinary unrelated text\n"),
+        ("quoted-devices.txt", "\"cuda\"\n'cpu'\n\"rocm'\n"),
+        ("unquoted-devices.txt", "cuda\ncpu_count\nrocm_backend\n"),
+        ("decorator-torch.txt", "@torch.no_grad()\n"),
+        (
+            "decorator-pytest.txt",
+            "    @pytest.mark.parametrize('x', [1])\n",
+        ),
+        (
+            "decorator-decoys.txt",
+            "@torch.123\n@pytest.\nvalue = torch.no_grad()\n",
+        ),
+        ("long-left.txt", "abcdefghijklmnopqrstuvwxyz_0123456789\n"),
+        ("long-right.txt", "zyxwvutsrqponmlkjihgfedcba_9876543210\n"),
+        ("long-upper.txt", "ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789\n"),
+        (
+            "repeated.txt",
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
+        ),
     ];
     for (name, text) in documents {
         fs::write(root.path().join(name), text).unwrap();
@@ -76,6 +94,18 @@ fn case_insensitive_index_search_agrees_with_regex_matching() {
         ("a+b[1]", true, true),
         (r"\b[0-9]{2}\b", true, false),
         ("AsyncMock", false, false),
+        (r#"["'](?:cuda|cpu|rocm)["']"#, false, false),
+        (r"^[ \t]*@(?:torch|pytest)\.[A-Za-z_]+", false, false),
+        ("abcdefghijklmnopqrstuvwxyz_0123456789", false, true),
+        ("abcdefghijklmnopqrstuvwxyz_0123456789", true, true),
+        (
+            "abcdefghijklmnopqrstuvwxyz_0123456789|zyxwvutsrqponmlkjihgfedcba_9876543210",
+            false,
+            false,
+        ),
+        ("abcdefghijklmnopqrstuvwxyz_0123456789|x", false, false),
+        ("(?:abcdefghijklmnopqrstuvwxyz_0123456789)?", false, false),
+        ("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", false, true),
     ] {
         let mut arguments = vec!["search", "-l", "--no-refresh"];
         if ignore_case {

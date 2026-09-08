@@ -1,0 +1,111 @@
+dataset,query,pattern,before_ms,after_ms,before_no_refresh_ms,after_no_refresh_ms,rg_ms
+vllm,literal_parallel,get_tensor_model_parallel_world_size,27.5075,26.484458,11.769209,11.739333,68.061542
+vllm,word_sampling,\bSamplingParams\b,27.595208,27.53025,12.712333,12.5405,68.095041
+vllm,word_asyncmock,\bAsyncMock\b,24.670417,25.189917,9.441458,9.459958,66.650542
+vllm,def_forward,def\s+forward\b,34.808292,34.644375,19.204708,19.140875,68.894459
+vllm,async_def,async\s+def\s+\w+,32.218958,31.534459,16.722333,16.759125,68.845792
+vllm,class_attention,^class[ \t]+\w*Attention\b,30.4595,31.441542,15.680917,15.505125,67.532333
+vllm,python_import,^from[ \t]+vllm(?:\.[\w.]+)?[ \t]+import\b,63.088458,62.227958,47.207,46.884667,90.075084
+vllm,decorator,^[ \t]*@(?:torch|pytest)\.[A-Za-z_]+,38.156875,38.343,22.862459,22.692,74.635208
+vllm,logger,logger\.(warning|error)\(,28.927333,28.475291,13.163833,13.221584,68.204875
+vllm,exceptions,\b(ValueError|RuntimeError|NotImplementedError)\b,40.219083,40.39725,24.553458,24.739208,76.441792
+vllm,cache,\b(kv_cache|block_size)\b,42.108667,41.709042,26.987833,27.076208,69.730542
+vllm,tensor_creation,\b(torch|numpy)\.(empty|zeros|ones)\b,44.404917,43.895875,28.522584,28.478375,72.775667
+vllm,env_vars,\b(VLLM|CUDA)_[A-Z0-9_]+\b,36.575167,36.445959,21.066042,21.037458,73.280125
+vllm,cuda_call,\btorch\.cuda\.[a-z_]+\(,27.106,27.664625,12.329667,12.239917,68.035917
+vllm,config_assignment,\bmax_(model_len|num_seqs)[ \t]*=,30.384625,30.680625,14.983416,15.024375,69.267458
+vllm,raise_error,raise[ \t]+\w*Error\(,38.483834,38.412666,23.537583,22.880958,75.4395
+vllm,todo_comment,^[ \t]*#.*\b(TODO|FIXME)\b,103.131583,104.51125,88.77,90.813375,68.302792
+vllm,return_none,^[ \t]*return[ \t]+None[ \t]*$,50.47475,51.972,35.053083,36.828875,69.700459
+vllm,quoted_device,"[\""'](?:cuda|cpu|rocm)[\""']",42.844042,32.127167,27.165458,17.742958,69.831417
+vllm,icase_sampling,\bSamplingParams\b,30.761042,32.058292,15.075208,16.295375,68.046791
+vllm,icase_platform,\b(cuda|rocm)\b,43.835792,44.042625,28.311083,28.350417,75.375208
+vllm,icase_todo,\b(TODO|FIXME)\b,30.690291,31.527417,16.539333,16.796875,70.093625
+vllm,icase_env,\b(VLLM|CUDA)_[A-Z0-9_]+\b,55.129167,54.908667,39.686,39.398416,80.99925
+vllm,icase_logger,logger\.(warning|error)\(,32.5365,33.219042,17.74525,17.940875,67.669459
+vllm,icase_literal,get_tensor_model_parallel_world_size,32.556625,33.319291,17.067,18.001542,68.318625
+vllm,digits,"\b[0-9]{2,4}\b",167.521208,157.883417,146.859958,152.891166,96.08875
+vllm,hex_number,\b0x[0-9A-Fa-f]+\b,29.551416,29.3615,14.568166,14.64775,67.245833
+vllm,short_word,\bif\b,102.759458,103.03125,89.626166,89.152541,93.899958
+vllm,blank_lines,^[ \t]*$,188.785417,187.594792,169.957208,172.706583,101.912875
+vllm,absent_regex,\bCODERG_BENCH_ABSENT_[0-9]{8}\b,24.32625,24.172625,9.048708,8.988792,66.090916
+vllm,wide_icase_asyncmock,\basyncmock\b,25.93825,25.760917,10.468625,10.079292,66.024875
+vllm,wide_icase_cache,\b(kv_cache|block_size)\b,51.089833,50.867833,36.621375,35.896,70.404417
+vllm,wide_icase_class_attention,class[ \t]+\w*Attention\b,34.874625,41.27125,20.323,26.262584,67.364709
+vllm,wide_icase_def_forward,def[ \t]+forward\b,35.506708,35.732167,20.340916,20.164875,68.56675
+vllm,wide_icase_config,\bmax_(model_len|num_seqs)\b,42.380667,42.87025,26.493959,28.875125,70.919375
+vllm,wide_icase_exceptions,\b(ValueError|RuntimeError|NotImplementedError)\b,57.175958,56.839666,42.3495,42.213458,76.93
+vllm,wide_icase_tensor_creation,\b(torch|numpy)\.(empty|zeros|ones)\b,46.411334,45.725375,30.716375,30.42375,72.572542
+vllm,wide_icase_async_def,async[ \t]+def[ \t]+\w+,31.830708,31.510625,17.046125,16.672042,68.749917
+viberwhisper,word_return,\breturn\b,6.663292,6.555583,5.164084,5.154542,7.800208
+viberwhisper,errors,\b(Error|Result|Exception|ValueError)\b,6.808083,7.020917,5.343416,5.508584,7.984083
+viberwhisper,todo,\b(TODO|FIXME)\b,6.136916,6.323167,4.549458,4.687459,7.688708
+viberwhisper,short,if,6.86475,6.824709,5.548958,5.427375,8.147333
+viberwhisper,digits,"\b[0-9]{2,4}\b",6.977792,6.93625,5.577291,5.562209,7.60075
+viberwhisper,absent,CODERG_WIDE_ABSENT_92be7,6.09775,5.996709,4.665292,4.552125,7.676667
+viberwhisper,literal,Transcription,6.564292,6.269959,4.800083,4.834541,7.244416
+viberwhisper,icase_literal,transcription,7.049,6.884542,5.661917,5.190625,7.673958
+viberwhisper,function,\bfn[ \t]+[a-z_][a-z_0-9]*,6.885625,6.866084,5.415042,5.361375,8.065792
+viberwhisper,public,\bpub(?:\([^\n)]*\))?[ \t]+(?:struct|enum|fn)\b,7.208875,6.601541,5.52,5.256417,7.925125
+viberwhisper,impl,^impl(?:<[^\n>]+>)?[ \t]+,6.656459,6.337166,5.356875,4.959708,7.784292
+viberwhisper,use,^use[ \t]+(?:std|crate)::,6.420083,6.541417,4.982458,4.97225,7.53525
+viberwhisper,derive,#\[derive\(,6.393459,6.430959,4.803,4.607583,7.585208
+viberwhisper,unwrap,\.(?:unwrap|expect)\(,6.459667,6.414833,4.978875,5.104208,7.491084
+viberwhisper,async,\basync[ \t]+fn[ \t]+\w+,6.536959,6.250208,5.031375,4.780625,7.97325
+viberwhisper,common_files,self,6.310083,6.555416,5.170583,5.102416,7.099042
+agentflow,word_return,\breturn\b,6.635791,6.908625,5.434167,5.477667,7.373917
+agentflow,errors,\b(Error|Result|Exception|ValueError)\b,6.563625,6.515083,5.248125,5.231583,7.671042
+agentflow,todo,\b(TODO|FIXME)\b,6.199292,6.23825,5.190417,5.142834,7.75225
+agentflow,short,if,6.853166,6.787042,5.680875,5.576625,7.419917
+agentflow,digits,"\b[0-9]{2,4}\b",9.43925,9.405875,8.013709,8.091291,8.359292
+agentflow,absent,CODERG_WIDE_ABSENT_92be7,6.00775,5.979042,4.573333,4.56075,7.026
+agentflow,literal,review_batch,5.915417,6.122375,4.546084,4.73325,7.524875
+agentflow,icase_literal,review_batch,6.617708,6.122583,5.629667,4.977833,7.060875
+agentflow,function,\bdef[ \t]+[a-z_][a-z_0-9]*,7.08675,7.049583,5.78225,5.621834,7.515917
+agentflow,class,^class[ \t]+\w+,6.780125,6.819875,5.665166,5.711,9.258583
+agentflow,import,^from[ \t]+[\w.]+[ \t]+import\b,7.080875,7.242959,5.873209,6.076125,7.927916
+agentflow,decorator,^[ \t]*@[A-Za-z_][\w.]*,7.170458,7.237708,5.944833,5.806208,23.466458
+agentflow,async,\basync[ \t]+def[ \t]+\w+,7.156417,6.996959,5.97675,5.918333,7.978042
+agentflow,db,\b(session|transaction|connection)\b,7.444833,7.3265,6.19675,6.050667,7.732292
+agentflow,test,\bdef[ \t]+test_\w+,6.781,6.615,5.653625,5.449375,7.676
+agentflow,common_files,self,6.323625,6.344792,4.955666,4.915,7.319334
+small_256,rare_files,CODERG_BENCHMARK_NEEDLE,5.614834,5.815875,4.493166,4.659541,7.495584
+small_256,rare_lines,CODERG_BENCHMARK_NEEDLE,5.749791,5.76125,4.428667,4.379375,8.030125
+small_256,common_files,ordinary_value,7.961709,7.85875,6.676042,6.529958,10.092292
+small_256,common_count,ordinary_value,7.9525,7.976,6.578458,6.450959,9.883458
+small_256,alternation,\b(module_7|module_23)\b,7.814709,7.648375,6.322542,6.441875,8.506875
+small_256,ignore_case,coderg_benchmark_needle,6.340709,6.031208,4.977416,4.7115,7.67125
+small_256,short_files,fn,7.790667,7.828083,6.619041,6.510375,9.4895
+small_256,absent,CODERG_WIDE_ABSENT_92be7,5.767042,5.676209,4.239917,4.334792,7.648083
+regular_4096,rare_files,CODERG_BENCHMARK_NEEDLE,15.843334,15.495542,7.627875,7.612666,36.562791
+regular_4096,rare_lines,CODERG_BENCHMARK_NEEDLE,15.60275,15.787041,7.52425,7.494708,36.474
+regular_4096,common_files,ordinary_value,47.3325,47.269291,39.149,39.139,64.071792
+regular_4096,common_count,ordinary_value,46.757208,47.146833,39.226041,39.241583,64.206584
+regular_4096,alternation,\b(module_7|module_23)\b,45.56625,45.567084,37.476125,37.629958,37.779709
+regular_4096,ignore_case,coderg_benchmark_needle,16.500125,15.86975,8.227417,8.003791,36.516208
+regular_4096,short_files,fn,46.355916,46.703458,38.482208,38.341375,63.956583
+regular_4096,absent,CODERG_WIDE_ABSENT_92be7,15.647333,15.505625,7.169875,7.177666,35.7285
+many_small_16384,rare_files,CODERG_BENCHMARK_NEEDLE,32.439959,32.874209,14.315333,14.292042,148.229875
+many_small_16384,rare_lines,CODERG_BENCHMARK_NEEDLE,32.620291,32.843792,14.015,14.228292,151.172541
+many_small_16384,common_files,ordinary_value,184.592167,184.29025,161.9815,160.815166,238.923666
+many_small_16384,common_count,ordinary_value,185.921208,183.956791,162.353291,164.715708,239.739125
+many_small_16384,alternation,\b(module_7|module_23)\b,182.590625,176.703083,159.852292,159.277916,149.439042
+many_small_16384,ignore_case,coderg_benchmark_needle,33.166209,33.210792,14.728125,14.572458,150.790333
+many_small_16384,short_files,fn,180.185125,178.325042,159.292417,155.883917,238.279291
+many_small_16384,absent,CODERG_WIDE_ABSENT_92be7,31.149292,31.522375,12.674542,12.698292,149.790292
+few_large_64,rare_files,CODERG_BENCHMARK_NEEDLE,6.714625,6.637042,5.487167,5.748625,8.647292
+few_large_64,rare_lines,CODERG_BENCHMARK_NEEDLE,6.721458,6.679458,5.686375,5.781875,8.35625
+few_large_64,common_files,ordinary_value,16.242209,16.254417,15.256459,15.104334,7.745458
+few_large_64,common_count,ordinary_value,15.855583,16.211208,15.117833,15.142875,9.979875
+few_large_64,alternation,\b(module_7|module_23)\b,12.465375,12.42975,11.502209,11.286083,11.026333
+few_large_64,ignore_case,coderg_benchmark_needle,7.042625,7.207541,6.288458,6.123958,9.285916
+few_large_64,short_files,fn,16.091917,15.739417,14.766875,15.025083,7.60675
+few_large_64,absent,CODERG_WIDE_ABSENT_92be7,6.408292,6.188208,5.438125,5.184042,8.496667
+shared_anchor,rare_files,CODERG_BENCHMARK_NEEDLE,6.729,6.735541,4.807209,4.819834,10.097166
+shared_anchor,rare_lines,CODERG_BENCHMARK_NEEDLE,6.884416,6.609875,4.7875,4.725458,10.343125
+shared_anchor,common_files,ordinary_value,15.303917,15.191208,13.382334,13.598541,12.909
+shared_anchor,common_count,ordinary_value,15.045083,15.086625,13.670958,13.32275,14.182625
+shared_anchor,alternation,\b(module_7|module_23)\b,7.165792,7.087375,5.256041,5.054375,10.13675
+shared_anchor,ignore_case,coderg_benchmark_needle,7.046917,6.889541,5.442041,5.530583,10.441333
+shared_anchor,short_files,fn,10.193166,10.221334,8.6685,8.585792,10.7495
+shared_anchor,absent,CODERG_WIDE_ABSENT_92be7,6.677292,6.52925,4.81875,5.131625,10.379208

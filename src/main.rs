@@ -1,3 +1,4 @@
+mod build;
 mod git_state;
 mod index;
 mod ngram;
@@ -8,7 +9,14 @@ mod segment;
 use std::path::PathBuf;
 
 use anyhow::Result;
-use clap::{Parser, Subcommand};
+use clap::{Args, Parser, Subcommand};
+
+#[derive(Debug, Args)]
+struct BuildOptions {
+    /// Working memory budget for index construction; excess records spill to disk.
+    #[arg(long, value_name = "MiB", default_value = "256")]
+    build_memory_mib: build::MemoryBudget,
+}
 
 #[derive(Debug, Parser)]
 #[command(
@@ -25,6 +33,8 @@ struct Cli {
 enum Command {
     /// Build or replace the on-disk search index.
     Index {
+        #[command(flatten)]
+        build: BuildOptions,
         #[arg(default_value = ".")]
         path: PathBuf,
         #[arg(long, value_name = "DIR")]
@@ -32,6 +42,8 @@ enum Command {
     },
     /// Search a source tree, rebuilding a stale index by default.
     Search {
+        #[command(flatten)]
+        build: BuildOptions,
         pattern: String,
         #[arg(default_value = ".")]
         path: PathBuf,
@@ -69,8 +81,12 @@ fn main() {
 
 fn run() -> Result<()> {
     match Cli::parse().command {
-        Command::Index { path, index_dir } => {
-            let summary = index::build(&path, index_dir.as_deref())?;
+        Command::Index {
+            path,
+            index_dir,
+            build,
+        } => {
+            let summary = index::build(&path, index_dir.as_deref(), build.build_memory_mib)?;
             eprintln!(
                 "indexed {} files ({} bytes, {} n-grams) in {}",
                 summary.files,
@@ -80,6 +96,7 @@ fn run() -> Result<()> {
             );
         }
         Command::Search {
+            build,
             pattern,
             path,
             ignore_case,
@@ -98,7 +115,13 @@ fn run() -> Result<()> {
                 max_count,
                 no_refresh,
             };
-            let found = search::run(&path, index_dir.as_deref(), &pattern, &options)?;
+            let found = search::run(
+                &path,
+                index_dir.as_deref(),
+                &pattern,
+                &options,
+                build.build_memory_mib,
+            )?;
             if !found {
                 std::process::exit(1);
             }

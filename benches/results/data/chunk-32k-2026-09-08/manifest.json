@@ -1,0 +1,82 @@
+{
+  "recorded_at": "2026-09-08T14:49:46.503441+00:00",
+  "workdir": "/private/tmp/coderg-chunk-32k-2026-09-08",
+  "source_sha256": {
+    "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+    "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+    "benches/compare_rg.rs": "764a79f7ddb6b67995c58b79e33690507e601f2c90be31dac6767dc800bc92fe",
+    "docs/cursor-design-gaps.md": "e5485055fd7b88d0215a6137dae9be678a32b0eb48c1bb2566b6213ab8c7dfa5",
+    "docs/implemented-optimizations.md": "55e6116775d5e93ea6e15d74384fcdad3908469a212661582fc5fcf69993e7f9",
+    "docs/index-build-memory-budget.md": "4af0df2334414bbb6a0c1d139e79639a4e121e1ef536b8a16d3805a57d16e0dc",
+    "src/build.rs": "50d58f340d940cc3951b62fc064a99db5ba3ce732f720d988ae43cc063ca57fc",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "a0463d505b93af6e13f780707dd397d961f290b736066ca4341a424fc27acf6c",
+    "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+    "src/ngram.rs": "af1e95510a056d81b9fb78eff29818164f0e88bc8498a44252cc020696828db6",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+    "src/segment.rs": "d1c45db5781b03ed29a88a0c1bdc92c9265f33f0b3ca5b85e07f17df4c2853ad",
+    "tests/build_memory.rs": "ebc51d8ad3ccb162f94f52d713d9eef874699974270f7bf7b82571c7cd6c0826",
+    "tests/cli.rs": "54bbf273d9aa5910ed97168803ac308b40ce13797c763a1fa4186f46c9e465e4",
+    "tests/git_incremental.rs": "ffb0109bebc995db3f127dc74b5070ac98c4cc1c81df8e858d4086006a136b35"
+  },
+  "binaries": {
+    "before": {
+      "path": "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+      "sha256": "d4e3d1a81cfa19dda9d4cc13f9e045fe7402f6556286b8db43854327c66fe436"
+    },
+    "after": {
+      "path": "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+      "sha256": "384b157336ca791fbcabd18ded7390edeb4627aa1c7ed9e06d88b5c0d2208250"
+    },
+    "before-phase": {
+      "path": "/private/tmp/coderg-chunk-32k-2026-09-08/before-phase",
+      "sha256": "82522fb3235ef32708c40ebe9ee007a2b31df998300d02511818dc4d04864c4a"
+    },
+    "after-phase": {
+      "path": "/private/tmp/coderg-chunk-32k-2026-09-08/after-phase",
+      "sha256": "58e5df21ba153823fee6b71666759517041631ec533cb31a3bad25347d4e97e3"
+    }
+  },
+  "checks": [
+    "cargo test --offline: 50 passed",
+    "cargo fmt --check: passed",
+    "cargo clippy --offline --all-targets -- -D warnings: passed"
+  ],
+  "baseline_phase": "Reused after-phase from deferred-gram-compaction-2026-09-08; baseline workspace source matches that experiment final source hashes.",
+  "build_commands": [
+    "cargo build --release --offline",
+    "cargo build --profile profiling --offline --manifest-path /private/tmp/coderg-chunk-32k-2026-09-08/after-phase-source/Cargo.toml --target-dir /Users/b1indsight/personal_work/coderg/target"
+  ],
+  "changed_files": [
+    "docs/cursor-design-gaps.md",
+    "docs/implemented-optimizations.md",
+    "docs/index-build-memory-budget.md",
+    "src/build.rs",
+    "src/ngram.rs",
+    "tests/build_memory.rs"
+  ],
+  "final_release_sha256": "384b157336ca791fbcabd18ded7390edeb4627aa1c7ed9e06d88b5c0d2208250",
+  "builds_with_byte_parity": 108,
+  "queries_with_output_parity": 30,
+  "report_sha256": "37038ad4f9c7c54564313de6581c6af9a8a6533bbbb470218c80c11bcc891d5f",
+  "executed_release_harness": "benches/results/data/deferred-gram-compaction-2026-09-08/harness.py",
+  "artifact_sha256": {
+    "before-source-sha256.json": "a6609905e1ea11ef1946cdcaa1af4858be3fcfbfdfb4e8690ed11532f7f89f43",
+    "chunk-32k.patch": "1546a73c596693f0ac38b1da29fbbe3ca70589bea5979027a31490310c508b26",
+    "harness.py": "0a173918ede8a0870dfc022eef571cb91d68c623d03659686234ba12ae78feec",
+    "phase-harness.py": "03598e5b4db23ce3337ff79334e729f81d051c9a9940cc86991909e0c981a4f1",
+    "phase-instrumentation.patch": "735100557c2da7d3de16c6ed8e58f0fac3cff7d6f26e170cf06eb7cb6bd1162c",
+    "phase-results.json": "b6544c54e89f68f842a698549fe50f996c8d8b60b2a2299e056910ee148016ed",
+    "phase-stderr.tar.gz": "44b889622765dcb41f1cabe84b96ea8d49f4eb3a3ab8fa6173a40ace4fd23802",
+    "phase-summary.json": "ce328e5ed98205e95d1386b50f429f5e65632d4eddf862620abeca5064c71625",
+    "prepare-phases.py": "9e77c92c1343cc4dae2ef632c2e1a6bf286108879ec2199e947f356194bd3828",
+    "results.json": "efa1521192b7c343f14c61c3c554fbbc384cc9e1f9e52da4d8ffeaad3cda37bd",
+    "source-after.tar.gz": "6ce2e6265fdec41d3df2e1eb843484749f467078cd57abc056d59ac596a36295",
+    "source-before.tar.gz": "e8f7521dcdb63a7c33827bb0fce805f87c3a0576dd6633327f2c0887afe1181f",
+    "stderr-logs.tar.gz": "c15c1e590749a642e250d8f8e85182f14be3ae5ff52e6e1e6a02ff815770f68d",
+    "summarize-phases.py": "39a65c2322de1f7c3dd055be79da979c906383eef07161e89b914c2ab0f8f3a1",
+    "summarize.py": "c0232dc52e35ac4b053a910d0733b4a5e50d49b27e2dcb5413cff79b9b958e20",
+    "summary.json": "abab3e37ffbf676dc6413110d0968d67c5508ba9a9b62d264d5047f6e02e51eb"
+  }
+}

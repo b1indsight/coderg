@@ -1,0 +1,31 @@
+{
+  "versions": {
+    "control": {
+      "path": "target/release/coderg",
+      "sha256": "2eb32abfc5e97226ebd7570046dfebfba6939771fbfb50648006de8c06303cc8"
+    },
+    "probe": {
+      "path": "target/profiling/coderg",
+      "sha256": "f0c5c12f3f6d6dd1fefd5b4d8fbad3cd6266445daa78783dd6243a09a93b0199"
+    }
+  },
+  "runs": [],
+  "samples": [
+    {
+      "corpus": "few_large_64",
+      "pid": 54296,
+      "build_returncode": 0,
+      "sample_returncode": 0,
+      "sample_stdout": "",
+      "sample_stderr": "Sampling process 54296 for 5 seconds with 1 millisecond of run time between samples\nSampling completed, processing symbols...\nSample analysis of process 54296 written to file /private/tmp/coderg-build-bottlenecks-2026-09-08/sample/few_large_64.sample.txt\n"
+    },
+    {
+      "corpus": "vllm",
+      "pid": 54373,
+      "build_returncode": 0,
+      "sample_returncode": 0,
+      "sample_stdout": "",
+      "sample_stderr": "Sampling process 54373 for 5 seconds with 1 millisecond of run time between samples\nSampling completed, processing symbols...\nSample analysis of process 54373 written to file /private/tmp/coderg-build-bottlenecks-2026-09-08/sample/vllm.sample.txt\n"
+    }
+  ]
+}

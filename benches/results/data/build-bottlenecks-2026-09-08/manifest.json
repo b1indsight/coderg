@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-08",
+  "repo": "/Users/b1indsight/personal_work/coderg",
+  "head": "74387541f37851bd8df570b9663a507912178909",
+  "source_sha256": {
+    "src/build.rs": "af066d25c729957b74f26017fcda0ff0706bbd4ce5b906896827251561e47025",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "3fd8a4036e5c694c48e9c3be650c2da6c99194372965169e14bc3eb6e84966cb",
+    "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+    "src/ngram.rs": "5563bad83f68cb5e8e1b372528c717c72b6e2de26d684500b60fb9970d03bc1b",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+    "src/segment.rs": "d1c45db5781b03ed29a88a0c1bdc92c9265f33f0b3ca5b85e07f17df4c2853ad",
+    "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+    "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3"
+  },
+  "instrumented_source_sha256": {
+    "src/build.rs": "da9e520d987a2147aa5f2ddd11d959b6789e0c4e6da59041744ef81f67ee331f",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "b2706c497b89bb83d48b3a2f9a27db6e5904b9d960ffa714c6d7ae94b85683a3",
+    "src/main.rs": "8d01f9fc196d8a7aa6c59161ec824f392ae7871a3218a071e4366fdf26c67e09",
+    "src/ngram.rs": "5563bad83f68cb5e8e1b372528c717c72b6e2de26d684500b60fb9970d03bc1b",
+    "src/probe.rs": "73480daad4d6687e4407092115e994fd7516881411fef7937447532a28a0e072",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+    "src/segment.rs": "1aac17f1c4811bb4c659649c312c135943a229f8572439ac8d8889a2e80696dc"
+  },
+  "binary_sha256": {
+    "control": "2eb32abfc5e97226ebd7570046dfebfba6939771fbfb50648006de8c06303cc8",
+    "probe": "f0c5c12f3f6d6dd1fefd5b4d8fbad3cd6266445daa78783dd6243a09a93b0199"
+  },
+  "preserved_probe_binary": "/private/tmp/coderg-build-bottlenecks-2026-09-08/coderg-probe",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "method": {
+    "warmup": 2,
+    "measured_runs_per_version_per_corpus": 7,
+    "corpora": 5,
+    "builds_with_byte_parity": 90,
+    "build_memory_mib": 256,
+    "rayon_num_threads": "unset; default 10 on this machine",
+    "timing_sandbox": true,
+    "sampling_sandbox": false,
+    "timing_sampler_overlap": false,
+    "worker_timings": "cumulative wall time; not CPU time or endpoint latency"
+  },
+  "validation": {
+    "instrumented_existing_tests": 47,
+    "python_ast": "passed",
+    "instrumentation_git_apply_check": "passed",
+    "git_diff_check": "passed",
+    "production_source_hashes_unchanged": true
+  },
+  "artifacts_sha256": {
+    "corpus-provenance.json": "ac0a47b74878fd14f329e6b2d42b07b1565424ba457e9d69973d3b7c395913e7",
+    "group_corpus.py": "0b5739dbaad6391ccfe86ac863529ae78099110be54dfe45988b9d4794244a96",
+    "grouped-results.json": "d902e5b458b875d7464c58abc96181f43e0679f8e3fb945fbfaf1e2d2d4b8efc",
+    "instrumentation.patch": "7d08b12f0ff46255dbd2462461c6b6cbad4fc72c2330a65af7a03a6bcac6760d",
+    "prepare.py": "bb88b5076f152cfb6c1ef13f3f283381b4a9fdcc4484705151c6cb6dd7ffe072",
+    "probe.rs": "73480daad4d6687e4407092115e994fd7516881411fef7937447532a28a0e072",
+    "production-source.tar.gz": "b9df9b8b6d91307fce73e07bef18d3b537ec54fcbca577d8a828769b029c6e72",
+    "results.json": "2cb6cc60a249107fe053d7a74b44cda0c9dc963e6a7101a85c1906dc6eef687a",
+    "run.py": "03598e5b4db23ce3337ff79334e729f81d051c9a9940cc86991909e0c981a4f1",
+    "sample-results.json": "3530b2dc8917efc7a03e2c1af028710f9eceeae01e9e1a70b0b0ae6d17eac60a",
+    "sample-summary.json": "0723149fe72a0a060281f0ffe0821ea4270a4ffac44d1a18836a8cce168cea33",
+    "samples.tar.gz": "3bb78416a1fcdf9c02fd856404b9afc46b39a34e7823b1349455f760d649f1e3",
+    "stderr-logs.tar.gz": "c58e907faef17eec56a12a6b8e18e41e47f443e2dcac3aa71c8834deb15b64bb",
+    "summarize.py": "57ee1c8fcce64c727831f34f90f1b614a887061e953a4f5d56d0cae21ccba12b",
+    "summary.json": "0d43ceb9eca116fb26b5fa2b6dc34470b725954c9e19288950e923583d651676"
+  }
+}

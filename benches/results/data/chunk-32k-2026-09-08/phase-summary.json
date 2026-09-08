@@ -1,0 +1,533 @@
+{
+  "builds_with_byte_parity": 36,
+  "corpora": {
+    "grouped_8": {
+      "before": {
+        "n": 7,
+        "wall_median_ms": 136.21370898908935,
+        "phases": {
+          "chunk_collect": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "collect_files": {
+            "median_ms": 2.976167,
+            "min_ms": 1.674667,
+            "max_ms": 4.230459
+          },
+          "count_keys": {
+            "median_ms": 0.942666,
+            "min_ms": 0.876625,
+            "max_ms": 0.995209
+          },
+          "dedup": {
+            "median_ms": 3.5055,
+            "min_ms": 3.43875,
+            "max_ms": 3.655792
+          },
+          "encode": {
+            "median_ms": 4.520958,
+            "min_ms": 4.441875,
+            "max_ms": 4.725375
+          },
+          "extend": {
+            "median_ms": 8.021687,
+            "min_ms": 7.450237,
+            "max_ms": 8.53449
+          },
+          "file_open": {
+            "median_ms": 0.563542,
+            "min_ms": 0.386331,
+            "max_ms": 0.728248
+          },
+          "file_read": {
+            "median_ms": 7.422045,
+            "min_ms": 7.299069,
+            "max_ms": 9.198844
+          },
+          "final_write": {
+            "median_ms": 29.486041,
+            "min_ms": 28.289583,
+            "max_ms": 30.919666
+          },
+          "git": {
+            "median_ms": 0.067459,
+            "min_ms": 0.064667,
+            "max_ms": 0.079334
+          },
+          "gram_hash": {
+            "median_ms": 678.745031,
+            "min_ms": 677.587307,
+            "max_ms": 686.418777
+          },
+          "manifest": {
+            "median_ms": 0.089375,
+            "min_ms": 0.083792,
+            "max_ms": 0.097791
+          },
+          "merge": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "pipeline": {
+            "median_ms": 97.695625,
+            "min_ms": 96.865667,
+            "max_ms": 104.925875
+          },
+          "receive_wait": {
+            "median_ms": 87.940745,
+            "min_ms": 87.522614,
+            "max_ms": 96.258963
+          },
+          "send_wait": {
+            "median_ms": 5.89403,
+            "min_ms": 5.540354,
+            "max_ms": 25.713061
+          },
+          "sort": {
+            "median_ms": 20.419334,
+            "min_ms": 19.509125,
+            "max_ms": 21.884417
+          },
+          "spill": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "spill_write": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "total": {
+            "median_ms": 131.442334,
+            "min_ms": 127.885375,
+            "max_ms": 136.930333
+          },
+          "gram_and_output": {
+            "median_ms": 678.745031,
+            "min_ms": 677.587307,
+            "max_ms": 686.418777
+          }
+        },
+        "counters": {
+          "chunks": [
+            4104
+          ],
+          "emitted_records": [
+            7324101
+          ],
+          "read_bytes": [
+            67108864
+          ],
+          "sort_input": [
+            7324101
+          ],
+          "sort_output": [
+            980863
+          ]
+        }
+      },
+      "after": {
+        "n": 7,
+        "wall_median_ms": 129.2181670141872,
+        "phases": {
+          "chunk_collect": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "collect_files": {
+            "median_ms": 2.930792,
+            "min_ms": 1.703875,
+            "max_ms": 2.992958
+          },
+          "count_keys": {
+            "median_ms": 0.887958,
+            "min_ms": 0.872167,
+            "max_ms": 0.937375
+          },
+          "dedup": {
+            "median_ms": 3.180083,
+            "min_ms": 3.102834,
+            "max_ms": 3.357
+          },
+          "encode": {
+            "median_ms": 4.487583,
+            "min_ms": 4.323333,
+            "max_ms": 4.689666
+          },
+          "extend": {
+            "median_ms": 6.129945,
+            "min_ms": 5.947731,
+            "max_ms": 6.329324
+          },
+          "file_open": {
+            "median_ms": 0.587583,
+            "min_ms": 0.353791,
+            "max_ms": 5.340918
+          },
+          "file_read": {
+            "median_ms": 5.712549,
+            "min_ms": 5.218569,
+            "max_ms": 8.662422
+          },
+          "final_write": {
+            "median_ms": 25.694333,
+            "min_ms": 25.330708,
+            "max_ms": 27.707333
+          },
+          "git": {
+            "median_ms": 0.072041,
+            "min_ms": 0.065083,
+            "max_ms": 0.079917
+          },
+          "gram_hash": {
+            "median_ms": 667.846424,
+            "min_ms": 660.31578,
+            "max_ms": 679.453081
+          },
+          "manifest": {
+            "median_ms": 0.0915,
+            "min_ms": 0.085708,
+            "max_ms": 0.11225
+          },
+          "merge": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "pipeline": {
+            "median_ms": 95.575834,
+            "min_ms": 92.535292,
+            "max_ms": 98.789333
+          },
+          "receive_wait": {
+            "median_ms": 88.704098,
+            "min_ms": 85.749054,
+            "max_ms": 91.686012
+          },
+          "send_wait": {
+            "median_ms": 4.123457,
+            "min_ms": 2.679651,
+            "max_ms": 5.651135
+          },
+          "sort": {
+            "median_ms": 17.156916,
+            "min_ms": 16.969875,
+            "max_ms": 18.725334
+          },
+          "spill": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "spill_write": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "total": {
+            "median_ms": 124.661875,
+            "min_ms": 121.682167,
+            "max_ms": 128.514375
+          },
+          "gram_and_output": {
+            "median_ms": 667.846424,
+            "min_ms": 660.31578,
+            "max_ms": 679.453081
+          }
+        },
+        "counters": {
+          "chunks": [
+            2056
+          ],
+          "emitted_records": [
+            5953743
+          ],
+          "read_bytes": [
+            67108864
+          ],
+          "sort_input": [
+            5953743
+          ],
+          "sort_output": [
+            980863
+          ]
+        }
+      }
+    },
+    "vllm": {
+      "before": {
+        "n": 7,
+        "wall_median_ms": 1159.5137079712003,
+        "phases": {
+          "chunk_collect": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "collect_files": {
+            "median_ms": 23.479583,
+            "min_ms": 20.7065,
+            "max_ms": 25.842958
+          },
+          "count_keys": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "dedup": {
+            "median_ms": 59.761041,
+            "min_ms": 58.741,
+            "max_ms": 63.5665
+          },
+          "encode": {
+            "median_ms": 188.375875,
+            "min_ms": 185.690583,
+            "max_ms": 189.55025
+          },
+          "extend": {
+            "median_ms": 202.977382,
+            "min_ms": 198.202228,
+            "max_ms": 204.627347
+          },
+          "file_open": {
+            "median_ms": 233.345076,
+            "min_ms": 223.318096,
+            "max_ms": 241.563962
+          },
+          "file_read": {
+            "median_ms": 20.746728,
+            "min_ms": 19.390178,
+            "max_ms": 22.81367
+          },
+          "final_write": {
+            "median_ms": 648.06575,
+            "min_ms": 645.57275,
+            "max_ms": 650.232958
+          },
+          "git": {
+            "median_ms": 34.488375,
+            "min_ms": 34.273791,
+            "max_ms": 34.803208
+          },
+          "gram_hash": {
+            "median_ms": 1787.081283,
+            "min_ms": 1763.065896,
+            "max_ms": 1806.397057
+          },
+          "manifest": {
+            "median_ms": 9.626542,
+            "min_ms": 4.977375,
+            "max_ms": 11.11375
+          },
+          "merge": {
+            "median_ms": 310.9585,
+            "min_ms": 310.169959,
+            "max_ms": 312.395083
+          },
+          "pipeline": {
+            "median_ms": 437.471334,
+            "min_ms": 432.350792,
+            "max_ms": 443.869333
+          },
+          "receive_wait": {
+            "median_ms": 233.86514,
+            "min_ms": 230.373584,
+            "max_ms": 236.485051
+          },
+          "send_wait": {
+            "median_ms": 1407.248923,
+            "min_ms": 1378.791369,
+            "max_ms": 1422.745518
+          },
+          "sort": {
+            "median_ms": 170.564459,
+            "min_ms": 166.109041,
+            "max_ms": 174.833542
+          },
+          "spill": {
+            "median_ms": 319.470541,
+            "min_ms": 314.733459,
+            "max_ms": 323.202209
+          },
+          "spill_write": {
+            "median_ms": 88.763209,
+            "min_ms": 88.288167,
+            "max_ms": 89.476334
+          },
+          "total": {
+            "median_ms": 1153.588041,
+            "min_ms": 1146.170417,
+            "max_ms": 1159.072709
+          },
+          "gram_and_output": {
+            "median_ms": 1787.081283,
+            "min_ms": 1763.065896,
+            "max_ms": 1806.397057
+          }
+        },
+        "counters": {
+          "chunks": [
+            9938
+          ],
+          "emitted_records": [
+            45120809
+          ],
+          "read_bytes": [
+            87866836
+          ],
+          "sort_input": [
+            45120809
+          ],
+          "sort_output": [
+            35462711,
+            35463343,
+            35468693,
+            35468790,
+            35470462,
+            35497121,
+            35536998
+          ]
+        }
+      },
+      "after": {
+        "n": 7,
+        "wall_median_ms": 1117.3978339938913,
+        "phases": {
+          "chunk_collect": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "collect_files": {
+            "median_ms": 22.679583,
+            "min_ms": 21.317917,
+            "max_ms": 23.196667
+          },
+          "count_keys": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "dedup": {
+            "median_ms": 37.2515,
+            "min_ms": 37.044208,
+            "max_ms": 38.487875
+          },
+          "encode": {
+            "median_ms": 189.242584,
+            "min_ms": 186.176417,
+            "max_ms": 193.589042
+          },
+          "extend": {
+            "median_ms": 198.849371,
+            "min_ms": 194.45116,
+            "max_ms": 202.318979
+          },
+          "file_open": {
+            "median_ms": 238.275582,
+            "min_ms": 226.177746,
+            "max_ms": 247.428727
+          },
+          "file_read": {
+            "median_ms": 18.006747,
+            "min_ms": 17.715474,
+            "max_ms": 20.581882
+          },
+          "final_write": {
+            "median_ms": 612.650583,
+            "min_ms": 610.615625,
+            "max_ms": 621.409125
+          },
+          "git": {
+            "median_ms": 34.303458,
+            "min_ms": 34.151167,
+            "max_ms": 34.88825
+          },
+          "gram_hash": {
+            "median_ms": 1781.415266,
+            "min_ms": 1763.154903,
+            "max_ms": 1792.65442
+          },
+          "manifest": {
+            "median_ms": 5.284875,
+            "min_ms": 4.972,
+            "max_ms": 11.156459
+          },
+          "merge": {
+            "median_ms": 309.571792,
+            "min_ms": 308.475208,
+            "max_ms": 310.30275
+          },
+          "pipeline": {
+            "median_ms": 433.013084,
+            "min_ms": 431.08675,
+            "max_ms": 439.214292
+          },
+          "receive_wait": {
+            "median_ms": 232.458147,
+            "min_ms": 230.049524,
+            "max_ms": 234.483827
+          },
+          "send_wait": {
+            "median_ms": 1380.224437,
+            "min_ms": 1355.093465,
+            "max_ms": 1397.971606
+          },
+          "sort": {
+            "median_ms": 153.945208,
+            "min_ms": 150.355042,
+            "max_ms": 159.561959
+          },
+          "spill": {
+            "median_ms": 283.605374,
+            "min_ms": 278.580833,
+            "max_ms": 290.560541
+          },
+          "spill_write": {
+            "median_ms": 91.45925,
+            "min_ms": 90.973751,
+            "max_ms": 92.931209
+          },
+          "total": {
+            "median_ms": 1111.474,
+            "min_ms": 1105.907125,
+            "max_ms": 1124.489
+          },
+          "gram_and_output": {
+            "median_ms": 1781.415266,
+            "min_ms": 1763.154903,
+            "max_ms": 1792.65442
+          }
+        },
+        "counters": {
+          "chunks": [
+            7911
+          ],
+          "emitted_records": [
+            40961298
+          ],
+          "read_bytes": [
+            89265252
+          ],
+          "sort_input": [
+            40961298
+          ],
+          "sort_output": [
+            35455513,
+            35455900,
+            35455991,
+            35456838,
+            35457158,
+            35460533,
+            35463644
+          ]
+        }
+      }
+    }
+  }
+}

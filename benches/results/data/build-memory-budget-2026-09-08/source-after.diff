@@ -1,0 +1,2174 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 25cb955..73c8fec 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -16,8 +16,6 @@ regex = "1.12"
+ regex-syntax = "0.8"
+ serde = { version = "1.0", features = ["derive"] }
+ serde_json = "1.0"
+-
+-[dev-dependencies]
+ tempfile = "3.23"
+ 
+ [[bench]]
+diff --git a/src/index.rs b/src/index.rs
+index 5376d6d..fefcceb 100644
+--- a/src/index.rs
++++ b/src/index.rs
+@@ -1,9 +1,13 @@
+ use std::{
+     collections::{BTreeSet, HashMap, HashSet},
+     fs::{self, File},
+-    io::{BufWriter, Write},
++    io::{BufWriter, Read, Write},
+     path::{Path, PathBuf},
+-    sync::Mutex,
++    sync::{
++        Mutex,
++        atomic::{AtomicUsize, Ordering},
++        mpsc,
++    },
+     time::{SystemTime, UNIX_EPOCH},
+ };
+ 
+@@ -12,7 +16,10 @@ use ignore::{DirEntry, WalkBuilder, WalkState};
+ use rayon::prelude::*;
+ use serde::{Deserialize, Serialize};
+ 
+-use crate::{git_state, ngram, segment};
++use crate::{
++    build::{CHUNK_BYTES, MemoryBudget, PostingsBuilder},
++    git_state, ngram, segment,
++};
+ 
+ const VERSION: u32 = 4;
+ const MAX_SEGMENTS: usize = 8;
+@@ -123,7 +130,6 @@ struct IndexedFile {
+     id: u32,
+     state: FileState,
+     searchable: bool,
+-    hashes: Vec<ngram::GramHash>,
+ }
+ 
+ pub fn resolve_root(path: &Path) -> Result<PathBuf> {
+@@ -139,23 +145,28 @@ pub fn resolve_index_dir(root: &Path, requested: Option<&Path>) -> PathBuf {
+     }
+ }
+ 
+-pub fn build(path: &Path, requested_index_dir: Option<&Path>) -> Result<BuildSummary> {
++pub fn build(
++    path: &Path,
++    requested_index_dir: Option<&Path>,
++    budget: MemoryBudget,
++) -> Result<BuildSummary> {
+     let root = resolve_root(path)?;
+     let index_dir = resolve_index_dir(&root, requested_index_dir);
+     prepare_index_dir(&root, &index_dir)?;
+     let source_state = collect_files(&root, &index_dir, None)?;
+     let repository_state = git_state::inspect(&root, &index_dir)?;
+     let segment_id = next_segment_id(&index_dir);
+-    let mut indexed = index_files(
++    let (indexed, segment) = index_files(
+         &root,
++        &index_dir,
++        segment_id,
++        budget,
+         source_state
+             .iter()
+             .cloned()
+             .enumerate()
+             .map(|(id, state)| (id as u32, state)),
+     )?;
+-    let postings = postings_from_files(&mut indexed);
+-    let segment = segment::write(&index_dir, segment_id, postings)?;
+     let ngrams = segment.ngrams as usize;
+     let documents = indexed
+         .iter()
+@@ -201,7 +212,11 @@ pub fn build(path: &Path, requested_index_dir: Option<&Path>) -> Result<BuildSum
+     })
+ }
+ 
+-pub fn refresh(index: &DiskIndex, requested_index_dir: Option<&Path>) -> Result<RefreshOutcome> {
++pub fn refresh(
++    index: &DiskIndex,
++    requested_index_dir: Option<&Path>,
++    budget: MemoryBudget,
++) -> Result<RefreshOutcome> {
+     let root = &index.manifest.root;
+     let index_dir = resolve_index_dir(root, requested_index_dir);
+ 
+@@ -223,17 +238,17 @@ pub fn refresh(index: &DiskIndex, requested_index_dir: Option<&Path>) -> Result<
+         let large_change =
+             changed >= MIN_LARGE_CHANGE && changed.saturating_mul(5) > current_state.len().max(1);
+         if index.manifest.segments.len() >= MAX_SEGMENTS || large_change {
+-            build(root, requested_index_dir)?;
++            build(root, requested_index_dir, budget)?;
+             return Ok(RefreshOutcome::Rebuilt);
+         }
+         write_incremental(
+             index,
+             &index_dir,
+             current_state,
+-            identity.head,
+-            identity.tree,
++            (identity.head, identity.tree),
+             None,
+             false,
++            budget,
+         )?;
+         return Ok(RefreshOutcome::Incremental { changed });
+     }
+@@ -304,17 +319,17 @@ pub fn refresh(index: &DiskIndex, requested_index_dir: Option<&Path>) -> Result<
+     let large_change =
+         changed >= MIN_LARGE_CHANGE && changed.saturating_mul(5) > current_state.len().max(1);
+     if index.manifest.segments.len() >= MAX_SEGMENTS || large_change {
+-        build(root, requested_index_dir)?;
++        build(root, requested_index_dir, budget)?;
+         return Ok(RefreshOutcome::Rebuilt);
+     }
+     write_incremental(
+         index,
+         &index_dir,
+         current_state,
+-        current_head,
+-        current_tree,
++        (current_head, current_tree),
+         known_changed,
+         repository_state.as_ref().is_some_and(|state| state.clean),
++        budget,
+     )?;
+     Ok(RefreshOutcome::Incremental { changed })
+ }
+@@ -323,10 +338,10 @@ fn write_incremental(
+     index: &DiskIndex,
+     index_dir: &Path,
+     current_state: Vec<FileState>,
+-    current_head: Option<String>,
+-    current_tree: Option<String>,
++    (current_head, current_tree): (Option<String>, Option<String>),
+     known_changed: Option<&HashSet<PathBuf>>,
+     cache_clean: bool,
++    budget: MemoryBudget,
+ ) -> Result<()> {
+     let mut manifest = index.manifest.clone();
+     let old_states: HashMap<&Path, &FileState> = manifest
+@@ -386,9 +401,8 @@ fn write_incremental(
+ 
+     if !pending.is_empty() {
+         let segment_id = next_segment_id(index_dir);
+-        let mut indexed = index_files(&manifest.root, pending)?;
+-        let postings = postings_from_files(&mut indexed);
+-        let segment = segment::write(index_dir, segment_id, postings)?;
++        let (indexed, segment) =
++            index_files(&manifest.root, index_dir, segment_id, budget, pending)?;
+         for file in indexed {
+             let document = &mut manifest.documents[file.id as usize];
+             document.path = file.state.path;
+@@ -409,46 +423,108 @@ fn write_incremental(
+     Ok(())
+ }
+ 
+-fn index_files<I>(root: &Path, files: I) -> Result<Vec<IndexedFile>>
++fn index_files<I>(
++    root: &Path,
++    index_dir: &Path,
++    segment_id: u64,
++    budget: MemoryBudget,
++    files: I,
++) -> Result<(Vec<IndexedFile>, segment::SegmentMeta)>
+ where
+     I: IntoIterator<Item = (u32, FileState)>,
+ {
+     let files: Vec<_> = files.into_iter().collect();
+-    files
+-        .into_par_iter()
+-        .map(|(id, state)| {
+-            let full_path = root.join(&state.path);
+-            let bytes = fs::read(&full_path)
+-                .with_context(|| format!("cannot read {}", full_path.display()))?;
+-            let searchable = !is_binary(&bytes);
+-            let hashes = if searchable {
+-                // Keep only the unique keys, not the hash table's spare buckets.
+-                ngram::hashes_for_document(&bytes).into_iter().collect()
+-            } else {
+-                Vec::new()
+-            };
+-            Ok(IndexedFile {
+-                id,
+-                state,
+-                searchable,
+-                hashes,
+-            })
++    let workers = budget.workers(files.len());
++    let mut postings = PostingsBuilder::new(index_dir, budget.record_bytes(workers));
++    let mut searchable = vec![false; files.len()];
++    let next_file = AtomicUsize::new(0);
++    std::thread::scope(|scope| -> Result<()> {
++        let (sender, receiver) = mpsc::sync_channel(workers);
++        for _ in 0..workers {
++            let sender = sender.clone();
++            let files = &files;
++            let next_file = &next_file;
++            // Separate producers let the collector use Rayon's parallel sort
++            // without blocking Rayon workers on a full channel or a mutex.
++            scope.spawn(move || {
++                loop {
++                    let position = next_file.fetch_add(1, Ordering::Relaxed);
++                    let Some((_, state)) = files.get(position) else {
++                        break;
++                    };
++                    let path = root.join(&state.path);
++                    let result = hash_file_chunks(&path, |hashes| {
++                        sender
++                            .send(Ok((position, hashes)))
++                            .map_err(|_| anyhow::anyhow!("index build cancelled"))
++                    });
++                    if let Err(error) = result {
++                        let _ = sender.send(Err(error));
++                        break;
++                    }
++                }
++            });
++        }
++        drop(sender);
++        for batch in receiver {
++            let (position, hashes) = batch?;
++            searchable[position] = true;
++            postings.extend(files[position].0, &hashes)?;
++        }
++        Ok(())
++    })?;
++    let segment = postings.write(segment_id)?;
++    let indexed = files
++        .into_iter()
++        .zip(searchable)
++        .map(|((id, state), searchable)| IndexedFile {
++            id,
++            state,
++            searchable,
+         })
+-        .collect()
++        .collect();
++    Ok((indexed, segment))
+ }
+ 
+-fn postings_from_files(files: &mut [IndexedFile]) -> Vec<(ngram::GramHash, u32)> {
+-    let count = files.iter().map(|file| file.hashes.len()).sum();
+-    let mut postings = Vec::with_capacity(count);
+-    for file in files {
+-        // Release each file's keys as we assemble the contiguous posting records.
+-        postings.extend(
+-            std::mem::take(&mut file.hashes)
++fn hash_file_chunks(
++    path: &Path,
++    mut emit: impl FnMut(Vec<ngram::GramHash>) -> Result<()>,
++) -> Result<()> {
++    let mut file = File::open(path).with_context(|| format!("cannot read {}", path.display()))?;
++    let mut bytes = [0; CHUNK_BYTES];
++    let mut retained = 0;
++    loop {
++        let mut len = retained;
++        while len < bytes.len() {
++            match file.read(&mut bytes[len..]) {
++                Ok(0) => break,
++                Ok(count) => len += count,
++                Err(error) if error.kind() == std::io::ErrorKind::Interrupted => continue,
++                Err(error) => {
++                    return Err(error).with_context(|| format!("cannot read {}", path.display()));
++                }
++            }
++        }
++        if retained == 0 && is_binary(&bytes[..len]) {
++            return Ok(());
++        }
++        if retained > 0 && len == retained {
++            break;
++        }
++        emit(
++            ngram::hashes_for_document(&bytes[..len])
+                 .into_iter()
+-                .map(|hash| (hash, file.id)),
+-        );
++                .collect(),
++        )?;
++        if len < bytes.len() {
++            break;
++        }
++        // The predicate for any gram depends only on its own bytes. Retaining
++        // MAX_GRAM - 1 bytes preserves every gram spanning a chunk boundary.
++        retained = ngram::MAX_GRAM - 1;
++        bytes.copy_within(len - retained..len, 0);
+     }
+-    postings
++    Ok(())
+ }
+ 
+ pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
+@@ -723,6 +799,81 @@ pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
+ mod tests {
+     use super::*;
+ 
++    #[test]
++    fn chunked_hashes_match_whole_files_including_boundaries() {
++        let directory = tempfile::tempdir().unwrap();
++        let path = directory.path().join("source");
++        let mut random = 12345_u32;
++        let bytes: Vec<_> = (0..CHUNK_BYTES * 5 + 17)
++            .map(|_| {
++                random ^= random << 13;
++                random ^= random >> 17;
++                random ^= random << 5;
++                (random % 255 + 1) as u8
++            })
++            .collect();
++        for len in [
++            0,
++            1,
++            2,
++            3,
++            24,
++            CHUNK_BYTES - 1,
++            CHUNK_BYTES,
++            CHUNK_BYTES + 1,
++            bytes.len(),
++        ] {
++            fs::write(&path, &bytes[..len]).unwrap();
++            let mut actual = ngram::GramHashSet::default();
++            let mut batches = 0;
++            hash_file_chunks(&path, |hashes| {
++                actual.extend(hashes);
++                batches += 1;
++                Ok(())
++            })
++            .unwrap();
++            assert!(batches >= 1, "even an empty text file is searchable");
++            assert_eq!(
++                actual,
++                ngram::hashes_for_document(&bytes[..len]),
++                "length {len}"
++            );
++        }
++        for nul_position in [0, 8191, 8192, CHUNK_BYTES + 1] {
++            let mut bytes = bytes.clone();
++            bytes[nul_position] = 0;
++            fs::write(&path, &bytes).unwrap();
++            let mut actual = ngram::GramHashSet::default();
++            hash_file_chunks(&path, |hashes| {
++                actual.extend(hashes);
++                Ok(())
++            })
++            .unwrap();
++            if nul_position < 8192 {
++                assert!(actual.is_empty());
++            } else {
++                assert_eq!(actual, ngram::hashes_for_document(&bytes));
++            }
++        }
++    }
++
++    #[test]
++    fn read_failure_keeps_published_index_and_cancels_workers() {
++        let directory = tempfile::tempdir().unwrap();
++        let manifest = directory.path().join("manifest.json");
++        fs::write(&manifest, "previous manifest").unwrap();
++        let result = index_files(
++            directory.path(),
++            directory.path(),
++            1,
++            "16".parse().unwrap(),
++            (0..100).map(|id| (id, state(&format!("missing-{id}"), 0))),
++        );
++        assert!(result.is_err());
++        assert_eq!(fs::read_to_string(manifest).unwrap(), "previous manifest");
++        assert_eq!(fs::read_dir(directory.path()).unwrap().count(), 1);
++    }
++
+     #[test]
+     fn serial_and_parallel_snapshots_agree_even_with_a_stale_size_hint() {
+         let root = tempfile::tempdir().unwrap();
+diff --git a/src/main.rs b/src/main.rs
+index 28a1b6c..23f095e 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -1,3 +1,4 @@
++mod build;
+ mod git_state;
+ mod index;
+ mod ngram;
+@@ -8,7 +9,14 @@ mod segment;
+ use std::path::PathBuf;
+ 
+ use anyhow::Result;
+-use clap::{Parser, Subcommand};
++use clap::{Args, Parser, Subcommand};
++
++#[derive(Debug, Args)]
++struct BuildOptions {
++    /// Working memory budget for index construction; excess records spill to disk.
++    #[arg(long, value_name = "MiB", default_value = "256")]
++    build_memory_mib: build::MemoryBudget,
++}
+ 
+ #[derive(Debug, Parser)]
+ #[command(
+@@ -25,6 +33,8 @@ struct Cli {
+ enum Command {
+     /// Build or replace the on-disk search index.
+     Index {
++        #[command(flatten)]
++        build: BuildOptions,
+         #[arg(default_value = ".")]
+         path: PathBuf,
+         #[arg(long, value_name = "DIR")]
+@@ -32,6 +42,8 @@ enum Command {
+     },
+     /// Search a source tree, rebuilding a stale index by default.
+     Search {
++        #[command(flatten)]
++        build: BuildOptions,
+         pattern: String,
+         #[arg(default_value = ".")]
+         path: PathBuf,
+@@ -69,8 +81,12 @@ fn main() {
+ 
+ fn run() -> Result<()> {
+     match Cli::parse().command {
+-        Command::Index { path, index_dir } => {
+-            let summary = index::build(&path, index_dir.as_deref())?;
++        Command::Index {
++            path,
++            index_dir,
++            build,
++        } => {
++            let summary = index::build(&path, index_dir.as_deref(), build.build_memory_mib)?;
+             eprintln!(
+                 "indexed {} files ({} bytes, {} n-grams) in {}",
+                 summary.files,
+@@ -80,6 +96,7 @@ fn run() -> Result<()> {
+             );
+         }
+         Command::Search {
++            build,
+             pattern,
+             path,
+             ignore_case,
+@@ -98,7 +115,13 @@ fn run() -> Result<()> {
+                 max_count,
+                 no_refresh,
+             };
+-            let found = search::run(&path, index_dir.as_deref(), &pattern, &options)?;
++            let found = search::run(
++                &path,
++                index_dir.as_deref(),
++                &pattern,
++                &options,
++                build.build_memory_mib,
++            )?;
+             if !found {
+                 std::process::exit(1);
+             }
+diff --git a/src/ngram.rs b/src/ngram.rs
+index 3875a0e..01f6c86 100644
+--- a/src/ngram.rs
++++ b/src/ngram.rs
+@@ -5,7 +5,7 @@ use std::{
+ };
+ 
+ pub const MIN_GRAM: usize = 3;
+-const MAX_GRAM: usize = 24;
++pub(crate) const MAX_GRAM: usize = 24;
+ const HASH_OFFSET: u64 = 0xcbf2_9ce4_8422_2325;
+ const HASH_PRIME: u64 = 0x1000_0000_01b3;
+ const PAIR_TABLE_THRESHOLD: usize = 4096;
+@@ -43,17 +43,17 @@ pub(crate) type GramHashMap<V> = HashMap<GramHash, V, IdentityBuildHasher>;
+ /// to have been selected from every document containing that query.
+ pub fn hashes_for_document(bytes: &[u8]) -> GramHashSet {
+     let mut hashes = GramHashSet::with_capacity_and_hasher(bytes.len(), Default::default());
+-    for_each_sparse_gram(bytes, |_, hash| {
++    for_each_sparse_gram(bytes, |_, _, hash| {
+         hashes.insert(compact_hash(hash));
+     });
+     hashes
+ }
+ 
+-/// Pick one highly selective gram from a literal. Returning a single longer
+-/// gram keeps index lookups cheap; hash collisions can only add candidates.
++/// The previous single-gram heuristic, retained as a test oracle.
++#[cfg(test)]
+ pub fn best_hash(literal: &[u8]) -> Option<GramHash> {
+     let mut best = None;
+-    for_each_sparse_gram(literal, |gram, hash| {
++    for_each_sparse_gram(literal, |_, gram, hash| {
+         if best.is_none_or(|(length, _)| gram.len() >= length) {
+             best = Some((gram.len(), hash));
+         }
+@@ -61,11 +61,70 @@ pub fn best_hash(literal: &[u8]) -> Option<GramHash> {
+     best.map(|(_, hash)| compact_hash(hash))
+ }
+ 
++#[derive(Clone, Copy)]
++struct QueryGram {
++    start: usize,
++    len: usize,
++    hash: GramHash,
++}
++
++/// Cover all trigram positions using indexed grams. Keep the previous longest
++/// gram first, then prefer longer complementary grams. Dropping necessary
++/// hashes at the budget boundary only broadens the candidate set.
++pub fn covering_hashes(literal: &[u8], limit: usize) -> Vec<GramHash> {
++    let mut grams = covering_grams(literal);
++    grams.sort_unstable_by_key(|gram| std::cmp::Reverse((gram.len, gram.start)));
++    let mut seen = GramHashSet::default();
++    grams
++        .into_iter()
++        .map(|gram| gram.hash)
++        .filter(|&hash| seen.insert(hash))
++        .take(limit)
++        .collect()
++}
++
++fn covering_grams(literal: &[u8]) -> Vec<QueryGram> {
++    let mut longest: Vec<QueryGram> = Vec::new();
++    for_each_sparse_gram(literal, |start, gram, hash| {
++        let candidate = QueryGram {
++            start,
++            len: gram.len(),
++            hash: compact_hash(hash),
++        };
++        if start == longest.len() {
++            longest.push(candidate);
++        } else {
++            longest[start] = candidate;
++        }
++    });
++    let Some(&anchor) = longest.iter().max_by_key(|gram| gram.len) else {
++        return Vec::new();
++    };
++    let mut selected = vec![anchor];
++    let mut next_start = 0;
++    let mut covered = MIN_GRAM - 1;
++    while covered < literal.len() {
++        let mut best = longest[next_start];
++        // Overlap by two bytes so every trigram position is covered, including
++        // the joins. Of all eligible intervals, take the one reaching furthest.
++        while next_start < longest.len() && next_start <= covered - (MIN_GRAM - 1) {
++            let gram = longest[next_start];
++            if gram.start + gram.len >= best.start + best.len {
++                best = gram;
++            }
++            next_start += 1;
++        }
++        covered = best.start + best.len;
++        selected.push(best);
++    }
++    selected
++}
++
+ fn compact_hash(hash: u64) -> GramHash {
+     hash as u32 ^ (hash >> 32) as u32
+ }
+ 
+-fn for_each_sparse_gram<'a>(bytes: &'a [u8], mut emit: impl FnMut(&'a [u8], u64)) {
++fn for_each_sparse_gram<'a>(bytes: &'a [u8], mut emit: impl FnMut(usize, &'a [u8], u64)) {
+     if bytes.len() < MIN_GRAM {
+         return;
+     }
+@@ -87,6 +146,7 @@ fn for_each_sparse_gram<'a>(bytes: &'a [u8], mut emit: impl FnMut(&'a [u8], u64)
+             hash_state = extend_hash(hash_state, byte);
+         }
+         emit(
++            start,
+             &bytes[start..start + MIN_GRAM],
+             finish_hash(hash_state, MIN_GRAM),
+         );
+@@ -100,7 +160,11 @@ fn for_each_sparse_gram<'a>(bytes: &'a [u8], mut emit: impl FnMut(&'a [u8], u64)
+             let right_index = start + len - 2;
+             let right = weight(right_index);
+             if left > max_inside && right > max_inside {
+-                emit(&bytes[start..start + len], finish_hash(hash_state, len));
++                emit(
++                    start,
++                    &bytes[start..start + len],
++                    finish_hash(hash_state, len),
++                );
+             }
+             max_inside = max_inside.max(right);
+             if max_inside >= left {
+@@ -166,6 +230,64 @@ mod tests {
+     #[test]
+     fn short_literals_have_no_gram() {
+         assert_eq!(best_hash(b"ab"), None);
++        for bytes in [b"".as_slice(), b"a", b"ab"] {
++            assert!(covering_hashes(bytes, 128).is_empty());
++        }
++    }
++
++    #[test]
++    fn covering_spans_every_trigram_and_only_uses_indexed_keys() {
++        let mut state = 17u64;
++        for len in 3..160 {
++            for alphabet in [2, 7, 256] {
++                let literal: Vec<_> = (0..len)
++                    .map(|_| {
++                        state = state.wrapping_mul(6364136223846793005).wrapping_add(1);
++                        ((state >> 32) % alphabet) as u8
++                    })
++                    .collect();
++                let grams = covering_grams(&literal);
++                for start in 0..=len - MIN_GRAM {
++                    assert!(grams.iter().any(
++                        |gram| gram.start <= start && gram.start + gram.len >= start + MIN_GRAM
++                    ));
++                }
++                let selected = covering_hashes(&literal, 128);
++                assert_eq!(selected.first().copied(), best_hash(&literal));
++                assert_eq!(
++                    selected.len(),
++                    selected.iter().collect::<HashSet<_>>().len()
++                );
++                for context in [0, 97, 255] {
++                    let mut document = vec![context; 25];
++                    document.extend_from_slice(&literal);
++                    document.extend_from_slice(&[context; 25]);
++                    let indexed = hashes_for_document(&document);
++                    assert!(selected.iter().all(|hash| indexed.contains(hash)));
++                }
++            }
++        }
++    }
++
++    #[test]
++    fn covering_deduplicates_repeated_bytes_and_respects_budget() {
++        let repeated = vec![b'a'; 5000];
++        assert_eq!(
++            covering_hashes(&repeated, 128),
++            vec![best_hash(&repeated).unwrap()]
++        );
++        let mut state = 17u64;
++        let literal: Vec<_> = (0..5000)
++            .map(|_| {
++                state = state.wrapping_mul(6364136223846793005).wrapping_add(1);
++                (state >> 32) as u8
++            })
++            .collect();
++        let all = covering_hashes(&literal, usize::MAX);
++        assert!(all.len() > 128);
++        for limit in [0, 1, 4, 128] {
++            assert_eq!(covering_hashes(&literal, limit), all[..limit]);
++        }
+     }
+ 
+     #[test]
+@@ -182,7 +304,7 @@ mod tests {
+             long.as_slice(),
+         ] {
+             let mut actual = Vec::new();
+-            for_each_sparse_gram(bytes, |gram, gram_hash| {
++            for_each_sparse_gram(bytes, |_, gram, gram_hash| {
+                 actual.push((gram.to_vec(), gram_hash));
+             });
+ 
+diff --git a/src/query.rs b/src/query.rs
+index f42d51f..b45bd1f 100644
+--- a/src/query.rs
++++ b/src/query.rs
+@@ -12,11 +12,15 @@ use crate::ngram;
+ // Tuned on vLLM; see benches/results/vllm-case-budget-2026-09-07.md.
+ pub const MAX_LITERAL_VARIANTS: usize = 128;
+ pub const MAX_INDEX_LOOKUPS: usize = 128;
++// Bound a single class independently of combinations across small classes.
++const MAX_INITIAL_CLASS_VARIANTS: usize = 16;
+ 
+-/// Every inner vector is a necessary condition: a matching document contains
+-/// at least one of its hashes. Union within each condition, intersect between
+-/// conditions. An empty outer vector means there is no safe index filter.
+-pub fn literal_strategies(pattern: &str, ignore_case: bool) -> Result<Vec<Vec<ngram::GramHash>>> {
++/// Union of literal branches, each requiring the intersection of its grams.
++pub type GramGroup = Vec<Vec<ngram::GramHash>>;
++
++/// Intersect groups, union branches within a group, intersect grams within a
++/// branch. An empty plan means there is no safe index filter.
++pub fn literal_strategies(pattern: &str, ignore_case: bool) -> Result<Vec<GramGroup>> {
+     let hir = ParserBuilder::new()
+         .case_insensitive(ignore_case)
+         .multi_line(true)
+@@ -25,32 +29,53 @@ pub fn literal_strategies(pattern: &str, ignore_case: bool) -> Result<Vec<Vec<ng
+         .parse(pattern)
+         .with_context(|| format!("invalid regular expression {pattern:?}"))?;
+     let mut strategies = Vec::new();
+-    collect_required_strategies(&hir, &mut strategies);
++    for literals in required_literal_groups(&hir) {
++        let covers: Vec<_> = literals
++            .iter()
++            .map(|literal| ngram::covering_hashes(literal, MAX_INDEX_LOOKUPS))
++            .collect();
++        push_strategy(covers, &mut strategies);
++    }
+     Ok(strategies)
+ }
+ 
+-fn collect_required_strategies(hir: &Hir, strategies: &mut Vec<Vec<ngram::GramHash>>) {
+-    if strategies.len() >= MAX_INDEX_LOOKUPS {
++type LiteralGroup = Vec<Vec<u8>>;
++
++fn required_literal_groups(hir: &Hir) -> Vec<LiteralGroup> {
++    let mut groups = Vec::new();
++    // Small quote and case-folding classes can join their surrounding text;
++    // the 53-character decorator name class stops at @torch. | @pytest.
++    collect_required_literals(hir, MAX_INITIAL_CLASS_VARIANTS, &mut groups);
++    if groups.is_empty() {
++        // Retry with larger classes only when small classes cannot
++        // provide a complete usable filter. Never truncate optional branches.
++        collect_required_literals(hir, MAX_LITERAL_VARIANTS, &mut groups);
++    }
++    groups
++}
++
++fn collect_required_literals(hir: &Hir, class_limit: usize, groups: &mut Vec<LiteralGroup>) {
++    if groups.len() >= MAX_INDEX_LOOKUPS {
+         return;
+     }
+-    extract_strategies(hir, strategies);
++    extract_literals(hir, class_limit, groups);
+     match hir.kind() {
+         HirKind::Concat(parts) => {
+             // Case folding turns an identifier into a concatenation of small
+             // Unicode classes. Short windows avoid expanding the whole word.
+             for window in parts.windows(3) {
+-                if strategies.len() >= MAX_INDEX_LOOKUPS {
++                if groups.len() >= MAX_INDEX_LOOKUPS {
+                     return;
+                 }
+-                extract_strategies(&Hir::concat(window.to_vec()), strategies);
++                extract_literals(&Hir::concat(window.to_vec()), class_limit, groups);
+             }
+             for part in parts {
+-                collect_required_strategies(part, strategies);
++                collect_required_literals(part, class_limit, groups);
+             }
+         }
+-        HirKind::Capture(capture) => collect_required_strategies(&capture.sub, strategies),
++        HirKind::Capture(capture) => collect_required_literals(&capture.sub, class_limit, groups),
+         HirKind::Repetition(repetition) if repetition.min > 0 => {
+-            collect_required_strategies(&repetition.sub, strategies);
++            collect_required_literals(&repetition.sub, class_limit, groups);
+         }
+         // Optional repetitions and individual alternation branches are not
+         // required. Only the complete expression's extracted unions are safe.
+@@ -58,43 +83,90 @@ fn collect_required_strategies(hir: &Hir, strategies: &mut Vec<Vec<ngram::GramHa
+     }
+ }
+ 
+-fn extract_strategies(hir: &Hir, strategies: &mut Vec<Vec<ngram::GramHash>>) {
++fn extract_literals(hir: &Hir, class_limit: usize, groups: &mut Vec<LiteralGroup>) {
+     for kind in [ExtractKind::Prefix, ExtractKind::Suffix] {
+-        if strategies.len() >= MAX_INDEX_LOOKUPS {
++        if groups.len() >= MAX_INDEX_LOOKUPS {
+             return;
+         }
+         let mut extractor = Extractor::new();
+         extractor
+             .kind(kind)
+-            .limit_class(MAX_LITERAL_VARIANTS)
++            .limit_class(class_limit)
+             .limit_total(MAX_LITERAL_VARIANTS);
+         let sequence = extractor.extract(hir);
+         let Some(literals) = sequence.literals() else {
+             continue;
+         };
+-        if literals.is_empty() {
++        if literals.is_empty()
++            || literals
++                .iter()
++                .any(|literal| literal.as_bytes().len() < ngram::MIN_GRAM)
++        {
+             continue;
+         }
+         // The extractor can shorten literals while preserving every variant.
+         // Never truncate the alternative list ourselves: that would miss files.
+-        let hashes: Option<Vec<ngram::GramHash>> = literals
++        let group = literals
+             .iter()
+-            .map(|literal| ngram::best_hash(literal.as_bytes()))
++            .map(|literal| literal.as_bytes().to_vec())
+             .collect();
+-        if let Some(mut hashes) = hashes {
+-            hashes.sort_unstable();
+-            hashes.dedup();
+-            if !strategies.contains(&hashes) {
+-                strategies.push(hashes);
+-            }
++        push_literal_group(group, groups);
++    }
++}
++
++fn push_literal_group(mut group: LiteralGroup, groups: &mut Vec<LiteralGroup>) {
++    group.sort_unstable();
++    group.dedup();
++    if groups
++        .iter()
++        .any(|existing| literal_group_implies(existing, &group))
++    {
++        return;
++    }
++    groups.retain(|existing| !literal_group_implies(&group, existing));
++    groups.push(group);
++}
++
++fn literal_group_implies(stronger: &LiteralGroup, weaker: &LiteralGroup) -> bool {
++    // A group is an OR of whole literals. EVERY stronger alternative must
++    // contain a weaker alternative before that entire weaker group is redundant.
++    // This removes torch | pytest once @torch. | @pytest. is available without
++    // dropping an unrelated branch. All literals here contain at least 3 bytes.
++    stronger.iter().all(|literal| {
++        weaker.iter().any(|part| {
++            literal
++                .windows(part.len())
++                .any(|window| window == part.as_slice())
++        })
++    })
++}
++
++fn push_strategy(covers: GramGroup, strategies: &mut Vec<GramGroup>) {
++    let mut branches: GramGroup = Vec::new();
++    for cover in covers {
++        // Simplify using actual key requirements, not just literal lengths.
++        // In an OR, a stricter branch adds no files to a weaker branch.
++        if branches
++            .iter()
++            .any(|existing| existing.iter().all(|hash| cover.contains(hash)))
++        {
++            continue;
+         }
++        branches.retain(|existing| !cover.iter().all(|hash| existing.contains(hash)));
++        branches.push(cover);
++    }
++    if !strategies.contains(&branches) {
++        strategies.push(branches);
+     }
+ }
+ 
+-pub fn fixed_strategy(literal: &[u8]) -> Vec<Vec<ngram::GramHash>> {
+-    ngram::best_hash(literal)
+-        .map(|hash| vec![vec![hash]])
+-        .unwrap_or_default()
++pub fn fixed_strategy(literal: &[u8]) -> Vec<GramGroup> {
++    let cover = ngram::covering_hashes(literal, MAX_INDEX_LOOKUPS);
++    if cover.is_empty() {
++        Vec::new()
++    } else {
++        vec![vec![cover]]
++    }
+ }
+ 
+ #[cfg(test)]
+@@ -119,7 +191,9 @@ mod tests {
+             let hashes = ngram::hashes_for_document(document);
+             for alternatives in &strategies {
+                 assert!(
+-                    alternatives.iter().any(|hash| hashes.contains(hash)),
++                    alternatives
++                        .iter()
++                        .any(|branch| branch.iter().all(|hash| hashes.contains(hash))),
+                     "filter lost {:?} for {pattern:?}",
+                     String::from_utf8_lossy(document)
+                 );
+@@ -134,6 +208,166 @@ mod tests {
+         assert!(strategies.iter().any(|strategy| strategy.len() == 2));
+     }
+ 
++    fn groups_for(pattern: &str) -> Vec<LiteralGroup> {
++        let hir = ParserBuilder::new()
++            .multi_line(true)
++            .utf8(false)
++            .build()
++            .parse(pattern)
++            .unwrap();
++        required_literal_groups(&hir)
++    }
++
++    #[test]
++    fn decorator_uses_two_fixed_literals_without_expanding_the_name() {
++        let pattern = r"^[ \t]*@(?:torch|pytest)\.[A-Za-z_]+";
++        assert_eq!(
++            groups_for(pattern),
++            vec![vec![b"@pytest.".to_vec(), b"@torch.".to_vec()]]
++        );
++        assert_eq!(
++            literal_strategies(pattern, false).unwrap(),
++            literal_strategies(r"@(?:torch|pytest)\.", false).unwrap()
++        );
++        let documents: Vec<_> = [
++            "@torch.no_grad()",
++            "    @pytest.mark.parametrize('x', [1])",
++            "\t@torch._private()",
++            "@pytest.Z",
++            "@torch.",
++            "@pytest.123",
++            "value = torch.no_grad()",
++        ]
++        .into_iter()
++        .map(|text| text.as_bytes().to_vec())
++        .collect();
++        assert_filter_preserves_matches(pattern, false, &documents);
++    }
++
++    #[test]
++    fn large_classes_stop_literals_and_keep_separate_required_fragments() {
++        assert_eq!(
++            groups_for(r"\btorch\.cuda\.[a-z_]+\("),
++            vec![vec![b"torch.cuda.".to_vec()]]
++        );
++        let mut groups = groups_for("prefix[0-9A-Z]+suffix");
++        groups.sort_unstable();
++        assert_eq!(
++            groups,
++            vec![vec![b"prefix".to_vec()], vec![b"suffix".to_vec()]]
++        );
++        assert_filter_preserves_matches(
++            "prefix[0-9A-Z]+suffix",
++            false,
++            &[b"prefix1suffix".to_vec(), b"prefix12345suffix".to_vec()],
++        );
++    }
++
++    #[test]
++    fn small_quote_classes_preserve_all_twelve_device_literals() {
++        let pattern = r#"["'](?:cuda|cpu|rocm)["']"#;
++        let mut literals = Vec::new();
++        for left in [b'\'', b'"'] {
++            for word in [b"cuda".as_slice(), b"cpu", b"rocm"] {
++                for right in [b'\'', b'"'] {
++                    let mut literal = vec![left];
++                    literal.extend_from_slice(word);
++                    literal.push(right);
++                    literals.push(literal);
++                }
++            }
++        }
++        literals.sort_unstable();
++        assert_eq!(groups_for(pattern), vec![literals.clone()]);
++        // The expression permits independently chosen opening and closing
++        // quotes, so mixed quotes must be preserved too.
++        assert_filter_preserves_matches(pattern, false, &literals);
++    }
++
++    #[test]
++    fn small_classes_and_literal_branches_keep_the_wider_combination_budget() {
++        assert_eq!(
++            groups_for("prefix[ab]suffix"),
++            groups_for("prefix(?:a|b)suffix")
++        );
++        for words in [
++            vec!["aa", "bb", "cc", "dd"],
++            vec!["aa", "bb", "cc", "dd", "ee"],
++        ] {
++            let pattern = format!("prefix(?:{})[0-3]+", words.join("|"));
++            let groups = groups_for(&pattern);
++            assert_eq!(groups.len(), 1);
++            let expected: Vec<_> = words
++                .iter()
++                .flat_map(|word| {
++                    (0..4).map(move |digit| format!("prefix{word}{digit}").into_bytes())
++                })
++                .collect();
++            assert_eq!(groups[0], expected);
++            let documents: Vec<_> = words
++                .iter()
++                .flat_map(|word| {
++                    (0..4).map(move |digit| format!("prefix{word}{digit}").into_bytes())
++                })
++                .collect();
++            assert_filter_preserves_matches(&pattern, false, &documents);
++        }
++    }
++
++    #[test]
++    fn redundancy_requires_every_alternative_to_imply_the_weaker_group() {
++        let pattern = "(?:foobar|unrelated).*foo";
++        assert_eq!(groups_for(pattern).len(), 2);
++        assert_filter_preserves_matches(
++            pattern,
++            false,
++            &[b"foobarfoo".to_vec(), b"unrelated foo".to_vec()],
++        );
++    }
++
++    #[test]
++    fn missing_small_literal_filter_keeps_wider_bounded_expansion() {
++        assert_eq!(
++            groups_for("ab[cde]"),
++            vec![vec![b"abc".to_vec(), b"abd".to_vec(), b"abe".to_vec()]]
++        );
++        assert_eq!(groups_for("[a-c]{3}")[0].len(), 27);
++        assert!(groups_for("(?:needle|[a-z]{1,2})").is_empty());
++        assert!(groups_for("(?:needle)?").is_empty());
++    }
++
++    #[test]
++    fn covers_long_literals_without_losing_unequal_or_optional_branches() {
++        let left = "abcdefghijklmnopqrstuvwxyz_0123456789";
++        let right = "zyxwvutsrqponmlkjihgfedcba_9876543210";
++        let documents: Vec<_> = [left, right, "xyz", "x", "", "tail"]
++            .into_iter()
++            .map(|text| text.as_bytes().to_vec())
++            .collect();
++        assert!(fixed_strategy(left.as_bytes())[0][0].len() > 1);
++        assert!(
++            literal_strategies(left, false)
++                .unwrap()
++                .iter()
++                .flatten()
++                .any(|branch| branch.len() > 1)
++        );
++        for pattern in [
++            format!("{left}|{right}"),
++            format!("{left}|xyz"),
++            format!("{left}|x"),
++            format!("(?:{left})?"),
++            format!("(?:{left}|{right})*tail"),
++        ] {
++            assert_filter_preserves_matches(&pattern, false, &documents);
++        }
++        assert!(
++            literal_strategies(&format!("{left}|x"), false)
++                .unwrap()
++                .is_empty()
++        );
++    }
++
+     #[test]
+     fn unbounded_prefix_can_use_suffix() {
+         let strategies = literal_strategies(".*needle", false).unwrap();
+diff --git a/src/search.rs b/src/search.rs
+index 28e3fc8..cda3a9b 100644
+--- a/src/search.rs
++++ b/src/search.rs
+@@ -4,7 +4,7 @@ use anyhow::{Context, Result};
+ use rayon::prelude::*;
+ use regex::bytes::{Regex, RegexBuilder};
+ 
+-use crate::{index, ngram, query};
++use crate::{build::MemoryBudget, index, ngram, query};
+ 
+ pub struct Options {
+     pub ignore_case: bool,
+@@ -26,6 +26,7 @@ pub fn run(
+     requested_index_dir: Option<&Path>,
+     pattern: &str,
+     options: &Options,
++    budget: MemoryBudget,
+ ) -> Result<bool> {
+     let regex_pattern = if options.fixed_strings {
+         regex::escape(pattern)
+@@ -42,13 +43,13 @@ pub fn run(
+         Ok(index) => index,
+         Err(error) if !options.no_refresh => {
+             eprintln!("coderg: building index ({error})");
+-            index::build(path, requested_index_dir)?;
++            index::build(path, requested_index_dir, budget)?;
+             index::load(path, requested_index_dir)?
+         }
+         Err(error) => return Err(error),
+     };
+     if !options.no_refresh {
+-        match index::refresh(&disk_index, requested_index_dir)? {
++        match index::refresh(&disk_index, requested_index_dir, budget)? {
+             index::RefreshOutcome::Unchanged => {}
+             index::RefreshOutcome::CommitAdvanced => {
+                 eprintln!("coderg: advanced index to the current Git tree");
+@@ -115,7 +116,7 @@ pub fn run(
+ 
+ fn choose_candidates(
+     index: &index::DiskIndex,
+-    strategies: &[Vec<ngram::GramHash>],
++    strategies: &[query::GramGroup],
+ ) -> Result<Vec<u32>> {
+     Ok(
+         match intersect_postings(strategies, |hash| index.postings(hash))? {
+@@ -126,18 +127,21 @@ fn choose_candidates(
+ }
+ 
+ fn intersect_postings(
+-    strategies: &[Vec<ngram::GramHash>],
++    strategies: &[query::GramGroup],
+     mut load_postings: impl FnMut(ngram::GramHash) -> Result<Vec<u32>>,
+ ) -> Result<Option<BTreeSet<u32>>> {
+     let mut cache = ngram::GramHashMap::default();
+     let mut candidates: Option<BTreeSet<u32>> = None;
++    let mut seeded = Vec::new();
++    // Give every group one complete OR of branch anchors before spending the
++    // shared budget on refinement. An unvisited OR branch cannot be discarded.
+     for alternatives in strategies {
+-        if alternatives.is_empty() {
++        if alternatives.is_empty() || alternatives.iter().any(Vec::is_empty) {
+             continue;
+         }
+         let new_hashes: BTreeSet<_> = alternatives
+             .iter()
+-            .copied()
++            .map(|branch| branch[0])
+             .filter(|hash| !cache.contains_key(hash))
+             .collect();
+         if cache.len() + new_hashes.len() > query::MAX_INDEX_LOOKUPS {
+@@ -150,7 +154,7 @@ fn intersect_postings(
+         }
+         let union: BTreeSet<_> = alternatives
+             .iter()
+-            .flat_map(|hash| cache[hash].iter().copied())
++            .flat_map(|branch| cache[&branch[0]].iter().copied())
+             .collect();
+         if let Some(current) = &mut candidates {
+             current.retain(|id| union.contains(id));
+@@ -158,10 +162,72 @@ fn intersect_postings(
+             candidates = Some(union);
+         }
+         if candidates.as_ref().is_some_and(BTreeSet::is_empty) {
++            return Ok(candidates);
++        }
++        seeded.push(alternatives);
++    }
++    let Some(mut candidates) = candidates else {
++        return Ok(None);
++    };
++    for alternatives in seeded {
++        if alternatives.iter().all(|branch| branch.len() == 1) {
++            continue;
++        }
++        let mut branches: Vec<_> = alternatives.iter().collect();
++        // Reuse free cached filters first, then prefer branches needing fewer
++        // new lookups. Posting lengths break ties using observed file counts.
++        branches.sort_by_key(|branch| {
++            (
++                branch
++                    .iter()
++                    .filter(|hash| !cache.contains_key(hash))
++                    .count(),
++                cache[&branch[0]].len(),
++            )
++        });
++        let mut accepted = BTreeSet::new();
++        for branch in branches {
++            let mut remaining: Vec<_> = cache[&branch[0]]
++                .iter()
++                .copied()
++                .filter(|id| candidates.contains(id) && !accepted.contains(id))
++                .collect();
++            if remaining.is_empty() {
++                continue;
++            }
++            let (mut cached, unread): (Vec<_>, Vec<_>) = branch[1..]
++                .iter()
++                .copied()
++                .partition(|hash| cache.contains_key(hash));
++            cached.sort_by_key(|hash| cache[hash].len());
++            for hash in cached.into_iter().chain(unread) {
++                if !cache.contains_key(&hash) {
++                    if cache.len() == query::MAX_INDEX_LOOKUPS {
++                        // Dropping a conjunction term only broadens this
++                        // branch. All alternatives still contribute to the OR.
++                        continue;
++                    }
++                    cache.insert(hash, load_postings(hash)?);
++                }
++                let posting = &cache[&hash];
++                remaining.retain(|id| posting.binary_search(id).is_ok());
++                if remaining.is_empty() {
++                    break;
++                }
++            }
++            accepted.extend(remaining);
++            // Other branches cannot add anything outside the current global
++            // candidate set, so no more refinement can change this group.
++            if accepted.len() == candidates.len() {
++                break;
++            }
++        }
++        candidates = accepted;
++        if candidates.is_empty() {
+             break;
+         }
+     }
+-    Ok(candidates)
++    Ok(Some(candidates))
+ }
+ 
+ fn match_file(regex: &Regex, bytes: &[u8], path: &Path, options: &Options) -> (Vec<String>, usize) {
+@@ -227,32 +293,84 @@ mod tests {
+     #[test]
+     fn unions_variants_intersects_fragments_and_reuses_lookups() {
+         let mut looked_up = BTreeSet::new();
+-        let candidates = intersect_postings(&[vec![1, 2], vec![2, 3]], |hash| {
+-            assert!(looked_up.insert(hash), "each key should be read only once");
++        let candidates =
++            intersect_postings(&[vec![vec![1], vec![2]], vec![vec![2], vec![3]]], |hash| {
++                assert!(looked_up.insert(hash), "each key should be read only once");
++                Ok(match hash {
++                    1 => vec![10, 20],
++                    2 => vec![30],
++                    3 => vec![20],
++                    _ => unreachable!(),
++                })
++            })
++            .unwrap()
++            .unwrap();
++        assert_eq!(candidates, BTreeSet::from([20, 30]));
++        assert_eq!(looked_up.len(), 3);
++    }
++
++    #[test]
++    fn literal_branches_reject_mixed_fragments() {
++        // All 16 possible combinations of four keys, including A+D and B+C.
++        let mut looked_up = BTreeSet::new();
++        let candidates = intersect_postings(&[vec![vec![0, 1], vec![2, 3]]], |hash| {
++            assert!(looked_up.insert(hash));
++            Ok((0..16).filter(|mask| mask & (1 << hash) != 0).collect())
++        })
++        .unwrap()
++        .unwrap();
++        let expected = (0..16)
++            .filter(|mask| mask & 0b0011 == 0b0011 || mask & 0b1100 == 0b1100)
++            .collect();
++        assert_eq!(candidates, expected);
++        assert_eq!(looked_up.len(), 4);
++    }
++
++    #[test]
++    fn refinement_skips_accepted_files_and_stops_empty_branches() {
++        let mut looked_up = BTreeSet::new();
++        let candidates = intersect_postings(&[vec![vec![1, 2, 3], vec![4]]], |hash| {
++            assert!(looked_up.insert(hash));
+             Ok(match hash {
+-                1 => vec![10, 20],
+-                2 => vec![30],
+-                3 => vec![20],
++                1 => vec![1, 2],
++                2 | 4 => vec![1],
++                3 => panic!("remaining branch files were already excluded"),
+                 _ => unreachable!(),
+             })
+         })
+         .unwrap()
+         .unwrap();
+-        assert_eq!(candidates, BTreeSet::from([20, 30]));
+-        assert_eq!(looked_up.len(), 3);
++        assert_eq!(candidates, BTreeSet::from([1]));
++        assert_eq!(looked_up, BTreeSet::from([1, 2, 4]));
++    }
++
++    #[test]
++    fn refinement_budget_keeps_every_branch() {
++        let mut branches: query::GramGroup = (0..query::MAX_INDEX_LOOKUPS as u32)
++            .map(|hash| vec![hash])
++            .collect();
++        branches[0].push(query::MAX_INDEX_LOOKUPS as u32);
++        let candidates = intersect_postings(&[branches], |hash| {
++            assert!(hash < query::MAX_INDEX_LOOKUPS as u32);
++            Ok(vec![hash])
++        })
++        .unwrap()
++        .unwrap();
++        assert_eq!(candidates.len(), query::MAX_INDEX_LOOKUPS);
++        assert!(candidates.contains(&0));
+     }
+ 
+     #[test]
+     fn budget_never_applies_an_incomplete_alternative_union() {
+         let limit = query::MAX_INDEX_LOOKUPS as u32;
+-        let mut strategies: Vec<Vec<_>> = (0..limit)
++        let mut strategies: Vec<query::GramGroup> = (0..limit)
+             .collect::<Vec<_>>()
+             .chunks(query::MAX_LITERAL_VARIANTS)
+-            .map(<[u32]>::to_vec)
++            .map(|chunk| chunk.iter().map(|&hash| vec![hash]).collect())
+             .collect();
+         // The cached alternative only contains document 9. Document 7 is in
+         // the unvisited alternative, so applying a partial union would lose it.
+-        strategies.push(vec![limit - 1, limit]);
++        strategies.push(vec![vec![limit - 1], vec![limit]]);
+         let mut looked_up = BTreeSet::new();
+         let candidates = intersect_postings(&strategies, |hash| {
+             assert!(looked_up.insert(hash));
+@@ -271,11 +389,116 @@ mod tests {
+ 
+     #[test]
+     fn no_complete_filter_means_full_scan() {
+-        let alternatives = (0..=query::MAX_INDEX_LOOKUPS as u32).collect();
++        let alternatives = (0..=query::MAX_INDEX_LOOKUPS as u32)
++            .map(|hash| vec![hash])
++            .collect();
+         let candidates = intersect_postings(&[alternatives], |_| {
+             panic!("an over-budget condition must be skipped before any reads")
+         })
+         .unwrap();
+         assert!(candidates.is_none());
+     }
++
++    #[test]
++    fn covering_filters_files_that_only_share_the_longest_gram() {
++        let literal = b"abcdefghijklmnopqrstuvwxyz_0123456789";
++        let anchor = ngram::best_hash(literal).unwrap();
++        let shared = (3..=24)
++            .find_map(|len| {
++                literal
++                    .windows(len)
++                    .find(|bytes| ngram::hashes_for_document(bytes).contains(&anchor))
++            })
++            .unwrap();
++        let documents = [
++            ngram::hashes_for_document(literal),
++            ngram::hashes_for_document(shared),
++        ];
++        let load = |hash| {
++            Ok(documents
++                .iter()
++                .enumerate()
++                .filter(|(_, hashes)| hashes.contains(&hash))
++                .map(|(id, _)| id as u32)
++                .collect())
++        };
++        assert_eq!(
++            intersect_postings(&[vec![vec![anchor]]], load)
++                .unwrap()
++                .unwrap(),
++            BTreeSet::from([0, 1])
++        );
++        assert_eq!(
++            intersect_postings(&query::fixed_strategy(literal), load)
++                .unwrap()
++                .unwrap(),
++            BTreeSet::from([0])
++        );
++    }
++
++    #[test]
++    fn covering_execution_preserves_matches_with_case_expansion_and_budget_limits() {
++        let mut documents: Vec<Vec<u8>> = (0..512)
++            .map(|mask| {
++                b"asyncmock"
++                    .iter()
++                    .enumerate()
++                    .map(|(i, &byte)| {
++                        if mask & (1 << i) == 0 {
++                            byte
++                        } else {
++                            byte.to_ascii_uppercase()
++                        }
++                    })
++                    .collect()
++            })
++            .collect();
++        let long: String = (0..200).map(|i| format!("item{i:03}_")).collect();
++        documents.extend([long.as_bytes().to_vec(), b"x".to_vec(), b"".to_vec()]);
++        let indexed: Vec<_> = documents
++            .iter()
++            .map(|doc| ngram::hashes_for_document(doc))
++            .collect();
++        for (pattern, ignore_case, fixed) in [
++            ("AsyncMock".to_owned(), true, false),
++            (long.clone(), false, true),
++            (format!("{long}|AsyncMock"), true, false),
++            (format!("{long}|x"), false, false),
++            (format!("(?:{long})?"), false, false),
++        ] {
++            let strategies = if fixed {
++                query::fixed_strategy(pattern.as_bytes())
++            } else {
++                query::literal_strategies(&pattern, ignore_case).unwrap()
++            };
++            let mut lookups = 0;
++            let candidates = intersect_postings(&strategies, |hash| {
++                lookups += 1;
++                Ok(indexed
++                    .iter()
++                    .enumerate()
++                    .filter(|(_, hashes)| hashes.contains(&hash))
++                    .map(|(id, _)| id as u32)
++                    .collect())
++            })
++            .unwrap();
++            assert!(lookups <= query::MAX_INDEX_LOOKUPS);
++            if fixed {
++                assert_eq!(lookups, query::MAX_INDEX_LOOKUPS);
++            }
++            let regex = RegexBuilder::new(&pattern)
++                .case_insensitive(ignore_case)
++                .build()
++                .unwrap();
++            for (id, document) in documents.iter().enumerate() {
++                if regex.is_match(document) {
++                    assert!(
++                        candidates
++                            .as_ref()
++                            .is_none_or(|ids| ids.contains(&(id as u32)))
++                    );
++                }
++            }
++        }
++    }
+ }
+diff --git a/src/segment.rs b/src/segment.rs
+index 186e86f..a356731 100644
+--- a/src/segment.rs
++++ b/src/segment.rs
+@@ -4,8 +4,9 @@ use std::{
+     path::{Path, PathBuf},
+ };
+ 
+-use anyhow::{Result, bail};
++use anyhow::{Context, Result, bail};
+ use memmap2::Mmap;
++#[cfg(test)]
+ use rayon::prelude::*;
+ use serde::{Deserialize, Serialize};
+ 
+@@ -39,7 +40,9 @@ pub struct Segment {
+     postings: Mmap,
+ }
+ 
+-pub fn write(
++// Retain the original slice encoder as a byte-for-byte format oracle.
++#[cfg(test)]
++fn write(
+     index_dir: &Path,
+     id: u64,
+     mut postings: Vec<(ngram::GramHash, u32)>,
+@@ -139,6 +142,107 @@ pub fn write(
+     })
+ }
+ 
++/// Encode sorted, unique records without retaining a posting list or the
++/// lookup directory in memory. The directory and body use independent cursors.
++pub fn write_sorted(
++    index_dir: &Path,
++    id: u64,
++    ngrams: u64,
++    records: impl IntoIterator<Item = Result<(ngram::GramHash, u32)>>,
++) -> Result<SegmentMeta> {
++    const ENCODE_BYTES: usize = 64 * 1024;
++    let segments_dir = index_dir.join("segments");
++    fs::create_dir_all(&segments_dir)?;
++    let temporary = tempfile::Builder::new()
++        .prefix(".write-")
++        .tempdir_in(&segments_dir)?;
++    let lookup_tmp = temporary.path().join("lookup");
++    let postings_tmp = temporary.path().join("postings");
++    let lookup_name = PathBuf::from(format!("segments/{id:020}.lookup"));
++    let postings_name = PathBuf::from(format!("segments/{id:020}.postings"));
++    let block_count = ngrams.div_ceil(BLOCK_SIZE as u64);
++    let mut stream_offset = block_count
++        .checked_mul(BLOCK_ENTRY_SIZE as u64)
++        .and_then(|bytes| bytes.checked_add(HEADER_SIZE as u64))
++        .context("too many lookup blocks")?;
++    let mut lookup_file = BufWriter::new(File::create(&lookup_tmp)?);
++    lookup_file.write_all(LOOKUP_MAGIC)?;
++    lookup_file.write_all(&ngrams.to_le_bytes())?;
++    lookup_file.write_all(&block_count.to_le_bytes())?;
++    lookup_file.write_all(&(BLOCK_SIZE as u64).to_le_bytes())?;
++    lookup_file.seek(SeekFrom::Start(stream_offset))?;
++    let mut directory = BufWriter::new(File::options().write(true).open(&lookup_tmp)?);
++    directory.seek(SeekFrom::Start(HEADER_SIZE as u64))?;
++    let mut postings_file = BufWriter::new(File::create(&postings_tmp)?);
++    postings_file.write_all(POSTINGS_MAGIC)?;
++    let mut postings_offset = POSTINGS_MAGIC.len() as u64;
++    let mut encoded_postings = Vec::with_capacity(ENCODE_BYTES);
++    let mut encoded_block = Vec::with_capacity(BLOCK_SIZE * 15);
++    let mut records = records.into_iter();
++    let mut next = records.next().transpose()?;
++
++    for block in 0..block_count {
++        let first_key = next.context("missing sorted posting records")?.0;
++        let entry_count = (ngrams - block * BLOCK_SIZE as u64).min(BLOCK_SIZE as u64);
++        directory.write_all(&first_key.to_le_bytes())?;
++        write_u40(stream_offset, &mut directory)?;
++        write_u40(postings_offset, &mut directory)?;
++        directory.write_all(&(entry_count as u16).to_le_bytes())?;
++        encoded_block.clear();
++        let mut previous_key = first_key;
++        for position in 0..entry_count {
++            let (hash, first_id) = next.context("missing sorted posting records")?;
++            next = records.next().transpose()?;
++            if position > 0 {
++                write_varint(u64::from(hash - previous_key), &mut encoded_block);
++                previous_key = hash;
++            }
++            if next.is_none_or(|record| record.0 != hash) {
++                write_varint(u64::from(first_id) << 1, &mut encoded_block);
++                continue;
++            }
++            encoded_postings.clear();
++            write_varint(u64::from(first_id), &mut encoded_postings);
++            let mut encoded_len = 0;
++            let mut previous_id = first_id;
++            while let Some((key, doc_id)) = next {
++                if key != hash {
++                    break;
++                }
++                write_varint(u64::from(doc_id - previous_id), &mut encoded_postings);
++                previous_id = doc_id;
++                next = records.next().transpose()?;
++                if encoded_postings.len() >= ENCODE_BYTES - 5 {
++                    postings_file.write_all(&encoded_postings)?;
++                    encoded_len += encoded_postings.len() as u64;
++                    encoded_postings.clear();
++                }
++            }
++            postings_file.write_all(&encoded_postings)?;
++            encoded_len += encoded_postings.len() as u64;
++            postings_offset += encoded_len;
++            write_varint((encoded_len << 1) | 1, &mut encoded_block);
++        }
++        lookup_file.write_all(&encoded_block)?;
++        stream_offset += encoded_block.len() as u64;
++    }
++    if next.is_some() {
++        bail!("unexpected extra sorted posting records");
++    }
++    directory.flush()?;
++    lookup_file.flush()?;
++    postings_file.flush()?;
++    drop((directory, lookup_file, postings_file));
++    replace(lookup_tmp, index_dir.join(&lookup_name))?;
++    replace(postings_tmp, index_dir.join(&postings_name))?;
++    Ok(SegmentMeta {
++        id,
++        lookup: lookup_name,
++        postings: postings_name,
++        ngrams,
++    })
++}
++
+ pub fn load(index_dir: &Path, meta: &SegmentMeta) -> Result<Segment> {
+     let lookup_file = File::open(index_dir.join(&meta.lookup))?;
+     let postings_file = File::open(index_dir.join(&meta.postings))?;
+@@ -359,6 +463,49 @@ fn decode_postings(mut bytes: &[u8]) -> Result<Vec<u32>> {
+ mod tests {
+     use super::*;
+ 
++    #[test]
++    fn streaming_encoder_matches_original_format_with_long_postings() {
++        let directory = tempfile::tempdir().unwrap();
++        for mut source in [Vec::new(), vec![(u32::MAX, u32::MAX)], {
++            let mut records: Vec<_> = (0..260).map(|key| (key * 17, key * 128)).collect();
++            records.extend((0..100_000).map(|id| (128 * 17, id * 127)));
++            records.extend([(0, u32::MAX), (u32::MAX, 0), (u32::MAX, u32::MAX)]);
++            records
++        }] {
++            let expected = write(directory.path(), 1, source.clone()).unwrap();
++            source.sort_unstable();
++            source.dedup();
++            let actual = write_sorted(
++                directory.path(),
++                2,
++                expected.ngrams,
++                source.into_iter().map(Ok),
++            )
++            .unwrap();
++            assert_eq!(
++                fs::read(directory.path().join(actual.lookup)).unwrap(),
++                fs::read(directory.path().join(expected.lookup)).unwrap()
++            );
++            assert_eq!(
++                fs::read(directory.path().join(actual.postings)).unwrap(),
++                fs::read(directory.path().join(expected.postings)).unwrap()
++            );
++        }
++    }
++
++    #[test]
++    fn failed_stream_cleans_partial_segment_files() {
++        let directory = tempfile::tempdir().unwrap();
++        let records = [Ok((1, 0)), Err(anyhow::anyhow!("injected read failure"))];
++        assert!(write_sorted(directory.path(), 1, 1, records).is_err());
++        assert_eq!(
++            fs::read_dir(directory.path().join("segments"))
++                .unwrap()
++                .count(),
++            0
++        );
++    }
++
+     #[test]
+     fn posting_varints_round_trip() {
+         let ids = [0, 1, 127, 128, 16_384];
+diff --git a/tests/cli.rs b/tests/cli.rs
+index b701250..b9e37af 100644
+--- a/tests/cli.rs
++++ b/tests/cli.rs
+@@ -58,6 +58,24 @@ fn case_insensitive_index_search_agrees_with_regex_matching() {
+         ("short.txt", "x\nbar\n42\n"),
+         ("optional.txt", "foofooBAR\n"),
+         ("unrelated.txt", "ordinary unrelated text\n"),
++        ("quoted-devices.txt", "\"cuda\"\n'cpu'\n\"rocm'\n"),
++        ("unquoted-devices.txt", "cuda\ncpu_count\nrocm_backend\n"),
++        ("decorator-torch.txt", "@torch.no_grad()\n"),
++        (
++            "decorator-pytest.txt",
++            "    @pytest.mark.parametrize('x', [1])\n",
++        ),
++        (
++            "decorator-decoys.txt",
++            "@torch.123\n@pytest.\nvalue = torch.no_grad()\n",
++        ),
++        ("long-left.txt", "abcdefghijklmnopqrstuvwxyz_0123456789\n"),
++        ("long-right.txt", "zyxwvutsrqponmlkjihgfedcba_9876543210\n"),
++        ("long-upper.txt", "ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789\n"),
++        (
++            "repeated.txt",
++            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
++        ),
+     ];
+     for (name, text) in documents {
+         fs::write(root.path().join(name), text).unwrap();
+@@ -76,6 +94,18 @@ fn case_insensitive_index_search_agrees_with_regex_matching() {
+         ("a+b[1]", true, true),
+         (r"\b[0-9]{2}\b", true, false),
+         ("AsyncMock", false, false),
++        (r#"["'](?:cuda|cpu|rocm)["']"#, false, false),
++        (r"^[ \t]*@(?:torch|pytest)\.[A-Za-z_]+", false, false),
++        ("abcdefghijklmnopqrstuvwxyz_0123456789", false, true),
++        ("abcdefghijklmnopqrstuvwxyz_0123456789", true, true),
++        (
++            "abcdefghijklmnopqrstuvwxyz_0123456789|zyxwvutsrqponmlkjihgfedcba_9876543210",
++            false,
++            false,
++        ),
++        ("abcdefghijklmnopqrstuvwxyz_0123456789|x", false, false),
++        ("(?:abcdefghijklmnopqrstuvwxyz_0123456789)?", false, false),
++        ("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", false, true),
+     ] {
+         let mut arguments = vec!["search", "-l", "--no-refresh"];
+         if ignore_case {
+diff --git a/src/build.rs b/src/build.rs
+new file mode 100644
+index 0000000..2960977
+--- /dev/null
++++ b/src/build.rs
+@@ -0,0 +1,399 @@
++//! Bounded posting buffers and external sorting for index construction.
++use std::{
++    cmp::Reverse,
++    collections::BinaryHeap,
++    fs::{self, File},
++    io::{BufRead, BufReader, BufWriter, Read, Write},
++    path::{Path, PathBuf},
++    str::FromStr,
++};
++
++use anyhow::{Context, Result, bail};
++use rayon::prelude::*;
++use tempfile::TempDir;
++
++use crate::{ngram, segment};
++
++pub type Record = (ngram::GramHash, u32);
++const MIB: usize = 1024 * 1024;
++pub const CHUNK_BYTES: usize = 16 * 1024;
++// A chunk emits at most 22 hashes per starting byte. Even at that bound,
++// its hash table + compact keys take < 4 MiB. Allow another queued chunk,
++// input buffers, and the collector's current message within 8 MiB per worker.
++const WORKER_BYTES: usize = 8 * MIB;
++const IO_BYTES: usize = 64 * 1024;
++const MERGE_FAN_IN: usize = 32;
++const FIXED_BYTES: usize = 4 * MIB;
++
++#[derive(Clone, Copy, Debug)]
++pub struct MemoryBudget(usize);
++
++impl FromStr for MemoryBudget {
++    type Err = String;
++
++    fn from_str(value: &str) -> std::result::Result<Self, Self::Err> {
++        let mib: usize = value
++            .parse()
++            .map_err(|_| "expected an integer MiB budget")?;
++        if mib < 16 {
++            return Err("build memory budget must be at least 16 MiB".into());
++        }
++        mib.checked_mul(MIB)
++            .filter(|&bytes| bytes <= isize::MAX as usize)
++            .map(Self)
++            .ok_or_else(|| "build memory budget is too large".into())
++    }
++}
++
++impl MemoryBudget {
++    pub fn workers(self, files: usize) -> usize {
++        rayon::current_num_threads()
++            .min(files.max(1))
++            .min((self.0 / 4 / WORKER_BYTES).max(1))
++    }
++
++    pub fn record_bytes(self, workers: usize) -> usize {
++        self.0 - workers * WORKER_BYTES - FIXED_BYTES
++    }
++}
++
++struct Run {
++    path: PathBuf,
++    ngrams: u64,
++    bytes: u64,
++}
++
++pub struct PostingsBuilder {
++    index_dir: PathBuf,
++    records: Vec<Record>,
++    limit: usize,
++    temporary: Option<TempDir>,
++    runs: Vec<Run>,
++    next_run: usize,
++    spilled_runs: usize,
++    temporary_bytes: u64,
++    live_temporary_bytes: u64,
++    peak_temporary_bytes: u64,
++}
++
++impl PostingsBuilder {
++    pub fn new(index_dir: &Path, record_bytes: usize) -> Self {
++        Self {
++            index_dir: index_dir.to_owned(),
++            records: Vec::new(),
++            limit: (record_bytes / size_of::<Record>()).max(1),
++            temporary: None,
++            runs: Vec::new(),
++            next_run: 0,
++            spilled_runs: 0,
++            temporary_bytes: 0,
++            live_temporary_bytes: 0,
++            peak_temporary_bytes: 0,
++        }
++    }
++
++    pub fn extend(&mut self, id: u32, hashes: &[ngram::GramHash]) -> Result<()> {
++        if self.records.capacity() == 0 && !hashes.is_empty() {
++            // Allocate once: geometric Vec growth can temporarily retain both
++            // the old and new allocation, exceeding the record budget.
++            self.records = Vec::with_capacity(self.limit);
++        }
++        let mut hashes = hashes;
++        while !hashes.is_empty() {
++            if self.records.len() == self.limit {
++                self.spill()?;
++            }
++            let count = hashes.len().min(self.limit - self.records.len());
++            self.records
++                .extend(hashes[..count].iter().map(|&hash| (hash, id)));
++            hashes = &hashes[count..];
++        }
++        Ok(())
++    }
++
++    fn run_path(&mut self) -> Result<PathBuf> {
++        if self.temporary.is_none() {
++            self.temporary = Some(
++                tempfile::Builder::new()
++                    .prefix(".build-")
++                    .tempdir_in(&self.index_dir)
++                    .context("cannot create temporary index sort directory")?,
++            );
++        }
++        let path = self
++            .temporary
++            .as_ref()
++            .unwrap()
++            .path()
++            .join(format!("{}.run", self.next_run));
++        self.next_run += 1;
++        Ok(path)
++    }
++
++    fn spill(&mut self) -> Result<()> {
++        self.records.par_sort_unstable();
++        self.records.dedup();
++        let path = self.run_path()?;
++        let mut writer = RunWriter::new(&path)?;
++        for &record in &self.records {
++            writer.push(record)?;
++        }
++        let (run, bytes) = writer.finish(path)?;
++        self.record_temporary_write(bytes);
++        self.spilled_runs += 1;
++        self.runs.push(run);
++        self.records.clear();
++        Ok(())
++    }
++
++    fn record_temporary_write(&mut self, bytes: u64) {
++        self.temporary_bytes += bytes;
++        self.live_temporary_bytes += bytes;
++        self.peak_temporary_bytes = self.peak_temporary_bytes.max(self.live_temporary_bytes);
++    }
++
++    pub fn write(mut self, id: u64) -> Result<segment::SegmentMeta> {
++        if self.runs.is_empty() {
++            self.records.par_sort_unstable();
++            self.records.dedup();
++            let ngrams = self.records.chunk_by(|a, b| a.0 == b.0).count() as u64;
++            return segment::write_sorted(
++                &self.index_dir,
++                id,
++                ngrams,
++                self.records.iter().copied().map(Ok),
++            );
++        }
++        if !self.records.is_empty() {
++            self.spill()?;
++        }
++        // No extraction workers remain. Release the large sort buffer before
++        // opening bounded merge readers or encoding the final segment.
++        self.records = Vec::new();
++        while self.runs.len() > 1 {
++            let mut remaining = std::mem::take(&mut self.runs).into_iter();
++            loop {
++                let inputs: Vec<_> = remaining.by_ref().take(MERGE_FAN_IN).collect();
++                if inputs.is_empty() {
++                    break;
++                }
++                if inputs.len() == 1 {
++                    self.runs.extend(inputs);
++                    continue;
++                }
++                let output = self.run_path()?;
++                let (run, bytes) = merge_runs(&inputs, output)?;
++                self.record_temporary_write(bytes);
++                for input in inputs {
++                    fs::remove_file(input.path)?;
++                    self.live_temporary_bytes -= input.bytes;
++                }
++                self.runs.push(run);
++            }
++        }
++        let run = self.runs.pop().unwrap();
++        let reader = RunReader::new(&run.path)?;
++        let meta = segment::write_sorted(&self.index_dir, id, run.ngrams, reader)?;
++        eprintln!(
++            "coderg: spilled {} build runs ({} temporary bytes written, {} peak temporary bytes)",
++            self.spilled_runs, self.temporary_bytes, self.peak_temporary_bytes,
++        );
++        Ok(meta)
++    }
++}
++
++struct RunWriter {
++    file: BufWriter<File>,
++    previous: Option<Record>,
++    ngrams: u64,
++    bytes: u64,
++}
++
++impl RunWriter {
++    fn new(path: &Path) -> Result<Self> {
++        Ok(Self {
++            file: BufWriter::with_capacity(IO_BYTES, File::create(path)?),
++            previous: None,
++            ngrams: 0,
++            bytes: 0,
++        })
++    }
++
++    fn push(&mut self, record: Record) -> Result<()> {
++        if self.previous == Some(record) {
++            return Ok(());
++        }
++        if self.previous.is_none_or(|previous| previous.0 != record.0) {
++            self.ngrams += 1;
++        }
++        let mut bytes = [0; 8];
++        bytes[..4].copy_from_slice(&record.0.to_le_bytes());
++        bytes[4..].copy_from_slice(&record.1.to_le_bytes());
++        self.file.write_all(&bytes)?;
++        self.bytes += 8;
++        self.previous = Some(record);
++        Ok(())
++    }
++
++    fn finish(mut self, path: PathBuf) -> Result<(Run, u64)> {
++        self.file.flush()?;
++        Ok((
++            Run {
++                path,
++                ngrams: self.ngrams,
++                bytes: self.bytes,
++            },
++            self.bytes,
++        ))
++    }
++}
++
++struct RunReader(BufReader<File>);
++
++impl RunReader {
++    fn new(path: &Path) -> Result<Self> {
++        let file = File::open(path)?;
++        if file.metadata()?.len() % 8 != 0 {
++            bail!("truncated temporary posting run: {}", path.display());
++        }
++        Ok(Self(BufReader::with_capacity(IO_BYTES, file)))
++    }
++}
++
++impl Iterator for RunReader {
++    type Item = Result<Record>;
++
++    fn next(&mut self) -> Option<Self::Item> {
++        loop {
++            match self.0.fill_buf() {
++                Ok([]) => return None,
++                Ok(bytes) if bytes.len() >= 8 => {
++                    let record = (
++                        u32::from_le_bytes(bytes[..4].try_into().unwrap()),
++                        u32::from_le_bytes(bytes[4..8].try_into().unwrap()),
++                    );
++                    self.0.consume(8);
++                    return Some(Ok(record));
++                }
++                Ok(_) => break,
++                Err(error) if error.kind() == std::io::ErrorKind::Interrupted => continue,
++                Err(error) => return Some(Err(error.into())),
++            }
++        }
++        // A short buffered read can split a record. read_exact rejects an
++        // incomplete final record instead of treating it as a clean EOF.
++        let mut bytes = [0; 8];
++        Some(
++            self.0
++                .read_exact(&mut bytes)
++                .map(|()| {
++                    (
++                        u32::from_le_bytes(bytes[..4].try_into().unwrap()),
++                        u32::from_le_bytes(bytes[4..].try_into().unwrap()),
++                    )
++                })
++                .map_err(Into::into),
++        )
++    }
++}
++
++fn merge_runs(inputs: &[Run], output: PathBuf) -> Result<(Run, u64)> {
++    let mut readers: Vec<_> = inputs
++        .iter()
++        .map(|run| RunReader::new(&run.path))
++        .collect::<Result<_>>()?;
++    let mut heap = BinaryHeap::new();
++    for (index, reader) in readers.iter_mut().enumerate() {
++        if let Some((hash, id)) = reader.next().transpose()? {
++            heap.push(Reverse((hash, id, index)));
++        }
++    }
++    let mut writer = RunWriter::new(&output)?;
++    while let Some(Reverse((hash, id, index))) = heap.pop() {
++        writer.push((hash, id))?;
++        if let Some((hash, id)) = readers[index].next().transpose()? {
++            heap.push(Reverse((hash, id, index)));
++        }
++    }
++    writer.finish(output)
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    #[test]
++    fn budget_reserves_space_for_producers_and_io() {
++        for mib in [16, 32, 64, 256, 1024] {
++            let budget: MemoryBudget = mib.to_string().parse().unwrap();
++            let workers = budget.workers(100_000);
++            assert!(workers >= 1);
++            assert!(budget.record_bytes(workers) >= 4 * MIB);
++            assert_eq!(
++                budget.record_bytes(workers) + workers * WORKER_BYTES + FIXED_BYTES,
++                mib * MIB
++            );
++        }
++        for invalid in ["0", "15", "-1", "1.5", "18446744073709551615"] {
++            assert!(invalid.parse::<MemoryBudget>().is_err());
++        }
++    }
++
++    #[test]
++    fn many_merge_runs_match_in_memory_bytes_and_clean_up() {
++        let disk = tempfile::tempdir().unwrap();
++        let memory = tempfile::tempdir().unwrap();
++        // More than 32 runs exercises multiple merge passes, repeated keys,
++        // duplicate IDs across runs, and a partial final lookup block.
++        let mut external = PostingsBuilder::new(disk.path(), 3 * size_of::<Record>());
++        let mut in_memory = PostingsBuilder::new(memory.path(), MIB);
++        for id in (0..5).rev().chain([u32::MAX, 0]) {
++            let hashes: Vec<_> = (0..259).rev().chain([u32::MAX, 0, 128]).collect();
++            external.extend(id, &hashes).unwrap();
++            in_memory.extend(id, &hashes).unwrap();
++            assert!(external.records.capacity() <= external.limit);
++        }
++        assert!(external.runs.len() > MERGE_FAN_IN);
++        let actual = external.write(1).unwrap();
++        let expected = in_memory.write(1).unwrap();
++        assert_eq!(actual.ngrams, 260);
++        for (actual_path, expected_path) in [
++            (actual.lookup, expected.lookup),
++            (actual.postings, expected.postings),
++        ] {
++            assert_eq!(
++                fs::read(disk.path().join(actual_path)).unwrap(),
++                fs::read(memory.path().join(expected_path)).unwrap()
++            );
++        }
++        assert_eq!(fs::read_dir(disk.path()).unwrap().count(), 1);
++        assert_eq!(
++            fs::read_dir(disk.path().join("segments")).unwrap().count(),
++            2
++        );
++    }
++
++    #[test]
++    fn failed_segment_write_removes_temporary_runs() {
++        let directory = tempfile::tempdir().unwrap();
++        let mut builder = PostingsBuilder::new(directory.path(), 8);
++        builder.extend(0, &[1, 2, 3]).unwrap();
++        let temporary = builder.temporary.as_ref().unwrap().path().to_owned();
++        assert!(temporary.is_dir());
++        fs::write(
++            directory.path().join("segments"),
++            "cannot create a directory here",
++        )
++        .unwrap();
++        assert!(builder.write(1).is_err());
++        assert!(!temporary.exists());
++    }
++
++    #[test]
++    fn truncated_run_is_rejected() {
++        let directory = tempfile::tempdir().unwrap();
++        let path = directory.path().join("broken.run");
++        fs::write(&path, [0; 7]).unwrap();
++        assert!(RunReader::new(&path).is_err());
++    }
++}
+diff --git a/tests/build_memory.rs b/tests/build_memory.rs
+new file mode 100644
+index 0000000..f0a8f33
+--- /dev/null
++++ b/tests/build_memory.rs
+@@ -0,0 +1,121 @@
++use std::{
++    fs,
++    path::Path,
++    process::{Command, Output},
++};
++
++fn coderg(root: &Path, index: &Path, args: &[&str]) -> Output {
++    Command::new(env!("CARGO_BIN_EXE_coderg"))
++        .current_dir(root)
++        .args(args)
++        .arg("--index-dir")
++        .arg(index)
++        .output()
++        .unwrap()
++}
++
++fn check(output: &Output) {
++    assert!(
++        output.status.success(),
++        "{}",
++        String::from_utf8_lossy(&output.stderr)
++    );
++}
++
++#[test]
++fn small_budget_preserves_index_bytes_and_incremental_search() {
++    let directory = tempfile::tempdir().unwrap();
++    let root = directory.path().join("source");
++    let low = directory.path().join("low");
++    let high = directory.path().join("high");
++    fs::create_dir(&root).unwrap();
++    let mut random = 54321_u32;
++    let mut source: Vec<u8> = (0..1024 * 1024)
++        .map(|_| {
++            random ^= random << 13;
++            random ^= random >> 17;
++            random ^= random << 5;
++            b' ' + (random % 95) as u8
++        })
++        .collect();
++    let marker = b"unique_boundary_marker_0123456789";
++    source[16 * 1024 - 10..16 * 1024 - 10 + marker.len()].copy_from_slice(marker);
++    fs::write(root.join("large.txt"), &source).unwrap();
++    fs::write(root.join("empty.txt"), "").unwrap();
++    fs::write(root.join("binary.dat"), [0, 1, 2, 3]).unwrap();
++    let bounded = coderg(&root, &low, &["index", "--build-memory-mib", "16"]);
++    check(&bounded);
++    assert!(String::from_utf8_lossy(&bounded.stderr).contains("spilled"));
++    let normal = coderg(&root, &high, &["index"]);
++    check(&normal);
++    assert!(!String::from_utf8_lossy(&normal.stderr).contains("spilled"));
++    let manifest = |index: &Path| -> serde_json::Value {
++        serde_json::from_slice(&fs::read(index.join("manifest.json")).unwrap()).unwrap()
++    };
++    let low_manifest = manifest(&low);
++    let high_manifest = manifest(&high);
++    for field in ["lookup", "postings"] {
++        let path = |manifest: &serde_json::Value| {
++            manifest["segments"][0][field].as_str().unwrap().to_owned()
++        };
++        assert_eq!(
++            fs::read(low.join(path(&low_manifest))).unwrap(),
++            fs::read(high.join(path(&high_manifest))).unwrap()
++        );
++    }
++    assert_eq!(low_manifest["documents"].as_array().unwrap().len(), 3);
++    let result = coderg(
++        &root,
++        &low,
++        &[
++            "search",
++            "-Fl",
++            "unique_boundary_marker_0123456789",
++            "--no-refresh",
++        ],
++    );
++    check(&result);
++    assert_eq!(result.stdout, b"large.txt\n");
++
++    source.extend_from_slice(b"\nnew_incremental_marker\n");
++    fs::write(root.join("large.txt"), &source).unwrap();
++    let refreshed = coderg(
++        &root,
++        &low,
++        &[
++            "search",
++            "-Fl",
++            "new_incremental_marker",
++            "--build-memory-mib",
++            "16",
++        ],
++    );
++    check(&refreshed);
++    assert_eq!(refreshed.stdout, b"large.txt\n");
++    let stderr = String::from_utf8_lossy(&refreshed.stderr);
++    assert!(stderr.contains("spilled"));
++    assert!(stderr.contains("incrementally indexed 1"));
++    assert_eq!(manifest(&low)["segments"].as_array().unwrap().len(), 2);
++    assert!(!fs::read_dir(&low).unwrap().any(|entry| {
++        entry
++            .unwrap()
++            .file_name()
++            .to_string_lossy()
++            .starts_with(".build-")
++    }));
++}
++
++#[test]
++fn invalid_budgets_fail_before_creating_an_index() {
++    let directory = tempfile::tempdir().unwrap();
++    let index = directory.path().join("index");
++    for value in ["0", "15", "garbage", "18446744073709551615"] {
++        let output = coderg(
++            directory.path(),
++            &index,
++            &["index", "--build-memory-mib", value],
++        );
++        assert_eq!(output.status.code(), Some(2));
++        assert!(!index.exists());
++    }
++}

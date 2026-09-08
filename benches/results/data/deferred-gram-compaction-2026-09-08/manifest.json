@@ -1,0 +1,75 @@
+{
+  "recorded_at": "2026-09-08T14:33:13.308028+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "workdir": "/private/tmp/coderg-deferred-gram-compaction-2026-09-08",
+  "source_sha256": {
+    "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+    "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+    "benches/compare_rg.rs": "764a79f7ddb6b67995c58b79e33690507e601f2c90be31dac6767dc800bc92fe",
+    "src/build.rs": "cb52a7aaabb7b51b1d0551530c84ff96d7ba4c32d15aa8f9199cfd0c17de51d2",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "a0463d505b93af6e13f780707dd397d961f290b736066ca4341a424fc27acf6c",
+    "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+    "src/ngram.rs": "a63c240604a9304ccb48302627e3cd71a2f03266e5597cc105f261cf56efb912",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+    "src/segment.rs": "d1c45db5781b03ed29a88a0c1bdc92c9265f33f0b3ca5b85e07f17df4c2853ad",
+    "tests/build_memory.rs": "03cf78d53db29fefef4f0755e0e45b329e983435304a0e35bdc4d4b52e47e406",
+    "tests/cli.rs": "54bbf273d9aa5910ed97168803ac308b40ce13797c763a1fa4186f46c9e465e4",
+    "tests/git_incremental.rs": "ffb0109bebc995db3f127dc74b5070ac98c4cc1c81df8e858d4086006a136b35"
+  },
+  "binaries": {
+    "before": {
+      "path": "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before",
+      "sha256": "a3f0b8f26ad2447008dd28623ac8e00621c34c695411d48bba09fa1982fe3e85"
+    },
+    "after": {
+      "path": "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after",
+      "sha256": "d4e3d1a81cfa19dda9d4cc13f9e045fe7402f6556286b8db43854327c66fe436"
+    },
+    "before-phase": {
+      "path": "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+      "sha256": "c18400b314347589ea0c144b6ef868850671b4817786559da1f5f44ca8520f05"
+    },
+    "after-phase": {
+      "path": "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+      "sha256": "82522fb3235ef32708c40ebe9ee007a2b31df998300d02511818dc4d04864c4a"
+    }
+  },
+  "checks": [
+    "cargo test --offline: 50 passed",
+    "cargo fmt --check: passed",
+    "cargo clippy --offline --all-targets -- -D warnings: passed"
+  ],
+  "build_commands": [
+    "cargo build --release --offline",
+    "cargo build --profile profiling --offline --manifest-path /private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase-source/Cargo.toml --target-dir /Users/b1indsight/personal_work/coderg/target"
+  ],
+  "baseline_phase_source": "Verified against gram-profile-comparison-2026-09-08/source-sha256.json; reused that current-phase-probe.",
+  "changed_source_files": [
+    "src/build.rs",
+    "src/ngram.rs"
+  ],
+  "final_release_sha256": "d4e3d1a81cfa19dda9d4cc13f9e045fe7402f6556286b8db43854327c66fe436",
+  "builds_with_byte_parity": 108,
+  "queries_with_output_parity": 30,
+  "report_sha256": "8ff4217c058e403c6cae69ee062a059200c4298259a1a9bf7fb8177ed9092239",
+  "artifact_sha256": {
+    "before-source-sha256.json": "bb905dbb3f370a24afe592c20ca946c79b9f701699212cd33aac7f21f9718902",
+    "deferred-compaction.patch": "7f0a7bde47a58e573677457c006dc82c6670681e904cce9e53a816210697e798",
+    "harness.py": "0a173918ede8a0870dfc022eef571cb91d68c623d03659686234ba12ae78feec",
+    "phase-harness.py": "03598e5b4db23ce3337ff79334e729f81d051c9a9940cc86991909e0c981a4f1",
+    "phase-instrumentation.patch": "fdfce6107005e3552017fc6bef0e576cf81ef90774ecfdd5bb120da566da3ed0",
+    "phase-results.json": "265464f2c5d5e6ded0ae205c37eaf744a3894eb1a37693eeba6fe5e727837eab",
+    "phase-stderr.tar.gz": "9b9c891ce3b2cd8530d4f87367263c5ced53329e2659e1528e664821a99195f8",
+    "phase-summary.json": "e1a396b8eaf831ed25a88fc5660bf6ce2913c591be34ce9c04b9ffb32007342d",
+    "prepare-phases.py": "9e77c92c1343cc4dae2ef632c2e1a6bf286108879ec2199e947f356194bd3828",
+    "results.json": "7e92ab5a098121e9c7e22ca499b451ddbc4b9183dc73f6ad07cf48c8f8151dba",
+    "source-after.tar.gz": "8e69478e153bac68138645137341b3b36efed5f46f58350572bc08395a8c6aaf",
+    "source-before.tar.gz": "b477ffd0ef87dfc529898e678e2741cc68c523444add4c21d99f610500539ac8",
+    "stderr-logs.tar.gz": "8804dde2b28ad3bc0ca3ef568fcf97bbdf2e67f528e0b8e0f658fd1928a9e198",
+    "summarize-phases.py": "39a65c2322de1f7c3dd055be79da979c906383eef07161e89b914c2ab0f8f3a1",
+    "summarize.py": "c0232dc52e35ac4b053a910d0733b4a5e50d49b27e2dcb5413cff79b9b958e20",
+    "summary.json": "5567427551e678b6b55026562bcdfb530b1f9b848fd1efd8b11bbda6059139bf"
+  }
+}

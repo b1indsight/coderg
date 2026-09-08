@@ -1,0 +1,453 @@
+{
+  "builds_with_byte_parity": 36,
+  "corpora": {
+    "grouped_8": {
+      "old": {
+        "n": 7,
+        "wall_median_ms": 158.11725001549348,
+        "phases": {
+          "chunk_collect": {
+            "median_ms": 58.384924,
+            "min_ms": 57.547689,
+            "max_ms": 60.984771
+          },
+          "collect_files": {
+            "median_ms": 2.916792,
+            "min_ms": 1.721167,
+            "max_ms": 2.956375
+          },
+          "count_keys": {
+            "median_ms": 1.276917,
+            "min_ms": 1.256416,
+            "max_ms": 1.344208
+          },
+          "dedup": {
+            "median_ms": 3.535792,
+            "min_ms": 3.425917,
+            "max_ms": 3.725916
+          },
+          "encode": {
+            "median_ms": 4.58775,
+            "min_ms": 4.469,
+            "max_ms": 4.921833
+          },
+          "extend": {
+            "median_ms": 8.587162,
+            "min_ms": 8.229191,
+            "max_ms": 9.063236
+          },
+          "file_open": {
+            "median_ms": 0.642832,
+            "min_ms": 0.431165,
+            "max_ms": 0.897209
+          },
+          "file_read": {
+            "median_ms": 10.636853,
+            "min_ms": 9.265692,
+            "max_ms": 12.983988
+          },
+          "final_write": {
+            "median_ms": 31.930125,
+            "min_ms": 30.469666,
+            "max_ms": 34.425042
+          },
+          "git": {
+            "median_ms": 0.07025,
+            "min_ms": 0.064458,
+            "max_ms": 0.12375
+          },
+          "gram_hash": {
+            "median_ms": 787.586944,
+            "min_ms": 769.733115,
+            "max_ms": 819.108461
+          },
+          "manifest": {
+            "median_ms": 0.087917,
+            "min_ms": 0.082375,
+            "max_ms": 0.097083
+          },
+          "merge": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "pipeline": {
+            "median_ms": 117.9,
+            "min_ms": 114.420583,
+            "max_ms": 124.138667
+          },
+          "receive_wait": {
+            "median_ms": 108.122905,
+            "min_ms": 104.151291,
+            "max_ms": 114.390407
+          },
+          "send_wait": {
+            "median_ms": 13.57579,
+            "min_ms": 11.991538,
+            "max_ms": 49.318998
+          },
+          "sort": {
+            "median_ms": 22.471291,
+            "min_ms": 21.058833,
+            "max_ms": 25.090042
+          },
+          "spill": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "spill_write": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "total": {
+            "median_ms": 153.224417,
+            "min_ms": 149.076541,
+            "max_ms": 160.385417
+          },
+          "gram_and_output": {
+            "median_ms": 847.032236,
+            "min_ms": 827.44602,
+            "max_ms": 879.091615
+          }
+        }
+      },
+      "current": {
+        "n": 7,
+        "wall_median_ms": 155.14858401729725,
+        "phases": {
+          "chunk_collect": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "collect_files": {
+            "median_ms": 2.981458,
+            "min_ms": 1.738584,
+            "max_ms": 3.03125
+          },
+          "count_keys": {
+            "median_ms": 0.906042,
+            "min_ms": 0.871958,
+            "max_ms": 0.926625
+          },
+          "dedup": {
+            "median_ms": 3.546916,
+            "min_ms": 3.3915,
+            "max_ms": 3.888834
+          },
+          "encode": {
+            "median_ms": 4.470083,
+            "min_ms": 4.383625,
+            "max_ms": 4.919417
+          },
+          "extend": {
+            "median_ms": 8.731871,
+            "min_ms": 8.196662,
+            "max_ms": 9.546653
+          },
+          "file_open": {
+            "median_ms": 0.759999,
+            "min_ms": 0.295958,
+            "max_ms": 1.578207
+          },
+          "file_read": {
+            "median_ms": 9.374056,
+            "min_ms": 8.756895,
+            "max_ms": 10.839848
+          },
+          "final_write": {
+            "median_ms": 31.413459,
+            "min_ms": 30.14575,
+            "max_ms": 32.378416
+          },
+          "git": {
+            "median_ms": 0.072125,
+            "min_ms": 0.066333,
+            "max_ms": 0.092542
+          },
+          "gram_hash": {
+            "median_ms": 847.584214,
+            "min_ms": 827.421879,
+            "max_ms": 884.622092
+          },
+          "manifest": {
+            "median_ms": 0.08575,
+            "min_ms": 0.078958,
+            "max_ms": 0.088334
+          },
+          "merge": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "pipeline": {
+            "median_ms": 116.755416,
+            "min_ms": 112.25725,
+            "max_ms": 121.685917
+          },
+          "receive_wait": {
+            "median_ms": 106.056425,
+            "min_ms": 102.70666,
+            "max_ms": 112.061012
+          },
+          "send_wait": {
+            "median_ms": 11.857486,
+            "min_ms": 9.451818,
+            "max_ms": 26.310874
+          },
+          "sort": {
+            "median_ms": 22.514084,
+            "min_ms": 21.33275,
+            "max_ms": 23.467542
+          },
+          "spill": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "spill_write": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "total": {
+            "median_ms": 150.339709,
+            "min_ms": 145.159208,
+            "max_ms": 156.309084
+          },
+          "gram_and_output": {
+            "median_ms": 847.584214,
+            "min_ms": 827.421879,
+            "max_ms": 884.622092
+          }
+        }
+      }
+    },
+    "few_large_64": {
+      "old": {
+        "n": 7,
+        "wall_median_ms": 159.83133399276994,
+        "phases": {
+          "chunk_collect": {
+            "median_ms": 58.420934,
+            "min_ms": 57.79609,
+            "max_ms": 60.24696
+          },
+          "collect_files": {
+            "median_ms": 1.750292,
+            "min_ms": 1.721792,
+            "max_ms": 2.955125
+          },
+          "count_keys": {
+            "median_ms": 1.674875,
+            "min_ms": 1.494917,
+            "max_ms": 1.942458
+          },
+          "dedup": {
+            "median_ms": 3.088292,
+            "min_ms": 3.027333,
+            "max_ms": 3.21675
+          },
+          "encode": {
+            "median_ms": 7.923958,
+            "min_ms": 7.679834,
+            "max_ms": 8.605
+          },
+          "extend": {
+            "median_ms": 8.177796,
+            "min_ms": 7.513173,
+            "max_ms": 8.619799
+          },
+          "file_open": {
+            "median_ms": 2.228709,
+            "min_ms": 2.048623,
+            "max_ms": 3.310122
+          },
+          "file_read": {
+            "median_ms": 8.641227,
+            "min_ms": 8.036341,
+            "max_ms": 11.036386
+          },
+          "final_write": {
+            "median_ms": 37.128542,
+            "min_ms": 36.111041,
+            "max_ms": 38.142542
+          },
+          "git": {
+            "median_ms": 0.993041,
+            "min_ms": 0.934958,
+            "max_ms": 1.027708
+          },
+          "gram_hash": {
+            "median_ms": 793.030799,
+            "min_ms": 765.546598,
+            "max_ms": 799.96175
+          },
+          "manifest": {
+            "median_ms": 0.272416,
+            "min_ms": 0.262708,
+            "max_ms": 0.305375
+          },
+          "merge": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "pipeline": {
+            "median_ms": 114.763292,
+            "min_ms": 111.748,
+            "max_ms": 118.681083
+          },
+          "receive_wait": {
+            "median_ms": 105.597098,
+            "min_ms": 102.186782,
+            "max_ms": 109.838774
+          },
+          "send_wait": {
+            "median_ms": 14.617799,
+            "min_ms": 12.022934,
+            "max_ms": 21.275281
+          },
+          "sort": {
+            "median_ms": 24.022042,
+            "min_ms": 23.309959,
+            "max_ms": 25.828875
+          },
+          "spill": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "spill_write": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "total": {
+            "median_ms": 155.0985,
+            "min_ms": 151.880167,
+            "max_ms": 159.092333
+          },
+          "gram_and_output": {
+            "median_ms": 852.071076,
+            "min_ms": 823.3426880000001,
+            "max_ms": 858.2214210000001
+          }
+        }
+      },
+      "current": {
+        "n": 7,
+        "wall_median_ms": 159.54716698615812,
+        "phases": {
+          "chunk_collect": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "collect_files": {
+            "median_ms": 2.739459,
+            "min_ms": 1.711667,
+            "max_ms": 3.004791
+          },
+          "count_keys": {
+            "median_ms": 1.500166,
+            "min_ms": 1.475708,
+            "max_ms": 1.576875
+          },
+          "dedup": {
+            "median_ms": 3.119041,
+            "min_ms": 3.041458,
+            "max_ms": 3.194708
+          },
+          "encode": {
+            "median_ms": 8.180542,
+            "min_ms": 7.6335,
+            "max_ms": 8.525917
+          },
+          "extend": {
+            "median_ms": 8.083075,
+            "min_ms": 7.813408,
+            "max_ms": 8.675059
+          },
+          "file_open": {
+            "median_ms": 2.094749,
+            "min_ms": 1.878627,
+            "max_ms": 2.502791
+          },
+          "file_read": {
+            "median_ms": 10.422137,
+            "min_ms": 8.176458,
+            "max_ms": 10.982705
+          },
+          "final_write": {
+            "median_ms": 37.464041,
+            "min_ms": 36.483125,
+            "max_ms": 39.442667
+          },
+          "git": {
+            "median_ms": 0.984375,
+            "min_ms": 0.912334,
+            "max_ms": 1.014667
+          },
+          "gram_hash": {
+            "median_ms": 834.412373,
+            "min_ms": 824.042244,
+            "max_ms": 851.997471
+          },
+          "manifest": {
+            "median_ms": 0.277458,
+            "min_ms": 0.262541,
+            "max_ms": 0.297042
+          },
+          "merge": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "pipeline": {
+            "median_ms": 113.402625,
+            "min_ms": 110.765083,
+            "max_ms": 115.100417
+          },
+          "receive_wait": {
+            "median_ms": 104.010733,
+            "min_ms": 101.284291,
+            "max_ms": 105.923933
+          },
+          "send_wait": {
+            "median_ms": 12.992588,
+            "min_ms": 10.005741,
+            "max_ms": 16.136315
+          },
+          "sort": {
+            "median_ms": 24.627833,
+            "min_ms": 23.734625,
+            "max_ms": 26.671458
+          },
+          "spill": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "spill_write": {
+            "median_ms": 0.0,
+            "min_ms": 0.0,
+            "max_ms": 0.0
+          },
+          "total": {
+            "median_ms": 154.38225,
+            "min_ms": 151.689,
+            "max_ms": 157.198583
+          },
+          "gram_and_output": {
+            "median_ms": 834.412373,
+            "min_ms": 824.042244,
+            "max_ms": 851.997471
+          }
+        }
+      }
+    }
+  }
+}

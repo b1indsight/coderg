@@ -1,0 +1,66 @@
+{
+  "date": "2026-09-08",
+  "production_source_sha256": {
+    "src/build.rs": "af066d25c729957b74f26017fcda0ff0706bbd4ce5b906896827251561e47025",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "a0463d505b93af6e13f780707dd397d961f290b736066ca4341a424fc27acf6c",
+    "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+    "src/ngram.rs": "27a68535b6a969b033f2988cd396abfe965bdc939e7cd12c3c828a052b9dafbf",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+    "src/segment.rs": "d1c45db5781b03ed29a88a0c1bdc92c9265f33f0b3ca5b85e07f17df4c2853ad"
+  },
+  "production_unchanged": true,
+  "binaries": {
+    "old_phase": {
+      "path": "/private/tmp/coderg-gram-profile-comparison-2026-09-08/old-phase-probe",
+      "sha256": "f0c5c12f3f6d6dd1fefd5b4d8fbad3cd6266445daa78783dd6243a09a93b0199"
+    },
+    "current_phase": {
+      "path": "/private/tmp/coderg-gram-profile-comparison-2026-09-08/current-phase-probe",
+      "sha256": "c18400b314347589ea0c144b6ef868850671b4817786559da1f5f44ca8520f05"
+    },
+    "old_sampling": {
+      "path": "/private/tmp/coderg-gram-profile-comparison-2026-09-08/old-sampling/coderg",
+      "sha256": "5607ffd76d046b1d808fe5be5e6b8c8edf73b1f9e4c695c9ec906f8d4edcc0fe"
+    },
+    "current_sampling": {
+      "path": "/private/tmp/coderg-hashset-share-2026-09-08/coderg",
+      "sha256": "eafdc61f11a8b25f7dd1274ee8f6a5f109b17103599e468a084965d78c2f432b"
+    },
+    "production": {
+      "path": "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "sha256": "a3f0b8f26ad2447008dd28623ac8e00621c34c695411d48bba09fa1982fe3e85"
+    }
+  },
+  "phase_builds_with_index_parity": 36,
+  "new_samples": {
+    "old_8": {
+      "pid": 79983,
+      "repeated_builds": 180,
+      "sample_count": 3
+    },
+    "current_64": {
+      "pid": 83152,
+      "repeated_builds": 90,
+      "sample_count": 1
+    }
+  },
+  "sample_duration_seconds": 5,
+  "requested_sample_interval_ms": 1,
+  "sampling_notes": "Call-tree classification includes identified extraction-thread insert frames even when the outer gram function is absent; known waiting leaves are excluded from nonwait shares. Percentages are not wall-time percentages.",
+  "artifacts_sha256": {
+    "analyze-stacks.py": "3c4cac1cda7f8f61eb44b0b0f1ac3cc278984e44ee8bfde6ee86fbf4b832e63f",
+    "current-phase.patch": "eaa0989315ea3096439ad56e00a6aae5c9f43dc5114364ebfd00e6a090aff656",
+    "old-sampling-driver.patch": "540905ff3537242ee94720cf75badd64f8fc78cd14aba426328af42c55601649",
+    "phase-harness.py": "03598e5b4db23ce3337ff79334e729f81d051c9a9940cc86991909e0c981a4f1",
+    "phase-results.json": "f52b29d1bda58a55a38c6006b60eb0f9e2fcdce4448f28610b53aefbe0cf5a22",
+    "phase-stderr.tar.gz": "3cf2a0ae83a8b07ded76f8bb83012beb2d5855c76ac6a96602aeadd0a14a70d5",
+    "phase-summary.json": "74d9bb860f108beaa03418a579d40ee9ee8b6bbae575a43dbf0211dd9f0cdae8",
+    "prepare-phases.py": "9e77c92c1343cc4dae2ef632c2e1a6bf286108879ec2199e947f356194bd3828",
+    "samples.tar.gz": "b4da0b2b42eaed3302e90fe4b00e639b08a04ad952e71604175e751633e9319f",
+    "source-sha256.json": "19f10a367df0fd988cb7b27d94785d81e28557a98cdcc438a995c4aeb7bb602c",
+    "stack-summary.json": "b7abaf3535a573050f6128c19998ec035741f86cb2cb674b8c29480c9001ee08",
+    "summarize-phases.py": "04eff7ccbcfebeb964fcb45bb85a10580f2d03cd8e2feefa32542e78a98a2463"
+  }
+}

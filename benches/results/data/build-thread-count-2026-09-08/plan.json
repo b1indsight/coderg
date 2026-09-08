@@ -1,0 +1,47 @@
+{
+  "budget_mib": 256,
+  "counting": "worker threads, excluding the coordinating main thread; ignore walkers run in a separate phase",
+  "direct": {
+    "baseline": {
+      "rayon_threads": 10,
+      "extraction_threads": 8,
+      "worker_threads": 18,
+      "record_buffer_mib": 188
+    },
+    "four": {
+      "rayon_threads": 2,
+      "extraction_threads": 2,
+      "worker_threads": 4,
+      "record_buffer_mib": 236
+    },
+    "six": {
+      "rayon_threads": 3,
+      "extraction_threads": 3,
+      "worker_threads": 6,
+      "record_buffer_mib": 228
+    }
+  },
+  "shared_pool": {
+    "four": {
+      "rayon_threads": 4,
+      "extraction_lanes": 4,
+      "worker_threads": 4,
+      "record_buffer_mib": 220
+    },
+    "six": {
+      "rayon_threads": 6,
+      "extraction_lanes": 6,
+      "worker_threads": 6,
+      "record_buffer_mib": 204
+    }
+  },
+  "shared_pool_scope": "Full index builds walk on the caller, then extraction lanes and sorting share one Rayon pool. Thus full builds use 4 or 6 Rayon worker threads plus the coordinating main thread. Incremental and cached-tree walks are not changed by this isolated prototype.",
+  "async_pool": {
+    "worker_threads": [
+      4,
+      6
+    ],
+    "scheduling": "one in-flight chunk task per lane on a shared Rayon pool; collector immediately resubmits completed lanes; the main thread stays outside the pool; no worker blocks on channel send",
+    "scope": "Full index builds walk on the caller, then extraction lanes and sorting share one Rayon pool. Thus full builds use 4 or 6 Rayon worker threads plus the coordinating main thread. Incremental and cached-tree walks are not changed by this isolated prototype."
+  }
+}

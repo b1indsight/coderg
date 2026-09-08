@@ -1,0 +1,80 @@
+--- a/src/build.rs
++++ b/src/build.rs
+@@ -17,9 +17,9 @@
+ pub type Record = (ngram::GramHash, u32);
+ const MIB: usize = 1024 * 1024;
+ pub const CHUNK_BYTES: usize = 16 * 1024;
+-// A chunk emits at most 22 hashes per starting byte. Even at that bound,
+-// its hash table + compact keys take < 4 MiB. Allow another queued chunk,
+-// input buffers, and the collector's current message within 8 MiB per worker.
++// Every longer gram links a bigram to its nearest >= neighbor on one side.
++// At most two such grams per bigram, plus trigrams: < 3 hashes per byte.
++// Reserve space for u64 dedup, compact output, queued chunks, and I/O.
+ const WORKER_BYTES: usize = 8 * MIB;
+ const IO_BYTES: usize = 64 * 1024;
+ const MERGE_FAN_IN: usize = 32;
+--- a/src/ngram.rs
++++ b/src/ngram.rs
+@@ -45,12 +45,16 @@
+ /// on bytes inside the n-gram, so a gram selected from a query is guaranteed
+ /// to have been selected from every document containing that query.
+ pub fn hashes_for_chunk(bytes: &[u8]) -> Vec<GramHash> {
+-    let mut seen = GramHashSet::with_capacity_and_hasher(bytes.len(), Default::default());
++    // The full gram hash is already mixed, so u64 keys can use it directly
++    // for table lookup. Compact only the hashes that survive chunk dedup.
++    let mut seen =
++        HashSet::<u64, GramBuildHasher>::with_capacity_and_hasher(bytes.len(), Default::default());
+     let mut hashes = Vec::new();
+     for_each_sparse_gram(bytes, |_, _, hash| {
+-        let hash = compact_hash(hash);
+         if seen.insert(hash) {
+-            hashes.push(hash);
++            // Different u64 hashes can compact to the same key. The postings
++            // builder removes these duplicates after sorting the u32 records.
++            hashes.push(compact_hash(hash));
+         }
+     });
+     hashes
+@@ -252,7 +256,7 @@
+     }
+ 
+     #[test]
+-    fn chunk_output_is_unique_and_matches_set_extraction() {
++    fn chunk_output_matches_set_extraction() {
+         let mut state = 12345_u32;
+         let random: Vec<u8> = (0..16 * 1024 + 23)
+             .map(|_| {
+@@ -265,12 +269,32 @@
+         let repeated = b"fn repeated_name() { repeated_name(); }\n".repeat(512);
+         for bytes in [&random[..], &repeated[..]] {
+             for len in [0, 1, 2, 3, 24, 4095, 4096, 16 * 1024, bytes.len()] {
++                let mut emitted = 0;
++                for_each_sparse_gram(&bytes[..len], |_, _, _| emitted += 1);
++                assert!(emitted <= 3 * len, "worker memory bound at length {len}");
+                 let hashes = hashes_for_chunk(&bytes[..len]);
+                 let actual: GramHashSet = hashes.iter().copied().collect();
+-                assert_eq!(hashes.len(), actual.len(), "duplicate gram at length {len}");
+                 assert_eq!(actual, hashes_for_document(&bytes[..len]), "length {len}");
+             }
+         }
++    }
++
++    #[test]
++    fn chunk_output_preserves_compacted_collisions() {
++        let first = b"'U\"";
++        let second = b")gh";
++        let key = compact_hash(hash(first));
++        assert_ne!(hash(first), hash(second));
++        assert_eq!(key, compact_hash(hash(second)));
++
++        let bytes = [first.as_slice(), second.as_slice()].concat();
++        let mut hashes = hashes_for_chunk(&bytes);
++        assert_eq!(hashes.iter().filter(|&&value| value == key).count(), 2);
++        hashes.sort_unstable();
++        hashes.dedup();
++        let mut expected: Vec<_> = hashes_for_document(&bytes).into_iter().collect();
++        expected.sort_unstable();
++        assert_eq!(hashes, expected);
+     }
+ 
+     #[test]

@@ -1,0 +1,85 @@
+{
+  "baseline_source": "../build-memory-budget-2026-09-08/source-after.diff",
+  "head": "74387541f37851bd8df570b9663a507912178909",
+  "rust": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "logical_cpus": 10,
+  "memory_budget_mib": 256,
+  "prototype_validation": {
+    "shared_pool": {
+      "tests_passed": 47,
+      "clippy": "cargo clippy --all-targets --locked --offline -- -D warnings"
+    },
+    "async_pool": {
+      "tests_passed": 47,
+      "clippy": "cargo clippy --all-targets --locked --offline -- -D warnings"
+    }
+  },
+  "binaries": {
+    "baseline": {
+      "path": "/private/tmp/coderg-build-threads-2026-09-08/coderg",
+      "sha256": "2eb32abfc5e97226ebd7570046dfebfba6939771fbfb50648006de8c06303cc8"
+    },
+    "shared_pool": {
+      "path": "/private/tmp/coderg-build-threads-2026-09-08/shared-pool-src/target/release/coderg",
+      "sha256": "55150cd16e8e5a71fcea90b8adca326afc76afe7bc71ce0823e8485eef2ce237"
+    },
+    "async_pool": {
+      "path": "/private/tmp/coderg-build-threads-2026-09-08/async-pool-src/target/release/coderg",
+      "sha256": "ed3615822c55d5046dc811ef29512083fcb70616f50691519fc2cd5d2df455b1"
+    }
+  },
+  "source_sha256": {
+    "baseline": {
+      "src/build.rs": "af066d25c729957b74f26017fcda0ff0706bbd4ce5b906896827251561e47025",
+      "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+      "src/index.rs": "3fd8a4036e5c694c48e9c3be650c2da6c99194372965169e14bc3eb6e84966cb",
+      "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+      "src/ngram.rs": "5563bad83f68cb5e8e1b372528c717c72b6e2de26d684500b60fb9970d03bc1b",
+      "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+      "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+      "src/segment.rs": "d1c45db5781b03ed29a88a0c1bdc92c9265f33f0b3ca5b85e07f17df4c2853ad",
+      "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+      "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3"
+    },
+    "shared_pool": {
+      "src/build.rs": "af066d25c729957b74f26017fcda0ff0706bbd4ce5b906896827251561e47025",
+      "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+      "src/index.rs": "9e88a062125266b6677796350bfe7b3afffc5dfa57dc71050b0448c614c65482",
+      "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+      "src/ngram.rs": "5563bad83f68cb5e8e1b372528c717c72b6e2de26d684500b60fb9970d03bc1b",
+      "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+      "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+      "src/segment.rs": "d1c45db5781b03ed29a88a0c1bdc92c9265f33f0b3ca5b85e07f17df4c2853ad",
+      "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+      "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3"
+    },
+    "async_pool": {
+      "src/build.rs": "af066d25c729957b74f26017fcda0ff0706bbd4ce5b906896827251561e47025",
+      "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+      "src/index.rs": "2c4cd58bd9a94a50d5e1ed9af87a657c4d03423accea8ee83c11712e4282c275",
+      "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+      "src/ngram.rs": "5563bad83f68cb5e8e1b372528c717c72b6e2de26d684500b60fb9970d03bc1b",
+      "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+      "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+      "src/segment.rs": "d1c45db5781b03ed29a88a0c1bdc92c9265f33f0b3ca5b85e07f17df4c2853ad",
+      "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+      "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3"
+    }
+  },
+  "index_parity_runs": 504,
+  "search_parity_queries": 180,
+  "thread_count_basis": "Configured pool sizes and inspected thread-creation paths; main thread excluded. No OS thread-count sampling.",
+  "artifacts_sha256": {
+    "async-pool.diff": "c2e3d447c4b5a6e0d1062e7ba5683de4e24ae954eeab3ea7fdfb72e188a49c15",
+    "async-results.json": "f40c81d099ef268069d116de3e2c2f42397434c29121001bb5c69489de9910bd",
+    "async-stderr-logs.tar.gz": "5dde1d1d8fc60081cd3713558943e9328bc3fe77cd704a4f3563854c728f49f6",
+    "direct-results.json": "1e864f08b7f85512dc00ec6f834844795c18ae759834554a00842330d90c73de",
+    "direct-stderr-logs.tar.gz": "dc9e0cd4cc6ca306c402bcc7f17274f22232c32cdc82e0fa9a0c675232220ead",
+    "harness.py": "0a173918ede8a0870dfc022eef571cb91d68c623d03659686234ba12ae78feec",
+    "plan.json": "ef2aceba0b7520548cbf96eb5024744a8b6d1748ce05272ff00f42bece37134e",
+    "shared-pool.diff": "5da08335e7c4956b6b748550a217a15dea1c4cb42a1b25504ba716ea540ad20b",
+    "shared-results.json": "205457dec3d33db2b46fbdbe9a54182e3a5376c29f61a8ea69fea4b5314b04cd",
+    "shared-stderr-logs.tar.gz": "5f8dbb7240800f4c10d82ff4e29253426a1ebed081ad7acc2a8f0c8583eaf916",
+    "summary.json": "86e1a59abac0e7819087edd94af4bac4f434f51c7e8f7612c3c7f21b4852c791"
+  }
+}

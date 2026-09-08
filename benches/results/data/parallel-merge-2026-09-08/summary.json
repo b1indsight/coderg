@@ -1,0 +1,176 @@
+{
+  "builds_with_byte_parity": 72,
+  "corpora": {
+    "grouped_8": {
+      "before": {
+        "timing_samples": 7,
+        "median_ms": 124.0785,
+        "min_ms": 122.781333,
+        "max_ms": 128.597375,
+        "median_rss_mib": 62.828125,
+        "max_rss_mib": 62.84375,
+        "spilled_runs": [
+          0
+        ],
+        "temporary_bytes_written": [
+          0
+        ],
+        "source_bytes": 67108864,
+        "searchable_files": 8,
+        "median_temporary_mib": 0.0,
+        "median_peak_temporary_mib": 0.0,
+        "index_bytes": 2236136
+      },
+      "after": {
+        "timing_samples": 7,
+        "median_ms": 125.081459,
+        "min_ms": 122.364459,
+        "max_ms": 132.130583,
+        "median_rss_mib": 62.296875,
+        "max_rss_mib": 62.78125,
+        "spilled_runs": [
+          0
+        ],
+        "temporary_bytes_written": [
+          0
+        ],
+        "source_bytes": 67108864,
+        "searchable_files": 8,
+        "median_temporary_mib": 0.0,
+        "median_peak_temporary_mib": 0.0,
+        "index_bytes": 2236136
+      },
+      "latency_change_pct": 0.8083261806034026,
+      "rss_change_mib": -0.53125
+    },
+    "vllm": {
+      "before": {
+        "timing_samples": 7,
+        "median_ms": 1127.850458,
+        "min_ms": 1122.5385,
+        "max_ms": 1150.6525,
+        "median_rss_mib": 212.484375,
+        "max_rss_mib": 212.859375,
+        "spilled_runs": [
+          2
+        ],
+        "temporary_bytes_written": [
+          567186632,
+          567198944,
+          567218600,
+          567219960,
+          567229936,
+          567233152,
+          567245256,
+          567250712,
+          567253760,
+          567259520,
+          567271720,
+          567327272
+        ],
+        "source_bytes": 86384180,
+        "searchable_files": 6835,
+        "median_temporary_mib": 540.9614601135254,
+        "median_peak_temporary_mib": 540.9614601135254,
+        "index_bytes": 69627944
+      },
+      "after": {
+        "timing_samples": 7,
+        "median_ms": 792.437166,
+        "min_ms": 784.735125,
+        "max_ms": 803.823125,
+        "median_rss_mib": 212.890625,
+        "max_rss_mib": 212.90625,
+        "spilled_runs": [
+          2
+        ],
+        "temporary_bytes_written": [
+          414543194,
+          414564978,
+          414571746,
+          414572234,
+          414572458,
+          414573266,
+          414579322,
+          414604802,
+          414606018,
+          414611834,
+          414613826,
+          414629858
+        ],
+        "source_bytes": 86384180,
+        "searchable_files": 6835,
+        "median_temporary_mib": 395.3707637786865,
+        "median_peak_temporary_mib": 395.3707637786865,
+        "index_bytes": 69627944
+      },
+      "latency_change_pct": -29.739163523042155,
+      "rss_change_mib": 0.40625
+    },
+    "vllm_x4": {
+      "before": {
+        "timing_samples": 7,
+        "median_ms": 4494.659459,
+        "min_ms": 4440.8135,
+        "max_ms": 4655.758167,
+        "median_rss_mib": 217.109375,
+        "max_rss_mib": 217.203125,
+        "spilled_runs": [
+          7
+        ],
+        "temporary_bytes_written": [
+          2270916152,
+          2270994264,
+          2271061968,
+          2271114080,
+          2271142104,
+          2271174744,
+          2271201312,
+          2271208592,
+          2271217728,
+          2271236264,
+          2271242672,
+          2271326904
+        ],
+        "source_bytes": 345536720,
+        "searchable_files": 27340,
+        "median_temporary_mib": 2165.973690032959,
+        "median_peak_temporary_mib": 2165.973690032959,
+        "index_bytes": 222909655
+      },
+      "after": {
+        "timing_samples": 7,
+        "median_ms": 2899.002,
+        "min_ms": 2865.5765,
+        "max_ms": 2949.470375,
+        "median_rss_mib": 217.125,
+        "max_rss_mib": 217.96875,
+        "spilled_runs": [
+          7
+        ],
+        "temporary_bytes_written": [
+          1421159911,
+          1421204879,
+          1421211879,
+          1421220311,
+          1421227327,
+          1421274015,
+          1421277943,
+          1421292551,
+          1421376247,
+          1421437455,
+          1421503039,
+          1421590295
+        ],
+        "source_bytes": 345536720,
+        "searchable_files": 27340,
+        "median_temporary_mib": 1355.4343976974487,
+        "median_peak_temporary_mib": 1355.4343976974487,
+        "index_bytes": 222909655
+      },
+      "latency_change_pct": -35.50118698770145,
+      "rss_change_mib": 0.015625
+    }
+  },
+  "queries_with_output_parity": 30
+}

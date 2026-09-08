@@ -1,0 +1,84 @@
+{
+  "recorded_at": "2026-09-08T15:50:02.673140+00:00",
+  "workdir": "/private/tmp/coderg-parallel-merge-2026-09-08",
+  "source_sha256": {
+    "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+    "Cargo.toml": "026392a1b412ec9f8db43128706071b7a8623e9afce683deb0da2dd24c83d84a",
+    "benches/compare_rg.rs": "764a79f7ddb6b67995c58b79e33690507e601f2c90be31dac6767dc800bc92fe",
+    "docs/cursor-design-gaps.md": "578f5fb62da8b0b890d0ab132532656d92f501d7a58fdecb249e768187e4fc8c",
+    "docs/implemented-optimizations.md": "32bc1158273fbbcb0255ba618e6c89b8b5b8afd03bf874ed2cc8876aeb4ac137",
+    "docs/index-build-memory-budget.md": "b7438c803a28dcd2427295bf2081dd604533adf2c8c3a185d08b0b3cc21d1c51",
+    "src/build.rs": "48a174652077b71237bd01a062d4a83b58561340b9418b184eb255da37bbb2af",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "a0463d505b93af6e13f780707dd397d961f290b736066ca4341a424fc27acf6c",
+    "src/main.rs": "e7545d262bb519a2899267f86c70e9e616ef90fed5100a6d66f26d64cb3ed600",
+    "src/ngram.rs": "af1e95510a056d81b9fb78eff29818164f0e88bc8498a44252cc020696828db6",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "363c98938d01ed3d5ed6ad587416aa96baf8d080bbb9473ccb87606eeeb4eb38",
+    "src/segment.rs": "ec8efd5a9c775f6a1c7026100bfdbe8754b6add0c56205b192d8b4279bba78e7",
+    "tests/build_memory.rs": "ebc51d8ad3ccb162f94f52d713d9eef874699974270f7bf7b82571c7cd6c0826",
+    "tests/cli.rs": "54bbf273d9aa5910ed97168803ac308b40ce13797c763a1fa4186f46c9e465e4",
+    "tests/git_incremental.rs": "ffb0109bebc995db3f127dc74b5070ac98c4cc1c81df8e858d4086006a136b35"
+  },
+  "binaries": {
+    "before": {
+      "path": "/private/tmp/coderg-parallel-merge-2026-09-08/before",
+      "sha256": "384b157336ca791fbcabd18ded7390edeb4627aa1c7ed9e06d88b5c0d2208250"
+    },
+    "after": {
+      "path": "/private/tmp/coderg-parallel-merge-2026-09-08/after",
+      "sha256": "e6a6d6df7fe6dc006194ec214f775373b4d5966618e56bd8dee4a337d07d8971"
+    },
+    "before-phase": {
+      "path": "/private/tmp/coderg-parallel-merge-2026-09-08/before-phase",
+      "sha256": "58e5df21ba153823fee6b71666759517041631ec533cb31a3bad25347d4e97e3"
+    },
+    "after-phase": {
+      "path": "/private/tmp/coderg-parallel-merge-2026-09-08/after-phase",
+      "sha256": "728dc3501404723f4c895e2aefbc4f3445027e253d7b861744f78c09b4f41a12"
+    }
+  },
+  "checks": [
+    "cargo test --offline: 52 passed",
+    "cargo fmt --check: passed",
+    "cargo clippy --all-targets --offline -- -D warnings: passed",
+    "git diff --check: passed"
+  ],
+  "baseline_phase": "Reused after-phase from chunk-32k-2026-09-08; baseline workspace source matches that experiment final source hashes.",
+  "build_commands": [
+    "cargo build --release --offline",
+    "cargo build --profile profiling --offline --manifest-path /private/tmp/coderg-parallel-merge-2026-09-08/after-phase-source/Cargo.toml --target-dir /Users/b1indsight/personal_work/coderg/target",
+    "cargo rustc --profile profiling --offline -- --cfg coderg_profile_restore"
+  ],
+  "changed_files": [
+    "docs/cursor-design-gaps.md",
+    "docs/implemented-optimizations.md",
+    "docs/index-build-memory-budget.md",
+    "src/build.rs",
+    "src/segment.rs"
+  ],
+  "final_release_sha256": "e6a6d6df7fe6dc006194ec214f775373b4d5966618e56bd8dee4a337d07d8971",
+  "final_production_profiling_sha256": "3e8c540839ce8b7abf9fb1050b7d9bc22ac38d5ccac5e8b67d3f227c3b0ad3c0",
+  "builds_with_byte_parity": 126,
+  "queries_with_output_parity": 30,
+  "report_sha256": "2748c895e3ec0ea4bbd31824a868f7ca97339ee822e35a1473057ddd2a9768ec",
+  "executed_release_harness": "benches/results/data/deferred-gram-compaction-2026-09-08/harness.py",
+  "artifact_sha256": {
+    "before-source-sha256.json": "4153c44030016ae1d07d7481275ae8c71adfcc4825c1992342ad1f8ce4fc1455",
+    "harness.py": "0a173918ede8a0870dfc022eef571cb91d68c623d03659686234ba12ae78feec",
+    "parallel-merge.patch": "0094b1fbc576052a9e1600b534812ddc09719da9452d1da9dc3edefecd2cc8ff",
+    "phase-harness.py": "03598e5b4db23ce3337ff79334e729f81d051c9a9940cc86991909e0c981a4f1",
+    "phase-instrumentation.patch": "8cd0e872efe66059b16e6ef32c24651e7960e9ca6d7cd1cd2652f9352d08ca7d",
+    "phase-results.json": "a691e27455b14ec2147b28ec18387a4a7ca67fa7713ee6d6a65c68ea29c9e229",
+    "phase-stderr.tar.gz": "c1d7059dfd914d56572bc2d06455ad09982f82b3875fe7f1f7cd608b1b5f474d",
+    "phase-summary.json": "1f6a9f44fe0f506adcc807663492e1128c783ecfdd1a42524effb0b4a173bbe6",
+    "prepare-phases.py": "b372a5deb55fb1ac4056a5a26497fc9a41ce6033b9cf71a6c255fede485436a8",
+    "results.json": "7b0feb8216eb3a6c4d532e36b382a311aa13f51ad08cf1065132058f563f3ed1",
+    "source-after.tar.gz": "9112a801f387a2eb5f48cf785be72390a68554ce3f7ed69c52c7d622dfb14eb1",
+    "source-before.tar.gz": "b1cf68b885632304bd35b856240f0374182765493083039b19201112d0faa218",
+    "stderr-logs.tar.gz": "5345b5842914bb879677e7990da07a50ee361a110c66e24c6816bb59a273ff57",
+    "summarize-phases.py": "cecf632d56ff7e29921ef90d8d0d216da447a29d7b12b5b89e090d5ad0c43827",
+    "summarize.py": "5523087075cbd96b680875b52fe11fabb6309b5ed47f4a752cba4762b302f850",
+    "summary.json": "5966605bcb224ca8f450c6aa27a608808767affe7e78025cfb488c84b848b1bc"
+  }
+}

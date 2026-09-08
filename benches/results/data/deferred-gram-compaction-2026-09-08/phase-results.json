@@ -1,0 +1,4299 @@
+{
+  "versions": {
+    "control": {
+      "path": "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+      "sha256": "c18400b314347589ea0c144b6ef868850671b4817786559da1f5f44ca8520f05"
+    },
+    "probe": {
+      "path": "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+      "sha256": "82522fb3235ef32708c40ebe9ee007a2b31df998300d02511818dc4d04864c4a"
+    }
+  },
+  "runs": [
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-reevko3c",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 912.7683749829885,
+      "user_cpu_ms": 913.698,
+      "system_cpu_ms": 40.399,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 4.045458
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.873959
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.385459
+        },
+        "emitted_records": 7324101,
+        "encode": {
+          "calls": 1,
+          "ms": 4.37
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.118173
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.389001
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 15.871496
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.422084
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.4595
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 765.472039
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.087292
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 107.046167
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 97.4379
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 10.343752
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.775292
+        },
+        "sort_input": 7324101,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 141.161291
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-vm48cvl0",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 621.5202920138836,
+      "user_cpu_ms": 1068.682,
+      "system_cpu_ms": 38.862,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 4.129
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.870334
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.307292
+        },
+        "emitted_records": 7324100,
+        "encode": {
+          "calls": 1,
+          "ms": 4.324334
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 9.252493
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.355042
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 9.574349
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 28.064166
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.451875
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 918.078791
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.092666
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 124.594083
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 113.944683
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 17.07998
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 19.542291
+        },
+        "sort_input": 7324100,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 157.468292
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-q4tnftw9",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 127.31520799570717,
+      "user_cpu_ms": 824.8980000000001,
+      "system_cpu_ms": 31.159999999999993,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.94425
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.87125
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.496625
+        },
+        "emitted_records": 7324101,
+        "encode": {
+          "calls": 1,
+          "ms": 4.618583
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.724259
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.497
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.504323
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.102375
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.0575
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 670.036712
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.084542
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 90.555833
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 80.513811
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 7.011372
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.111583
+        },
+        "sort_input": 7324101,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 122.77
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-gdr72cvz",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 142.66137502272613,
+      "user_cpu_ms": 939.1099999999999,
+      "system_cpu_ms": 31.344000000000012,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 1.746958
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.874875
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.366625
+        },
+        "emitted_records": 7324100,
+        "encode": {
+          "calls": 1,
+          "ms": 4.397583
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.12189
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.553916
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.296937
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 28.653792
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.066667
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 784.756149
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.092459
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 107.424625
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 97.840712
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 5.628372
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.010583
+        },
+        "sort_input": 7324100,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 138.00975
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-_jw7zda1",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 145.21395802148618,
+      "user_cpu_ms": 927.4330000000002,
+      "system_cpu_ms": 30.289999999999985,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.024583
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.87225
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.363042
+        },
+        "emitted_records": 7324100,
+        "encode": {
+          "calls": 1,
+          "ms": 4.300834
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.324974
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.429207
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 8.991036
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 28.832417
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.065792
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 774.805231
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.087292
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 108.616333
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 98.928373
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 5.852726
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.292875
+        },
+        "sort_input": 7324100,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 140.652541
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-bquqf108",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 134.88154200604185,
+      "user_cpu_ms": 812.8159999999998,
+      "system_cpu_ms": 31.075999999999993,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.95625
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.868042
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.432208
+        },
+        "emitted_records": 7324101,
+        "encode": {
+          "calls": 1,
+          "ms": 4.436042
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 7.506177
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.273666
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.430394
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.98375
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.07075
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 665.477235
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.0815
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 97.183833
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 88.379912
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 11.500323
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 21.243541
+        },
+        "sort_input": 7324101,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 130.301584
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-wzimd5aj",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 130.6342910102103,
+      "user_cpu_ms": 815.1570000000002,
+      "system_cpu_ms": 29.67900000000001,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 1.757458
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.927708
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.419083
+        },
+        "emitted_records": 7324101,
+        "encode": {
+          "calls": 1,
+          "ms": 4.26525
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 7.821765
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.426417
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.564836
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 28.015292
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.070209
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 659.981231
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.086875
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 96.17975
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 86.972567
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 6.009253
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 19.39925
+        },
+        "sort_input": 7324101,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 126.134875
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-tetrnmxg",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 147.45595899876207,
+      "user_cpu_ms": 934.2499999999995,
+      "system_cpu_ms": 30.363,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 1.682333
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.867041
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.353334
+        },
+        "emitted_records": 7324100,
+        "encode": {
+          "calls": 1,
+          "ms": 4.390417
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.357429
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.498335
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.183963
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 28.426208
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.067083
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 780.936562
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.081583
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 112.765667
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 103.016146
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 8.069508
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 19.8115
+        },
+        "sort_input": 7324100,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 143.046459
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-w53fs51w",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 132.64062500093132,
+      "user_cpu_ms": 832.4510000000007,
+      "system_cpu_ms": 32.69899999999998,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.95475
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.940625
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.489375
+        },
+        "emitted_records": 7324101,
+        "encode": {
+          "calls": 1,
+          "ms": 4.506209
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.177956
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.550375
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.281338
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.688291
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.0845
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 673.701556
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.096041
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 95.333292
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 85.836587
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 5.362856
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.744667
+        },
+        "sort_input": 7324101,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 128.182791
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-gpkubmrh",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 145.29070901335217,
+      "user_cpu_ms": 950.3079999999998,
+      "system_cpu_ms": 31.608000000000025,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.029084
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.877833
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.38625
+        },
+        "emitted_records": 7324100,
+        "encode": {
+          "calls": 1,
+          "ms": 4.4015
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.264791
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.557624
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.290171
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.111208
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.066125
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 795.964977
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.08725
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 108.286417
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 98.755751
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 7.001736
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.441875
+        },
+        "sort_input": 7324100,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 140.605208
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-mzddosee",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 146.06129200547002,
+      "user_cpu_ms": 939.5930000000003,
+      "system_cpu_ms": 29.468999999999966,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.982459
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.874125
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.377833
+        },
+        "emitted_records": 7324100,
+        "encode": {
+          "calls": 1,
+          "ms": 4.39925
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.113284
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.439042
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.445475
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 28.811542
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.066458
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 788.27684
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.095334
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 109.56625
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 100.154996
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 5.627594
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.156416
+        },
+        "sort_input": 7324100,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 141.543583
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-azh65wlr",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 132.22887500887737,
+      "user_cpu_ms": 823.587999999999,
+      "system_cpu_ms": 31.23200000000004,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.981708
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.936625
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.499667
+        },
+        "emitted_records": 7324101,
+        "encode": {
+          "calls": 1,
+          "ms": 4.490541
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 7.98534
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.540792
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.413868
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 30.225708
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.071875
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 669.655148
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.083417
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 94.212042
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 84.84896
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 5.806822
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 21.295209
+        },
+        "sort_input": 7324101,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 127.600417
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-5bh1bez3",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.52558300481178,
+      "user_cpu_ms": 946.3679999999997,
+      "system_cpu_ms": 31.43499999999999,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.932875
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.900583
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.594959
+        },
+        "emitted_records": 7324100,
+        "encode": {
+          "calls": 1,
+          "ms": 4.532375
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.318899
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.262334
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 8.622734
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.830541
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.079584
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 791.600656
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.083416
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 111.02425
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 101.37769
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 8.4978
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.798167
+        },
+        "sort_input": 7324100,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 143.974625
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-bui52jq7",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 133.111832983559,
+      "user_cpu_ms": 834.3360000000005,
+      "system_cpu_ms": 30.02699999999997,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.946375
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.9315
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.514458
+        },
+        "emitted_records": 7324101,
+        "encode": {
+          "calls": 1,
+          "ms": 4.455916
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.063494
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.443457
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.247445
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 28.59375
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.061792
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 678.492438
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.088167
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 96.810417
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 87.37562
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 5.517568
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 19.688
+        },
+        "sort_input": 7324101,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 128.526375
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-3iwpk57_",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 146.1347920121625,
+      "user_cpu_ms": 951.34,
+      "system_cpu_ms": 31.84600000000004,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 1.680875
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.891
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.418083
+        },
+        "emitted_records": 7324100,
+        "encode": {
+          "calls": 1,
+          "ms": 4.452625
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.341045
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 1.88921
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.297977
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.661833
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.068375
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 798.641558
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.084917
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 109.884333
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 100.182178
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 6.96814
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.896125
+        },
+        "sort_input": 7324100,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 141.412584
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-6acgjy76",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 130.78783298260532,
+      "user_cpu_ms": 828.2670000000003,
+      "system_cpu_ms": 31.233999999999927,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.995416
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.928458
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.447792
+        },
+        "emitted_records": 7324101,
+        "encode": {
+          "calls": 1,
+          "ms": 4.524958
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 7.987317
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.452417
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 8.568682
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.0465
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.065583
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 674.606338
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.099792
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 93.9705
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 84.612717
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 7.226083
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.141041
+        },
+        "sort_input": 7324101,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 126.201084
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "probe",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-apuwvlqd",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 136.83220799430273,
+      "user_cpu_ms": 826.3680000000004,
+      "system_cpu_ms": 31.287000000000063,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.966375
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.938334
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.542459
+        },
+        "emitted_records": 7324101,
+        "encode": {
+          "calls": 1,
+          "ms": 4.534917
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 7.872588
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.558415
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.181868
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.335125
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.066334
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 669.647993
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.086083
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 99.861333
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 90.591179
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 5.832461
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.315083
+        },
+        "sort_input": 7324101,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 132.33725
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "grouped_8",
+      "source": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "version": "control",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-avku9os2",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 144.79774999199435,
+      "user_cpu_ms": 954.6229999999998,
+      "system_cpu_ms": 32.00400000000003,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 4104,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.022834
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 0.892583
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.448958
+        },
+        "emitted_records": 7324100,
+        "encode": {
+          "calls": 1,
+          "ms": 4.520416
+        },
+        "extend": {
+          "calls": 4104,
+          "ms": 8.022327
+        },
+        "file_open": {
+          "calls": 8,
+          "ms": 0.531625
+        },
+        "file_read": {
+          "calls": 4104,
+          "ms": 7.299428
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 29.282834
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.067125
+        },
+        "gram_hash": {
+          "calls": 4104,
+          "ms": 798.536238
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.087125
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 107.691875
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4105,
+          "ms": 98.274195
+        },
+        "send_wait": {
+          "calls": 4104,
+          "ms": 5.858204
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 20.417083
+        },
+        "sort_input": 7324100,
+        "sort_output": 980863,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 140.175875
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        },
+        "documents": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc"
+      },
+      "files": 8,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-h5hmzngk",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1257.6386660221033,
+      "user_cpu_ms": 3615.089999999999,
+      "system_cpu_ms": 625.332,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 23.908208
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 58.864001
+        },
+        "emitted_records": 45120809,
+        "encode": {
+          "calls": 1,
+          "ms": 186.749084
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 195.624156
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 166.609462
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 699.578713
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 642.673667
+        },
+        "git": {
+          "calls": 1,
+          "ms": 57.591625
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1885.110251
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 5.175083
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 310.511167
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 522.186209
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 322.843083
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1365.275028
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 164.821209
+        },
+        "sort_input": 45120809,
+        "sort_output": 35460621,
+        "spill": {
+          "calls": 2,
+          "ms": 311.857083
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.171083
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1252.07025
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-sgji5do_",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1169.9160829884931,
+      "user_cpu_ms": 3805.205000000001,
+      "system_cpu_ms": 554.0959999999999,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.129125
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.681333
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 194.400166
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 197.656342
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 219.444521
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 19.159314
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 649.266958
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.294584
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1895.479909
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 11.511709
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 309.225625
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 446.456625
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 244.898265
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1369.963567
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 166.348875
+        },
+        "sort_input": 45120781,
+        "sort_output": 35503717,
+        "spill": {
+          "calls": 2,
+          "ms": 312.251916
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.221251
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1164.237375
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-rjp_c324",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1157.1864169964101,
+      "user_cpu_ms": 3792.019,
+      "system_cpu_ms": 546.5770000000001,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.751541
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.929416
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 186.820666
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 198.972723
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 224.877577
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 21.026691
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 640.360083
+        },
+        "git": {
+          "calls": 1,
+          "ms": 33.957417
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1896.587823
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 5.012792
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 309.67575
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 448.892416
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 246.033733
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1383.060965
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 165.759209
+        },
+        "sort_input": 45120781,
+        "sort_output": 35469030,
+        "spill": {
+          "calls": 2,
+          "ms": 311.852291
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.163042
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1151.536458
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-skg1h5qb",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1150.7717499916907,
+      "user_cpu_ms": 3661.753000000001,
+      "system_cpu_ms": 567.7689999999998,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 21.315708
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 60.263167
+        },
+        "emitted_records": 45120809,
+        "encode": {
+          "calls": 1,
+          "ms": 188.566875
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 198.385698
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 242.844245
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 20.177559
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 646.693625
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.377792
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1748.782164
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 10.154208
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 309.7575
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 431.961042
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 229.830033
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1384.186366
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 168.012959
+        },
+        "sort_input": 45120809,
+        "sort_output": 35469196,
+        "spill": {
+          "calls": 2,
+          "ms": 316.83775
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.561124
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1145.045917
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-p4s8wo4c",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1155.0606249948032,
+      "user_cpu_ms": 3665.079000000002,
+      "system_cpu_ms": 574.1390000000001,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 23.922375
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 59.96675
+        },
+        "emitted_records": 45120809,
+        "encode": {
+          "calls": 1,
+          "ms": 191.60625
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 199.342202
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 236.570332
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 19.679341
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 650.791125
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.718375
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1755.431383
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.957333
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 311.815916
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 434.343084
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 230.756668
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1402.007669
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 168.399417
+        },
+        "sort_input": 45120809,
+        "sort_output": 35508430,
+        "spill": {
+          "calls": 2,
+          "ms": 317.081959
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.71525
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1149.258083
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-grhaslew",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1167.7435000019614,
+      "user_cpu_ms": 3802.5269999999978,
+      "system_cpu_ms": 565.2890000000003,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 23.858333
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.555916
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 189.1955
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 197.425604
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 224.747702
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 20.065809
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 649.690292
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.747667
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1896.340521
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 5.096667
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 313.642458
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 447.979208
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 246.692275
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1381.450775
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 167.108375
+        },
+        "sort_input": 45120781,
+        "sort_output": 35463232,
+        "spill": {
+          "calls": 2,
+          "ms": 313.0825
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.417666
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1161.915791
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-_bh2e4ns",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1145.999957981985,
+      "user_cpu_ms": 3665.3149999999996,
+      "system_cpu_ms": 554.64,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 20.663208
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 59.580916
+        },
+        "emitted_records": 45120809,
+        "encode": {
+          "calls": 1,
+          "ms": 188.961083
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 196.045997
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 235.196675
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 20.773455
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 649.326417
+        },
+        "git": {
+          "calls": 1,
+          "ms": 35.111167
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1751.838667
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 5.047583
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 312.864125
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 429.418167
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 229.583283
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1366.775429
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 165.418333
+        },
+        "sort_input": 45120809,
+        "sort_output": 35454216,
+        "spill": {
+          "calls": 2,
+          "ms": 313.549667
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.549916
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1140.096291
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-ai7e16_i",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1169.4913750106934,
+      "user_cpu_ms": 3784.624999999998,
+      "system_cpu_ms": 588.4929999999997,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.930167
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.746375
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 192.462542
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 199.162561
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 229.707427
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 21.842117
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 647.686458
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.665291
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1890.108971
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 9.817792
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 308.760708
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 448.053792
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 245.128432
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1382.933352
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 167.927667
+        },
+        "sort_input": 45120781,
+        "sort_output": 35457134,
+        "spill": {
+          "calls": 2,
+          "ms": 314.689416
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 89.014583
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1163.737708
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-t0yi9_pz",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1169.401499995729,
+      "user_cpu_ms": 3789.6089999999986,
+      "system_cpu_ms": 547.9570000000002,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 21.976709
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 58.153124
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 190.203541
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 201.479842
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 232.594033
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 21.701051
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 649.32125
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.6945
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1910.860305
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 5.210208
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 310.613709
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 451.888167
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 246.527239
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1382.949684
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 168.869625
+        },
+        "sort_input": 45120781,
+        "sort_output": 35516314,
+        "spill": {
+          "calls": 2,
+          "ms": 316.202
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 89.178458
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1163.634584
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-iu3q94r_",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1160.6734170054551,
+      "user_cpu_ms": 3672.319000000002,
+      "system_cpu_ms": 528.5479999999998,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 20.293625
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 61.948459
+        },
+        "emitted_records": 45120809,
+        "encode": {
+          "calls": 1,
+          "ms": 189.549666
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 204.575461
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 221.512741
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 19.998446
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 649.50925
+        },
+        "git": {
+          "calls": 1,
+          "ms": 35.349625
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1778.634551
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 10.525167
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 312.029875
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 438.485833
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 230.154291
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1423.986628
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 169.00875
+        },
+        "sort_input": 45120809,
+        "sort_output": 35492429,
+        "spill": {
+          "calls": 2,
+          "ms": 320.157834
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 89.199625
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1154.709125
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-n2s30s6t",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1168.4952919895295,
+      "user_cpu_ms": 3791.240000000002,
+      "system_cpu_ms": 515.2640000000001,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 19.551
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.373041
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 199.848458
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 196.696395
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 225.423155
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 18.920843
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 655.418709
+        },
+        "git": {
+          "calls": 1,
+          "ms": 35.3795
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1888.4903
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 5.31325
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 309.746083
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 446.363417
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 245.816493
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1372.243368
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 167.093708
+        },
+        "sort_input": 45120781,
+        "sort_output": 35465153,
+        "spill": {
+          "calls": 2,
+          "ms": 312.545042
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.077542
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1162.57725
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-0fy_2bny",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1169.899708009325,
+      "user_cpu_ms": 3669.052999999998,
+      "system_cpu_ms": 582.777,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.206666
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 59.206042
+        },
+        "emitted_records": 45120809,
+        "encode": {
+          "calls": 1,
+          "ms": 193.441792
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 200.97686
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 251.854049
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 23.966909
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 653.710708
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.919042
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1819.466491
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 5.269208
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 309.493792
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 447.393458
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 242.292201
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1416.425036
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 172.403793
+        },
+        "sort_input": 45120809,
+        "sort_output": 35455507,
+        "spill": {
+          "calls": 2,
+          "ms": 320.255959
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.645667
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1164.035792
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-idqh6tad",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1195.4922919976525,
+      "user_cpu_ms": 3662.1839999999966,
+      "system_cpu_ms": 551.7699999999994,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.242209
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 59.79725
+        },
+        "emitted_records": 45120809,
+        "encode": {
+          "calls": 1,
+          "ms": 217.738958
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 208.490251
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 235.066797
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 22.500775
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 677.562417
+        },
+        "git": {
+          "calls": 1,
+          "ms": 37.89025
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1784.347936
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.995916
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 310.782042
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 446.128334
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 233.973553
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1461.941152
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 177.472293
+        },
+        "sort_input": 45120809,
+        "sort_output": 35457752,
+        "spill": {
+          "calls": 2,
+          "ms": 325.250334
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 87.980042
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1189.361167
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-e6snxu4g",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1171.0207499854732,
+      "user_cpu_ms": 3812.381000000002,
+      "system_cpu_ms": 589.5290000000007,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 25.272584
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.4675
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 191.892459
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 201.867047
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 222.925295
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 20.772267
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 645.690291
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.971834
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1919.478169
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.908041
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 308.484125
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 453.800625
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 248.077312
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1399.262399
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 169.839626
+        },
+        "sort_input": 45120781,
+        "sort_output": 35480056,
+        "spill": {
+          "calls": 2,
+          "ms": 315.481416
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.173708
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1165.191
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-tc6fnatn",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1167.8741670039017,
+      "user_cpu_ms": 3673.7130000000066,
+      "system_cpu_ms": 579.1339999999998,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 23.736125
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 60.0775
+        },
+        "emitted_records": 45120809,
+        "encode": {
+          "calls": 1,
+          "ms": 191.093167
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 205.530589
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 238.785108
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 22.158713
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 654.485667
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.844458
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1792.452056
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 5.0975
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 313.103
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 443.393583
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 234.12799
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1430.253092
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 174.715042
+        },
+        "sort_input": 45120809,
+        "sort_output": 35515896,
+        "spill": {
+          "calls": 2,
+          "ms": 323.772917
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.979666
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1162.106208
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-v6v_tgl6",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1184.769707993837,
+      "user_cpu_ms": 3845.163999999997,
+      "system_cpu_ms": 561.9870000000002,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.583125
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 58.2085
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 187.302667
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 205.514146
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 233.059785
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 21.85373
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 646.804083
+        },
+        "git": {
+          "calls": 1,
+          "ms": 35.532834
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1955.446831
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 10.288292
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 312.662042
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 463.2225
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 253.803535
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1426.332083
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 171.388167
+        },
+        "sort_input": 45120781,
+        "sort_output": 35466431,
+        "spill": {
+          "calls": 2,
+          "ms": 319.048292
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 89.450833
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1178.9795
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/before-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-1yqkjri3",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1260.930208984064,
+      "user_cpu_ms": 3926.158000000001,
+      "system_cpu_ms": 570.5419999999997,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 20.844667
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 64.767499
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 187.203542
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 227.636346
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 232.986147
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 27.366561
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 676.036375
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.840917
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2141.376498
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.956958
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 319.684209
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 517.792458
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 286.605833
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1668.822567
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 196.237501
+        },
+        "sort_input": 45120781,
+        "sort_output": 35570190,
+        "spill": {
+          "calls": 2,
+          "ms": 363.862375
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 102.8565
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1255.013166
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/after-phase",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-deferred-gram-compaction-2026-09-08/phases/index-41kdjhrj",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1174.9688330164645,
+      "user_cpu_ms": 3725.024000000005,
+      "system_cpu_ms": 582.1860000000001,
+      "profile": {
+        "chunk_collect": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.376208
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 62.061667
+        },
+        "emitted_records": 45120809,
+        "encode": {
+          "calls": 1,
+          "ms": 187.263542
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 206.742648
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 234.731002
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 21.19755
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 649.541084
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.458541
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 1830.102925
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 12.076958
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 310.54975
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 449.806709
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 239.360211
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1444.405325
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 175.019541
+        },
+        "sort_input": 45120809,
+        "sort_output": 35465092,
+        "spill": {
+          "calls": 2,
+          "ms": 327.110249
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 90.027917
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1168.796583
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    }
+  ],
+  "samples": []
+}

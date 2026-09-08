@@ -1,0 +1,118 @@
+--- a/src/ngram.rs
++++ b/src/ngram.rs
+@@ -12,9 +12,9 @@
+ static PAIR_WEIGHT_TABLE: OnceLock<Box<[u64]>> = OnceLock::new();
+ 
+ #[derive(Default)]
+-pub(crate) struct IdentityHasher(u64);
+-
+-impl Hasher for IdentityHasher {
++pub(crate) struct GramHasher(u64);
++
++impl Hasher for GramHasher {
+     fn finish(&self) -> u64 {
+         self.0
+     }
+@@ -28,19 +28,36 @@
+     }
+ 
+     fn write_u32(&mut self, value: u32) {
+-        self.0 = u64::from(value);
+-    }
+-}
+-
+-type IdentityBuildHasher = BuildHasherDefault<IdentityHasher>;
++        // HashSet uses the high hash bits to filter candidate buckets. Gram
++        // hashes are already mixed, but widening them alone leaves those bits
++        // zero. Spread them across u64 without changing the stored gram key.
++        self.0 = u64::from(value).wrapping_mul(0x9e37_79b9_7f4a_7c15);
++    }
++}
++
++type GramBuildHasher = BuildHasherDefault<GramHasher>;
+ pub(crate) type GramHash = u32;
+-pub(crate) type GramHashSet = HashSet<GramHash, IdentityBuildHasher>;
+-pub(crate) type GramHashMap<V> = HashMap<GramHash, V, IdentityBuildHasher>;
++pub(crate) type GramHashSet = HashSet<GramHash, GramBuildHasher>;
++pub(crate) type GramHashMap<V> = HashMap<GramHash, V, GramBuildHasher>;
+ 
+ /// Emit every trigram plus longer sparse n-grams whose endpoint bigram
+ /// weights dominate all weights inside the span. The predicate only depends
+ /// on bytes inside the n-gram, so a gram selected from a query is guaranteed
+ /// to have been selected from every document containing that query.
++pub fn hashes_for_chunk(bytes: &[u8]) -> Vec<GramHash> {
++    let mut seen = GramHashSet::with_capacity_and_hasher(bytes.len(), Default::default());
++    let mut hashes = Vec::new();
++    for_each_sparse_gram(bytes, |_, _, hash| {
++        let hash = compact_hash(hash);
++        if seen.insert(hash) {
++            hashes.push(hash);
++        }
++    });
++    hashes
++}
++
++/// Original set-based extraction, retained as a test oracle.
++#[cfg(test)]
+ pub fn hashes_for_document(bytes: &[u8]) -> GramHashSet {
+     let mut hashes = GramHashSet::with_capacity_and_hasher(bytes.len(), Default::default());
+     for_each_sparse_gram(bytes, |_, _, hash| {
+@@ -218,6 +235,43 @@
+ #[cfg(test)]
+ mod tests {
+     use super::*;
++
++    #[test]
++    fn gram_hasher_distributes_bucket_and_tag_bits() {
++        let mut tags = HashSet::new();
++        let mut buckets = HashSet::new();
++        for key in 0..4096 {
++            let mut hasher = GramHasher::default();
++            hasher.write_u32(key);
++            let hash = hasher.finish();
++            tags.insert(hash >> 57);
++            buckets.insert(hash & 255);
++        }
++        assert_eq!(tags.len(), 128);
++        assert_eq!(buckets.len(), 256);
++    }
++
++    #[test]
++    fn chunk_output_is_unique_and_matches_set_extraction() {
++        let mut state = 12345_u32;
++        let random: Vec<u8> = (0..16 * 1024 + 23)
++            .map(|_| {
++                state ^= state << 13;
++                state ^= state >> 17;
++                state ^= state << 5;
++                state as u8
++            })
++            .collect();
++        let repeated = b"fn repeated_name() { repeated_name(); }\n".repeat(512);
++        for bytes in [&random[..], &repeated[..]] {
++            for len in [0, 1, 2, 3, 24, 4095, 4096, 16 * 1024, bytes.len()] {
++                let hashes = hashes_for_chunk(&bytes[..len]);
++                let actual: GramHashSet = hashes.iter().copied().collect();
++                assert_eq!(hashes.len(), actual.len(), "duplicate gram at length {len}");
++                assert_eq!(actual, hashes_for_document(&bytes[..len]), "length {len}");
++            }
++        }
++    }
+ 
+     #[test]
+     fn chosen_query_gram_is_always_in_document_grams() {
+--- a/src/index.rs
++++ b/src/index.rs
+@@ -511,11 +511,7 @@
+         if retained > 0 && len == retained {
+             break;
+         }
+-        emit(
+-            ngram::hashes_for_document(&bytes[..len])
+-                .into_iter()
+-                .collect(),
+-        )?;
++        emit(ngram::hashes_for_chunk(&bytes[..len]))?;
+         if len < bytes.len() {
+             break;
+         }

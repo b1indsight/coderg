@@ -1,0 +1,66 @@
+{
+  "datasets": [
+    {
+      "id": "vllm",
+      "kind": "vllm",
+      "root": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "commit": "569adb5a9780f9c02d22a6b29826acf711512356"
+    },
+    {
+      "id": "viberwhisper",
+      "kind": "rust",
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+      "source": "/Users/b1indsight/personal_work/viberwhisper",
+      "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233"
+    },
+    {
+      "id": "agentflow",
+      "kind": "python",
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+      "source": "/Users/b1indsight/personal_work/agentflow",
+      "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30"
+    },
+    {
+      "id": "small_256",
+      "kind": "synthetic",
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/small_256",
+      "files": 256,
+      "kib_per_file": 16,
+      "source_bytes": 4194304,
+      "commit": "08b41c743f3d2887ce0871457ff87d8a11b28e9e"
+    },
+    {
+      "id": "regular_4096",
+      "kind": "synthetic",
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/regular_4096",
+      "files": 4096,
+      "kib_per_file": 16,
+      "source_bytes": 67108864,
+      "commit": "28706d709afe4bca7ec8ddacc4e71edbbbf219b1"
+    },
+    {
+      "id": "many_small_16384",
+      "kind": "synthetic",
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/many_small_16384",
+      "files": 16384,
+      "kib_per_file": 4,
+      "source_bytes": 67108864,
+      "commit": "9439f9c19e632db9cc87575faeb8b96845e034a0"
+    },
+    {
+      "id": "few_large_64",
+      "kind": "synthetic",
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "files": 64,
+      "kib_per_file": 1024,
+      "source_bytes": 67108864,
+      "commit": "9ad96402e96098260593ee566d04ac257193c013"
+    },
+    {
+      "id": "shared_anchor",
+      "kind": "synthetic",
+      "root": "/private/tmp/coderg-query-cover-8__b1tet/shared-anchor",
+      "commit": "8454100c0ff78ac4f27b8b4ab4eb7ed282fa3343"
+    }
+  ]
+}

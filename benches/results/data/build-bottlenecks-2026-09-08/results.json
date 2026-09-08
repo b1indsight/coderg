@@ -1,0 +1,4119 @@
+{
+  "versions": {
+    "control": {
+      "path": "target/release/coderg",
+      "sha256": "2eb32abfc5e97226ebd7570046dfebfba6939771fbfb50648006de8c06303cc8"
+    },
+    "probe": {
+      "path": "target/profiling/coderg",
+      "sha256": "f0c5c12f3f6d6dd1fefd5b4d8fbad3cd6266445daa78783dd6243a09a93b0199"
+    }
+  },
+  "runs": [
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "probe",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-nn0uy7lj",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1070.429832994705,
+      "user_cpu_ms": 1126.7910000000002,
+      "system_cpu_ms": 45.82,
+      "profile": {
+        "chunk_collect": {
+          "calls": 4160,
+          "ms": 65.985331
+        },
+        "chunks": 4160,
+        "collect_files": {
+          "calls": 1,
+          "ms": 4.749458
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 1.734417
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 2.968042
+        },
+        "emitted_records": 7335895,
+        "encode": {
+          "calls": 1,
+          "ms": 7.811166
+        },
+        "extend": {
+          "calls": 4160,
+          "ms": 8.971951
+        },
+        "file_open": {
+          "calls": 64,
+          "ms": 2.25854
+        },
+        "file_read": {
+          "calls": 4160,
+          "ms": 9.781029
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 35.030167
+        },
+        "git": {
+          "calls": 1,
+          "ms": 4.061208
+        },
+        "gram_hash": {
+          "calls": 4160,
+          "ms": 870.263274
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.278916
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 126.28
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4161,
+          "ms": 115.799698
+        },
+        "send_wait": {
+          "calls": 4160,
+          "ms": 30.537217
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 22.50075
+        },
+        "sort_input": 7335895,
+        "sort_output": 3211895,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 170.5555
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "control",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-x0vx0deu",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 153.66191600332968,
+      "user_cpu_ms": 969.7500000000001,
+      "system_cpu_ms": 35.099999999999994,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "probe",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-v0c6oid4",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.29704101430252,
+      "user_cpu_ms": 973.8859999999999,
+      "system_cpu_ms": 34.467999999999996,
+      "profile": {
+        "chunk_collect": {
+          "calls": 4160,
+          "ms": 57.099819
+        },
+        "chunks": 4160,
+        "collect_files": {
+          "calls": 1,
+          "ms": 2.945084
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 1.790125
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 2.971459
+        },
+        "emitted_records": 7335895,
+        "encode": {
+          "calls": 1,
+          "ms": 7.563292
+        },
+        "extend": {
+          "calls": 4160,
+          "ms": 8.587215
+        },
+        "file_open": {
+          "calls": 64,
+          "ms": 1.847534
+        },
+        "file_read": {
+          "calls": 4160,
+          "ms": 7.821786
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 34.978209
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.898541
+        },
+        "gram_hash": {
+          "calls": 4160,
+          "ms": 731.934268
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.26725
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 104.822334
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4161,
+          "ms": 94.848398
+        },
+        "send_wait": {
+          "calls": 4160,
+          "ms": 7.183113
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 22.648625
+        },
+        "sort_input": 7335895,
+        "sort_output": 3211895,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 143.937708
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "control",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-q4twcric",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 147.10699999704957,
+      "user_cpu_ms": 964.8100000000004,
+      "system_cpu_ms": 33.086000000000006,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "control",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-92ua8ubc",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 147.18749999883585,
+      "user_cpu_ms": 967.6329999999994,
+      "system_cpu_ms": 34.114000000000004,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "probe",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-_79y_i9n",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 150.03741599502973,
+      "user_cpu_ms": 976.178,
+      "system_cpu_ms": 34.776,
+      "profile": {
+        "chunk_collect": {
+          "calls": 4160,
+          "ms": 56.296578
+        },
+        "chunks": 4160,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.027875
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 1.796292
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.050917
+        },
+        "emitted_records": 7335895,
+        "encode": {
+          "calls": 1,
+          "ms": 7.691417
+        },
+        "extend": {
+          "calls": 4160,
+          "ms": 8.784188
+        },
+        "file_open": {
+          "calls": 64,
+          "ms": 2.016712
+        },
+        "file_read": {
+          "calls": 4160,
+          "ms": 9.119559
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 36.474584
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.920209
+        },
+        "gram_hash": {
+          "calls": 4160,
+          "ms": 731.707537
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.276584
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 104.681708
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4161,
+          "ms": 94.478528
+        },
+        "send_wait": {
+          "calls": 4160,
+          "ms": 5.654351
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 23.930375
+        },
+        "sort_input": 7335895,
+        "sort_output": 3211895,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 145.415125
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "probe",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-k8rb503p",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 150.42375001939945,
+      "user_cpu_ms": 972.569,
+      "system_cpu_ms": 32.64499999999998,
+      "profile": {
+        "chunk_collect": {
+          "calls": 4160,
+          "ms": 56.123917
+        },
+        "chunks": 4160,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.018875
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 1.467083
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 2.997084
+        },
+        "emitted_records": 7335895,
+        "encode": {
+          "calls": 1,
+          "ms": 7.648333
+        },
+        "extend": {
+          "calls": 4160,
+          "ms": 8.585107
+        },
+        "file_open": {
+          "calls": 64,
+          "ms": 1.901541
+        },
+        "file_read": {
+          "calls": 4160,
+          "ms": 7.37129
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 35.654709
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.883084
+        },
+        "gram_hash": {
+          "calls": 4160,
+          "ms": 729.316248
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.281709
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 106.066833
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4161,
+          "ms": 96.101605
+        },
+        "send_wait": {
+          "calls": 4160,
+          "ms": 5.606715
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 23.537917
+        },
+        "sort_input": 7335895,
+        "sort_output": 3211895,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 145.928791
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "control",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-gjs_do7a",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 147.72908299346454,
+      "user_cpu_ms": 965.9740000000002,
+      "system_cpu_ms": 33.227000000000004,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "probe",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-czrgmlxf",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 152.63329198933206,
+      "user_cpu_ms": 969.9589999999994,
+      "system_cpu_ms": 33.75800000000001,
+      "profile": {
+        "chunk_collect": {
+          "calls": 4160,
+          "ms": 56.180882
+        },
+        "chunks": 4160,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.01
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 1.568334
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 2.995292
+        },
+        "emitted_records": 7335895,
+        "encode": {
+          "calls": 1,
+          "ms": 7.706625
+        },
+        "extend": {
+          "calls": 4160,
+          "ms": 8.384557
+        },
+        "file_open": {
+          "calls": 64,
+          "ms": 1.688291
+        },
+        "file_read": {
+          "calls": 4160,
+          "ms": 7.959207
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 37.600542
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.876375
+        },
+        "gram_hash": {
+          "calls": 4160,
+          "ms": 726.473952
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.275709
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 106.348625
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4161,
+          "ms": 96.575652
+        },
+        "send_wait": {
+          "calls": 4160,
+          "ms": 5.650876
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 25.326166
+        },
+        "sort_input": 7335895,
+        "sort_output": 3211895,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 148.138042
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "control",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-0cbr0rna",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 146.02837499114685,
+      "user_cpu_ms": 966.2870000000012,
+      "system_cpu_ms": 34.26699999999999,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "control",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-1jab43hu",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.30495900241658,
+      "user_cpu_ms": 971.349,
+      "system_cpu_ms": 33.862,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "probe",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-g76plbjx",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 149.06683302251622,
+      "user_cpu_ms": 971.2979999999991,
+      "system_cpu_ms": 34.407999999999994,
+      "profile": {
+        "chunk_collect": {
+          "calls": 4160,
+          "ms": 56.151216
+        },
+        "chunks": 4160,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.026334
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 1.473125
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 2.993666
+        },
+        "emitted_records": 7335895,
+        "encode": {
+          "calls": 1,
+          "ms": 7.5695
+        },
+        "extend": {
+          "calls": 4160,
+          "ms": 8.701283
+        },
+        "file_open": {
+          "calls": 64,
+          "ms": 1.959413
+        },
+        "file_read": {
+          "calls": 4160,
+          "ms": 10.248777
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 36.11275
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.888917
+        },
+        "gram_hash": {
+          "calls": 4160,
+          "ms": 727.810207
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.261125
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 104.256667
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4161,
+          "ms": 94.152567
+        },
+        "send_wait": {
+          "calls": 4160,
+          "ms": 5.61715
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 24.071834
+        },
+        "sort_input": 7335895,
+        "sort_output": 3211895,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 144.57375
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "control",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-0yyy12ir",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 144.97900000424124,
+      "user_cpu_ms": 970.0950000000006,
+      "system_cpu_ms": 32.84999999999999,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "probe",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-9g3fo7it",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.63574999617413,
+      "user_cpu_ms": 972.5000000000001,
+      "system_cpu_ms": 32.270999999999994,
+      "profile": {
+        "chunk_collect": {
+          "calls": 4160,
+          "ms": 56.316584
+        },
+        "chunks": 4160,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.016041
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 1.490291
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.027292
+        },
+        "emitted_records": 7335895,
+        "encode": {
+          "calls": 1,
+          "ms": 7.799209
+        },
+        "extend": {
+          "calls": 4160,
+          "ms": 8.198849
+        },
+        "file_open": {
+          "calls": 64,
+          "ms": 1.81171
+        },
+        "file_read": {
+          "calls": 4160,
+          "ms": 7.329595
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 35.65575
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.882041
+        },
+        "gram_hash": {
+          "calls": 4160,
+          "ms": 727.838724
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.273708
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 104.252041
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4161,
+          "ms": 94.660406
+        },
+        "send_wait": {
+          "calls": 4160,
+          "ms": 5.633015
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 23.334167
+        },
+        "sort_input": 7335895,
+        "sort_output": 3211895,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 144.105959
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "control",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-qniamnh4",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 147.48700000927784,
+      "user_cpu_ms": 969.7909999999989,
+      "system_cpu_ms": 32.93299999999999,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "probe",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-hazt_nas",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 150.3191659867298,
+      "user_cpu_ms": 975.3570000000007,
+      "system_cpu_ms": 33.48099999999998,
+      "profile": {
+        "chunk_collect": {
+          "calls": 4160,
+          "ms": 56.477006
+        },
+        "chunks": 4160,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.004666
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 1.791625
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.002916
+        },
+        "emitted_records": 7335895,
+        "encode": {
+          "calls": 1,
+          "ms": 7.716459
+        },
+        "extend": {
+          "calls": 4160,
+          "ms": 8.783334
+        },
+        "file_open": {
+          "calls": 64,
+          "ms": 1.623958
+        },
+        "file_read": {
+          "calls": 4160,
+          "ms": 7.657088
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 35.833334
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.880916
+        },
+        "gram_hash": {
+          "calls": 4160,
+          "ms": 734.402644
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.260834
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 105.79875
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4161,
+          "ms": 95.657854
+        },
+        "send_wait": {
+          "calls": 4160,
+          "ms": 5.861118
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 23.317417
+        },
+        "sort_input": 7335895,
+        "sort_output": 3211895,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 145.804542
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "probe",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-0o4emw_z",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 148.0653339822311,
+      "user_cpu_ms": 975.9899999999994,
+      "system_cpu_ms": 33.336000000000034,
+      "profile": {
+        "chunk_collect": {
+          "calls": 4160,
+          "ms": 56.177387
+        },
+        "chunks": 4160,
+        "collect_files": {
+          "calls": 1,
+          "ms": 3.0375
+        },
+        "count_keys": {
+          "calls": 1,
+          "ms": 1.486916
+        },
+        "dedup": {
+          "calls": 1,
+          "ms": 3.036709
+        },
+        "emitted_records": 7335895,
+        "encode": {
+          "calls": 1,
+          "ms": 7.928417
+        },
+        "extend": {
+          "calls": 4160,
+          "ms": 8.605497
+        },
+        "file_open": {
+          "calls": 64,
+          "ms": 1.760668
+        },
+        "file_read": {
+          "calls": 4160,
+          "ms": 7.481159
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 34.822375
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.910333
+        },
+        "gram_hash": {
+          "calls": 4160,
+          "ms": 731.426783
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 0.255416
+        },
+        "merge": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 104.477583
+        },
+        "read_bytes": 67108864,
+        "receive_wait": {
+          "calls": 4161,
+          "ms": 94.525296
+        },
+        "send_wait": {
+          "calls": 4160,
+          "ms": 5.866628
+        },
+        "sort": {
+          "calls": 1,
+          "ms": 22.365834
+        },
+        "sort_input": 7335895,
+        "sort_output": 3211895,
+        "spill": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "spill_write": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "total": {
+          "calls": 1,
+          "ms": 143.529625
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "few_large_64",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "version": "control",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-rpmdsvty",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 147.825333988294,
+      "user_cpu_ms": 966.8589999999995,
+      "system_cpu_ms": 35.102999999999994,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        },
+        "documents": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76"
+      },
+      "files": 64,
+      "source_bytes": 67108864
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-3l3kilk8",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1358.8510830013547,
+      "user_cpu_ms": 4367.6820000000025,
+      "system_cpu_ms": 598.228,
+      "profile": {
+        "chunk_collect": {
+          "calls": 9938,
+          "ms": 165.735908
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 21.679833
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.248166
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 186.163542
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 199.905416
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 159.893533
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 715.462623
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 642.370042
+        },
+        "git": {
+          "calls": 1,
+          "ms": 57.329708
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2499.025841
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.814458
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 308.465209
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 626.360583
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 422.73569
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1396.904171
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 168.799125
+        },
+        "sort_input": 45120781,
+        "sort_output": 35508304,
+        "spill": {
+          "calls": 2,
+          "ms": 317.7695
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 91.721625
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1353.08175
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-4ytgc8tg",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1271.6857079940382,
+      "user_cpu_ms": 4428.307999999997,
+      "system_cpu_ms": 527.9069999999999,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-h8bxpmo0",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1241.5847499796655,
+      "user_cpu_ms": 4422.759000000003,
+      "system_cpu_ms": 549.588,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-55b9pcds",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1237.5202080002055,
+      "user_cpu_ms": 4427.209999999999,
+      "system_cpu_ms": 546.5949999999999,
+      "profile": {
+        "chunk_collect": {
+          "calls": 9938,
+          "ms": 155.29368
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.1575
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.833625
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 187.0215
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 197.485638
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 216.34711
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 18.807159
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 640.335209
+        },
+        "git": {
+          "calls": 1,
+          "ms": 33.055084
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2356.321438
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 12.266917
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 307.1015
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 523.329709
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 321.911616
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1361.457921
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 165.689251
+        },
+        "sort_input": 45120781,
+        "sort_output": 35500822,
+        "spill": {
+          "calls": 2,
+          "ms": 311.683833
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.160374
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1231.664041
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-wcm49xx1",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1233.9761249895673,
+      "user_cpu_ms": 4422.690000000003,
+      "system_cpu_ms": 536.4850000000004,
+      "profile": {
+        "chunk_collect": {
+          "calls": 9938,
+          "ms": 155.037508
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.6135
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.34175
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 185.500333
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 199.63071
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 209.081394
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 20.56484
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 640.033583
+        },
+        "git": {
+          "calls": 1,
+          "ms": 33.282791
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2367.978302
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.905
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 308.492625
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 526.799583
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 323.21839
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1384.66874
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 168.603541
+        },
+        "sort_input": 45120781,
+        "sort_output": 35541360,
+        "spill": {
+          "calls": 2,
+          "ms": 314.179292
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.233417
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1228.177167
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-orjq0g7i",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1252.9778339958284,
+      "user_cpu_ms": 4422.235999999998,
+      "system_cpu_ms": 522.4009999999998,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-vju42vn7",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1233.5284170112573,
+      "user_cpu_ms": 4426.162999999995,
+      "system_cpu_ms": 546.5479999999995,
+      "profile": {
+        "chunk_collect": {
+          "calls": 9938,
+          "ms": 155.543818
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 21.891166
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.321041
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 185.803125
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 199.183565
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 223.973726
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 19.415369
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 640.29225
+        },
+        "git": {
+          "calls": 1,
+          "ms": 32.705959
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2369.271316
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.947333
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 309.748584
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 527.282333
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 324.223738
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1372.17238
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 165.832875
+        },
+        "sort_input": 45120781,
+        "sort_output": 35506666,
+        "spill": {
+          "calls": 2,
+          "ms": 311.262001
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.107542
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1227.644584
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-ll5mthi5",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1253.8486249977723,
+      "user_cpu_ms": 4434.640000000001,
+      "system_cpu_ms": 568.7170000000003,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-4k_73gse",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1249.2707089986652,
+      "user_cpu_ms": 4430.478000000001,
+      "system_cpu_ms": 524.1670000000003,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-bl3u3nor",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1233.7912499788217,
+      "user_cpu_ms": 4428.505000000001,
+      "system_cpu_ms": 527.037,
+      "profile": {
+        "chunk_collect": {
+          "calls": 9938,
+          "ms": 155.412305
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.245625
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.618208
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 188.35975
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 199.513303
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 211.882948
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 19.370413
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 641.260625
+        },
+        "git": {
+          "calls": 1,
+          "ms": 33.490291
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2363.254255
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.894666
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 308.376667
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 525.402416
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 321.875945
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1380.771143
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 166.704834
+        },
+        "sort_input": 45120781,
+        "sort_output": 35527915,
+        "spill": {
+          "calls": 2,
+          "ms": 312.49825
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.174666
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1227.823542
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-ib66hvli",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1256.2801250023767,
+      "user_cpu_ms": 4435.808999999999,
+      "system_cpu_ms": 527.5679999999996,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-xj0t7ezv",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1274.6979160001501,
+      "user_cpu_ms": 4340.270000000004,
+      "system_cpu_ms": 494.707,
+      "profile": {
+        "chunk_collect": {
+          "calls": 9938,
+          "ms": 154.711978
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 21.893667
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.554124
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 186.954375
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 206.407161
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 228.09284
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 21.083438
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 655.000334
+        },
+        "git": {
+          "calls": 1,
+          "ms": 34.708333
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2381.808659
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.995833
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 309.922417
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 551.696458
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 341.84706
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1554.995848
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 184.161792
+        },
+        "sort_input": 45120781,
+        "sort_output": 35516553,
+        "spill": {
+          "calls": 2,
+          "ms": 333.047667
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 91.33125
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1268.810667
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-n5ke5esv",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1257.4815830157604,
+      "user_cpu_ms": 4426.974000000001,
+      "system_cpu_ms": 552.9130000000002,
+      "profile": {
+        "chunk_collect": {
+          "calls": 9938,
+          "ms": 155.08846
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 23.165292
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.24425
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 187.230583
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 201.57769
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 217.171066
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 21.798784
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 662.451541
+        },
+        "git": {
+          "calls": 1,
+          "ms": 33.103
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2363.960621
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 5.007042
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 328.53075
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 527.192917
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 321.665817
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1381.486578
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 168.878416
+        },
+        "sort_input": 45120781,
+        "sort_output": 35535095,
+        "spill": {
+          "calls": 2,
+          "ms": 314.464293
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.341125
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1251.471291
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-jscoa0d8",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1251.9322079897393,
+      "user_cpu_ms": 4431.851999999992,
+      "system_cpu_ms": 518.0560000000005,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-t4j7wllj",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1238.3255830209237,
+      "user_cpu_ms": 4430.659000000006,
+      "system_cpu_ms": 515.1620000000001,
+      "profile": {
+        "chunk_collect": {
+          "calls": 9938,
+          "ms": 155.660785
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 22.81725
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.262459
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 187.903042
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 198.260126
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 209.150059
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 21.597865
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 647.152833
+        },
+        "git": {
+          "calls": 1,
+          "ms": 33.01975
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2362.094069
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 4.832167
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 312.042166
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 524.142917
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 321.90817
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1365.846551
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 167.467376
+        },
+        "sort_input": 45120781,
+        "sort_output": 35598481,
+        "spill": {
+          "calls": 2,
+          "ms": 313.156166
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 88.425916
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1232.500833
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-wrj83iri",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1247.7140830014832,
+      "user_cpu_ms": 4427.733000000004,
+      "system_cpu_ms": 525.6499999999988,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "control",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-emcpy7r_",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1244.3354580027517,
+      "user_cpu_ms": 4421.323000000001,
+      "system_cpu_ms": 545.3120000000009,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm",
+      "source": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "version": "probe",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-vs33zcqu",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 1239.1267910134047,
+      "user_cpu_ms": 4424.641999999992,
+      "system_cpu_ms": 559.7949999999994,
+      "profile": {
+        "chunk_collect": {
+          "calls": 9938,
+          "ms": 155.318178
+        },
+        "chunks": 9938,
+        "collect_files": {
+          "calls": 1,
+          "ms": 23.571208
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 2,
+          "ms": 57.2215
+        },
+        "emitted_records": 45120781,
+        "encode": {
+          "calls": 1,
+          "ms": 186.899875
+        },
+        "extend": {
+          "calls": 9938,
+          "ms": 201.279749
+        },
+        "file_open": {
+          "calls": 6929,
+          "ms": 209.866809
+        },
+        "file_read": {
+          "calls": 10032,
+          "ms": 19.650834
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 641.928041
+        },
+        "git": {
+          "calls": 1,
+          "ms": 32.197333
+        },
+        "gram_hash": {
+          "calls": 9938,
+          "ms": 2360.118543
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 9.847584
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 308.943583
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 525.3715
+        },
+        "read_bytes": 87866836,
+        "receive_wait": {
+          "calls": 9939,
+          "ms": 320.066254
+        },
+        "send_wait": {
+          "calls": 9938,
+          "ms": 1387.626925
+        },
+        "sort": {
+          "calls": 2,
+          "ms": 170.000792
+        },
+        "sort_input": 45120781,
+        "sort_output": 35580975,
+        "spill": {
+          "calls": 2,
+          "ms": 314.679208
+        },
+        "spill_write": {
+          "calls": 2,
+          "ms": 87.456208
+        },
+        "total": {
+          "calls": 1,
+          "ms": 1233.432125
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        },
+        "documents": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17"
+      },
+      "files": 6835,
+      "source_bytes": 86384180
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "control",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-hq79m3zu",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5201.117332995636,
+      "user_cpu_ms": 17850.02,
+      "system_cpu_ms": 2003.0590000000004,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "probe",
+      "iteration": -2,
+      "warmup": true,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-2ua0yr0u",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5205.0514169968665,
+      "user_cpu_ms": 17822.992,
+      "system_cpu_ms": 2141.0490000000004,
+      "profile": {
+        "chunk_collect": {
+          "calls": 39752,
+          "ms": 638.050083
+        },
+        "chunks": 39752,
+        "collect_files": {
+          "calls": 1,
+          "ms": 75.600625
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 8,
+          "ms": 229.784876
+        },
+        "emitted_records": 180483124,
+        "encode": {
+          "calls": 1,
+          "ms": 639.75525
+        },
+        "extend": {
+          "calls": 39752,
+          "ms": 1259.271009
+        },
+        "file_open": {
+          "calls": 27340,
+          "ms": 775.463303
+        },
+        "file_read": {
+          "calls": 39752,
+          "ms": 1089.147347
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 2365.571208
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.116209
+        },
+        "gram_hash": {
+          "calls": 39752,
+          "ms": 9638.444519
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 11.021167
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 1628.375917
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 2742.405875
+        },
+        "read_bytes": 345536720,
+        "receive_wait": {
+          "calls": 39753,
+          "ms": 1467.113986
+        },
+        "send_wait": {
+          "calls": 39752,
+          "ms": 9627.795726
+        },
+        "sort": {
+          "calls": 8,
+          "ms": 666.823374
+        },
+        "sort_input": 180483124,
+        "sort_output": 142321677,
+        "spill": {
+          "calls": 8,
+          "ms": 1252.576125
+        },
+        "spill_write": {
+          "calls": 8,
+          "ms": 355.965459
+        },
+        "total": {
+          "calls": 1,
+          "ms": 5196.629042
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "control",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-2e_hxp9n",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5569.809416017961,
+      "user_cpu_ms": 17565.810999999998,
+      "system_cpu_ms": 2236.6699999999983,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "probe",
+      "iteration": -1,
+      "warmup": true,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-8iitzbd4",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5776.351332984632,
+      "user_cpu_ms": 17486.182000000015,
+      "system_cpu_ms": 2130.756999999999,
+      "profile": {
+        "chunk_collect": {
+          "calls": 39752,
+          "ms": 609.107925
+        },
+        "chunks": 39752,
+        "collect_files": {
+          "calls": 1,
+          "ms": 79.675042
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 8,
+          "ms": 230.025834
+        },
+        "emitted_records": 180483124,
+        "encode": {
+          "calls": 1,
+          "ms": 659.414709
+        },
+        "extend": {
+          "calls": 39752,
+          "ms": 1265.864861
+        },
+        "file_open": {
+          "calls": 27340,
+          "ms": 758.514522
+        },
+        "file_read": {
+          "calls": 39752,
+          "ms": 4627.737181
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 2356.318833
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.077917
+        },
+        "gram_hash": {
+          "calls": 39752,
+          "ms": 9234.642795
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 194.305458
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 1620.054125
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 3133.4285
+        },
+        "read_bytes": 345536720,
+        "receive_wait": {
+          "calls": 39753,
+          "ms": 1851.025388
+        },
+        "send_wait": {
+          "calls": 39752,
+          "ms": 9670.539207
+        },
+        "sort": {
+          "calls": 8,
+          "ms": 677.519792
+        },
+        "sort_input": 180483124,
+        "sort_output": 142319286,
+        "spill": {
+          "calls": 8,
+          "ms": 1259.908665
+        },
+        "spill_write": {
+          "calls": 8,
+          "ms": 352.359708
+        },
+        "total": {
+          "calls": 1,
+          "ms": 5766.557708
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "control",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-_tn2h95i",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5564.478375017643,
+      "user_cpu_ms": 17673.17299999999,
+      "system_cpu_ms": 2085.0860000000002,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "probe",
+      "iteration": 0,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-rl8usrbv",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5555.885124980705,
+      "user_cpu_ms": 17795.309000000005,
+      "system_cpu_ms": 2243.6180000000013,
+      "profile": {
+        "chunk_collect": {
+          "calls": 39752,
+          "ms": 622.095092
+        },
+        "chunks": 39752,
+        "collect_files": {
+          "calls": 1,
+          "ms": 82.733458
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 8,
+          "ms": 234.31425
+        },
+        "emitted_records": 180483124,
+        "encode": {
+          "calls": 1,
+          "ms": 616.186875
+        },
+        "extend": {
+          "calls": 39752,
+          "ms": 1287.370996
+        },
+        "file_open": {
+          "calls": 27340,
+          "ms": 783.501984
+        },
+        "file_read": {
+          "calls": 39752,
+          "ms": 3894.354168
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 2324.95475
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.079542
+        },
+        "gram_hash": {
+          "calls": 39752,
+          "ms": 9495.184891
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 38.550084
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 1628.658875
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 3100.021167
+        },
+        "read_bytes": 345536720,
+        "receive_wait": {
+          "calls": 39753,
+          "ms": 1796.017077
+        },
+        "send_wait": {
+          "calls": 39752,
+          "ms": 9831.219388
+        },
+        "sort": {
+          "calls": 8,
+          "ms": 682.295959
+        },
+        "sort_input": 180483124,
+        "sort_output": 142282240,
+        "spill": {
+          "calls": 8,
+          "ms": 1280.939458
+        },
+        "spill_write": {
+          "calls": 8,
+          "ms": 364.326959
+        },
+        "total": {
+          "calls": 1,
+          "ms": 5548.384667
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "probe",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-iqr6yzir",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5647.845291998237,
+      "user_cpu_ms": 17672.73800000001,
+      "system_cpu_ms": 2086.551,
+      "profile": {
+        "chunk_collect": {
+          "calls": 39752,
+          "ms": 614.906671
+        },
+        "chunks": 39752,
+        "collect_files": {
+          "calls": 1,
+          "ms": 76.649416
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 8,
+          "ms": 235.283666
+        },
+        "emitted_records": 180483124,
+        "encode": {
+          "calls": 1,
+          "ms": 613.01525
+        },
+        "extend": {
+          "calls": 39752,
+          "ms": 1281.265869
+        },
+        "file_open": {
+          "calls": 27340,
+          "ms": 756.517541
+        },
+        "file_read": {
+          "calls": 39752,
+          "ms": 4932.739255
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 2320.933
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.08
+        },
+        "gram_hash": {
+          "calls": 39752,
+          "ms": 9349.460859
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 38.528375
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 1625.484292
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 3201.003959
+        },
+        "read_bytes": 345536720,
+        "receive_wait": {
+          "calls": 39753,
+          "ms": 1903.421621
+        },
+        "send_wait": {
+          "calls": 39752,
+          "ms": 9787.451753
+        },
+        "sort": {
+          "calls": 8,
+          "ms": 685.539792
+        },
+        "sort_input": 180483124,
+        "sort_output": 142292082,
+        "spill": {
+          "calls": 8,
+          "ms": 1276.240291
+        },
+        "spill_write": {
+          "calls": 8,
+          "ms": 355.414957
+        },
+        "total": {
+          "calls": 1,
+          "ms": 5639.236583
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "control",
+      "iteration": 1,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-4bu1fspq",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5214.426666992949,
+      "user_cpu_ms": 18280.125,
+      "system_cpu_ms": 2163.488000000001,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "probe",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-sdnnakw8",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5164.564500009874,
+      "user_cpu_ms": 18233.575,
+      "system_cpu_ms": 2131.269,
+      "profile": {
+        "chunk_collect": {
+          "calls": 39752,
+          "ms": 650.443208
+        },
+        "chunks": 39752,
+        "collect_files": {
+          "calls": 1,
+          "ms": 75.647958
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 8,
+          "ms": 242.455417
+        },
+        "emitted_records": 180483124,
+        "encode": {
+          "calls": 1,
+          "ms": 589.457666
+        },
+        "extend": {
+          "calls": 39752,
+          "ms": 1293.419224
+        },
+        "file_open": {
+          "calls": 27340,
+          "ms": 791.398744
+        },
+        "file_read": {
+          "calls": 39752,
+          "ms": 1053.996461
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 2269.070792
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.081666
+        },
+        "gram_hash": {
+          "calls": 39752,
+          "ms": 9847.151335
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 9.851208
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 1597.010167
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 2799.687916
+        },
+        "read_bytes": 345536720,
+        "receive_wait": {
+          "calls": 39753,
+          "ms": 1490.128096
+        },
+        "send_wait": {
+          "calls": 39752,
+          "ms": 9874.707633
+        },
+        "sort": {
+          "calls": 8,
+          "ms": 684.694709
+        },
+        "sort_input": 180483124,
+        "sort_output": 142305708,
+        "spill": {
+          "calls": 8,
+          "ms": 1288.919375
+        },
+        "spill_write": {
+          "calls": 8,
+          "ms": 361.766624
+        },
+        "total": {
+          "calls": 1,
+          "ms": 5156.46925
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "control",
+      "iteration": 2,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-pmqp_wwi",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5238.231082999846,
+      "user_cpu_ms": 18325.462000000014,
+      "system_cpu_ms": 2161.9700000000003,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "control",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-9pdlf6qy",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5263.278083992191,
+      "user_cpu_ms": 18340.635999999962,
+      "system_cpu_ms": 2149.9900000000025,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "probe",
+      "iteration": 3,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-hp4m2vlp",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5514.7969579847995,
+      "user_cpu_ms": 17986.513000000003,
+      "system_cpu_ms": 2088.015999999996,
+      "profile": {
+        "chunk_collect": {
+          "calls": 39752,
+          "ms": 630.272575
+        },
+        "chunks": 39752,
+        "collect_files": {
+          "calls": 1,
+          "ms": 77.499625
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 8,
+          "ms": 245.720832
+        },
+        "emitted_records": 180483124,
+        "encode": {
+          "calls": 1,
+          "ms": 595.55575
+        },
+        "extend": {
+          "calls": 39752,
+          "ms": 1297.222031
+        },
+        "file_open": {
+          "calls": 27340,
+          "ms": 772.940342
+        },
+        "file_read": {
+          "calls": 39752,
+          "ms": 3732.682852
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 2301.670125
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.082
+        },
+        "gram_hash": {
+          "calls": 39752,
+          "ms": 9539.827024
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 29.57
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 1627.16325
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 3095.71375
+        },
+        "read_bytes": 345536720,
+        "receive_wait": {
+          "calls": 39753,
+          "ms": 1782.32654
+        },
+        "send_wait": {
+          "calls": 39752,
+          "ms": 9917.492087
+        },
+        "sort": {
+          "calls": 8,
+          "ms": 692.00425
+        },
+        "sort_input": 180483124,
+        "sort_output": 142245271,
+        "spill": {
+          "calls": 8,
+          "ms": 1294.974627
+        },
+        "spill_write": {
+          "calls": 8,
+          "ms": 357.247208
+        },
+        "total": {
+          "calls": 1,
+          "ms": 5506.701625
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "probe",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-v2gsh4lz",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5563.56708399835,
+      "user_cpu_ms": 17993.825000000015,
+      "system_cpu_ms": 2153.244999999998,
+      "profile": {
+        "chunk_collect": {
+          "calls": 39752,
+          "ms": 631.982528
+        },
+        "chunks": 39752,
+        "collect_files": {
+          "calls": 1,
+          "ms": 79.969625
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 8,
+          "ms": 239.348874
+        },
+        "emitted_records": 180483124,
+        "encode": {
+          "calls": 1,
+          "ms": 621.7615
+        },
+        "extend": {
+          "calls": 39752,
+          "ms": 1291.014052
+        },
+        "file_open": {
+          "calls": 27340,
+          "ms": 767.413982
+        },
+        "file_read": {
+          "calls": 39752,
+          "ms": 3843.444855
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 2329.790167
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.080958
+        },
+        "gram_hash": {
+          "calls": 39752,
+          "ms": 9604.14186
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 32.265416
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 1628.614042
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 3111.240125
+        },
+        "read_bytes": 345536720,
+        "receive_wait": {
+          "calls": 39753,
+          "ms": 1803.997988
+        },
+        "send_wait": {
+          "calls": 39752,
+          "ms": 9867.582483
+        },
+        "sort": {
+          "calls": 8,
+          "ms": 685.688874
+        },
+        "sort_input": 180483124,
+        "sort_output": 142315046,
+        "spill": {
+          "calls": 8,
+          "ms": 1287.43175
+        },
+        "spill_write": {
+          "calls": 8,
+          "ms": 362.391668
+        },
+        "total": {
+          "calls": 1,
+          "ms": 5555.365292
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "control",
+      "iteration": 4,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-qurkmy35",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5656.095791986445,
+      "user_cpu_ms": 17897.969999999987,
+      "system_cpu_ms": 2140.1770000000015,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "control",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-f2ctfzef",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5661.341416998766,
+      "user_cpu_ms": 17860.676000000014,
+      "system_cpu_ms": 2162.758000000004,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "probe",
+      "iteration": 5,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-cyc6lyaw",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5541.994583007181,
+      "user_cpu_ms": 17962.323999999968,
+      "system_cpu_ms": 2099.4799999999996,
+      "profile": {
+        "chunk_collect": {
+          "calls": 39752,
+          "ms": 630.355059
+        },
+        "chunks": 39752,
+        "collect_files": {
+          "calls": 1,
+          "ms": 76.985958
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 8,
+          "ms": 240.591874
+        },
+        "emitted_records": 180483124,
+        "encode": {
+          "calls": 1,
+          "ms": 597.897625
+        },
+        "extend": {
+          "calls": 39752,
+          "ms": 1298.437162
+        },
+        "file_open": {
+          "calls": 27340,
+          "ms": 770.232583
+        },
+        "file_read": {
+          "calls": 39752,
+          "ms": 3991.855785
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 2291.317125
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.0855
+        },
+        "gram_hash": {
+          "calls": 39752,
+          "ms": 9552.760183
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 30.833291
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 1618.175167
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 3130.538
+        },
+        "read_bytes": 345536720,
+        "receive_wait": {
+          "calls": 39753,
+          "ms": 1815.689505
+        },
+        "send_wait": {
+          "calls": 39752,
+          "ms": 9929.145014
+        },
+        "sort": {
+          "calls": 8,
+          "ms": 695.565916
+        },
+        "sort_input": 180483124,
+        "sort_output": 142323768,
+        "spill": {
+          "calls": 8,
+          "ms": 1293.737751
+        },
+        "spill_write": {
+          "calls": 8,
+          "ms": 357.577501
+        },
+        "total": {
+          "calls": 1,
+          "ms": 5531.964125
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "control",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-v7e9biq3",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5496.505333023379,
+      "user_cpu_ms": 18131.33700000003,
+      "system_cpu_ms": 2250.5719999999983,
+      "profile": null,
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    },
+    {
+      "corpus": "vllm_x4",
+      "source": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "version": "probe",
+      "iteration": 6,
+      "warmup": false,
+      "command": [
+        "target/profiling/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/bench/index-ahx4badv",
+        "--build-memory-mib",
+        "256"
+      ],
+      "wall_ms": 5210.749499994563,
+      "user_cpu_ms": 18391.88200000001,
+      "system_cpu_ms": 2164.3410000000003,
+      "profile": {
+        "chunk_collect": {
+          "calls": 39752,
+          "ms": 656.109074
+        },
+        "chunks": 39752,
+        "collect_files": {
+          "calls": 1,
+          "ms": 78.390667
+        },
+        "count_keys": {
+          "calls": 0,
+          "ms": 0.0
+        },
+        "dedup": {
+          "calls": 8,
+          "ms": 242.501042
+        },
+        "emitted_records": 180483124,
+        "encode": {
+          "calls": 1,
+          "ms": 595.619125
+        },
+        "extend": {
+          "calls": 39752,
+          "ms": 1312.057185
+        },
+        "file_open": {
+          "calls": 27340,
+          "ms": 809.712874
+        },
+        "file_read": {
+          "calls": 39752,
+          "ms": 1156.99901
+        },
+        "final_write": {
+          "calls": 1,
+          "ms": 2265.906541
+        },
+        "git": {
+          "calls": 1,
+          "ms": 0.080375
+        },
+        "gram_hash": {
+          "calls": 39752,
+          "ms": 9933.650169
+        },
+        "manifest": {
+          "calls": 1,
+          "ms": 13.02375
+        },
+        "merge": {
+          "calls": 1,
+          "ms": 1600.478
+        },
+        "pipeline": {
+          "calls": 1,
+          "ms": 2843.065709
+        },
+        "read_bytes": 345536720,
+        "receive_wait": {
+          "calls": 39753,
+          "ms": 1514.661804
+        },
+        "send_wait": {
+          "calls": 39752,
+          "ms": 10012.879203
+        },
+        "sort": {
+          "calls": 8,
+          "ms": 687.942208
+        },
+        "sort_input": 180483124,
+        "sort_output": 142281818,
+        "spill": {
+          "calls": 8,
+          "ms": 1304.955916
+        },
+        "spill_write": {
+          "calls": 8,
+          "ms": 374.509416
+        },
+        "total": {
+          "calls": 1,
+          "ms": 5202.589167
+        }
+      },
+      "fingerprint": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        },
+        "documents": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2"
+      },
+      "files": 27340,
+      "source_bytes": 345536720
+    }
+  ],
+  "samples": []
+}

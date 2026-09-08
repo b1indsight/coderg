@@ -1,0 +1,2908 @@
+{
+  "recorded_at": "2026-09-08T14:50:10.972854+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "harness_sha256": "0a173918ede8a0870dfc022eef571cb91d68c623d03659686234ba12ae78feec",
+  "versions": {
+    "before": {
+      "binary": "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+      "sha256": "d4e3d1a81cfa19dda9d4cc13f9e045fe7402f6556286b8db43854327c66fe436",
+      "args": [],
+      "rayon_num_threads": null
+    },
+    "budget_256": {
+      "binary": "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+      "sha256": "384b157336ca791fbcabd18ded7390edeb4627aa1c7ed9e06d88b5c0d2208250",
+      "args": [
+        "--build-memory-mib",
+        "256"
+      ],
+      "rayon_num_threads": null
+    }
+  },
+  "logical_cpus": 10,
+  "method": {
+    "warmup": 2,
+    "timing": 7,
+    "rss": 3,
+    "seed": 20260908,
+    "cache": "warm filesystem cache; fresh index each run"
+  },
+  "corpora": {
+    "grouped_8": {
+      "root": "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+      "before": {
+        "commit": null,
+        "status": null
+      },
+      "after": {
+        "commit": null,
+        "status": null
+      }
+    },
+    "vllm": {
+      "root": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "before": {
+        "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+        "status": ""
+      },
+      "after": {
+        "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+        "status": ""
+      }
+    },
+    "vllm_x4": {
+      "root": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "before": {
+        "commit": null,
+        "status": null
+      },
+      "after": {
+        "commit": null,
+        "status": null
+      }
+    }
+  },
+  "runs": [
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-tkgh4lhc/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1032.612583,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-fbmryj3p/index"
+      ],
+      "elapsed_ms": 581.380333,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-b01yek4m/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 125.544625,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-tz55e2_m/index"
+      ],
+      "elapsed_ms": 132.760917,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-80h1hmri/index"
+      ],
+      "elapsed_ms": 132.602292,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-tunfjqaq/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 124.442708,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-2ljz7vgv/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 130.497625,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-2mbljo3c/index"
+      ],
+      "elapsed_ms": 130.120708,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-r1zbhvmx/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 124.925333,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-6u62momu/index"
+      ],
+      "elapsed_ms": 130.943458,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-jmhawcv1/index"
+      ],
+      "elapsed_ms": 126.745917,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-ulagaha7/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 123.490209,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-lxtxv0xu/index"
+      ],
+      "elapsed_ms": 132.349583,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-s4v47ow8/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 125.427417,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 6,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-i7mxr75q/index"
+      ],
+      "elapsed_ms": 129.234708,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 6,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-857rtef9/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 121.322083,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 7,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-v5ffq3uj/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 123.752417,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 7,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-l3cd19bo/index"
+      ],
+      "elapsed_ms": 127.486625,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-rbhuarry/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 124.209917,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 66011136
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-ol5w9_db/index"
+      ],
+      "elapsed_ms": 132.087875,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 72548352
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-9hmbfnhq/index"
+      ],
+      "elapsed_ms": 129.011791,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 72777728
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-rwsf0n92/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 127.537916,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 65863680
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-dg2gqdff/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 129.53775,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 65241088
+    },
+    {
+      "corpus": "grouped_8",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-bottlenecks-2026-09-08/corpora/grouped_8",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-t_ua8k_u/index"
+      ],
+      "elapsed_ms": 131.412875,
+      "segments": {
+        "lookup": {
+          "bytes": 1710607,
+          "sha256": "1d457373027e3d83f5591408af54d83d596345217dc2ca858efd58d53042c790"
+        },
+        "postings": {
+          "bytes": 522575,
+          "sha256": "364145e23c3e1f6077f8904e9c24dc1a45c62c26ba059ac479853eb72bca2bdc"
+        }
+      },
+      "documents_sha256": "b485040b610337125eacee6adca843771871e5c4b1f250bad3f3aa09d4001ecc",
+      "searchable_files": 8,
+      "source_bytes": 67108864,
+      "index_bytes": 2236136,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 72220672
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-ft1gpnzi/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1133.458041,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567219896,
+      "peak_temporary_bytes": 567219896,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 15690878,
+          "sha256": "9936fd191d7b77d0467b673544a60179885589814cd76828c3270022e99ca220"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 1635459,
+          "sha256": "fcf1eb0853d9fdebe73f2ec109f65f99f0d13c736edd072057b768f5a7adb4a0"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 0,
+          "bytes": 823319,
+          "sha256": "0611f8cb73c5fd626fe28d7a3d48ed012280c7355a26abadf270d432b9b673e2"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 35408174,
+          "sha256": "2d59425eb7da12c2a797bc718fa6a5d9d584d40e3d306ec4c8c2816ffbfa16be"
+        }
+      ]
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-p8jgw8v9/index"
+      ],
+      "elapsed_ms": 1171.591375,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567615704,
+      "peak_temporary_bytes": 567615704,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 15690878,
+          "sha256": "9936fd191d7b77d0467b673544a60179885589814cd76828c3270022e99ca220"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 1635459,
+          "sha256": "fcf1eb0853d9fdebe73f2ec109f65f99f0d13c736edd072057b768f5a7adb4a0"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 0,
+          "bytes": 823319,
+          "sha256": "0611f8cb73c5fd626fe28d7a3d48ed012280c7355a26abadf270d432b9b673e2"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 35408174,
+          "sha256": "2d59425eb7da12c2a797bc718fa6a5d9d584d40e3d306ec4c8c2816ffbfa16be"
+        }
+      ]
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-k1zkav7j/index"
+      ],
+      "elapsed_ms": 1168.506292,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567434360,
+      "peak_temporary_bytes": 567434360
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-d5pjha44/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1123.162584,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567255880,
+      "peak_temporary_bytes": 567255880
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-yajc9ii2/index"
+      ],
+      "elapsed_ms": 1168.272791,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567295264,
+      "peak_temporary_bytes": 567295264
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-ffpkeo_f/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1128.735084,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567223920,
+      "peak_temporary_bytes": 567223920
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-_3a6aj4u/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1130.879333,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567406152,
+      "peak_temporary_bytes": 567406152
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-8mb_dg_w/index"
+      ],
+      "elapsed_ms": 1167.547583,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567309208,
+      "peak_temporary_bytes": 567309208
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-f7o1dh7b/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1128.58225,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567262464,
+      "peak_temporary_bytes": 567262464
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-yolsdutm/index"
+      ],
+      "elapsed_ms": 1169.120833,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567318880,
+      "peak_temporary_bytes": 567318880
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-9xybom6h/index"
+      ],
+      "elapsed_ms": 1160.073542,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567294744,
+      "peak_temporary_bytes": 567294744
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-l57rooa8/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1130.294083,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567286984,
+      "peak_temporary_bytes": 567286984
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-o1wybzog/index"
+      ],
+      "elapsed_ms": 1164.665875,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567636480,
+      "peak_temporary_bytes": 567636480
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-4ozueft2/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1132.902666,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567217616,
+      "peak_temporary_bytes": 567217616
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 6,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-wpp18o62/index"
+      ],
+      "elapsed_ms": 1163.96475,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567430744,
+      "peak_temporary_bytes": 567430744
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 6,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-3ty8vqfg/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1132.136292,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567277584,
+      "peak_temporary_bytes": 567277584
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 7,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-3lwzzt4j/index"
+      ],
+      "elapsed_ms": 1163.871583,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567278000,
+      "peak_temporary_bytes": 567278000
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 7,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-iupr4yfn/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1129.759167,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567214152,
+      "peak_temporary_bytes": 567214152
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-h7b03w8k/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1134.325792,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567265488,
+      "peak_temporary_bytes": 567265488,
+      "rss_bytes": 223133696
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-o4qxic8h/index"
+      ],
+      "elapsed_ms": 1168.615917,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567417040,
+      "peak_temporary_bytes": 567417040,
+      "rss_bytes": 219496448
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-7yfy80c3/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1125.965916,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567265296,
+      "peak_temporary_bytes": 567265296,
+      "rss_bytes": 222707712
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-r_yocip9/index"
+      ],
+      "elapsed_ms": 1200.544917,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567271088,
+      "peak_temporary_bytes": 567271088,
+      "rss_bytes": 219414528
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-cljg2jgc/index"
+      ],
+      "elapsed_ms": 1160.204917,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567592800,
+      "peak_temporary_bytes": 567592800,
+      "rss_bytes": 220053504
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-6vz2iawa/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1158.150375,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567264512,
+      "peak_temporary_bytes": 567264512,
+      "rss_bytes": 223051776
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-4y5mmuex/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4795.29975,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271035784,
+      "peak_temporary_bytes": 2271035784,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 64720544,
+          "sha256": "7832f50b6c4a584d38772c40fda3515f57337216d80e65b7e33ef621c3b65c7c"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 6970460,
+          "sha256": "d98f3b9aff5d11b746743c840fd3d418dc0c14e4a40df158c49208b9e8542fa2"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 0,
+          "bytes": 3544856,
+          "sha256": "eba8b6435c4a0c86b0f89888d4734874b31b8585b6798e6cb2f2160a83c777fd"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 148490820,
+          "sha256": "c844acdb2f2ae8eba95937087c0d58b534d8ba8efc3b9c4a7441f0661a249748"
+        }
+      ]
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-14bid2w3/index"
+      ],
+      "elapsed_ms": 4744.286,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271589584,
+      "peak_temporary_bytes": 2271589584,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 64720544,
+          "sha256": "7832f50b6c4a584d38772c40fda3515f57337216d80e65b7e33ef621c3b65c7c"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 6970460,
+          "sha256": "d98f3b9aff5d11b746743c840fd3d418dc0c14e4a40df158c49208b9e8542fa2"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 0,
+          "bytes": 3544856,
+          "sha256": "eba8b6435c4a0c86b0f89888d4734874b31b8585b6798e6cb2f2160a83c777fd"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 148490820,
+          "sha256": "c844acdb2f2ae8eba95937087c0d58b534d8ba8efc3b9c4a7441f0661a249748"
+        }
+      ]
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-fhjq5f8o/index"
+      ],
+      "elapsed_ms": 4655.443917,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271743976,
+      "peak_temporary_bytes": 2271743976
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-9m9yr9_4/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4434.648917,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2270893600,
+      "peak_temporary_bytes": 2270893600
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-vh3a2t3h/index"
+      ],
+      "elapsed_ms": 4673.792167,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271610256,
+      "peak_temporary_bytes": 2271610256
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-mb3233_t/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4440.378542,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271266304,
+      "peak_temporary_bytes": 2271266304
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-umg7n2rk/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4446.347042,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271247432,
+      "peak_temporary_bytes": 2271247432
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-sywqcnjk/index"
+      ],
+      "elapsed_ms": 4675.25725,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271725408,
+      "peak_temporary_bytes": 2271725408
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-0bq1llbm/index"
+      ],
+      "elapsed_ms": 4703.738167,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271667264,
+      "peak_temporary_bytes": 2271667264
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-hpgt8ivr/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4444.526875,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271209608,
+      "peak_temporary_bytes": 2271209608
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-djk9g2gk/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4468.525208,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271180336,
+      "peak_temporary_bytes": 2271180336
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-tbhuyzbb/index"
+      ],
+      "elapsed_ms": 4700.190166,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271622096,
+      "peak_temporary_bytes": 2271622096
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-6tzch59x/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4465.087917,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271056304,
+      "peak_temporary_bytes": 2271056304
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-kmz6khcx/index"
+      ],
+      "elapsed_ms": 4699.983666,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271727128,
+      "peak_temporary_bytes": 2271727128
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 6,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-_nuwjfp3/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4475.4235,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271224296,
+      "peak_temporary_bytes": 2271224296
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 6,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-rr7zdsu8/index"
+      ],
+      "elapsed_ms": 4740.955458,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271453704,
+      "peak_temporary_bytes": 2271453704
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 7,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-rv2um769/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4601.619917,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271198960,
+      "peak_temporary_bytes": 2271198960
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 7,
+      "command": [
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-t1x6l4zn/index"
+      ],
+      "elapsed_ms": 4965.109333,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271631584,
+      "peak_temporary_bytes": 2271631584
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-7f0tpbwv/index"
+      ],
+      "elapsed_ms": 4729.303458,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2272022264,
+      "peak_temporary_bytes": 2272022264,
+      "rss_bytes": 224985088
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-nxpmv6t8/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4471.386708,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2270981320,
+      "peak_temporary_bytes": 2270981320,
+      "rss_bytes": 227639296
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-29k2k_8y/index"
+      ],
+      "elapsed_ms": 4735.122541,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271846032,
+      "peak_temporary_bytes": 2271846032,
+      "rss_bytes": 224935936
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-bnrbiw8m/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4496.721,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271189288,
+      "peak_temporary_bytes": 2271189288,
+      "rss_bytes": 227557376
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-ivcta3gx/index"
+      ],
+      "elapsed_ms": 4730.028625,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2271734320,
+      "peak_temporary_bytes": 2271734320,
+      "rss_bytes": 225001472
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/after",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-chunk-32k-2026-09-08/release/index-a4g_pdz4/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 4486.399,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 7,
+      "temporary_bytes_written": 2271041928,
+      "peak_temporary_bytes": 2271041928,
+      "rss_bytes": 227606528
+    }
+  ],
+  "summary": {
+    "grouped_8": {
+      "before": {
+        "median_ms": 130.120708,
+        "median_rss_mib": 69.1875,
+        "max_rss_mib": 69.40625,
+        "spilled_runs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "temporary_bytes_written": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "budget_256": {
+        "median_ms": 124.442708,
+        "median_rss_mib": 62.8125,
+        "max_rss_mib": 62.953125,
+        "spilled_runs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "temporary_bytes_written": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "vllm": {
+      "before": {
+        "median_ms": 1164.665875,
+        "median_rss_mib": 209.328125,
+        "max_rss_mib": 209.859375,
+        "spilled_runs": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "temporary_bytes_written": [
+          567615704,
+          567434360,
+          567295264,
+          567309208,
+          567318880,
+          567294744,
+          567636480,
+          567430744,
+          567278000,
+          567417040,
+          567271088,
+          567592800
+        ]
+      },
+      "budget_256": {
+        "median_ms": 1130.294083,
+        "median_rss_mib": 212.71875,
+        "max_rss_mib": 212.796875,
+        "spilled_runs": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "temporary_bytes_written": [
+          567219896,
+          567255880,
+          567223920,
+          567406152,
+          567262464,
+          567286984,
+          567217616,
+          567277584,
+          567214152,
+          567265488,
+          567265296,
+          567264512
+        ]
+      }
+    },
+    "vllm_x4": {
+      "before": {
+        "median_ms": 4700.190166,
+        "median_rss_mib": 214.5625,
+        "max_rss_mib": 214.578125,
+        "spilled_runs": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ],
+        "temporary_bytes_written": [
+          2271589584,
+          2271743976,
+          2271610256,
+          2271725408,
+          2271667264,
+          2271622096,
+          2271727128,
+          2271453704,
+          2271631584,
+          2272022264,
+          2271846032,
+          2271734320
+        ]
+      },
+      "budget_256": {
+        "median_ms": 4465.087917,
+        "median_rss_mib": 217.0625,
+        "max_rss_mib": 217.09375,
+        "spilled_runs": [
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        "temporary_bytes_written": [
+          2271035784,
+          2270893600,
+          2271266304,
+          2271247432,
+          2271209608,
+          2271180336,
+          2271056304,
+          2271224296,
+          2271198960,
+          2270981320,
+          2271189288,
+          2271041928
+        ]
+      }
+    }
+  }
+}

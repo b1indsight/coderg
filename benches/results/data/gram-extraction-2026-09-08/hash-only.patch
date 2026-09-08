@@ -1,0 +1,40 @@
+--- a/src/ngram.rs
++++ b/src/ngram.rs
+@@ -12,9 +12,9 @@
+ static PAIR_WEIGHT_TABLE: OnceLock<Box<[u64]>> = OnceLock::new();
+ 
+ #[derive(Default)]
+-pub(crate) struct IdentityHasher(u64);
+-
+-impl Hasher for IdentityHasher {
++pub(crate) struct GramHasher(u64);
++
++impl Hasher for GramHasher {
+     fn finish(&self) -> u64 {
+         self.0
+     }
+@@ -28,14 +28,17 @@
+     }
+ 
+     fn write_u32(&mut self, value: u32) {
+-        self.0 = u64::from(value);
+-    }
+-}
+-
+-type IdentityBuildHasher = BuildHasherDefault<IdentityHasher>;
++        // HashSet uses the high hash bits to filter candidate buckets. Gram
++        // hashes are already mixed, but widening them alone leaves those bits
++        // zero. Spread them across u64 without changing the stored gram key.
++        self.0 = u64::from(value).wrapping_mul(0x9e37_79b9_7f4a_7c15);
++    }
++}
++
++type GramBuildHasher = BuildHasherDefault<GramHasher>;
+ pub(crate) type GramHash = u32;
+-pub(crate) type GramHashSet = HashSet<GramHash, IdentityBuildHasher>;
+-pub(crate) type GramHashMap<V> = HashMap<GramHash, V, IdentityBuildHasher>;
++pub(crate) type GramHashSet = HashSet<GramHash, GramBuildHasher>;
++pub(crate) type GramHashMap<V> = HashMap<GramHash, V, GramBuildHasher>;
+ 
+ /// Emit every trigram plus longer sparse n-grams whose endpoint bigram
+ /// weights dominate all weights inside the span. The predicate only depends

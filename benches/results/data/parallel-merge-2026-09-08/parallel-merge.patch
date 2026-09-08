@@ -1,0 +1,706 @@
+--- a/docs/cursor-design-gaps.md
++++ b/docs/cursor-design-gaps.md
+@@ -68,7 +68,7 @@
+ 
+ ## 5. 构建内存：已加入 256 MiB 工作缓冲区预算
+ 
+-原基线先逐文件提取 gram，再整体排序关联记录，仍需保存全语料记录。2026-09-08 已改为 32 KiB 分块提取、有限并行队列、预算内记录排序及超预算外排，最多 32 路归并成同格式索引段。全量构建和增量刷新默认使用 `--build-memory-mib 256`，可按命令调整。
++原基线先逐文件提取 gram，再整体排序关联记录，仍需保存全语料记录。2026-09-08 已改为 32 KiB 分块提取、有限并行队列、预算内记录排序及超预算外排。中间归并每组最多 32 个 run，最终按 gram 范围最多 4 个任务并行归并并编码 postings，再生成 lookup，省去最终原始有序 run 的写读，仍输出同格式索引段。[4 路归并实测](../benches/results/parallel-merge-2026-09-08.md)。全量构建和增量刷新默认使用 `--build-memory-mib 256`，可按命令调整。
+ 
+ 预算覆盖内容块、gram 临时集合、排序记录、归并和流式段编码缓冲；不直接限制文件元数据、Git 库状态、分配器保留页面及 mmap 驻留页，因此不能称为进程 RSS 硬上限。Cursor 未公开完整构建预算策略，不能据此比较双方峰值内存。
+ 
+--- a/docs/implemented-optimizations.md
++++ b/docs/implemented-optimizations.md
+@@ -45,7 +45,7 @@
+ 
+ 文件内容读取及 gram 生成由数量受预算限制的生产线程并行处理，使用 32 KiB 块并保留 23 字节重叠。根据文件前 8 KiB 是否含 NUL 判定二进制文件；二进制文件保留元数据，但 `searchable = false`，不生成 postings，也不进入正常搜索候选。[index_files](../src/index.rs)、[16/32 KiB 对照](../benches/results/chunk-32k-2026-09-08.md)
+ 
+-每块用 `HashSet<u64>` 去重已混合的 gram 哈希，首次插入成功后才压缩为 `u32` 并追加到 `Vec<u32>`，省掉重复 gram 的压缩以及提取结束后遍历集合收集结果的步骤；数组通过有界通道交给收集端。不同 `u64` 哈希压缩后可能成为同一个键，由后续排序或归并去重消除。连续的 `(gram, document_id)` 记录每条 8 字节；排序数组满时原地排序、去重并写临时 run，最终最多 32 路归并去重并编码为一个段。默认 `--build-memory-mib 256` 为提取、记录、归并和编码的主要缓冲区分配预算，全量和增量共用；文件元数据、Git 内部状态和分配器开销等不在该预算内，因此不是硬性进程 RSS 限制。索引仍只保存文件集合，不记录位置或次数。[构建预算与验证](index-build-memory-budget.md)
++每块用 `HashSet<u64>` 去重已混合的 gram 哈希，首次插入成功后才压缩为 `u32` 并追加到 `Vec<u32>`，省掉重复 gram 的压缩以及提取结束后遍历集合收集结果的步骤；数组通过有界通道交给收集端。不同 `u64` 哈希压缩后可能成为同一个键，由后续排序或归并去重消除。连续的 `(gram, document_id)` 记录每条 8 字节；排序数组满时原地排序、去重并写临时 run。中间归并每组最多 32 个 run；最终按 gram 范围最多 4 个任务并行归并，直接编码 postings 分片及有界键元数据，再拼接 postings 并按全局每 128 键生成 lookup，省去最终原始有序 run 的写读。默认 `--build-memory-mib 256` 为提取、记录、归并和编码的主要缓冲区分配预算，全量和增量共用；文件元数据、Git 内部状态和分配器开销等不在该预算内，因此不是硬性进程 RSS 限制。索引仍只保存文件集合，不记录位置或次数。[构建预算与验证](index-build-memory-budget.md)、[4 路归并实测](../benches/results/parallel-merge-2026-09-08.md)
+ 
+ ## 3. 字节 gram 的生成和选择
+ 
+--- a/docs/index-build-memory-budget.md
++++ b/docs/index-build-memory-budget.md
+@@ -29,18 +29,22 @@
+ 
+ 记录数组满时原地排序并去重，顺序写入索引目录下独立 `.build-*` 临时目录中的有序 run。数组清空后复用容量。若全部记录都放得下，直接从排序数组编码，跳过临时 run。
+ 
+-提取结束后释放记录数组，最多打开 32 个 run，每个读缓冲 64 KiB，用最小堆进行归并；跨 run 的相同记录合并为一条。超过 32 个 run 时分多轮执行。每轮输出完成并 flush 后删除其输入，最后一个有序 run 记录不同键数量，供段编码器写入头部。
++提取结束后释放记录数组。超过 32 个 run 时，仍按每组最多 32 个做中间归并；输出完成并 flush 后删除该组输入。剩下 2–32 个 run 时，按记录数均匀取最多 4,096 个样本，选择 gram 键的四分位边界，再二分定位每个 run 的对应范围。同一个 gram 不跨分区，最小堆在各分区内归并并消除跨 run 重复。
++
++最终归并复用 Rayon 池，最多同时执行 **4 个分区任务**；键分布无法切开或池线程数更少时，实际并发会降低。每个任务独立打开所需 run，每个读缓冲 64 KiB，极端上界为 `4 × 32 × 64 KiB = 8 MiB`。再加每个任务约 192 KiB 的编码/输出缓冲及小量堆和采样数据，主要缓冲区低于 9 MiB。此时提取线程、队列及排序数组已释放，可以复用它们的预算，因此仍适配最低 16 MiB 工作预算；并非要求所有归并缓冲挤入提取阶段的 4 MiB 固定预留。
++
++每个任务直接把归并记录编码成 postings 分片，同时写每键 12 字节的元数据（gram，以及内联文档 ID 或压缩后长度）。完成后按键范围拼接压缩 postings，再根据已知键总数生成 lookup，沿全局键流每 128 个键分块。这样省去最终完整原始有序 run 的写出和重新读取；压缩分片及键元数据仍需写读一次。只有一个 run 时直接使用其已知键数编码，无外排时直接编码内存数组。
+ 
+ 段编码器逐条消费记录。单个很长的 posting 也通过固定 64 KiB 编码缓冲分批写出；lookup 的目录和正文使用两个独立文件游标，不再把整个目录留在内存。编码仍包含单文档内联 ID、差分 varint、128 键分块及 40 位偏移，与原版本 4 格式一致。
+ 
+ 段文件在独立 `.write-*` 临时目录完成后发布，随后才更新 manifest。正常完成和返回错误时，RAII 清理本次外排和编码临时目录；读取失败时关闭接收端，解除生产线程的通道等待。进程被强制终止或机器掉电时可能留下临时目录，这一轮没有加入历史缓存 GC 或多进程写锁。
+ 
+-外排会增加磁盘写入和构建时间。诊断信息记录初始 run 数、累计临时 run 写入字节及临时 run 逻辑文件大小的峰值；这些不包含最终索引、文件系统元数据或分配块取整，不等于进程 RSS。
++外排会增加磁盘写入和构建时间。诊断信息记录初始 run 数、累计临时写入字节及临时文件逻辑大小的峰值；当前口径包含原始 run、压缩 postings 分片和键元数据，不包含最终索引、文件系统元数据或分配块取整，不等于进程 RSS。峰值计入输入 run 与分片同时存在的阶段。[4 路归并实测与分项耗时](../benches/results/parallel-merge-2026-09-08.md)
+ 
+ ## 验证与证据
+ 
+ - 跨块提取与原整文件提取的 gram 集合比较，覆盖空文件、短文件、块边界、随机非 UTF-8 字节及前 8 KiB 内外的 NUL。
+-- 外排多轮归并与内存排序的索引逐字节比较，覆盖跨 run 重复、极值 ID、部分 lookup 块；流式编码还与保留为测试 oracle 的原编码器比较，包含超过 64 KiB 的单个 posting。
++- 外排多轮归并与内存排序的索引逐字节比较，覆盖跨 run 重复、极值 ID、部分 lookup 块；分区测试覆盖 4 路与单个重键无法拆分的情况。两种流式编码还与保留为测试 oracle 的原编码器比较，包含超过 64 KiB 的单个 posting、空分片、127/128/129 个键以及未对齐 lookup 块的分片边界，并验证任务失败时所有分片清理。
+ - CLI 以 16 MiB 强制外排，与默认预算比较段字节，并检查跨块字面量查询、增量刷新、参数校验和临时目录清理。注入读取及编码失败，检查线程结束和旧 manifest 保留。
+ - 实测结果、原始数据和复现方式见[构建预算 benchmark](../benches/results/build-memory-budget-2026-09-08.md)。本轮测量从已有查询覆盖改动的工作区构建基线，不能将构建耗时变化归因于查询算法。
+ 
+--- a/src/build.rs
++++ b/src/build.rs
+@@ -3,7 +3,7 @@
+     cmp::Reverse,
+     collections::BinaryHeap,
+     fs::{self, File},
+-    io::{BufRead, BufReader, BufWriter, Read, Write},
++    io::{BufRead, BufReader, BufWriter, Read, Seek, SeekFrom, Take, Write},
+     path::{Path, PathBuf},
+     str::FromStr,
+ };
+@@ -23,6 +23,8 @@
+ const WORKER_BYTES: usize = 8 * MIB;
+ const IO_BYTES: usize = 64 * 1024;
+ const MERGE_FAN_IN: usize = 32;
++const MERGE_PARTITIONS: usize = 4;
++const MERGE_SAMPLES: usize = 4096;
+ const FIXED_BYTES: usize = 4 * MIB;
+ 
+ #[derive(Clone, Copy, Debug)]
+@@ -170,7 +172,7 @@
+         // No extraction workers remain. Release the large sort buffer before
+         // opening bounded merge readers or encoding the final segment.
+         self.records = Vec::new();
+-        while self.runs.len() > 1 {
++        while self.runs.len() > MERGE_FAN_IN {
+             let mut remaining = std::mem::take(&mut self.runs).into_iter();
+             loop {
+                 let inputs: Vec<_> = remaining.by_ref().take(MERGE_FAN_IN).collect();
+@@ -191,9 +193,25 @@
+                 self.runs.push(run);
+             }
+         }
+-        let run = self.runs.pop().unwrap();
+-        let reader = RunReader::new(&run.path)?;
+-        let meta = segment::write_sorted(&self.index_dir, id, run.ngrams, reader)?;
++        let meta = if self.runs.len() == 1 {
++            let run = &self.runs[0];
++            segment::write_sorted(&self.index_dir, id, run.ngrams, RunReader::new(&run.path)?)?
++        } else {
++            let partitions = partition_runs(&self.runs)?;
++            let (meta, scratch_bytes) =
++                segment::write_partitioned(&self.index_dir, id, partitions.len(), |part| {
++                    MergedRuns::new(
++                        partitions[part]
++                            .iter()
++                            .map(|range| RunReader::range(&range.run.path, range.start, range.end))
++                            .collect::<Result<_>>()?,
++                    )
++                })?;
++            // All input runs and encoded fragments coexist before assembly.
++            // Final lookup/postings output files are excluded, as before.
++            self.record_temporary_write(scratch_bytes);
++            meta
++        };
+         eprintln!(
+             "coderg: spilled {} build runs ({} temporary bytes written, {} peak temporary bytes)",
+             self.spilled_runs, self.temporary_bytes, self.peak_temporary_bytes,
+@@ -248,15 +266,27 @@
+     }
+ }
+ 
+-struct RunReader(BufReader<File>);
++struct RunReader(BufReader<Take<File>>);
+ 
+ impl RunReader {
+     fn new(path: &Path) -> Result<Self> {
+-        let file = File::open(path)?;
+-        if file.metadata()?.len() % 8 != 0 {
++        Self::range(path, 0, fs::metadata(path)?.len())
++    }
++
++    fn range(path: &Path, start: u64, end: u64) -> Result<Self> {
++        let mut file = File::open(path)?;
++        let len = file.metadata()?.len();
++        if !len.is_multiple_of(8) {
+             bail!("truncated temporary posting run: {}", path.display());
+         }
+-        Ok(Self(BufReader::with_capacity(IO_BYTES, file)))
++        if start > end || end > len || !start.is_multiple_of(8) || !end.is_multiple_of(8) {
++            bail!("invalid temporary posting range: {}", path.display());
++        }
++        file.seek(SeekFrom::Start(start))?;
++        Ok(Self(BufReader::with_capacity(
++            IO_BYTES,
++            file.take(end - start),
++        )))
+     }
+ }
+ 
+@@ -298,24 +328,138 @@
+ }
+ 
+ fn merge_runs(inputs: &[Run], output: PathBuf) -> Result<(Run, u64)> {
+-    let mut readers: Vec<_> = inputs
++    let readers = inputs
+         .iter()
+         .map(|run| RunReader::new(&run.path))
+         .collect::<Result<_>>()?;
+-    let mut heap = BinaryHeap::new();
+-    for (index, reader) in readers.iter_mut().enumerate() {
+-        if let Some((hash, id)) = reader.next().transpose()? {
+-            heap.push(Reverse((hash, id, index)));
+-        }
+-    }
+     let mut writer = RunWriter::new(&output)?;
+-    while let Some(Reverse((hash, id, index))) = heap.pop() {
+-        writer.push((hash, id))?;
+-        if let Some((hash, id)) = readers[index].next().transpose()? {
+-            heap.push(Reverse((hash, id, index)));
+-        }
++    for record in MergedRuns::new(readers)? {
++        writer.push(record?)?;
+     }
+     writer.finish(output)
++}
++
++struct MergedRuns {
++    readers: Vec<RunReader>,
++    heap: BinaryHeap<Reverse<(ngram::GramHash, u32, usize)>>,
++    previous: Option<Record>,
++}
++
++impl MergedRuns {
++    fn new(mut readers: Vec<RunReader>) -> Result<Self> {
++        let mut heap = BinaryHeap::new();
++        for (index, reader) in readers.iter_mut().enumerate() {
++            if let Some((hash, id)) = reader.next().transpose()? {
++                heap.push(Reverse((hash, id, index)));
++            }
++        }
++        Ok(Self {
++            readers,
++            heap,
++            previous: None,
++        })
++    }
++}
++
++impl Iterator for MergedRuns {
++    type Item = Result<Record>;
++
++    fn next(&mut self) -> Option<Self::Item> {
++        while let Some(Reverse((hash, id, index))) = self.heap.pop() {
++            match self.readers[index].next() {
++                Some(Ok((key, doc))) => self.heap.push(Reverse((key, doc, index))),
++                Some(Err(error)) => {
++                    self.heap.clear();
++                    return Some(Err(error));
++                }
++                None => {}
++            }
++            let record = (hash, id);
++            if self.previous != Some(record) {
++                self.previous = Some(record);
++                return Some(Ok(record));
++            }
++        }
++        None
++    }
++}
++
++struct RunRange<'a> {
++    run: &'a Run,
++    start: u64,
++    end: u64,
++}
++
++/// Sample by record count, then cut every run at the same gram boundaries.
++/// Keeping an entire gram in one partition makes both dedup and encoding local.
++fn partition_runs(runs: &[Run]) -> Result<Vec<Vec<RunRange<'_>>>> {
++    let total: u64 = runs.iter().map(|run| run.bytes / 8).sum();
++    let count = total.min(MERGE_SAMPLES as u64);
++    let mut samples = Vec::with_capacity(count as usize);
++    let mut sample = 0_u64;
++    let mut base = 0_u64;
++    for run in runs {
++        let mut file = File::open(&run.path)?;
++        let end = base + run.bytes / 8;
++        while sample < count {
++            let rank =
++                ((u128::from(sample) * 2 + 1) * u128::from(total) / (u128::from(count) * 2)) as u64;
++            if rank >= end {
++                break;
++            }
++            file.seek(SeekFrom::Start((rank - base) * 8))?;
++            let mut key = [0; 4];
++            file.read_exact(&mut key)?;
++            samples.push(u32::from_le_bytes(key));
++            sample += 1;
++        }
++        base = end;
++    }
++    samples.sort_unstable();
++    let mut boundaries = vec![0_u64];
++    if !samples.is_empty() {
++        for part in 1..MERGE_PARTITIONS {
++            let key = u64::from(samples[samples.len() * part / MERGE_PARTITIONS]);
++            if key > *boundaries.last().unwrap() {
++                boundaries.push(key);
++            }
++        }
++    }
++    boundaries.push(1_u64 << 32);
++    let mut partitions: Vec<Vec<RunRange<'_>>> =
++        (1..boundaries.len()).map(|_| Vec::new()).collect();
++    for run in runs {
++        let mut file = File::open(&run.path)?;
++        let mut start = 0;
++        for (part, &upper) in boundaries[1..].iter().enumerate() {
++            let end = lower_bound(&mut file, run.bytes / 8, upper)? * 8;
++            if start < end {
++                partitions[part].push(RunRange { run, start, end });
++            }
++            start = end;
++        }
++    }
++    partitions.retain(|part| !part.is_empty());
++    Ok(partitions)
++}
++
++fn lower_bound(file: &mut File, records: u64, key: u64) -> Result<u64> {
++    if key == 1_u64 << 32 {
++        return Ok(records);
++    }
++    let (mut low, mut high) = (0, records);
++    while low < high {
++        let mid = low + (high - low) / 2;
++        file.seek(SeekFrom::Start(mid * 8))?;
++        let mut bytes = [0; 4];
++        file.read_exact(&mut bytes)?;
++        if u64::from(u32::from_le_bytes(bytes)) < key {
++            low = mid + 1;
++        } else {
++            high = mid;
++        }
++    }
++    Ok(low)
+ }
+ 
+ #[cfg(test)]
+@@ -390,10 +534,61 @@
+     }
+ 
+     #[test]
++    fn partitioned_merge_matches_global_dedup_without_splitting_grams() {
++        for one_key in [false, true] {
++            let directory = tempfile::tempdir().unwrap();
++            let mut runs = Vec::new();
++            let mut expected = Vec::new();
++            for run in 0..3 {
++                let path = directory.path().join(format!("{run}.run"));
++                let mut records = Vec::new();
++                for key in 0..2048 {
++                    let hash = if one_key { 7 } else { key };
++                    records.extend([(hash, key), (hash, key + run)]);
++                }
++                if !one_key {
++                    records.push((u32::MAX, u32::MAX));
++                }
++                records.sort_unstable();
++                let mut writer = RunWriter::new(&path).unwrap();
++                for &record in &records {
++                    writer.push(record).unwrap();
++                }
++                runs.push(writer.finish(path).unwrap().0);
++                expected.extend(records);
++            }
++            expected.sort_unstable();
++            expected.dedup();
++            let partitions = partition_runs(&runs).unwrap();
++            assert_eq!(partitions.len(), if one_key { 1 } else { 4 });
++            let mut actual: Vec<Record> = Vec::new();
++            for part in partitions {
++                let readers = part
++                    .iter()
++                    .map(|range| RunReader::range(&range.run.path, range.start, range.end).unwrap())
++                    .collect();
++                let records = MergedRuns::new(readers)
++                    .unwrap()
++                    .collect::<Result<Vec<_>>>()
++                    .unwrap();
++                if let (Some(last), Some(first)) = (actual.last(), records.first()) {
++                    assert!(last.0 < first.0, "a gram crossed a partition boundary");
++                }
++                actual.extend(records);
++            }
++            assert_eq!(actual, expected);
++        }
++    }
++
++    #[test]
+     fn truncated_run_is_rejected() {
+         let directory = tempfile::tempdir().unwrap();
+         let path = directory.path().join("broken.run");
+         fs::write(&path, [0; 7]).unwrap();
+         assert!(RunReader::new(&path).is_err());
+-    }
+-}
++        fs::write(&path, [0; 16]).unwrap();
++        assert!(RunReader::range(&path, 1, 8).is_err());
++        assert!(RunReader::range(&path, 0, 24).is_err());
++        assert!(RunReader::range(&path, 8, 0).is_err());
++    }
++}
+--- a/src/segment.rs
++++ b/src/segment.rs
+@@ -1,12 +1,11 @@
+ use std::{
+     fs::{self, File},
+-    io::{BufWriter, Seek, SeekFrom, Write},
++    io::{self, BufReader, BufWriter, Read, Seek, SeekFrom, Write},
+     path::{Path, PathBuf},
+ };
+ 
+ use anyhow::{Context, Result, bail};
+ use memmap2::Mmap;
+-#[cfg(test)]
+ use rayon::prelude::*;
+ use serde::{Deserialize, Serialize};
+ 
+@@ -243,6 +242,237 @@
+     })
+ }
+ 
++const PART_IO_BYTES: usize = 64 * 1024;
++
++struct EncodedPart {
++    postings: PathBuf,
++    keys: PathBuf,
++    ngrams: u64,
++    postings_bytes: u64,
++}
++
++/// Encode disjoint, increasing gram ranges in parallel. Complete postings
++/// first, then assemble the global lookup blocks from per-gram metadata.
++/// Returns scratch bytes written, excluding the final index output files.
++pub fn write_partitioned<R>(
++    index_dir: &Path,
++    id: u64,
++    partition_count: usize,
++    records: impl Fn(usize) -> Result<R> + Sync,
++) -> Result<(SegmentMeta, u64)>
++where
++    R: IntoIterator<Item = Result<(ngram::GramHash, u32)>>,
++{
++    let segments_dir = index_dir.join("segments");
++    fs::create_dir_all(&segments_dir)?;
++    let temporary = tempfile::Builder::new()
++        .prefix(".write-")
++        .tempdir_in(&segments_dir)?;
++    let parts = (0..partition_count)
++        .into_par_iter()
++        .map(|part| encode_postings_part(temporary.path(), part, records(part)?))
++        .collect::<Result<Vec<_>>>()?;
++    let ngrams = parts.iter().map(|part| part.ngrams).sum::<u64>();
++    let scratch_bytes = parts
++        .iter()
++        .map(|part| part.postings_bytes + part.ngrams * 12)
++        .sum();
++    let postings_tmp = temporary.path().join("postings");
++    let postings_bytes = join_postings(&postings_tmp, &parts)?;
++    let lookup_tmp = temporary.path().join("lookup");
++    assemble_lookup(&lookup_tmp, ngrams, postings_bytes, &parts)?;
++    let lookup_name = PathBuf::from(format!("segments/{id:020}.lookup"));
++    let postings_name = PathBuf::from(format!("segments/{id:020}.postings"));
++    replace(lookup_tmp, index_dir.join(&lookup_name))?;
++    replace(postings_tmp, index_dir.join(&postings_name))?;
++    Ok((
++        SegmentMeta {
++            id,
++            lookup: lookup_name,
++            postings: postings_name,
++            ngrams,
++        },
++        scratch_bytes,
++    ))
++}
++
++fn encode_postings_part(
++    directory: &Path,
++    part: usize,
++    records: impl IntoIterator<Item = Result<(ngram::GramHash, u32)>>,
++) -> Result<EncodedPart> {
++    let postings = directory.join(format!("{part}.postings"));
++    let keys = directory.join(format!("{part}.keys"));
++    let mut postings_file = BufWriter::with_capacity(PART_IO_BYTES, File::create(&postings)?);
++    let mut keys_file = BufWriter::with_capacity(PART_IO_BYTES, File::create(&keys)?);
++    let mut encoded = Vec::with_capacity(PART_IO_BYTES);
++    let mut records = records.into_iter();
++    let mut next = records.next().transpose()?;
++    let mut ngrams = 0;
++    let mut postings_bytes = 0;
++    while let Some((hash, first_id)) = next {
++        next = records.next().transpose()?;
++        let value = if next.is_none_or(|record| record.0 != hash) {
++            u64::from(first_id) << 1
++        } else {
++            encoded.clear();
++            write_varint(u64::from(first_id), &mut encoded);
++            let mut encoded_len = 0;
++            let mut previous_id = first_id;
++            while let Some((key, doc_id)) = next {
++                if key != hash {
++                    break;
++                }
++                write_varint(u64::from(doc_id - previous_id), &mut encoded);
++                previous_id = doc_id;
++                next = records.next().transpose()?;
++                if encoded.len() >= PART_IO_BYTES - 5 {
++                    postings_file.write_all(&encoded)?;
++                    encoded_len += encoded.len() as u64;
++                    encoded.clear();
++                }
++            }
++            postings_file.write_all(&encoded)?;
++            encoded_len += encoded.len() as u64;
++            postings_bytes += encoded_len;
++            (encoded_len << 1) | 1
++        };
++        // Keep only key + inline ID / encoded length. No raw postings are
++        // retained, and metadata buffering stays bounded regardless of keys.
++        let mut entry = [0; 12];
++        entry[..4].copy_from_slice(&hash.to_le_bytes());
++        entry[4..].copy_from_slice(&value.to_le_bytes());
++        keys_file.write_all(&entry)?;
++        ngrams += 1;
++    }
++    postings_file.flush()?;
++    keys_file.flush()?;
++    Ok(EncodedPart {
++        postings,
++        keys,
++        ngrams,
++        postings_bytes,
++    })
++}
++
++fn join_postings(path: &Path, parts: &[EncodedPart]) -> Result<u64> {
++    let mut output = BufWriter::with_capacity(PART_IO_BYTES, File::create(path)?);
++    output.write_all(POSTINGS_MAGIC)?;
++    let mut bytes = POSTINGS_MAGIC.len() as u64;
++    for part in parts {
++        let mut input = BufReader::with_capacity(PART_IO_BYTES, File::open(&part.postings)?);
++        let copied = io::copy(&mut input, &mut output)?;
++        if copied != part.postings_bytes {
++            bail!("truncated encoded postings fragment");
++        }
++        bytes += copied;
++    }
++    output.flush()?;
++    Ok(bytes)
++}
++
++struct EncodedKeys {
++    input: BufReader<File>,
++    remaining: u64,
++}
++
++impl EncodedKeys {
++    fn new(part: &EncodedPart) -> Result<Self> {
++        let input = File::open(&part.keys)?;
++        if input.metadata()?.len() != part.ngrams * 12 {
++            bail!("truncated encoded key metadata");
++        }
++        Ok(Self {
++            input: BufReader::with_capacity(PART_IO_BYTES, input),
++            remaining: part.ngrams,
++        })
++    }
++}
++
++impl Iterator for EncodedKeys {
++    type Item = Result<(ngram::GramHash, u64)>;
++
++    fn next(&mut self) -> Option<Self::Item> {
++        if self.remaining == 0 {
++            return None;
++        }
++        self.remaining -= 1;
++        let mut entry = [0; 12];
++        Some(
++            self.input
++                .read_exact(&mut entry)
++                .map(|()| {
++                    (
++                        u32::from_le_bytes(entry[..4].try_into().unwrap()),
++                        u64::from_le_bytes(entry[4..].try_into().unwrap()),
++                    )
++                })
++                .map_err(Into::into),
++        )
++    }
++}
++
++fn assemble_lookup(
++    path: &Path,
++    ngrams: u64,
++    postings_bytes: u64,
++    parts: &[EncodedPart],
++) -> Result<()> {
++    let block_count = ngrams.div_ceil(BLOCK_SIZE as u64);
++    let mut stream_offset = block_count
++        .checked_mul(BLOCK_ENTRY_SIZE as u64)
++        .and_then(|bytes| bytes.checked_add(HEADER_SIZE as u64))
++        .context("too many lookup blocks")?;
++    let mut body = BufWriter::with_capacity(PART_IO_BYTES, File::create(path)?);
++    body.write_all(LOOKUP_MAGIC)?;
++    body.write_all(&ngrams.to_le_bytes())?;
++    body.write_all(&block_count.to_le_bytes())?;
++    body.write_all(&(BLOCK_SIZE as u64).to_le_bytes())?;
++    body.seek(SeekFrom::Start(stream_offset))?;
++    let mut directory =
++        BufWriter::with_capacity(PART_IO_BYTES, File::options().write(true).open(path)?);
++    directory.seek(SeekFrom::Start(HEADER_SIZE as u64))?;
++    let readers = parts
++        .iter()
++        .map(EncodedKeys::new)
++        .collect::<Result<Vec<_>>>()?;
++    let mut keys = readers.into_iter().flatten();
++    let mut postings_offset = POSTINGS_MAGIC.len() as u64;
++    let mut previous_key = None;
++    let mut encoded = Vec::with_capacity(BLOCK_SIZE * 15);
++    for block in 0..block_count {
++        let entry_count = (ngrams - block * BLOCK_SIZE as u64).min(BLOCK_SIZE as u64);
++        encoded.clear();
++        for position in 0..entry_count {
++            let (hash, value) = keys.next().context("missing encoded key metadata")??;
++            if previous_key.is_some_and(|previous| hash <= previous) {
++                bail!("encoded gram partitions overlap or are out of order");
++            }
++            if position == 0 {
++                directory.write_all(&hash.to_le_bytes())?;
++                write_u40(stream_offset, &mut directory)?;
++                write_u40(postings_offset, &mut directory)?;
++                directory.write_all(&(entry_count as u16).to_le_bytes())?;
++            } else {
++                write_varint(u64::from(hash - previous_key.unwrap()), &mut encoded);
++            }
++            write_varint(value, &mut encoded);
++            if value & 1 == 1 {
++                postings_offset += value >> 1;
++            }
++            previous_key = Some(hash);
++        }
++        body.write_all(&encoded)?;
++        stream_offset += encoded.len() as u64;
++    }
++    if keys.next().is_some() || postings_offset != postings_bytes {
++        bail!("encoded key metadata does not match postings");
++    }
++    directory.flush()?;
++    body.flush()?;
++    Ok(())
++}
++
+ pub fn load(index_dir: &Path, meta: &SegmentMeta) -> Result<Segment> {
+     let lookup_file = File::open(index_dir.join(&meta.lookup))?;
+     let postings_file = File::open(index_dir.join(&meta.postings))?;
+@@ -466,12 +696,19 @@
+     #[test]
+     fn streaming_encoder_matches_original_format_with_long_postings() {
+         let directory = tempfile::tempdir().unwrap();
+-        for mut source in [Vec::new(), vec![(u32::MAX, u32::MAX)], {
+-            let mut records: Vec<_> = (0..260).map(|key| (key * 17, key * 128)).collect();
+-            records.extend((0..100_000).map(|id| (128 * 17, id * 127)));
+-            records.extend([(0, u32::MAX), (u32::MAX, 0), (u32::MAX, u32::MAX)]);
+-            records
+-        }] {
++        for mut source in [
++            Vec::new(),
++            vec![(u32::MAX, u32::MAX)],
++            (0..127).map(|key| (key, key)).collect(),
++            (0..128).map(|key| (key, key)).collect(),
++            (0..129).map(|key| (key, key)).collect(),
++            {
++                let mut records: Vec<_> = (0..260).map(|key| (key * 17, key * 128)).collect();
++                records.extend((0..100_000).map(|id| (128 * 17, id * 127)));
++                records.extend([(0, u32::MAX), (u32::MAX, 0), (u32::MAX, u32::MAX)]);
++                records
++            },
++        ] {
+             let expected = write(directory.path(), 1, source.clone()).unwrap();
+             source.sort_unstable();
+             source.dedup();
+@@ -479,16 +716,38 @@
+                 directory.path(),
+                 2,
+                 expected.ngrams,
+-                source.into_iter().map(Ok),
++                source.iter().copied().map(Ok),
+             )
+             .unwrap();
+             assert_eq!(
+                 fs::read(directory.path().join(actual.lookup)).unwrap(),
+-                fs::read(directory.path().join(expected.lookup)).unwrap()
++                fs::read(directory.path().join(&expected.lookup)).unwrap()
+             );
+             assert_eq!(
+                 fs::read(directory.path().join(actual.postings)).unwrap(),
+-                fs::read(directory.path().join(expected.postings)).unwrap()
++                fs::read(directory.path().join(&expected.postings)).unwrap()
++            );
++            // Deliberately cut inside global 128-key lookup blocks. A shard
++            // boundary must not introduce an extra partial lookup block.
++            let cuts = [
++                0,
++                source.partition_point(|record| record.0 < 31 * 17),
++                source.partition_point(|record| record.0 < 129 * 17),
++                source.partition_point(|record| record.0 < 190 * 17),
++                source.len(),
++            ];
++            let (parallel, _) = write_partitioned(directory.path(), 3, 4, |part| {
++                Ok(source[cuts[part]..cuts[part + 1]].iter().copied().map(Ok))
++            })
++            .unwrap();
++            assert_eq!(parallel.ngrams, expected.ngrams);
++            assert_eq!(
++                fs::read(directory.path().join(parallel.lookup)).unwrap(),
++                fs::read(directory.path().join(&expected.lookup)).unwrap()
++            );
++            assert_eq!(
++                fs::read(directory.path().join(parallel.postings)).unwrap(),
++                fs::read(directory.path().join(&expected.postings)).unwrap()
+             );
+         }
+     }
+@@ -507,6 +766,28 @@
+     }
+ 
+     #[test]
++    fn failed_partitioned_stream_cleans_all_fragments() {
++        let directory = tempfile::tempdir().unwrap();
++        let result = write_partitioned(directory.path(), 1, 4, |part| {
++            Ok([
++                Ok((part as u32, 0)),
++                if part == 2 {
++                    Err(anyhow::anyhow!("injected partition read failure"))
++                } else {
++                    Ok((part as u32, 1))
++                },
++            ])
++        });
++        assert!(result.is_err());
++        assert_eq!(
++            fs::read_dir(directory.path().join("segments"))
++                .unwrap()
++                .count(),
++            0
++        );
++    }
++
++    #[test]
+     fn posting_varints_round_trip() {
+         let ids = [0, 1, 127, 128, 16_384];
+         let mut bytes = Vec::new();

@@ -1,0 +1,74 @@
+{
+  "agentflow/results.json": {
+    "sha256": "acfe0a156a2f085368a50c12e20c85838b43b32d5083ebef8f0eb04d7225fc0f",
+    "bytes": 103679
+  },
+  "before-query.rs": {
+    "sha256": "84c038b562c79fa52738a9536425f4809430fee9a245d18a3507e21ddbf44915",
+    "bytes": 16784
+  },
+  "before-search.rs": {
+    "sha256": "1c4ca4b5be78f115344a557324d327069983b33343504efe3b984dfe7686063d",
+    "bytes": 13302
+  },
+  "before-source-sha256.json": {
+    "sha256": "22144c6bf8f6e0400e5a66eba2886c09188bf36a51319d459ee05eca1b248fcd",
+    "bytes": 779
+  },
+  "budget-control-plan.json": {
+    "sha256": "5210992badf60d6a7110d7b00b8cb89876d0d7f18db4ffacaabc9e4d3b4f52cd",
+    "bytes": 197
+  },
+  "budget-control.json": {
+    "sha256": "7e0accdb1e3b33ecc2cd02359ae95ff98f3801a29323c88061a4b1ab8516fced",
+    "bytes": 68371
+  },
+  "budget-only-query.rs": {
+    "sha256": "9f289c910330391d17038b5ddcd501c4f6f186d15654612d2156636e8683e499",
+    "bytes": 16791
+  },
+  "few_large_64/results.json": {
+    "sha256": "d40206d363b0be5d99e22a6e5502eeb90cfea1d866464eb16f6eee416947c55a",
+    "bytes": 53896
+  },
+  "many_small_16384/results.json": {
+    "sha256": "9b4c6097011371eef07a2bb496b644f5fa80ab27f875b197d66398dc1062cd1d",
+    "bytes": 55307
+  },
+  "metadata.json": {
+    "sha256": "b26a5047453e63fb9c1dda984b98f1d1219ec021eee4d15f1f11bb1a76eb4a1c",
+    "bytes": 4126
+  },
+  "metrics.json": {
+    "sha256": "1caf59b8230d92c1bc579d55d171e23419c095df876439febb4485ae858845da",
+    "bytes": 956594
+  },
+  "per-query.csv": {
+    "sha256": "ce982ded64a4150ad43adf9c753a1b0685fcb59272f088cf3cb6236f73928546",
+    "bytes": 10082
+  },
+  "plan.json": {
+    "sha256": "c604f4995794636308e32427708492cfd20a5bb3cec6a379a497b92dc20dd7c1",
+    "bytes": 2066
+  },
+  "regular_4096/results.json": {
+    "sha256": "c69a5ea36c851c823eafa37b0a850eec307fcfe3e89d77f7b6701103ded55daa",
+    "bytes": 54415
+  },
+  "shared_anchor/results.json": {
+    "sha256": "ae9205c97b84934b9fee8e7696603b51bb7290e892a2a4164e5b811461eae580",
+    "bytes": 53818
+  },
+  "small_256/results.json": {
+    "sha256": "c37ae97cd9b2cd88d174230e3c5a65171ecf8753a8b2db2ea4fc35d3276c387d",
+    "bytes": 53491
+  },
+  "viberwhisper/results.json": {
+    "sha256": "0a8f8374b3b5c29cdffe53f2fabf72f02fb310c9dcd335e25c730f893dc6e60a",
+    "bytes": 103739
+  },
+  "vllm/results.json": {
+    "sha256": "ef2e65611f4b4f7271bdebf57068e888ad7773f41450d303885be8bda4b3cfa6",
+    "bytes": 249308
+  }
+}

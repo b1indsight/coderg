@@ -1,0 +1,2127 @@
+{
+  "baseline_ref": null,
+  "baseline_source": "/private/var/folders/2z/493g7vw10fs5kz1h1b9txy6c0000gn/T/coderg-branch-cover-di5qftwj/budget-only-source",
+  "source_sha256": {
+    "baseline": {
+      "Cargo.toml": "8233f59451cfd06570901834396895f24185e18e0cd6de3c5231759e0ff673fe",
+      "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+      "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+      "src/index.rs": "82c36e2d70323c67e555c22d6065ecd8eae8aba7f3828bbcff53d5c55b4e0d3a",
+      "src/main.rs": "f73b7ffa272f30dbf40bb92d4bc0cd20ea4e9680586f91b26a191cf4ab06446b",
+      "src/ngram.rs": "5e5039e5a437fa2ac0a3dc8d21b3ba40ff821208431a069b41571790831adbae",
+      "src/query.rs": "9f289c910330391d17038b5ddcd501c4f6f186d15654612d2156636e8683e499",
+      "src/search.rs": "1c4ca4b5be78f115344a557324d327069983b33343504efe3b984dfe7686063d",
+      "src/segment.rs": "af4339c6827316e7062e78c1578fd2488ca99a2a5db104968ad4e41da1a855bc"
+    },
+    "optimized": {
+      "Cargo.toml": "8233f59451cfd06570901834396895f24185e18e0cd6de3c5231759e0ff673fe",
+      "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+      "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+      "src/index.rs": "82c36e2d70323c67e555c22d6065ecd8eae8aba7f3828bbcff53d5c55b4e0d3a",
+      "src/main.rs": "f73b7ffa272f30dbf40bb92d4bc0cd20ea4e9680586f91b26a191cf4ab06446b",
+      "src/ngram.rs": "5e5039e5a437fa2ac0a3dc8d21b3ba40ff821208431a069b41571790831adbae",
+      "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+      "src/search.rs": "3411fbaabd460ed5f76aa8264c44f2ff49b3e5bc3152d073119492cbe4cb25a8",
+      "src/segment.rs": "af4339c6827316e7062e78c1578fd2488ca99a2a5db104968ad4e41da1a855bc"
+    }
+  },
+  "iterations": 1,
+  "seed": 20260908,
+  "datasets": [
+    {
+      "id": "vllm",
+      "queries": [
+        {
+          "id": "literal_parallel",
+          "pattern": "get_tensor_model_parallel_world_size",
+          "category": "fixed string",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 7570977,
+                  "candidates": 235,
+                  "decoded_ids": 12855,
+                  "filter_ns": 625209,
+                  "keys": 7,
+                  "postings_ns": 498833,
+                  "set_and_cache_ns": 126376,
+                  "planning_ns": 4417
+                }
+              ],
+              "median": {
+                "candidate_bytes": 7570977,
+                "candidates": 235,
+                "decoded_ids": 12855,
+                "filter_ns": 625209,
+                "keys": 7,
+                "postings_ns": 498833,
+                "set_and_cache_ns": 126376,
+                "planning_ns": 4417
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 7570977,
+                  "candidates": 235,
+                  "decoded_ids": 12855,
+                  "filter_ns": 658916,
+                  "keys": 7,
+                  "postings_ns": 627833,
+                  "set_and_cache_ns": 31083,
+                  "planning_ns": 4875
+                }
+              ],
+              "median": {
+                "candidate_bytes": 7570977,
+                "candidates": 235,
+                "decoded_ids": 12855,
+                "filter_ns": 658916,
+                "keys": 7,
+                "postings_ns": 627833,
+                "set_and_cache_ns": 31083,
+                "planning_ns": 4875
+              }
+            }
+          }
+        },
+        {
+          "id": "word_sampling",
+          "pattern": "\\bSamplingParams\\b",
+          "category": "word boundary",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 5923612,
+                  "candidates": 375,
+                  "decoded_ids": 2172,
+                  "filter_ns": 108417,
+                  "keys": 3,
+                  "postings_ns": 73583,
+                  "set_and_cache_ns": 34834,
+                  "planning_ns": 12167
+                }
+              ],
+              "median": {
+                "candidate_bytes": 5923612,
+                "candidates": 375,
+                "decoded_ids": 2172,
+                "filter_ns": 108417,
+                "keys": 3,
+                "postings_ns": 73583,
+                "set_and_cache_ns": 34834,
+                "planning_ns": 12167
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 5923612,
+                  "candidates": 375,
+                  "decoded_ids": 2172,
+                  "filter_ns": 109083,
+                  "keys": 3,
+                  "postings_ns": 80792,
+                  "set_and_cache_ns": 28291,
+                  "planning_ns": 12250
+                }
+              ],
+              "median": {
+                "candidate_bytes": 5923612,
+                "candidates": 375,
+                "decoded_ids": 2172,
+                "filter_ns": 109083,
+                "keys": 3,
+                "postings_ns": 80792,
+                "set_and_cache_ns": 28291,
+                "planning_ns": 12250
+              }
+            }
+          }
+        },
+        {
+          "id": "word_asyncmock",
+          "pattern": "\\bAsyncMock\\b",
+          "category": "word boundary",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 612206,
+                  "candidates": 25,
+                  "decoded_ids": 2768,
+                  "filter_ns": 121459,
+                  "keys": 3,
+                  "postings_ns": 97125,
+                  "set_and_cache_ns": 24334,
+                  "planning_ns": 11458
+                }
+              ],
+              "median": {
+                "candidate_bytes": 612206,
+                "candidates": 25,
+                "decoded_ids": 2768,
+                "filter_ns": 121459,
+                "keys": 3,
+                "postings_ns": 97125,
+                "set_and_cache_ns": 24334,
+                "planning_ns": 11458
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 612206,
+                  "candidates": 25,
+                  "decoded_ids": 2768,
+                  "filter_ns": 115708,
+                  "keys": 3,
+                  "postings_ns": 108875,
+                  "set_and_cache_ns": 6833,
+                  "planning_ns": 12333
+                }
+              ],
+              "median": {
+                "candidate_bytes": 612206,
+                "candidates": 25,
+                "decoded_ids": 2768,
+                "filter_ns": 115708,
+                "keys": 3,
+                "postings_ns": 108875,
+                "set_and_cache_ns": 6833,
+                "planning_ns": 12333
+              }
+            }
+          }
+        },
+        {
+          "id": "def_forward",
+          "pattern": "def\\s+forward\\b",
+          "category": "whitespace",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 37569009,
+                  "candidates": 1173,
+                  "decoded_ids": 6001,
+                  "filter_ns": 367125,
+                  "keys": 2,
+                  "postings_ns": 212125,
+                  "set_and_cache_ns": 155000,
+                  "planning_ns": 17917
+                }
+              ],
+              "median": {
+                "candidate_bytes": 37569009,
+                "candidates": 1173,
+                "decoded_ids": 6001,
+                "filter_ns": 367125,
+                "keys": 2,
+                "postings_ns": 212125,
+                "set_and_cache_ns": 155000,
+                "planning_ns": 17917
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 37569009,
+                  "candidates": 1173,
+                  "decoded_ids": 6001,
+                  "filter_ns": 375500,
+                  "keys": 2,
+                  "postings_ns": 224875,
+                  "set_and_cache_ns": 150625,
+                  "planning_ns": 16416
+                }
+              ],
+              "median": {
+                "candidate_bytes": 37569009,
+                "candidates": 1173,
+                "decoded_ids": 6001,
+                "filter_ns": 375500,
+                "keys": 2,
+                "postings_ns": 224875,
+                "set_and_cache_ns": 150625,
+                "planning_ns": 16416
+              }
+            }
+          }
+        },
+        {
+          "id": "async_def",
+          "pattern": "async\\s+def\\s+\\w+",
+          "category": "whitespace",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 26303113,
+                  "candidates": 749,
+                  "decoded_ids": 8449,
+                  "filter_ns": 436583,
+                  "keys": 4,
+                  "postings_ns": 290917,
+                  "set_and_cache_ns": 145666,
+                  "planning_ns": 20125
+                }
+              ],
+              "median": {
+                "candidate_bytes": 26303113,
+                "candidates": 749,
+                "decoded_ids": 8449,
+                "filter_ns": 436583,
+                "keys": 4,
+                "postings_ns": 290917,
+                "set_and_cache_ns": 145666,
+                "planning_ns": 20125
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 26303113,
+                  "candidates": 749,
+                  "decoded_ids": 8449,
+                  "filter_ns": 452125,
+                  "keys": 4,
+                  "postings_ns": 311834,
+                  "set_and_cache_ns": 140291,
+                  "planning_ns": 20250
+                }
+              ],
+              "median": {
+                "candidate_bytes": 26303113,
+                "candidates": 749,
+                "decoded_ids": 8449,
+                "filter_ns": 452125,
+                "keys": 4,
+                "postings_ns": 311834,
+                "set_and_cache_ns": 140291,
+                "planning_ns": 20250
+              }
+            }
+          }
+        },
+        {
+          "id": "class_attention",
+          "pattern": "^class[ \\t]+\\w*Attention\\b",
+          "category": "anchor / repetition",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 20852657,
+                  "candidates": 623,
+                  "decoded_ids": 20533,
+                  "filter_ns": 972416,
+                  "keys": 8,
+                  "postings_ns": 662458,
+                  "set_and_cache_ns": 309958,
+                  "planning_ns": 29708
+                }
+              ],
+              "median": {
+                "candidate_bytes": 20852657,
+                "candidates": 623,
+                "decoded_ids": 20533,
+                "filter_ns": 972416,
+                "keys": 8,
+                "postings_ns": 662458,
+                "set_and_cache_ns": 309958,
+                "planning_ns": 29708
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 20852657,
+                  "candidates": 623,
+                  "decoded_ids": 20533,
+                  "filter_ns": 977792,
+                  "keys": 8,
+                  "postings_ns": 674582,
+                  "set_and_cache_ns": 303210,
+                  "planning_ns": 28750
+                }
+              ],
+              "median": {
+                "candidate_bytes": 20852657,
+                "candidates": 623,
+                "decoded_ids": 20533,
+                "filter_ns": 977792,
+                "keys": 8,
+                "postings_ns": 674582,
+                "set_and_cache_ns": 303210,
+                "planning_ns": 28750
+              }
+            }
+          }
+        },
+        {
+          "id": "python_import",
+          "pattern": "^from[ \\t]+vllm(?:\\.[\\w.]+)?[ \\t]+import\\b",
+          "category": "anchor / optional group",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 54972761,
+                  "candidates": 3743,
+                  "decoded_ids": 37312,
+                  "filter_ns": 1995500,
+                  "keys": 13,
+                  "postings_ns": 1149457,
+                  "set_and_cache_ns": 846043,
+                  "planning_ns": 43250
+                }
+              ],
+              "median": {
+                "candidate_bytes": 54972761,
+                "candidates": 3743,
+                "decoded_ids": 37312,
+                "filter_ns": 1995500,
+                "keys": 13,
+                "postings_ns": 1149457,
+                "set_and_cache_ns": 846043,
+                "planning_ns": 43250
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 54972761,
+                  "candidates": 3743,
+                  "decoded_ids": 37312,
+                  "filter_ns": 2626958,
+                  "keys": 13,
+                  "postings_ns": 1287625,
+                  "set_and_cache_ns": 1339333,
+                  "planning_ns": 43125
+                }
+              ],
+              "median": {
+                "candidate_bytes": 54972761,
+                "candidates": 3743,
+                "decoded_ids": 37312,
+                "filter_ns": 2626958,
+                "keys": 13,
+                "postings_ns": 1287625,
+                "set_and_cache_ns": 1339333,
+                "planning_ns": 43125
+              }
+            }
+          }
+        },
+        {
+          "id": "decorator",
+          "pattern": "^[ \\t]*@(?:torch|pytest)\\.[A-Za-z_]+",
+          "category": "anchor / character class",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 19287511,
+                  "candidates": 1348,
+                  "decoded_ids": 4372,
+                  "filter_ns": 258500,
+                  "keys": 3,
+                  "postings_ns": 155167,
+                  "set_and_cache_ns": 103333,
+                  "planning_ns": 34542
+                }
+              ],
+              "median": {
+                "candidate_bytes": 19287511,
+                "candidates": 1348,
+                "decoded_ids": 4372,
+                "filter_ns": 258500,
+                "keys": 3,
+                "postings_ns": 155167,
+                "set_and_cache_ns": 103333,
+                "planning_ns": 34542
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 19287511,
+                  "candidates": 1348,
+                  "decoded_ids": 4372,
+                  "filter_ns": 256458,
+                  "keys": 3,
+                  "postings_ns": 168250,
+                  "set_and_cache_ns": 88208,
+                  "planning_ns": 34334
+                }
+              ],
+              "median": {
+                "candidate_bytes": 19287511,
+                "candidates": 1348,
+                "decoded_ids": 4372,
+                "filter_ns": 256458,
+                "keys": 3,
+                "postings_ns": 168250,
+                "set_and_cache_ns": 88208,
+                "planning_ns": 34334
+              }
+            }
+          }
+        },
+        {
+          "id": "logger",
+          "pattern": "logger\\.(warning|error)\\(",
+          "category": "group / alternation",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 13082757,
+                  "candidates": 442,
+                  "decoded_ids": 7302,
+                  "filter_ns": 326167,
+                  "keys": 6,
+                  "postings_ns": 236667,
+                  "set_and_cache_ns": 89500,
+                  "planning_ns": 21542
+                }
+              ],
+              "median": {
+                "candidate_bytes": 13082757,
+                "candidates": 442,
+                "decoded_ids": 7302,
+                "filter_ns": 326167,
+                "keys": 6,
+                "postings_ns": 236667,
+                "set_and_cache_ns": 89500,
+                "planning_ns": 21542
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 11785109,
+                  "candidates": 384,
+                  "decoded_ids": 7302,
+                  "filter_ns": 294083,
+                  "keys": 6,
+                  "postings_ns": 247959,
+                  "set_and_cache_ns": 46124,
+                  "planning_ns": 21083
+                }
+              ],
+              "median": {
+                "candidate_bytes": 11785109,
+                "candidates": 384,
+                "decoded_ids": 7302,
+                "filter_ns": 294083,
+                "keys": 6,
+                "postings_ns": 247959,
+                "set_and_cache_ns": 46124,
+                "planning_ns": 21083
+              }
+            }
+          }
+        },
+        {
+          "id": "exceptions",
+          "pattern": "\\b(ValueError|RuntimeError|NotImplementedError)\\b",
+          "category": "group / alternation",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 36758839,
+                  "candidates": 1613,
+                  "decoded_ids": 14910,
+                  "filter_ns": 790750,
+                  "keys": 10,
+                  "postings_ns": 456791,
+                  "set_and_cache_ns": 333959,
+                  "planning_ns": 24334
+                }
+              ],
+              "median": {
+                "candidate_bytes": 36758839,
+                "candidates": 1613,
+                "decoded_ids": 14910,
+                "filter_ns": 790750,
+                "keys": 10,
+                "postings_ns": 456791,
+                "set_and_cache_ns": 333959,
+                "planning_ns": 24334
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 36758839,
+                  "candidates": 1613,
+                  "decoded_ids": 14910,
+                  "filter_ns": 703667,
+                  "keys": 10,
+                  "postings_ns": 507418,
+                  "set_and_cache_ns": 196249,
+                  "planning_ns": 23417
+                }
+              ],
+              "median": {
+                "candidate_bytes": 36758839,
+                "candidates": 1613,
+                "decoded_ids": 14910,
+                "filter_ns": 703667,
+                "keys": 10,
+                "postings_ns": 507418,
+                "set_and_cache_ns": 196249,
+                "planning_ns": 23417
+              }
+            }
+          }
+        },
+        {
+          "id": "cache",
+          "pattern": "\\b(kv_cache|block_size)\\b",
+          "category": "group / alternation",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 46941204,
+                  "candidates": 1683,
+                  "decoded_ids": 22011,
+                  "filter_ns": 1107250,
+                  "keys": 8,
+                  "postings_ns": 695042,
+                  "set_and_cache_ns": 412208,
+                  "planning_ns": 19541
+                }
+              ],
+              "median": {
+                "candidate_bytes": 46941204,
+                "candidates": 1683,
+                "decoded_ids": 22011,
+                "filter_ns": 1107250,
+                "keys": 8,
+                "postings_ns": 695042,
+                "set_and_cache_ns": 412208,
+                "planning_ns": 19541
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 27628164,
+                  "candidates": 1135,
+                  "decoded_ids": 22011,
+                  "filter_ns": 911834,
+                  "keys": 8,
+                  "postings_ns": 748585,
+                  "set_and_cache_ns": 163249,
+                  "planning_ns": 19500
+                }
+              ],
+              "median": {
+                "candidate_bytes": 27628164,
+                "candidates": 1135,
+                "decoded_ids": 22011,
+                "filter_ns": 911834,
+                "keys": 8,
+                "postings_ns": 748585,
+                "set_and_cache_ns": 163249,
+                "planning_ns": 19500
+              }
+            }
+          }
+        },
+        {
+          "id": "tensor_creation",
+          "pattern": "\\b(torch|numpy)\\.(empty|zeros|ones)\\b",
+          "category": "two alternative groups",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 53635685,
+                  "candidates": 2096,
+                  "decoded_ids": 24719,
+                  "filter_ns": 1596791,
+                  "keys": 14,
+                  "postings_ns": 758165,
+                  "set_and_cache_ns": 838626,
+                  "planning_ns": 40000
+                }
+              ],
+              "median": {
+                "candidate_bytes": 53635685,
+                "candidates": 2096,
+                "decoded_ids": 24719,
+                "filter_ns": 1596791,
+                "keys": 14,
+                "postings_ns": 758165,
+                "set_and_cache_ns": 838626,
+                "planning_ns": 40000
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 26029399,
+                  "candidates": 1211,
+                  "decoded_ids": 24719,
+                  "filter_ns": 1017709,
+                  "keys": 14,
+                  "postings_ns": 793583,
+                  "set_and_cache_ns": 224126,
+                  "planning_ns": 47125
+                }
+              ],
+              "median": {
+                "candidate_bytes": 26029399,
+                "candidates": 1211,
+                "decoded_ids": 24719,
+                "filter_ns": 1017709,
+                "keys": 14,
+                "postings_ns": 793583,
+                "set_and_cache_ns": 224126,
+                "planning_ns": 47125
+              }
+            }
+          }
+        },
+        {
+          "id": "env_vars",
+          "pattern": "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+          "category": "character class / repetition",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 23198338,
+                  "candidates": 1219,
+                  "decoded_ids": 8823,
+                  "filter_ns": 445667,
+                  "keys": 5,
+                  "postings_ns": 300041,
+                  "set_and_cache_ns": 145626,
+                  "planning_ns": 26458
+                }
+              ],
+              "median": {
+                "candidate_bytes": 23198338,
+                "candidates": 1219,
+                "decoded_ids": 8823,
+                "filter_ns": 445667,
+                "keys": 5,
+                "postings_ns": 300041,
+                "set_and_cache_ns": 145626,
+                "planning_ns": 26458
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 22710372,
+                  "candidates": 1212,
+                  "decoded_ids": 8823,
+                  "filter_ns": 424917,
+                  "keys": 5,
+                  "postings_ns": 319751,
+                  "set_and_cache_ns": 105166,
+                  "planning_ns": 25250
+                }
+              ],
+              "median": {
+                "candidate_bytes": 22710372,
+                "candidates": 1212,
+                "decoded_ids": 8823,
+                "filter_ns": 424917,
+                "keys": 5,
+                "postings_ns": 319751,
+                "set_and_cache_ns": 105166,
+                "planning_ns": 25250
+              }
+            }
+          }
+        },
+        {
+          "id": "cuda_call",
+          "pattern": "\\btorch\\.cuda\\.[a-z_]+\\(",
+          "category": "escaped punctuation",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 7229512,
+                  "candidates": 306,
+                  "decoded_ids": 12395,
+                  "filter_ns": 510708,
+                  "keys": 4,
+                  "postings_ns": 421624,
+                  "set_and_cache_ns": 89084,
+                  "planning_ns": 19458
+                }
+              ],
+              "median": {
+                "candidate_bytes": 7229512,
+                "candidates": 306,
+                "decoded_ids": 12395,
+                "filter_ns": 510708,
+                "keys": 4,
+                "postings_ns": 421624,
+                "set_and_cache_ns": 89084,
+                "planning_ns": 19458
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 7229512,
+                  "candidates": 306,
+                  "decoded_ids": 12395,
+                  "filter_ns": 462750,
+                  "keys": 4,
+                  "postings_ns": 438792,
+                  "set_and_cache_ns": 23958,
+                  "planning_ns": 17375
+                }
+              ],
+              "median": {
+                "candidate_bytes": 7229512,
+                "candidates": 306,
+                "decoded_ids": 12395,
+                "filter_ns": 462750,
+                "keys": 4,
+                "postings_ns": 438792,
+                "set_and_cache_ns": 23958,
+                "planning_ns": 17375
+              }
+            }
+          }
+        },
+        {
+          "id": "config_assignment",
+          "pattern": "\\bmax_(model_len|num_seqs)[ \\t]*=",
+          "category": "optional whitespace",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 14657123,
+                  "candidates": 657,
+                  "decoded_ids": 9221,
+                  "filter_ns": 455333,
+                  "keys": 10,
+                  "postings_ns": 302166,
+                  "set_and_cache_ns": 153167,
+                  "planning_ns": 38167
+                }
+              ],
+              "median": {
+                "candidate_bytes": 14657123,
+                "candidates": 657,
+                "decoded_ids": 9221,
+                "filter_ns": 455333,
+                "keys": 10,
+                "postings_ns": 302166,
+                "set_and_cache_ns": 153167,
+                "planning_ns": 38167
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 14193321,
+                  "candidates": 626,
+                  "decoded_ids": 9221,
+                  "filter_ns": 447875,
+                  "keys": 10,
+                  "postings_ns": 314750,
+                  "set_and_cache_ns": 133125,
+                  "planning_ns": 37917
+                }
+              ],
+              "median": {
+                "candidate_bytes": 14193321,
+                "candidates": 626,
+                "decoded_ids": 9221,
+                "filter_ns": 447875,
+                "keys": 10,
+                "postings_ns": 314750,
+                "set_and_cache_ns": 133125,
+                "planning_ns": 37917
+              }
+            }
+          }
+        },
+        {
+          "id": "raise_error",
+          "pattern": "raise[ \\t]+\\w*Error\\(",
+          "category": "wildcard",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 32328477,
+                  "candidates": 1419,
+                  "decoded_ids": 12884,
+                  "filter_ns": 682958,
+                  "keys": 7,
+                  "postings_ns": 410083,
+                  "set_and_cache_ns": 272875,
+                  "planning_ns": 21833
+                }
+              ],
+              "median": {
+                "candidate_bytes": 32328477,
+                "candidates": 1419,
+                "decoded_ids": 12884,
+                "filter_ns": 682958,
+                "keys": 7,
+                "postings_ns": 410083,
+                "set_and_cache_ns": 272875,
+                "planning_ns": 21833
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 32328477,
+                  "candidates": 1419,
+                  "decoded_ids": 8240,
+                  "filter_ns": 501125,
+                  "keys": 5,
+                  "postings_ns": 284167,
+                  "set_and_cache_ns": 216958,
+                  "planning_ns": 22292
+                }
+              ],
+              "median": {
+                "candidate_bytes": 32328477,
+                "candidates": 1419,
+                "decoded_ids": 8240,
+                "filter_ns": 501125,
+                "keys": 5,
+                "postings_ns": 284167,
+                "set_and_cache_ns": 216958,
+                "planning_ns": 22292
+              }
+            }
+          }
+        },
+        {
+          "id": "todo_comment",
+          "pattern": "^[ \\t]*#.*\\b(TODO|FIXME)\\b",
+          "category": "anchor / wildcard",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 24328451,
+                  "candidates": 517,
+                  "decoded_ids": 757,
+                  "filter_ns": 79542,
+                  "keys": 4,
+                  "postings_ns": 40041,
+                  "set_and_cache_ns": 39501,
+                  "planning_ns": 37917
+                }
+              ],
+              "median": {
+                "candidate_bytes": 24328451,
+                "candidates": 517,
+                "decoded_ids": 757,
+                "filter_ns": 79542,
+                "keys": 4,
+                "postings_ns": 40041,
+                "set_and_cache_ns": 39501,
+                "planning_ns": 37917
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 24328451,
+                  "candidates": 517,
+                  "decoded_ids": 757,
+                  "filter_ns": 81000,
+                  "keys": 4,
+                  "postings_ns": 44667,
+                  "set_and_cache_ns": 36333,
+                  "planning_ns": 31542
+                }
+              ],
+              "median": {
+                "candidate_bytes": 24328451,
+                "candidates": 517,
+                "decoded_ids": 757,
+                "filter_ns": 81000,
+                "keys": 4,
+                "postings_ns": 44667,
+                "set_and_cache_ns": 36333,
+                "planning_ns": 31542
+              }
+            }
+          }
+        },
+        {
+          "id": "return_none",
+          "pattern": "^[ \\t]*return[ \\t]+None[ \\t]*$",
+          "category": "both anchors",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 69795645,
+                  "candidates": 3497,
+                  "decoded_ids": 24046,
+                  "filter_ns": 1395583,
+                  "keys": 8,
+                  "postings_ns": 765666,
+                  "set_and_cache_ns": 629917,
+                  "planning_ns": 35708
+                }
+              ],
+              "median": {
+                "candidate_bytes": 69795645,
+                "candidates": 3497,
+                "decoded_ids": 24046,
+                "filter_ns": 1395583,
+                "keys": 8,
+                "postings_ns": 765666,
+                "set_and_cache_ns": 629917,
+                "planning_ns": 35708
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 65078027,
+                  "candidates": 3145,
+                  "decoded_ids": 24046,
+                  "filter_ns": 1434167,
+                  "keys": 8,
+                  "postings_ns": 833042,
+                  "set_and_cache_ns": 601125,
+                  "planning_ns": 37417
+                }
+              ],
+              "median": {
+                "candidate_bytes": 65078027,
+                "candidates": 3145,
+                "decoded_ids": 24046,
+                "filter_ns": 1434167,
+                "keys": 8,
+                "postings_ns": 833042,
+                "set_and_cache_ns": 601125,
+                "planning_ns": 37417
+              }
+            }
+          }
+        },
+        {
+          "id": "quoted_device",
+          "pattern": "[\\\"'](?:cuda|cpu|rocm)[\\\"']",
+          "category": "quote character class",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 20671769,
+                  "candidates": 677,
+                  "decoded_ids": 4340,
+                  "filter_ns": 271625,
+                  "keys": 14,
+                  "postings_ns": 158001,
+                  "set_and_cache_ns": 113624,
+                  "planning_ns": 31042
+                }
+              ],
+              "median": {
+                "candidate_bytes": 20671769,
+                "candidates": 677,
+                "decoded_ids": 4340,
+                "filter_ns": 271625,
+                "keys": 14,
+                "postings_ns": 158001,
+                "set_and_cache_ns": 113624,
+                "planning_ns": 31042
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 13025959,
+                  "candidates": 667,
+                  "decoded_ids": 4340,
+                  "filter_ns": 286458,
+                  "keys": 14,
+                  "postings_ns": 176832,
+                  "set_and_cache_ns": 109626,
+                  "planning_ns": 30791
+                }
+              ],
+              "median": {
+                "candidate_bytes": 13025959,
+                "candidates": 667,
+                "decoded_ids": 4340,
+                "filter_ns": 286458,
+                "keys": 14,
+                "postings_ns": 176832,
+                "set_and_cache_ns": 109626,
+                "planning_ns": 30791
+              }
+            }
+          }
+        },
+        {
+          "id": "icase_sampling",
+          "pattern": "\\bSamplingParams\\b",
+          "category": "ignore case",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 13957037,
+                  "candidates": 388,
+                  "decoded_ids": 14490,
+                  "filter_ns": 832333,
+                  "keys": 124,
+                  "postings_ns": 613333,
+                  "set_and_cache_ns": 219000,
+                  "planning_ns": 205417
+                }
+              ],
+              "median": {
+                "candidate_bytes": 13957037,
+                "candidates": 388,
+                "decoded_ids": 14490,
+                "filter_ns": 832333,
+                "keys": 124,
+                "postings_ns": 613333,
+                "set_and_cache_ns": 219000,
+                "planning_ns": 205417
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 13957037,
+                  "candidates": 388,
+                  "decoded_ids": 24704,
+                  "filter_ns": 1482541,
+                  "keys": 127,
+                  "postings_ns": 1037582,
+                  "set_and_cache_ns": 444959,
+                  "planning_ns": 256083
+                }
+              ],
+              "median": {
+                "candidate_bytes": 13957037,
+                "candidates": 388,
+                "decoded_ids": 24704,
+                "filter_ns": 1482541,
+                "keys": 127,
+                "postings_ns": 1037582,
+                "set_and_cache_ns": 444959,
+                "planning_ns": 256083
+              }
+            }
+          }
+        },
+        {
+          "id": "icase_platform",
+          "pattern": "\\b(cuda|rocm)\\b",
+          "category": "ignore case / alternation",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 42222795,
+                  "candidates": 1981,
+                  "decoded_ids": 9830,
+                  "filter_ns": 517375,
+                  "keys": 37,
+                  "postings_ns": 349751,
+                  "set_and_cache_ns": 167624,
+                  "planning_ns": 73708
+                }
+              ],
+              "median": {
+                "candidate_bytes": 42222795,
+                "candidates": 1981,
+                "decoded_ids": 9830,
+                "filter_ns": 517375,
+                "keys": 37,
+                "postings_ns": 349751,
+                "set_and_cache_ns": 167624,
+                "planning_ns": 73708
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 34711715,
+                  "candidates": 1977,
+                  "decoded_ids": 9792,
+                  "filter_ns": 852291,
+                  "keys": 28,
+                  "postings_ns": 356501,
+                  "set_and_cache_ns": 495790,
+                  "planning_ns": 76500
+                }
+              ],
+              "median": {
+                "candidate_bytes": 34711715,
+                "candidates": 1977,
+                "decoded_ids": 9792,
+                "filter_ns": 852291,
+                "keys": 28,
+                "postings_ns": 356501,
+                "set_and_cache_ns": 495790,
+                "planning_ns": 76500
+              }
+            }
+          }
+        },
+        {
+          "id": "icase_todo",
+          "pattern": "\\b(TODO|FIXME)\\b",
+          "category": "ignore case / alternation",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 25644739,
+                  "candidates": 535,
+                  "decoded_ids": 4236,
+                  "filter_ns": 318875,
+                  "keys": 42,
+                  "postings_ns": 218374,
+                  "set_and_cache_ns": 100501,
+                  "planning_ns": 100709
+                }
+              ],
+              "median": {
+                "candidate_bytes": 25644739,
+                "candidates": 535,
+                "decoded_ids": 4236,
+                "filter_ns": 318875,
+                "keys": 42,
+                "postings_ns": 218374,
+                "set_and_cache_ns": 100501,
+                "planning_ns": 100709
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 25644739,
+                  "candidates": 535,
+                  "decoded_ids": 1439,
+                  "filter_ns": 222583,
+                  "keys": 33,
+                  "postings_ns": 128249,
+                  "set_and_cache_ns": 94334,
+                  "planning_ns": 103750
+                }
+              ],
+              "median": {
+                "candidate_bytes": 25644739,
+                "candidates": 535,
+                "decoded_ids": 1439,
+                "filter_ns": 222583,
+                "keys": 33,
+                "postings_ns": 128249,
+                "set_and_cache_ns": 94334,
+                "planning_ns": 103750
+              }
+            }
+          }
+        },
+        {
+          "id": "icase_env",
+          "pattern": "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+          "category": "ignore case / character class",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 46563434,
+                  "candidates": 2782,
+                  "decoded_ids": 27052,
+                  "filter_ns": 1332166,
+                  "keys": 38,
+                  "postings_ns": 898207,
+                  "set_and_cache_ns": 433959,
+                  "planning_ns": 78208
+                }
+              ],
+              "median": {
+                "candidate_bytes": 46563434,
+                "candidates": 2782,
+                "decoded_ids": 27052,
+                "filter_ns": 1332166,
+                "keys": 38,
+                "postings_ns": 898207,
+                "set_and_cache_ns": 433959,
+                "planning_ns": 78208
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 46360113,
+                  "candidates": 2758,
+                  "decoded_ids": 26980,
+                  "filter_ns": 1763334,
+                  "keys": 30,
+                  "postings_ns": 945664,
+                  "set_and_cache_ns": 817670,
+                  "planning_ns": 88709
+                }
+              ],
+              "median": {
+                "candidate_bytes": 46360113,
+                "candidates": 2758,
+                "decoded_ids": 26980,
+                "filter_ns": 1763334,
+                "keys": 30,
+                "postings_ns": 945664,
+                "set_and_cache_ns": 817670,
+                "planning_ns": 88709
+              }
+            }
+          }
+        },
+        {
+          "id": "icase_logger",
+          "pattern": "logger\\.(warning|error)\\(",
+          "category": "ignore case / escaped punctuation",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 32385306,
+                  "candidates": 816,
+                  "decoded_ids": 19062,
+                  "filter_ns": 1323750,
+                  "keys": 107,
+                  "postings_ns": 696958,
+                  "set_and_cache_ns": 626792,
+                  "planning_ns": 230250
+                }
+              ],
+              "median": {
+                "candidate_bytes": 32385306,
+                "candidates": 816,
+                "decoded_ids": 19062,
+                "filter_ns": 1323750,
+                "keys": 107,
+                "postings_ns": 696958,
+                "set_and_cache_ns": 626792,
+                "planning_ns": 230250
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 22650920,
+                  "candidates": 483,
+                  "decoded_ids": 16143,
+                  "filter_ns": 1090000,
+                  "keys": 86,
+                  "postings_ns": 639710,
+                  "set_and_cache_ns": 450290,
+                  "planning_ns": 237000
+                }
+              ],
+              "median": {
+                "candidate_bytes": 22650920,
+                "candidates": 483,
+                "decoded_ids": 16143,
+                "filter_ns": 1090000,
+                "keys": 86,
+                "postings_ns": 639710,
+                "set_and_cache_ns": 450290,
+                "planning_ns": 237000
+              }
+            }
+          }
+        },
+        {
+          "id": "icase_literal",
+          "pattern": "get_tensor_model_parallel_world_size",
+          "category": "ignore case / fixed string",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 27303186,
+                  "candidates": 574,
+                  "decoded_ids": 44229,
+                  "filter_ns": 2194250,
+                  "keys": 128,
+                  "postings_ns": 1355954,
+                  "set_and_cache_ns": 838296,
+                  "planning_ns": 277208
+                }
+              ],
+              "median": {
+                "candidate_bytes": 27303186,
+                "candidates": 574,
+                "decoded_ids": 44229,
+                "filter_ns": 2194250,
+                "keys": 128,
+                "postings_ns": 1355954,
+                "set_and_cache_ns": 838296,
+                "planning_ns": 277208
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 26906016,
+                  "candidates": 554,
+                  "decoded_ids": 44498,
+                  "filter_ns": 3050625,
+                  "keys": 128,
+                  "postings_ns": 1560837,
+                  "set_and_cache_ns": 1489788,
+                  "planning_ns": 283292
+                }
+              ],
+              "median": {
+                "candidate_bytes": 26906016,
+                "candidates": 554,
+                "decoded_ids": 44498,
+                "filter_ns": 3050625,
+                "keys": 128,
+                "postings_ns": 1560837,
+                "set_and_cache_ns": 1489788,
+                "planning_ns": 283292
+              }
+            }
+          }
+        },
+        {
+          "id": "digits",
+          "pattern": "\\b[0-9]{2,4}\\b",
+          "category": "scan fallback / bounded repetition",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 86384180,
+                  "candidates": 6835,
+                  "decoded_ids": 0,
+                  "filter_ns": 83,
+                  "keys": 0,
+                  "postings_ns": 0,
+                  "set_and_cache_ns": 83,
+                  "planning_ns": 63000
+                }
+              ],
+              "median": {
+                "candidate_bytes": 86384180,
+                "candidates": 6835,
+                "decoded_ids": 0,
+                "filter_ns": 83,
+                "keys": 0,
+                "postings_ns": 0,
+                "set_and_cache_ns": 83,
+                "planning_ns": 63000
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 86384180,
+                  "candidates": 6835,
+                  "decoded_ids": 0,
+                  "filter_ns": 167,
+                  "keys": 0,
+                  "postings_ns": 0,
+                  "set_and_cache_ns": 167,
+                  "planning_ns": 65917
+                }
+              ],
+              "median": {
+                "candidate_bytes": 86384180,
+                "candidates": 6835,
+                "decoded_ids": 0,
+                "filter_ns": 167,
+                "keys": 0,
+                "postings_ns": 0,
+                "set_and_cache_ns": 167,
+                "planning_ns": 65917
+              }
+            }
+          }
+        },
+        {
+          "id": "hex_number",
+          "pattern": "\\b0x[0-9A-Fa-f]+\\b",
+          "category": "hexadecimal / short prefix",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 16591555,
+                  "candidates": 238,
+                  "decoded_ids": 594,
+                  "filter_ns": 98709,
+                  "keys": 22,
+                  "postings_ns": 85586,
+                  "set_and_cache_ns": 13123,
+                  "planning_ns": 53542
+                }
+              ],
+              "median": {
+                "candidate_bytes": 16591555,
+                "candidates": 238,
+                "decoded_ids": 594,
+                "filter_ns": 98709,
+                "keys": 22,
+                "postings_ns": 85586,
+                "set_and_cache_ns": 13123,
+                "planning_ns": 53542
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 16591555,
+                  "candidates": 238,
+                  "decoded_ids": 594,
+                  "filter_ns": 100917,
+                  "keys": 22,
+                  "postings_ns": 84959,
+                  "set_and_cache_ns": 15958,
+                  "planning_ns": 55333
+                }
+              ],
+              "median": {
+                "candidate_bytes": 16591555,
+                "candidates": 238,
+                "decoded_ids": 594,
+                "filter_ns": 100917,
+                "keys": 22,
+                "postings_ns": 84959,
+                "set_and_cache_ns": 15958,
+                "planning_ns": 55333
+              }
+            }
+          }
+        },
+        {
+          "id": "short_word",
+          "pattern": "\\bif\\b",
+          "category": "scan fallback / short literal",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 86384180,
+                  "candidates": 6835,
+                  "decoded_ids": 0,
+                  "filter_ns": 84,
+                  "keys": 0,
+                  "postings_ns": 0,
+                  "set_and_cache_ns": 84,
+                  "planning_ns": 11541
+                }
+              ],
+              "median": {
+                "candidate_bytes": 86384180,
+                "candidates": 6835,
+                "decoded_ids": 0,
+                "filter_ns": 84,
+                "keys": 0,
+                "postings_ns": 0,
+                "set_and_cache_ns": 84,
+                "planning_ns": 11541
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 86384180,
+                  "candidates": 6835,
+                  "decoded_ids": 0,
+                  "filter_ns": 83,
+                  "keys": 0,
+                  "postings_ns": 0,
+                  "set_and_cache_ns": 83,
+                  "planning_ns": 10583
+                }
+              ],
+              "median": {
+                "candidate_bytes": 86384180,
+                "candidates": 6835,
+                "decoded_ids": 0,
+                "filter_ns": 83,
+                "keys": 0,
+                "postings_ns": 0,
+                "set_and_cache_ns": 83,
+                "planning_ns": 10583
+              }
+            }
+          }
+        },
+        {
+          "id": "blank_lines",
+          "pattern": "^[ \\t]*$",
+          "category": "scan fallback / empty match",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 86384180,
+                  "candidates": 6835,
+                  "decoded_ids": 0,
+                  "filter_ns": 167,
+                  "keys": 0,
+                  "postings_ns": 0,
+                  "set_and_cache_ns": 167,
+                  "planning_ns": 14250
+                }
+              ],
+              "median": {
+                "candidate_bytes": 86384180,
+                "candidates": 6835,
+                "decoded_ids": 0,
+                "filter_ns": 167,
+                "keys": 0,
+                "postings_ns": 0,
+                "set_and_cache_ns": 167,
+                "planning_ns": 14250
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 86384180,
+                  "candidates": 6835,
+                  "decoded_ids": 0,
+                  "filter_ns": 125,
+                  "keys": 0,
+                  "postings_ns": 0,
+                  "set_and_cache_ns": 125,
+                  "planning_ns": 15000
+                }
+              ],
+              "median": {
+                "candidate_bytes": 86384180,
+                "candidates": 6835,
+                "decoded_ids": 0,
+                "filter_ns": 125,
+                "keys": 0,
+                "postings_ns": 0,
+                "set_and_cache_ns": 125,
+                "planning_ns": 15000
+              }
+            }
+          }
+        },
+        {
+          "id": "absent_regex",
+          "pattern": "\\bCODERG_BENCH_ABSENT_[0-9]{8}\\b",
+          "category": "no matches",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 0,
+                  "candidates": 0,
+                  "decoded_ids": 0,
+                  "filter_ns": 41917,
+                  "keys": 24,
+                  "postings_ns": 39043,
+                  "set_and_cache_ns": 2874,
+                  "planning_ns": 125583
+                }
+              ],
+              "median": {
+                "candidate_bytes": 0,
+                "candidates": 0,
+                "decoded_ids": 0,
+                "filter_ns": 41917,
+                "keys": 24,
+                "postings_ns": 39043,
+                "set_and_cache_ns": 2874,
+                "planning_ns": 125583
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 0,
+                  "candidates": 0,
+                  "decoded_ids": 0,
+                  "filter_ns": 60833,
+                  "keys": 24,
+                  "postings_ns": 54753,
+                  "set_and_cache_ns": 6080,
+                  "planning_ns": 162125
+                }
+              ],
+              "median": {
+                "candidate_bytes": 0,
+                "candidates": 0,
+                "decoded_ids": 0,
+                "filter_ns": 60833,
+                "keys": 24,
+                "postings_ns": 54753,
+                "set_and_cache_ns": 6080,
+                "planning_ns": 162125
+              }
+            }
+          }
+        },
+        {
+          "id": "wide_icase_asyncmock",
+          "pattern": "\\basyncmock\\b",
+          "category": "ignore case",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 2491629,
+                  "candidates": 60,
+                  "decoded_ids": 5405,
+                  "filter_ns": 384417,
+                  "keys": 128,
+                  "postings_ns": 315469,
+                  "set_and_cache_ns": 68948,
+                  "planning_ns": 178000
+                }
+              ],
+              "median": {
+                "candidate_bytes": 2491629,
+                "candidates": 60,
+                "decoded_ids": 5405,
+                "filter_ns": 384417,
+                "keys": 128,
+                "postings_ns": 315469,
+                "set_and_cache_ns": 68948,
+                "planning_ns": 178000
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 612206,
+                  "candidates": 25,
+                  "decoded_ids": 7436,
+                  "filter_ns": 566458,
+                  "keys": 121,
+                  "postings_ns": 415789,
+                  "set_and_cache_ns": 150669,
+                  "planning_ns": 216917
+                }
+              ],
+              "median": {
+                "candidate_bytes": 612206,
+                "candidates": 25,
+                "decoded_ids": 7436,
+                "filter_ns": 566458,
+                "keys": 121,
+                "postings_ns": 415789,
+                "set_and_cache_ns": 150669,
+                "planning_ns": 216917
+              }
+            }
+          }
+        },
+        {
+          "id": "wide_icase_cache",
+          "pattern": "\\b(kv_cache|block_size)\\b",
+          "category": "ignore case",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 62343357,
+                  "candidates": 2979,
+                  "decoded_ids": 10797,
+                  "filter_ns": 585875,
+                  "keys": 32,
+                  "postings_ns": 387710,
+                  "set_and_cache_ns": 198165,
+                  "planning_ns": 116667
+                }
+              ],
+              "median": {
+                "candidate_bytes": 62343357,
+                "candidates": 2979,
+                "decoded_ids": 10797,
+                "filter_ns": 585875,
+                "keys": 32,
+                "postings_ns": 387710,
+                "set_and_cache_ns": 198165,
+                "planning_ns": 116667
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 60865396,
+                  "candidates": 2920,
+                  "decoded_ids": 10797,
+                  "filter_ns": 1037250,
+                  "keys": 30,
+                  "postings_ns": 426085,
+                  "set_and_cache_ns": 611165,
+                  "planning_ns": 112000
+                }
+              ],
+              "median": {
+                "candidate_bytes": 60865396,
+                "candidates": 2920,
+                "decoded_ids": 10797,
+                "filter_ns": 1037250,
+                "keys": 30,
+                "postings_ns": 426085,
+                "set_and_cache_ns": 611165,
+                "planning_ns": 112000
+              }
+            }
+          }
+        },
+        {
+          "id": "wide_icase_class_attention",
+          "pattern": "class[ \\t]+\\w*Attention\\b",
+          "category": "ignore case",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 31471050,
+                  "candidates": 1105,
+                  "decoded_ids": 32905,
+                  "filter_ns": 2051959,
+                  "keys": 128,
+                  "postings_ns": 1122288,
+                  "set_and_cache_ns": 929671,
+                  "planning_ns": 234792
+                }
+              ],
+              "median": {
+                "candidate_bytes": 31471050,
+                "candidates": 1105,
+                "decoded_ids": 32905,
+                "filter_ns": 2051959,
+                "keys": 128,
+                "postings_ns": 1122288,
+                "set_and_cache_ns": 929671,
+                "planning_ns": 234792
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 27757912,
+                  "candidates": 942,
+                  "decoded_ids": 42465,
+                  "filter_ns": 2818916,
+                  "keys": 122,
+                  "postings_ns": 1514165,
+                  "set_and_cache_ns": 1304751,
+                  "planning_ns": 273208
+                }
+              ],
+              "median": {
+                "candidate_bytes": 27757912,
+                "candidates": 942,
+                "decoded_ids": 42465,
+                "filter_ns": 2818916,
+                "keys": 122,
+                "postings_ns": 1514165,
+                "set_and_cache_ns": 1304751,
+                "planning_ns": 273208
+              }
+            }
+          }
+        },
+        {
+          "id": "wide_icase_def_forward",
+          "pattern": "def[ \\t]+forward\\b",
+          "category": "ignore case",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 35133976,
+                  "candidates": 1133,
+                  "decoded_ids": 24857,
+                  "filter_ns": 1540000,
+                  "keys": 103,
+                  "postings_ns": 846660,
+                  "set_and_cache_ns": 693340,
+                  "planning_ns": 161792
+                }
+              ],
+              "median": {
+                "candidate_bytes": 35133976,
+                "candidates": 1133,
+                "decoded_ids": 24857,
+                "filter_ns": 1540000,
+                "keys": 103,
+                "postings_ns": 846660,
+                "set_and_cache_ns": 693340,
+                "planning_ns": 161792
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 34287041,
+                  "candidates": 1098,
+                  "decoded_ids": 19309,
+                  "filter_ns": 1313125,
+                  "keys": 83,
+                  "postings_ns": 730785,
+                  "set_and_cache_ns": 582340,
+                  "planning_ns": 197709
+                }
+              ],
+              "median": {
+                "candidate_bytes": 34287041,
+                "candidates": 1098,
+                "decoded_ids": 19309,
+                "filter_ns": 1313125,
+                "keys": 83,
+                "postings_ns": 730785,
+                "set_and_cache_ns": 582340,
+                "planning_ns": 197709
+              }
+            }
+          }
+        },
+        {
+          "id": "wide_icase_config",
+          "pattern": "\\bmax_(model_len|num_seqs)\\b",
+          "category": "ignore case",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 50290685,
+                  "candidates": 1951,
+                  "decoded_ids": 22084,
+                  "filter_ns": 1396083,
+                  "keys": 55,
+                  "postings_ns": 748336,
+                  "set_and_cache_ns": 647747,
+                  "planning_ns": 199042
+                }
+              ],
+              "median": {
+                "candidate_bytes": 50290685,
+                "candidates": 1951,
+                "decoded_ids": 22084,
+                "filter_ns": 1396083,
+                "keys": 55,
+                "postings_ns": 748336,
+                "set_and_cache_ns": 647747,
+                "planning_ns": 199042
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 30222167,
+                  "candidates": 1022,
+                  "decoded_ids": 21803,
+                  "filter_ns": 1665375,
+                  "keys": 44,
+                  "postings_ns": 801623,
+                  "set_and_cache_ns": 863752,
+                  "planning_ns": 209333
+                }
+              ],
+              "median": {
+                "candidate_bytes": 30222167,
+                "candidates": 1022,
+                "decoded_ids": 21803,
+                "filter_ns": 1665375,
+                "keys": 44,
+                "postings_ns": 801623,
+                "set_and_cache_ns": 863752,
+                "planning_ns": 209333
+              }
+            }
+          }
+        },
+        {
+          "id": "wide_icase_exceptions",
+          "pattern": "\\b(ValueError|RuntimeError|NotImplementedError)\\b",
+          "category": "ignore case",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 73690413,
+                  "candidates": 3832,
+                  "decoded_ids": 21538,
+                  "filter_ns": 1041084,
+                  "keys": 52,
+                  "postings_ns": 704747,
+                  "set_and_cache_ns": 336337,
+                  "planning_ns": 208125
+                }
+              ],
+              "median": {
+                "candidate_bytes": 73690413,
+                "candidates": 3832,
+                "decoded_ids": 21538,
+                "filter_ns": 1041084,
+                "keys": 52,
+                "postings_ns": 704747,
+                "set_and_cache_ns": 336337,
+                "planning_ns": 208125
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 72096787,
+                  "candidates": 3648,
+                  "decoded_ids": 21534,
+                  "filter_ns": 1744417,
+                  "keys": 46,
+                  "postings_ns": 753127,
+                  "set_and_cache_ns": 991290,
+                  "planning_ns": 195042
+                }
+              ],
+              "median": {
+                "candidate_bytes": 72096787,
+                "candidates": 3648,
+                "decoded_ids": 21534,
+                "filter_ns": 1744417,
+                "keys": 46,
+                "postings_ns": 753127,
+                "set_and_cache_ns": 991290,
+                "planning_ns": 195042
+              }
+            }
+          }
+        },
+        {
+          "id": "wide_icase_tensor_creation",
+          "pattern": "\\b(torch|numpy)\\.(empty|zeros|ones)\\b",
+          "category": "ignore case",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 56978781,
+                  "candidates": 2283,
+                  "decoded_ids": 24156,
+                  "filter_ns": 1581208,
+                  "keys": 117,
+                  "postings_ns": 869793,
+                  "set_and_cache_ns": 711415,
+                  "planning_ns": 449583
+                }
+              ],
+              "median": {
+                "candidate_bytes": 56978781,
+                "candidates": 2283,
+                "decoded_ids": 24156,
+                "filter_ns": 1581208,
+                "keys": 117,
+                "postings_ns": 869793,
+                "set_and_cache_ns": 711415,
+                "planning_ns": 449583
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 39230982,
+                  "candidates": 1402,
+                  "decoded_ids": 31157,
+                  "filter_ns": 2486542,
+                  "keys": 117,
+                  "postings_ns": 1159423,
+                  "set_and_cache_ns": 1327119,
+                  "planning_ns": 466458
+                }
+              ],
+              "median": {
+                "candidate_bytes": 39230982,
+                "candidates": 1402,
+                "decoded_ids": 31157,
+                "filter_ns": 2486542,
+                "keys": 117,
+                "postings_ns": 1159423,
+                "set_and_cache_ns": 1327119,
+                "planning_ns": 466458
+              }
+            }
+          }
+        },
+        {
+          "id": "wide_icase_async_def",
+          "pattern": "async[ \\t]+def[ \\t]+\\w+",
+          "category": "ignore case",
+          "modes": {
+            "baseline": {
+              "samples": [
+                {
+                  "candidate_bytes": 21994841,
+                  "candidates": 559,
+                  "decoded_ids": 21694,
+                  "filter_ns": 1177792,
+                  "keys": 106,
+                  "postings_ns": 801498,
+                  "set_and_cache_ns": 376294,
+                  "planning_ns": 122125
+                }
+              ],
+              "median": {
+                "candidate_bytes": 21994841,
+                "candidates": 559,
+                "decoded_ids": 21694,
+                "filter_ns": 1177792,
+                "keys": 106,
+                "postings_ns": 801498,
+                "set_and_cache_ns": 376294,
+                "planning_ns": 122125
+              }
+            },
+            "optimized": {
+              "samples": [
+                {
+                  "candidate_bytes": 21012774,
+                  "candidates": 538,
+                  "decoded_ids": 21691,
+                  "filter_ns": 1503458,
+                  "keys": 94,
+                  "postings_ns": 891038,
+                  "set_and_cache_ns": 612420,
+                  "planning_ns": 136625
+                }
+              ],
+              "median": {
+                "candidate_bytes": 21012774,
+                "candidates": 538,
+                "decoded_ids": 21691,
+                "filter_ns": 1503458,
+                "keys": 94,
+                "postings_ns": 891038,
+                "set_and_cache_ns": 612420,
+                "planning_ns": 136625
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

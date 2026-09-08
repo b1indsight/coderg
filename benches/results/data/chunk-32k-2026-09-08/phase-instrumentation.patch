@@ -1,0 +1,254 @@
+--- a/src/build.rs
++++ b/src/build.rs
+@@ -93,6 +93,7 @@
+     }
+ 
+     pub fn extend(&mut self, id: u32, hashes: &[ngram::GramHash]) -> Result<()> {
++        let _extend = crate::probe::Span::new(crate::probe::EXTEND);
+         if self.records.capacity() == 0 && !hashes.is_empty() {
+             // Allocate once: geometric Vec growth can temporarily retain both
+             // the old and new allocation, exceeding the record budget.
+@@ -131,8 +132,12 @@
+     }
+ 
+     fn spill(&mut self) -> Result<()> {
+-        self.records.par_sort_unstable();
+-        self.records.dedup();
++        let _spill = crate::probe::Span::new(crate::probe::SPILL);
++        crate::probe::add(crate::probe::SORT_INPUT, self.records.len());
++        crate::probe::timed(crate::probe::SORT, || self.records.par_sort_unstable());
++        crate::probe::timed(crate::probe::DEDUP, || self.records.dedup());
++        crate::probe::add(crate::probe::SORT_OUTPUT, self.records.len());
++        let _write = crate::probe::Span::new(crate::probe::SPILL_WRITE);
+         let path = self.run_path()?;
+         let mut writer = RunWriter::new(&path)?;
+         for &record in &self.records {
+@@ -154,9 +159,11 @@
+ 
+     pub fn write(mut self, id: u64) -> Result<segment::SegmentMeta> {
+         if self.runs.is_empty() {
+-            self.records.par_sort_unstable();
+-            self.records.dedup();
+-            let ngrams = self.records.chunk_by(|a, b| a.0 == b.0).count() as u64;
++            crate::probe::add(crate::probe::SORT_INPUT, self.records.len());
++        crate::probe::timed(crate::probe::SORT, || self.records.par_sort_unstable());
++            crate::probe::timed(crate::probe::DEDUP, || self.records.dedup());
++        crate::probe::add(crate::probe::SORT_OUTPUT, self.records.len());
++            let ngrams = crate::probe::timed(crate::probe::COUNT_KEYS, || self.records.chunk_by(|a, b| a.0 == b.0).count() as u64);
+             return segment::write_sorted(
+                 &self.index_dir,
+                 id,
+@@ -298,6 +305,7 @@
+ }
+ 
+ fn merge_runs(inputs: &[Run], output: PathBuf) -> Result<(Run, u64)> {
++    let _merge = crate::probe::Span::new(crate::probe::MERGE);
+     let mut readers: Vec<_> = inputs
+         .iter()
+         .map(|run| RunReader::new(&run.path))
+--- a/src/index.rs
++++ b/src/index.rs
+@@ -150,11 +150,12 @@
+     requested_index_dir: Option<&Path>,
+     budget: MemoryBudget,
+ ) -> Result<BuildSummary> {
++    let _total = crate::probe::Span::new(crate::probe::TOTAL);
+     let root = resolve_root(path)?;
+     let index_dir = resolve_index_dir(&root, requested_index_dir);
+     prepare_index_dir(&root, &index_dir)?;
+-    let source_state = collect_files(&root, &index_dir, None)?;
+-    let repository_state = git_state::inspect(&root, &index_dir)?;
++    let source_state = crate::probe::timed(crate::probe::COLLECT_FILES, || collect_files(&root, &index_dir, None))?;
++    let repository_state = crate::probe::timed(crate::probe::GIT, || git_state::inspect(&root, &index_dir))?;
+     let segment_id = next_segment_id(&index_dir);
+     let (indexed, segment) = index_files(
+         &root,
+@@ -194,12 +195,14 @@
+         documents,
+         segments: vec![segment],
+     };
++    let _manifest_timer = crate::probe::Span::new(crate::probe::MANIFEST);
+     write_manifest(&index_dir, &manifest)?;
+     cache_manifest_if_clean(
+         &index_dir,
+         &manifest,
+         repository_state.is_some_and(|state| state.clean),
+     )?;
++    drop(_manifest_timer);
+     Ok(BuildSummary {
+         files: manifest
+             .documents
+@@ -284,7 +287,8 @@
+             let mut manifest = index.manifest.clone();
+             manifest.generation += 1;
+             manifest.git_head = current_head;
+-            write_manifest(&index_dir, &manifest)?;
++            let _manifest_timer = crate::probe::Span::new(crate::probe::MANIFEST);
++    write_manifest(&index_dir, &manifest)?;
+             cache_manifest_if_clean(&index_dir, &manifest, true)?;
+             return Ok(RefreshOutcome::CommitAdvanced);
+         }
+@@ -299,7 +303,8 @@
+         manifest.generation += 1;
+         manifest.git_head = current_head;
+         manifest.git_tree = current_tree;
+-        write_manifest(&index_dir, &manifest)?;
++        let _manifest_timer = crate::probe::Span::new(crate::probe::MANIFEST);
++    write_manifest(&index_dir, &manifest)?;
+         cache_manifest_if_clean(
+             &index_dir,
+             &manifest,
+@@ -438,6 +443,7 @@
+     let mut postings = PostingsBuilder::new(index_dir, budget.record_bytes(workers));
+     let mut searchable = vec![false; files.len()];
+     let next_file = AtomicUsize::new(0);
++    let pipeline_timer = crate::probe::Span::new(crate::probe::PIPELINE);
+     std::thread::scope(|scope| -> Result<()> {
+         let (sender, receiver) = mpsc::sync_channel(workers);
+         for _ in 0..workers {
+@@ -454,8 +460,8 @@
+                     };
+                     let path = root.join(&state.path);
+                     let result = hash_file_chunks(&path, |hashes| {
+-                        sender
+-                            .send(Ok((position, hashes)))
++                        crate::probe::timed(crate::probe::SEND_WAIT, || sender
++                            .send(Ok((position, hashes))))
+                             .map_err(|_| anyhow::anyhow!("index build cancelled"))
+                     });
+                     if let Err(error) = result {
+@@ -466,14 +472,15 @@
+             });
+         }
+         drop(sender);
+-        for batch in receiver {
++        while let Ok(batch) = crate::probe::timed(crate::probe::RECEIVE_WAIT, || receiver.recv()) {
+             let (position, hashes) = batch?;
+             searchable[position] = true;
+             postings.extend(files[position].0, &hashes)?;
+         }
+         Ok(())
+     })?;
+-    let segment = postings.write(segment_id)?;
++    drop(pipeline_timer);
++    let segment = crate::probe::timed(crate::probe::FINAL_WRITE, || postings.write(segment_id))?;
+     let indexed = files
+         .into_iter()
+         .zip(searchable)
+@@ -490,11 +497,12 @@
+     path: &Path,
+     mut emit: impl FnMut(Vec<ngram::GramHash>) -> Result<()>,
+ ) -> Result<()> {
+-    let mut file = File::open(path).with_context(|| format!("cannot read {}", path.display()))?;
++    let mut file = crate::probe::timed(crate::probe::FILE_OPEN, || File::open(path)).with_context(|| format!("cannot read {}", path.display()))?;
+     let mut bytes = [0; CHUNK_BYTES];
+     let mut retained = 0;
+     loop {
+         let mut len = retained;
++        let read_timer = crate::probe::Span::new(crate::probe::FILE_READ);
+         while len < bytes.len() {
+             match file.read(&mut bytes[len..]) {
+                 Ok(0) => break,
+@@ -505,13 +513,18 @@
+                 }
+             }
+         }
++        drop(read_timer);
++        crate::probe::add(crate::probe::READ_BYTES, len - retained);
+         if retained == 0 && is_binary(&bytes[..len]) {
+             return Ok(());
+         }
+         if retained > 0 && len == retained {
+             break;
+         }
+-        emit(ngram::hashes_for_chunk(&bytes[..len]))?;
++        let hashes = crate::probe::timed(crate::probe::GRAM_HASH, || ngram::hashes_for_chunk(&bytes[..len]));
++        crate::probe::add(crate::probe::CHUNKS, 1);
++        crate::probe::add(crate::probe::EMITTED_RECORDS, hashes.len());
++        emit(hashes)?;
+         if len < bytes.len() {
+             break;
+         }
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -1,3 +1,4 @@
++mod probe;
+ mod build;
+ mod git_state;
+ mod index;
+@@ -87,6 +88,13 @@
+             build,
+         } => {
+             let summary = index::build(&path, index_dir.as_deref(), build.build_memory_mib)?;
++            probe::report();
++            let repeat: usize = std::env::var("CODERG_PROFILE_REPEAT").ok().and_then(|s| s.parse().ok()).unwrap_or(1);
++            for _ in 1..repeat {
++                let temp = tempfile::tempdir()?;
++                index::build(&path, Some(temp.path()), build.build_memory_mib)?;
++                probe::report();
++            }
+             eprintln!(
+                 "indexed {} files ({} bytes, {} n-grams) in {}",
+                 summary.files,
+--- a/src/probe.rs
++++ b/src/probe.rs
+@@ -0,0 +1,49 @@
++use std::sync::atomic::{AtomicU64, Ordering};
++use std::time::Instant;
++pub const TOTAL: usize = 0;
++pub const COLLECT_FILES: usize = 1;
++pub const GIT: usize = 2;
++pub const PIPELINE: usize = 3;
++pub const RECEIVE_WAIT: usize = 4;
++pub const EXTEND: usize = 5;
++pub const FILE_OPEN: usize = 6;
++pub const FILE_READ: usize = 7;
++pub const GRAM_HASH: usize = 8;
++pub const CHUNK_COLLECT: usize = 9;
++pub const SEND_WAIT: usize = 10;
++pub const SORT: usize = 11;
++pub const DEDUP: usize = 12;
++pub const SPILL: usize = 13;
++pub const SPILL_WRITE: usize = 14;
++pub const MERGE: usize = 15;
++pub const COUNT_KEYS: usize = 16;
++pub const ENCODE: usize = 17;
++pub const FINAL_WRITE: usize = 18;
++pub const MANIFEST: usize = 19;
++pub const CHUNKS: usize = 20;
++pub const READ_BYTES: usize = 21;
++pub const EMITTED_RECORDS: usize = 22;
++pub const SORT_INPUT: usize = 23;
++pub const SORT_OUTPUT: usize = 24;
++static NS: [AtomicU64; 20] = [const { AtomicU64::new(0) }; 20];
++static COUNT: [AtomicU64; 25] = [const { AtomicU64::new(0) }; 25];
++pub struct Span(usize, Instant);
++impl Span { pub fn new(id: usize) -> Self { Self(id, Instant::now()) } }
++impl Drop for Span { fn drop(&mut self) {
++    NS[self.0].fetch_add(self.1.elapsed().as_nanos() as u64, Ordering::Relaxed);
++    COUNT[self.0].fetch_add(1, Ordering::Relaxed);
++} }
++pub fn timed<T>(id: usize, f: impl FnOnce() -> T) -> T { let _span = Span::new(id); f() }
++pub fn add(id: usize, n: usize) { COUNT[id].fetch_add(n as u64, Ordering::Relaxed); }
++pub fn report() {
++    let names = ["total", "collect_files", "git", "pipeline", "receive_wait", "extend", "file_open", "file_read", "gram_hash", "chunk_collect", "send_wait", "sort", "dedup", "spill", "spill_write", "merge", "count_keys", "encode", "final_write", "manifest", "chunks", "read_bytes", "emitted_records", "sort_input", "sort_output"];
++    let mut values = serde_json::Map::new();
++    for (i, name) in names.iter().enumerate() {
++        let count = COUNT[i].swap(0, Ordering::Relaxed);
++        if i < NS.len() {
++            let ns = NS[i].swap(0, Ordering::Relaxed);
++            values.insert((*name).to_owned(), serde_json::json!({"ms": ns as f64 / 1e6, "calls": count}));
++        } else { values.insert((*name).to_owned(), serde_json::json!(count)); }
++    }
++    eprintln!("BUILD_PROFILE {}", serde_json::Value::Object(values));
++}
+--- a/src/segment.rs
++++ b/src/segment.rs
+@@ -150,6 +150,7 @@
+     ngrams: u64,
+     records: impl IntoIterator<Item = Result<(ngram::GramHash, u32)>>,
+ ) -> Result<SegmentMeta> {
++    let _encode = crate::probe::Span::new(crate::probe::ENCODE);
+     const ENCODE_BYTES: usize = 64 * 1024;
+     let segments_dir = index_dir.join("segments");
+     fs::create_dir_all(&segments_dir)?;

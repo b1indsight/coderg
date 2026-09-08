@@ -1,0 +1,3046 @@
+{
+  "recorded_at": "2026-09-08T09:01:23.961606+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "harness_sha256": "546f39975c222160f794f93975646c46e711c171df60a8a8ad9af6d810e409b6",
+  "versions": {
+    "before": {
+      "binary": "/private/tmp/coderg-build-budget-2026-09-08/before",
+      "sha256": "806de8af1ca394820e6fd6f97e30cc7f1625594e5a5038662fecb39b01a4b858",
+      "args": []
+    },
+    "budget_256": {
+      "binary": "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "sha256": "2eb32abfc5e97226ebd7570046dfebfba6939771fbfb50648006de8c06303cc8",
+      "args": [
+        "--build-memory-mib",
+        "256"
+      ]
+    }
+  },
+  "method": {
+    "warmup": 1,
+    "timing": 5,
+    "rss": 3,
+    "seed": 20260908,
+    "cache": "warm filesystem cache; fresh index each run"
+  },
+  "corpora": {
+    "vllm": {
+      "root": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+      "before": {
+        "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+        "status": ""
+      },
+      "after": {
+        "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+        "status": ""
+      }
+    },
+    "vllm_x4": {
+      "root": "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+      "before": {
+        "commit": null,
+        "status": null
+      },
+      "after": {
+        "commit": null,
+        "status": null
+      }
+    },
+    "viberwhisper": {
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+      "before": {
+        "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+        "status": ""
+      },
+      "after": {
+        "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+        "status": ""
+      }
+    },
+    "few_large_64": {
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+      "before": {
+        "commit": "9ad96402e96098260593ee566d04ac257193c013",
+        "status": ""
+      },
+      "after": {
+        "commit": "9ad96402e96098260593ee566d04ac257193c013",
+        "status": ""
+      }
+    }
+  },
+  "runs": [
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-wejv9kgf/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 2125.243042,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567804360,
+      "peak_temporary_bytes": 567804360,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 15690878,
+          "sha256": "9936fd191d7b77d0467b673544a60179885589814cd76828c3270022e99ca220"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 1635459,
+          "sha256": "fcf1eb0853d9fdebe73f2ec109f65f99f0d13c736edd072057b768f5a7adb4a0"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 0,
+          "bytes": 823319,
+          "sha256": "0611f8cb73c5fd626fe28d7a3d48ed012280c7355a26abadf270d432b9b673e2"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 35408174,
+          "sha256": "2d59425eb7da12c2a797bc718fa6a5d9d584d40e3d306ec4c8c2816ffbfa16be"
+        }
+      ]
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-_n37enpk/index"
+      ],
+      "elapsed_ms": 799.582583,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 15690878,
+          "sha256": "9936fd191d7b77d0467b673544a60179885589814cd76828c3270022e99ca220"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 1635459,
+          "sha256": "fcf1eb0853d9fdebe73f2ec109f65f99f0d13c736edd072057b768f5a7adb4a0"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 0,
+          "bytes": 823319,
+          "sha256": "0611f8cb73c5fd626fe28d7a3d48ed012280c7355a26abadf270d432b9b673e2"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 35408174,
+          "sha256": "2d59425eb7da12c2a797bc718fa6a5d9d584d40e3d306ec4c8c2816ffbfa16be"
+        }
+      ]
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-ozqwm77_/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1483.92825,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 568023520,
+      "peak_temporary_bytes": 568023520
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-2h6i0pv2/index"
+      ],
+      "elapsed_ms": 941.720708,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-ya23p0lz/index"
+      ],
+      "elapsed_ms": 845.101916,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-ge2x5bix/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1310.445417,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 568096464,
+      "peak_temporary_bytes": 568096464
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-7ma32o3t/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1331.514792,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 568151432,
+      "peak_temporary_bytes": 568151432
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-tzqu76dm/index"
+      ],
+      "elapsed_ms": 757.1845,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-aw1jxbjd/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1312.77525,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 568134944,
+      "peak_temporary_bytes": 568134944
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-kxqr2cdo/index"
+      ],
+      "elapsed_ms": 856.741042,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-vx3zhsny/index"
+      ],
+      "elapsed_ms": 844.94125,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-nczbypjq/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1308.94325,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 567956288,
+      "peak_temporary_bytes": 567956288
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-0mpgkl1d/index"
+      ],
+      "elapsed_ms": 863.550875,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 550305792
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-rtq237nz/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1311.483,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 568168896,
+      "peak_temporary_bytes": 568168896,
+      "rss_bytes": 217890816
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-jbx6q155/index"
+      ],
+      "elapsed_ms": 802.644666,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 537755648
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-9esgojo4/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1321.033167,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 568274664,
+      "peak_temporary_bytes": 568274664,
+      "rss_bytes": 218185728
+    },
+    {
+      "corpus": "vllm",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-i9qr69ea/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 1314.650584,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 2,
+      "temporary_bytes_written": 568113712,
+      "peak_temporary_bytes": 568113712,
+      "rss_bytes": 218349568
+    },
+    {
+      "corpus": "vllm",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-7l7hb0f1/index"
+      ],
+      "elapsed_ms": 816.013084,
+      "segments": {
+        "lookup": {
+          "bytes": 29206668,
+          "sha256": "eee99da6d00979fe1bcb51d348043f977059304de9f825fc0916f661a645d380"
+        },
+        "postings": {
+          "bytes": 35141250,
+          "sha256": "07f8a0f50b6c51c74893747a106ea7dec7a742bfa585d14af17bea80c870df09"
+        }
+      },
+      "documents_sha256": "8f164bdf3f62b1d00249c1ad348df6f7886204cd517bd229a98b79b989f8bd17",
+      "searchable_files": 6835,
+      "source_bytes": 86384180,
+      "index_bytes": 69627944,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 535085056
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-sfoagko1/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 5596.426042,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2272300464,
+      "peak_temporary_bytes": 2272300464,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 64720544,
+          "sha256": "7832f50b6c4a584d38772c40fda3515f57337216d80e65b7e33ef621c3b65c7c"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 6970460,
+          "sha256": "d98f3b9aff5d11b746743c840fd3d418dc0c14e4a40df158c49208b9e8542fa2"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 0,
+          "bytes": 3544856,
+          "sha256": "eba8b6435c4a0c86b0f89888d4734874b31b8585b6798e6cb2f2160a83c777fd"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 148490820,
+          "sha256": "c844acdb2f2ae8eba95937087c0d58b534d8ba8efc3b9c4a7441f0661a249748"
+        }
+      ]
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-4nzg55tw/index"
+      ],
+      "elapsed_ms": 2739.904791,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 64720544,
+          "sha256": "7832f50b6c4a584d38772c40fda3515f57337216d80e65b7e33ef621c3b65c7c"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 6970460,
+          "sha256": "d98f3b9aff5d11b746743c840fd3d418dc0c14e4a40df158c49208b9e8542fa2"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 0,
+          "bytes": 3544856,
+          "sha256": "eba8b6435c4a0c86b0f89888d4734874b31b8585b6798e6cb2f2160a83c777fd"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 148490820,
+          "sha256": "c844acdb2f2ae8eba95937087c0d58b534d8ba8efc3b9c4a7441f0661a249748"
+        }
+      ]
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-lzczjmqw/index"
+      ],
+      "elapsed_ms": 2698.466291,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-knea1910/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 5298.609166,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2272576824,
+      "peak_temporary_bytes": 2272576824
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-1cdw95jq/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 5291.507125,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2272460952,
+      "peak_temporary_bytes": 2272460952
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-mf3_bkr9/index"
+      ],
+      "elapsed_ms": 2741.296667,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-rjl83og5/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 5334.504666,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2272458584,
+      "peak_temporary_bytes": 2272458584
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-tmac28i4/index"
+      ],
+      "elapsed_ms": 2736.536125,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-2p2e7bac/index"
+      ],
+      "elapsed_ms": 2742.991208,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-rbb67_49/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 5387.30475,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2272610576,
+      "peak_temporary_bytes": 2272610576
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-27o3_8k3/index"
+      ],
+      "elapsed_ms": 2760.578042,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-28dw8szf/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 5415.885875,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2273081040,
+      "peak_temporary_bytes": 2273081040
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-z8b9wi91/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 5453.992541,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2272707136,
+      "peak_temporary_bytes": 2272707136,
+      "rss_bytes": 223789056
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-0tcsbrkp/index"
+      ],
+      "elapsed_ms": 2857.066833,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 1819836416
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-x4nyrnvc/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 5538.575417,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2272621952,
+      "peak_temporary_bytes": 2272621952,
+      "rss_bytes": 224706560
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-1y8ogo18/index"
+      ],
+      "elapsed_ms": 2802.423959,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 1816969216
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-r9_gwry4/index"
+      ],
+      "elapsed_ms": 2806.04725,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 1820753920
+    },
+    {
+      "corpus": "vllm_x4",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-build-budget-2026-09-08/vllm_x4",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-76tijz9n/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 5509.075916,
+      "segments": {
+        "lookup": {
+          "bytes": 23416440,
+          "sha256": "e4f06b1bcd4cd2aec24975531ecb1339ab1b3185d5bf7f217409bbe4f78209e5"
+        },
+        "postings": {
+          "bytes": 188695967,
+          "sha256": "a2636bd509848bcdfcde2aee032433b6eed8ea1308c9610ba0bf3c527f6eebde"
+        }
+      },
+      "documents_sha256": "d46750b225ac5dd0ce26eedd75f0fa0518dd455bab97530102bde8bacf18bbc2",
+      "searchable_files": 27340,
+      "source_bytes": 345536720,
+      "index_bytes": 222909655,
+      "spilled_runs": 8,
+      "temporary_bytes_written": 2272559120,
+      "peak_temporary_bytes": 2272559120,
+      "rss_bytes": 224051200
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-iekc4u8t/index"
+      ],
+      "elapsed_ms": 37.984334,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 22270,
+          "sha256": "b75164ceb83b026e1d96db9f61aff8167eccf99a93e48b52f8206f10aa2f5df3"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 222,
+          "sha256": "a8bbe86c6ce34a19c03b7507be9479bb9981b959cd3c4ee53b4c5918690a4c81"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 412087,
+          "sha256": "fed9a8ff4102defc9bb133299cf45b00c1a8089fc79c9a0407e66f99de7f6675"
+        }
+      ]
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-8zjovjk1/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 28.374125,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 0,
+          "bytes": 22270,
+          "sha256": "b75164ceb83b026e1d96db9f61aff8167eccf99a93e48b52f8206f10aa2f5df3"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 0,
+          "bytes": 222,
+          "sha256": "a8bbe86c6ce34a19c03b7507be9479bb9981b959cd3c4ee53b4c5918690a4c81"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 0,
+          "bytes": 412087,
+          "sha256": "fed9a8ff4102defc9bb133299cf45b00c1a8089fc79c9a0407e66f99de7f6675"
+        }
+      ]
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-2_by3ptn/index"
+      ],
+      "elapsed_ms": 28.994917,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-w9ul_1cn/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 29.927084,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-qav6677g/index"
+      ],
+      "elapsed_ms": 28.267292,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-74m46z8l/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 28.784709,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-ddkcls6s/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 28.669541,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-uvzw2_w3/index"
+      ],
+      "elapsed_ms": 29.7255,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-h0licghd/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 29.532291,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-lkmb62yc/index"
+      ],
+      "elapsed_ms": 30.514375,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-4057fvc6/index"
+      ],
+      "elapsed_ms": 28.373292,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-h36s_6z8/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 28.345167,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-yzdk5qtv/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 31.53175,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 20922368
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-qrcjrm1x/index"
+      ],
+      "elapsed_ms": 30.572542,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 25133056
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-5w4xzimz/index"
+      ],
+      "elapsed_ms": 29.287333,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 24969216
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-ujecp9hn/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 30.137,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 20774912
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-dur_ne5a/index"
+      ],
+      "elapsed_ms": 31.349958,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 25329664
+    },
+    {
+      "corpus": "viberwhisper",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-mpx4wrg0/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 30.599125,
+      "segments": {
+        "lookup": {
+          "bytes": 1312856,
+          "sha256": "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+        },
+        "postings": {
+          "bytes": 561663,
+          "sha256": "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e"
+        }
+      },
+      "documents_sha256": "3a4d41da04f9d635aa2597ca772f70ef73f706224963b1f29db1d4acf50652e9",
+      "searchable_files": 123,
+      "source_bytes": 1365002,
+      "index_bytes": 1961299,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 20709376
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "budget_256",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-604r2ad8/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 178.715792,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "before",
+      "kind": "warmup",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-ej2z8fm4/index"
+      ],
+      "elapsed_ms": 164.435125,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "search_parity": [
+        {
+          "args": [
+            "-F",
+            "def"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "unique_boundary_marker_0123456789"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-i",
+            "AsyncMock|cuda"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "@(?:torch|pytest)\\.\\w+"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "args": [
+            "-F",
+            "x"
+          ],
+          "exit_code": 1,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-tqdhqh24/index"
+      ],
+      "elapsed_ms": 159.465792,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 1,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-9bkaokem/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 174.576834,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-wv9x1kyp/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 176.96525,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 2,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-1wn81z7z/index"
+      ],
+      "elapsed_ms": 165.117541,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-6eqvik_t/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 178.190125,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 3,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-_tbiinf9/index"
+      ],
+      "elapsed_ms": 168.266458,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-y54zg9xo/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 172.635292,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 4,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-y3kmluxo/index"
+      ],
+      "elapsed_ms": 171.210167,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "budget_256",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-kxetibvx/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 178.680416,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "before",
+      "kind": "timing",
+      "repeat": 5,
+      "command": [
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-wa32v87r/index"
+      ],
+      "elapsed_ms": 168.575125,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-n0w3ez03/index"
+      ],
+      "elapsed_ms": 165.091542,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 165658624
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 1,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-t_im0v7k/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 175.375208,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 71909376
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-b82u5c2w/index"
+      ],
+      "elapsed_ms": 167.412541,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 169213952
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 2,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-yviyboab/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 180.879875,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 71630848
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "before",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/private/tmp/coderg-build-budget-2026-09-08/before",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-9ofxp0ro/index"
+      ],
+      "elapsed_ms": 168.570833,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 167526400
+    },
+    {
+      "corpus": "few_large_64",
+      "version": "budget_256",
+      "kind": "rss",
+      "repeat": 3,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "index",
+        "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "--index-dir",
+        "/private/tmp/coderg-build-budget-2026-09-08/final-bench/index-ep16x_xb/index",
+        "--build-memory-mib",
+        "256"
+      ],
+      "elapsed_ms": 175.541833,
+      "segments": {
+        "lookup": {
+          "bytes": 1750103,
+          "sha256": "4d0ad3eb3d9a446e8829460b3371b851d09263eea39b87667e0a46436bf2b271"
+        },
+        "postings": {
+          "bytes": 2753644,
+          "sha256": "cf201947217825ddcaa6ebd21a5bf62c5dc59d9335634096783ade6615eb90f3"
+        }
+      },
+      "documents_sha256": "57114d077fb801f397529653a6c6843e01fc24454d7e1fdec6d530254551db76",
+      "searchable_files": 64,
+      "source_bytes": 67108864,
+      "index_bytes": 4548917,
+      "spilled_runs": 0,
+      "temporary_bytes_written": 0,
+      "peak_temporary_bytes": 0,
+      "rss_bytes": 71909376
+    }
+  ],
+  "summary": {
+    "vllm": {
+      "before": {
+        "median_ms": 845.101916,
+        "median_rss_mib": 512.84375,
+        "max_rss_mib": 524.8125,
+        "spilled_runs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "temporary_bytes_written": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "budget_256": {
+        "median_ms": 1312.77525,
+        "median_rss_mib": 208.078125,
+        "max_rss_mib": 208.234375,
+        "spilled_runs": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "temporary_bytes_written": [
+          567804360,
+          568023520,
+          568096464,
+          568151432,
+          568134944,
+          567956288,
+          568168896,
+          568274664,
+          568113712
+        ]
+      }
+    },
+    "vllm_x4": {
+      "before": {
+        "median_ms": 2741.296667,
+        "median_rss_mib": 1735.53125,
+        "max_rss_mib": 1736.40625,
+        "spilled_runs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "temporary_bytes_written": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "budget_256": {
+        "median_ms": 5334.504666,
+        "median_rss_mib": 213.671875,
+        "max_rss_mib": 214.296875,
+        "spilled_runs": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ],
+        "temporary_bytes_written": [
+          2272300464,
+          2272576824,
+          2272460952,
+          2272458584,
+          2272610576,
+          2273081040,
+          2272707136,
+          2272621952,
+          2272559120
+        ]
+      }
+    },
+    "viberwhisper": {
+      "before": {
+        "median_ms": 28.994917,
+        "median_rss_mib": 23.96875,
+        "max_rss_mib": 24.15625,
+        "spilled_runs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "temporary_bytes_written": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "budget_256": {
+        "median_ms": 28.784709,
+        "median_rss_mib": 19.8125,
+        "max_rss_mib": 19.953125,
+        "spilled_runs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "temporary_bytes_written": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "few_large_64": {
+      "before": {
+        "median_ms": 168.266458,
+        "median_rss_mib": 159.765625,
+        "max_rss_mib": 161.375,
+        "spilled_runs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "temporary_bytes_written": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "budget_256": {
+        "median_ms": 176.96525,
+        "median_rss_mib": 68.578125,
+        "max_rss_mib": 68.578125,
+        "spilled_runs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "temporary_bytes_written": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  }
+}

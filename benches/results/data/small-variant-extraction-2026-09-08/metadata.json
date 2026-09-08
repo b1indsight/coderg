@@ -1,0 +1,107 @@
+{
+  "recorded_at": "2026-09-08T06:36:06.499038+00:00",
+  "plan": {
+    "datasets": [
+      {
+        "id": "vllm",
+        "kind": "vllm",
+        "root": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+        "commit": "569adb5a9780f9c02d22a6b29826acf711512356"
+      },
+      {
+        "id": "viberwhisper",
+        "kind": "rust",
+        "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+        "source": "/Users/b1indsight/personal_work/viberwhisper",
+        "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233"
+      },
+      {
+        "id": "agentflow",
+        "kind": "python",
+        "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+        "source": "/Users/b1indsight/personal_work/agentflow",
+        "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30"
+      },
+      {
+        "id": "small_256",
+        "kind": "synthetic",
+        "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/small_256",
+        "files": 256,
+        "kib_per_file": 16,
+        "source_bytes": 4194304,
+        "commit": "08b41c743f3d2887ce0871457ff87d8a11b28e9e"
+      },
+      {
+        "id": "regular_4096",
+        "kind": "synthetic",
+        "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/regular_4096",
+        "files": 4096,
+        "kib_per_file": 16,
+        "source_bytes": 67108864,
+        "commit": "28706d709afe4bca7ec8ddacc4e71edbbbf219b1"
+      },
+      {
+        "id": "many_small_16384",
+        "kind": "synthetic",
+        "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/many_small_16384",
+        "files": 16384,
+        "kib_per_file": 4,
+        "source_bytes": 67108864,
+        "commit": "9439f9c19e632db9cc87575faeb8b96845e034a0"
+      },
+      {
+        "id": "few_large_64",
+        "kind": "synthetic",
+        "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/few_large_64",
+        "files": 64,
+        "kib_per_file": 1024,
+        "source_bytes": 67108864,
+        "commit": "9ad96402e96098260593ee566d04ac257193c013"
+      },
+      {
+        "id": "shared_anchor",
+        "kind": "synthetic",
+        "root": "/private/tmp/coderg-query-cover-8__b1tet/shared-anchor",
+        "commit": "8454100c0ff78ac4f27b8b4ab4eb7ed282fa3343"
+      }
+    ]
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "logical_cpus": 10,
+  "binaries": {
+    "baseline": {
+      "path": "/private/tmp/coderg-small-variants-c_r0i1kz/before",
+      "sha256": "1bf42b148319f19c5b2ef0e0a05b4cf581578b6cd7cab68ec6225e1b4d04965b"
+    },
+    "optimized": {
+      "path": "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "sha256": "01520658f07e52e1f77410fed99d5713db2fed9807b2eaa7bff0e54ff39c9ef2"
+    }
+  },
+  "source_sha256": {
+    "Cargo.toml": "8233f59451cfd06570901834396895f24185e18e0cd6de3c5231759e0ff673fe",
+    "Cargo.lock": "c34bf06b610903d854521daa601cf7b718141e618879c12b87aa2f0f8b33eae3",
+    "src/git_state.rs": "43782a834acdddc230a6c92d6c9e26a608595a419c17d2adefa224ff52600e0b",
+    "src/index.rs": "82c36e2d70323c67e555c22d6065ecd8eae8aba7f3828bbcff53d5c55b4e0d3a",
+    "src/main.rs": "f73b7ffa272f30dbf40bb92d4bc0cd20ea4e9680586f91b26a191cf4ab06446b",
+    "src/ngram.rs": "5e5039e5a437fa2ac0a3dc8d21b3ba40ff821208431a069b41571790831adbae",
+    "src/query.rs": "84c038b562c79fa52738a9536425f4809430fee9a245d18a3507e21ddbf44915",
+    "src/search.rs": "1c4ca4b5be78f115344a557324d327069983b33343504efe3b984dfe7686063d",
+    "src/segment.rs": "af4339c6827316e7062e78c1578fd2488ca99a2a5db104968ad4e41da1a855bc"
+  },
+  "harness_sha256": "48044ce37127b2aeeae6bacdb18a0b789d99b5319a2497c9a281fdf0ed0d2619",
+  "environment": {
+    "RAYON_NUM_THREADS": null,
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "C.UTF-8"
+  },
+  "iterations": 21,
+  "warmup": 3,
+  "build_iterations": 1,
+  "rss_runs": 0,
+  "seed": 20260908,
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "rg": "ripgrep 15.2.0 (rev e89fff89ac)\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)",
+  "cpu": "Apple M5",
+  "memory_bytes": 25769803776
+}
