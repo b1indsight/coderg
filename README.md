@@ -101,6 +101,14 @@ required fragments are intersected. When the lookup budget is exhausted, prior
 complete filters remain usable. Patterns without a safe literal of at least
 three bytes fall back to scanning all indexed text files.
 
+Search matches each LF-delimited line independently, like default `rg` searches.
+Patterns such as `foo\s+bar` and `(?s)foo.*bar` cannot span lines. Empty files and
+the position after a final newline do not produce matching lines. CR bytes are
+preserved, and each matching line is reported or counted once. `-l` stops at the
+first matching line in each file. Multiline search is not currently supported.
+The [line matching benchmark](benches/results/line-matching-2026-09-09.md)
+records vLLM output parity and the performance impact of this search path.
+
 The [decision record](docs/decisions/2026-09-07-case-insensitive-index-budget.md)
 documents the budget definitions, rationale, measurements, and limitations.
 The [vLLM experiment report](benches/results/vllm-case-budget-2026-09-07.md)
