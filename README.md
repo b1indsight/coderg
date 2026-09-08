@@ -55,6 +55,9 @@ state, allocator overhead, and resident mappings are outside this buffer budget;
 it is not a hard process RSS limit. See the [design and benchmark](docs/index-build-memory-budget.md).
 The [build optimization overview](docs/index-build-evolution.md) compares the
 original implementation with the current pipeline and summarizes measured gains.
+The [latest project benchmark](benches/results/main-projects-2026-09-09.md) measures
+build time, peak memory, and query latency against the previous main branch on
+frozen vLLM, viberwhisper, and agentflow snapshots.
 
 The index stores immutable lookup/postings pairs under `segments/`. Every
 document points to the segment containing its current version, so postings
