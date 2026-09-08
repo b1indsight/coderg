@@ -1,0 +1,31 @@
+query,pattern,matching_lines,before_matches_rg,after_matches_rg,before_ms,after_ms,before_no_refresh_ms,after_no_refresh_ms,rg_ms
+literal_parallel,get_tensor_model_parallel_world_size,580,True,True,26.988125,26.675875,11.306084,11.352167,66.590625
+word_sampling,\bSamplingParams\b,1348,True,True,27.639833,28.401334,12.364958,12.567167,67.716708
+word_asyncmock,\bAsyncMock\b,87,True,True,25.209333,24.758917,9.246708,9.165334,65.58775
+def_forward,def\s+forward\b,1733,True,True,34.322875,34.88475,19.140709,19.278458,68.104333
+async_def,async\s+def\s+\w+,1974,False,True,31.602584,31.79275,16.605167,16.215792,68.44125
+class_attention,^class[ \t]+\w*Attention\b,220,True,True,31.009333,31.098125,15.605625,15.481458,66.521792
+python_import,^from[ \t]+vllm(?:\.[\w.]+)?[ \t]+import\b,18746,True,True,62.942125,62.337792,47.55875,47.291125,89.788125
+decorator,^[ \t]*@(?:torch|pytest)\.[A-Za-z_]+,8968,True,True,38.0775,38.602333,22.55525,22.406166,74.71975
+logger,logger\.(warning|error)\(,831,True,True,27.883917,28.036125,12.525291,12.738333,67.351583
+exceptions,\b(ValueError|RuntimeError|NotImplementedError)\b,6725,True,True,40.420875,40.313125,24.752625,24.699292,76.2335
+cache,\b(kv_cache|block_size)\b,8041,True,True,37.22425,37.856083,21.793042,22.235292,69.295334
+tensor_creation,\b(torch|numpy)\.(empty|zeros|ones)\b,5133,True,True,37.057208,37.07325,21.517959,21.963375,72.391042
+env_vars,\b(VLLM|CUDA)_[A-Z0-9_]+\b,6332,True,True,36.30575,36.553708,20.773125,20.846709,72.543584
+cuda_call,\btorch\.cuda\.[a-z_]+\(,611,True,True,27.500542,27.553791,11.942667,12.154834,66.961667
+config_assignment,\bmax_(model_len|num_seqs)[ \t]*=,1547,True,True,30.376417,30.879708,14.811084,15.189,68.32675
+raise_error,raise[ \t]+\w*Error\(,5675,True,True,37.508458,38.270791,22.636875,22.816709,75.127375
+todo_comment,^[ \t]*#.*\b(TODO|FIXME)\b,726,True,True,103.646375,29.888959,90.746042,14.221834,68.496875
+return_none,^[ \t]*return[ \t]+None[ \t]*$,1742,True,True,49.36425,49.496625,33.659834,33.90925,69.749375
+quoted_device,"[\""'](?:cuda|cpu|rocm)[\""']",2916,True,True,31.223,30.915875,15.30925,15.477625,69.589791
+icase_sampling,\bSamplingParams\b,1348,True,True,30.943375,29.824792,15.961,14.826709,67.889459
+icase_platform,\b(cuda|rocm)\b,9805,True,True,44.029042,43.937041,28.153167,28.327834,75.899833
+icase_todo,\b(TODO|FIXME)\b,890,True,True,30.970583,30.294083,16.147958,14.678541,68.6875
+icase_env,\b(VLLM|CUDA)_[A-Z0-9_]+\b,20751,True,True,54.654625,55.430084,39.285959,40.179167,81.174375
+icase_logger,logger\.(warning|error)\(,831,True,True,30.876625,30.48875,15.294375,14.932291,67.019917
+icase_literal,get_tensor_model_parallel_world_size,580,True,True,33.613291,33.203625,18.202958,17.615,67.455917
+digits,"\b[0-9]{2,4}\b",106132,True,True,166.205,119.023416,146.27625,103.806709,96.572584
+hex_number,\b0x[0-9A-Fa-f]+\b,1867,True,True,30.019,27.747708,14.613834,12.79625,66.868292
+short_word,\bif\b,68895,True,True,102.911917,104.148917,88.587167,86.901333,93.499416
+blank_lines,^[ \t]*$,257531,False,True,183.976125,183.237708,170.491959,168.005541,102.578709
+absent_regex,\bCODERG_BENCH_ABSENT_[0-9]{8}\b,0,True,True,24.506375,24.833042,9.110625,8.932334,65.83275

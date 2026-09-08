@@ -79,22 +79,25 @@ pub fn run(
     let root = &disk_index.manifest.root;
     let results: Vec<Option<FileResult>> = candidates
         .par_iter()
-        .map(|&id| -> Result<_> {
-            let document = disk_index
-                .manifest
-                .documents
-                .get(id as usize)
-                .with_context(|| "index contains an invalid document ID; rebuild it")?;
-            let full_path = root.join(&document.path);
-            let bytes = fs::read(&full_path)
-                .with_context(|| format!("cannot read {}", full_path.display()))?;
-            let (output, matches) = match_file(&regex, &bytes, &document.path, options);
-            Ok((matches > 0).then_some(FileResult {
-                id,
-                output,
-                matches,
-            }))
-        })
+        .map_init(
+            || regex.clone(),
+            |regex, &id| -> Result<_> {
+                let document = disk_index
+                    .manifest
+                    .documents
+                    .get(id as usize)
+                    .with_context(|| "index contains an invalid document ID; rebuild it")?;
+                let full_path = root.join(&document.path);
+                let bytes = fs::read(&full_path)
+                    .with_context(|| format!("cannot read {}", full_path.display()))?;
+                let (output, matches) = match_file(regex, &bytes, &document.path, options);
+                Ok((matches > 0).then_some(FileResult {
+                    id,
+                    output,
+                    matches,
+                }))
+            },
+        )
         .collect::<Result<_>>()?;
     let mut results: Vec<FileResult> = results.into_iter().flatten().collect();
     results.sort_by_key(|result| result.id);
@@ -232,37 +235,31 @@ fn intersect_postings(
 
 fn match_file(regex: &Regex, bytes: &[u8], path: &Path, options: &Options) -> (Vec<String>, usize) {
     let mut lines = Vec::new();
-    let mut line_starts = vec![0_usize];
-    line_starts.extend(
-        bytes
-            .iter()
-            .enumerate()
-            .filter_map(|(position, &byte)| (byte == b'\n').then_some(position + 1)),
-    );
-    let mut seen_lines = BTreeSet::new();
+    let mut matches = 0;
     let limit = options.max_count.unwrap_or(usize::MAX);
-    for found in regex.find_iter(bytes) {
-        if seen_lines.len() >= limit {
+    let mut start = 0;
+    // Exclude LF from each haystack, but retain CR for the regex to interpret.
+    // An empty file or the position after a final LF is not an extra line.
+    for (line_index, end) in memchr::memchr_iter(b'\n', bytes)
+        .chain(std::iter::once(bytes.len()))
+        .enumerate()
+    {
+        if start == bytes.len() || matches >= limit {
             break;
         }
-        let offset = found.start();
-        let line_index = line_starts
-            .partition_point(|&start| start <= offset)
-            .saturating_sub(1);
-        seen_lines.insert(line_index);
-    }
-    let matches = seen_lines.len();
-    if options.files_with_matches || options.count {
-        return (lines, matches);
-    }
-    for line_index in seen_lines {
-        let start = line_starts[line_index];
-        let end = bytes[start..]
-            .iter()
-            .position(|&byte| byte == b'\n')
-            .map_or(bytes.len(), |offset| start + offset);
-        let text = String::from_utf8_lossy(&bytes[start..end]);
-        lines.push(format!("{}:{}:{}", path.display(), line_index + 1, text));
+        let line = &bytes[start..end];
+        start = end + 1;
+        if !regex.is_match(line) {
+            continue;
+        }
+        matches += 1;
+        if options.files_with_matches {
+            break;
+        }
+        if !options.count {
+            let text = String::from_utf8_lossy(line);
+            lines.push(format!("{}:{}:{}", path.display(), line_index + 1, text));
+        }
     }
     (lines, matches)
 }
@@ -288,6 +285,79 @@ mod tests {
         let (lines, count) = match_file(&regex, b"foo foo\nbar\nfoo\n", Path::new("x"), &options());
         assert_eq!(count, 2);
         assert_eq!(lines, ["x:1:foo foo", "x:3:foo"]);
+    }
+
+    #[test]
+    fn whitespace_and_dotall_cannot_match_across_lines() {
+        for pattern in [r"foo\s+bar", r"(?s)foo.*bar", "foo\nbar"] {
+            let regex = RegexBuilder::new(pattern).multi_line(true).build().unwrap();
+            let (lines, count) =
+                match_file(&regex, b"foo\nbar\nfoo bar\n", Path::new("x"), &options());
+            if pattern.contains('\n') {
+                assert_eq!((lines, count), (vec![], 0));
+            } else {
+                assert_eq!((lines, count), (vec!["x:3:foo bar".to_owned()], 1));
+            }
+        }
+    }
+
+    #[test]
+    fn empty_matches_only_report_real_lines() {
+        let regex = Regex::new("").unwrap();
+        for (bytes, expected) in [
+            (b"".as_slice(), vec![]),
+            (b"\n\n".as_slice(), vec!["x:1:", "x:2:"]),
+            (b"foo\n".as_slice(), vec!["x:1:foo"]),
+            (b"foo\nbar".as_slice(), vec!["x:1:foo", "x:2:bar"]),
+        ] {
+            let (lines, count) = match_file(&regex, bytes, Path::new("x"), &options());
+            assert_eq!(count, expected.len());
+            assert_eq!(lines, expected);
+        }
+    }
+
+    #[test]
+    fn anchors_apply_to_each_line_and_preserve_carriage_returns() {
+        for pattern in [r"\Afoo\z", r"(?-m)^foo$"] {
+            let regex = RegexBuilder::new(pattern).multi_line(true).build().unwrap();
+            let (lines, count) =
+                match_file(&regex, b"bar\nfoo\r\nfoo\nfoo", Path::new("x"), &options());
+            assert_eq!(count, 2);
+            assert_eq!(lines, ["x:3:foo", "x:4:foo"]);
+        }
+        let regex = Regex::new(r"foo\r?$").unwrap();
+        let (lines, count) = match_file(&regex, b"foo\r\n", Path::new("x"), &options());
+        assert_eq!(count, 1);
+        assert_eq!(lines, ["x:1:foo\r"]);
+    }
+
+    #[test]
+    fn count_limits_and_file_names_count_matching_lines() {
+        let regex = Regex::new("foo").unwrap();
+        let bytes = b"foo foo\nbar\nfoo\n";
+        let mut options = options();
+        options.count = true;
+        assert_eq!(
+            match_file(&regex, bytes, Path::new("x"), &options),
+            (vec![], 2)
+        );
+        options.max_count = Some(1);
+        assert_eq!(
+            match_file(&regex, bytes, Path::new("x"), &options),
+            (vec![], 1)
+        );
+        options.max_count = Some(0);
+        assert_eq!(
+            match_file(&regex, bytes, Path::new("x"), &options),
+            (vec![], 0)
+        );
+        options.max_count = None;
+        options.count = false;
+        options.files_with_matches = true;
+        assert_eq!(
+            match_file(&regex, bytes, Path::new("x"), &options),
+            (vec![], 1)
+        );
     }
 
     #[test]

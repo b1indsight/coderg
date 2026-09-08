@@ -49,6 +49,53 @@ fn indexes_searches_and_refreshes_a_tree() {
 }
 
 #[test]
+fn default_search_matches_real_lines_without_crossing_newlines() {
+    let root = tempfile::tempdir().unwrap();
+    for (name, text) in [
+        ("cross.txt", "async\n\ndef pack\n"),
+        ("inline.txt", "async def pack\n"),
+        ("blanks.txt", " \n\nx\n"),
+        ("empty.txt", ""),
+    ] {
+        fs::write(root.path().join(name), text).unwrap();
+    }
+    assert!(coderg(root.path(), &["index"]).status.success());
+    for (arguments, mut expected) in [
+        (
+            vec![r"async\s+def\s+\w+"],
+            vec!["inline.txt:1:async def pack"],
+        ),
+        (
+            vec![r"(?s)async.*pack"],
+            vec!["inline.txt:1:async def pack"],
+        ),
+        (
+            vec![r"^[ \t]*$"],
+            vec!["blanks.txt:1: ", "blanks.txt:2:", "cross.txt:2:"],
+        ),
+        (vec![r"\Aasync\z"], vec!["cross.txt:1:async"]),
+        (
+            vec!["-c", "^"],
+            vec!["blanks.txt:3", "cross.txt:3", "inline.txt:1"],
+        ),
+        (
+            vec!["-m", "1", r"^[ \t]*$"],
+            vec!["blanks.txt:1: ", "cross.txt:2:"],
+        ),
+    ] {
+        let mut command = vec!["search", "--no-refresh"];
+        command.extend(arguments);
+        let output = coderg(root.path(), &command);
+        assert!(output.status.success(), "{command:?}: {output:?}");
+        let stdout = String::from_utf8(output.stdout).unwrap();
+        let mut actual: Vec<_> = stdout.lines().collect();
+        actual.sort_unstable();
+        expected.sort_unstable();
+        assert_eq!(actual, expected, "{command:?}");
+    }
+}
+
+#[test]
 fn case_insensitive_index_search_agrees_with_regex_matching() {
     let root = tempfile::tempdir().unwrap();
     let documents = [
