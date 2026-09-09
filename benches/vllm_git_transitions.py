@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Benchmark Git transitions in a disposable local clone of a clean vLLM tree."""
 
+from manifest_helpers import read_manifest, manifest_path
+
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -138,7 +140,7 @@ def main():
                 fingerprints = {}
 
                 def snapshot(index):
-                    manifest = json.loads((index / "manifest.json").read_text())
+                    manifest = read_manifest(binaries[index.name], root, index)
                     segments = {}
                     for p in sorted((index / "segments").iterdir()):
                         stat = p.stat()
@@ -148,13 +150,13 @@ def main():
                         else:
                             fingerprints[p] = (fingerprint, sha(p))
                         segments[p.name] = dict(bytes=stat.st_size, sha256=fingerprints[p][1])
-                    active = [index / "manifest.json"]
+                    active = [manifest_path(index)]
                     for segment in manifest["segments"]:
                         active.extend([index / segment["lookup"], index / segment["postings"]])
                     return dict(active_segments=len(manifest["segments"]),
                                 active_bytes=sum(p.stat().st_size for p in active),
                                 directory_bytes=sum(p.stat().st_size for p in index.rglob("*") if p.is_file()),
-                                cached_trees=len(list((index / "manifests").glob("*.json"))),
+                                cached_trees=len({p.stem for p in (index / "manifests").glob("*") if p.suffix in (".json", ".bin")}),
                                 segment_files=segments)
 
                 order = list(binaries)

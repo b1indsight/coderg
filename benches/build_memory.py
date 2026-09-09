@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Compare fresh index builds, segment bytes, and peak RSS on macOS."""
+from manifest_helpers import read_manifest
+
 import argparse
 import hashlib
 import json
@@ -96,7 +98,7 @@ def main():
                         (output / f"{stem}.stderr.txt").write_text(stderr)
                         if proc.returncode:
                             raise RuntimeError(f"{stem}: {stderr}")
-                        manifest = json.loads((index / "manifest.json").read_bytes())
+                        manifest = read_manifest(binary, root, index)
                         segments = {
                             field: {"bytes": (index / manifest["segments"][0][field]).stat().st_size, "sha256": digest(index / manifest["segments"][0][field])}
                             for field in ["lookup", "postings"]

@@ -42,6 +42,11 @@ coderg search -c 'TODO' /path/to/repository
 coderg stats /path/to/repository
 ```
 
+Manifests now use a compact binary format. Existing JSON indexes remain readable;
+rebuild with `coderg index` to use the new format immediately, or let the next
+manifest update migrate it. Use `coderg stats /path/to/repository --json` to inspect
+the records. See [format compatibility and the load benchmark](docs/manifest-format.md).
+
 The default index directory is `<root>/.coderg-index`. Normal `.gitignore`,
 `.ignore`, and global Git ignore rules are respected. Hidden source files are
 included, while `.git`, `.coderg-index`, ignored files, symlinks, and files
@@ -116,6 +121,12 @@ includes the detailed comparisons and archived evidence.
 
 ## Benchmark against ripgrep
 
+The [binary manifest benchmark](benches/results/chromium-binary-manifest-2026-09-09.md)
+reduces Chromium manifest read and decode time from 205.08 ms to 30.76 ms, and
+the binary file occupies 110.23 MiB. Current release no-refresh search for
+`MAX_FILE_SIZE` takes 59.96 ms; default search takes 1.86 s because it still
+checks the full source snapshot.
+
 The [index-build memory optimization](docs/index-build-memory-optimization.md)
 explains the construction data structures and their measured memory savings.
 The [refresh-path optimization](docs/refresh-path-optimization.md) explains
@@ -148,3 +159,17 @@ check, and ripgrep. Generated-corpus runs use a temporary Git repository and
 also report single-file incremental refresh, commit promotion without
 reindexing, and cached-tree rollback latency. Set `CODERG_BIN` to benchmark a
 specific `coderg` binary.
+
+For matching-line comparisons and a persistent JSON report:
+
+```sh
+cargo bench --bench compare_rg -- \
+  --root /path/to/repository --query MAX_FILE_SIZE --lines \
+  --iterations 15 --warmup 3 --output /tmp/coderg-bench-001.json
+```
+
+The report includes the query, output mode, warmup count, individual samples,
+index build time, and minimum/median/p95/mean search latency. Choose a new output
+file with an existing parent directory. The benchmark uses a temporary index
+and compares against `rg --hidden --no-config`; keep the source tree unchanged
+throughout the run. Searches measure warm-cache process latency.

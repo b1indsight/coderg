@@ -13,6 +13,10 @@ use clap::Parser;
 use serde::Serialize;
 use tempfile::TempDir;
 
+#[allow(dead_code)]
+#[path = "../src/manifest.rs"]
+mod manifest;
+
 const DEFAULT_QUERY: &str = "CODERG_BENCHMARK_NEEDLE";
 
 #[derive(Debug, Parser)]
@@ -49,6 +53,14 @@ struct Args {
     #[arg(long)]
     json: bool,
 
+    /// Compare matching lines instead of matching file paths.
+    #[arg(long)]
+    lines: bool,
+
+    /// Save the JSON report to a new file after the run.
+    #[arg(long)]
+    output: Option<PathBuf>,
+
     /// Preserve generated corpus and index directories after the run.
     #[arg(long)]
     keep: bool,
@@ -61,6 +73,9 @@ struct Args {
 #[derive(Debug, Serialize)]
 struct Report {
     root: PathBuf,
+    query: String,
+    lines: bool,
+    warmup: usize,
     files: usize,
     source_bytes: u64,
     index_bytes: u64,
@@ -80,6 +95,7 @@ struct Report {
 
 #[derive(Clone, Debug, Serialize)]
 struct Timing {
+    samples_ms: Vec<f64>,
     min_ms: f64,
     median_ms: f64,
     p95_ms: f64,
@@ -97,6 +113,11 @@ fn run() -> Result<()> {
     let args = Args::parse();
     if args.iterations == 0 {
         bail!("--iterations must be greater than zero");
+    }
+    if let Some(path) = &args.output {
+        if path.exists() {
+            bail!("report already exists: {}", path.display());
+        }
     }
     if args.root.is_none() && (args.files == 0 || args.kib_per_file == 0) {
         bail!("--files and --kib-per-file must be greater than zero");
@@ -125,32 +146,41 @@ fn run() -> Result<()> {
     let index_build = started.elapsed();
 
     let coderg_result = checked_output(
-        coderg_search_command(&coderg, &root, &index_dir, query, true),
+        coderg_search_command(&coderg, &root, &index_dir, query, true, args.lines),
         "coderg search",
     )?;
-    let rg_result = checked_output(rg_command(&root, query), "rg")?;
+    let rg_result = checked_output(rg_command(&root, query, args.lines), "rg")?;
     let coderg_matches = normalized_lines(&coderg_result.stdout);
     let rg_matches = normalized_lines(&rg_result.stdout);
+    let refreshed_result = checked_output(
+        coderg_search_command(&coderg, &root, &index_dir, query, false, args.lines),
+        "coderg search with refresh",
+    )?;
+    if normalized_lines(&refreshed_result.stdout) != coderg_matches {
+        bail!("result mismatch between coderg refresh modes");
+    }
     if coderg_matches != rg_matches {
         bail!(
-            "result mismatch: coderg found {} files, rg found {} files",
+            "result mismatch: coderg found {} results, rg found {} results",
             coderg_matches.len(),
             rg_matches.len()
         );
     }
 
     let no_refresh = measure(args.warmup, args.iterations, || {
-        coderg_search_command(&coderg, &root, &index_dir, query, true)
+        coderg_search_command(&coderg, &root, &index_dir, query, true, args.lines)
     })?;
     let with_refresh = measure(args.warmup, args.iterations, || {
-        coderg_search_command(&coderg, &root, &index_dir, query, false)
+        coderg_search_command(&coderg, &root, &index_dir, query, false, args.lines)
     })?;
-    let ripgrep = measure(args.warmup, args.iterations, || rg_command(&root, query))?;
+    let ripgrep = measure(args.warmup, args.iterations, || {
+        rg_command(&root, query, args.lines)
+    })?;
     let (incremental_refresh_ms, commit_promotion_ms, cached_rollback_ms) = if generated.is_some() {
         mutate_generated_file(&root)?;
         let started = Instant::now();
         run_quiet(coderg_search_command(
-            &coderg, &root, &index_dir, query, false,
+            &coderg, &root, &index_dir, query, false, args.lines,
         ))?;
         let incremental = milliseconds(started.elapsed());
 
@@ -158,25 +188,28 @@ fn run() -> Result<()> {
         run_git(&root, &["commit", "-m", "benchmark update"])?;
         let started = Instant::now();
         run_quiet(coderg_search_command(
-            &coderg, &root, &index_dir, query, false,
+            &coderg, &root, &index_dir, query, false, args.lines,
         ))?;
         let promotion = milliseconds(started.elapsed());
 
         run_git(&root, &["reset", "--hard", "HEAD^"])?;
         let started = Instant::now();
         run_quiet(coderg_search_command(
-            &coderg, &root, &index_dir, query, false,
+            &coderg, &root, &index_dir, query, false, args.lines,
         ))?;
         let rollback = milliseconds(started.elapsed());
         (Some(incremental), Some(promotion), Some(rollback))
     } else {
         (None, None, None)
     };
-    let (files, source_bytes, segments) = manifest_stats(&index_dir.join("manifest.json"))?;
+    let (files, source_bytes, segments) = manifest_stats(&index_dir.join(manifest::FILE_NAME))?;
     let index_bytes = directory_bytes(&index_dir)?;
 
     let report = Report {
         root: root.clone(),
+        query: query.to_owned(),
+        lines: args.lines,
+        warmup: args.warmup,
         files,
         source_bytes,
         index_bytes,
@@ -194,6 +227,15 @@ fn run() -> Result<()> {
         ripgrep,
     };
 
+    if let Some(path) = &args.output {
+        let mut file = OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(path)
+            .with_context(|| format!("cannot create report {}", path.display()))?;
+        serde_json::to_writer_pretty(&mut file, &report)?;
+        writeln!(file)?;
+    }
     if args.json {
         println!("{}", serde_json::to_string_pretty(&report)?);
     } else {
@@ -325,34 +367,40 @@ fn coderg_search_command(
     index_dir: &Path,
     query: &str,
     no_refresh: bool,
+    lines: bool,
 ) -> Command {
     let mut command = Command::new(binary);
     command
         .current_dir(root)
-        .args(["search", "--files-with-matches", "--fixed-strings"])
-        .arg(query)
-        .arg(".")
+        .env("LC_ALL", "C")
+        .args(["search", "--fixed-strings"])
         .arg("--index-dir")
         .arg(index_dir);
+    if !lines {
+        command.arg("--files-with-matches");
+    }
     if no_refresh {
         command.arg("--no-refresh");
     }
+    command.arg("--").arg(query).arg(".");
     command
 }
 
-fn rg_command(root: &Path, query: &str) -> Command {
+fn rg_command(root: &Path, query: &str, lines: bool) -> Command {
     let mut command = Command::new("rg");
-    command
-        .current_dir(root)
-        .args([
-            "--hidden",
-            "--glob",
-            "!.git/**",
-            "--files-with-matches",
-            "--fixed-strings",
-        ])
-        .arg(query)
-        .arg(".");
+    command.current_dir(root).env("LC_ALL", "C").args([
+        "--no-config",
+        "--hidden",
+        "--glob",
+        "!.git/**",
+        "--fixed-strings",
+    ]);
+    if lines {
+        command.args(["-n", "--no-heading", "--color", "never"]);
+    } else {
+        command.arg("--files-with-matches");
+    }
+    command.arg("--").arg(query).arg(".");
     command
 }
 
@@ -360,7 +408,7 @@ fn checked_output(mut command: Command, name: &str) -> Result<Output> {
     let output = command
         .output()
         .with_context(|| format!("cannot run {name}"))?;
-    if !output.status.success() {
+    if !output.status.success() && !(name != "coderg index" && output.status.code() == Some(1)) {
         bail!(
             "{name} failed with {}: {}",
             output.status,
@@ -383,9 +431,11 @@ where
         run_quiet(command())?;
         samples.push(milliseconds(started.elapsed()));
     }
+    let samples_ms = samples.clone();
     samples.sort_by(f64::total_cmp);
     let mean_ms = samples.iter().sum::<f64>() / samples.len() as f64;
     Ok(Timing {
+        samples_ms,
         min_ms: samples[0],
         median_ms: percentile(&samples, 0.50),
         p95_ms: percentile(&samples, 0.95),
@@ -398,7 +448,7 @@ fn run_quiet(mut command: Command) -> Result<()> {
         .stdout(Stdio::null())
         .stderr(Stdio::null())
         .status()?;
-    if !status.success() {
+    if !status.success() && status.code() != Some(1) {
         bail!("timed command failed with {status}");
     }
     Ok(())
@@ -423,26 +473,14 @@ fn normalized_lines(bytes: &[u8]) -> BTreeSet<String> {
 }
 
 fn manifest_stats(path: &Path) -> Result<(usize, u64, usize)> {
-    let manifest: serde_json::Value = serde_json::from_reader(File::open(path)?)?;
-    let documents = manifest["documents"]
-        .as_array()
-        .context("manifest has no documents array")?;
-    let active: Vec<_> = documents
+    let manifest = manifest::read(path)?;
+    let active: Vec<_> = manifest
+        .documents
         .iter()
-        .filter(|document| {
-            document["active"].as_bool().unwrap_or(false)
-                && document["searchable"].as_bool().unwrap_or(false)
-        })
+        .filter(|document| document.active && document.searchable)
         .collect();
-    let bytes = active
-        .iter()
-        .map(|document| document["len"].as_u64().unwrap_or(0))
-        .sum();
-    let segments = manifest["segments"]
-        .as_array()
-        .context("manifest has no segments array")?
-        .len();
-    Ok((active.len(), bytes, segments))
+    let bytes = active.iter().map(|document| document.len).sum();
+    Ok((active.len(), bytes, manifest.segments.len()))
 }
 
 fn directory_bytes(path: &Path) -> Result<u64> {

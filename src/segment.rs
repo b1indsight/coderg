@@ -4,10 +4,10 @@ use std::{
     path::{Path, PathBuf},
 };
 
+pub use crate::manifest::SegmentMeta;
 use anyhow::{Context, Result, bail};
 use memmap2::Mmap;
 use rayon::prelude::*;
-use serde::{Deserialize, Serialize};
 
 use crate::ngram;
 
@@ -23,14 +23,6 @@ struct BlockDescriptor {
     stream_offset: u64,
     postings_base: u64,
     entry_count: u16,
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct SegmentMeta {
-    pub id: u64,
-    pub lookup: PathBuf,
-    pub postings: PathBuf,
-    pub ngrams: u64,
 }
 
 pub struct Segment {

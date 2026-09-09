@@ -7,6 +7,7 @@ license = "MIT"
 
 [dependencies]
 anyhow = "1.0"
+bincode = { version = "2.0.1", default-features = false, features = ["std", "serde"] }
 clap = { version = "4.5", features = ["derive"] }
 git2 = { version = "0.21", default-features = false }
 ignore = "0.4"
@@ -21,6 +22,10 @@ tempfile = "3.23"
 
 [[bench]]
 name = "compare_rg"
+harness = false
+
+[[bench]]
+name = "manifest_load"
 harness = false
 
 [profile.release]
