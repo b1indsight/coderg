@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Compare two coderg builds and rg across frozen corpora and query families."""
 
+from manifest_helpers import read_manifest
+
 import argparse
 from collections import Counter
 from datetime import datetime, timezone
@@ -187,7 +189,7 @@ def main():
         for version, binary in binaries.items():
             elapsed, _, proc = run([binary, "index", root, "--index-dir", indexes[version]], root)
             assert proc.returncode == 0
-            manifest = json.loads((indexes[version] / "manifest.json").read_text())
+            manifest = read_manifest(binary, root, indexes[version])
             docs = [d for d in manifest["documents"] if d["active"] and d["searchable"]]
             segment_hashes = sorted(digest(p) for p in (indexes[version] / "segments").iterdir())
             result["builds"][version] = dict(initial_ms=elapsed, files=len(docs),

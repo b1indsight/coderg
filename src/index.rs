@@ -11,10 +11,11 @@ use std::{
     time::{SystemTime, UNIX_EPOCH},
 };
 
+use crate::manifest::{self, FileState};
+pub use crate::manifest::{Document, Manifest};
 use anyhow::{Context, Result, bail};
 use ignore::{DirEntry, WalkBuilder, WalkState};
 use rayon::prelude::*;
-use serde::{Deserialize, Serialize};
 
 use crate::{
     build::{CHUNK_BYTES, MemoryBudget, PostingsBuilder},
@@ -27,26 +28,6 @@ const MIN_LARGE_CHANGE: usize = 64;
 // Small snapshots do not amortize the parallel walker's worker startup and
 // shutdown costs. This hint only selects how to walk; every file is checked.
 const MAX_SERIAL_WALK_FILES: usize = 512;
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct Manifest {
-    version: u32,
-    pub root: PathBuf,
-    generation: u64,
-    git_repository: bool,
-    git_head: Option<String>,
-    pub git_tree: Option<String>,
-    source_state: Vec<FileState>,
-    pub documents: Vec<Document>,
-    pub segments: Vec<segment::SegmentMeta>,
-}
-
-#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
-struct FileState {
-    path: PathBuf,
-    len: u64,
-    modified_nanos: u128,
-}
 
 // Each walker owns its batch and publishes it once, when traversal finishes.
 // File metadata checks must not contend on a shared lock for every file.
@@ -84,16 +65,6 @@ impl Drop for FileCollector<'_> {
             .unwrap()
             .push(std::mem::replace(&mut self.files, Ok(Vec::new())));
     }
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct Document {
-    pub path: PathBuf,
-    pub len: u64,
-    modified_nanos: u128,
-    pub active: bool,
-    pub searchable: bool,
-    pub segment_id: u64,
 }
 
 pub struct BuildSummary {
@@ -526,7 +497,7 @@ fn hash_file_chunks(
 pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
     let root = resolve_root(path)?;
     let index_dir = resolve_index_dir(&root, requested_index_dir);
-    let manifest = read_manifest(&index_dir.join("manifest.json"))
+    let manifest = read_manifest(&index_dir.join(manifest::FILE_NAME))
         .with_context(|| "index not found; run `coderg index` or omit --no-refresh")?;
     if manifest.version != VERSION || manifest.root != root {
         bail!("index format or root mismatch; rebuild the index");
@@ -576,8 +547,8 @@ fn restore_cached_tree(
     let Some(tree) = tree else {
         return Ok(false);
     };
-    let cache_path = index_dir.join("manifests").join(format!("{tree}.json"));
-    if !cache_path.is_file() {
+    let cache_path = index_dir.join("manifests").join(format!("{tree}.bin"));
+    if !cache_path.is_file() && !cache_path.with_extension("json").is_file() {
         return Ok(false);
     }
     let mut cached = read_manifest(&cache_path)?;
@@ -615,25 +586,29 @@ fn cache_manifest_if_clean(index_dir: &Path, manifest: &Manifest, clean: bool) -
     }
     let manifests_dir = index_dir.join("manifests");
     fs::create_dir_all(&manifests_dir)?;
-    write_manifest_file(&manifests_dir.join(format!("{tree}.json")), manifest)
+    write_manifest_file(&manifests_dir.join(format!("{tree}.bin")), manifest)
 }
 
 fn read_manifest(path: &Path) -> Result<Manifest> {
-    // Parsing a slice avoids the per-byte Read overhead of serde's reader
-    // adapter. The temporary JSON buffer is released before walking the tree.
-    Ok(serde_json::from_slice(&fs::read(path)?)?)
+    manifest::read(path)
 }
 
 fn write_manifest(index_dir: &Path, manifest: &Manifest) -> Result<()> {
-    write_manifest_file(&index_dir.join("manifest.json"), manifest)
+    write_manifest_file(&index_dir.join(manifest::FILE_NAME), manifest)
 }
 
 fn write_manifest_file(path: &Path, manifest: &Manifest) -> Result<()> {
-    let tmp = path.with_extension("json.tmp");
+    let tmp = path.with_extension("bin.tmp");
     let mut file = BufWriter::new(File::create(&tmp)?);
-    serde_json::to_writer_pretty(&mut file, manifest)?;
+    file.write_all(&manifest::encode(manifest)?)?;
     file.flush()?;
-    replace(tmp, path.to_path_buf())
+    replace(tmp, path.to_path_buf())?;
+    // Retire stale JSON only after the binary manifest is published.
+    match fs::remove_file(path.with_extension("json")) {
+        Ok(()) => Ok(()),
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => Ok(()),
+        Err(error) => Err(error.into()),
+    }
 }
 
 fn replace(from: PathBuf, to: PathBuf) -> Result<()> {
@@ -765,7 +740,10 @@ fn searchable_bytes(manifest: &Manifest) -> u64 {
 pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
     let index = load(path, requested_index_dir)?;
     let index_dir = resolve_index_dir(&index.manifest.root, requested_index_dir);
-    let mut index_bytes = fs::metadata(index_dir.join("manifest.json"))?.len();
+    let mut index_bytes = fs::metadata(manifest::resolve_path(
+        &index_dir.join(manifest::FILE_NAME),
+    )?)?
+    .len();
     for segment in &index.manifest.segments {
         index_bytes += fs::metadata(index_dir.join(&segment.lookup))?.len();
         index_bytes += fs::metadata(index_dir.join(&segment.postings))?.len();

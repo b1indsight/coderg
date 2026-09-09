@@ -201,7 +201,7 @@ HEAD/tree 变化等情况下进入 Git status 路径。只有 status 路径完�
 |---|---|---|
 | HEAD 改变，tree 不变，工作区干净 | 更新 HEAD 和 generation，缓存 manifest | 不重新读内容或生成 gram |
 | 已索引的工作区修改随后提交，文件快照不变 | 更新 manifest 的 HEAD/tree 并缓存 | 已有 delta 直接沿用 |
-| 工作区干净，目标 tree 有缓存 | 切换到 `manifests/<tree>.json` 指向的段集合 | 复用该树的内容索引 |
+| 工作区干净，目标 tree 有缓存 | 切换到 `manifests/<tree>.bin`（兼容读取旧 `.json`） 指向的段集合 | 复用该树的内容索引 |
 | 没有可用树缓存，工作区有小变更 | 收集当前快照，用变更路径或元数据比较选择待更新文件 | 只重算需要更新的内容 |
 | 无 Git 仓库 | 按文件元数据快照比较并更新 | 同样支持小变更增量 |
 

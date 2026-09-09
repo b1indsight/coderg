@@ -1,3 +1,7 @@
+#[allow(dead_code)]
+#[path = "../src/manifest.rs"]
+mod manifest_format;
+
 use std::{fs, path::Path, process::Command};
 
 #[test]
@@ -19,6 +23,21 @@ fn commits_promote_overlays_and_rollbacks_reuse_cached_trees() {
     let manifest_a = manifest(root.path());
     assert_eq!(manifest_a["segments"].as_array().unwrap().len(), 1);
     let tree_a = manifest_a["git_tree"].as_str().unwrap().to_owned();
+
+    // Exercise migration of both the active manifest and a legacy cached tree.
+    for binary in [
+        root.path().join(".coderg-index/manifest.bin"),
+        root.path()
+            .join(format!(".coderg-index/manifests/{tree_a}.bin")),
+    ] {
+        let records = manifest_format::read(&binary).unwrap();
+        fs::write(
+            binary.with_extension("json"),
+            serde_json::to_vec_pretty(&records).unwrap(),
+        )
+        .unwrap();
+        fs::remove_file(binary).unwrap();
+    }
 
     git(root.path(), &["commit", "--allow-empty", "-m", "same tree"]);
     let same_tree_commit = coderg(root.path(), &["search", "-F", "old needle"]);
@@ -105,5 +124,6 @@ fn coderg(root: &Path, arguments: &[&str]) -> std::process::Output {
 }
 
 fn manifest(root: &Path) -> serde_json::Value {
-    serde_json::from_slice(&fs::read(root.join(".coderg-index/manifest.json")).unwrap()).unwrap()
+    serde_json::to_value(manifest_format::read(&root.join(".coderg-index/manifest.bin")).unwrap())
+        .unwrap()
 }

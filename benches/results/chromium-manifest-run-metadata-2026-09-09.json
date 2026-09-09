@@ -1,0 +1,15 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "chromium_commit": "398630472335c10b9ca610a4d1b7888a040f702a",
+  "query": "MAX_FILE_SIZE",
+  "binaries": {
+    "json_old": {
+      "path": "/private/tmp/coderg-before-manifest-binary-20260909",
+      "sha256": "a2e45b7e0fa41af317a34a6329d66a81b2fcf971a1880991bff46cff6fd6e6ea"
+    },
+    "binary_new": {
+      "path": "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "sha256": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc"
+    }
+  }
+}

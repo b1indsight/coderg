@@ -128,7 +128,7 @@ fn case_insensitive_index_search_agrees_with_regex_matching() {
         fs::write(root.path().join(name), text).unwrap();
     }
     assert!(coderg(root.path(), &["index"]).status.success());
-    let manifest_path = root.path().join(".coderg-index/manifest.json");
+    let manifest_path = root.path().join(".coderg-index/manifest.bin");
     let original_manifest = fs::read(&manifest_path).unwrap();
     for (pattern, ignore_case, fixed) in [
         ("AsyncMock", true, false),
@@ -234,7 +234,7 @@ fn refresh_tracks_nested_files_and_changed_ignore_rules() {
     expected.sort_by(|left, right| std::path::Path::new(left).cmp(std::path::Path::new(right)));
     assert!(!check(&expected).is_empty());
 
-    let manifest_path = root.path().join(".coderg-index/manifest.json");
+    let manifest_path = root.path().join(".coderg-index/manifest.bin");
     let manifest = fs::read(&manifest_path).unwrap();
     assert!(check(&expected).is_empty());
     assert_eq!(fs::read(manifest_path).unwrap(), manifest);

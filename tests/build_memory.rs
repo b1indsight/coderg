@@ -1,3 +1,7 @@
+#[allow(dead_code)]
+#[path = "../src/manifest.rs"]
+mod manifest_format;
+
 use std::{
     fs,
     path::Path,
@@ -50,7 +54,10 @@ fn small_budget_preserves_index_bytes_and_incremental_search() {
     check(&normal);
     assert!(!String::from_utf8_lossy(&normal.stderr).contains("spilled"));
     let manifest = |index: &Path| -> serde_json::Value {
-        serde_json::from_slice(&fs::read(index.join("manifest.json")).unwrap()).unwrap()
+        serde_json::to_value(
+            manifest_format::read(&index.join(manifest_format::FILE_NAME)).unwrap(),
+        )
+        .unwrap()
     };
     let low_manifest = manifest(&low);
     let high_manifest = manifest(&high);

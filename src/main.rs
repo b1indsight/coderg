@@ -1,6 +1,7 @@
 mod build;
 mod git_state;
 mod index;
+mod manifest;
 mod ngram;
 mod query;
 mod search;
@@ -69,6 +70,9 @@ enum Command {
         path: PathBuf,
         #[arg(long, value_name = "DIR")]
         index_dir: Option<PathBuf>,
+        /// Export the complete manifest as JSON for inspection and tooling.
+        #[arg(long)]
+        json: bool,
     },
 }
 
@@ -126,7 +130,16 @@ fn run() -> Result<()> {
                 std::process::exit(1);
             }
         }
-        Command::Stats { path, index_dir } => {
+        Command::Stats {
+            path,
+            index_dir,
+            json,
+        } => {
+            if json {
+                let index = index::load(&path, index_dir.as_deref())?;
+                println!("{}", serde_json::to_string_pretty(&index.manifest)?);
+                return Ok(());
+            }
             let stats = index::stats(&path, index_dir.as_deref())?;
             println!("root: {}", stats.root.display());
             println!("files: {}", stats.files);
