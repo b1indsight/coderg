@@ -1,0 +1,26 @@
+[
+  [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "--manifest-path",
+    "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_pairs-src/Cargo.toml",
+    "--bin",
+    "coderg"
+  ],
+  [
+    "cargo",
+    "rustc",
+    "--release",
+    "--locked",
+    "--offline",
+    "--manifest-path",
+    "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_pairs-src/Cargo.toml",
+    "--bin",
+    "coderg",
+    "--",
+    "--cfg",
+    "benchmark_chromium_empirical_pairs"
+  ]
+]

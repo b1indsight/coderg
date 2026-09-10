@@ -1,0 +1,1476 @@
+{
+  "root": "/private/tmp/coderg-vllm-bench.7cZ1iI/vllm",
+  "selection_seed": 20260910,
+  "eligible_identifiers": 2515,
+  "identifiers": [
+    {
+      "identifier": "get_tensor_model_parallel_world_size",
+      "path": "vllm/distributed/parallel_state.py",
+      "line": 2228,
+      "words": [
+        "get",
+        "tensor",
+        "model",
+        "parallel",
+        "world",
+        "size"
+      ]
+    },
+    {
+      "identifier": "get_device_total_memory",
+      "path": "vllm/platforms/cpu.py",
+      "line": 177,
+      "words": [
+        "get",
+        "device",
+        "total",
+        "memory"
+      ]
+    },
+    {
+      "identifier": "get_image_segment_len",
+      "path": "vllm/model_executor/models/ovis.py",
+      "line": 272,
+      "words": [
+        "get",
+        "image",
+        "segment",
+        "len"
+      ]
+    },
+    {
+      "identifier": "gather_specific_token_logprobs",
+      "path": "vllm/v1/sample/sampler.py",
+      "line": 152,
+      "words": [
+        "gather",
+        "specific",
+        "token",
+        "logprobs"
+      ]
+    },
+    {
+      "identifier": "get_chunk_sizes_across_dp_rank",
+      "path": "vllm/forward_context.py",
+      "line": 115,
+      "words": [
+        "get",
+        "chunk",
+        "sizes",
+        "across",
+        "dp",
+        "rank"
+      ]
+    },
+    {
+      "identifier": "biased_moe_quant_config",
+      "path": "vllm/model_executor/layers/fused_moe/config.py",
+      "line": 1011,
+      "words": [
+        "biased",
+        "moe",
+        "quant",
+        "config"
+      ]
+    },
+    {
+      "identifier": "plan_mla_context_chunks",
+      "path": "vllm/model_executor/layers/attention/mla_attention.py",
+      "line": 1856,
+      "words": [
+        "plan",
+        "mla",
+        "context",
+        "chunks"
+      ]
+    },
+    {
+      "identifier": "stage_spec_decode_metadata",
+      "path": "vllm/models/kimi_k3/nvidia/kda_metadata.py",
+      "line": 212,
+      "words": [
+        "stage",
+        "spec",
+        "decode",
+        "metadata"
+      ]
+    },
+    {
+      "identifier": "response_input_to_harmony",
+      "path": "vllm/entrypoints/openai/responses/harmony.py",
+      "line": 148,
+      "words": [
+        "response",
+        "input",
+        "to",
+        "harmony"
+      ]
+    },
+    {
+      "identifier": "use_custom_op_collectives",
+      "path": "vllm/platforms/cuda.py",
+      "line": 722,
+      "words": [
+        "use",
+        "custom",
+        "op",
+        "collectives"
+      ]
+    },
+    {
+      "identifier": "invoke_moe_batched_triton_kernel",
+      "path": "vllm/model_executor/layers/fused_moe/experts/fused_batched_moe.py",
+      "line": 427,
+      "words": [
+        "invoke",
+        "moe",
+        "batched",
+        "triton",
+        "kernel"
+      ]
+    },
+    {
+      "identifier": "compile_or_warm_up_model",
+      "path": "vllm/v1/executor/abstract.py",
+      "line": 124,
+      "words": [
+        "compile",
+        "or",
+        "warm",
+        "up",
+        "model"
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "id": "identifier:get_tensor_model_parallel_world_size",
+      "family": "identifier",
+      "pattern": "get_tensor_model_parallel_world_size",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_tensor_model_parallel_world_size"
+      ],
+      "words": [
+        "get",
+        "tensor",
+        "model",
+        "parallel",
+        "world",
+        "size"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_two:get_tensor_model_parallel_world_size",
+      "family": "or_two",
+      "pattern": "(?:get|size)",
+      "flags": [],
+      "parents": [
+        "get_tensor_model_parallel_world_size"
+      ],
+      "words": [
+        "get",
+        "size"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:get_tensor_model_parallel_world_size",
+      "family": "or_all",
+      "pattern": "(?:get|tensor|model|parallel|world|size)",
+      "flags": [],
+      "parents": [
+        "get_tensor_model_parallel_world_size"
+      ],
+      "words": [
+        "get",
+        "tensor",
+        "model",
+        "parallel",
+        "world",
+        "size"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "identifier:get_device_total_memory",
+      "family": "identifier",
+      "pattern": "get_device_total_memory",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_device_total_memory"
+      ],
+      "words": [
+        "get",
+        "device",
+        "total",
+        "memory"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_two:get_device_total_memory",
+      "family": "or_two",
+      "pattern": "(?:get|memory)",
+      "flags": [],
+      "parents": [
+        "get_device_total_memory"
+      ],
+      "words": [
+        "get",
+        "memory"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:get_device_total_memory",
+      "family": "or_all",
+      "pattern": "(?:get|device|total|memory)",
+      "flags": [],
+      "parents": [
+        "get_device_total_memory"
+      ],
+      "words": [
+        "get",
+        "device",
+        "total",
+        "memory"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "identifier:get_image_segment_len",
+      "family": "identifier",
+      "pattern": "get_image_segment_len",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_image_segment_len"
+      ],
+      "words": [
+        "get",
+        "image",
+        "segment",
+        "len"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_two:get_image_segment_len",
+      "family": "or_two",
+      "pattern": "(?:get|len)",
+      "flags": [],
+      "parents": [
+        "get_image_segment_len"
+      ],
+      "words": [
+        "get",
+        "len"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:get_image_segment_len",
+      "family": "or_all",
+      "pattern": "(?:get|image|segment|len)",
+      "flags": [],
+      "parents": [
+        "get_image_segment_len"
+      ],
+      "words": [
+        "get",
+        "image",
+        "segment",
+        "len"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "identifier:gather_specific_token_logprobs",
+      "family": "identifier",
+      "pattern": "gather_specific_token_logprobs",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "gather_specific_token_logprobs"
+      ],
+      "words": [
+        "gather",
+        "specific",
+        "token",
+        "logprobs"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_two:gather_specific_token_logprobs",
+      "family": "or_two",
+      "pattern": "(?:gather|logprobs)",
+      "flags": [],
+      "parents": [
+        "gather_specific_token_logprobs"
+      ],
+      "words": [
+        "gather",
+        "logprobs"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:gather_specific_token_logprobs",
+      "family": "or_all",
+      "pattern": "(?:gather|specific|token|logprobs)",
+      "flags": [],
+      "parents": [
+        "gather_specific_token_logprobs"
+      ],
+      "words": [
+        "gather",
+        "specific",
+        "token",
+        "logprobs"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "identifier:get_chunk_sizes_across_dp_rank",
+      "family": "identifier",
+      "pattern": "get_chunk_sizes_across_dp_rank",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_chunk_sizes_across_dp_rank"
+      ],
+      "words": [
+        "get",
+        "chunk",
+        "sizes",
+        "across",
+        "dp",
+        "rank"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "or_two:get_chunk_sizes_across_dp_rank",
+      "family": "or_two",
+      "pattern": "(?:get|rank)",
+      "flags": [],
+      "parents": [
+        "get_chunk_sizes_across_dp_rank"
+      ],
+      "words": [
+        "get",
+        "rank"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:get_chunk_sizes_across_dp_rank",
+      "family": "or_all",
+      "pattern": "(?:get|chunk|sizes|across|dp|rank)",
+      "flags": [],
+      "parents": [
+        "get_chunk_sizes_across_dp_rank"
+      ],
+      "words": [
+        "get",
+        "chunk",
+        "sizes",
+        "across",
+        "dp",
+        "rank"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "identifier:biased_moe_quant_config",
+      "family": "identifier",
+      "pattern": "biased_moe_quant_config",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "biased_moe_quant_config"
+      ],
+      "words": [
+        "biased",
+        "moe",
+        "quant",
+        "config"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_two:biased_moe_quant_config",
+      "family": "or_two",
+      "pattern": "(?:biased|config)",
+      "flags": [],
+      "parents": [
+        "biased_moe_quant_config"
+      ],
+      "words": [
+        "biased",
+        "config"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:biased_moe_quant_config",
+      "family": "or_all",
+      "pattern": "(?:biased|moe|quant|config)",
+      "flags": [],
+      "parents": [
+        "biased_moe_quant_config"
+      ],
+      "words": [
+        "biased",
+        "moe",
+        "quant",
+        "config"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "identifier:plan_mla_context_chunks",
+      "family": "identifier",
+      "pattern": "plan_mla_context_chunks",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "plan_mla_context_chunks"
+      ],
+      "words": [
+        "plan",
+        "mla",
+        "context",
+        "chunks"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_two:plan_mla_context_chunks",
+      "family": "or_two",
+      "pattern": "(?:plan|chunks)",
+      "flags": [],
+      "parents": [
+        "plan_mla_context_chunks"
+      ],
+      "words": [
+        "plan",
+        "chunks"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:plan_mla_context_chunks",
+      "family": "or_all",
+      "pattern": "(?:plan|mla|context|chunks)",
+      "flags": [],
+      "parents": [
+        "plan_mla_context_chunks"
+      ],
+      "words": [
+        "plan",
+        "mla",
+        "context",
+        "chunks"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "identifier:stage_spec_decode_metadata",
+      "family": "identifier",
+      "pattern": "stage_spec_decode_metadata",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "stage_spec_decode_metadata"
+      ],
+      "words": [
+        "stage",
+        "spec",
+        "decode",
+        "metadata"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_two:stage_spec_decode_metadata",
+      "family": "or_two",
+      "pattern": "(?:stage|metadata)",
+      "flags": [],
+      "parents": [
+        "stage_spec_decode_metadata"
+      ],
+      "words": [
+        "stage",
+        "metadata"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:stage_spec_decode_metadata",
+      "family": "or_all",
+      "pattern": "(?:stage|spec|decode|metadata)",
+      "flags": [],
+      "parents": [
+        "stage_spec_decode_metadata"
+      ],
+      "words": [
+        "stage",
+        "spec",
+        "decode",
+        "metadata"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "identifier:response_input_to_harmony",
+      "family": "identifier",
+      "pattern": "response_input_to_harmony",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "response_input_to_harmony"
+      ],
+      "words": [
+        "response",
+        "input",
+        "to",
+        "harmony"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "or_two:response_input_to_harmony",
+      "family": "or_two",
+      "pattern": "(?:response|harmony)",
+      "flags": [],
+      "parents": [
+        "response_input_to_harmony"
+      ],
+      "words": [
+        "response",
+        "harmony"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:response_input_to_harmony",
+      "family": "or_all",
+      "pattern": "(?:response|input|to|harmony)",
+      "flags": [],
+      "parents": [
+        "response_input_to_harmony"
+      ],
+      "words": [
+        "response",
+        "input",
+        "to",
+        "harmony"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "identifier:use_custom_op_collectives",
+      "family": "identifier",
+      "pattern": "use_custom_op_collectives",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "use_custom_op_collectives"
+      ],
+      "words": [
+        "use",
+        "custom",
+        "op",
+        "collectives"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "or_two:use_custom_op_collectives",
+      "family": "or_two",
+      "pattern": "(?:use|collectives)",
+      "flags": [],
+      "parents": [
+        "use_custom_op_collectives"
+      ],
+      "words": [
+        "use",
+        "collectives"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:use_custom_op_collectives",
+      "family": "or_all",
+      "pattern": "(?:use|custom|op|collectives)",
+      "flags": [],
+      "parents": [
+        "use_custom_op_collectives"
+      ],
+      "words": [
+        "use",
+        "custom",
+        "op",
+        "collectives"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "identifier:invoke_moe_batched_triton_kernel",
+      "family": "identifier",
+      "pattern": "invoke_moe_batched_triton_kernel",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "invoke_moe_batched_triton_kernel"
+      ],
+      "words": [
+        "invoke",
+        "moe",
+        "batched",
+        "triton",
+        "kernel"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_two:invoke_moe_batched_triton_kernel",
+      "family": "or_two",
+      "pattern": "(?:invoke|kernel)",
+      "flags": [],
+      "parents": [
+        "invoke_moe_batched_triton_kernel"
+      ],
+      "words": [
+        "invoke",
+        "kernel"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:invoke_moe_batched_triton_kernel",
+      "family": "or_all",
+      "pattern": "(?:invoke|moe|batched|triton|kernel)",
+      "flags": [],
+      "parents": [
+        "invoke_moe_batched_triton_kernel"
+      ],
+      "words": [
+        "invoke",
+        "moe",
+        "batched",
+        "triton",
+        "kernel"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "identifier:compile_or_warm_up_model",
+      "family": "identifier",
+      "pattern": "compile_or_warm_up_model",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "compile_or_warm_up_model"
+      ],
+      "words": [
+        "compile",
+        "or",
+        "warm",
+        "up",
+        "model"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "or_two:compile_or_warm_up_model",
+      "family": "or_two",
+      "pattern": "(?:compile|model)",
+      "flags": [],
+      "parents": [
+        "compile_or_warm_up_model"
+      ],
+      "words": [
+        "compile",
+        "model"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "or_all:compile_or_warm_up_model",
+      "family": "or_all",
+      "pattern": "(?:compile|or|warm|up|model)",
+      "flags": [],
+      "parents": [
+        "compile_or_warm_up_model"
+      ],
+      "words": [
+        "compile",
+        "or",
+        "warm",
+        "up",
+        "model"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "word:across",
+      "family": "word",
+      "pattern": "across",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_chunk_sizes_across_dp_rank"
+      ],
+      "words": [
+        "across"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:batched",
+      "family": "word",
+      "pattern": "batched",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "invoke_moe_batched_triton_kernel"
+      ],
+      "words": [
+        "batched"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:biased",
+      "family": "word",
+      "pattern": "biased",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "biased_moe_quant_config"
+      ],
+      "words": [
+        "biased"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:chunk",
+      "family": "word",
+      "pattern": "chunk",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_chunk_sizes_across_dp_rank"
+      ],
+      "words": [
+        "chunk"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:chunks",
+      "family": "word",
+      "pattern": "chunks",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "plan_mla_context_chunks"
+      ],
+      "words": [
+        "chunks"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:collectives",
+      "family": "word",
+      "pattern": "collectives",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "use_custom_op_collectives"
+      ],
+      "words": [
+        "collectives"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:compile",
+      "family": "word",
+      "pattern": "compile",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "compile_or_warm_up_model"
+      ],
+      "words": [
+        "compile"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:config",
+      "family": "word",
+      "pattern": "config",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "biased_moe_quant_config"
+      ],
+      "words": [
+        "config"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:context",
+      "family": "word",
+      "pattern": "context",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "plan_mla_context_chunks"
+      ],
+      "words": [
+        "context"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:custom",
+      "family": "word",
+      "pattern": "custom",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "use_custom_op_collectives"
+      ],
+      "words": [
+        "custom"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:decode",
+      "family": "word",
+      "pattern": "decode",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "stage_spec_decode_metadata"
+      ],
+      "words": [
+        "decode"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:device",
+      "family": "word",
+      "pattern": "device",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_device_total_memory"
+      ],
+      "words": [
+        "device"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:dp",
+      "family": "word",
+      "pattern": "dp",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_chunk_sizes_across_dp_rank"
+      ],
+      "words": [
+        "dp"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "word:gather",
+      "family": "word",
+      "pattern": "gather",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "gather_specific_token_logprobs"
+      ],
+      "words": [
+        "gather"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:get",
+      "family": "word",
+      "pattern": "get",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_tensor_model_parallel_world_size",
+        "get_device_total_memory",
+        "get_image_segment_len",
+        "get_chunk_sizes_across_dp_rank"
+      ],
+      "words": [
+        "get"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:harmony",
+      "family": "word",
+      "pattern": "harmony",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "response_input_to_harmony"
+      ],
+      "words": [
+        "harmony"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:image",
+      "family": "word",
+      "pattern": "image",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_image_segment_len"
+      ],
+      "words": [
+        "image"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:input",
+      "family": "word",
+      "pattern": "input",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "response_input_to_harmony"
+      ],
+      "words": [
+        "input"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:invoke",
+      "family": "word",
+      "pattern": "invoke",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "invoke_moe_batched_triton_kernel"
+      ],
+      "words": [
+        "invoke"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:kernel",
+      "family": "word",
+      "pattern": "kernel",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "invoke_moe_batched_triton_kernel"
+      ],
+      "words": [
+        "kernel"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:len",
+      "family": "word",
+      "pattern": "len",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_image_segment_len"
+      ],
+      "words": [
+        "len"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:logprobs",
+      "family": "word",
+      "pattern": "logprobs",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "gather_specific_token_logprobs"
+      ],
+      "words": [
+        "logprobs"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:memory",
+      "family": "word",
+      "pattern": "memory",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_device_total_memory"
+      ],
+      "words": [
+        "memory"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:metadata",
+      "family": "word",
+      "pattern": "metadata",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "stage_spec_decode_metadata"
+      ],
+      "words": [
+        "metadata"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:mla",
+      "family": "word",
+      "pattern": "mla",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "plan_mla_context_chunks"
+      ],
+      "words": [
+        "mla"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:model",
+      "family": "word",
+      "pattern": "model",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_tensor_model_parallel_world_size",
+        "compile_or_warm_up_model"
+      ],
+      "words": [
+        "model"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:moe",
+      "family": "word",
+      "pattern": "moe",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "biased_moe_quant_config",
+        "invoke_moe_batched_triton_kernel"
+      ],
+      "words": [
+        "moe"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:op",
+      "family": "word",
+      "pattern": "op",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "use_custom_op_collectives"
+      ],
+      "words": [
+        "op"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "word:or",
+      "family": "word",
+      "pattern": "or",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "compile_or_warm_up_model"
+      ],
+      "words": [
+        "or"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "word:parallel",
+      "family": "word",
+      "pattern": "parallel",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_tensor_model_parallel_world_size"
+      ],
+      "words": [
+        "parallel"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:plan",
+      "family": "word",
+      "pattern": "plan",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "plan_mla_context_chunks"
+      ],
+      "words": [
+        "plan"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:quant",
+      "family": "word",
+      "pattern": "quant",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "biased_moe_quant_config"
+      ],
+      "words": [
+        "quant"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:rank",
+      "family": "word",
+      "pattern": "rank",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_chunk_sizes_across_dp_rank"
+      ],
+      "words": [
+        "rank"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:response",
+      "family": "word",
+      "pattern": "response",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "response_input_to_harmony"
+      ],
+      "words": [
+        "response"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:segment",
+      "family": "word",
+      "pattern": "segment",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_image_segment_len"
+      ],
+      "words": [
+        "segment"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:size",
+      "family": "word",
+      "pattern": "size",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_tensor_model_parallel_world_size"
+      ],
+      "words": [
+        "size"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:sizes",
+      "family": "word",
+      "pattern": "sizes",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_chunk_sizes_across_dp_rank"
+      ],
+      "words": [
+        "sizes"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:spec",
+      "family": "word",
+      "pattern": "spec",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "stage_spec_decode_metadata"
+      ],
+      "words": [
+        "spec"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:specific",
+      "family": "word",
+      "pattern": "specific",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "gather_specific_token_logprobs"
+      ],
+      "words": [
+        "specific"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:stage",
+      "family": "word",
+      "pattern": "stage",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "stage_spec_decode_metadata"
+      ],
+      "words": [
+        "stage"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:tensor",
+      "family": "word",
+      "pattern": "tensor",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_tensor_model_parallel_world_size"
+      ],
+      "words": [
+        "tensor"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:to",
+      "family": "word",
+      "pattern": "to",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "response_input_to_harmony"
+      ],
+      "words": [
+        "to"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "word:token",
+      "family": "word",
+      "pattern": "token",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "gather_specific_token_logprobs"
+      ],
+      "words": [
+        "token"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:total",
+      "family": "word",
+      "pattern": "total",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_device_total_memory"
+      ],
+      "words": [
+        "total"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:triton",
+      "family": "word",
+      "pattern": "triton",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "invoke_moe_batched_triton_kernel"
+      ],
+      "words": [
+        "triton"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:up",
+      "family": "word",
+      "pattern": "up",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "compile_or_warm_up_model"
+      ],
+      "words": [
+        "up"
+      ],
+      "has_short_word": true
+    },
+    {
+      "id": "word:use",
+      "family": "word",
+      "pattern": "use",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "use_custom_op_collectives"
+      ],
+      "words": [
+        "use"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:warm",
+      "family": "word",
+      "pattern": "warm",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "compile_or_warm_up_model"
+      ],
+      "words": [
+        "warm"
+      ],
+      "has_short_word": false
+    },
+    {
+      "id": "word:world",
+      "family": "word",
+      "pattern": "world",
+      "flags": [
+        "-F"
+      ],
+      "parents": [
+        "get_tensor_model_parallel_world_size"
+      ],
+      "words": [
+        "world"
+      ],
+      "has_short_word": false
+    }
+  ],
+  "rules": "Case-sensitive; full name uses -F substring semantics; identifier words split on underscore; word queries deduplicated; OR-two uses first and last distinct word; OR-all uses all distinct words; no word boundaries; no timing-informed selection"
+}

@@ -1,0 +1,105 @@
+diff --git a/src/index.rs b/src/index.rs
+index 0e728eb..b493a0f 100644
+--- a/src/index.rs
++++ b/src/index.rs
+@@ -22,7 +22,8 @@ use crate::{
+     compaction, git_state, ngram, segment,
+ };
+ 
+-const VERSION: u32 = 4;
++// v5 changes sparse-gram selection to the fixed letter-frequency prior.
++const VERSION: u32 = 5;
+ // Small snapshots do not amortize the parallel walker's worker startup and
+ // shutdown costs. This hint only selects how to walk; every file is checked.
+ const MAX_SERIAL_WALK_FILES: usize = 512;
+diff --git a/src/ngram.rs b/src/ngram.rs
+index 50c5453..bd76d7b 100644
+--- a/src/ngram.rs
++++ b/src/ngram.rs
+@@ -11,6 +11,15 @@ const HASH_PRIME: u64 = 0x1000_0000_01b3;
+ const PAIR_TABLE_THRESHOLD: usize = 4096;
+ static PAIR_WEIGHT_TABLE: OnceLock<Box<[u64]>> = OnceLock::new();
+ 
++// English letter frequencies in thousandths of a percent, a through z.
++// https://www.math.stonybrook.edu/~scott/papers/MSTP/crypto/2I_m_Substitute.html
++// This is a fixed unigram prior, not a measured source-code bigram model.
++const LETTER_FREQUENCIES: [u32; 26] = [
++    8167, 1492, 2782, 4253, 12702, 2228, 2015, 6094, 6996, 153, 772, 4025, 2406, 6749, 7507, 1929,
++    95, 5987, 6327, 9056, 2758, 978, 2360, 150, 1974, 74,
++];
++const COMMON_FREQUENCY: u32 = 12702;
++
+ #[derive(Default)]
+ pub(crate) struct GramHasher(u64);
+ 
+@@ -209,7 +218,24 @@ fn pair_weight(pair: &[u8]) -> u64 {
+ }
+ 
+ fn pair_weight_value(value: u16) -> u64 {
+-    mix(u64::from(value) ^ 0x9e37_79b9_7f4a_7c15)
++    let [left, right] = value.to_le_bytes();
++    // Approximate pair frequency by assuming independent letters. Rarity is
++    // the primary ordering; the original hash breaks ties (including case
++    // and pair order) without reversing the frequency preference.
++    let rarity = COMMON_FREQUENCY * COMMON_FREQUENCY - byte_frequency(left) * byte_frequency(right);
++    let tie_break = mix(u64::from(value) ^ 0x9e37_79b9_7f4a_7c15) & u64::from(u32::MAX);
++    (u64::from(rarity) << 32) | tie_break
++}
++
++fn byte_frequency(byte: u8) -> u32 {
++    let lower = byte.to_ascii_lowercase();
++    if lower.is_ascii_lowercase() {
++        LETTER_FREQUENCIES[usize::from(lower - b'a')]
++    } else {
++        // Do not treat punctuation, digits, or individual UTF-8 bytes as rare
++        // letters. Nonletter-only pairs retain their hash-based ordering.
++        COMMON_FREQUENCY
++    }
+ }
+ 
+ pub fn hash(bytes: &[u8]) -> u64 {
+@@ -426,7 +452,43 @@ mod tests {
+     }
+ 
+     #[test]
+-    fn pair_weight_table_preserves_original_weights() {
++    fn rare_letters_raise_pair_weights_in_either_position() {
++        for common in b'a'..=b'z' {
++            for rare in b'a'..=b'z' {
++                if byte_frequency(rare) >= byte_frequency(common) {
++                    continue;
++                }
++                for neighbor in 0..=u8::MAX {
++                    assert!(pair_weight(&[rare, neighbor]) > pair_weight(&[common, neighbor]));
++                    assert!(pair_weight(&[neighbor, rare]) > pair_weight(&[neighbor, common]));
++                }
++            }
++        }
++    }
++
++    #[test]
++    fn frequency_prior_folds_ascii_case_and_does_not_boost_nonletters() {
++        for letter in b'a'..=b'z' {
++            assert_eq!(
++                byte_frequency(letter),
++                byte_frequency(letter.to_ascii_uppercase())
++            );
++            assert_eq!(
++                pair_weight(&[letter, b'_']) >> 32,
++                pair_weight(&[letter.to_ascii_uppercase(), b'_']) >> 32
++            );
++        }
++        for byte in 0..=u8::MAX {
++            if !byte.is_ascii_alphabetic() {
++                assert_eq!(pair_weight(&[byte, b'_']) >> 32, 0);
++            }
++        }
++        assert!(pair_weight(b"qz") > pair_weight(b"th"));
++        assert!(pair_weight(b"th") > pair_weight(b"ee"));
++    }
++
++    #[test]
++    fn pair_weight_table_matches_direct_weights() {
+         let table = pair_weight_table();
+         for value in 0..=u16::MAX {
+             assert_eq!(table[usize::from(value)], pair_weight_value(value));

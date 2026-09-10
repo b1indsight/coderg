@@ -79,6 +79,36 @@ fn run(root: &Path, args: &[&str]) -> std::process::Output {
 }
 
 #[test]
+fn old_weight_version_requires_rebuild_before_searching() {
+    let root = tempfile::tempdir().unwrap();
+    fs::write(root.path().join("source.txt"), "equalize quartz\n").unwrap();
+    run(root.path(), &["index"]);
+    let binary = root.path().join(".coderg-index/manifest.bin");
+    let mut old = format::read(&binary).unwrap();
+    assert_eq!(old.version, 5);
+    old.version = 4;
+    fs::write(&binary, format::encode(&old).unwrap()).unwrap();
+
+    let rejected = Command::new(env!("CARGO_BIN_EXE_coderg"))
+        .args(["search", "--no-refresh", "-F", "equalize quartz"])
+        .arg(root.path())
+        .output()
+        .unwrap();
+    assert_eq!(rejected.status.code(), Some(2));
+    assert!(String::from_utf8_lossy(&rejected.stderr).contains("rebuild the index"));
+    assert_eq!(format::read(&binary).unwrap().version, 4);
+
+    let rebuilt = run(root.path(), &["search", "-F", "equalize quartz"]);
+    assert_eq!(rebuilt.stdout, b"source.txt:1:equalize quartz\n");
+    assert!(String::from_utf8_lossy(&rebuilt.stderr).contains("building index"));
+    assert_eq!(format::read(&binary).unwrap().version, 5);
+    run(
+        root.path(),
+        &["search", "--no-refresh", "-F", "equalize quartz"],
+    );
+}
+
+#[test]
 fn legacy_index_reads_without_rewrite_then_migrates_on_refresh() {
     let root = tempfile::tempdir().unwrap();
     fs::write(root.path().join("source.txt"), "old needle\n").unwrap();

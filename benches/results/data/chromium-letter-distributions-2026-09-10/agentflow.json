@@ -1,0 +1,4950 @@
+{
+  "dataset": {
+    "id": "agentflow",
+    "kind": "python",
+    "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+    "source": "/Users/b1indsight/personal_work/agentflow",
+    "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30"
+  },
+  "builds": {
+    "chromium_all": {
+      "initial_ms": 75.000375,
+      "files": 114,
+      "source_bytes": 1448429,
+      "ngrams": 461705,
+      "index_bytes": 2264099,
+      "samples_ms": [
+        60.405166,
+        59.681708,
+        57.414875,
+        62.53175,
+        53.364958
+      ],
+      "rss_bytes": [
+        22331392,
+        22544384,
+        22347776
+      ],
+      "rss_logs": [
+        "indexed 114 files (1448429 bytes, 461705 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.05 real         0.06 user         0.01 sys\n            22331392  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1652  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  17  voluntary context switches\n                 515  involuntary context switches\n           920750951  instructions retired\n           284788963  cycles elapsed\n            15991216  peak memory footprint\n",
+        "indexed 114 files (1448429 bytes, 461705 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.04 real         0.06 user         0.01 sys\n            22544384  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1662  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  17  voluntary context switches\n                 494  involuntary context switches\n           917843632  instructions retired\n           280667468  cycles elapsed\n            16204208  peak memory footprint\n",
+        "indexed 114 files (1448429 bytes, 461705 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.05 real         0.06 user         0.01 sys\n            22347776  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1654  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  18  voluntary context switches\n                 478  involuntary context switches\n           924016427  instructions retired\n           288274562  cycles elapsed\n            16007600  peak memory footprint\n"
+      ]
+    },
+    "english": {
+      "initial_ms": 62.476666,
+      "files": 114,
+      "source_bytes": 1448429,
+      "ngrams": 460702,
+      "index_bytes": 2260701,
+      "samples_ms": [
+        53.624666,
+        64.523417,
+        58.440542,
+        59.93275,
+        56.561583
+      ],
+      "rss_bytes": [
+        22757376,
+        22167552,
+        22380544
+      ],
+      "rss_logs": [
+        "indexed 114 files (1448429 bytes, 460702 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.05 real         0.07 user         0.01 sys\n            22757376  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1683  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  19  voluntary context switches\n                 444  involuntary context switches\n           919228321  instructions retired\n           297512108  cycles elapsed\n            16417200  peak memory footprint\n",
+        "indexed 114 files (1448429 bytes, 460702 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.04 real         0.06 user         0.01 sys\n            22167552  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1637  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  17  voluntary context switches\n                 431  involuntary context switches\n           917999986  instructions retired\n           286809909  cycles elapsed\n            15827376  peak memory footprint\n",
+        "indexed 114 files (1448429 bytes, 460702 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.05 real         0.06 user         0.01 sys\n            22380544  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1656  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  18  voluntary context switches\n                 599  involuntary context switches\n           921512274  instructions retired\n           286517665  cycles elapsed\n            16040368  peak memory footprint\n"
+      ]
+    },
+    "hash": {
+      "initial_ms": 63.126458,
+      "files": 114,
+      "source_bytes": 1448429,
+      "ngrams": 410268,
+      "index_bytes": 2096670,
+      "samples_ms": [
+        60.585416,
+        61.615417,
+        54.433,
+        58.751083,
+        58.721625
+      ],
+      "rss_bytes": [
+        22085632,
+        21987328,
+        21807104
+      ],
+      "rss_logs": [
+        "indexed 114 files (1448429 bytes, 410268 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.04 real         0.06 user         0.01 sys\n            22085632  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1634  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  17  voluntary context switches\n                 593  involuntary context switches\n           872348872  instructions retired\n           283835818  cycles elapsed\n            15745456  peak memory footprint\n",
+        "indexed 114 files (1448429 bytes, 410268 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.04 real         0.06 user         0.01 sys\n            21987328  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1635  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  17  voluntary context switches\n                 429  involuntary context switches\n           873302538  instructions retired\n           273628112  cycles elapsed\n            15647152  peak memory footprint\n",
+        "indexed 114 files (1448429 bytes, 410268 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.06 real         0.06 user         0.01 sys\n            21807104  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1621  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  20  voluntary context switches\n                 495  involuntary context switches\n           867691891  instructions retired\n           286799660  cycles elapsed\n            15466928  peak memory footprint\n"
+      ]
+    },
+    "chromium_initial": {
+      "initial_ms": 56.501417,
+      "files": 114,
+      "source_bytes": 1448429,
+      "ngrams": 463565,
+      "index_bytes": 2273365,
+      "samples_ms": [
+        62.504083,
+        54.721125,
+        63.811708,
+        52.5075,
+        62.587042
+      ],
+      "rss_bytes": [
+        22609920,
+        22167552,
+        22806528
+      ],
+      "rss_logs": [
+        "indexed 114 files (1448429 bytes, 463565 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.04 real         0.06 user         0.01 sys\n            22609920  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1668  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  19  voluntary context switches\n                 497  involuntary context switches\n           918822851  instructions retired\n           285516883  cycles elapsed\n            16269744  peak memory footprint\n",
+        "indexed 114 files (1448429 bytes, 463565 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.04 real         0.06 user         0.01 sys\n            22167552  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1639  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  17  voluntary context switches\n                 356  involuntary context switches\n           914405394  instructions retired\n           280874573  cycles elapsed\n            15827376  peak memory footprint\n",
+        "indexed 114 files (1448429 bytes, 463565 n-grams) in /Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/build-scratch\n        0.04 real         0.06 user         0.01 sys\n            22806528  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1679  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  20  voluntary context switches\n                 498  involuntary context switches\n           918916090  instructions retired\n           282632464  cycles elapsed\n            16466352  peak memory footprint\n"
+      ]
+    }
+  },
+  "queries": [
+    {
+      "id": "word_return",
+      "category": "common word",
+      "pattern": "\\breturn\\b",
+      "flags": [],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 689,
+          "sha256": "3feb3282d1a955574d0e4b3559d705fd483cef9ef0e51919c39e4db86bd62e07"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 689,
+          "sha256": "3feb3282d1a955574d0e4b3559d705fd483cef9ef0e51919c39e4db86bd62e07"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 689,
+          "sha256": "3feb3282d1a955574d0e4b3559d705fd483cef9ef0e51919c39e4db86bd62e07"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 689,
+          "sha256": "3feb3282d1a955574d0e4b3559d705fd483cef9ef0e51919c39e4db86bd62e07"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 689,
+          "sha256": "3feb3282d1a955574d0e4b3559d705fd483cef9ef0e51919c39e4db86bd62e07"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 689,
+          "sha256": "3feb3282d1a955574d0e4b3559d705fd483cef9ef0e51919c39e4db86bd62e07"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 689,
+          "sha256": "3feb3282d1a955574d0e4b3559d705fd483cef9ef0e51919c39e4db86bd62e07"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 689,
+          "sha256": "3feb3282d1a955574d0e4b3559d705fd483cef9ef0e51919c39e4db86bd62e07"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 689,
+          "sha256": "3feb3282d1a955574d0e4b3559d705fd483cef9ef0e51919c39e4db86bd62e07"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\breturn\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\breturn\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\breturn\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\breturn\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\breturn\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\breturn\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\breturn\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\breturn\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "\\breturn\\b",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.239958,
+          6.725041,
+          6.862833,
+          6.743458,
+          6.682084,
+          8.7395,
+          6.377708,
+          5.961542,
+          6.363083,
+          6.189375,
+          6.136084,
+          6.761958,
+          6.304292,
+          6.162917,
+          6.085
+        ],
+        "hash_no_refresh": [
+          5.0405,
+          6.199583,
+          5.363625,
+          5.445833,
+          7.087458,
+          6.719,
+          4.690208,
+          4.850917,
+          5.138167,
+          4.715958,
+          5.264458,
+          5.181541,
+          5.120417,
+          5.020334,
+          4.880625
+        ],
+        "english": [
+          7.472834,
+          7.238916,
+          6.927541,
+          6.895083,
+          6.913,
+          6.578458,
+          6.347666,
+          7.0175,
+          6.116833,
+          7.134083,
+          5.927125,
+          6.554625,
+          5.80475,
+          6.532875,
+          5.966667
+        ],
+        "english_no_refresh": [
+          5.441709,
+          5.094084,
+          5.381333,
+          5.644916,
+          6.180667,
+          5.710667,
+          4.888542,
+          4.909125,
+          5.093875,
+          6.324417,
+          4.889041,
+          4.671625,
+          5.213375,
+          5.245375,
+          5.466584
+        ],
+        "chromium_all": [
+          7.214,
+          7.357041,
+          8.809834,
+          6.433916,
+          6.374042,
+          7.882667,
+          6.817167,
+          6.184917,
+          6.414291,
+          6.832625,
+          6.395375,
+          6.354458,
+          6.1095,
+          5.943833,
+          6.853125
+        ],
+        "chromium_all_no_refresh": [
+          5.319042,
+          4.637708,
+          5.2745,
+          5.065792,
+          6.572417,
+          6.572,
+          4.725125,
+          5.064375,
+          5.834833,
+          5.118166,
+          5.102125,
+          4.927416,
+          4.762541,
+          4.921292,
+          5.168042
+        ],
+        "chromium_initial": [
+          6.632292,
+          6.666833,
+          6.877416,
+          7.609417,
+          6.77375,
+          7.884208,
+          6.189917,
+          6.464,
+          6.481458,
+          6.570959,
+          7.090459,
+          6.098709,
+          6.576375,
+          7.042208,
+          6.368459
+        ],
+        "chromium_initial_no_refresh": [
+          5.836083,
+          5.507834,
+          5.051125,
+          5.900917,
+          5.258541,
+          7.185167,
+          5.044375,
+          4.735125,
+          4.882583,
+          5.02525,
+          5.105666,
+          5.03075,
+          5.178833,
+          5.683208,
+          5.320375
+        ],
+        "rg": [
+          8.343167,
+          7.310083,
+          7.496292,
+          8.560542,
+          8.817625,
+          6.637625,
+          6.746042,
+          8.556166,
+          6.929042,
+          6.634208,
+          7.30475,
+          8.291208,
+          6.241125,
+          7.349208,
+          6.413917
+        ]
+      }
+    },
+    {
+      "id": "errors",
+      "category": "alternation",
+      "pattern": "\\b(Error|Result|Exception|ValueError)\\b",
+      "flags": [],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 110,
+          "sha256": "1e136fb9c5cb7e0ea8dfcfe3ca98cda14a36f2942d648fc054ecfe32c61da93d"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 110,
+          "sha256": "1e136fb9c5cb7e0ea8dfcfe3ca98cda14a36f2942d648fc054ecfe32c61da93d"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 110,
+          "sha256": "1e136fb9c5cb7e0ea8dfcfe3ca98cda14a36f2942d648fc054ecfe32c61da93d"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 110,
+          "sha256": "1e136fb9c5cb7e0ea8dfcfe3ca98cda14a36f2942d648fc054ecfe32c61da93d"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 110,
+          "sha256": "1e136fb9c5cb7e0ea8dfcfe3ca98cda14a36f2942d648fc054ecfe32c61da93d"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 110,
+          "sha256": "1e136fb9c5cb7e0ea8dfcfe3ca98cda14a36f2942d648fc054ecfe32c61da93d"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 110,
+          "sha256": "1e136fb9c5cb7e0ea8dfcfe3ca98cda14a36f2942d648fc054ecfe32c61da93d"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 110,
+          "sha256": "1e136fb9c5cb7e0ea8dfcfe3ca98cda14a36f2942d648fc054ecfe32c61da93d"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 110,
+          "sha256": "1e136fb9c5cb7e0ea8dfcfe3ca98cda14a36f2942d648fc054ecfe32c61da93d"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\b(Error|Result|Exception|ValueError)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\b(Error|Result|Exception|ValueError)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\b(Error|Result|Exception|ValueError)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\b(Error|Result|Exception|ValueError)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\b(Error|Result|Exception|ValueError)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\b(Error|Result|Exception|ValueError)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\b(Error|Result|Exception|ValueError)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\b(Error|Result|Exception|ValueError)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "\\b(Error|Result|Exception|ValueError)\\b",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.518417,
+          5.895208,
+          6.655209,
+          6.22375,
+          6.515584,
+          6.676167,
+          5.840833,
+          6.174334,
+          6.458083,
+          5.695666,
+          5.961917,
+          6.079375,
+          5.826208,
+          6.108125,
+          6.114166
+        ],
+        "hash_no_refresh": [
+          5.288083,
+          5.328792,
+          5.603708,
+          5.351708,
+          6.737542,
+          6.788208,
+          4.672542,
+          4.708875,
+          4.373584,
+          4.626417,
+          4.6235,
+          4.853084,
+          4.551833,
+          5.08275,
+          4.913417
+        ],
+        "english": [
+          7.105792,
+          7.218416,
+          7.734125,
+          7.73525,
+          6.449666,
+          7.75475,
+          6.128083,
+          6.914625,
+          5.807708,
+          6.062916,
+          5.961209,
+          5.811834,
+          6.13825,
+          6.229541,
+          6.115375
+        ],
+        "english_no_refresh": [
+          5.156125,
+          5.708709,
+          5.207458,
+          5.061,
+          4.937625,
+          5.885833,
+          4.645334,
+          4.933709,
+          5.009,
+          6.033,
+          4.714542,
+          4.598541,
+          4.978709,
+          5.604542,
+          4.470875
+        ],
+        "chromium_all": [
+          6.455375,
+          6.767542,
+          6.761625,
+          7.502709,
+          6.529,
+          7.919541,
+          6.471834,
+          5.864583,
+          6.804834,
+          5.932542,
+          6.7775,
+          6.272792,
+          5.846958,
+          5.8485,
+          5.67175
+        ],
+        "chromium_all_no_refresh": [
+          5.152125,
+          5.650875,
+          6.806334,
+          5.05275,
+          5.200834,
+          6.103125,
+          4.652292,
+          5.1435,
+          5.034042,
+          4.942875,
+          5.071084,
+          4.672542,
+          4.518084,
+          4.862083,
+          4.577958
+        ],
+        "chromium_initial": [
+          6.856833,
+          6.478041,
+          6.092125,
+          7.345583,
+          7.80725,
+          8.017541,
+          5.810291,
+          5.848625,
+          5.947542,
+          6.037417,
+          5.844625,
+          6.238583,
+          5.855417,
+          6.005542,
+          6.016958
+        ],
+        "chromium_initial_no_refresh": [
+          4.817583,
+          5.11525,
+          5.533208,
+          7.081416,
+          6.238084,
+          6.149458,
+          4.677167,
+          4.532375,
+          4.87775,
+          4.964959,
+          4.989166,
+          4.531208,
+          4.787917,
+          5.645917,
+          4.749084
+        ],
+        "rg": [
+          8.897333,
+          6.558,
+          7.433833,
+          6.681208,
+          6.927792,
+          8.078125,
+          6.9765,
+          6.551958,
+          6.671917,
+          7.669667,
+          6.700792,
+          8.047625,
+          7.160792,
+          7.876583,
+          7.919583
+        ]
+      }
+    },
+    {
+      "id": "todo",
+      "category": "ignore case",
+      "pattern": "\\b(TODO|FIXME)\\b",
+      "flags": [
+        "-i"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 12,
+          "sha256": "3bad6c7e1248eda7c63355d2393bc787104659979a87b212ce434d5e8cfda387"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 12,
+          "sha256": "3bad6c7e1248eda7c63355d2393bc787104659979a87b212ce434d5e8cfda387"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 12,
+          "sha256": "3bad6c7e1248eda7c63355d2393bc787104659979a87b212ce434d5e8cfda387"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 12,
+          "sha256": "3bad6c7e1248eda7c63355d2393bc787104659979a87b212ce434d5e8cfda387"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 12,
+          "sha256": "3bad6c7e1248eda7c63355d2393bc787104659979a87b212ce434d5e8cfda387"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 12,
+          "sha256": "3bad6c7e1248eda7c63355d2393bc787104659979a87b212ce434d5e8cfda387"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 12,
+          "sha256": "3bad6c7e1248eda7c63355d2393bc787104659979a87b212ce434d5e8cfda387"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 12,
+          "sha256": "3bad6c7e1248eda7c63355d2393bc787104659979a87b212ce434d5e8cfda387"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 12,
+          "sha256": "3bad6c7e1248eda7c63355d2393bc787104659979a87b212ce434d5e8cfda387"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-i",
+          "\\b(TODO|FIXME)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-i",
+          "\\b(TODO|FIXME)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-i",
+          "\\b(TODO|FIXME)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-i",
+          "\\b(TODO|FIXME)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-i",
+          "\\b(TODO|FIXME)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-i",
+          "\\b(TODO|FIXME)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-i",
+          "\\b(TODO|FIXME)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-i",
+          "\\b(TODO|FIXME)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-i",
+          "\\b(TODO|FIXME)\\b",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.911917,
+          5.771375,
+          6.98175,
+          6.180666,
+          6.611291,
+          7.097334,
+          6.436792,
+          5.636833,
+          5.629041,
+          5.735917,
+          6.157542,
+          5.910666,
+          5.545667,
+          5.470292,
+          5.68325
+        ],
+        "hash_no_refresh": [
+          5.516584,
+          5.096917,
+          4.704083,
+          4.275959,
+          5.42475,
+          5.660208,
+          4.916542,
+          4.404583,
+          4.375708,
+          5.448833,
+          4.279709,
+          4.992292,
+          4.8695,
+          4.470208,
+          5.198458
+        ],
+        "english": [
+          5.876375,
+          6.159792,
+          6.6395,
+          6.227167,
+          7.10375,
+          6.602375,
+          5.837458,
+          5.277792,
+          6.40275,
+          6.1815,
+          5.283458,
+          5.952292,
+          5.539917,
+          5.543958,
+          5.70775
+        ],
+        "english_no_refresh": [
+          5.092708,
+          5.324958,
+          4.9195,
+          4.447916,
+          4.619542,
+          4.374709,
+          4.473292,
+          4.165625,
+          4.604416,
+          4.948667,
+          5.160959,
+          4.256917,
+          4.304417,
+          4.248375,
+          4.428667
+        ],
+        "chromium_all": [
+          6.04375,
+          6.65825,
+          6.256875,
+          6.097166,
+          6.382583,
+          6.131667,
+          5.464417,
+          5.296583,
+          6.071041,
+          5.9835,
+          5.750334,
+          5.485042,
+          5.383042,
+          6.147667,
+          6.480667
+        ],
+        "chromium_all_no_refresh": [
+          4.701958,
+          5.102709,
+          4.684,
+          5.120209,
+          4.637459,
+          5.517084,
+          4.413167,
+          4.333167,
+          5.006792,
+          4.229209,
+          4.278833,
+          4.848375,
+          4.84525,
+          4.322625,
+          4.597167
+        ],
+        "chromium_initial": [
+          6.641,
+          6.348125,
+          6.850291,
+          6.084833,
+          6.289959,
+          6.87725,
+          5.798291,
+          5.798167,
+          5.54475,
+          5.903375,
+          5.872709,
+          6.184041,
+          5.742917,
+          5.82575,
+          5.356333
+        ],
+        "chromium_initial_no_refresh": [
+          4.990167,
+          4.985417,
+          4.762667,
+          4.740792,
+          4.74675,
+          4.986833,
+          4.305417,
+          4.19875,
+          4.689,
+          4.461,
+          4.917958,
+          4.712208,
+          4.584333,
+          4.282792,
+          4.177291
+        ],
+        "rg": [
+          7.89175,
+          8.517125,
+          7.848,
+          6.89325,
+          10.363834,
+          8.878875,
+          8.213167,
+          7.622125,
+          7.545209,
+          8.108542,
+          6.50375,
+          7.735,
+          6.416291,
+          7.542917,
+          7.668083
+        ]
+      }
+    },
+    {
+      "id": "short",
+      "category": "scan fallback",
+      "pattern": "if",
+      "flags": [
+        "-F",
+        "-l"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 85,
+          "sha256": "f17154620b916967faf340e41407311d0130dd216bee8b13a30c6e7cc5f131e5"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 85,
+          "sha256": "f17154620b916967faf340e41407311d0130dd216bee8b13a30c6e7cc5f131e5"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 85,
+          "sha256": "f17154620b916967faf340e41407311d0130dd216bee8b13a30c6e7cc5f131e5"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 85,
+          "sha256": "f17154620b916967faf340e41407311d0130dd216bee8b13a30c6e7cc5f131e5"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 85,
+          "sha256": "f17154620b916967faf340e41407311d0130dd216bee8b13a30c6e7cc5f131e5"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 85,
+          "sha256": "f17154620b916967faf340e41407311d0130dd216bee8b13a30c6e7cc5f131e5"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 85,
+          "sha256": "f17154620b916967faf340e41407311d0130dd216bee8b13a30c6e7cc5f131e5"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 85,
+          "sha256": "f17154620b916967faf340e41407311d0130dd216bee8b13a30c6e7cc5f131e5"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 85,
+          "sha256": "f17154620b916967faf340e41407311d0130dd216bee8b13a30c6e7cc5f131e5"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-F",
+          "-l",
+          "if",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-F",
+          "-l",
+          "if",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-F",
+          "-l",
+          "if",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-F",
+          "-l",
+          "if",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-F",
+          "-l",
+          "if",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-F",
+          "-l",
+          "if",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-F",
+          "-l",
+          "if",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-F",
+          "-l",
+          "if",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-F",
+          "-l",
+          "if",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          9.128833,
+          6.73825,
+          7.222458,
+          6.960209,
+          9.071209,
+          7.973583,
+          5.957084,
+          6.115,
+          6.633917,
+          6.143541,
+          6.136916,
+          6.387083,
+          6.125375,
+          5.905458,
+          6.361458
+        ],
+        "hash_no_refresh": [
+          5.867375,
+          5.123875,
+          5.893708,
+          5.699583,
+          5.140334,
+          6.178459,
+          5.720459,
+          5.501958,
+          5.338042,
+          5.546042,
+          5.001875,
+          4.992667,
+          4.984125,
+          4.8585,
+          5.263625
+        ],
+        "english": [
+          6.624666,
+          7.537459,
+          7.208042,
+          6.910792,
+          9.147625,
+          9.773666,
+          6.078583,
+          6.170833,
+          6.314167,
+          6.484917,
+          6.042042,
+          6.715084,
+          6.341125,
+          6.492834,
+          6.560208
+        ],
+        "english_no_refresh": [
+          5.885125,
+          5.272292,
+          5.473625,
+          8.309875,
+          8.472,
+          6.095167,
+          4.887791,
+          5.149042,
+          5.356542,
+          5.131375,
+          4.961292,
+          4.813167,
+          5.210542,
+          5.17,
+          4.776
+        ],
+        "chromium_all": [
+          6.494875,
+          6.538333,
+          7.172708,
+          6.755708,
+          9.599667,
+          7.907625,
+          6.880917,
+          6.341959,
+          6.028917,
+          6.074042,
+          6.572417,
+          6.397042,
+          6.342333,
+          6.61575,
+          6.331584
+        ],
+        "chromium_all_no_refresh": [
+          5.075084,
+          5.365917,
+          5.060625,
+          5.840084,
+          5.267625,
+          5.129542,
+          4.778375,
+          4.594042,
+          4.776,
+          5.020833,
+          5.253792,
+          4.981792,
+          4.952,
+          5.80725,
+          4.936584
+        ],
+        "chromium_initial": [
+          6.861583,
+          7.096166,
+          6.458125,
+          8.599084,
+          9.533708,
+          6.792375,
+          6.240667,
+          6.204959,
+          6.374208,
+          6.342666,
+          6.578583,
+          6.124292,
+          6.08975,
+          5.804542,
+          5.869
+        ],
+        "chromium_initial_no_refresh": [
+          6.418416,
+          5.78425,
+          6.683875,
+          5.728416,
+          6.421375,
+          4.915625,
+          5.152291,
+          5.163208,
+          4.841459,
+          4.75425,
+          4.991875,
+          4.664208,
+          4.843208,
+          4.679584,
+          5.170375
+        ],
+        "rg": [
+          7.405167,
+          7.06175,
+          8.01525,
+          7.474041,
+          7.962625,
+          6.502125,
+          6.902208,
+          7.140167,
+          6.63525,
+          6.450959,
+          7.873167,
+          6.876667,
+          6.928875,
+          6.765333,
+          6.713584
+        ]
+      }
+    },
+    {
+      "id": "digits",
+      "category": "scan fallback",
+      "pattern": "\\b[0-9]{2,4}\\b",
+      "flags": [
+        "-c"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 81,
+          "sha256": "61833cc664b7b737ea94d76309c2bd3113ab70612dd139d9a29ffecd2d286447"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 81,
+          "sha256": "61833cc664b7b737ea94d76309c2bd3113ab70612dd139d9a29ffecd2d286447"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 81,
+          "sha256": "61833cc664b7b737ea94d76309c2bd3113ab70612dd139d9a29ffecd2d286447"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 81,
+          "sha256": "61833cc664b7b737ea94d76309c2bd3113ab70612dd139d9a29ffecd2d286447"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 81,
+          "sha256": "61833cc664b7b737ea94d76309c2bd3113ab70612dd139d9a29ffecd2d286447"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 81,
+          "sha256": "61833cc664b7b737ea94d76309c2bd3113ab70612dd139d9a29ffecd2d286447"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 81,
+          "sha256": "61833cc664b7b737ea94d76309c2bd3113ab70612dd139d9a29ffecd2d286447"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 81,
+          "sha256": "61833cc664b7b737ea94d76309c2bd3113ab70612dd139d9a29ffecd2d286447"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 81,
+          "sha256": "61833cc664b7b737ea94d76309c2bd3113ab70612dd139d9a29ffecd2d286447"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-c",
+          "\\b[0-9]{2,4}\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-c",
+          "\\b[0-9]{2,4}\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-c",
+          "\\b[0-9]{2,4}\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-c",
+          "\\b[0-9]{2,4}\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-c",
+          "\\b[0-9]{2,4}\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-c",
+          "\\b[0-9]{2,4}\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-c",
+          "\\b[0-9]{2,4}\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-c",
+          "\\b[0-9]{2,4}\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-c",
+          "\\b[0-9]{2,4}\\b",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          7.457542,
+          7.217209,
+          10.60775,
+          7.798834,
+          7.194916,
+          6.890916,
+          7.464459,
+          7.17075,
+          6.712666,
+          7.005333,
+          7.277334,
+          7.692709,
+          6.518125,
+          6.457667,
+          6.657459
+        ],
+        "hash_no_refresh": [
+          6.393417,
+          5.726667,
+          6.392959,
+          6.929,
+          8.265417,
+          8.325625,
+          5.884917,
+          5.5045,
+          5.918083,
+          6.401625,
+          5.528083,
+          5.88075,
+          5.838541,
+          13.259125,
+          5.6345
+        ],
+        "english": [
+          7.981417,
+          7.8655,
+          9.576625,
+          7.124916,
+          7.637208,
+          9.81275,
+          7.335208,
+          6.643209,
+          6.799709,
+          7.621834,
+          7.09175,
+          7.262667,
+          6.5745,
+          6.957459,
+          7.203667
+        ],
+        "english_no_refresh": [
+          7.015959,
+          6.573791,
+          6.229,
+          8.452667,
+          5.915791,
+          6.743208,
+          5.296833,
+          5.586792,
+          5.631375,
+          5.6415,
+          5.642167,
+          5.465083,
+          5.619333,
+          5.451041,
+          5.7135
+        ],
+        "chromium_all": [
+          7.811708,
+          7.586041,
+          8.251458,
+          7.36275,
+          8.280125,
+          8.31675,
+          6.92075,
+          7.07075,
+          6.877667,
+          6.907709,
+          6.78325,
+          7.259667,
+          7.328667,
+          7.016834,
+          6.825625
+        ],
+        "chromium_all_no_refresh": [
+          6.144209,
+          6.919625,
+          6.523334,
+          6.408167,
+          7.038709,
+          6.605333,
+          5.613417,
+          6.2315,
+          5.630125,
+          5.490084,
+          5.664875,
+          5.427209,
+          5.889041,
+          6.672792,
+          5.866458
+        ],
+        "chromium_initial": [
+          7.161792,
+          7.126667,
+          7.5965,
+          7.171583,
+          7.937875,
+          10.214167,
+          7.423042,
+          7.139167,
+          7.535291,
+          7.953041,
+          7.160042,
+          7.50825,
+          7.231125,
+          7.081542,
+          7.113083
+        ],
+        "chromium_initial_no_refresh": [
+          6.245791,
+          5.696,
+          6.502125,
+          6.666417,
+          6.591958,
+          8.143041,
+          6.088041,
+          5.745959,
+          5.836333,
+          6.042458,
+          6.218291,
+          5.870833,
+          5.752917,
+          5.905375,
+          6.149083
+        ],
+        "rg": [
+          8.038542,
+          7.486167,
+          7.925833,
+          6.876125,
+          10.049458,
+          8.1775,
+          8.337583,
+          6.874333,
+          6.807417,
+          6.922042,
+          6.901708,
+          8.256333,
+          8.099208,
+          6.902834,
+          6.809375
+        ]
+      }
+    },
+    {
+      "id": "absent",
+      "category": "no matches",
+      "pattern": "CODERG_WIDE_ABSENT_92be7",
+      "flags": [
+        "-F"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "hash": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "hash_no_refresh": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "english": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "english_no_refresh": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "chromium_all": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "chromium_initial": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-F",
+          "CODERG_WIDE_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-F",
+          "CODERG_WIDE_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-F",
+          "CODERG_WIDE_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-F",
+          "CODERG_WIDE_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-F",
+          "CODERG_WIDE_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-F",
+          "CODERG_WIDE_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-F",
+          "CODERG_WIDE_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-F",
+          "CODERG_WIDE_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-F",
+          "CODERG_WIDE_ABSENT_92be7",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          5.220208,
+          5.738166,
+          5.407,
+          6.289167,
+          6.032792,
+          6.82525,
+          5.181875,
+          5.232333,
+          5.211958,
+          5.151167,
+          5.104542,
+          5.20475,
+          5.749542,
+          5.508167,
+          5.535625
+        ],
+        "hash_no_refresh": [
+          3.983625,
+          4.608333,
+          5.455167,
+          4.857334,
+          4.519167,
+          4.254292,
+          4.893166,
+          4.41375,
+          4.401458,
+          4.169667,
+          3.770917,
+          3.951667,
+          4.734625,
+          4.025958,
+          4.253875
+        ],
+        "english": [
+          5.771458,
+          5.040458,
+          6.033167,
+          6.177375,
+          6.366291,
+          6.090042,
+          5.158542,
+          5.035458,
+          5.517,
+          5.60325,
+          5.283416,
+          5.796667,
+          5.291208,
+          5.317041,
+          5.129792
+        ],
+        "english_no_refresh": [
+          3.998917,
+          4.665084,
+          4.796167,
+          5.265416,
+          4.543334,
+          5.543625,
+          3.875417,
+          4.02,
+          4.183333,
+          3.910792,
+          3.962875,
+          3.890291,
+          4.350167,
+          4.323583,
+          4.373417
+        ],
+        "chromium_all": [
+          6.661458,
+          5.812167,
+          6.6945,
+          6.4935,
+          6.075375,
+          7.151583,
+          5.461709,
+          5.824083,
+          5.154875,
+          5.070042,
+          5.545541,
+          5.292375,
+          5.07,
+          5.579417,
+          6.17925
+        ],
+        "chromium_all_no_refresh": [
+          4.272167,
+          4.383917,
+          5.007917,
+          4.303,
+          4.713708,
+          5.500167,
+          3.790375,
+          4.037542,
+          3.961875,
+          4.256333,
+          3.908291,
+          4.348041,
+          3.81225,
+          4.079542,
+          3.753
+        ],
+        "chromium_initial": [
+          5.875334,
+          6.174583,
+          6.902792,
+          5.50325,
+          6.616167,
+          5.223917,
+          5.192959,
+          5.334416,
+          5.61975,
+          5.61075,
+          5.322208,
+          5.924458,
+          5.029166,
+          5.008417,
+          6.278875
+        ],
+        "chromium_initial_no_refresh": [
+          4.278958,
+          4.635334,
+          4.771291,
+          5.140292,
+          4.11225,
+          4.9115,
+          4.0115,
+          4.266,
+          3.745666,
+          4.031167,
+          4.507208,
+          4.094667,
+          4.273708,
+          3.903167,
+          4.666208
+        ],
+        "rg": [
+          8.140125,
+          8.124542,
+          7.407542,
+          6.699708,
+          6.876167,
+          7.211666,
+          7.641542,
+          6.251917,
+          5.98025,
+          6.352458,
+          7.589,
+          6.213875,
+          6.335792,
+          7.437375,
+          6.229292
+        ]
+      }
+    },
+    {
+      "id": "literal",
+      "category": "fixed string",
+      "pattern": "review_batch",
+      "flags": [
+        "-F"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-F",
+          "review_batch",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.732042,
+          6.289875,
+          6.697917,
+          5.879292,
+          5.958166,
+          5.384542,
+          5.233875,
+          5.326875,
+          5.432625,
+          5.977917,
+          5.708208,
+          5.506209,
+          5.729208,
+          4.9955,
+          5.435084
+        ],
+        "hash_no_refresh": [
+          5.218583,
+          3.739125,
+          4.654583,
+          4.369333,
+          4.814,
+          5.369584,
+          4.74525,
+          4.230666,
+          3.924458,
+          4.427666,
+          4.544125,
+          4.269917,
+          3.852834,
+          4.044625,
+          4.22325
+        ],
+        "english": [
+          6.103166,
+          6.109792,
+          6.011083,
+          6.328291,
+          5.895583,
+          7.188292,
+          5.521084,
+          5.377792,
+          5.311291,
+          5.452667,
+          5.195792,
+          5.538334,
+          5.915666,
+          5.669541,
+          5.444792
+        ],
+        "english_no_refresh": [
+          4.722417,
+          4.183625,
+          5.00325,
+          4.373834,
+          4.668917,
+          5.740833,
+          3.9895,
+          4.23275,
+          4.539084,
+          4.192917,
+          4.220458,
+          4.435917,
+          4.483417,
+          4.522625,
+          3.816208
+        ],
+        "chromium_all": [
+          5.611667,
+          6.162959,
+          6.174125,
+          6.143709,
+          5.807375,
+          6.767209,
+          5.428292,
+          5.021834,
+          5.33175,
+          5.248375,
+          5.783334,
+          5.563459,
+          5.462042,
+          5.277875,
+          6.103458
+        ],
+        "chromium_all_no_refresh": [
+          4.31625,
+          5.0015,
+          4.912583,
+          4.879625,
+          4.604,
+          4.941709,
+          3.987042,
+          4.69925,
+          4.509666,
+          4.654458,
+          3.919583,
+          4.399458,
+          4.356875,
+          4.05375,
+          4.196417
+        ],
+        "chromium_initial": [
+          5.88875,
+          6.404792,
+          6.56175,
+          6.190583,
+          7.069209,
+          5.379541,
+          5.6125,
+          5.246,
+          6.334084,
+          6.029083,
+          5.487833,
+          5.521084,
+          5.223167,
+          5.897083,
+          5.152959
+        ],
+        "chromium_initial_no_refresh": [
+          4.611459,
+          4.119209,
+          4.358208,
+          5.158916,
+          5.086916,
+          4.427792,
+          4.3355,
+          4.675667,
+          4.373667,
+          4.335084,
+          4.352666,
+          4.209125,
+          3.967958,
+          3.919791,
+          4.203625
+        ],
+        "rg": [
+          6.643625,
+          6.588208,
+          7.99825,
+          7.160583,
+          7.508459,
+          6.536459,
+          5.997542,
+          7.508,
+          7.565625,
+          7.516084,
+          6.186042,
+          6.767959,
+          6.892166,
+          5.958125,
+          6.396459
+        ]
+      }
+    },
+    {
+      "id": "icase_literal",
+      "category": "ignore case",
+      "pattern": "review_batch",
+      "flags": [
+        "-i",
+        "-F"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 25,
+          "sha256": "8dddaef25118a301df4851878161c51b271cf58bb925ec174277b4b0064ed969"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-i",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-i",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-i",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-i",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-i",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-i",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-i",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-i",
+          "-F",
+          "review_batch",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-i",
+          "-F",
+          "review_batch",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.854917,
+          6.433458,
+          6.315417,
+          6.057959,
+          7.200375,
+          7.2815,
+          5.981667,
+          6.033541,
+          6.443458,
+          5.784667,
+          6.209,
+          6.129666,
+          5.675959,
+          5.821625,
+          5.883541
+        ],
+        "hash_no_refresh": [
+          5.154083,
+          5.70325,
+          6.270375,
+          5.2305,
+          5.6495,
+          5.332666,
+          5.218625,
+          5.614875,
+          4.829792,
+          5.537542,
+          4.928625,
+          4.90025,
+          4.644125,
+          4.801,
+          5.263584
+        ],
+        "english": [
+          7.270416,
+          6.422375,
+          6.490542,
+          6.673375,
+          7.233709,
+          6.837584,
+          6.259375,
+          5.702375,
+          6.002916,
+          6.145583,
+          5.604458,
+          6.022125,
+          6.227833,
+          5.869416,
+          5.927875
+        ],
+        "english_no_refresh": [
+          5.280458,
+          4.940917,
+          5.342792,
+          5.611375,
+          5.360333,
+          4.898125,
+          4.75425,
+          4.607792,
+          4.578875,
+          4.858084,
+          4.686916,
+          4.850125,
+          4.520583,
+          4.99875,
+          4.475458
+        ],
+        "chromium_all": [
+          6.795042,
+          6.51425,
+          7.254334,
+          7.553167,
+          6.752334,
+          7.477791,
+          6.729375,
+          6.258459,
+          6.147042,
+          5.754792,
+          6.182375,
+          6.792041,
+          5.802208,
+          6.292792,
+          6.262042
+        ],
+        "chromium_all_no_refresh": [
+          5.876375,
+          5.015083,
+          5.812042,
+          5.083708,
+          5.381708,
+          4.901834,
+          4.921042,
+          4.718625,
+          4.716416,
+          4.693542,
+          4.940333,
+          4.982833,
+          4.833,
+          4.522708,
+          4.594
+        ],
+        "chromium_initial": [
+          6.917167,
+          6.558583,
+          6.472083,
+          6.947208,
+          6.708,
+          5.922834,
+          6.593458,
+          5.828917,
+          5.626375,
+          5.716542,
+          6.08325,
+          5.858417,
+          5.835334,
+          5.959667,
+          6.384458
+        ],
+        "chromium_initial_no_refresh": [
+          5.503541,
+          5.395958,
+          5.526042,
+          4.707167,
+          5.170417,
+          5.292625,
+          4.809625,
+          5.379083,
+          4.678084,
+          4.702875,
+          5.22025,
+          4.535625,
+          4.543292,
+          4.649542,
+          4.516625
+        ],
+        "rg": [
+          7.568,
+          7.832459,
+          6.689208,
+          8.207042,
+          9.570583,
+          8.883792,
+          6.234167,
+          6.24425,
+          6.931709,
+          7.5725,
+          6.427625,
+          6.353,
+          9.668042,
+          7.120458,
+          7.535917
+        ]
+      }
+    },
+    {
+      "id": "function",
+      "category": "function definitions",
+      "pattern": "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+      "flags": [],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 1046,
+          "sha256": "9048a15b1ccb3f0fc31710811b62b9b5fbf415fd4caefa9cb0010aaa933c9e4d"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 1046,
+          "sha256": "9048a15b1ccb3f0fc31710811b62b9b5fbf415fd4caefa9cb0010aaa933c9e4d"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 1046,
+          "sha256": "9048a15b1ccb3f0fc31710811b62b9b5fbf415fd4caefa9cb0010aaa933c9e4d"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 1046,
+          "sha256": "9048a15b1ccb3f0fc31710811b62b9b5fbf415fd4caefa9cb0010aaa933c9e4d"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 1046,
+          "sha256": "9048a15b1ccb3f0fc31710811b62b9b5fbf415fd4caefa9cb0010aaa933c9e4d"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 1046,
+          "sha256": "9048a15b1ccb3f0fc31710811b62b9b5fbf415fd4caefa9cb0010aaa933c9e4d"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 1046,
+          "sha256": "9048a15b1ccb3f0fc31710811b62b9b5fbf415fd4caefa9cb0010aaa933c9e4d"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 1046,
+          "sha256": "9048a15b1ccb3f0fc31710811b62b9b5fbf415fd4caefa9cb0010aaa933c9e4d"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 1046,
+          "sha256": "9048a15b1ccb3f0fc31710811b62b9b5fbf415fd4caefa9cb0010aaa933c9e4d"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "\\bdef[ \\t]+[a-z_][a-z_0-9]*",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          7.217041,
+          7.477375,
+          7.383708,
+          8.548042,
+          7.295041,
+          8.737625,
+          6.141833,
+          6.643292,
+          6.104875,
+          6.566625,
+          7.026167,
+          6.525167,
+          6.541666,
+          7.50275,
+          7.3745
+        ],
+        "hash_no_refresh": [
+          5.615584,
+          5.872542,
+          6.4645,
+          6.401167,
+          6.029125,
+          6.374167,
+          5.238917,
+          5.129542,
+          5.453083,
+          5.271125,
+          5.168875,
+          5.041083,
+          5.519709,
+          5.213917,
+          4.952666
+        ],
+        "english": [
+          7.049834,
+          7.736083,
+          6.980708,
+          7.311708,
+          9.088291,
+          6.322166,
+          6.386958,
+          6.38025,
+          6.383,
+          7.213625,
+          6.916584,
+          6.534709,
+          6.596333,
+          10.221667,
+          6.40125
+        ],
+        "english_no_refresh": [
+          5.481917,
+          5.891,
+          5.532458,
+          7.633125,
+          5.460083,
+          7.886375,
+          5.089334,
+          5.343208,
+          5.178458,
+          5.749375,
+          4.9905,
+          5.843375,
+          5.046917,
+          5.622375,
+          5.639583
+        ],
+        "chromium_all": [
+          7.080458,
+          7.749125,
+          7.295,
+          7.567542,
+          6.775833,
+          6.804667,
+          6.51775,
+          6.664416,
+          6.505042,
+          6.2195,
+          6.411083,
+          7.106,
+          6.645459,
+          6.211667,
+          6.708833
+        ],
+        "chromium_all_no_refresh": [
+          5.805083,
+          5.427792,
+          6.129959,
+          5.487959,
+          5.346042,
+          5.280541,
+          5.175875,
+          4.957916,
+          5.050958,
+          5.043958,
+          5.8925,
+          5.238625,
+          5.045125,
+          5.350041,
+          5.223041
+        ],
+        "chromium_initial": [
+          7.952458,
+          6.956083,
+          7.375875,
+          6.687459,
+          9.415041,
+          6.814333,
+          6.52525,
+          6.711791,
+          6.93925,
+          6.632583,
+          6.280459,
+          6.638333,
+          6.240125,
+          7.086458,
+          6.732083
+        ],
+        "chromium_initial_no_refresh": [
+          5.528833,
+          5.671542,
+          5.935375,
+          5.54025,
+          5.721125,
+          6.349958,
+          5.341459,
+          5.413042,
+          5.400459,
+          5.005333,
+          5.089625,
+          5.254667,
+          4.99675,
+          5.071333,
+          5.307166
+        ],
+        "rg": [
+          6.980459,
+          7.389041,
+          7.240208,
+          8.590791,
+          7.192333,
+          7.559666,
+          6.696875,
+          6.97175,
+          8.058375,
+          6.909292,
+          7.541292,
+          6.800167,
+          6.177584,
+          7.969166,
+          7.75575
+        ]
+      }
+    },
+    {
+      "id": "class",
+      "category": "class definitions",
+      "pattern": "^class[ \\t]+\\w+",
+      "flags": [],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 198,
+          "sha256": "1b2c531a7522d54b8cbfbff8c5a2ce76b42d89be3cdfba8ede08e919aa93c54a"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 198,
+          "sha256": "1b2c531a7522d54b8cbfbff8c5a2ce76b42d89be3cdfba8ede08e919aa93c54a"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 198,
+          "sha256": "1b2c531a7522d54b8cbfbff8c5a2ce76b42d89be3cdfba8ede08e919aa93c54a"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 198,
+          "sha256": "1b2c531a7522d54b8cbfbff8c5a2ce76b42d89be3cdfba8ede08e919aa93c54a"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 198,
+          "sha256": "1b2c531a7522d54b8cbfbff8c5a2ce76b42d89be3cdfba8ede08e919aa93c54a"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 198,
+          "sha256": "1b2c531a7522d54b8cbfbff8c5a2ce76b42d89be3cdfba8ede08e919aa93c54a"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 198,
+          "sha256": "1b2c531a7522d54b8cbfbff8c5a2ce76b42d89be3cdfba8ede08e919aa93c54a"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 198,
+          "sha256": "1b2c531a7522d54b8cbfbff8c5a2ce76b42d89be3cdfba8ede08e919aa93c54a"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 198,
+          "sha256": "1b2c531a7522d54b8cbfbff8c5a2ce76b42d89be3cdfba8ede08e919aa93c54a"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "^class[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "^class[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "^class[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "^class[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "^class[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "^class[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "^class[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "^class[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "^class[ \\t]+\\w+",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.478875,
+          6.371334,
+          6.682042,
+          6.943292,
+          7.080375,
+          7.689583,
+          6.38175,
+          5.997167,
+          5.765834,
+          5.809584,
+          7.047458,
+          6.753791,
+          6.594417,
+          6.267,
+          6.356625
+        ],
+        "hash_no_refresh": [
+          6.0385,
+          5.951208,
+          7.948875,
+          5.529458,
+          6.951417,
+          4.837917,
+          5.062833,
+          4.9045,
+          4.763417,
+          4.847458,
+          5.079666,
+          4.773416,
+          5.395541,
+          5.255,
+          4.892291
+        ],
+        "english": [
+          8.821541,
+          6.524042,
+          7.505417,
+          6.850542,
+          8.769458,
+          8.892,
+          6.635417,
+          6.510083,
+          6.156708,
+          6.585084,
+          6.049208,
+          6.843958,
+          6.564958,
+          6.291333,
+          6.616667
+        ],
+        "english_no_refresh": [
+          6.03825,
+          5.34025,
+          5.372708,
+          5.617125,
+          6.711,
+          5.802542,
+          4.882292,
+          4.873209,
+          5.2335,
+          5.266,
+          4.793959,
+          4.663,
+          5.020084,
+          4.7055,
+          5.000792
+        ],
+        "chromium_all": [
+          6.4025,
+          7.111209,
+          6.868541,
+          6.858209,
+          7.2635,
+          7.304417,
+          6.015125,
+          6.27375,
+          6.37025,
+          6.22925,
+          6.008084,
+          6.147333,
+          6.5135,
+          6.209125,
+          6.407667
+        ],
+        "chromium_all_no_refresh": [
+          5.61925,
+          5.349083,
+          6.168667,
+          5.499584,
+          7.139083,
+          6.510292,
+          4.775334,
+          5.188292,
+          4.97875,
+          4.776584,
+          5.501333,
+          4.832583,
+          4.864459,
+          5.131292,
+          4.831625
+        ],
+        "chromium_initial": [
+          8.051,
+          6.471167,
+          6.64725,
+          6.5585,
+          6.867834,
+          8.638166,
+          6.053208,
+          6.357167,
+          6.119958,
+          6.213792,
+          6.082041,
+          6.173834,
+          6.265083,
+          7.005875,
+          6.149875
+        ],
+        "chromium_initial_no_refresh": [
+          5.011708,
+          6.041333,
+          5.788292,
+          5.178542,
+          5.2205,
+          6.671375,
+          5.1015,
+          5.214916,
+          5.751333,
+          5.132875,
+          4.825583,
+          4.706417,
+          4.863958,
+          4.822959,
+          5.137042
+        ],
+        "rg": [
+          9.327292,
+          8.927791,
+          9.676292,
+          8.874708,
+          8.602833,
+          9.355583,
+          8.359083,
+          9.305542,
+          8.5005,
+          8.329375,
+          8.698583,
+          9.305917,
+          8.591791,
+          9.423792,
+          9.3565
+        ]
+      }
+    },
+    {
+      "id": "import",
+      "category": "imports",
+      "pattern": "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+      "flags": [],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 499,
+          "sha256": "72ee48e18cfac69db944e314eff4f3eea6e913d43d0080d9e5c9c8349b35cb39"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 499,
+          "sha256": "72ee48e18cfac69db944e314eff4f3eea6e913d43d0080d9e5c9c8349b35cb39"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 499,
+          "sha256": "72ee48e18cfac69db944e314eff4f3eea6e913d43d0080d9e5c9c8349b35cb39"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 499,
+          "sha256": "72ee48e18cfac69db944e314eff4f3eea6e913d43d0080d9e5c9c8349b35cb39"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 499,
+          "sha256": "72ee48e18cfac69db944e314eff4f3eea6e913d43d0080d9e5c9c8349b35cb39"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 499,
+          "sha256": "72ee48e18cfac69db944e314eff4f3eea6e913d43d0080d9e5c9c8349b35cb39"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 499,
+          "sha256": "72ee48e18cfac69db944e314eff4f3eea6e913d43d0080d9e5c9c8349b35cb39"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 499,
+          "sha256": "72ee48e18cfac69db944e314eff4f3eea6e913d43d0080d9e5c9c8349b35cb39"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 499,
+          "sha256": "72ee48e18cfac69db944e314eff4f3eea6e913d43d0080d9e5c9c8349b35cb39"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "^from[ \\t]+[\\w.]+[ \\t]+import\\b",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          7.813375,
+          7.001292,
+          8.355709,
+          6.91275,
+          7.533166,
+          9.628125,
+          6.716709,
+          6.700042,
+          7.30975,
+          6.464375,
+          6.385459,
+          6.425125,
+          6.5305,
+          6.655167,
+          6.725917
+        ],
+        "hash_no_refresh": [
+          6.273083,
+          6.064792,
+          6.117958,
+          5.960917,
+          7.757792,
+          6.815,
+          5.681333,
+          5.304916,
+          5.590041,
+          5.504041,
+          5.11425,
+          5.152792,
+          5.145708,
+          5.413208,
+          5.419833
+        ],
+        "english": [
+          7.721333,
+          7.282709,
+          8.233708,
+          7.6585,
+          7.55625,
+          9.123208,
+          6.817417,
+          6.304958,
+          6.760375,
+          6.89575,
+          7.117083,
+          6.455292,
+          6.548958,
+          6.514458,
+          7.28475
+        ],
+        "english_no_refresh": [
+          5.770375,
+          6.156875,
+          6.144166,
+          5.71125,
+          7.603458,
+          6.755834,
+          5.329291,
+          5.96325,
+          5.209791,
+          5.428333,
+          5.386792,
+          5.622125,
+          5.006459,
+          5.93675,
+          5.612917
+        ],
+        "chromium_all": [
+          7.733625,
+          7.286459,
+          7.663458,
+          7.887958,
+          9.623125,
+          7.867583,
+          7.272542,
+          7.174209,
+          6.577417,
+          6.618209,
+          7.282458,
+          6.166125,
+          7.219333,
+          6.860166,
+          6.549375
+        ],
+        "chromium_all_no_refresh": [
+          6.162417,
+          6.071417,
+          5.977125,
+          5.659958,
+          5.485917,
+          5.796291,
+          5.173625,
+          5.640708,
+          5.153959,
+          5.402083,
+          5.529792,
+          5.860209,
+          5.976917,
+          5.255,
+          5.331333
+        ],
+        "chromium_initial": [
+          7.285667,
+          6.818917,
+          7.74675,
+          7.549416,
+          7.047209,
+          8.374375,
+          6.777542,
+          6.408459,
+          6.683125,
+          6.632542,
+          6.698875,
+          6.317583,
+          6.9335,
+          6.770292,
+          7.191375
+        ],
+        "chromium_initial_no_refresh": [
+          5.717208,
+          5.448666,
+          6.337666,
+          6.873417,
+          5.681875,
+          6.812584,
+          6.223958,
+          5.1685,
+          5.638167,
+          5.742416,
+          5.130375,
+          5.918917,
+          5.641166,
+          5.425834,
+          4.9795
+        ],
+        "rg": [
+          8.330958,
+          7.177625,
+          9.061042,
+          8.209959,
+          8.168375,
+          7.62775,
+          7.164,
+          7.42075,
+          7.7005,
+          6.90925,
+          7.460458,
+          8.626916,
+          7.339791,
+          7.296375,
+          7.4015
+        ]
+      }
+    },
+    {
+      "id": "decorator",
+      "category": "escaped punctuation",
+      "pattern": "^[ \\t]*@[A-Za-z_][\\w.]*",
+      "flags": [],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 199,
+          "sha256": "870f6e026896c2f77765fc9df0ecf7db516830b6973ca75a2afb00b77a9f0371"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 199,
+          "sha256": "870f6e026896c2f77765fc9df0ecf7db516830b6973ca75a2afb00b77a9f0371"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 199,
+          "sha256": "870f6e026896c2f77765fc9df0ecf7db516830b6973ca75a2afb00b77a9f0371"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 199,
+          "sha256": "870f6e026896c2f77765fc9df0ecf7db516830b6973ca75a2afb00b77a9f0371"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 199,
+          "sha256": "870f6e026896c2f77765fc9df0ecf7db516830b6973ca75a2afb00b77a9f0371"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 199,
+          "sha256": "870f6e026896c2f77765fc9df0ecf7db516830b6973ca75a2afb00b77a9f0371"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 199,
+          "sha256": "870f6e026896c2f77765fc9df0ecf7db516830b6973ca75a2afb00b77a9f0371"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 199,
+          "sha256": "870f6e026896c2f77765fc9df0ecf7db516830b6973ca75a2afb00b77a9f0371"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 199,
+          "sha256": "870f6e026896c2f77765fc9df0ecf7db516830b6973ca75a2afb00b77a9f0371"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "^[ \\t]*@[A-Za-z_][\\w.]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "^[ \\t]*@[A-Za-z_][\\w.]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "^[ \\t]*@[A-Za-z_][\\w.]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "^[ \\t]*@[A-Za-z_][\\w.]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "^[ \\t]*@[A-Za-z_][\\w.]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "^[ \\t]*@[A-Za-z_][\\w.]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "^[ \\t]*@[A-Za-z_][\\w.]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "^[ \\t]*@[A-Za-z_][\\w.]*",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "^[ \\t]*@[A-Za-z_][\\w.]*",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.650417,
+          6.827875,
+          7.08175,
+          7.331208,
+          7.195625,
+          6.961208,
+          6.671833,
+          6.493458,
+          6.34575,
+          6.267583,
+          6.370042,
+          6.42725,
+          6.43025,
+          6.7765,
+          6.821167
+        ],
+        "hash_no_refresh": [
+          6.055833,
+          5.529959,
+          6.1345,
+          5.795083,
+          8.011916,
+          6.741,
+          5.495458,
+          5.443125,
+          5.471167,
+          5.491625,
+          5.622834,
+          5.33375,
+          5.184125,
+          5.216125,
+          5.922042
+        ],
+        "english": [
+          9.6985,
+          7.552125,
+          7.269208,
+          7.218209,
+          10.471167,
+          6.826625,
+          6.417541,
+          7.074208,
+          7.199833,
+          6.867791,
+          7.034875,
+          6.497292,
+          6.630709,
+          7.007667,
+          6.55625
+        ],
+        "english_no_refresh": [
+          5.403,
+          5.448,
+          6.141042,
+          6.627916,
+          7.663375,
+          6.334667,
+          5.676666,
+          5.835125,
+          6.01175,
+          5.5625,
+          5.121417,
+          5.203125,
+          5.115625,
+          6.223,
+          5.361125
+        ],
+        "chromium_all": [
+          6.740917,
+          7.131333,
+          7.715333,
+          7.187166,
+          6.529417,
+          6.873542,
+          6.933625,
+          6.511584,
+          6.398834,
+          6.562042,
+          7.168625,
+          6.616667,
+          6.627625,
+          6.48375,
+          6.612791
+        ],
+        "chromium_all_no_refresh": [
+          6.076667,
+          5.487375,
+          6.935875,
+          5.535209,
+          8.354,
+          7.791375,
+          5.618458,
+          5.233333,
+          5.299292,
+          5.298875,
+          5.457541,
+          5.999084,
+          5.242,
+          5.530208,
+          5.179542
+        ],
+        "chromium_initial": [
+          7.399916,
+          7.564042,
+          7.425083,
+          7.079875,
+          8.452041,
+          7.986958,
+          6.765334,
+          7.097542,
+          7.142875,
+          6.314875,
+          6.9325,
+          6.867459,
+          6.620541,
+          6.42475,
+          6.905625
+        ],
+        "chromium_initial_no_refresh": [
+          5.741,
+          5.878292,
+          6.271708,
+          6.657667,
+          8.61875,
+          8.626791,
+          5.163625,
+          6.0915,
+          5.712375,
+          5.414042,
+          5.578708,
+          4.976583,
+          5.163125,
+          5.589584,
+          6.098708
+        ],
+        "rg": [
+          28.134459,
+          29.138458,
+          27.831917,
+          28.356042,
+          26.57375,
+          24.05175,
+          23.62325,
+          23.731792,
+          22.880958,
+          23.539584,
+          23.931083,
+          22.894292,
+          23.936875,
+          22.869375,
+          22.532541
+        ]
+      }
+    },
+    {
+      "id": "async",
+      "category": "whitespace",
+      "pattern": "\\basync[ \\t]+def[ \\t]+\\w+",
+      "flags": [],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 454,
+          "sha256": "5d3094c7398bc54dba9445d8c9eb360ce87fc5ff580f73acaa7abe05a49f3180"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 454,
+          "sha256": "5d3094c7398bc54dba9445d8c9eb360ce87fc5ff580f73acaa7abe05a49f3180"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 454,
+          "sha256": "5d3094c7398bc54dba9445d8c9eb360ce87fc5ff580f73acaa7abe05a49f3180"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 454,
+          "sha256": "5d3094c7398bc54dba9445d8c9eb360ce87fc5ff580f73acaa7abe05a49f3180"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 454,
+          "sha256": "5d3094c7398bc54dba9445d8c9eb360ce87fc5ff580f73acaa7abe05a49f3180"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 454,
+          "sha256": "5d3094c7398bc54dba9445d8c9eb360ce87fc5ff580f73acaa7abe05a49f3180"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 454,
+          "sha256": "5d3094c7398bc54dba9445d8c9eb360ce87fc5ff580f73acaa7abe05a49f3180"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 454,
+          "sha256": "5d3094c7398bc54dba9445d8c9eb360ce87fc5ff580f73acaa7abe05a49f3180"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 454,
+          "sha256": "5d3094c7398bc54dba9445d8c9eb360ce87fc5ff580f73acaa7abe05a49f3180"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\basync[ \\t]+def[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\basync[ \\t]+def[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\basync[ \\t]+def[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\basync[ \\t]+def[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\basync[ \\t]+def[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\basync[ \\t]+def[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\basync[ \\t]+def[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\basync[ \\t]+def[ \\t]+\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "\\basync[ \\t]+def[ \\t]+\\w+",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          7.391709,
+          6.761958,
+          6.352416,
+          6.971167,
+          6.690708,
+          8.218333,
+          6.666584,
+          6.207791,
+          5.881042,
+          6.478917,
+          6.307,
+          7.118583,
+          6.706125,
+          7.006417,
+          6.820709
+        ],
+        "hash_no_refresh": [
+          5.279875,
+          5.780792,
+          5.720167,
+          5.173291,
+          5.773667,
+          6.320083,
+          5.837,
+          5.567667,
+          5.465292,
+          5.240375,
+          4.869125,
+          5.382042,
+          5.26075,
+          4.756958,
+          5.168959
+        ],
+        "english": [
+          7.12725,
+          7.070708,
+          7.358833,
+          7.051875,
+          8.441875,
+          6.265834,
+          6.244583,
+          6.389791,
+          7.293833,
+          6.549125,
+          6.323,
+          6.150709,
+          6.612,
+          6.207375,
+          5.963125
+        ],
+        "english_no_refresh": [
+          5.400833,
+          5.349375,
+          5.732875,
+          5.396666,
+          6.183292,
+          6.417125,
+          5.027917,
+          6.035875,
+          5.433084,
+          5.086583,
+          4.947083,
+          5.166959,
+          5.007542,
+          4.873959,
+          5.601875
+        ],
+        "chromium_all": [
+          7.605708,
+          6.972791,
+          7.036625,
+          7.101708,
+          7.88,
+          6.503042,
+          6.248542,
+          6.670417,
+          6.461667,
+          6.172667,
+          6.494417,
+          6.330917,
+          6.646667,
+          6.554375,
+          6.891583
+        ],
+        "chromium_all_no_refresh": [
+          5.775083,
+          5.708334,
+          5.886916,
+          5.542,
+          5.943167,
+          6.556083,
+          5.540916,
+          5.210417,
+          5.133708,
+          4.949209,
+          5.090167,
+          4.924958,
+          4.939791,
+          5.346042,
+          5.065375
+        ],
+        "chromium_initial": [
+          6.524333,
+          7.029791,
+          7.041458,
+          7.377375,
+          7.157708,
+          8.134584,
+          6.792708,
+          6.239583,
+          6.793291,
+          6.526875,
+          6.283875,
+          6.56175,
+          6.092792,
+          6.552625,
+          6.874334
+        ],
+        "chromium_initial_no_refresh": [
+          5.293,
+          5.725709,
+          6.006708,
+          5.585458,
+          5.273583,
+          7.046542,
+          5.412791,
+          4.942375,
+          5.175875,
+          4.978208,
+          5.050625,
+          5.104333,
+          5.391959,
+          4.79625,
+          5.997542
+        ],
+        "rg": [
+          8.947708,
+          8.793708,
+          7.876083,
+          8.873708,
+          7.570417,
+          9.604875,
+          7.867042,
+          6.933,
+          7.352292,
+          7.93325,
+          6.90775,
+          8.050834,
+          6.762875,
+          7.734083,
+          7.861667
+        ]
+      }
+    },
+    {
+      "id": "db",
+      "category": "alternation",
+      "pattern": "\\b(session|transaction|connection)\\b",
+      "flags": [
+        "-i"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 525,
+          "sha256": "a54d609fbce9a78dbec97e743c3cec3fbe409af15aa5546b4b4e2b9f0b74b046"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 525,
+          "sha256": "a54d609fbce9a78dbec97e743c3cec3fbe409af15aa5546b4b4e2b9f0b74b046"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 525,
+          "sha256": "a54d609fbce9a78dbec97e743c3cec3fbe409af15aa5546b4b4e2b9f0b74b046"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 525,
+          "sha256": "a54d609fbce9a78dbec97e743c3cec3fbe409af15aa5546b4b4e2b9f0b74b046"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 525,
+          "sha256": "a54d609fbce9a78dbec97e743c3cec3fbe409af15aa5546b4b4e2b9f0b74b046"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 525,
+          "sha256": "a54d609fbce9a78dbec97e743c3cec3fbe409af15aa5546b4b4e2b9f0b74b046"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 525,
+          "sha256": "a54d609fbce9a78dbec97e743c3cec3fbe409af15aa5546b4b4e2b9f0b74b046"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 525,
+          "sha256": "a54d609fbce9a78dbec97e743c3cec3fbe409af15aa5546b4b4e2b9f0b74b046"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 525,
+          "sha256": "a54d609fbce9a78dbec97e743c3cec3fbe409af15aa5546b4b4e2b9f0b74b046"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-i",
+          "\\b(session|transaction|connection)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-i",
+          "\\b(session|transaction|connection)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-i",
+          "\\b(session|transaction|connection)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-i",
+          "\\b(session|transaction|connection)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-i",
+          "\\b(session|transaction|connection)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-i",
+          "\\b(session|transaction|connection)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-i",
+          "\\b(session|transaction|connection)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-i",
+          "\\b(session|transaction|connection)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-i",
+          "\\b(session|transaction|connection)\\b",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.874,
+          7.447208,
+          7.155791,
+          7.7015,
+          7.112041,
+          8.563916,
+          6.649125,
+          6.452334,
+          6.798166,
+          6.777833,
+          6.807792,
+          6.978958,
+          6.796667,
+          7.297125,
+          6.854833
+        ],
+        "hash_no_refresh": [
+          5.800083,
+          6.323042,
+          6.064291,
+          6.217667,
+          7.138791,
+          5.408666,
+          5.275792,
+          5.487792,
+          5.372667,
+          5.844208,
+          5.59275,
+          5.926666,
+          6.010583,
+          5.192375,
+          6.011833
+        ],
+        "english": [
+          7.936083,
+          6.9825,
+          7.268833,
+          9.7685,
+          6.927834,
+          7.101459,
+          6.555083,
+          6.774208,
+          7.009333,
+          7.082792,
+          6.476,
+          6.514542,
+          7.467417,
+          7.150667,
+          7.327209
+        ],
+        "english_no_refresh": [
+          5.884417,
+          6.874333,
+          6.431291,
+          6.232166,
+          6.000375,
+          7.674583,
+          5.398625,
+          5.81625,
+          5.500083,
+          5.916541,
+          5.459917,
+          5.59725,
+          6.339458,
+          5.626833,
+          5.389167
+        ],
+        "chromium_all": [
+          8.533167,
+          7.1735,
+          8.820667,
+          7.78275,
+          9.275458,
+          7.449208,
+          7.186541,
+          6.710708,
+          6.569042,
+          7.648833,
+          6.607417,
+          6.788833,
+          7.068041,
+          7.033458,
+          7.359792
+        ],
+        "chromium_all_no_refresh": [
+          6.683375,
+          6.184709,
+          6.281083,
+          6.035542,
+          5.984458,
+          7.5805,
+          5.544458,
+          5.26625,
+          5.556416,
+          6.65675,
+          5.5075,
+          5.506833,
+          6.12125,
+          5.718333,
+          5.536875
+        ],
+        "chromium_initial": [
+          7.360625,
+          6.664708,
+          7.589125,
+          7.876167,
+          9.281833,
+          8.436167,
+          6.797541,
+          6.89125,
+          6.827875,
+          6.470125,
+          7.319,
+          7.008125,
+          6.748875,
+          7.238792,
+          6.811666
+        ],
+        "chromium_initial_no_refresh": [
+          6.152875,
+          5.926166,
+          6.4665,
+          6.509458,
+          6.386417,
+          7.376542,
+          5.823667,
+          5.908667,
+          5.520666,
+          6.145833,
+          5.623292,
+          6.27,
+          5.476375,
+          6.247792,
+          5.941958
+        ],
+        "rg": [
+          8.552083,
+          9.212958,
+          7.779042,
+          8.117334,
+          10.9275,
+          9.446,
+          6.872792,
+          8.3275,
+          6.976292,
+          8.274,
+          8.381291,
+          6.796791,
+          6.791334,
+          7.057083,
+          7.309625
+        ]
+      }
+    },
+    {
+      "id": "test",
+      "category": "test definitions",
+      "pattern": "\\bdef[ \\t]+test_\\w+",
+      "flags": [],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 224,
+          "sha256": "75000c13db5da2a0430db82d324e34bf1d517b0a59d2b7962f274ae6f57ea890"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 224,
+          "sha256": "75000c13db5da2a0430db82d324e34bf1d517b0a59d2b7962f274ae6f57ea890"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 224,
+          "sha256": "75000c13db5da2a0430db82d324e34bf1d517b0a59d2b7962f274ae6f57ea890"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 224,
+          "sha256": "75000c13db5da2a0430db82d324e34bf1d517b0a59d2b7962f274ae6f57ea890"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 224,
+          "sha256": "75000c13db5da2a0430db82d324e34bf1d517b0a59d2b7962f274ae6f57ea890"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 224,
+          "sha256": "75000c13db5da2a0430db82d324e34bf1d517b0a59d2b7962f274ae6f57ea890"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 224,
+          "sha256": "75000c13db5da2a0430db82d324e34bf1d517b0a59d2b7962f274ae6f57ea890"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 224,
+          "sha256": "75000c13db5da2a0430db82d324e34bf1d517b0a59d2b7962f274ae6f57ea890"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 224,
+          "sha256": "75000c13db5da2a0430db82d324e34bf1d517b0a59d2b7962f274ae6f57ea890"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\bdef[ \\t]+test_\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "\\bdef[ \\t]+test_\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\bdef[ \\t]+test_\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "\\bdef[ \\t]+test_\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\bdef[ \\t]+test_\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "\\bdef[ \\t]+test_\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\bdef[ \\t]+test_\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "\\bdef[ \\t]+test_\\w+",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "\\bdef[ \\t]+test_\\w+",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.75475,
+          6.528583,
+          6.534375,
+          7.383167,
+          6.517208,
+          7.771167,
+          5.767292,
+          6.051167,
+          6.02875,
+          6.548667,
+          6.071458,
+          5.926125,
+          6.144417,
+          5.721,
+          5.995041
+        ],
+        "hash_no_refresh": [
+          5.60125,
+          5.656125,
+          5.296666,
+          5.232542,
+          6.368333,
+          5.950041,
+          4.658333,
+          4.827208,
+          4.601875,
+          5.129209,
+          4.764459,
+          4.575708,
+          5.048792,
+          5.006167,
+          5.040792
+        ],
+        "english": [
+          6.8805,
+          6.520958,
+          7.450917,
+          7.102167,
+          6.826584,
+          7.806666,
+          6.029292,
+          5.949,
+          6.154459,
+          6.976292,
+          6.120292,
+          6.214375,
+          6.302083,
+          5.945542,
+          6.213208
+        ],
+        "english_no_refresh": [
+          4.850875,
+          5.324416,
+          5.828083,
+          4.984458,
+          5.429667,
+          5.858625,
+          5.004375,
+          4.642625,
+          4.877375,
+          4.613084,
+          5.093333,
+          4.959875,
+          4.763583,
+          4.56875,
+          5.908375
+        ],
+        "chromium_all": [
+          6.556459,
+          6.605958,
+          7.077125,
+          7.569833,
+          6.676458,
+          5.881375,
+          6.453,
+          6.054708,
+          6.079583,
+          6.11275,
+          6.352917,
+          5.827333,
+          6.384625,
+          5.950333,
+          5.854083
+        ],
+        "chromium_all_no_refresh": [
+          5.47475,
+          5.339709,
+          5.517416,
+          5.304375,
+          5.5765,
+          5.609125,
+          4.720666,
+          4.726042,
+          4.756917,
+          5.192792,
+          5.370834,
+          4.975042,
+          4.869625,
+          4.696416,
+          5.199458
+        ],
+        "chromium_initial": [
+          6.453416,
+          6.694458,
+          6.92375,
+          6.994042,
+          7.140584,
+          7.485542,
+          6.296458,
+          5.862375,
+          6.0475,
+          6.000916,
+          5.748667,
+          6.399083,
+          6.828458,
+          5.95125,
+          6.1225
+        ],
+        "chromium_initial_no_refresh": [
+          5.77725,
+          4.790042,
+          11.175375,
+          6.178792,
+          5.207167,
+          4.782833,
+          5.017083,
+          4.683,
+          5.448417,
+          5.732,
+          4.8005,
+          4.927875,
+          4.823542,
+          5.452833,
+          5.897417
+        ],
+        "rg": [
+          8.358542,
+          7.189625,
+          8.350334,
+          7.807833,
+          8.2255,
+          8.544167,
+          8.391,
+          7.020667,
+          8.139709,
+          7.040583,
+          9.26425,
+          7.893667,
+          8.526416,
+          8.386416,
+          6.836417
+        ]
+      }
+    },
+    {
+      "id": "common_files",
+      "category": "common / files",
+      "pattern": "self",
+      "flags": [
+        "-F",
+        "-l"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 58,
+          "sha256": "d3286f1f32a00405b91a1c1259a5c55021dedf920ae4ea2e683dfac023d1abee"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 58,
+          "sha256": "d3286f1f32a00405b91a1c1259a5c55021dedf920ae4ea2e683dfac023d1abee"
+        },
+        "hash_no_refresh": {
+          "exit_code": 0,
+          "lines": 58,
+          "sha256": "d3286f1f32a00405b91a1c1259a5c55021dedf920ae4ea2e683dfac023d1abee"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 58,
+          "sha256": "d3286f1f32a00405b91a1c1259a5c55021dedf920ae4ea2e683dfac023d1abee"
+        },
+        "english_no_refresh": {
+          "exit_code": 0,
+          "lines": 58,
+          "sha256": "d3286f1f32a00405b91a1c1259a5c55021dedf920ae4ea2e683dfac023d1abee"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 58,
+          "sha256": "d3286f1f32a00405b91a1c1259a5c55021dedf920ae4ea2e683dfac023d1abee"
+        },
+        "chromium_all_no_refresh": {
+          "exit_code": 0,
+          "lines": 58,
+          "sha256": "d3286f1f32a00405b91a1c1259a5c55021dedf920ae4ea2e683dfac023d1abee"
+        },
+        "chromium_initial": {
+          "exit_code": 0,
+          "lines": 58,
+          "sha256": "d3286f1f32a00405b91a1c1259a5c55021dedf920ae4ea2e683dfac023d1abee"
+        },
+        "chromium_initial_no_refresh": {
+          "exit_code": 0,
+          "lines": 58,
+          "sha256": "d3286f1f32a00405b91a1c1259a5c55021dedf920ae4ea2e683dfac023d1abee"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-F",
+          "-l",
+          "self",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index"
+        ],
+        "hash_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/hash",
+          "search",
+          "-F",
+          "-l",
+          "self",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-F",
+          "-l",
+          "self",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index"
+        ],
+        "english_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/english",
+          "search",
+          "-F",
+          "-l",
+          "self",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-F",
+          "-l",
+          "self",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index"
+        ],
+        "chromium_all_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_all",
+          "search",
+          "-F",
+          "-l",
+          "self",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_initial": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-F",
+          "-l",
+          "self",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index"
+        ],
+        "chromium_initial_no_refresh": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/chromium_initial",
+          "search",
+          "-F",
+          "-l",
+          "self",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/agentflow/chromium_initial-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-F",
+          "-l",
+          "self",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          6.501667,
+          6.162666,
+          8.291625,
+          7.71325,
+          5.988583,
+          8.193833,
+          5.750208,
+          5.82875,
+          6.31925,
+          6.767167,
+          5.502167,
+          5.999458,
+          6.255958,
+          5.521708,
+          6.148792
+        ],
+        "hash_no_refresh": [
+          4.780916,
+          5.66325,
+          4.440583,
+          6.054542,
+          5.082666,
+          5.902375,
+          4.522541,
+          4.429791,
+          4.916292,
+          4.649542,
+          4.718584,
+          4.858875,
+          4.846667,
+          4.774,
+          4.790667
+        ],
+        "english": [
+          6.392792,
+          6.34075,
+          7.232625,
+          6.198791,
+          7.107333,
+          8.33975,
+          6.087125,
+          6.364917,
+          6.292042,
+          5.553875,
+          6.142292,
+          6.047625,
+          6.006041,
+          5.882667,
+          5.939875
+        ],
+        "english_no_refresh": [
+          5.041041,
+          5.10725,
+          4.838666,
+          4.528625,
+          4.975625,
+          4.369209,
+          4.440917,
+          4.894709,
+          4.445333,
+          5.662167,
+          4.4875,
+          4.933292,
+          4.710292,
+          4.488333,
+          4.569334
+        ],
+        "chromium_all": [
+          6.487292,
+          6.455083,
+          7.258209,
+          6.28225,
+          6.781083,
+          6.980792,
+          5.765292,
+          6.293542,
+          5.662125,
+          5.4605,
+          6.033416,
+          6.012042,
+          6.036334,
+          5.500584,
+          6.080417
+        ],
+        "chromium_all_no_refresh": [
+          5.129166,
+          5.675292,
+          5.120834,
+          5.461416,
+          5.350166,
+          6.387,
+          4.465834,
+          4.89975,
+          4.303834,
+          4.556583,
+          4.506541,
+          4.884542,
+          5.392083,
+          4.720958,
+          4.747292
+        ],
+        "chromium_initial": [
+          6.932042,
+          6.466666,
+          6.412667,
+          7.762709,
+          7.938459,
+          8.137875,
+          6.059917,
+          5.421458,
+          5.747417,
+          5.762542,
+          5.789125,
+          5.933541,
+          6.026083,
+          6.062416,
+          5.92275
+        ],
+        "chromium_initial_no_refresh": [
+          5.012375,
+          5.17775,
+          4.714666,
+          5.0115,
+          4.723,
+          4.971333,
+          4.448083,
+          4.415959,
+          5.174792,
+          4.406,
+          4.551417,
+          4.982334,
+          4.65875,
+          4.384916,
+          5.35
+        ],
+        "rg": [
+          7.215459,
+          7.581833,
+          7.065875,
+          7.768666,
+          7.521292,
+          7.740333,
+          7.248041,
+          6.522666,
+          7.261583,
+          6.483292,
+          6.534292,
+          7.223833,
+          7.081542,
+          6.556917,
+          7.607708
+        ]
+      }
+    }
+  ],
+  "default_probe": {},
+  "query_iterations": 15,
+  "query_warmup": 2,
+  "build_iterations": 5,
+  "build_rss_runs": 3,
+  "git_before": {
+    "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+    "status": ""
+  },
+  "git_after": {
+    "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+    "status": ""
+  },
+  "validation": {
+    "parity": true,
+    "indexes_unchanged": true,
+    "binaries_unchanged": true,
+    "source_unchanged": true
+  }
+}

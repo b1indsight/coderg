@@ -1,0 +1,1095 @@
+{
+  "dataset": {
+    "id": "chromium",
+    "kind": "chromium",
+    "root": "/private/tmp/coderg-chromium-3986304/src",
+    "commit": "398630472335c10b9ca610a4d1b7888a040f702a"
+  },
+  "builds": {
+    "hash": {
+      "build_reused": true,
+      "initial_ms": 68071.623167,
+      "files": 461882,
+      "source_bytes": 3040624852,
+      "ngrams": 133895586,
+      "index_bytes": 1996599290,
+      "samples_ms": [
+        68071.623167
+      ],
+      "rss_bytes": [
+        502333440
+      ],
+      "rss_logs": []
+    },
+    "chromium_all": {
+      "build_reused": true,
+      "initial_ms": 76038.879875,
+      "files": 461882,
+      "source_bytes": 3040624852,
+      "ngrams": 179036118,
+      "index_bytes": 2270172091,
+      "samples_ms": [
+        76038.879875
+      ],
+      "rss_bytes": [
+        608256000
+      ],
+      "rss_logs": []
+    },
+    "chromium_pairs": {
+      "build_reused": false,
+      "initial_ms": 71888.999375,
+      "files": 461882,
+      "source_bytes": 3040624852,
+      "ngrams": 166017301,
+      "index_bytes": 2171450126,
+      "samples_ms": [
+        71888.999375
+      ],
+      "rss_bytes": [
+        603963392
+      ],
+      "rss_logs": []
+    },
+    "english": {
+      "build_reused": true,
+      "initial_ms": 80687.177917,
+      "files": 461882,
+      "source_bytes": 3040624852,
+      "ngrams": 179756349,
+      "index_bytes": 2273882499,
+      "samples_ms": [
+        80687.177917
+      ],
+      "rss_bytes": [
+        612499456
+      ],
+      "rss_logs": []
+    }
+  },
+  "queries": [
+    {
+      "id": "max_file_size",
+      "category": "fixed string",
+      "pattern": "MAX_FILE_SIZE",
+      "flags": [
+        "-F"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 114,
+          "sha256": "ed2dcc4e41a440845e639f46b390f15777ae35bd302ab90215fa04700b36a813"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 114,
+          "sha256": "ed2dcc4e41a440845e639f46b390f15777ae35bd302ab90215fa04700b36a813"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 114,
+          "sha256": "ed2dcc4e41a440845e639f46b390f15777ae35bd302ab90215fa04700b36a813"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 114,
+          "sha256": "ed2dcc4e41a440845e639f46b390f15777ae35bd302ab90215fa04700b36a813"
+        },
+        "chromium_pairs": {
+          "exit_code": 0,
+          "lines": 114,
+          "sha256": "ed2dcc4e41a440845e639f46b390f15777ae35bd302ab90215fa04700b36a813"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/hash",
+          "search",
+          "-F",
+          "MAX_FILE_SIZE",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/english",
+          "search",
+          "-F",
+          "MAX_FILE_SIZE",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_all",
+          "search",
+          "-F",
+          "MAX_FILE_SIZE",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_pairs": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_pairs",
+          "search",
+          "-F",
+          "MAX_FILE_SIZE",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/results/chromium/chromium_pairs-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-F",
+          "MAX_FILE_SIZE",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          62.671167,
+          60.698959,
+          60.705208,
+          61.252875,
+          61.349541,
+          60.116125,
+          60.334875,
+          62.472834,
+          60.563458,
+          62.430791,
+          61.625291,
+          60.515416,
+          61.864917,
+          62.711084,
+          61.016667
+        ],
+        "english": [
+          61.697959,
+          61.806417,
+          61.755208,
+          61.528,
+          62.598667,
+          62.088625,
+          63.081834,
+          69.5325,
+          63.325708,
+          61.35675,
+          61.93325,
+          60.343125,
+          60.892917,
+          61.742625,
+          61.447792
+        ],
+        "chromium_all": [
+          60.877083,
+          61.632042,
+          60.703708,
+          60.568333,
+          61.12375,
+          62.538375,
+          61.625458,
+          61.490334,
+          63.000667,
+          61.117,
+          60.731584,
+          62.203292,
+          62.036042,
+          62.272458,
+          62.132958
+        ],
+        "chromium_pairs": [
+          60.447084,
+          60.731417,
+          59.825417,
+          60.955167,
+          60.891625,
+          59.8495,
+          63.05675,
+          63.354958,
+          61.638334,
+          61.675791,
+          61.390167,
+          60.721041,
+          61.052958,
+          60.888875,
+          61.026542
+        ]
+      }
+    },
+    {
+      "id": "weak_ptr_factory",
+      "category": "fixed string",
+      "pattern": "WeakPtrFactory",
+      "flags": [
+        "-F"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        },
+        "chromium_pairs": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/hash",
+          "search",
+          "-F",
+          "WeakPtrFactory",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/english",
+          "search",
+          "-F",
+          "WeakPtrFactory",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_all",
+          "search",
+          "-F",
+          "WeakPtrFactory",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_pairs": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_pairs",
+          "search",
+          "-F",
+          "WeakPtrFactory",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/results/chromium/chromium_pairs-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-F",
+          "WeakPtrFactory",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          151.170625,
+          153.768,
+          151.734917,
+          128.671875,
+          128.688125,
+          130.274334,
+          128.196709,
+          152.400916,
+          131.571334,
+          130.37175,
+          129.482958,
+          152.871125,
+          155.489625,
+          153.84875,
+          129.353875
+        ],
+        "english": [
+          130.3895,
+          152.763833,
+          129.84575,
+          149.085167,
+          127.65175,
+          126.9545,
+          128.578666,
+          132.268,
+          128.666417,
+          150.912292,
+          124.477208,
+          127.153167,
+          129.219542,
+          147.259583,
+          127.460917
+        ],
+        "chromium_all": [
+          130.335125,
+          135.127291,
+          155.489875,
+          124.854209,
+          127.732,
+          153.500167,
+          155.945709,
+          126.826375,
+          128.318041,
+          128.762333,
+          128.589833,
+          126.39075,
+          155.007834,
+          130.221958,
+          124.6745
+        ],
+        "chromium_pairs": [
+          154.617042,
+          132.637208,
+          132.2005,
+          157.663292,
+          153.432042,
+          128.5535,
+          131.211292,
+          130.796333,
+          133.650333,
+          127.93025,
+          151.641875,
+          128.778,
+          154.154958,
+          151.675041,
+          128.607625
+        ]
+      }
+    },
+    {
+      "id": "icase_weak_ptr_factory",
+      "category": "ignore case",
+      "pattern": "WeakPtrFactory",
+      "flags": [
+        "-i",
+        "-F"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        },
+        "chromium_pairs": {
+          "exit_code": 0,
+          "lines": 9640,
+          "sha256": "f0ce0581212b8fe62f62504ae50ca6ba5c4977813b225a119873df5766ad355b"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/hash",
+          "search",
+          "-i",
+          "-F",
+          "WeakPtrFactory",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/english",
+          "search",
+          "-i",
+          "-F",
+          "WeakPtrFactory",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_all",
+          "search",
+          "-i",
+          "-F",
+          "WeakPtrFactory",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_pairs": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_pairs",
+          "search",
+          "-i",
+          "-F",
+          "WeakPtrFactory",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/results/chromium/chromium_pairs-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-i",
+          "-F",
+          "WeakPtrFactory",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          184.642334,
+          162.800958,
+          194.679375,
+          185.162125,
+          170.17375,
+          186.852875,
+          163.730708,
+          189.181208,
+          164.079583,
+          185.031958,
+          181.213375,
+          188.449042,
+          162.961375,
+          162.018458,
+          183.839792
+        ],
+        "english": [
+          145.165083,
+          148.201042,
+          148.095166,
+          148.650458,
+          147.797833,
+          147.128542,
+          167.41325,
+          185.952875,
+          146.776625,
+          146.718,
+          169.474625,
+          147.813833,
+          148.3155,
+          147.959958,
+          170.873708
+        ],
+        "chromium_all": [
+          170.325917,
+          148.4485,
+          148.959875,
+          148.31575,
+          173.898333,
+          169.7245,
+          147.368125,
+          147.941458,
+          171.262042,
+          147.723125,
+          147.070459,
+          149.012791,
+          148.652208,
+          147.955042,
+          147.19075
+        ],
+        "chromium_pairs": [
+          146.062708,
+          173.164458,
+          148.397042,
+          148.718,
+          180.846375,
+          150.532125,
+          148.999375,
+          153.100125,
+          150.4,
+          168.662375,
+          147.982833,
+          149.027708,
+          148.321166,
+          150.6135,
+          148.265125
+        ]
+      }
+    },
+    {
+      "id": "bind_once",
+      "category": "fixed string",
+      "pattern": "base::BindOnce",
+      "flags": [
+        "-F"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 54999,
+          "sha256": "9d54a91b2b98eb68259d2de6b3d355387f222c728668022f1dfddc0a8857378a"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 54999,
+          "sha256": "9d54a91b2b98eb68259d2de6b3d355387f222c728668022f1dfddc0a8857378a"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 54999,
+          "sha256": "9d54a91b2b98eb68259d2de6b3d355387f222c728668022f1dfddc0a8857378a"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 54999,
+          "sha256": "9d54a91b2b98eb68259d2de6b3d355387f222c728668022f1dfddc0a8857378a"
+        },
+        "chromium_pairs": {
+          "exit_code": 0,
+          "lines": 54999,
+          "sha256": "9d54a91b2b98eb68259d2de6b3d355387f222c728668022f1dfddc0a8857378a"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/hash",
+          "search",
+          "-F",
+          "base::BindOnce",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/english",
+          "search",
+          "-F",
+          "base::BindOnce",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_all",
+          "search",
+          "-F",
+          "base::BindOnce",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_pairs": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_pairs",
+          "search",
+          "-F",
+          "base::BindOnce",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/results/chromium/chromium_pairs-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-F",
+          "base::BindOnce",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          223.456792,
+          227.261083,
+          201.713834,
+          228.228334,
+          228.543333,
+          199.790541,
+          228.772875,
+          199.007583,
+          225.1585,
+          202.685542,
+          226.309167,
+          195.308,
+          225.077458,
+          222.3635,
+          225.413584
+        ],
+        "english": [
+          227.002833,
+          226.483833,
+          235.029583,
+          225.146125,
+          223.164125,
+          207.543833,
+          203.226625,
+          230.581917,
+          238.493208,
+          229.722125,
+          225.544083,
+          228.922458,
+          233.079167,
+          206.75475,
+          228.431083
+        ],
+        "chromium_all": [
+          228.362625,
+          225.492917,
+          200.677125,
+          223.042958,
+          225.312292,
+          236.443875,
+          229.025917,
+          234.882167,
+          204.580041,
+          227.795417,
+          227.732917,
+          223.9875,
+          227.285791,
+          223.0835,
+          226.331959
+        ],
+        "chromium_pairs": [
+          230.927666,
+          228.281083,
+          228.766792,
+          204.159417,
+          225.762042,
+          231.9525,
+          200.135708,
+          236.805542,
+          202.817834,
+          200.810375,
+          201.894833,
+          232.081875,
+          199.0365,
+          200.593875,
+          205.687792
+        ]
+      }
+    },
+    {
+      "id": "histogram",
+      "category": "alternation",
+      "pattern": "\\bUmaHistogram(Boolean|Enumeration)\\b",
+      "flags": [],
+      "parity": {
+        "rg": {
+          "exit_code": 0,
+          "lines": 9505,
+          "sha256": "4aeb7a0fc098d92fa1cb2cb04a75fc3c92b382035422e619247de68e084b3e6f"
+        },
+        "hash": {
+          "exit_code": 0,
+          "lines": 9505,
+          "sha256": "4aeb7a0fc098d92fa1cb2cb04a75fc3c92b382035422e619247de68e084b3e6f"
+        },
+        "english": {
+          "exit_code": 0,
+          "lines": 9505,
+          "sha256": "4aeb7a0fc098d92fa1cb2cb04a75fc3c92b382035422e619247de68e084b3e6f"
+        },
+        "chromium_all": {
+          "exit_code": 0,
+          "lines": 9505,
+          "sha256": "4aeb7a0fc098d92fa1cb2cb04a75fc3c92b382035422e619247de68e084b3e6f"
+        },
+        "chromium_pairs": {
+          "exit_code": 0,
+          "lines": 9505,
+          "sha256": "4aeb7a0fc098d92fa1cb2cb04a75fc3c92b382035422e619247de68e084b3e6f"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/hash",
+          "search",
+          "\\bUmaHistogram(Boolean|Enumeration)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/english",
+          "search",
+          "\\bUmaHistogram(Boolean|Enumeration)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_all",
+          "search",
+          "\\bUmaHistogram(Boolean|Enumeration)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_pairs": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_pairs",
+          "search",
+          "\\bUmaHistogram(Boolean|Enumeration)\\b",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/results/chromium/chromium_pairs-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "\\bUmaHistogram(Boolean|Enumeration)\\b",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          102.640375,
+          103.955792,
+          98.435166,
+          102.51925,
+          98.829042,
+          100.374125,
+          100.339458,
+          102.901125,
+          101.442041,
+          102.877958,
+          100.328791,
+          99.422833,
+          100.042375,
+          98.558041,
+          100.672042
+        ],
+        "english": [
+          97.4075,
+          93.801917,
+          93.627041,
+          93.0325,
+          95.763375,
+          94.181333,
+          93.250208,
+          97.056875,
+          100.645167,
+          94.066583,
+          97.265209,
+          96.760292,
+          91.257084,
+          97.650833,
+          92.945291
+        ],
+        "chromium_all": [
+          89.952541,
+          94.800833,
+          98.261208,
+          94.446458,
+          92.043042,
+          97.904541,
+          95.127042,
+          90.708375,
+          90.568084,
+          92.428916,
+          94.226791,
+          89.759084,
+          89.849875,
+          89.948458,
+          89.364
+        ],
+        "chromium_pairs": [
+          128.977209,
+          114.700875,
+          118.834042,
+          118.460416,
+          113.310083,
+          115.411083,
+          117.529916,
+          115.285542,
+          115.075125,
+          115.713458,
+          114.69475,
+          116.783542,
+          113.433459,
+          120.960917,
+          114.708834
+        ]
+      }
+    },
+    {
+      "id": "absent",
+      "category": "no matches",
+      "pattern": "CODERG_DISTRIBUTION_ABSENT_92be7",
+      "flags": [
+        "-F"
+      ],
+      "parity": {
+        "rg": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "hash": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "english": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "chromium_all": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "chromium_pairs": {
+          "exit_code": 1,
+          "lines": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "commands": {
+        "hash": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/hash",
+          "search",
+          "-F",
+          "CODERG_DISTRIBUTION_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/hash-index",
+          "--no-refresh"
+        ],
+        "english": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/english",
+          "search",
+          "-F",
+          "CODERG_DISTRIBUTION_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/english-index",
+          "--no-refresh"
+        ],
+        "chromium_all": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_all",
+          "search",
+          "-F",
+          "CODERG_DISTRIBUTION_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-distributions/results/chromium/chromium_all-index",
+          "--no-refresh"
+        ],
+        "chromium_pairs": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/chromium_pairs",
+          "search",
+          "-F",
+          "CODERG_DISTRIBUTION_ABSENT_92be7",
+          ".",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/chromium-letter-pairs/results/chromium/chromium_pairs-index",
+          "--no-refresh"
+        ],
+        "rg": [
+          "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+          "--no-config",
+          "-n",
+          "-H",
+          "--hidden",
+          "--glob",
+          "!.git/**",
+          "--glob",
+          "!.coderg-index/**",
+          "--color",
+          "never",
+          "--no-heading",
+          "-F",
+          "CODERG_DISTRIBUTION_ABSENT_92be7",
+          "."
+        ]
+      },
+      "samples_ms": {
+        "hash": [
+          54.470541,
+          54.906459,
+          54.642792,
+          55.169375,
+          57.603333,
+          54.342667,
+          57.184834,
+          56.388625,
+          56.049333,
+          54.866041,
+          55.047666,
+          57.46975,
+          55.018625,
+          55.242083,
+          55.039625
+        ],
+        "english": [
+          54.442291,
+          54.790125,
+          55.294875,
+          55.202917,
+          54.933166,
+          54.064792,
+          57.260042,
+          56.87275,
+          56.200541,
+          55.633375,
+          56.586834,
+          55.407083,
+          55.458791,
+          55.251916,
+          54.699708
+        ],
+        "chromium_all": [
+          55.763792,
+          54.309542,
+          55.490042,
+          55.314667,
+          55.532625,
+          54.996709,
+          54.748167,
+          58.818167,
+          57.8455,
+          61.363792,
+          54.726833,
+          54.632292,
+          54.948459,
+          55.048334,
+          54.542625
+        ],
+        "chromium_pairs": [
+          55.662834,
+          55.303334,
+          58.144667,
+          54.758375,
+          59.71775,
+          57.056666,
+          55.903583,
+          61.818333,
+          58.310792,
+          54.30275,
+          54.946833,
+          54.833625,
+          55.196208,
+          54.845125,
+          55.02325
+        ]
+      }
+    }
+  ],
+  "default_probe": {
+    "hash": [
+      1861.60875,
+      1885.205167,
+      1886.964792,
+      1885.852417,
+      1693.363458
+    ],
+    "english": [
+      1847.717625,
+      1918.700083,
+      1840.089875,
+      1905.82775,
+      1909.594917
+    ],
+    "chromium_all": [
+      1714.627666,
+      1891.211709,
+      1907.527459,
+      1815.929916,
+      1899.968791
+    ],
+    "chromium_pairs": [
+      1854.552958,
+      1922.968167,
+      1876.113042,
+      1745.102041,
+      1839.019667
+    ]
+  },
+  "query_iterations": 15,
+  "query_warmup": 2,
+  "build_iterations": 1,
+  "build_rss_runs": 1,
+  "validation": {
+    "parity": true,
+    "indexes_unchanged": true,
+    "binaries_unchanged": true,
+    "source_unchanged": true
+  }
+}

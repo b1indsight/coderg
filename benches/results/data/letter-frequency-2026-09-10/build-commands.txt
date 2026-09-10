@@ -1,0 +1,14 @@
+Baseline source: git export of main 413d14ac96e88a67bc603baafff828ddac51724a (Cargo.toml, Cargo.lock, src/*.rs, benches/*.rs).
+Candidate source: current working tree; candidate.patch records the source diff against main.
+
+CARGO_TARGET_DIR=/Users/b1indsight/personal_work/coderg/target cargo build --release --locked --offline --manifest-path .cache/2026-09-10/letter-frequency-bench/baseline-src/Cargo.toml --bin coderg
+cp target/release/coderg .cache/2026-09-10/letter-frequency-bench/before
+
+cargo rustc --release --locked --offline --bin coderg -- --cfg coderg_letter_frequency_benchmark
+cp target/release/coderg .cache/2026-09-10/letter-frequency-bench/after
+
+The otherwise unused cfg forces recompilation of the candidate crate. A plain cargo build initially reused the baseline output at the shared target path; that identical-binary copy was replaced before any measurements. The harness validates baseline index version 4 and candidate version 5 and records both binary hashes.
+
+PYTHONDONTWRITEBYTECODE=1 python3 .cache/2026-09-10/letter-frequency-bench/harness.py --plan .cache/2026-09-10/letter-frequency-bench/plan.json --baseline .cache/2026-09-10/letter-frequency-bench/before --binary .cache/2026-09-10/letter-frequency-bench/after --output .cache/2026-09-10/letter-frequency-bench/results-full --iterations 31 --warmup 3 --build-iterations 7 --rss-runs 3 --seed 20260910
+
+Run from the project root; preserve the cache directory layout for the harness's repository-root resolution. Choose a new output directory when repeating. The initial sandbox attempt stopped during machine metadata collection, before any measurements. The measured run was executed with approval outside the sandbox to allow sysctl and /usr/bin/time -l.

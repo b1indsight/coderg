@@ -17,6 +17,12 @@ It follows the design described in Cursor's
 - small bases rebuild at 8 MiB of accumulated deltas; bases of at least 32 MiB
   use B/M generations with a 25% merge threshold.
 
+Sparse-gram weights now use a fixed English letter-frequency prior: rarer
+letter pairs receive higher weights, with deterministic hash tie-breaking.
+Index logic v5 requires rebuilding older indexes; default search does this
+automatically, while `--no-refresh` rejects them. See the
+[weighting rules and compatibility](docs/letter-frequency-weights.md).
+
 ## Install
 
 ```sh
@@ -62,9 +68,15 @@ state, allocator overhead, and resident mappings are outside this buffer budget;
 it is not a hard process RSS limit. See the [design and benchmark](docs/index-build-memory-budget.md).
 The [build optimization overview](docs/index-build-evolution.md) compares the
 original implementation with the current pipeline and summarizes measured gains.
-The [latest project benchmark](benches/results/main-projects-2026-09-09.md) measures
+The [project benchmark](benches/results/main-projects-2026-09-09.md) measures
 build time, peak memory, and query latency against the previous main branch on
 frozen vLLM, viberwhisper, and agentflow snapshots.
+The [latest weighting benchmark](benches/results/identifier-word-or-2026-09-10.md)
+compares 85 case-sensitive identifier, word, and OR queries over 31 rounds.
+The default English prior performs about the same overall as measured Chromium
+letter-pair weights, with gains and regressions on individual queries. On vLLM,
+its index is 73.03 MiB versus 62.54 MiB for hash-only weights and 68.72 MiB for
+Chromium pairs. See the [default-weight decision](docs/letter-frequency-weights.md#最新-benchmark-与默认方案).
 
 The index stores immutable lookup/postings pairs under `segments/`. Every
 document points to the segment containing its current version, so postings

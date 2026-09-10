@@ -11,14 +11,10 @@ const HASH_PRIME: u64 = 0x1000_0000_01b3;
 const PAIR_TABLE_THRESHOLD: usize = 4096;
 static PAIR_WEIGHT_TABLE: OnceLock<Box<[u64]>> = OnceLock::new();
 
-// English letter frequencies in thousandths of a percent, a through z.
-// https://www.math.stonybrook.edu/~scott/papers/MSTP/crypto/2I_m_Substitute.html
-// This is a fixed unigram prior, not a measured source-code bigram model.
-const LETTER_FREQUENCIES: [u32; 26] = [
-    8167, 1492, 2782, 4253, 12702, 2228, 2015, 6094, 6996, 153, 772, 4025, 2406, 6749, 7507, 1929,
-    95, 5987, 6327, 9056, 2758, 978, 2360, 150, 1974, 74,
-];
-const COMMON_FREQUENCY: u32 = 12702;
+// Chromium ASCII initial letter counts; fixed normalized frequencies per 100000.
+// Derived from counts.json; no document-context-dependent query weights.
+const LETTER_FREQUENCIES: [u32; 26] = [6157, 4769, 8384, 4860, 4093, 4509, 2382, 2533, 6932, 457, 1289, 2538, 3566, 3369, 3032, 5026, 293, 3859, 8254, 9465, 2747, 2130, 2352, 6301, 423, 280];
+const COMMON_FREQUENCY: u32 = 9465;
 
 #[derive(Default)]
 pub(crate) struct GramHasher(u64);
@@ -483,8 +479,6 @@ mod tests {
                 assert_eq!(pair_weight(&[byte, b'_']) >> 32, 0);
             }
         }
-        assert!(pair_weight(b"qz") > pair_weight(b"th"));
-        assert!(pair_weight(b"th") > pair_weight(b"ee"));
     }
 
     #[test]

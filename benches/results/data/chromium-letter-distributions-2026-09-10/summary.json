@@ -1,0 +1,363 @@
+{
+  "vllm": {
+    "builds": {
+      "chromium_all": {
+        "build_ms": 872.001709,
+        "rss_mib": 210.25,
+        "index_mib": 73.17739009857178,
+        "ngrams": 10607616,
+        "files": 6835,
+        "source_mib": 82.38237380981445
+      },
+      "chromium_initial": {
+        "build_ms": 865.961834,
+        "rss_mib": 210.34375,
+        "index_mib": 73.27538585662842,
+        "ngrams": 10592894,
+        "files": 6835,
+        "source_mib": 82.38237380981445
+      },
+      "english": {
+        "build_ms": 866.218959,
+        "rss_mib": 210.375,
+        "index_mib": 73.03431987762451,
+        "ngrams": 10597884,
+        "files": 6835,
+        "source_mib": 82.38237380981445
+      },
+      "hash": {
+        "build_ms": 795.42375,
+        "rss_mib": 210.25,
+        "index_mib": 62.541810035705566,
+        "ngrams": 7980942,
+        "files": 6835,
+        "source_mib": 82.38237380981445
+      }
+    },
+    "queries": 38,
+    "mean_query_medians_ms": {
+      "hash": 42.33399989473684,
+      "hash_no_refresh": 26.53384005263158,
+      "english": 42.183128315789475,
+      "english_no_refresh": 26.51181152631579,
+      "chromium_all": 42.31084221052632,
+      "chromium_all_no_refresh": 26.52580147368421,
+      "chromium_initial": 42.39165452631579,
+      "chromium_initial_no_refresh": 26.761369394736843,
+      "rg": 73.96404934210527
+    },
+    "comparisons": {
+      "chromium_all_vs_hash": {
+        "no_refresh_change_pct": -0.03029557324315535,
+        "bootstrap_95_pct": [
+          -0.7434788638503331,
+          0.7537051044856247
+        ],
+        "index_change_pct": 17.00555205676695,
+        "build_change_pct": 9.627316131810248,
+        "faster_queries": 16
+      },
+      "chromium_all_vs_english": {
+        "no_refresh_change_pct": 0.0527687342471328,
+        "bootstrap_95_pct": [
+          -0.6585663082808613,
+          0.8567944220389645
+        ],
+        "index_change_pct": 0.1958945071125262,
+        "build_change_pct": 0.6675852496551116,
+        "faster_queries": 16
+      },
+      "chromium_initial_vs_hash": {
+        "no_refresh_change_pct": 0.8575062699328173,
+        "bootstrap_95_pct": [
+          -0.15306445917230294,
+          1.5503506442348103
+        ],
+        "index_change_pct": 17.16224045129966,
+        "build_change_pct": 8.867988163541751,
+        "faster_queries": 14
+      },
+      "chromium_initial_vs_english": {
+        "no_refresh_change_pct": 0.9413082473573642,
+        "bootstrap_95_pct": [
+          -0.019435433747050368,
+          1.686072640720826
+        ],
+        "index_change_pct": 0.33007218990719345,
+        "build_change_pct": -0.029683603357855137,
+        "faster_queries": 16
+      }
+    }
+  },
+  "viberwhisper": {
+    "builds": {
+      "chromium_all": {
+        "build_ms": 55.61725,
+        "rss_mib": 21.671875,
+        "index_mib": 2.0027999877929688,
+        "ngrams": 434053,
+        "files": 123,
+        "source_mib": 1.301767349243164
+      },
+      "chromium_initial": {
+        "build_ms": 48.596917,
+        "rss_mib": 21.578125,
+        "index_mib": 1.9813575744628906,
+        "ngrams": 425590,
+        "files": 123,
+        "source_mib": 1.301767349243164
+      },
+      "english": {
+        "build_ms": 46.537834,
+        "rss_mib": 21.5625,
+        "index_mib": 2.0050182342529297,
+        "ngrams": 435512,
+        "files": 123,
+        "source_mib": 1.301767349243164
+      },
+      "hash": {
+        "build_ms": 54.467708,
+        "rss_mib": 21.453125,
+        "index_mib": 1.8038482666015625,
+        "ngrams": 368371,
+        "files": 123,
+        "source_mib": 1.301767349243164
+      }
+    },
+    "queries": 16,
+    "mean_query_medians_ms": {
+      "hash": 6.9725598125,
+      "hash_no_refresh": 5.386336,
+      "english": 6.9502813125000005,
+      "english_no_refresh": 5.3162578125,
+      "chromium_all": 6.9904505625,
+      "chromium_all_no_refresh": 5.383411375,
+      "chromium_initial": 6.9889167500000005,
+      "chromium_initial_no_refresh": 5.3471979375,
+      "rg": 7.739434875
+    },
+    "comparisons": {
+      "chromium_all_vs_hash": {
+        "no_refresh_change_pct": -0.05429711403076576,
+        "bootstrap_95_pct": [
+          -2.017112209474259,
+          1.8682873781176612
+        ],
+        "index_change_pct": 11.029293587216738,
+        "build_change_pct": 2.1105018775528395,
+        "faster_queries": 8
+      },
+      "chromium_all_vs_english": {
+        "no_refresh_change_pct": 1.2631735492982132,
+        "bootstrap_95_pct": [
+          -0.7814425329803809,
+          2.8204451415383858
+        ],
+        "index_change_pct": -0.11063472750847403,
+        "build_change_pct": 19.50975200092038,
+        "faster_queries": 5
+      },
+      "chromium_initial_vs_hash": {
+        "no_refresh_change_pct": -0.7266175466959401,
+        "bootstrap_95_pct": [
+          -2.2997047813399507,
+          1.6343672015573851
+        ],
+        "index_change_pct": 9.840589762893659,
+        "build_change_pct": -10.778479975694966,
+        "faster_queries": 9
+      },
+      "chromium_initial_vs_english": {
+        "no_refresh_change_pct": 0.5819906801218577,
+        "bootstrap_95_pct": [
+          -1.0996991300923131,
+          2.6827502301528305
+        ],
+        "index_change_pct": -1.1800720505095619,
+        "build_change_pct": 4.424535529522067,
+        "faster_queries": 6
+      }
+    }
+  },
+  "agentflow": {
+    "builds": {
+      "chromium_all": {
+        "build_ms": 59.681708,
+        "rss_mib": 21.3125,
+        "index_mib": 2.159213066101074,
+        "ngrams": 461705,
+        "files": 114,
+        "source_mib": 1.3813295364379883
+      },
+      "english": {
+        "build_ms": 58.440542,
+        "rss_mib": 21.34375,
+        "index_mib": 2.155972480773926,
+        "ngrams": 460702,
+        "files": 114,
+        "source_mib": 1.3813295364379883
+      },
+      "hash": {
+        "build_ms": 58.751083,
+        "rss_mib": 20.96875,
+        "index_mib": 1.9995403289794922,
+        "ngrams": 410268,
+        "files": 114,
+        "source_mib": 1.3813295364379883
+      },
+      "chromium_initial": {
+        "build_ms": 62.504083,
+        "rss_mib": 21.5625,
+        "index_mib": 2.1680498123168945,
+        "ngrams": 463565,
+        "files": 114,
+        "source_mib": 1.3813295364379883
+      }
+    },
+    "queries": 16,
+    "mean_query_medians_ms": {
+      "hash": 6.387228875,
+      "hash_no_refresh": 5.184,
+      "english": 6.48847125,
+      "english_no_refresh": 5.1454791875,
+      "chromium_all": 6.4994323125,
+      "chromium_all_no_refresh": 5.1750129375,
+      "chromium_initial": 6.438065125,
+      "chromium_initial_no_refresh": 5.1788566875,
+      "rg": 8.5496380625
+    },
+    "comparisons": {
+      "chromium_all_vs_hash": {
+        "no_refresh_change_pct": -0.1733615451388948,
+        "bootstrap_95_pct": [
+          -3.25869710051806,
+          1.2481842305727353
+        ],
+        "index_change_pct": 7.985472201157062,
+        "build_change_pct": 1.5840133534219314,
+        "faster_queries": 7
+      },
+      "chromium_all_vs_english": {
+        "no_refresh_change_pct": 0.5739747246815474,
+        "bootstrap_95_pct": [
+          -1.8242676102886435,
+          2.6016601696959407
+        ],
+        "index_change_pct": 0.15030736041607984,
+        "build_change_pct": 2.1238098715785414,
+        "faster_queries": 8
+      },
+      "chromium_initial_vs_hash": {
+        "no_refresh_change_pct": -0.09921513310185981,
+        "bootstrap_95_pct": [
+          -2.628909665667467,
+          2.1619067704278683
+        ],
+        "index_change_pct": 8.427411085197,
+        "build_change_pct": 6.387967350321011,
+        "faster_queries": 8
+      },
+      "chromium_initial_vs_english": {
+        "no_refresh_change_pct": 0.648676222053024,
+        "bootstrap_95_pct": [
+          -1.2614638567063907,
+          2.9316447382988997
+        ],
+        "index_change_pct": 0.5601802272834799,
+        "build_change_pct": 6.953291090284552,
+        "faster_queries": 10
+      }
+    }
+  },
+  "chromium": {
+    "builds": {
+      "hash": {
+        "build_ms": 68071.623167,
+        "rss_mib": 479.0625,
+        "index_mib": 1904.105463027954,
+        "ngrams": 133895586,
+        "files": 461882,
+        "source_mib": 2899.765827178955
+      },
+      "chromium_all": {
+        "build_ms": 76038.879875,
+        "rss_mib": 580.078125,
+        "index_mib": 2165.004817008972,
+        "ngrams": 179036118,
+        "files": 461882,
+        "source_mib": 2899.765827178955
+      },
+      "chromium_initial": {
+        "build_ms": 72220.278333,
+        "rss_mib": 584.046875,
+        "index_mib": 2155.3658657073975,
+        "ngrams": 176133220,
+        "files": 461882,
+        "source_mib": 2899.765827178955
+      },
+      "english": {
+        "build_ms": 80687.177917,
+        "rss_mib": 584.125,
+        "index_mib": 2168.5433378219604,
+        "ngrams": 179756349,
+        "files": 461882,
+        "source_mib": 2899.765827178955
+      }
+    },
+    "queries": 6,
+    "mean_query_medians_ms": {
+      "hash": 126.3825555,
+      "english": 119.30474283333334,
+      "chromium_all": 118.63572216666667,
+      "chromium_initial": 119.2504235
+    },
+    "comparisons": {
+      "chromium_all_vs_hash": {
+        "no_refresh_change_pct": -6.1296697971369385,
+        "bootstrap_95_pct": [
+          -8.559522333851943,
+          -2.729275627916672
+        ],
+        "index_change_pct": 13.701938209143606,
+        "build_change_pct": 11.70422613319202,
+        "faster_queries": 5
+      },
+      "chromium_all_vs_english": {
+        "no_refresh_change_pct": -0.5607661948538567,
+        "bootstrap_95_pct": [
+          -3.071776533588133,
+          2.0969583667164837
+        ],
+        "index_change_pct": -0.16317501021410052,
+        "build_change_pct": -5.760888113823404,
+        "faster_queries": 4
+      },
+      "chromium_initial_vs_hash": {
+        "no_refresh_change_pct": -5.643288325499951,
+        "bootstrap_95_pct": [
+          -8.207315195285725,
+          -0.07413066756091213
+        ],
+        "index_change_pct": 13.19571880645114,
+        "build_change_pct": 6.0945442065074795,
+        "faster_queries": 5
+      },
+      "chromium_initial_vs_english": {
+        "no_refresh_change_pct": -0.04552990270405566,
+        "bootstrap_95_pct": [
+          -2.619055902933587,
+          4.632333508975517
+        ],
+        "index_change_pct": -0.6076646883063086,
+        "build_change_pct": -10.493488311996234,
+        "faster_queries": 3
+      }
+    },
+    "default_probe_ms": {
+      "hash": 1887.187167,
+      "english": 1899.854333,
+      "chromium_all": 1914.33075,
+      "chromium_initial": 1913.443208
+    }
+  }
+}

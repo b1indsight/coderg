@@ -1,5 +1,8 @@
 # coderg 与 Cursor 正则搜索设计的剩余差距
 
+2026-09-10 字母权重更新：当前已加入[固定英文字母频率先验](letter-frequency-weights.md)，
+索引逻辑升为 v5。下文的纯哈希权重描述属于此前基线；真实代码语料的字符对频率模型仍未实现。
+
 截至 2026-09-10，coderg 的当前维护实现位于 `feat/generational-index-refresh`，
 基于 main `0ab2294`。原外部设计对照基线 `7438754` 的证据保留；查询覆盖、
 256 MiB 构建预算、二进制 manifest 和按规模维护均已实现。

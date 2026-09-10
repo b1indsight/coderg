@@ -1,0 +1,170 @@
+{
+  "vllm": {
+    "builds": {
+      "baseline": {
+        "ms": 788.438916,
+        "index_mib": 62.541810035705566,
+        "rss_mib": 210.46875,
+        "ngrams": 7980942,
+        "source_mib": 82.38237380981445,
+        "files": 6835
+      },
+      "optimized": {
+        "ms": 863.331959,
+        "index_mib": 73.03431987762451,
+        "rss_mib": 210.34375,
+        "ngrams": 10597884,
+        "source_mib": 82.38237380981445,
+        "files": 6835
+      }
+    },
+    "build_change_pct": {
+      "ms": 9.498902385482966,
+      "index_mib": 16.77679273421844,
+      "rss_mib": -0.059391239792128125,
+      "ngrams": 32.789888712385086
+    },
+    "query_count": 38,
+    "mean_query_medians_ms": {
+      "baseline": 41.38975436842105,
+      "optimized": 41.451102,
+      "baseline_no_refresh": 26.256110684210526,
+      "optimized_no_refresh": 26.172733710526316,
+      "rg": 72.56957792105263
+    },
+    "validation": {
+      "corpus_unchanged": true,
+      "index_unchanged": true,
+      "binaries_unchanged": true,
+      "source_unchanged": true
+    },
+    "optimized": {
+      "change_pct": 0.14821936615732056,
+      "bootstrap_95_pct": [
+        -0.23364692386645958,
+        0.5986799201395554
+      ],
+      "faster_queries": 17
+    },
+    "optimized_no_refresh": {
+      "change_pct": -0.3175526439807008,
+      "bootstrap_95_pct": [
+        -0.879347281571663,
+        0.11361393467212988
+      ],
+      "faster_queries": 20
+    }
+  },
+  "viberwhisper": {
+    "builds": {
+      "baseline": {
+        "ms": 41.646958,
+        "index_mib": 1.8038482666015625,
+        "rss_mib": 20.890625,
+        "ngrams": 368371,
+        "source_mib": 1.301767349243164,
+        "files": 123
+      },
+      "optimized": {
+        "ms": 42.729584,
+        "index_mib": 2.0050182342529297,
+        "rss_mib": 21.609375,
+        "ngrams": 435512,
+        "source_mib": 1.301767349243164,
+        "files": 123
+      }
+    },
+    "build_change_pct": {
+      "ms": 2.599531999431992,
+      "index_mib": 11.152266594483029,
+      "rss_mib": 3.4405385190725557,
+      "ngrams": 18.22646190932511
+    },
+    "query_count": 16,
+    "mean_query_medians_ms": {
+      "baseline": 6.2892760625,
+      "optimized": 6.301502625,
+      "baseline_no_refresh": 4.8413774375,
+      "optimized_no_refresh": 4.8367630625,
+      "rg": 7.441494625
+    },
+    "validation": {
+      "corpus_unchanged": true,
+      "index_unchanged": true,
+      "binaries_unchanged": true,
+      "source_unchanged": true
+    },
+    "optimized": {
+      "change_pct": 0.1944033363855846,
+      "bootstrap_95_pct": [
+        -0.6194141607869907,
+        1.0267379617163508
+      ],
+      "faster_queries": 8
+    },
+    "optimized_no_refresh": {
+      "change_pct": -0.09531120140021665,
+      "bootstrap_95_pct": [
+        -0.8675830205024604,
+        1.1871808368679515
+      ],
+      "faster_queries": 8
+    }
+  },
+  "agentflow": {
+    "builds": {
+      "baseline": {
+        "ms": 48.4845,
+        "index_mib": 1.9995403289794922,
+        "rss_mib": 20.765625,
+        "ngrams": 410268,
+        "source_mib": 1.3813295364379883,
+        "files": 114
+      },
+      "optimized": {
+        "ms": 47.682417,
+        "index_mib": 2.155972480773926,
+        "rss_mib": 21.1875,
+        "ngrams": 460702,
+        "source_mib": 1.3813295364379883,
+        "files": 114
+      }
+    },
+    "build_change_pct": {
+      "ms": -1.654308077839306,
+      "index_mib": 7.82340568615949,
+      "rss_mib": 2.0316027088036037,
+      "ngrams": 12.292940224438652
+    },
+    "query_count": 16,
+    "mean_query_medians_ms": {
+      "baseline": 6.2781875,
+      "optimized": 6.276325375,
+      "baseline_no_refresh": 5.039585875,
+      "optimized_no_refresh": 5.0230703125,
+      "rg": 8.442593875
+    },
+    "validation": {
+      "corpus_unchanged": true,
+      "index_unchanged": true,
+      "binaries_unchanged": true,
+      "source_unchanged": true
+    },
+    "optimized": {
+      "change_pct": -0.029660232352091143,
+      "bootstrap_95_pct": [
+        -0.7095801934155155,
+        0.8086002862937702
+      ],
+      "faster_queries": 6
+    },
+    "optimized_no_refresh": {
+      "change_pct": -0.3277166598535275,
+      "bootstrap_95_pct": [
+        -1.3481826348867632,
+        0.5471004212994623
+      ],
+      "faster_queries": 10
+    }
+  }
+}
