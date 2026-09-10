@@ -1,5 +1,9 @@
 # Manifest 二进制格式
 
+字母频率权重更新将索引逻辑升为 v5，需要重建 v4 索引；
+`CDRGMF01` 封装和段字节格式不变。下文 v4 兼容性描述属于更新前基线。
+见[字母频率权重](letter-frequency-weights.md)。
+
 截至 2026-09-10，当前活动快照写入 `manifest.bin`，编码为 8 字节格式头
 `CDRGMF01` 加 bincode 2 的 Serde 编码，采用小端序和定长整数。
 字段顺序由 [manifest.rs](../src/manifest.rs) 定义；变更字段顺序或类型时必须升级

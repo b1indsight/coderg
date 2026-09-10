@@ -22,7 +22,8 @@ use crate::{
     compaction, git_state, ngram, segment,
 };
 
-const VERSION: u32 = 4;
+// v5 changes sparse-gram selection to the fixed letter-frequency prior.
+const VERSION: u32 = 5;
 // Small snapshots do not amortize the parallel walker's worker startup and
 // shutdown costs. This hint only selects how to walk; every file is checked.
 const MAX_SERIAL_WALK_FILES: usize = 512;
