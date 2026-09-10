@@ -135,11 +135,22 @@ fn write(
 
 /// Encode sorted, unique records without retaining a posting list or the
 /// lookup directory in memory. The directory and body use independent cursors.
+#[cfg(test)]
 pub fn write_sorted(
     index_dir: &Path,
     id: u64,
     ngrams: u64,
     records: impl IntoIterator<Item = Result<(ngram::GramHash, u32)>>,
+) -> Result<SegmentMeta> {
+    write_sorted_with_durability(index_dir, id, ngrams, records, true)
+}
+
+pub fn write_sorted_with_durability(
+    index_dir: &Path,
+    id: u64,
+    ngrams: u64,
+    records: impl IntoIterator<Item = Result<(ngram::GramHash, u32)>>,
+    durable: bool,
 ) -> Result<SegmentMeta> {
     const ENCODE_BYTES: usize = 64 * 1024;
     let segments_dir = index_dir.join("segments");
@@ -224,8 +235,13 @@ pub fn write_sorted(
     lookup_file.flush()?;
     postings_file.flush()?;
     drop((directory, lookup_file, postings_file));
-    replace(lookup_tmp, index_dir.join(&lookup_name))?;
-    replace(postings_tmp, index_dir.join(&postings_name))?;
+    if durable {
+        replace(lookup_tmp, index_dir.join(&lookup_name))?;
+        replace(postings_tmp, index_dir.join(&postings_name))?;
+    } else {
+        fs::rename(lookup_tmp, index_dir.join(&lookup_name))?;
+        fs::rename(postings_tmp, index_dir.join(&postings_name))?;
+    }
     Ok(SegmentMeta {
         id,
         lookup: lookup_name,
@@ -255,6 +271,19 @@ pub fn write_partitioned<R>(
 where
     R: IntoIterator<Item = Result<(ngram::GramHash, u32)>>,
 {
+    write_partitioned_with_durability(index_dir, id, partition_count, records, true)
+}
+
+pub fn write_partitioned_with_durability<R>(
+    index_dir: &Path,
+    id: u64,
+    partition_count: usize,
+    records: impl Fn(usize) -> Result<R> + Sync,
+    durable: bool,
+) -> Result<(SegmentMeta, u64)>
+where
+    R: IntoIterator<Item = Result<(ngram::GramHash, u32)>>,
+{
     let segments_dir = index_dir.join("segments");
     fs::create_dir_all(&segments_dir)?;
     let temporary = tempfile::Builder::new()
@@ -264,19 +293,34 @@ where
         .into_par_iter()
         .map(|part| encode_postings_part(temporary.path(), part, records(part)?))
         .collect::<Result<Vec<_>>>()?;
+    assemble_parts(index_dir, id, temporary.path(), &parts, durable)
+}
+
+fn assemble_parts(
+    index_dir: &Path,
+    id: u64,
+    temporary: &Path,
+    parts: &[EncodedPart],
+    durable: bool,
+) -> Result<(SegmentMeta, u64)> {
     let ngrams = parts.iter().map(|part| part.ngrams).sum::<u64>();
     let scratch_bytes = parts
         .iter()
         .map(|part| part.postings_bytes + part.ngrams * 12)
         .sum();
-    let postings_tmp = temporary.path().join("postings");
-    let postings_bytes = join_postings(&postings_tmp, &parts)?;
-    let lookup_tmp = temporary.path().join("lookup");
-    assemble_lookup(&lookup_tmp, ngrams, postings_bytes, &parts)?;
+    let postings_tmp = temporary.join("postings");
+    let postings_bytes = join_postings(&postings_tmp, parts)?;
+    let lookup_tmp = temporary.join("lookup");
+    assemble_lookup(&lookup_tmp, ngrams, postings_bytes, parts)?;
     let lookup_name = PathBuf::from(format!("segments/{id:020}.lookup"));
     let postings_name = PathBuf::from(format!("segments/{id:020}.postings"));
-    replace(lookup_tmp, index_dir.join(&lookup_name))?;
-    replace(postings_tmp, index_dir.join(&postings_name))?;
+    if durable {
+        replace(lookup_tmp, index_dir.join(&lookup_name))?;
+        replace(postings_tmp, index_dir.join(&postings_name))?;
+    } else {
+        fs::rename(lookup_tmp, index_dir.join(&lookup_name))?;
+        fs::rename(postings_tmp, index_dir.join(&postings_name))?;
+    }
     Ok((
         SegmentMeta {
             id,
@@ -481,6 +525,22 @@ pub fn load(index_dir: &Path, meta: &SegmentMeta) -> Result<Segment> {
 }
 
 impl Segment {
+    /// Walk sorted records without materializing even a single posting list.
+    pub fn records(&self) -> Records<'_> {
+        Records {
+            segment: self,
+            block: 0,
+            remaining: 0,
+            stream: &[],
+            posting: &[],
+            postings_offset: POSTINGS_MAGIC.len(),
+            key: 0,
+            previous_key: None,
+            previous_id: None,
+            done: false,
+        }
+    }
+
     pub fn postings(&self, hash: ngram::GramHash) -> Result<Vec<u32>> {
         let block_count = read_u64(&self.lookup[16..24]) as usize;
         let mut low = 0;
@@ -557,6 +617,120 @@ impl Segment {
     }
 }
 
+pub struct Records<'a> {
+    segment: &'a Segment,
+    block: usize,
+    remaining: u16,
+    stream: &'a [u8],
+    posting: &'a [u8],
+    postings_offset: usize,
+    key: u32,
+    previous_key: Option<u32>,
+    previous_id: Option<u32>,
+    done: bool,
+}
+
+impl Records<'_> {
+    fn next_record(&mut self) -> Result<Option<(ngram::GramHash, u32)>> {
+        loop {
+            if !self.posting.is_empty() {
+                let delta = u32::try_from(read_varint(&mut self.posting)?)
+                    .context("invalid posting delta")?;
+                let id = match self.previous_id {
+                    Some(previous) => previous
+                        .checked_add(delta)
+                        .filter(|&id| id > previous)
+                        .context("posting IDs are not strictly increasing")?,
+                    None => delta,
+                };
+                self.previous_id = Some(id);
+                return Ok(Some((self.key, id)));
+            }
+            if self.remaining == 0 {
+                if !self.stream.is_empty() {
+                    bail!("trailing lookup block data");
+                }
+                let blocks = read_u64(&self.segment.lookup[16..24]) as usize;
+                if self.block == blocks {
+                    if self.postings_offset != self.segment.postings.len() {
+                        bail!("trailing postings data");
+                    }
+                    return Ok(None);
+                }
+                let descriptor = block_descriptor(&self.segment.lookup, self.block);
+                let end = if self.block + 1 == blocks {
+                    self.segment.lookup.len()
+                } else {
+                    block_descriptor(&self.segment.lookup, self.block + 1).stream_offset as usize
+                };
+                self.stream = self
+                    .segment
+                    .lookup
+                    .get(descriptor.stream_offset as usize..end)
+                    .context("invalid lookup block range")?;
+                if descriptor.entry_count == 0
+                    || usize::from(descriptor.entry_count) > BLOCK_SIZE
+                    || descriptor.postings_base as usize != self.postings_offset
+                {
+                    bail!("invalid lookup block descriptor");
+                }
+                self.key = descriptor.first_key;
+                self.remaining = descriptor.entry_count;
+                self.block += 1;
+            } else {
+                let delta =
+                    u32::try_from(read_varint(&mut self.stream)?).context("invalid key delta")?;
+                self.key = self.key.checked_add(delta).context("key overflow")?;
+            }
+            if self
+                .previous_key
+                .is_some_and(|previous| self.key <= previous)
+            {
+                bail!("segment keys are not strictly increasing");
+            }
+            self.previous_key = Some(self.key);
+            self.remaining -= 1;
+            let descriptor = read_varint(&mut self.stream)?;
+            if descriptor & 1 == 0 {
+                let id = u32::try_from(descriptor >> 1).context("invalid inline document ID")?;
+                return Ok(Some((self.key, id)));
+            }
+            let len = usize::try_from(descriptor >> 1).context("invalid posting length")?;
+            let end = self
+                .postings_offset
+                .checked_add(len)
+                .context("posting offset overflow")?;
+            if len == 0 {
+                bail!("empty external posting list");
+            }
+            self.posting = self
+                .segment
+                .postings
+                .get(self.postings_offset..end)
+                .context("invalid posting range")?;
+            self.postings_offset = end;
+            self.previous_id = None;
+        }
+    }
+}
+
+impl Iterator for Records<'_> {
+    type Item = Result<(ngram::GramHash, u32)>;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.done {
+            return None;
+        }
+        match self.next_record() {
+            Ok(Some(record)) => Some(Ok(record)),
+            result => {
+                self.done = true;
+                result.err().map(Err)
+            }
+        }
+    }
+}
+
 fn validate(lookup: &[u8], postings: &[u8]) -> Result<()> {
     if lookup.len() < HEADER_SIZE || &lookup[..8] != LOOKUP_MAGIC {
         bail!("invalid lookup segment; rebuild the index");
@@ -604,7 +778,21 @@ fn block_descriptor(lookup: &[u8], index: usize) -> BlockDescriptor {
     }
 }
 
+pub fn sync_files(index_dir: &Path, meta: &SegmentMeta) -> Result<()> {
+    sync_file(&index_dir.join(&meta.lookup))?;
+    sync_file(&index_dir.join(&meta.postings))
+}
+
+fn sync_file(path: &Path) -> Result<()> {
+    #[cfg(windows)]
+    File::options().write(true).open(path)?.sync_all()?;
+    #[cfg(not(windows))]
+    File::open(path)?.sync_all()?;
+    Ok(())
+}
+
 fn replace(from: PathBuf, to: PathBuf) -> Result<()> {
+    sync_file(&from)?;
     if cfg!(windows) && to.exists() {
         fs::remove_file(&to)?;
     }
@@ -827,5 +1015,33 @@ mod tests {
         let segment = load(directory.path(), &meta).unwrap();
         assert!(segment.postings(0).unwrap().is_empty());
         assert!(segment.postings(u32::MAX).unwrap().is_empty());
+        assert!(segment.records().next().is_none());
+    }
+
+    #[test]
+    fn cursor_round_trips_blocks_inline_ids_and_long_postings() {
+        let directory = tempfile::tempdir().unwrap();
+        let mut source: Vec<_> = (0..300)
+            .flat_map(|key| {
+                (0..if key == 128 { 100_000 } else { 1 + key % 3 }).map(move |id| (key, id))
+            })
+            .collect();
+        source.push((u32::MAX, u32::MAX));
+        let meta = write(directory.path(), 1, source.clone()).unwrap();
+        let segment = load(directory.path(), &meta).unwrap();
+        assert_eq!(
+            segment.records().collect::<Result<Vec<_>>>().unwrap(),
+            source
+        );
+        drop(segment);
+        // Corrupt a posting delta without changing the structural file header.
+        let path = directory.path().join(&meta.postings);
+        let mut bytes = fs::read(&path).unwrap();
+        bytes[9] = 0;
+        fs::write(&path, bytes).unwrap();
+        let segment = load(directory.path(), &meta).unwrap();
+        let mut cursor = segment.records();
+        assert!(cursor.any(|record| record.is_err()));
+        assert!(cursor.next().is_none());
     }
 }

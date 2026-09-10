@@ -19,12 +19,10 @@ use rayon::prelude::*;
 
 use crate::{
     build::{CHUNK_BYTES, MemoryBudget, PostingsBuilder},
-    git_state, ngram, segment,
+    compaction, git_state, ngram, segment,
 };
 
 const VERSION: u32 = 4;
-const MAX_SEGMENTS: usize = 8;
-const MIN_LARGE_CHANGE: usize = 64;
 // Small snapshots do not amortize the parallel walker's worker startup and
 // shutdown costs. This hint only selects how to walk; every file is checked.
 const MAX_SERIAL_WALK_FILES: usize = 512;
@@ -82,14 +80,22 @@ pub struct Stats {
     pub index_bytes: u64,
     pub segments: usize,
     pub git_tree: Option<String>,
+    pub middle_segments: usize,
+    pub middle_bytes: u64,
+    pub base_bytes: u64,
+    pub generational: bool,
+    pub full_compaction_threshold_bytes: u64,
+    pub maintenance_due: bool,
 }
 
 pub enum RefreshOutcome {
     Unchanged,
     CommitAdvanced,
-    Incremental { changed: usize },
-    SwitchedToCachedTree,
     Rebuilt,
+    Incremental {
+        changed: usize,
+        compaction: compaction::Summary,
+    },
 }
 
 pub struct DiskIndex {
@@ -124,22 +130,51 @@ pub fn build(
     let root = resolve_root(path)?;
     let index_dir = resolve_index_dir(&root, requested_index_dir);
     prepare_index_dir(&root, &index_dir)?;
+    let _writer = writer_lock(&index_dir)?;
     let source_state = collect_files(&root, &index_dir, None)?;
-    let repository_state = git_state::inspect(&root, &index_dir)?;
-    let segment_id = next_segment_id(&index_dir);
-    let (indexed, segment) = index_files(
-        &root,
-        &index_dir,
-        segment_id,
+    let repository_state = git_state::identity(&root)?;
+    let mut manifest = Manifest {
+        version: VERSION,
+        root,
+        generation: 1,
+        git_repository: false,
+        git_head: None,
+        git_tree: None,
+        source_state,
+        documents: Vec::new(),
+        segments: Vec::new(),
+    };
+    update_identity(&mut manifest, repository_state);
+    rebuild(&index_dir, budget, manifest, true)
+}
+
+// The caller holds the writer lock and supplies the current source snapshot.
+fn rebuild(
+    index_dir: &Path,
+    budget: MemoryBudget,
+    mut manifest: Manifest,
+    durable: bool,
+) -> Result<BuildSummary> {
+    let segment_id = next_segment_id(index_dir);
+    let (indexed, postings) = extract_files(
+        &manifest.root,
+        index_dir,
         budget,
-        source_state
+        manifest
+            .source_state
             .iter()
             .cloned()
             .enumerate()
             .map(|(id, state)| (id as u32, state)),
     )?;
+    let segment = postings.write_with_durability(segment_id, durable)?;
+    let sync_on_growth =
+        !durable && compaction::bytes(index_dir, &segment)? >= compaction::MIN_GENERATIONAL_BYTES;
+    if sync_on_growth {
+        segment::sync_files(index_dir, &segment)?;
+    }
     let ngrams = segment.ngrams as usize;
-    let documents = indexed
+    manifest.documents = indexed
         .iter()
         .map(|file| Document {
             path: file.state.path.clone(),
@@ -150,26 +185,11 @@ pub fn build(
             segment_id,
         })
         .collect();
-    let manifest = Manifest {
-        version: VERSION,
-        root: root.clone(),
-        generation: 1,
-        git_repository: repository_state.is_some(),
-        git_head: repository_state
-            .as_ref()
-            .and_then(|state| state.head.clone()),
-        git_tree: repository_state
-            .as_ref()
-            .and_then(|state| state.tree.clone()),
-        source_state,
-        documents,
-        segments: vec![segment],
-    };
-    write_manifest(&index_dir, &manifest)?;
-    cache_manifest_if_clean(
-        &index_dir,
+    manifest.segments = vec![segment];
+    write_manifest_file(
+        &index_dir.join(manifest::FILE_NAME),
         &manifest,
-        repository_state.is_some_and(|state| state.clean),
+        durable || sync_on_growth,
     )?;
     Ok(BuildSummary {
         files: manifest
@@ -179,142 +199,120 @@ pub fn build(
             .count(),
         bytes: searchable_bytes(&manifest),
         ngrams,
-        index_dir,
+        index_dir: index_dir.to_owned(),
     })
 }
 
 pub fn refresh(
-    index: &DiskIndex,
+    index: &mut DiskIndex,
     requested_index_dir: Option<&Path>,
     budget: MemoryBudget,
 ) -> Result<RefreshOutcome> {
-    let root = &index.manifest.root;
-    let index_dir = resolve_index_dir(root, requested_index_dir);
-
-    // Most searches stay on the same commit. In that case the persisted file
-    // snapshot is enough to detect worktree changes, avoiding a full Git status
-    // walk. A changed commit still uses status below because clean tree-cache
-    // switching requires an authoritative Git answer.
-    if index.manifest.git_repository
-        && let Some(identity) = git_state::identity(root)?
-        && identity.head == index.manifest.git_head
-        && identity.tree == index.manifest.git_tree
-    {
-        let current_state =
-            collect_files(root, &index_dir, Some(index.manifest.source_state.len()))?;
-        if current_state == index.manifest.source_state {
-            return Ok(RefreshOutcome::Unchanged);
-        }
-        let changed = changed_file_count(&index.manifest.source_state, &current_state);
-        let large_change =
-            changed >= MIN_LARGE_CHANGE && changed.saturating_mul(5) > current_state.len().max(1);
-        if index.manifest.segments.len() >= MAX_SEGMENTS || large_change {
-            build(root, requested_index_dir, budget)?;
-            return Ok(RefreshOutcome::Rebuilt);
-        }
-        write_incremental(
-            index,
-            &index_dir,
-            current_state,
-            (identity.head, identity.tree),
-            None,
-            false,
-            budget,
-        )?;
-        return Ok(RefreshOutcome::Incremental { changed });
+    let root = index.manifest.root.clone();
+    let index_dir = resolve_index_dir(&root, requested_index_dir);
+    let mut identity = git_state::identity(&root)?;
+    let mut current_state =
+        collect_files(&root, &index_dir, Some(index.manifest.source_state.len()))?;
+    if current_state == index.manifest.source_state && same_identity(&index.manifest, &identity) {
+        return Ok(RefreshOutcome::Unchanged);
     }
 
-    let repository_state = if index.manifest.git_repository {
-        git_state::inspect(root, &index_dir)?
-    } else {
-        None
-    };
-    let current_head = repository_state
-        .as_ref()
-        .and_then(|state| state.head.clone());
-    let current_tree = repository_state
-        .as_ref()
-        .and_then(|state| state.tree.clone());
-
-    if repository_state.as_ref().is_some_and(|state| state.clean) {
-        if current_head == index.manifest.git_head && current_tree == index.manifest.git_tree {
-            return Ok(RefreshOutcome::Unchanged);
-        }
-        if current_tree != index.manifest.git_tree
-            && current_tree.is_some()
-            && restore_cached_tree(
-                index,
-                &index_dir,
-                current_head.as_deref(),
-                current_tree.as_deref(),
-            )?
-        {
-            return Ok(RefreshOutcome::SwitchedToCachedTree);
-        }
-        if current_tree == index.manifest.git_tree {
-            let mut manifest = index.manifest.clone();
-            manifest.generation += 1;
-            manifest.git_head = current_head;
-            write_manifest(&index_dir, &manifest)?;
-            cache_manifest_if_clean(&index_dir, &manifest, true)?;
-            return Ok(RefreshOutcome::CommitAdvanced);
-        }
+    // Only writers lock. If the published snapshot has not changed, the first
+    // scan is still relative to the correct indexed state. Like any worktree
+    // scan, it does not freeze source edits made after that scan.
+    let _writer = writer_lock(&index_dir)?;
+    if read_manifest(&index_dir.join(manifest::FILE_NAME))? != index.manifest {
+        *index = load(&root, requested_index_dir)?;
+        identity = git_state::identity(&root)?;
+        current_state = collect_files(&root, &index_dir, Some(index.manifest.source_state.len()))?;
     }
-
-    let current_state = collect_files(root, &index_dir, Some(index.manifest.source_state.len()))?;
     if current_state == index.manifest.source_state {
-        if current_head == index.manifest.git_head && current_tree == index.manifest.git_tree {
+        if same_identity(&index.manifest, &identity) {
             return Ok(RefreshOutcome::Unchanged);
         }
         let mut manifest = index.manifest.clone();
         manifest.generation += 1;
-        manifest.git_head = current_head;
-        manifest.git_tree = current_tree;
-        write_manifest(&index_dir, &manifest)?;
-        cache_manifest_if_clean(
-            &index_dir,
+        update_identity(&mut manifest, identity);
+        write_manifest_file(
+            &index_dir.join(manifest::FILE_NAME),
             &manifest,
-            repository_state.as_ref().is_some_and(|state| state.clean),
+            !compaction::small_base(&index_dir, &manifest)?,
         )?;
         return Ok(RefreshOutcome::CommitAdvanced);
     }
+    // Always compare with the complete indexed worktree, including dirty
+    // content. Git status against the new HEAD cannot describe that diff.
+    write_incremental(index, &index_dir, current_state, identity, budget)
+}
 
-    let known_changed = repository_state
-        .as_ref()
-        .filter(|state| !state.clean)
-        .and_then(|state| state.changed_paths.as_ref());
-    let changed = known_changed.map_or_else(
-        || changed_file_count(&index.manifest.source_state, &current_state),
-        HashSet::len,
-    );
-    let large_change =
-        changed >= MIN_LARGE_CHANGE && changed.saturating_mul(5) > current_state.len().max(1);
-    if index.manifest.segments.len() >= MAX_SEGMENTS || large_change {
-        build(root, requested_index_dir, budget)?;
-        return Ok(RefreshOutcome::Rebuilt);
+fn same_identity(manifest: &Manifest, identity: &Option<git_state::GitIdentity>) -> bool {
+    manifest.git_repository == identity.is_some()
+        && manifest.git_head.as_ref() == identity.as_ref().and_then(|state| state.head.as_ref())
+        && manifest.git_tree.as_ref() == identity.as_ref().and_then(|state| state.tree.as_ref())
+}
+
+fn update_identity(manifest: &mut Manifest, identity: Option<git_state::GitIdentity>) {
+    manifest.git_repository = identity.is_some();
+    manifest.git_head = identity.as_ref().and_then(|state| state.head.clone());
+    manifest.git_tree = identity.and_then(|state| state.tree);
+}
+
+/// Explicit maintenance operates on indexed content, without scanning source.
+/// The writer lock also protects document ownership and segment ID allocation.
+pub fn compact(
+    path: &Path,
+    requested_index_dir: Option<&Path>,
+    dry_run: bool,
+) -> Result<compaction::Summary> {
+    let root = resolve_root(path)?;
+    let index_dir = resolve_index_dir(&root, requested_index_dir);
+    let _writer = if dry_run {
+        None
+    } else {
+        Some(writer_lock(&index_dir)?)
+    };
+    let mut manifest = load(&root, requested_index_dir)?.manifest;
+    let had_multiple_segments = manifest.segments.len() > 1;
+    compaction::prune(&mut manifest);
+    let single_segment = compaction::small_base(&index_dir, &manifest)?;
+    let inputs: Vec<_> = manifest
+        .segments
+        .iter()
+        .skip(usize::from(!single_segment))
+        .take(if single_segment {
+            usize::MAX
+        } else {
+            compaction::MAX_MERGE_INPUTS
+        })
+        .map(|meta| meta.id)
+        .collect();
+    if inputs.len() < 2 && !(single_segment && had_multiple_segments) {
+        return Ok(compaction::Summary::default());
     }
-    write_incremental(
-        index,
-        &index_dir,
-        current_state,
-        (current_head, current_tree),
-        known_changed,
-        repository_state.as_ref().is_some_and(|state| state.clean),
-        budget,
-    )?;
-    Ok(RefreshOutcome::Incremental { changed })
+    if dry_run {
+        return compaction::describe(&index_dir, &manifest, &inputs);
+    }
+    let summary = if single_segment {
+        compaction::merge_to_base(&index_dir, &mut manifest, || next_segment_id(&index_dir))?
+    } else {
+        let id = next_segment_id(&index_dir);
+        compaction::merge(&index_dir, &mut manifest, &inputs, id)?
+    };
+    manifest.generation += 1;
+    write_manifest(&index_dir, &manifest)?;
+    Ok(summary)
 }
 
 fn write_incremental(
     index: &DiskIndex,
     index_dir: &Path,
     current_state: Vec<FileState>,
-    (current_head, current_tree): (Option<String>, Option<String>),
-    known_changed: Option<&HashSet<PathBuf>>,
-    cache_clean: bool,
+    identity: Option<git_state::GitIdentity>,
     budget: MemoryBudget,
-) -> Result<()> {
+) -> Result<RefreshOutcome> {
     let mut manifest = index.manifest.clone();
+    let changed = changed_file_count(&manifest.source_state, &current_state);
+    let small = compaction::small_base(index_dir, &manifest)?;
     let old_states: HashMap<&Path, &FileState> = manifest
         .source_state
         .iter()
@@ -339,14 +337,9 @@ fn write_incremental(
     }
     let mut pending = Vec::new();
     for state in &current_state {
-        let unchanged = match known_changed {
-            Some(changed) => {
-                old_states.contains_key(state.path.as_path()) && !changed.contains(&state.path)
-            }
-            None => old_states
-                .get(state.path.as_path())
-                .is_some_and(|old| *old == state),
-        };
+        let unchanged = old_states
+            .get(state.path.as_path())
+            .is_some_and(|old| *old == state);
         if unchanged {
             continue;
         }
@@ -370,43 +363,69 @@ fn write_incremental(
         pending.push((id, state.clone()));
     }
 
-    if !pending.is_empty() {
-        let segment_id = next_segment_id(index_dir);
-        let (indexed, segment) =
-            index_files(&manifest.root, index_dir, segment_id, budget, pending)?;
-        for file in indexed {
-            let document = &mut manifest.documents[file.id as usize];
-            document.path = file.state.path;
-            document.len = file.state.len;
-            document.modified_nanos = file.state.modified_nanos;
-            document.active = true;
-            document.searchable = file.searchable;
-            document.segment_id = segment_id;
-        }
-        manifest.segments.push(segment);
+    let segment_id = next_segment_id(index_dir);
+    let (indexed, changes) = extract_files(&manifest.root, index_dir, budget, pending)?;
+    let has_changes = !indexed.is_empty();
+    for file in indexed {
+        let document = &mut manifest.documents[file.id as usize];
+        document.path = file.state.path;
+        document.len = file.state.len;
+        document.modified_nanos = file.state.modified_nanos;
+        document.active = true;
+        document.searchable = file.searchable;
+        document.segment_id = segment_id;
     }
     manifest.generation += 1;
-    manifest.git_head = current_head;
-    manifest.git_tree = current_tree;
+    update_identity(&mut manifest, identity);
     manifest.source_state = current_state;
-    write_manifest(index_dir, &manifest)?;
-    cache_manifest_if_clean(index_dir, &manifest, cache_clean)?;
-    Ok(())
+    let summary = if small {
+        if has_changes {
+            manifest
+                .segments
+                .push(changes.write_with_durability(segment_id, false)?);
+        }
+        // Count every appended segment, including obsolete versions, just as
+        // the old update path retained them until a rebuild. B is excluded.
+        if compaction::small_rebuild_due(index_dir, &manifest)? {
+            rebuild(index_dir, budget, manifest, false)?;
+            return Ok(RefreshOutcome::Rebuilt);
+        }
+        compaction::Summary::default()
+    } else {
+        if has_changes {
+            manifest.segments.push(changes.write(segment_id)?);
+        }
+        compaction::prune(&mut manifest);
+        let inputs = compaction::automatic_plan(index_dir, &manifest)?;
+        if inputs.is_empty() {
+            compaction::Summary::default()
+        } else {
+            let id = next_segment_id(index_dir);
+            compaction::merge(index_dir, &mut manifest, &inputs, id)?
+        }
+    };
+    write_manifest_file(&index_dir.join(manifest::FILE_NAME), &manifest, !small)?;
+    Ok(RefreshOutcome::Incremental {
+        changed,
+        compaction: summary,
+    })
 }
 
-fn index_files<I>(
+fn extract_files<I>(
     root: &Path,
     index_dir: &Path,
-    segment_id: u64,
     budget: MemoryBudget,
     files: I,
-) -> Result<(Vec<IndexedFile>, segment::SegmentMeta)>
+) -> Result<(Vec<IndexedFile>, PostingsBuilder)>
 where
     I: IntoIterator<Item = (u32, FileState)>,
 {
     let files: Vec<_> = files.into_iter().collect();
     let workers = budget.workers(files.len());
     let mut postings = PostingsBuilder::new(index_dir, budget.record_bytes(workers));
+    if files.is_empty() {
+        return Ok((Vec::new(), postings));
+    }
     let mut searchable = vec![false; files.len()];
     let next_file = AtomicUsize::new(0);
     std::thread::scope(|scope| -> Result<()> {
@@ -444,7 +463,6 @@ where
         }
         Ok(())
     })?;
-    let segment = postings.write(segment_id)?;
     let indexed = files
         .into_iter()
         .zip(searchable)
@@ -454,7 +472,7 @@ where
             searchable,
         })
         .collect();
-    Ok((indexed, segment))
+    Ok((indexed, postings))
 }
 
 fn hash_file_chunks(
@@ -538,72 +556,38 @@ impl DiskIndex {
     }
 }
 
-fn restore_cached_tree(
-    current: &DiskIndex,
-    index_dir: &Path,
-    head: Option<&str>,
-    tree: Option<&str>,
-) -> Result<bool> {
-    let Some(tree) = tree else {
-        return Ok(false);
-    };
-    let cache_path = index_dir.join("manifests").join(format!("{tree}.bin"));
-    if !cache_path.is_file() && !cache_path.with_extension("json").is_file() {
-        return Ok(false);
-    }
-    let mut cached = read_manifest(&cache_path)?;
-    if cached.version != VERSION || cached.root != current.manifest.root {
-        return Ok(false);
-    }
-    cached.generation = current.manifest.generation + 1;
-    cached.git_head = head.map(str::to_owned);
-    cached.git_tree = Some(tree.to_owned());
-    // Checkout/reset commonly changes mtimes even when the cached Git tree is
-    // byte-for-byte identical. Rebase the metadata snapshot so the next search
-    // does not create a redundant overlay segment.
-    let source_state = collect_files(&cached.root, index_dir, Some(cached.source_state.len()))?;
-    let state_by_path: HashMap<&Path, &FileState> = source_state
-        .iter()
-        .map(|state| (state.path.as_path(), state))
-        .collect();
-    for document in &mut cached.documents {
-        if let Some(state) = state_by_path.get(document.path.as_path()) {
-            document.len = state.len;
-            document.modified_nanos = state.modified_nanos;
-        }
-    }
-    cached.source_state = source_state;
-    write_manifest(index_dir, &cached)?;
-    Ok(true)
-}
-
-fn cache_manifest_if_clean(index_dir: &Path, manifest: &Manifest, clean: bool) -> Result<()> {
-    let Some(tree) = &manifest.git_tree else {
-        return Ok(());
-    };
-    if !clean {
-        return Ok(());
-    }
-    let manifests_dir = index_dir.join("manifests");
-    fs::create_dir_all(&manifests_dir)?;
-    write_manifest_file(&manifests_dir.join(format!("{tree}.bin")), manifest)
-}
-
 fn read_manifest(path: &Path) -> Result<Manifest> {
     manifest::read(path)
 }
 
 fn write_manifest(index_dir: &Path, manifest: &Manifest) -> Result<()> {
-    write_manifest_file(&index_dir.join(manifest::FILE_NAME), manifest)
+    write_manifest_file(&index_dir.join(manifest::FILE_NAME), manifest, true)
 }
 
-fn write_manifest_file(path: &Path, manifest: &Manifest) -> Result<()> {
-    let tmp = path.with_extension("bin.tmp");
-    let mut file = BufWriter::new(File::create(&tmp)?);
-    file.write_all(&manifest::encode(manifest)?)?;
-    file.flush()?;
-    replace(tmp, path.to_path_buf())?;
-    // Retire stale JSON only after the binary manifest is published.
+fn write_manifest_file(path: &Path, manifest: &Manifest, durable: bool) -> Result<()> {
+    // NamedTempFile::persist replaces atomically on supported platforms,
+    // including Windows. An interrupted publication leaves the old root valid.
+    let parent = path.parent().context("manifest has no parent directory")?;
+    #[cfg(unix)]
+    if durable {
+        File::open(parent.join("segments"))?.sync_all()?;
+    }
+    let mut temporary = tempfile::NamedTempFile::new_in(parent)?;
+    {
+        let mut writer = BufWriter::new(temporary.as_file_mut());
+        writer.write_all(&manifest::encode(manifest)?)?;
+        writer.flush()?;
+    }
+    if durable {
+        temporary.as_file().sync_all()?;
+    }
+    temporary
+        .persist(path)
+        .with_context(|| format!("cannot publish {}", path.display()))?;
+    #[cfg(unix)]
+    if durable {
+        File::open(parent)?.sync_all()?;
+    }
     match fs::remove_file(path.with_extension("json")) {
         Ok(()) => Ok(()),
         Err(error) if error.kind() == std::io::ErrorKind::NotFound => Ok(()),
@@ -611,11 +595,16 @@ fn write_manifest_file(path: &Path, manifest: &Manifest) -> Result<()> {
     }
 }
 
-fn replace(from: PathBuf, to: PathBuf) -> Result<()> {
-    if cfg!(windows) && to.exists() {
-        fs::remove_file(&to)?;
-    }
-    fs::rename(&from, &to).with_context(|| format!("cannot replace {}", to.display()))
+fn writer_lock(index_dir: &Path) -> Result<File> {
+    let file = File::options()
+        .read(true)
+        .write(true)
+        .create(true)
+        .truncate(false)
+        .open(index_dir.join("write.lock"))
+        .context("cannot open index writer lock")?;
+    file.lock().context("cannot lock index writer")?;
+    Ok(file)
 }
 
 fn prepare_index_dir(root: &Path, index_dir: &Path) -> Result<()> {
@@ -748,6 +737,21 @@ pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
         index_bytes += fs::metadata(index_dir.join(&segment.lookup))?.len();
         index_bytes += fs::metadata(index_dir.join(&segment.postings))?.len();
     }
+    let middle_bytes = index
+        .manifest
+        .segments
+        .iter()
+        .skip(1)
+        .map(|meta| compaction::bytes(&index_dir, meta))
+        .sum::<Result<u64>>()?;
+    let base_bytes = index
+        .manifest
+        .segments
+        .first()
+        .map(|meta| compaction::bytes(&index_dir, meta))
+        .transpose()?
+        .unwrap_or(0);
+    let middle_segments = index.manifest.segments.len().saturating_sub(1);
     Ok(Stats {
         root: index.manifest.root.clone(),
         files: index
@@ -766,6 +770,17 @@ pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
         index_bytes,
         segments: index.manifest.segments.len(),
         git_tree: index.manifest.git_tree.clone(),
+        middle_segments,
+        middle_bytes,
+        base_bytes,
+        generational: base_bytes >= compaction::MIN_GENERATIONAL_BYTES,
+        full_compaction_threshold_bytes: compaction::full_compaction_threshold(base_bytes),
+        maintenance_due: if base_bytes < compaction::MIN_GENERATIONAL_BYTES {
+            middle_bytes >= compaction::SMALL_REBUILD_BYTES
+        } else {
+            middle_segments > compaction::MAX_MIDDLE_SEGMENTS
+                || middle_bytes >= compaction::full_compaction_threshold(base_bytes)
+        },
     })
 }
 
@@ -836,10 +851,9 @@ mod tests {
         let directory = tempfile::tempdir().unwrap();
         let manifest = directory.path().join("manifest.json");
         fs::write(&manifest, "previous manifest").unwrap();
-        let result = index_files(
+        let result = extract_files(
             directory.path(),
             directory.path(),
-            1,
             "16".parse().unwrap(),
             (0..100).map(|id| (id, state(&format!("missing-{id}"), 0))),
         );

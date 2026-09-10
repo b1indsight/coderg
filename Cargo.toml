@@ -28,6 +28,14 @@ harness = false
 name = "manifest_load"
 harness = false
 
+[[bench]]
+name = "commit_updates"
+harness = false
+
+[[bench]]
+name = "history_updates"
+harness = false
+
 [profile.release]
 lto = "thin"
 codegen-units = 1
