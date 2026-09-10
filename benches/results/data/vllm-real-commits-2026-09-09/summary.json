@@ -1,0 +1,1134 @@
+{
+  "baseline-100.json": {
+    "base_commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+    "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "commits": 100,
+    "verified_comparisons": 630,
+    "changes": {
+      "changed_files": {
+        "median": 2.5,
+        "p95": 21,
+        "max": 94,
+        "sum": 598
+      },
+      "added_lines": {
+        "median": 67.0,
+        "p95": 1211,
+        "max": 17926,
+        "sum": 42844
+      },
+      "deleted_lines": {
+        "median": 7.0,
+        "p95": 151,
+        "max": 350,
+        "sum": 3589
+      },
+      "target_source_bytes": {
+        "median": 86298.0,
+        "p95": 605210,
+        "max": 3917820,
+        "sum": 20758530
+      }
+    },
+    "variants": {
+      "main": {
+        "update_ms": {
+          "median": 77.01514549999999,
+          "p95": 846.0762090000001,
+          "max": 854.381417,
+          "sum": 16915.776205000002
+        },
+        "without_base_merge_ms": {
+          "median": 77.01514549999999,
+          "p95": 846.0762090000001,
+          "max": 854.381417,
+          "sum": 16915.776205000002
+        },
+        "full_merges": [],
+        "middle_merges": 0,
+        "max_middle_mib": 4.345841407775879,
+        "max_update_rss_mib": 220.96875,
+        "final": {
+          "version": "main",
+          "wall_ms": 75.77262499999999,
+          "peak_rss_bytes": 26116096,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1788934413950171000,
+          "base_bytes": 64342278,
+          "middle_bytes": 690176,
+          "segments": 5,
+          "manifest_bytes": 1232400,
+          "retained_bytes": 979932040
+        },
+        "queries": {
+          "AsyncMock|default": {
+            "checkpoint_medians_ms": {
+              "0": 21.204708999999998,
+              "1": 20.598792,
+              "25": 20.972208,
+              "50": 22.855207999999998,
+              "100": 21.412582999999998
+            },
+            "all_samples_ms": {
+              "median": 21.177917,
+              "p95": 23.305667,
+              "max": 23.305667,
+              "sum": 321.106586
+            }
+          },
+          "AsyncMock|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 3.688541,
+              "1": 3.6494169999999997,
+              "25": 3.856167,
+              "50": 3.85,
+              "100": 3.929208
+            },
+            "all_samples_ms": {
+              "median": 3.793917,
+              "p95": 4.031417,
+              "max": 4.031417,
+              "sum": 56.79475
+            }
+          },
+          "SamplingParams|default": {
+            "checkpoint_medians_ms": {
+              "0": 25.354875,
+              "1": 23.971667,
+              "25": 23.798040999999998,
+              "50": 26.778333,
+              "100": 25.506291
+            },
+            "all_samples_ms": {
+              "median": 25.354875,
+              "p95": 27.661416000000003,
+              "max": 27.661416000000003,
+              "sum": 376.527832
+            }
+          },
+          "SamplingParams|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 7.438709,
+              "1": 7.598708,
+              "25": 7.7524999999999995,
+              "50": 7.823167000000001,
+              "100": 7.690834
+            },
+            "all_samples_ms": {
+              "median": 7.690834,
+              "p95": 15.579583,
+              "max": 15.579583,
+              "sum": 123.05146
+            }
+          },
+          "class |default": {
+            "checkpoint_medians_ms": {
+              "0": 48.770542,
+              "1": 47.8645,
+              "25": 47.846667000000004,
+              "50": 49.871125,
+              "100": 50.537583
+            },
+            "all_samples_ms": {
+              "median": 48.770542,
+              "p95": 51.562749999999994,
+              "max": 51.562749999999994,
+              "sum": 725.713667
+            }
+          },
+          "class |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 32.083166000000006,
+              "1": 30.738459,
+              "25": 30.883542,
+              "50": 33.153584,
+              "100": 33.252333
+            },
+            "all_samples_ms": {
+              "median": 32.083166000000006,
+              "p95": 33.487833,
+              "max": 33.487833,
+              "sum": 478.961834
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "to": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "changed_files": 4,
+            "version": "main",
+            "wall_ms": 65.117625,
+            "peak_rss_bytes": 23166976,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788934413950171000,
+            "base_bytes": 64342278,
+            "middle_bytes": 189959,
+            "segments": 4,
+            "manifest_bytes": 1232294,
+            "retained_bytes": 979931934
+          },
+          {
+            "from": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "to": "f19431e5c8634cd0d1641d3f7f4a01043f0eddab",
+            "changed_files": 224,
+            "version": "main",
+            "wall_ms": 68.178041,
+            "peak_rss_bytes": 23625728,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788934376898288000,
+            "base_bytes": 64157941,
+            "middle_bytes": 143374,
+            "segments": 3,
+            "manifest_bytes": 1230658,
+            "retained_bytes": 979930298
+          },
+          {
+            "from": "f19431e5c8634cd0d1641d3f7f4a01043f0eddab",
+            "to": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+            "changed_files": 322,
+            "version": "main",
+            "wall_ms": 75.087916,
+            "peak_rss_bytes": 23298048,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788934336425169000,
+            "base_bytes": 63384504,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 1219134,
+            "retained_bytes": 979918774
+          },
+          {
+            "from": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+            "to": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "changed_files": 506,
+            "version": "main",
+            "wall_ms": 68.514375,
+            "peak_rss_bytes": 24887296,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788934413950171000,
+            "base_bytes": 64342278,
+            "middle_bytes": 690176,
+            "segments": 5,
+            "manifest_bytes": 1232400,
+            "retained_bytes": 979932040
+          }
+        ]
+      },
+      "manual": {
+        "update_ms": {
+          "median": 65.777125,
+          "p95": 92.2655,
+          "max": 126.94574999999999,
+          "sum": 6942.412294
+        },
+        "without_base_merge_ms": {
+          "median": 65.777125,
+          "p95": 92.2655,
+          "max": 126.94574999999999,
+          "sum": 6942.412294
+        },
+        "full_merges": [],
+        "middle_merges": 48,
+        "max_middle_mib": 16.440149307250977,
+        "max_update_rss_mib": 40.765625,
+        "final": {
+          "version": "manual",
+          "wall_ms": 72.660709,
+          "peak_rss_bytes": 25886720,
+          "diagnostic": "coderg: incrementally indexed 4 changed files\ncoderg: compacted 2 middle segments",
+          "base_id": 1788934337661921000,
+          "base_bytes": 63384504,
+          "middle_bytes": 17238746,
+          "segments": 9,
+          "manifest_bytes": 1233026,
+          "retained_bytes": 127783896
+        },
+        "queries": {
+          "AsyncMock|default": {
+            "checkpoint_medians_ms": {
+              "0": 19.178792,
+              "1": 20.884,
+              "25": 21.828708,
+              "50": 20.462208,
+              "100": 20.953583000000002
+            },
+            "all_samples_ms": {
+              "median": 20.953583000000002,
+              "p95": 23.02425,
+              "max": 23.02425,
+              "sum": 315.402583
+            }
+          },
+          "AsyncMock|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 3.616083,
+              "1": 3.485459,
+              "25": 4.074417,
+              "50": 3.9839999999999995,
+              "100": 4.088417
+            },
+            "all_samples_ms": {
+              "median": 3.92125,
+              "p95": 4.2297080000000005,
+              "max": 4.2297080000000005,
+              "sum": 57.819043
+            }
+          },
+          "SamplingParams|default": {
+            "checkpoint_medians_ms": {
+              "0": 24.565208000000002,
+              "1": 24.83575,
+              "25": 26.854083,
+              "50": 23.7765,
+              "100": 24.872792
+            },
+            "all_samples_ms": {
+              "median": 24.83575,
+              "p95": 26.866833,
+              "max": 26.866833,
+              "sum": 374.918415
+            }
+          },
+          "SamplingParams|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 7.245291,
+              "1": 7.737875,
+              "25": 8.003875,
+              "50": 7.979208999999999,
+              "100": 7.765791999999999
+            },
+            "all_samples_ms": {
+              "median": 7.765791999999999,
+              "p95": 8.317333,
+              "max": 8.317333,
+              "sum": 116.466043
+            }
+          },
+          "class |default": {
+            "checkpoint_medians_ms": {
+              "0": 46.13775,
+              "1": 49.497791,
+              "25": 50.706333,
+              "50": 47.717208,
+              "100": 48.047042
+            },
+            "all_samples_ms": {
+              "median": 48.047042,
+              "p95": 52.805208,
+              "max": 52.805208,
+              "sum": 732.019458
+            }
+          },
+          "class |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 31.138875,
+              "1": 31.690999999999995,
+              "25": 33.224958,
+              "50": 32.003375,
+              "100": 31.576374999999995
+            },
+            "all_samples_ms": {
+              "median": 31.725208,
+              "p95": 33.549833,
+              "max": 33.549833,
+              "sum": 479.505624
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "to": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "changed_files": 4,
+            "version": "manual",
+            "wall_ms": 60.5775,
+            "peak_rss_bytes": 26312704,
+            "diagnostic": "coderg: incrementally indexed 4 changed files",
+            "base_id": 1788934337661921000,
+            "base_bytes": 63384504,
+            "middle_bytes": 17230086,
+            "segments": 9,
+            "manifest_bytes": 1233026,
+            "retained_bytes": 128275453
+          },
+          {
+            "from": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "to": "f19431e5c8634cd0d1641d3f7f4a01043f0eddab",
+            "changed_files": 224,
+            "version": "manual",
+            "wall_ms": 118.402792,
+            "peak_rss_bytes": 53936128,
+            "diagnostic": "coderg: incrementally indexed 224 changed files",
+            "base_id": 1788934337661921000,
+            "base_bytes": 63384504,
+            "middle_bytes": 20843313,
+            "segments": 7,
+            "manifest_bytes": 1232296,
+            "retained_bytes": 134375382
+          },
+          {
+            "from": "f19431e5c8634cd0d1641d3f7f4a01043f0eddab",
+            "to": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+            "changed_files": 322,
+            "version": "manual",
+            "wall_ms": 123.984292,
+            "peak_rss_bytes": 57098240,
+            "diagnostic": "coderg: incrementally indexed 322 changed files",
+            "base_id": 1788934337661921000,
+            "base_bytes": 63384504,
+            "middle_bytes": 12886932,
+            "segments": 3,
+            "manifest_bytes": 1226541,
+            "retained_bytes": 141155900
+          },
+          {
+            "from": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+            "to": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "changed_files": 506,
+            "version": "manual",
+            "wall_ms": 168.181209,
+            "peak_rss_bytes": 77742080,
+            "diagnostic": "coderg: incrementally indexed 506 changed files",
+            "base_id": 1788934337661921000,
+            "base_bytes": 63384504,
+            "middle_bytes": 11225591,
+            "segments": 2,
+            "manifest_bytes": 1239479,
+            "retained_bytes": 152394429
+          }
+        ]
+      }
+    }
+  },
+  "thresholds-500.json": {
+    "base_commit": "a5f82882a6afa08e65260704011de3321a3aa4a4",
+    "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "commits": 500,
+    "verified_comparisons": 4545,
+    "changes": {
+      "changed_files": {
+        "median": 2.0,
+        "p95": 17,
+        "max": 194,
+        "sum": 2522
+      },
+      "added_lines": {
+        "median": 54.0,
+        "p95": 1049,
+        "max": 19425,
+        "sum": 137131
+      },
+      "deleted_lines": {
+        "median": 7.0,
+        "p95": 195,
+        "max": 1029,
+        "sum": 21628
+      },
+      "target_source_bytes": {
+        "median": 66191.0,
+        "p95": 570612,
+        "max": 4059651,
+        "sum": 80630927
+      }
+    },
+    "variants": {
+      "manual": {
+        "update_ms": {
+          "median": 68.66581249999999,
+          "p95": 91.070917,
+          "max": 188.62300000000002,
+          "sum": 35339.664128
+        },
+        "without_base_merge_ms": {
+          "median": 68.66581249999999,
+          "p95": 91.070917,
+          "max": 188.62300000000002,
+          "sum": 35339.664128
+        },
+        "full_merges": [],
+        "middle_merges": 299,
+        "max_middle_mib": 45.171878814697266,
+        "max_update_rss_mib": 49.28125,
+        "final": {
+          "version": "manual",
+          "wall_ms": 83.57725,
+          "peak_rss_bytes": 26247168,
+          "diagnostic": "coderg: incrementally indexed 4 changed files\ncoderg: compacted 3 middle segments",
+          "base_id": 1788934892616236000,
+          "base_bytes": 61542456,
+          "middle_bytes": 46283412,
+          "segments": 8,
+          "manifest_bytes": 1234954,
+          "retained_bytes": 411638608
+        },
+        "queries": {
+          "AsyncMock|default": {
+            "checkpoint_medians_ms": {
+              "0": 22.064625,
+              "1": 21.136125,
+              "25": 21.620625,
+              "50": 22.248708999999998,
+              "100": 21.390875,
+              "200": 22.626166,
+              "300": 22.427959,
+              "400": 22.709875,
+              "500": 23.112542
+            },
+            "all_samples_ms": {
+              "median": 22.133208,
+              "p95": 23.41725,
+              "max": 24.193416999999997,
+              "sum": 996.670921
+            }
+          },
+          "AsyncMock|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 3.677166,
+              "1": 3.596583,
+              "25": 3.779458,
+              "50": 3.873625,
+              "100": 4.028833,
+              "200": 3.9425420000000004,
+              "300": 3.828083,
+              "400": 3.9983750000000002,
+              "500": 3.974625
+            },
+            "all_samples_ms": {
+              "median": 3.872125,
+              "p95": 4.198167,
+              "max": 4.374541,
+              "sum": 175.08879100000001
+            }
+          },
+          "SamplingParams|default": {
+            "checkpoint_medians_ms": {
+              "0": 25.585417,
+              "1": 25.0425,
+              "25": 25.007749999999998,
+              "50": 25.277957999999998,
+              "100": 26.110042,
+              "200": 26.375542,
+              "300": 26.488667,
+              "400": 26.491833999999997,
+              "500": 25.973834
+            },
+            "all_samples_ms": {
+              "median": 26.015292,
+              "p95": 26.96425,
+              "max": 27.322499999999998,
+              "sum": 1165.76671
+            }
+          },
+          "SamplingParams|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 7.6700420000000005,
+              "1": 7.808333,
+              "25": 8.043833,
+              "50": 7.981375000000001,
+              "100": 8.062083,
+              "200": 8.104708,
+              "300": 7.885916,
+              "400": 7.9135,
+              "500": 8.003
+            },
+            "all_samples_ms": {
+              "median": 7.926792,
+              "p95": 8.222959,
+              "max": 8.327708,
+              "sum": 356.59000100000003
+            }
+          },
+          "class |default": {
+            "checkpoint_medians_ms": {
+              "0": 49.021167,
+              "1": 49.527916999999995,
+              "25": 49.528124999999996,
+              "50": 48.51775,
+              "100": 50.11,
+              "200": 50.453917000000004,
+              "300": 51.130874999999996,
+              "400": 50.8365,
+              "500": 52.390125000000005
+            },
+            "all_samples_ms": {
+              "median": 50.257875,
+              "p95": 52.390125000000005,
+              "max": 52.442792000000004,
+              "sum": 2255.843628
+            }
+          },
+          "class |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 31.218374999999998,
+              "1": 31.917208000000002,
+              "25": 32.093541,
+              "50": 32.10325,
+              "100": 32.142458999999995,
+              "200": 32.193082999999994,
+              "300": 32.63875,
+              "400": 33.144458,
+              "500": 33.399625
+            },
+            "all_samples_ms": {
+              "median": 32.186082999999996,
+              "p95": 33.399625,
+              "max": 34.281667,
+              "sum": 1453.936623
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "to": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "changed_files": 4,
+            "version": "manual",
+            "wall_ms": 60.706375,
+            "peak_rss_bytes": 26132480,
+            "diagnostic": "coderg: incrementally indexed 4 changed files",
+            "base_id": 1788934892616236000,
+            "base_bytes": 61542456,
+            "middle_bytes": 46774969,
+            "segments": 9,
+            "manifest_bytes": 1235060,
+            "retained_bytes": 412130271
+          },
+          {
+            "from": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "to": "d0e695a91b67a8214c2e9ed77595186d2f2844b6",
+            "changed_files": 870,
+            "version": "manual",
+            "wall_ms": 206.70075,
+            "peak_rss_bytes": 96714752,
+            "diagnostic": "coderg: incrementally indexed 871 changed files",
+            "base_id": 1788934892616236000,
+            "base_bytes": 61542456,
+            "middle_bytes": 51570263,
+            "segments": 6,
+            "manifest_bytes": 1225418,
+            "retained_bytes": 427047489
+          },
+          {
+            "from": "d0e695a91b67a8214c2e9ed77595186d2f2844b6",
+            "to": "a5f82882a6afa08e65260704011de3321a3aa4a4",
+            "changed_files": 997,
+            "version": "manual",
+            "wall_ms": 213.721125,
+            "peak_rss_bytes": 102563840,
+            "diagnostic": "coderg: incrementally indexed 1004 changed files",
+            "base_id": 1788934892616236000,
+            "base_bytes": 61542456,
+            "middle_bytes": 41300706,
+            "segments": 4,
+            "manifest_bytes": 1219769,
+            "retained_bytes": 443295625
+          },
+          {
+            "from": "a5f82882a6afa08e65260704011de3321a3aa4a4",
+            "to": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "changed_files": 1588,
+            "version": "manual",
+            "wall_ms": 332.37204199999996,
+            "peak_rss_bytes": 149159936,
+            "diagnostic": "coderg: incrementally indexed 1596 changed files",
+            "base_id": 1788934892616236000,
+            "base_bytes": 61542456,
+            "middle_bytes": 35401961,
+            "segments": 3,
+            "manifest_bytes": 1257457,
+            "retained_bytes": 468615213
+          }
+        ]
+      },
+      "auto25": {
+        "update_ms": {
+          "median": 65.52802100000001,
+          "p95": 88.92233300000001,
+          "max": 961.624334,
+          "sum": 37116.180721
+        },
+        "without_base_merge_ms": {
+          "median": 65.2198335,
+          "p95": 87.74133300000001,
+          "max": 122.751667,
+          "sum": 33698.616429
+        },
+        "full_merges": [
+          {
+            "step": 140,
+            "commit": "7f4793eaa335a3667927a0191868d01f36b170af",
+            "version": "auto25",
+            "wall_ms": 746.024208,
+            "peak_rss_bytes": 106741760,
+            "diagnostic": "coderg: incrementally indexed 23 changed files\ncoderg: compacted 10 base + middle segments (77196998 input bytes, 62041644 output bytes)",
+            "base_id": 1788935015194328000,
+            "base_bytes": 62041644,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 1201142,
+            "retained_bytes": 198016190
+          },
+          {
+            "step": 235,
+            "commit": "907b1a7f22509b0095f2711cd47637c6ca345325",
+            "version": "auto25",
+            "wall_ms": 842.3683749999999,
+            "peak_rss_bytes": 99368960,
+            "diagnostic": "coderg: incrementally indexed 5 changed files\ncoderg: compacted 10 base + middle segments (77639243 input bytes, 62700154 output bytes)",
+            "base_id": 1788935090535187000,
+            "base_bytes": 62700154,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 1211421,
+            "retained_bytes": 309758944
+          },
+          {
+            "step": 361,
+            "commit": "1356635d837c4ef002ec98c1a0296e7ff60be3c1",
+            "version": "auto25",
+            "wall_ms": 867.547375,
+            "peak_rss_bytes": 110526464,
+            "diagnostic": "coderg: incrementally indexed 37 changed files\ncoderg: compacted 8 base + middle segments (79072481 input bytes, 63328864 output bytes)",
+            "base_id": 1788935190970905000,
+            "base_bytes": 63328864,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 1218882,
+            "retained_bytes": 442481302
+          },
+          {
+            "step": 472,
+            "commit": "8277c42e4c74c5dd604f29b6d938a3456658f247",
+            "version": "auto25",
+            "wall_ms": 961.624334,
+            "peak_rss_bytes": 110362624,
+            "diagnostic": "coderg: incrementally indexed 21 changed files\ncoderg: compacted 10 base + middle segments (80362279 input bytes, 64345315 output bytes)",
+            "base_id": 1788935279689377000,
+            "base_bytes": 64345315,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 1233168,
+            "retained_bytes": 562073322
+          }
+        ],
+        "middle_merges": 242,
+        "max_middle_mib": 14.953954696655273,
+        "max_update_rss_mib": 105.40625,
+        "final": {
+          "version": "auto25",
+          "wall_ms": 65.829292,
+          "peak_rss_bytes": 25477120,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1788935279689377000,
+          "base_bytes": 64345315,
+          "middle_bytes": 5002560,
+          "segments": 8,
+          "manifest_bytes": 1234954,
+          "retained_bytes": 572863245
+        },
+        "queries": {
+          "AsyncMock|default": {
+            "checkpoint_medians_ms": {
+              "0": 22.424291999999998,
+              "1": 22.117209,
+              "25": 22.335957999999998,
+              "50": 22.62475,
+              "100": 21.681042,
+              "200": 22.301624999999998,
+              "300": 22.367250000000002,
+              "400": 22.664125,
+              "500": 21.895333
+            },
+            "all_samples_ms": {
+              "median": 22.335957999999998,
+              "p95": 23.24725,
+              "max": 23.595458,
+              "sum": 997.270128
+            }
+          },
+          "AsyncMock|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 3.646166,
+              "1": 3.600541,
+              "25": 3.758375,
+              "50": 3.925708,
+              "100": 3.9171249999999995,
+              "200": 3.878792,
+              "300": 3.868,
+              "400": 3.938583,
+              "500": 3.892458
+            },
+            "all_samples_ms": {
+              "median": 3.864791,
+              "p95": 4.0929590000000005,
+              "max": 4.110709,
+              "sum": 173.239459
+            }
+          },
+          "SamplingParams|default": {
+            "checkpoint_medians_ms": {
+              "0": 25.750583,
+              "1": 25.180208,
+              "25": 25.646334,
+              "50": 25.847417,
+              "100": 25.760749999999998,
+              "200": 26.410125,
+              "300": 26.025833000000002,
+              "400": 26.572083,
+              "500": 26.702875000000002
+            },
+            "all_samples_ms": {
+              "median": 26.025833000000002,
+              "p95": 27.000415999999998,
+              "max": 30.008,
+              "sum": 1174.4742489999999
+            }
+          },
+          "SamplingParams|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 7.5403340000000005,
+              "1": 7.524875000000001,
+              "25": 7.8357909999999995,
+              "50": 7.920583,
+              "100": 7.9258750000000004,
+              "200": 7.950749999999999,
+              "300": 7.829875,
+              "400": 7.851208,
+              "500": 7.830458
+            },
+            "all_samples_ms": {
+              "median": 7.856458,
+              "p95": 8.177167,
+              "max": 8.304084,
+              "sum": 352.820457
+            }
+          },
+          "class |default": {
+            "checkpoint_medians_ms": {
+              "0": 49.648333,
+              "1": 50.05175,
+              "25": 49.520083,
+              "50": 50.067625,
+              "100": 50.053542,
+              "200": 50.3975,
+              "300": 50.758125,
+              "400": 51.159957999999996,
+              "500": 51.641625
+            },
+            "all_samples_ms": {
+              "median": 50.13483299999999,
+              "p95": 52.125541,
+              "max": 53.305959,
+              "sum": 2263.505252
+            }
+          },
+          "class |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 32.172083,
+              "1": 31.707582999999996,
+              "25": 32.317125000000004,
+              "50": 31.605208,
+              "100": 32.327041,
+              "200": 32.733458999999996,
+              "300": 32.540917,
+              "400": 32.960917,
+              "500": 33.575791
+            },
+            "all_samples_ms": {
+              "median": 32.371875,
+              "p95": 33.575791,
+              "max": 33.967375000000004,
+              "sum": 1456.813706
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "to": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "changed_files": 4,
+            "version": "auto25",
+            "wall_ms": 66.92516599999999,
+            "peak_rss_bytes": 25608192,
+            "diagnostic": "coderg: incrementally indexed 4 changed files",
+            "base_id": 1788935279689377000,
+            "base_bytes": 64345315,
+            "middle_bytes": 4993900,
+            "segments": 8,
+            "manifest_bytes": 1234954,
+            "retained_bytes": 573354802
+          },
+          {
+            "from": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "to": "d0e695a91b67a8214c2e9ed77595186d2f2844b6",
+            "changed_files": 870,
+            "version": "auto25",
+            "wall_ms": 219.589125,
+            "peak_rss_bytes": 95879168,
+            "diagnostic": "coderg: incrementally indexed 871 changed files",
+            "base_id": 1788935279689377000,
+            "base_bytes": 64345315,
+            "middle_bytes": 14926860,
+            "segments": 2,
+            "manifest_bytes": 1224994,
+            "retained_bytes": 588271702
+          },
+          {
+            "from": "d0e695a91b67a8214c2e9ed77595186d2f2844b6",
+            "to": "a5f82882a6afa08e65260704011de3321a3aa4a4",
+            "changed_files": 997,
+            "version": "auto25",
+            "wall_ms": 969.244416,
+            "peak_rss_bytes": 196460544,
+            "diagnostic": "coderg: incrementally indexed 1004 changed files\ncoderg: compacted 3 base + middle segments (95525960 input bytes, 61576477 output bytes)",
+            "base_id": 1788935309187166000,
+            "base_bytes": 61576477,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 1219451,
+            "retained_bytes": 666096421
+          },
+          {
+            "from": "a5f82882a6afa08e65260704011de3321a3aa4a4",
+            "to": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "changed_files": 1588,
+            "version": "auto25",
+            "wall_ms": 963.610125,
+            "peak_rss_bytes": 234471424,
+            "diagnostic": "coderg: incrementally indexed 1596 changed files\ncoderg: compacted 2 base + middle segments (86858377 input bytes, 64474865 output bytes)",
+            "base_id": 1788935311467806000,
+            "base_bytes": 64474865,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 1257245,
+            "retained_bytes": 755890980
+          }
+        ]
+      },
+      "auto50": {
+        "update_ms": {
+          "median": 67.258521,
+          "p95": 88.602166,
+          "max": 1090.9249590000002,
+          "sum": 35703.348034
+        },
+        "without_base_merge_ms": {
+          "median": 67.257083,
+          "p95": 88.602166,
+          "max": 186.558333,
+          "sum": 34612.423075
+        },
+        "full_merges": [
+          {
+            "step": 304,
+            "commit": "b911fe85c42ae984f27d183a0b1de309adab9bf2",
+            "version": "auto50",
+            "wall_ms": 1090.9249590000002,
+            "peak_rss_bytes": 117538816,
+            "diagnostic": "coderg: incrementally indexed 17 changed files\ncoderg: compacted 10 base + middle segments (92368480 input bytes, 63096966 output bytes)",
+            "base_id": 1788935146967685000,
+            "base_bytes": 63096966,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 1215736,
+            "retained_bytes": 323319331
+          }
+        ],
+        "middle_merges": 269,
+        "max_middle_mib": 28.81470012664795,
+        "max_update_rss_mib": 112.09375,
+        "final": {
+          "version": "auto50",
+          "wall_ms": 74.85558300000001,
+          "peak_rss_bytes": 25198592,
+          "diagnostic": "coderg: incrementally indexed 4 changed files\ncoderg: compacted 2 middle segments (244013 input bytes, 224077 output bytes)",
+          "base_id": 1788935146967685000,
+          "base_bytes": 63096966,
+          "middle_bytes": 21882240,
+          "segments": 9,
+          "manifest_bytes": 1235060,
+          "retained_bytes": 431219113
+        },
+        "queries": {
+          "AsyncMock|default": {
+            "checkpoint_medians_ms": {
+              "0": 21.397584000000002,
+              "1": 21.14275,
+              "25": 22.443583999999998,
+              "50": 22.518416,
+              "100": 21.807625,
+              "200": 22.497875,
+              "300": 21.404166,
+              "400": 22.834209,
+              "500": 23.207417
+            },
+            "all_samples_ms": {
+              "median": 22.249416,
+              "p95": 23.234583,
+              "max": 23.367459,
+              "sum": 994.529542
+            }
+          },
+          "AsyncMock|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 3.538417,
+              "1": 3.581083,
+              "25": 3.925125,
+              "50": 3.916083,
+              "100": 4.095208,
+              "200": 3.84975,
+              "300": 3.907125,
+              "400": 4.04225,
+              "500": 4.092625
+            },
+            "all_samples_ms": {
+              "median": 3.925125,
+              "p95": 4.206666,
+              "max": 4.239291,
+              "sum": 174.581289
+            }
+          },
+          "SamplingParams|default": {
+            "checkpoint_medians_ms": {
+              "0": 24.981917,
+              "1": 25.766125000000002,
+              "25": 26.401457999999998,
+              "50": 26.185625,
+              "100": 25.186042,
+              "200": 26.359209,
+              "300": 25.606208,
+              "400": 26.419999999999998,
+              "500": 27.080333000000003
+            },
+            "all_samples_ms": {
+              "median": 25.9775,
+              "p95": 27.080333000000003,
+              "max": 27.595708,
+              "sum": 1165.705129
+            }
+          },
+          "SamplingParams|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 7.463375,
+              "1": 7.528917000000001,
+              "25": 7.938707999999999,
+              "50": 7.960834,
+              "100": 7.853667,
+              "200": 7.900084,
+              "300": 8.011334,
+              "400": 8.0275,
+              "500": 8.238040999999999
+            },
+            "all_samples_ms": {
+              "median": 7.927999999999999,
+              "p95": 8.315208,
+              "max": 8.432875,
+              "sum": 355.195836
+            }
+          },
+          "class |default": {
+            "checkpoint_medians_ms": {
+              "0": 48.351667,
+              "1": 48.565583000000004,
+              "25": 49.691875,
+              "50": 49.561082999999996,
+              "100": 48.747749999999996,
+              "200": 49.784167,
+              "300": 50.699708,
+              "400": 51.339916,
+              "500": 50.944625
+            },
+            "all_samples_ms": {
+              "median": 49.716457999999996,
+              "p95": 52.044208000000005,
+              "max": 53.287042,
+              "sum": 2240.460877
+            }
+          },
+          "class |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 31.687791999999998,
+              "1": 31.819667000000003,
+              "25": 31.855708000000003,
+              "50": 32.2065,
+              "100": 32.312583,
+              "200": 32.842749999999995,
+              "300": 33.027959,
+              "400": 32.548167,
+              "500": 33.386375
+            },
+            "all_samples_ms": {
+              "median": 32.411083,
+              "p95": 33.3945,
+              "max": 33.713375,
+              "sum": 1455.362877
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "to": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "changed_files": 4,
+            "version": "auto50",
+            "wall_ms": 66.047667,
+            "peak_rss_bytes": 26329088,
+            "diagnostic": "coderg: incrementally indexed 4 changed files",
+            "base_id": 1788935146967685000,
+            "base_bytes": 63096966,
+            "middle_bytes": 21873580,
+            "segments": 9,
+            "manifest_bytes": 1235060,
+            "retained_bytes": 431710670
+          },
+          {
+            "from": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+            "to": "d0e695a91b67a8214c2e9ed77595186d2f2844b6",
+            "changed_files": 870,
+            "version": "auto50",
+            "wall_ms": 225.924542,
+            "peak_rss_bytes": 95780864,
+            "diagnostic": "coderg: incrementally indexed 871 changed files",
+            "base_id": 1788935146967685000,
+            "base_bytes": 63096966,
+            "middle_bytes": 19155451,
+            "segments": 3,
+            "manifest_bytes": 1225100,
+            "retained_bytes": 446627570
+          },
+          {
+            "from": "d0e695a91b67a8214c2e9ed77595186d2f2844b6",
+            "to": "a5f82882a6afa08e65260704011de3321a3aa4a4",
+            "changed_files": 997,
+            "version": "auto50",
+            "wall_ms": 236.58124999999998,
+            "peak_rss_bytes": 101842944,
+            "diagnostic": "coderg: incrementally indexed 1004 changed files",
+            "base_id": 1788935146967685000,
+            "base_bytes": 63096966,
+            "middle_bytes": 31180645,
+            "segments": 3,
+            "manifest_bytes": 1219663,
+            "retained_bytes": 462875918
+          },
+          {
+            "from": "a5f82882a6afa08e65260704011de3321a3aa4a4",
+            "to": "569adb5a9780f9c02d22a6b29826acf711512356",
+            "changed_files": 1588,
+            "version": "auto50",
+            "wall_ms": 310.970292,
+            "peak_rss_bytes": 149340160,
+            "diagnostic": "coderg: incrementally indexed 1596 changed files",
+            "base_id": 1788935146967685000,
+            "base_bytes": 63096966,
+            "middle_bytes": 25281900,
+            "segments": 2,
+            "manifest_bytes": 1257351,
+            "retained_bytes": 488195506
+          }
+        ]
+      }
+    }
+  }
+}

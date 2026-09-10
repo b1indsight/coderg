@@ -1,0 +1,1350 @@
+{
+  "variants": {
+    "main": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+    "current": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+    "profile": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+    "no_sync": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync"
+  },
+  "binary_sha256": {
+    "main": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc",
+    "current": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5",
+    "profile": "bdf482913aa8ad10a25a0fb365fc7082b72efc3b37c919e08b1c3d21bcc9fc6a",
+    "no_sync": "e65989786f790bd6528d6404aa733a774d438260391f59765edf5875852ae452"
+  },
+  "iterations": 9,
+  "warmup": 2,
+  "datasets": {
+    "viberwhisper": {
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+      "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+      "segment_hashes": [
+        "8cde9961cb47b30a9fe6350af9919b2b20bcaa2442252f0eaf254e65a0f7813e",
+        "df35f91995207eaae6207f199f3c4c7c7d65d3db2ba95b7b7f333a660f33c87e"
+      ],
+      "samples": {
+        "main": [
+          {
+            "wall_ms": 22.671542,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-main-0"
+            ]
+          },
+          {
+            "wall_ms": 22.359042,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-main-1"
+            ]
+          },
+          {
+            "wall_ms": 22.577125,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-main-2"
+            ]
+          },
+          {
+            "wall_ms": 22.168375,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-main-3"
+            ]
+          },
+          {
+            "wall_ms": 21.354834,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-main-4"
+            ]
+          },
+          {
+            "wall_ms": 22.844708,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-main-5"
+            ]
+          },
+          {
+            "wall_ms": 21.161375,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-main-6"
+            ]
+          },
+          {
+            "wall_ms": 22.579333,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-main-7"
+            ]
+          },
+          {
+            "wall_ms": 22.683125,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-main-8"
+            ]
+          }
+        ],
+        "current": [
+          {
+            "wall_ms": 41.500083,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-current-0"
+            ]
+          },
+          {
+            "wall_ms": 39.219583,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-current-1"
+            ]
+          },
+          {
+            "wall_ms": 40.540959,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-current-2"
+            ]
+          },
+          {
+            "wall_ms": 40.458875,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-current-3"
+            ]
+          },
+          {
+            "wall_ms": 39.283708,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-current-4"
+            ]
+          },
+          {
+            "wall_ms": 37.611834,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-current-5"
+            ]
+          },
+          {
+            "wall_ms": 39.916292,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-current-6"
+            ]
+          },
+          {
+            "wall_ms": 40.710167,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-current-7"
+            ]
+          },
+          {
+            "wall_ms": 41.733084,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-current-8"
+            ]
+          }
+        ],
+        "profile": [
+          {
+            "wall_ms": 40.471667,
+            "sync_ms": {
+              "sync_segment": [
+                4.237083,
+                2.92825
+              ],
+              "sync_segments_directory": [
+                3.865666
+              ],
+              "sync_manifest": [
+                3.977041
+              ],
+              "sync_index_directory": [
+                3.914625
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-profile-0"
+            ]
+          },
+          {
+            "wall_ms": 38.995375,
+            "sync_ms": {
+              "sync_segment": [
+                4.181667,
+                3.893083
+              ],
+              "sync_segments_directory": [
+                2.893958
+              ],
+              "sync_manifest": [
+                2.88075
+              ],
+              "sync_index_directory": [
+                3.821125
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-profile-1"
+            ]
+          },
+          {
+            "wall_ms": 38.163167,
+            "sync_ms": {
+              "sync_segment": [
+                3.7275,
+                3.749583
+              ],
+              "sync_segments_directory": [
+                3.03525
+              ],
+              "sync_manifest": [
+                3.7955
+              ],
+              "sync_index_directory": [
+                3.075125
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-profile-2"
+            ]
+          },
+          {
+            "wall_ms": 40.592208,
+            "sync_ms": {
+              "sync_segment": [
+                3.739125,
+                3.860834
+              ],
+              "sync_segments_directory": [
+                3.82325
+              ],
+              "sync_manifest": [
+                3.8155
+              ],
+              "sync_index_directory": [
+                3.851
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-profile-3"
+            ]
+          },
+          {
+            "wall_ms": 39.064667,
+            "sync_ms": {
+              "sync_segment": [
+                3.399959,
+                3.821625
+              ],
+              "sync_segments_directory": [
+                3.094458
+              ],
+              "sync_manifest": [
+                3.918042
+              ],
+              "sync_index_directory": [
+                2.926375
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-profile-4"
+            ]
+          },
+          {
+            "wall_ms": 35.668791,
+            "sync_ms": {
+              "sync_segment": [
+                2.100334,
+                3.064792
+              ],
+              "sync_segments_directory": [
+                3.904
+              ],
+              "sync_manifest": [
+                3.689958
+              ],
+              "sync_index_directory": [
+                3.036792
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-profile-5"
+            ]
+          },
+          {
+            "wall_ms": 38.657416,
+            "sync_ms": {
+              "sync_segment": [
+                4.034708,
+                3.90525
+              ],
+              "sync_segments_directory": [
+                3.742625
+              ],
+              "sync_manifest": [
+                3.949
+              ],
+              "sync_index_directory": [
+                2.867959
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-profile-6"
+            ]
+          },
+          {
+            "wall_ms": 38.421833,
+            "sync_ms": {
+              "sync_segment": [
+                3.287,
+                2.985
+              ],
+              "sync_segments_directory": [
+                3.9545
+              ],
+              "sync_manifest": [
+                3.818083
+              ],
+              "sync_index_directory": [
+                4.078666
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-profile-7"
+            ]
+          },
+          {
+            "wall_ms": 38.504917,
+            "sync_ms": {
+              "sync_segment": [
+                2.424625,
+                3.868292
+              ],
+              "sync_segments_directory": [
+                3.729417
+              ],
+              "sync_manifest": [
+                2.730167
+              ],
+              "sync_index_directory": [
+                4.213916
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-profile-8"
+            ]
+          }
+        ],
+        "no_sync": [
+          {
+            "wall_ms": 21.331042,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                4.2e-05
+              ],
+              "sync_manifest": [
+                4.2e-05
+              ],
+              "sync_index_directory": [
+                4.1e-05
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-no_sync-0"
+            ]
+          },
+          {
+            "wall_ms": 19.945042,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                0.0
+              ],
+              "sync_manifest": [
+                4.2e-05
+              ],
+              "sync_index_directory": [
+                0.0
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-no_sync-1"
+            ]
+          },
+          {
+            "wall_ms": 21.379542,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                4.2e-05
+              ],
+              "sync_segments_directory": [
+                0.0
+              ],
+              "sync_manifest": [
+                0.0
+              ],
+              "sync_index_directory": [
+                0.0
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-no_sync-2"
+            ]
+          },
+          {
+            "wall_ms": 21.791875,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                4.2e-05
+              ],
+              "sync_manifest": [
+                4.1e-05
+              ],
+              "sync_index_directory": [
+                4.2e-05
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-no_sync-3"
+            ]
+          },
+          {
+            "wall_ms": 20.077166,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                0.0
+              ],
+              "sync_manifest": [
+                0.0
+              ],
+              "sync_index_directory": [
+                4.1e-05
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-no_sync-4"
+            ]
+          },
+          {
+            "wall_ms": 21.075833,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                4.2e-05
+              ],
+              "sync_segments_directory": [
+                0.0
+              ],
+              "sync_manifest": [
+                0.0
+              ],
+              "sync_index_directory": [
+                4.1e-05
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-no_sync-5"
+            ]
+          },
+          {
+            "wall_ms": 21.667666,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                4.2e-05
+              ],
+              "sync_manifest": [
+                0.000167
+              ],
+              "sync_index_directory": [
+                0.0
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-no_sync-6"
+            ]
+          },
+          {
+            "wall_ms": 20.324459,
+            "sync_ms": {
+              "sync_segment": [
+                4.2e-05,
+                4.2e-05
+              ],
+              "sync_segments_directory": [
+                4.2e-05
+              ],
+              "sync_manifest": [
+                0.0
+              ],
+              "sync_index_directory": [
+                0.0
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-no_sync-7"
+            ]
+          },
+          {
+            "wall_ms": 21.903959,
+            "sync_ms": {
+              "sync_segment": [
+                4.2e-05,
+                0.0
+              ],
+              "sync_segments_directory": [
+                0.0
+              ],
+              "sync_manifest": [
+                4.2e-05
+              ],
+              "sync_index_directory": [
+                0.0
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-viberwhisper-no_sync-8"
+            ]
+          }
+        ]
+      }
+    },
+    "agentflow": {
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+      "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+      "segment_hashes": [
+        "da09af724eaefb977918930dbfc048df02c1376222c2135645f4d85bf67f0594",
+        "da65966386d98ab08b505173eb95c0d6df36761b1f6898279db793d25231dd14"
+      ],
+      "samples": {
+        "main": [
+          {
+            "wall_ms": 28.374625,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-main-0"
+            ]
+          },
+          {
+            "wall_ms": 27.783792,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-main-1"
+            ]
+          },
+          {
+            "wall_ms": 26.232791,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-main-2"
+            ]
+          },
+          {
+            "wall_ms": 27.995208,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-main-3"
+            ]
+          },
+          {
+            "wall_ms": 28.06975,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-main-4"
+            ]
+          },
+          {
+            "wall_ms": 27.566541,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-main-5"
+            ]
+          },
+          {
+            "wall_ms": 25.914167,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-main-6"
+            ]
+          },
+          {
+            "wall_ms": 28.352208,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-main-7"
+            ]
+          },
+          {
+            "wall_ms": 28.734333,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-main-8"
+            ]
+          }
+        ],
+        "current": [
+          {
+            "wall_ms": 46.275042,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-current-0"
+            ]
+          },
+          {
+            "wall_ms": 45.093625,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-current-1"
+            ]
+          },
+          {
+            "wall_ms": 44.915792,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-current-2"
+            ]
+          },
+          {
+            "wall_ms": 45.074125,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-current-3"
+            ]
+          },
+          {
+            "wall_ms": 45.868167,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-current-4"
+            ]
+          },
+          {
+            "wall_ms": 46.083375,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-current-5"
+            ]
+          },
+          {
+            "wall_ms": 45.2485,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-current-6"
+            ]
+          },
+          {
+            "wall_ms": 44.139833,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-current-7"
+            ]
+          },
+          {
+            "wall_ms": 42.882292,
+            "sync_ms": {},
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-current-8"
+            ]
+          }
+        ],
+        "profile": [
+          {
+            "wall_ms": 43.810041,
+            "sync_ms": {
+              "sync_segment": [
+                3.589292,
+                3.817042
+              ],
+              "sync_segments_directory": [
+                3.879542
+              ],
+              "sync_manifest": [
+                3.947542
+              ],
+              "sync_index_directory": [
+                2.823625
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-profile-0"
+            ]
+          },
+          {
+            "wall_ms": 45.083208,
+            "sync_ms": {
+              "sync_segment": [
+                3.420041,
+                2.871667
+              ],
+              "sync_segments_directory": [
+                3.87775
+              ],
+              "sync_manifest": [
+                3.9785
+              ],
+              "sync_index_directory": [
+                3.89125
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-profile-1"
+            ]
+          },
+          {
+            "wall_ms": 43.581625,
+            "sync_ms": {
+              "sync_segment": [
+                4.146792,
+                3.713458
+              ],
+              "sync_segments_directory": [
+                2.935042
+              ],
+              "sync_manifest": [
+                3.938625
+              ],
+              "sync_index_directory": [
+                2.922708
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-profile-2"
+            ]
+          },
+          {
+            "wall_ms": 43.789,
+            "sync_ms": {
+              "sync_segment": [
+                3.479708,
+                3.865666
+              ],
+              "sync_segments_directory": [
+                3.836458
+              ],
+              "sync_manifest": [
+                3.778166
+              ],
+              "sync_index_directory": [
+                2.072667
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-profile-3"
+            ]
+          },
+          {
+            "wall_ms": 45.216625,
+            "sync_ms": {
+              "sync_segment": [
+                2.824917,
+                3.805292
+              ],
+              "sync_segments_directory": [
+                3.688208
+              ],
+              "sync_manifest": [
+                2.973541
+              ],
+              "sync_index_directory": [
+                4.086583
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-profile-4"
+            ]
+          },
+          {
+            "wall_ms": 44.800083,
+            "sync_ms": {
+              "sync_segment": [
+                4.506667,
+                3.664208
+              ],
+              "sync_segments_directory": [
+                3.043375
+              ],
+              "sync_manifest": [
+                3.686125
+              ],
+              "sync_index_directory": [
+                3.207375
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-profile-5"
+            ]
+          },
+          {
+            "wall_ms": 42.925209,
+            "sync_ms": {
+              "sync_segment": [
+                3.570167,
+                2.727791
+              ],
+              "sync_segments_directory": [
+                3.004375
+              ],
+              "sync_manifest": [
+                3.742208
+              ],
+              "sync_index_directory": [
+                3.058167
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-profile-6"
+            ]
+          },
+          {
+            "wall_ms": 44.897375,
+            "sync_ms": {
+              "sync_segment": [
+                3.2585,
+                2.905833
+              ],
+              "sync_segments_directory": [
+                3.960167
+              ],
+              "sync_manifest": [
+                3.848208
+              ],
+              "sync_index_directory": [
+                3.774791
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-profile-7"
+            ]
+          },
+          {
+            "wall_ms": 43.109208,
+            "sync_ms": {
+              "sync_segment": [
+                4.3765,
+                2.86575
+              ],
+              "sync_segments_directory": [
+                4.036084
+              ],
+              "sync_manifest": [
+                2.830625
+              ],
+              "sync_index_directory": [
+                3.046166
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-profile-8"
+            ]
+          }
+        ],
+        "no_sync": [
+          {
+            "wall_ms": 25.885292,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                4.2e-05
+              ],
+              "sync_manifest": [
+                4.2e-05
+              ],
+              "sync_index_directory": [
+                4.1e-05
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-no_sync-0"
+            ]
+          },
+          {
+            "wall_ms": 27.073167,
+            "sync_ms": {
+              "sync_segment": [
+                4.1e-05,
+                0.0
+              ],
+              "sync_segments_directory": [
+                4.2e-05
+              ],
+              "sync_manifest": [
+                0.0
+              ],
+              "sync_index_directory": [
+                0.0
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-no_sync-1"
+            ]
+          },
+          {
+            "wall_ms": 27.454833,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                4.1e-05
+              ],
+              "sync_segments_directory": [
+                0.0
+              ],
+              "sync_manifest": [
+                4.1e-05
+              ],
+              "sync_index_directory": [
+                0.0
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-no_sync-2"
+            ]
+          },
+          {
+            "wall_ms": 25.4945,
+            "sync_ms": {
+              "sync_segment": [
+                4.2e-05,
+                4.1e-05
+              ],
+              "sync_segments_directory": [
+                4.2e-05
+              ],
+              "sync_manifest": [
+                0.0
+              ],
+              "sync_index_directory": [
+                4.1e-05
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-no_sync-3"
+            ]
+          },
+          {
+            "wall_ms": 26.693208,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                4.2e-05
+              ],
+              "sync_manifest": [
+                4.1e-05
+              ],
+              "sync_index_directory": [
+                0.0
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-no_sync-4"
+            ]
+          },
+          {
+            "wall_ms": 27.09075,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                4.2e-05
+              ],
+              "sync_manifest": [
+                0.000125
+              ],
+              "sync_index_directory": [
+                4.1e-05
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-no_sync-5"
+            ]
+          },
+          {
+            "wall_ms": 26.03125,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                4.2e-05
+              ],
+              "sync_segments_directory": [
+                0.0
+              ],
+              "sync_manifest": [
+                4.2e-05
+              ],
+              "sync_index_directory": [
+                4.1e-05
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-no_sync-6"
+            ]
+          },
+          {
+            "wall_ms": 27.174458,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                0.0
+              ],
+              "sync_manifest": [
+                0.0
+              ],
+              "sync_index_directory": [
+                0.0
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-no_sync-7"
+            ]
+          },
+          {
+            "wall_ms": 26.996084,
+            "sync_ms": {
+              "sync_segment": [
+                0.0,
+                0.0
+              ],
+              "sync_segments_directory": [
+                0.0
+              ],
+              "sync_manifest": [
+                0.0
+              ],
+              "sync_index_directory": [
+                4.2e-05
+              ]
+            },
+            "command": [
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+              "index",
+              "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+              "--index-dir",
+              "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/builds/build-agentflow-no_sync-8"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,2480 @@
+{
+  "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+  "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2",
+  "base_commit": "e65d534b0efddadfa433770621ca4340786736bf",
+  "end_commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+  "os": "macos",
+  "arch": "aarch64",
+  "variants": [
+    {
+      "name": "main",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2/index-main"
+    },
+    {
+      "name": "current",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2/index-current"
+    },
+    {
+      "name": "profile",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2/index-profile"
+    },
+    {
+      "name": "no-sync",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2/index-no-sync"
+    }
+  ],
+  "builds": [
+    {
+      "version": "main",
+      "wall_ms": 18.6145,
+      "peak_rss_bytes": 17154048,
+      "diagnostic": "",
+      "base_id": 1788937282459451000,
+      "base_bytes": 857789,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 3269,
+      "retained_bytes": 864327
+    },
+    {
+      "version": "current",
+      "wall_ms": 34.073458,
+      "peak_rss_bytes": 17547264,
+      "diagnostic": "",
+      "base_id": 1788937282478277000,
+      "base_bytes": 857789,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 3269,
+      "retained_bytes": 861058
+    },
+    {
+      "version": "profile",
+      "wall_ms": 37.054583,
+      "peak_rss_bytes": 16760832,
+      "diagnostic": "PROBE sync_segment 4.244583\nPROBE sync_segment 3.111333\nPROBE sync_segments_directory 3.907750\nPROBE sync_manifest 3.852667\nPROBE sync_index_directory 3.951417",
+      "base_id": 1788937282511905000,
+      "base_bytes": 857789,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 3269,
+      "retained_bytes": 861058
+    },
+    {
+      "version": "no-sync",
+      "wall_ms": 19.165875,
+      "peak_rss_bytes": 16728064,
+      "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000042\nPROBE sync_segments_directory 0.000041\nPROBE sync_manifest 0.000000\nPROBE sync_index_directory 0.000000",
+      "base_id": 1788937282549934000,
+      "base_bytes": 857789,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 3269,
+      "retained_bytes": 861058
+    }
+  ],
+  "updates": [
+    {
+      "step": 1,
+      "from_commit": "e65d534b0efddadfa433770621ca4340786736bf",
+      "commit": "9cca7f6765530826d562da26ff4674b1d6f7baf6",
+      "subject": "Merge pull request #1 from b1indsight/feat/m0-closeout",
+      "changed_files": 22,
+      "added_lines": 920,
+      "deleted_lines": 95,
+      "added_files": 8,
+      "deleted_files": 1,
+      "renamed_files": 0,
+      "target_source_bytes": 158490,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 29.448458,
+          "peak_rss_bytes": 14532608,
+          "diagnostic": "coderg: incrementally indexed 21 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 350043,
+          "segments": 2,
+          "manifest_bytes": 4289,
+          "retained_bytes": 1212121
+        },
+        {
+          "version": "profile",
+          "wall_ms": 28.944084,
+          "peak_rss_bytes": 14352384,
+          "diagnostic": "PROBE sync_segment 3.383167\nPROBE sync_segment 4.051500\nPROBE sync_segments_directory 3.884333\nPROBE sync_manifest 3.737167\nPROBE sync_index_directory 3.965541\ncoderg: incrementally indexed 21 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 350043,
+          "segments": 2,
+          "manifest_bytes": 4289,
+          "retained_bytes": 1212121
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 9.9085,
+          "peak_rss_bytes": 14303232,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000041\nPROBE sync_manifest 0.000000\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 21 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 350043,
+          "segments": 2,
+          "manifest_bytes": 4289,
+          "retained_bytes": 1212121
+        },
+        {
+          "version": "main",
+          "wall_ms": 10.186333000000001,
+          "peak_rss_bytes": 14827520,
+          "diagnostic": "coderg: incrementally indexed 21 changed files",
+          "base_id": 1788937282459451000,
+          "base_bytes": 857789,
+          "middle_bytes": 350043,
+          "segments": 2,
+          "manifest_bytes": 4289,
+          "retained_bytes": 1219679
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "from_commit": "9cca7f6765530826d562da26ff4674b1d6f7baf6",
+      "commit": "5b5b0b114b801c0088ee68f2abe2e69847f6ba1e",
+      "subject": "Merge pull request #2 from b1indsight/docs/documentation-refresh",
+      "changed_files": 36,
+      "added_lines": 962,
+      "deleted_lines": 607,
+      "added_files": 10,
+      "deleted_files": 1,
+      "renamed_files": 3,
+      "target_source_bytes": 189447,
+      "measurements": [
+        {
+          "version": "profile",
+          "wall_ms": 29.905542,
+          "peak_rss_bytes": 14532608,
+          "diagnostic": "PROBE sync_segment 4.434917\nPROBE sync_segment 3.919292\nPROBE sync_segments_directory 3.759167\nPROBE sync_manifest 3.969083\nPROBE sync_index_directory 3.921208\ncoderg: incrementally indexed 39 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 785391,
+          "segments": 3,
+          "manifest_bytes": 5868,
+          "retained_bytes": 1649048
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 10.166375,
+          "peak_rss_bytes": 14417920,
+          "diagnostic": "PROBE sync_segment 0.000042\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000041\nPROBE sync_manifest 0.000042\nPROBE sync_index_directory 0.000041\ncoderg: incrementally indexed 39 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 785391,
+          "segments": 3,
+          "manifest_bytes": 5868,
+          "retained_bytes": 1649048
+        },
+        {
+          "version": "main",
+          "wall_ms": 10.366541999999999,
+          "peak_rss_bytes": 14680064,
+          "diagnostic": "coderg: incrementally indexed 39 changed files",
+          "base_id": 1788937282459451000,
+          "base_bytes": 857789,
+          "middle_bytes": 785391,
+          "segments": 3,
+          "manifest_bytes": 5868,
+          "retained_bytes": 1662474
+        },
+        {
+          "version": "current",
+          "wall_ms": 29.105625,
+          "peak_rss_bytes": 14417920,
+          "diagnostic": "coderg: incrementally indexed 39 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 785391,
+          "segments": 3,
+          "manifest_bytes": 5868,
+          "retained_bytes": 1649048
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "from_commit": "5b5b0b114b801c0088ee68f2abe2e69847f6ba1e",
+      "commit": "3d849065c2f15ad341b10d3635adecda572a389d",
+      "subject": "build(packaging): migrate to uv_build(#3)",
+      "changed_files": 2,
+      "added_lines": 104,
+      "deleted_lines": 4,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 7089,
+      "measurements": [
+        {
+          "version": "no-sync",
+          "wall_ms": 6.74625,
+          "peak_rss_bytes": 10813440,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000167\nPROBE sync_index_directory 0.000041\ncoderg: incrementally indexed 2 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 818475,
+          "segments": 4,
+          "manifest_bytes": 6110,
+          "retained_bytes": 1682374
+        },
+        {
+          "version": "main",
+          "wall_ms": 7.40975,
+          "peak_rss_bytes": 11255808,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1788937282459451000,
+          "base_bytes": 857789,
+          "middle_bytes": 818475,
+          "segments": 4,
+          "manifest_bytes": 6110,
+          "retained_bytes": 1701910
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.050959,
+          "peak_rss_bytes": 10895360,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 818475,
+          "segments": 4,
+          "manifest_bytes": 6110,
+          "retained_bytes": 1682374
+        },
+        {
+          "version": "profile",
+          "wall_ms": 23.952250000000003,
+          "peak_rss_bytes": 10993664,
+          "diagnostic": "PROBE sync_segment 2.930833\nPROBE sync_segment 3.069542\nPROBE sync_segments_directory 3.733958\nPROBE sync_manifest 3.147875\nPROBE sync_index_directory 3.739250\ncoderg: incrementally indexed 2 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 818475,
+          "segments": 4,
+          "manifest_bytes": 6110,
+          "retained_bytes": 1682374
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "from_commit": "3d849065c2f15ad341b10d3635adecda572a389d",
+      "commit": "96ee4e9aaf03f10f5c50e2b8842484f56c1ccd8b",
+      "subject": "ci: add core GitHub Actions checks (#4)",
+      "changed_files": 4,
+      "added_lines": 177,
+      "deleted_lines": 1,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 12712,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 8.306542,
+          "peak_rss_bytes": 11517952,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1788937282459451000,
+          "base_bytes": 857789,
+          "middle_bytes": 874056,
+          "segments": 5,
+          "manifest_bytes": 6472,
+          "retained_bytes": 1764325
+        },
+        {
+          "version": "current",
+          "wall_ms": 25.607375,
+          "peak_rss_bytes": 11239424,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 874056,
+          "segments": 5,
+          "manifest_bytes": 6472,
+          "retained_bytes": 1738317
+        },
+        {
+          "version": "profile",
+          "wall_ms": 26.636083000000003,
+          "peak_rss_bytes": 11206656,
+          "diagnostic": "PROBE sync_segment 3.112125\nPROBE sync_segment 4.160917\nPROBE sync_segments_directory 3.896250\nPROBE sync_manifest 3.765292\nPROBE sync_index_directory 3.742791\ncoderg: incrementally indexed 4 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 874056,
+          "segments": 5,
+          "manifest_bytes": 6472,
+          "retained_bytes": 1738317
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 8.554625,
+          "peak_rss_bytes": 11223040,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000042\nPROBE sync_segments_directory 0.000041\nPROBE sync_manifest 0.000042\nPROBE sync_index_directory 0.000042\ncoderg: incrementally indexed 4 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 874056,
+          "segments": 5,
+          "manifest_bytes": 6472,
+          "retained_bytes": 1738317
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "from_commit": "96ee4e9aaf03f10f5c50e2b8842484f56c1ccd8b",
+      "commit": "7b91e44f4b9ae3f5878ead729dc7cf303f46b764",
+      "subject": "feat(store): replace SQLite with PostgreSQL",
+      "changed_files": 27,
+      "added_lines": 944,
+      "deleted_lines": 343,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 581539,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 35.80625,
+          "peak_rss_bytes": 16252928,
+          "diagnostic": "coderg: incrementally indexed 27 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 1674968,
+          "segments": 5,
+          "manifest_bytes": 6844,
+          "retained_bytes": 2595182
+        },
+        {
+          "version": "profile",
+          "wall_ms": 36.062,
+          "peak_rss_bytes": 16793600,
+          "diagnostic": "PROBE sync_segment 2.244375\nPROBE sync_segment 4.026083\nPROBE sync_segments_directory 3.707667\nPROBE sync_manifest 3.082042\nPROBE sync_index_directory 3.878166\ncoderg: incrementally indexed 27 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 1674968,
+          "segments": 5,
+          "manifest_bytes": 6844,
+          "retained_bytes": 2595182
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 18.886875,
+          "peak_rss_bytes": 16613376,
+          "diagnostic": "PROBE sync_segment 0.000041\nPROBE sync_segment 0.000042\nPROBE sync_segments_directory 0.000041\nPROBE sync_manifest 0.000041\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 27 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 1674968,
+          "segments": 5,
+          "manifest_bytes": 6844,
+          "retained_bytes": 2595182
+        },
+        {
+          "version": "main",
+          "wall_ms": 18.38275,
+          "peak_rss_bytes": 16973824,
+          "diagnostic": "coderg: incrementally indexed 27 changed files",
+          "base_id": 1788937282459451000,
+          "base_bytes": 857789,
+          "middle_bytes": 1730549,
+          "segments": 6,
+          "manifest_bytes": 6950,
+          "retained_bytes": 2628246
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "from_commit": "7b91e44f4b9ae3f5878ead729dc7cf303f46b764",
+      "commit": "8e11dc763cf915bc01901a3d1ce301180dc91737",
+      "subject": "feat: separate control plane and remote worker (#6)",
+      "changed_files": 56,
+      "added_lines": 3700,
+      "deleted_lines": 1115,
+      "added_files": 24,
+      "deleted_files": 6,
+      "renamed_files": 0,
+      "target_source_bytes": 697151,
+      "measurements": [
+        {
+          "version": "profile",
+          "wall_ms": 36.729,
+          "peak_rss_bytes": 17334272,
+          "diagnostic": "PROBE sync_segment 3.196917\nPROBE sync_segment 2.653625\nPROBE sync_segments_directory 3.024916\nPROBE sync_manifest 4.928958\nPROBE sync_index_directory 3.821417\ncoderg: incrementally indexed 56 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 2309698,
+          "segments": 5,
+          "manifest_bytes": 9463,
+          "retained_bytes": 3582574
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 20.100834000000003,
+          "peak_rss_bytes": 17563648,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000083\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 56 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 2309698,
+          "segments": 5,
+          "manifest_bytes": 9463,
+          "retained_bytes": 3582574
+        },
+        {
+          "version": "main",
+          "wall_ms": 20.931667,
+          "peak_rss_bytes": 18448384,
+          "diagnostic": "coderg: incrementally indexed 56 changed files",
+          "base_id": 1788937282459451000,
+          "base_bytes": 857789,
+          "middle_bytes": 2715322,
+          "segments": 7,
+          "manifest_bytes": 9675,
+          "retained_bytes": 3625419
+        },
+        {
+          "version": "current",
+          "wall_ms": 36.723333,
+          "peak_rss_bytes": 16924672,
+          "diagnostic": "coderg: incrementally indexed 56 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 2309698,
+          "segments": 5,
+          "manifest_bytes": 9463,
+          "retained_bytes": 3582574
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "from_commit": "8e11dc763cf915bc01901a3d1ce301180dc91737",
+      "commit": "77eb240564d52e3845fdc221642f4ff6621eae1e",
+      "subject": "feat(control): schedule multiple remote workers (#7)",
+      "changed_files": 29,
+      "added_lines": 883,
+      "deleted_lines": 168,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 181612,
+      "measurements": [
+        {
+          "version": "no-sync",
+          "wall_ms": 9.947667000000001,
+          "peak_rss_bytes": 13991936,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000041\nPROBE sync_manifest 0.000000\nPROBE sync_index_directory 0.000042\ncoderg: incrementally indexed 29 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 2654319,
+          "segments": 6,
+          "manifest_bytes": 9715,
+          "retained_bytes": 3927447
+        },
+        {
+          "version": "main",
+          "wall_ms": 10.665375,
+          "peak_rss_bytes": 14598144,
+          "diagnostic": "coderg: incrementally indexed 29 changed files",
+          "base_id": 1788937282459451000,
+          "base_bytes": 857789,
+          "middle_bytes": 3059943,
+          "segments": 8,
+          "manifest_bytes": 9927,
+          "retained_bytes": 3980219
+        },
+        {
+          "version": "current",
+          "wall_ms": 29.777083,
+          "peak_rss_bytes": 14024704,
+          "diagnostic": "coderg: incrementally indexed 29 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 2654319,
+          "segments": 6,
+          "manifest_bytes": 9715,
+          "retained_bytes": 3927447
+        },
+        {
+          "version": "profile",
+          "wall_ms": 29.286875000000002,
+          "peak_rss_bytes": 14221312,
+          "diagnostic": "PROBE sync_segment 4.078042\nPROBE sync_segment 3.999666\nPROBE sync_segments_directory 2.837458\nPROBE sync_manifest 3.822250\nPROBE sync_index_directory 4.054584\ncoderg: incrementally indexed 29 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 2654319,
+          "segments": 6,
+          "manifest_bytes": 9715,
+          "retained_bytes": 3927447
+        }
+      ]
+    },
+    {
+      "step": 8,
+      "from_commit": "77eb240564d52e3845fdc221642f4ff6621eae1e",
+      "commit": "5ec17f27e93d7a63506dfe00a2f57dee2923fb6a",
+      "subject": "feat(worker): recover leases and connections (#8)",
+      "changed_files": 32,
+      "added_lines": 2073,
+      "deleted_lines": 313,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 261518,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 24.904958,
+          "peak_rss_bytes": 19349504,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1788937284997153000,
+          "base_bytes": 1388655,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 8993,
+          "retained_bytes": 5376933
+        },
+        {
+          "version": "current",
+          "wall_ms": 31.480708000000003,
+          "peak_rss_bytes": 15253504,
+          "diagnostic": "coderg: incrementally indexed 32 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 3087594,
+          "segments": 7,
+          "manifest_bytes": 10219,
+          "retained_bytes": 4361226
+        },
+        {
+          "version": "profile",
+          "wall_ms": 29.584625,
+          "peak_rss_bytes": 15056896,
+          "diagnostic": "PROBE sync_segment 4.366458\nPROBE sync_segment 3.983792\nPROBE sync_segments_directory 3.643042\nPROBE sync_manifest 3.177458\nPROBE sync_index_directory 3.653250\ncoderg: incrementally indexed 32 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 3087594,
+          "segments": 7,
+          "manifest_bytes": 10219,
+          "retained_bytes": 4361226
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 11.296459,
+          "peak_rss_bytes": 15302656,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000041\nPROBE sync_manifest 0.000125\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 32 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 3087594,
+          "segments": 7,
+          "manifest_bytes": 10219,
+          "retained_bytes": 4361226
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "from_commit": "5ec17f27e93d7a63506dfe00a2f57dee2923fb6a",
+      "commit": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+      "subject": "docs: record completed worker recovery (#11)",
+      "changed_files": 4,
+      "added_lines": 22,
+      "deleted_lines": 5,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 38515,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 26.973,
+          "peak_rss_bytes": 12189696,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 3231762,
+          "segments": 8,
+          "manifest_bytes": 10325,
+          "retained_bytes": 4505500
+        },
+        {
+          "version": "profile",
+          "wall_ms": 26.1125,
+          "peak_rss_bytes": 12189696,
+          "diagnostic": "PROBE sync_segment 3.452583\nPROBE sync_segment 2.817958\nPROBE sync_segments_directory 2.884750\nPROBE sync_manifest 3.744667\nPROBE sync_index_directory 4.060833\ncoderg: incrementally indexed 4 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 3231762,
+          "segments": 8,
+          "manifest_bytes": 10325,
+          "retained_bytes": 4505500
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 9.462416,
+          "peak_rss_bytes": 12124160,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000042\nPROBE sync_index_directory 0.000042\ncoderg: incrementally indexed 4 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 3231762,
+          "segments": 8,
+          "manifest_bytes": 10325,
+          "retained_bytes": 4505500
+        },
+        {
+          "version": "main",
+          "wall_ms": 8.69375,
+          "peak_rss_bytes": 12075008,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1788937284997153000,
+          "base_bytes": 1388655,
+          "middle_bytes": 124629,
+          "segments": 2,
+          "manifest_bytes": 9099,
+          "retained_bytes": 5510767
+        }
+      ]
+    },
+    {
+      "step": 10,
+      "from_commit": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+      "commit": "b5ba13dc3366a4942555ddafd6fb52ad61243e4f",
+      "subject": "feat(worker): verify CodeAgent VCS delivery (#12)",
+      "changed_files": 32,
+      "added_lines": 1315,
+      "deleted_lines": 194,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 224006,
+      "measurements": [
+        {
+          "version": "profile",
+          "wall_ms": 30.280208,
+          "peak_rss_bytes": 15056896,
+          "diagnostic": "PROBE sync_segment 5.056166\nPROBE sync_segment 2.699125\nPROBE sync_segments_directory 4.028042\nPROBE sync_manifest 3.789250\nPROBE sync_index_directory 3.977500\ncoderg: incrementally indexed 32 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 3669689,
+          "segments": 9,
+          "manifest_bytes": 10799,
+          "retained_bytes": 4943901
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 11.133709,
+          "peak_rss_bytes": 14909440,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000042\nPROBE sync_segments_directory 0.000042\nPROBE sync_manifest 0.000041\nPROBE sync_index_directory 0.000042\ncoderg: incrementally indexed 32 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 3669689,
+          "segments": 9,
+          "manifest_bytes": 10799,
+          "retained_bytes": 4943901
+        },
+        {
+          "version": "main",
+          "wall_ms": 10.810833,
+          "peak_rss_bytes": 15007744,
+          "diagnostic": "coderg: incrementally indexed 32 changed files",
+          "base_id": 1788937284997153000,
+          "base_bytes": 1388655,
+          "middle_bytes": 556729,
+          "segments": 3,
+          "manifest_bytes": 9573,
+          "retained_bytes": 5952914
+        },
+        {
+          "version": "current",
+          "wall_ms": 28.599208,
+          "peak_rss_bytes": 15089664,
+          "diagnostic": "coderg: incrementally indexed 32 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 3669689,
+          "segments": 9,
+          "manifest_bytes": 10799,
+          "retained_bytes": 4943901
+        }
+      ]
+    },
+    {
+      "step": 11,
+      "from_commit": "b5ba13dc3366a4942555ddafd6fb52ad61243e4f",
+      "commit": "e7b93ba2184c382b934ab05f98bc0c8a637dcefc",
+      "subject": "feat(github): add scoped GitHub App capabilities (#13)",
+      "changed_files": 19,
+      "added_lines": 1060,
+      "deleted_lines": 113,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 561848,
+      "measurements": [
+        {
+          "version": "no-sync",
+          "wall_ms": 25.316416,
+          "peak_rss_bytes": 17645568,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000042\nPROBE sync_segment 0.000042\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000000\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 19 changed files\ncoderg: compacted 4 middle segments (1357412 input bytes, 402096 output bytes)",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 3525644,
+          "segments": 7,
+          "manifest_bytes": 10973,
+          "retained_bytes": 6157442
+        },
+        {
+          "version": "main",
+          "wall_ms": 19.145540999999998,
+          "peak_rss_bytes": 16760832,
+          "diagnostic": "coderg: incrementally indexed 19 changed files",
+          "base_id": 1788937284997153000,
+          "base_bytes": 1388655,
+          "middle_bytes": 1517579,
+          "segments": 4,
+          "manifest_bytes": 10065,
+          "retained_bytes": 6924321
+        },
+        {
+          "version": "current",
+          "wall_ms": 51.709458,
+          "peak_rss_bytes": 17530880,
+          "diagnostic": "coderg: incrementally indexed 19 changed files\ncoderg: compacted 4 middle segments (1357412 input bytes, 402096 output bytes)",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 3525644,
+          "segments": 7,
+          "manifest_bytes": 10973,
+          "retained_bytes": 6157442
+        },
+        {
+          "version": "profile",
+          "wall_ms": 52.623292,
+          "peak_rss_bytes": 17547264,
+          "diagnostic": "PROBE sync_segment 2.525292\nPROBE sync_segment 3.963042\nPROBE sync_segment 3.829583\nPROBE sync_segment 3.829708\nPROBE sync_segments_directory 3.533834\nPROBE sync_manifest 4.104083\nPROBE sync_index_directory 3.846459\ncoderg: incrementally indexed 19 changed files\ncoderg: compacted 4 middle segments (1357412 input bytes, 402096 output bytes)",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 3525644,
+          "segments": 7,
+          "manifest_bytes": 10973,
+          "retained_bytes": 6157442
+        }
+      ]
+    },
+    {
+      "step": 12,
+      "from_commit": "e7b93ba2184c382b934ab05f98bc0c8a637dcefc",
+      "commit": "8125a4b669a2026a51d95e6cb86af7019083a17a",
+      "subject": "feat(flow): implement Issue-to-PR delivery (#14)",
+      "changed_files": 44,
+      "added_lines": 3246,
+      "deleted_lines": 330,
+      "added_files": 6,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 434695,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 12.730625,
+          "peak_rss_bytes": 16908288,
+          "diagnostic": "coderg: incrementally indexed 44 changed files",
+          "base_id": 1788937284997153000,
+          "base_bytes": 1388655,
+          "middle_bytes": 2168782,
+          "segments": 5,
+          "manifest_bytes": 10919,
+          "retained_bytes": 7587297
+        },
+        {
+          "version": "current",
+          "wall_ms": 31.313541999999998,
+          "peak_rss_bytes": 17137664,
+          "diagnostic": "coderg: incrementally indexed 44 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 4181202,
+          "segments": 8,
+          "manifest_bytes": 11827,
+          "retained_bytes": 6813854
+        },
+        {
+          "version": "profile",
+          "wall_ms": 32.175208,
+          "peak_rss_bytes": 16580608,
+          "diagnostic": "PROBE sync_segment 4.190792\nPROBE sync_segment 3.936542\nPROBE sync_segments_directory 3.823459\nPROBE sync_manifest 3.931417\nPROBE sync_index_directory 2.835875\ncoderg: incrementally indexed 44 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 4181202,
+          "segments": 8,
+          "manifest_bytes": 11827,
+          "retained_bytes": 6813854
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 13.005334,
+          "peak_rss_bytes": 17055744,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000042\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000000\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 44 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 4181202,
+          "segments": 8,
+          "manifest_bytes": 11827,
+          "retained_bytes": 6813854
+        }
+      ]
+    },
+    {
+      "step": 13,
+      "from_commit": "8125a4b669a2026a51d95e6cb86af7019083a17a",
+      "commit": "bbf99f98124011bd4f0cda40c7df0b551191ab4b",
+      "subject": "fix(flow): harden M1 delivery lifecycle (#16)",
+      "changed_files": 8,
+      "added_lines": 351,
+      "deleted_lines": 67,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 138514,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 26.903209,
+          "peak_rss_bytes": 14073856,
+          "diagnostic": "coderg: incrementally indexed 8 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 4356821,
+          "segments": 9,
+          "manifest_bytes": 12081,
+          "retained_bytes": 6989727
+        },
+        {
+          "version": "profile",
+          "wall_ms": 29.117875,
+          "peak_rss_bytes": 14123008,
+          "diagnostic": "PROBE sync_segment 3.690584\nPROBE sync_segment 3.899334\nPROBE sync_segments_directory 3.699041\nPROBE sync_manifest 4.132125\nPROBE sync_index_directory 3.935208\ncoderg: incrementally indexed 8 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 4356821,
+          "segments": 9,
+          "manifest_bytes": 12081,
+          "retained_bytes": 6989727
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 10.502792000000001,
+          "peak_rss_bytes": 14270464,
+          "diagnostic": "PROBE sync_segment 0.000042\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000042\nPROBE sync_index_directory 0.000042\ncoderg: incrementally indexed 8 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 4356821,
+          "segments": 9,
+          "manifest_bytes": 12081,
+          "retained_bytes": 6989727
+        },
+        {
+          "version": "main",
+          "wall_ms": 10.293,
+          "peak_rss_bytes": 14270464,
+          "diagnostic": "coderg: incrementally indexed 8 changed files",
+          "base_id": 1788937284997153000,
+          "base_bytes": 1388655,
+          "middle_bytes": 2345478,
+          "segments": 6,
+          "manifest_bytes": 11173,
+          "retained_bytes": 7775420
+        }
+      ]
+    },
+    {
+      "step": 14,
+      "from_commit": "bbf99f98124011bd4f0cda40c7df0b551191ab4b",
+      "commit": "135d2eddcadcb2365b7c3107b0d7e167a039d174",
+      "subject": "fix(control): atomically apply workflow results and recover GitHub effects (#17)",
+      "changed_files": 33,
+      "added_lines": 3098,
+      "deleted_lines": 838,
+      "added_files": 9,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 360278,
+      "measurements": [
+        {
+          "version": "profile",
+          "wall_ms": 46.763041,
+          "peak_rss_bytes": 17383424,
+          "diagnostic": "PROBE sync_segment 3.906458\nPROBE sync_segment 3.803416\nPROBE sync_segment 3.083667\nPROBE sync_segment 2.914459\nPROBE sync_segments_directory 3.509167\nPROBE sync_manifest 4.121250\nPROBE sync_index_directory 3.828292\ncoderg: incrementally indexed 33 changed files\ncoderg: compacted 4 middle segments (1523016 input bytes, 783529 output bytes)",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 4124708,
+          "segments": 7,
+          "manifest_bytes": 12979,
+          "retained_bytes": 8281528
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 22.441625,
+          "peak_rss_bytes": 17072128,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000041\nPROBE sync_index_directory 0.000041\ncoderg: incrementally indexed 33 changed files\ncoderg: compacted 4 middle segments (1523016 input bytes, 783529 output bytes)",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 4124708,
+          "segments": 7,
+          "manifest_bytes": 12979,
+          "retained_bytes": 8281528
+        },
+        {
+          "version": "main",
+          "wall_ms": 12.52525,
+          "peak_rss_bytes": 16515072,
+          "diagnostic": "coderg: incrementally indexed 33 changed files",
+          "base_id": 1788937284997153000,
+          "base_bytes": 1388655,
+          "middle_bytes": 2848756,
+          "segments": 7,
+          "manifest_bytes": 12389,
+          "retained_bytes": 8292303
+        },
+        {
+          "version": "current",
+          "wall_ms": 58.583875,
+          "peak_rss_bytes": 16236544,
+          "diagnostic": "coderg: incrementally indexed 33 changed files\ncoderg: compacted 4 middle segments (1523016 input bytes, 783529 output bytes)",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 4124708,
+          "segments": 7,
+          "manifest_bytes": 12979,
+          "retained_bytes": 8281528
+        }
+      ]
+    },
+    {
+      "step": 15,
+      "from_commit": "135d2eddcadcb2365b7c3107b0d7e167a039d174",
+      "commit": "9fd98266044601c28975de64070f6f8a48dfc258",
+      "subject": "docs: refresh README to reflect current implementation (#18)",
+      "changed_files": 1,
+      "added_lines": 86,
+      "deleted_lines": 51,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 9804,
+      "measurements": [
+        {
+          "version": "no-sync",
+          "wall_ms": 7.973083000000001,
+          "peak_rss_bytes": 11468800,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000042\nPROBE sync_manifest 0.000042\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 1 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 4167384,
+          "segments": 8,
+          "manifest_bytes": 13085,
+          "retained_bytes": 8324310
+        },
+        {
+          "version": "main",
+          "wall_ms": 9.198,
+          "peak_rss_bytes": 11894784,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1788937284997153000,
+          "base_bytes": 1388655,
+          "middle_bytes": 2891432,
+          "segments": 8,
+          "manifest_bytes": 12495,
+          "retained_bytes": 8347580
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.927834,
+          "peak_rss_bytes": 11485184,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 4167384,
+          "segments": 8,
+          "manifest_bytes": 13085,
+          "retained_bytes": 8324310
+        },
+        {
+          "version": "profile",
+          "wall_ms": 26.422292,
+          "peak_rss_bytes": 11567104,
+          "diagnostic": "PROBE sync_segment 3.086167\nPROBE sync_segment 4.008166\nPROBE sync_segments_directory 2.848292\nPROBE sync_manifest 3.702500\nPROBE sync_index_directory 4.003250\ncoderg: incrementally indexed 1 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 4167384,
+          "segments": 8,
+          "manifest_bytes": 13085,
+          "retained_bytes": 8324310
+        }
+      ]
+    },
+    {
+      "step": 16,
+      "from_commit": "9fd98266044601c28975de64070f6f8a48dfc258",
+      "commit": "78b8bc384df3f5dad06a3df622d870ee5a89853a",
+      "subject": "feat(review): durable review feedback batches (#19)",
+      "changed_files": 32,
+      "added_lines": 1793,
+      "deleted_lines": 267,
+      "added_files": 6,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 330342,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 28.226291,
+          "peak_rss_bytes": 21938176,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1788937286611283000,
+          "base_bytes": 1865917,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 12463,
+          "retained_bytes": 10225928
+        },
+        {
+          "version": "current",
+          "wall_ms": 31.825499999999998,
+          "peak_rss_bytes": 16171008,
+          "diagnostic": "coderg: incrementally indexed 32 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 4657710,
+          "segments": 8,
+          "manifest_bytes": 13795,
+          "retained_bytes": 8858022
+        },
+        {
+          "version": "profile",
+          "wall_ms": 31.115750000000002,
+          "peak_rss_bytes": 16089088,
+          "diagnostic": "PROBE sync_segment 3.601917\nPROBE sync_segment 4.136084\nPROBE sync_segments_directory 3.777917\nPROBE sync_manifest 3.834084\nPROBE sync_index_directory 2.845791\ncoderg: incrementally indexed 32 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 4657710,
+          "segments": 8,
+          "manifest_bytes": 13795,
+          "retained_bytes": 8858022
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 12.877542,
+          "peak_rss_bytes": 16646144,
+          "diagnostic": "PROBE sync_segment 0.000041\nPROBE sync_segment 0.000042\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000042\nPROBE sync_index_directory 0.000042\ncoderg: incrementally indexed 32 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 4657710,
+          "segments": 8,
+          "manifest_bytes": 13795,
+          "retained_bytes": 8858022
+        }
+      ]
+    },
+    {
+      "step": 17,
+      "from_commit": "78b8bc384df3f5dad06a3df622d870ee5a89853a",
+      "commit": "878588e006d46f2c3c94937d54615b328e237f9f",
+      "subject": "feat(judge): persist semantic decisions and publish answers directly (#20)",
+      "changed_files": 43,
+      "added_lines": 2017,
+      "deleted_lines": 262,
+      "added_files": 8,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 919999,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 43.632625000000004,
+          "peak_rss_bytes": 19283968,
+          "diagnostic": "coderg: incrementally indexed 43 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 5831164,
+          "segments": 9,
+          "manifest_bytes": 14867,
+          "retained_bytes": 10032548
+        },
+        {
+          "version": "profile",
+          "wall_ms": 40.974,
+          "peak_rss_bytes": 19447808,
+          "diagnostic": "PROBE sync_segment 3.772458\nPROBE sync_segment 3.787417\nPROBE sync_segments_directory 2.811875\nPROBE sync_manifest 3.973584\nPROBE sync_index_directory 3.656291\ncoderg: incrementally indexed 43 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 5831164,
+          "segments": 9,
+          "manifest_bytes": 14867,
+          "retained_bytes": 10032548
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 22.485292,
+          "peak_rss_bytes": 19251200,
+          "diagnostic": "PROBE sync_segment 0.000042\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000042\nPROBE sync_manifest 0.000000\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 43 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 5831164,
+          "segments": 9,
+          "manifest_bytes": 14867,
+          "retained_bytes": 10032548
+        },
+        {
+          "version": "main",
+          "wall_ms": 23.012583,
+          "peak_rss_bytes": 18808832,
+          "diagnostic": "coderg: incrementally indexed 43 changed files",
+          "base_id": 1788937286611283000,
+          "base_bytes": 1865917,
+          "middle_bytes": 1315705,
+          "segments": 2,
+          "manifest_bytes": 13535,
+          "retained_bytes": 11556240
+        }
+      ]
+    },
+    {
+      "step": 18,
+      "from_commit": "878588e006d46f2c3c94937d54615b328e237f9f",
+      "commit": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+      "subject": "docs(m2): plan verified revisions and session recovery",
+      "changed_files": 2,
+      "added_lines": 140,
+      "deleted_lines": 0,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 14463,
+      "measurements": [
+        {
+          "version": "profile",
+          "wall_ms": 35.810583,
+          "peak_rss_bytes": 11894784,
+          "diagnostic": "PROBE sync_segment 3.856584\nPROBE sync_segment 3.817541\nPROBE sync_segment 3.967666\nPROBE sync_segment 2.634416\nPROBE sync_segments_directory 3.956791\nPROBE sync_manifest 3.717291\nPROBE sync_index_directory 3.824667\ncoderg: incrementally indexed 2 changed files\ncoderg: compacted 2 middle segments (102831 input bytes, 90952 output bytes)",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 5889032,
+          "segments": 9,
+          "manifest_bytes": 15007,
+          "retained_bytes": 10193387
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 10.48475,
+          "peak_rss_bytes": 11911168,
+          "diagnostic": "PROBE sync_segment 0.000042\nPROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000042\nPROBE sync_index_directory 0.000041\ncoderg: incrementally indexed 2 changed files\ncoderg: compacted 2 middle segments (102831 input bytes, 90952 output bytes)",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 5889032,
+          "segments": 9,
+          "manifest_bytes": 15007,
+          "retained_bytes": 10193387
+        },
+        {
+          "version": "main",
+          "wall_ms": 9.347917,
+          "peak_rss_bytes": 11665408,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1788937286611283000,
+          "base_bytes": 1865917,
+          "middle_bytes": 1385452,
+          "segments": 3,
+          "manifest_bytes": 13781,
+          "retained_bytes": 11640014
+        },
+        {
+          "version": "current",
+          "wall_ms": 37.208167,
+          "peak_rss_bytes": 11780096,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 2 middle segments (102831 input bytes, 90952 output bytes)",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 5889032,
+          "segments": 9,
+          "manifest_bytes": 15007,
+          "retained_bytes": 10193387
+        }
+      ]
+    },
+    {
+      "step": 19,
+      "from_commit": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+      "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+      "subject": "feat(review): verify revision delivery and recover missing sessions",
+      "changed_files": 35,
+      "added_lines": 1492,
+      "deleted_lines": 197,
+      "added_files": 4,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 423727,
+      "measurements": [
+        {
+          "version": "no-sync",
+          "wall_ms": 30.532083,
+          "peak_rss_bytes": 18808832,
+          "diagnostic": "PROBE sync_segment 0.000042\nPROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segment 0.000041\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000000\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 35 changed files\ncoderg: compacted 4 middle segments (2583735 input bytes, 1171026 output bytes)",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 5087969,
+          "segments": 7,
+          "manifest_bytes": 15299,
+          "retained_bytes": 11976351
+        },
+        {
+          "version": "main",
+          "wall_ms": 13.723417,
+          "peak_rss_bytes": 17252352,
+          "diagnostic": "coderg: incrementally indexed 35 changed files",
+          "base_id": 1788937286611283000,
+          "base_bytes": 1865917,
+          "middle_bytes": 1983205,
+          "segments": 4,
+          "manifest_bytes": 14391,
+          "retained_bytes": 12252768
+        },
+        {
+          "version": "current",
+          "wall_ms": 56.579917,
+          "peak_rss_bytes": 18956288,
+          "diagnostic": "coderg: incrementally indexed 35 changed files\ncoderg: compacted 4 middle segments (2583735 input bytes, 1171026 output bytes)",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 5087969,
+          "segments": 7,
+          "manifest_bytes": 15299,
+          "retained_bytes": 11976351
+        },
+        {
+          "version": "profile",
+          "wall_ms": 55.647792,
+          "peak_rss_bytes": 18694144,
+          "diagnostic": "PROBE sync_segment 3.770667\nPROBE sync_segment 3.909125\nPROBE sync_segment 3.496375\nPROBE sync_segment 2.740583\nPROBE sync_segments_directory 3.725250\nPROBE sync_manifest 4.051167\nPROBE sync_index_directory 2.879916\ncoderg: incrementally indexed 35 changed files\ncoderg: compacted 4 middle segments (2583735 input bytes, 1171026 output bytes)",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 5087969,
+          "segments": 7,
+          "manifest_bytes": 15299,
+          "retained_bytes": 11976351
+        }
+      ]
+    }
+  ],
+  "rollbacks": [
+    {
+      "step": 18,
+      "from_commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+      "commit": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+      "subject": "docs(m2): plan verified revisions and session recovery",
+      "changed_files": 35,
+      "added_lines": 197,
+      "deleted_lines": 1492,
+      "added_files": 0,
+      "deleted_files": 4,
+      "renamed_files": 0,
+      "target_source_bytes": 355830,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 7.085167,
+          "peak_rss_bytes": 10764288,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1788937286611283000,
+          "base_bytes": 1865917,
+          "middle_bytes": 1385452,
+          "segments": 3,
+          "manifest_bytes": 13781,
+          "retained_bytes": 12252158
+        },
+        {
+          "version": "current",
+          "wall_ms": 30.851166,
+          "peak_rss_bytes": 16269312,
+          "diagnostic": "coderg: incrementally indexed 35 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 5618534,
+          "segments": 8,
+          "manifest_bytes": 15173,
+          "retained_bytes": 12506790
+        },
+        {
+          "version": "profile",
+          "wall_ms": 31.670417,
+          "peak_rss_bytes": 16351232,
+          "diagnostic": "PROBE sync_segment 3.743250\nPROBE sync_segment 3.649708\nPROBE sync_segments_directory 3.903541\nPROBE sync_manifest 3.992000\nPROBE sync_index_directory 3.902334\ncoderg: incrementally indexed 35 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 5618534,
+          "segments": 8,
+          "manifest_bytes": 15173,
+          "retained_bytes": 12506790
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 12.635083,
+          "peak_rss_bytes": 16154624,
+          "diagnostic": "PROBE sync_segment 0.000042\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000042\nPROBE sync_manifest 0.000000\nPROBE sync_index_directory 0.000041\ncoderg: incrementally indexed 35 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 5618534,
+          "segments": 8,
+          "manifest_bytes": 15173,
+          "retained_bytes": 12506790
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "from_commit": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+      "commit": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+      "subject": "docs: record completed worker recovery (#11)",
+      "changed_files": 86,
+      "added_lines": 1382,
+      "deleted_lines": 12366,
+      "added_files": 0,
+      "deleted_files": 37,
+      "renamed_files": 0,
+      "target_source_bytes": 766802,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 40.751458,
+          "peak_rss_bytes": 18087936,
+          "diagnostic": "coderg: incrementally indexed 86 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 4655229,
+          "segments": 7,
+          "manifest_bytes": 12964,
+          "retained_bytes": 13526001
+        },
+        {
+          "version": "profile",
+          "wall_ms": 40.082667,
+          "peak_rss_bytes": 17793024,
+          "diagnostic": "PROBE sync_segment 3.851959\nPROBE sync_segment 3.745708\nPROBE sync_segments_directory 3.907875\nPROBE sync_manifest 3.924541\nPROBE sync_index_directory 3.916750\ncoderg: incrementally indexed 86 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 4655229,
+          "segments": 7,
+          "manifest_bytes": 12964,
+          "retained_bytes": 13526001
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 20.716709,
+          "peak_rss_bytes": 18366464,
+          "diagnostic": "PROBE sync_segment 0.000042\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000000\nPROBE sync_manifest 0.000041\nPROBE sync_index_directory 0.000041\ncoderg: incrementally indexed 86 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 4655229,
+          "segments": 7,
+          "manifest_bytes": 12964,
+          "retained_bytes": 13526001
+        },
+        {
+          "version": "main",
+          "wall_ms": 7.460792,
+          "peak_rss_bytes": 10420224,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1788937284997153000,
+          "base_bytes": 1388655,
+          "middle_bytes": 124629,
+          "segments": 2,
+          "manifest_bytes": 9099,
+          "retained_bytes": 12247476
+        }
+      ]
+    },
+    {
+      "step": 0,
+      "from_commit": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+      "commit": "e65d534b0efddadfa433770621ca4340786736bf",
+      "subject": "chore: initial commit",
+      "changed_files": 79,
+      "added_lines": 1630,
+      "deleted_lines": 8764,
+      "added_files": 7,
+      "deleted_files": 51,
+      "renamed_files": 2,
+      "target_source_bytes": 588285,
+      "measurements": [
+        {
+          "version": "profile",
+          "wall_ms": 36.02575,
+          "peak_rss_bytes": 17514496,
+          "diagnostic": "PROBE sync_segment 4.246625\nPROBE sync_segment 3.862833\nPROBE sync_segments_directory 3.798125\nPROBE sync_manifest 2.833250\nPROBE sync_index_directory 3.925375\ncoderg: incrementally indexed 80 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 900154,
+          "segments": 2,
+          "manifest_bytes": 10259,
+          "retained_bytes": 14423450
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 18.094875,
+          "peak_rss_bytes": 17203200,
+          "diagnostic": "PROBE sync_segment 0.000041\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000041\nPROBE sync_manifest 0.000041\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 80 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 900154,
+          "segments": 2,
+          "manifest_bytes": 10259,
+          "retained_bytes": 14423450
+        },
+        {
+          "version": "main",
+          "wall_ms": 6.241833,
+          "peak_rss_bytes": 10092544,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1788937282459451000,
+          "base_bytes": 857789,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 3269,
+          "retained_bytes": 12241646
+        },
+        {
+          "version": "current",
+          "wall_ms": 34.054542,
+          "peak_rss_bytes": 17104896,
+          "diagnostic": "coderg: incrementally indexed 80 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 900154,
+          "segments": 2,
+          "manifest_bytes": 10259,
+          "retained_bytes": 14423450
+        }
+      ]
+    },
+    {
+      "step": 19,
+      "from_commit": "e65d534b0efddadfa433770621ca4340786736bf",
+      "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+      "subject": "feat(review): verify revision delivery and recover missing sessions",
+      "changed_files": 120,
+      "added_lines": 21370,
+      "deleted_lines": 1957,
+      "added_files": 92,
+      "deleted_files": 7,
+      "renamed_files": 2,
+      "target_source_bytes": 1448286,
+      "measurements": [
+        {
+          "version": "no-sync",
+          "wall_ms": 28.56125,
+          "peak_rss_bytes": 22724608,
+          "diagnostic": "PROBE sync_segment 0.000000\nPROBE sync_segment 0.000000\nPROBE sync_segments_directory 0.000042\nPROBE sync_manifest 0.000000\nPROBE sync_index_directory 0.000000\ncoderg: incrementally indexed 121 changed files",
+          "base_id": 1788937282549934000,
+          "base_bytes": 857789,
+          "middle_bytes": 2070623,
+          "segments": 2,
+          "manifest_bytes": 21525,
+          "retained_bytes": 16505339
+        },
+        {
+          "version": "main",
+          "wall_ms": 8.015708,
+          "peak_rss_bytes": 10665984,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1788937286611283000,
+          "base_bytes": 1865917,
+          "middle_bytes": 1983205,
+          "segments": 4,
+          "manifest_bytes": 14391,
+          "retained_bytes": 12252768
+        },
+        {
+          "version": "current",
+          "wall_ms": 45.544458000000006,
+          "peak_rss_bytes": 21954560,
+          "diagnostic": "coderg: incrementally indexed 121 changed files",
+          "base_id": 1788937282478277000,
+          "base_bytes": 857789,
+          "middle_bytes": 2070623,
+          "segments": 2,
+          "manifest_bytes": 21525,
+          "retained_bytes": 16505339
+        },
+        {
+          "version": "profile",
+          "wall_ms": 46.964375000000004,
+          "peak_rss_bytes": 22396928,
+          "diagnostic": "PROBE sync_segment 4.095000\nPROBE sync_segment 3.827916\nPROBE sync_segments_directory 3.686667\nPROBE sync_manifest 2.867250\nPROBE sync_index_directory 3.848875\ncoderg: incrementally indexed 121 changed files",
+          "base_id": 1788937282511905000,
+          "base_bytes": 857789,
+          "middle_bytes": 2070623,
+          "segments": 2,
+          "manifest_bytes": 21525,
+          "retained_bytes": 16505339
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "step": 0,
+      "version": "main",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.6037500000000002,
+        2.41725,
+        2.5092920000000003,
+        2.372417,
+        2.547625
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.523166,
+        2.422292,
+        2.455125,
+        2.448792,
+        2.69025
+      ]
+    },
+    {
+      "step": 0,
+      "version": "profile",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.431292,
+        2.429333,
+        2.425042,
+        2.390334,
+        2.5392919999999997
+      ]
+    },
+    {
+      "step": 0,
+      "version": "no-sync",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.434,
+        2.493916,
+        2.424709,
+        2.42975,
+        2.4589999999999996
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.409417,
+        3.459584,
+        3.408083,
+        3.5448329999999997,
+        3.3895
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.535292,
+        3.3922079999999997,
+        3.5474590000000004,
+        3.4224580000000002,
+        3.6596670000000002
+      ]
+    },
+    {
+      "step": 0,
+      "version": "profile",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.614458,
+        3.450834,
+        3.511209,
+        3.41975,
+        3.4333329999999997
+      ]
+    },
+    {
+      "step": 0,
+      "version": "no-sync",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.5017910000000003,
+        3.422625,
+        3.676208,
+        3.4349160000000003,
+        3.362291
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.440958,
+        2.482167,
+        2.572042,
+        2.4345,
+        2.510542
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.462167,
+        2.535958,
+        2.5535,
+        2.395417,
+        2.581041
+      ]
+    },
+    {
+      "step": 0,
+      "version": "profile",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.450958,
+        2.471167,
+        2.519167,
+        2.429625,
+        2.427625
+      ]
+    },
+    {
+      "step": 0,
+      "version": "no-sync",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.4147499999999997,
+        2.587666,
+        2.444084,
+        2.388625,
+        2.362375
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.697583,
+        3.897875,
+        3.4202500000000002,
+        3.4082909999999997,
+        3.436417
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.6485,
+        3.668875,
+        3.425583,
+        3.396792,
+        3.583875
+      ]
+    },
+    {
+      "step": 0,
+      "version": "profile",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.537208,
+        3.4881249999999997,
+        3.602458,
+        3.358333,
+        3.358916
+      ]
+    },
+    {
+      "step": 0,
+      "version": "no-sync",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.5790840000000004,
+        3.463667,
+        3.5279170000000004,
+        3.457292,
+        3.3392500000000003
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.206084,
+        2.206625,
+        2.169,
+        2.166208,
+        2.156125
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.153041,
+        2.2445,
+        2.1702090000000003,
+        2.25875,
+        2.1735
+      ]
+    },
+    {
+      "step": 0,
+      "version": "profile",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.228042,
+        2.27325,
+        2.222958,
+        2.1913750000000003,
+        2.2150410000000003
+      ]
+    },
+    {
+      "step": 0,
+      "version": "no-sync",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.111167,
+        2.2279999999999998,
+        2.451625,
+        2.1516249999999997,
+        2.199833
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.1715419999999996,
+        3.2966670000000002,
+        3.093125,
+        3.365667,
+        3.253333
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.384875,
+        3.234166,
+        3.320167,
+        3.159084,
+        3.316167
+      ]
+    },
+    {
+      "step": 0,
+      "version": "profile",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.150292,
+        3.355542,
+        3.2712090000000003,
+        3.243958,
+        3.458875
+      ]
+    },
+    {
+      "step": 0,
+      "version": "no-sync",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.040417,
+        3.252583,
+        3.176584,
+        3.161333,
+        3.245375
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.736084,
+        2.571583,
+        2.667541,
+        2.491458,
+        2.491333
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.597916,
+        2.607667,
+        2.617875,
+        2.6372079999999998,
+        2.51375
+      ]
+    },
+    {
+      "step": 1,
+      "version": "profile",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.595541,
+        2.557,
+        2.738959,
+        2.600334,
+        2.552916
+      ]
+    },
+    {
+      "step": 1,
+      "version": "no-sync",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.598667,
+        2.525875,
+        2.5122500000000003,
+        2.473917,
+        2.522041
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.560208,
+        3.989375,
+        3.6345840000000003,
+        3.759833,
+        3.711417
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.5612500000000002,
+        3.826917,
+        3.608958,
+        3.661,
+        3.653375
+      ]
+    },
+    {
+      "step": 1,
+      "version": "profile",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.745417,
+        3.6228330000000004,
+        3.670209,
+        3.727958,
+        3.607834
+      ]
+    },
+    {
+      "step": 1,
+      "version": "no-sync",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.565958,
+        3.75925,
+        3.6938750000000002,
+        3.8714589999999998,
+        3.6414590000000002
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.834959,
+        2.5945840000000002,
+        2.902083,
+        2.7981249999999998,
+        2.8222910000000003
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.641625,
+        2.615459,
+        2.775291,
+        2.911083,
+        2.9441659999999996
+      ]
+    },
+    {
+      "step": 1,
+      "version": "profile",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.7685,
+        2.761666,
+        2.734042,
+        2.862667,
+        2.7472920000000003
+      ]
+    },
+    {
+      "step": 1,
+      "version": "no-sync",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.52975,
+        2.6840409999999997,
+        2.7160420000000003,
+        2.646541,
+        2.871792
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.836458,
+        3.847334,
+        3.692042,
+        3.591209,
+        3.428083
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.655542,
+        3.660209,
+        3.49425,
+        3.541792,
+        3.7047909999999997
+      ]
+    },
+    {
+      "step": 1,
+      "version": "profile",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.853459,
+        3.590209,
+        3.650916,
+        3.731375,
+        3.706791
+      ]
+    },
+    {
+      "step": 1,
+      "version": "no-sync",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        3.688208,
+        3.57875,
+        3.6725,
+        3.721834,
+        3.51625
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.2605,
+        2.249708,
+        2.3022080000000003,
+        2.187459,
+        2.173834
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.258708,
+        2.244458,
+        2.241,
+        2.185541,
+        2.2035
+      ]
+    },
+    {
+      "step": 1,
+      "version": "profile",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.271875,
+        2.2081660000000003,
+        2.321958,
+        2.28925,
+        2.246709
+      ]
+    },
+    {
+      "step": 1,
+      "version": "no-sync",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.4217090000000003,
+        2.210666,
+        2.268041,
+        2.2218329999999997,
+        2.353333
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.162083,
+        3.1827919999999996,
+        3.347375,
+        3.241375,
+        3.5685830000000003
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.257417,
+        3.411333,
+        3.347,
+        3.3852919999999997,
+        3.641208
+      ]
+    },
+    {
+      "step": 1,
+      "version": "profile",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.265833,
+        3.298334,
+        3.277625,
+        3.2876670000000003,
+        3.7326669999999997
+      ]
+    },
+    {
+      "step": 1,
+      "version": "no-sync",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.2541670000000003,
+        3.435292,
+        3.3119579999999997,
+        3.229583,
+        3.47975
+      ]
+    },
+    {
+      "step": 19,
+      "version": "main",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        3.2750000000000004,
+        3.159542,
+        3.1516669999999998,
+        3.145542,
+        3.175041
+      ]
+    },
+    {
+      "step": 19,
+      "version": "current",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        3.30225,
+        3.287042,
+        3.166541,
+        3.357125,
+        3.064958
+      ]
+    },
+    {
+      "step": 19,
+      "version": "profile",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        3.13925,
+        3.2972919999999997,
+        3.177,
+        3.183458,
+        3.2556249999999998
+      ]
+    },
+    {
+      "step": 19,
+      "version": "no-sync",
+      "query": "def ",
+      "no_refresh": true,
+      "samples_ms": [
+        3.476958,
+        3.407291,
+        3.188209,
+        3.242458,
+        3.2049589999999997
+      ]
+    },
+    {
+      "step": 19,
+      "version": "main",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        4.668416,
+        4.412667,
+        4.608083,
+        4.476166999999999,
+        4.589041
+      ]
+    },
+    {
+      "step": 19,
+      "version": "current",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        4.429375,
+        4.512124999999999,
+        4.5751669999999995,
+        4.659834,
+        4.53825
+      ]
+    },
+    {
+      "step": 19,
+      "version": "profile",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        4.448125,
+        4.379166000000001,
+        4.639958,
+        4.649792,
+        4.682042
+      ]
+    },
+    {
+      "step": 19,
+      "version": "no-sync",
+      "query": "def ",
+      "no_refresh": false,
+      "samples_ms": [
+        4.74775,
+        4.655875,
+        4.480291,
+        4.381792,
+        4.700875
+      ]
+    },
+    {
+      "step": 19,
+      "version": "main",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        2.988292,
+        2.978792,
+        3.023542,
+        3.108208,
+        3.0136249999999998
+      ]
+    },
+    {
+      "step": 19,
+      "version": "current",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        3.2175409999999998,
+        3.1674580000000003,
+        3.1779170000000003,
+        3.0895829999999997,
+        3.066667
+      ]
+    },
+    {
+      "step": 19,
+      "version": "profile",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        3.251042,
+        3.0734999999999997,
+        3.2705,
+        3.16675,
+        3.095959
+      ]
+    },
+    {
+      "step": 19,
+      "version": "no-sync",
+      "query": "class ",
+      "no_refresh": true,
+      "samples_ms": [
+        3.138875,
+        3.1535,
+        3.103667,
+        3.1609580000000004,
+        3.0412500000000002
+      ]
+    },
+    {
+      "step": 19,
+      "version": "main",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        4.509334,
+        4.432708,
+        4.524125000000001,
+        4.506541,
+        4.416207999999999
+      ]
+    },
+    {
+      "step": 19,
+      "version": "current",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        4.823416,
+        4.489042,
+        4.557542000000001,
+        4.468334,
+        4.731291000000001
+      ]
+    },
+    {
+      "step": 19,
+      "version": "profile",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        4.764334,
+        4.623708,
+        4.535334000000001,
+        4.469667,
+        4.800333
+      ]
+    },
+    {
+      "step": 19,
+      "version": "no-sync",
+      "query": "class ",
+      "no_refresh": false,
+      "samples_ms": [
+        4.668666999999999,
+        4.482375,
+        4.621416,
+        4.499917,
+        4.587458
+      ]
+    },
+    {
+      "step": 19,
+      "version": "main",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.476125,
+        2.304458,
+        2.2680830000000003,
+        2.4408749999999997,
+        2.492083
+      ]
+    },
+    {
+      "step": 19,
+      "version": "current",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.584667,
+        2.413583,
+        2.382708,
+        2.397208,
+        2.3853329999999997
+      ]
+    },
+    {
+      "step": 19,
+      "version": "profile",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.4884579999999996,
+        2.602459,
+        2.512291,
+        2.502666,
+        2.358958
+      ]
+    },
+    {
+      "step": 19,
+      "version": "no-sync",
+      "query": "review_batch",
+      "no_refresh": true,
+      "samples_ms": [
+        2.40625,
+        2.4701660000000003,
+        2.397083,
+        2.4586669999999997,
+        2.4788750000000004
+      ]
+    },
+    {
+      "step": 19,
+      "version": "main",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.666,
+        3.894125,
+        3.882292,
+        3.702875,
+        4.019082999999999
+      ]
+    },
+    {
+      "step": 19,
+      "version": "current",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.770542,
+        3.888125,
+        3.82725,
+        3.809708,
+        4.179958999999999
+      ]
+    },
+    {
+      "step": 19,
+      "version": "profile",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.854916,
+        3.699166,
+        3.75725,
+        3.805708,
+        3.897958
+      ]
+    },
+    {
+      "step": 19,
+      "version": "no-sync",
+      "query": "review_batch",
+      "no_refresh": false,
+      "samples_ms": [
+        3.774458,
+        3.8725,
+        3.750958,
+        3.715209,
+        3.765042
+      ]
+    }
+  ],
+  "iterations": 5,
+  "warmup": 2,
+  "verification_queries": [
+    "def ",
+    "class ",
+    "review_batch"
+  ],
+  "update_query": "def ",
+  "verified_comparisons": 288
+}

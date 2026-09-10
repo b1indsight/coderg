@@ -1,0 +1,471 @@
+[
+  {
+    "repository": "viberwhisper",
+    "query": "whisper",
+    "version": "main",
+    "files": 43,
+    "samples_ms": [
+      6.106625,
+      5.4085,
+      6.72025,
+      6.295792,
+      6.076125,
+      6.2195,
+      5.338334,
+      5.354083,
+      6.6125,
+      5.742542
+    ],
+    "median_ms": 6.091375,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+      "search",
+      "-F",
+      "-l",
+      "whisper",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/index-main"
+    ],
+    "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "viberwhisper",
+    "query": "whisper",
+    "version": "direct",
+    "files": 43,
+    "samples_ms": [
+      5.032584,
+      4.8665,
+      4.810125,
+      5.768541,
+      5.698916,
+      5.510542,
+      5.134833,
+      5.014542,
+      5.054292,
+      5.26875
+    ],
+    "median_ms": 5.0945625,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-direct",
+      "search",
+      "-F",
+      "-l",
+      "whisper",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/index-direct"
+    ],
+    "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "viberwhisper",
+    "query": "whisper",
+    "version": "current",
+    "files": 43,
+    "samples_ms": [
+      5.3245,
+      5.471041,
+      5.104208,
+      5.018083,
+      4.9975,
+      5.552375,
+      5.223958,
+      4.988333,
+      5.016042,
+      4.951375
+    ],
+    "median_ms": 5.0611455,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-current",
+      "search",
+      "-F",
+      "-l",
+      "whisper",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/index-current"
+    ],
+    "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "viberwhisper",
+    "query": "whisper",
+    "version": "rg",
+    "files": 43,
+    "samples_ms": [
+      5.977125,
+      7.339375,
+      5.690333,
+      5.856208,
+      6.42925,
+      5.693,
+      7.476584,
+      7.139166,
+      5.789667,
+      6.507833
+    ],
+    "median_ms": 6.2031875,
+    "command": [
+      "rg",
+      "--no-config",
+      "--hidden",
+      "-g",
+      "!.git",
+      "-F",
+      "-l",
+      "whisper",
+      "."
+    ],
+    "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "viberwhisper",
+    "query": "viberwhisper",
+    "version": "main",
+    "files": 34,
+    "samples_ms": [
+      5.537084,
+      5.149041,
+      5.038417,
+      5.009458,
+      4.831417,
+      4.801542,
+      4.964458,
+      5.493167,
+      5.517417,
+      5.002625
+    ],
+    "median_ms": 5.023937500000001,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+      "search",
+      "-F",
+      "-l",
+      "viberwhisper",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/index-main"
+    ],
+    "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "viberwhisper",
+    "query": "viberwhisper",
+    "version": "direct",
+    "files": 34,
+    "samples_ms": [
+      4.996375,
+      4.945667,
+      5.500542,
+      5.170791,
+      5.256084,
+      4.916625,
+      4.825625,
+      4.830708,
+      5.012875,
+      5.343167
+    ],
+    "median_ms": 5.004625,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-direct",
+      "search",
+      "-F",
+      "-l",
+      "viberwhisper",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/index-direct"
+    ],
+    "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "viberwhisper",
+    "query": "viberwhisper",
+    "version": "current",
+    "files": 34,
+    "samples_ms": [
+      4.737417,
+      4.825208,
+      4.795875,
+      4.739584,
+      5.265375,
+      5.175125,
+      5.25925,
+      5.299083,
+      4.90775,
+      4.910375
+    ],
+    "median_ms": 4.9090625,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-current",
+      "search",
+      "-F",
+      "-l",
+      "viberwhisper",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-wEp7C7/index-current"
+    ],
+    "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "viberwhisper",
+    "query": "viberwhisper",
+    "version": "rg",
+    "files": 34,
+    "samples_ms": [
+      7.130958,
+      5.60775,
+      5.7655,
+      5.564833,
+      5.5185,
+      5.615375,
+      5.89475,
+      5.61775,
+      6.716166,
+      5.532
+    ],
+    "median_ms": 5.616562500000001,
+    "command": [
+      "rg",
+      "--no-config",
+      "--hidden",
+      "-g",
+      "!.git",
+      "-F",
+      "-l",
+      "viberwhisper",
+      "."
+    ],
+    "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "agentflow",
+    "query": "def ",
+    "version": "main",
+    "files": 73,
+    "samples_ms": [
+      5.934375,
+      5.706083,
+      5.425542,
+      5.094125,
+      5.13575,
+      5.102375,
+      5.258708,
+      5.551375,
+      5.415541,
+      5.333916
+    ],
+    "median_ms": 5.3747285,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+      "search",
+      "-F",
+      "-l",
+      "def ",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-91ajMX/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-91ajMX/index-main"
+    ],
+    "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "agentflow",
+    "query": "def ",
+    "version": "direct",
+    "files": 73,
+    "samples_ms": [
+      5.113708,
+      4.969333,
+      5.580875,
+      5.257875,
+      5.092667,
+      4.986,
+      5.157791,
+      4.812292,
+      5.339292,
+      5.622583
+    ],
+    "median_ms": 5.135749499999999,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-direct",
+      "search",
+      "-F",
+      "-l",
+      "def ",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-91ajMX/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-91ajMX/index-direct"
+    ],
+    "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "agentflow",
+    "query": "def ",
+    "version": "current",
+    "files": 73,
+    "samples_ms": [
+      5.253583,
+      5.231917,
+      4.923042,
+      4.934,
+      5.634792,
+      5.423208,
+      5.602375,
+      5.2805,
+      5.013,
+      5.028166
+    ],
+    "median_ms": 5.24275,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-current",
+      "search",
+      "-F",
+      "-l",
+      "def ",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-91ajMX/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-91ajMX/index-current"
+    ],
+    "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "agentflow",
+    "query": "def ",
+    "version": "rg",
+    "files": 73,
+    "samples_ms": [
+      6.134708,
+      6.309667,
+      5.880834,
+      6.256875,
+      4.991125,
+      6.216291,
+      5.858292,
+      5.671541,
+      5.101583,
+      6.163167
+    ],
+    "median_ms": 6.007771,
+    "command": [
+      "rg",
+      "--no-config",
+      "--hidden",
+      "-g",
+      "!.git",
+      "-F",
+      "-l",
+      "def ",
+      "."
+    ],
+    "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "vllm",
+    "query": "SamplingParams",
+    "version": "direct",
+    "files": 373,
+    "samples_ms": [
+      24.726167,
+      24.468083,
+      24.251167,
+      25.190334,
+      24.200791,
+      25.339542,
+      26.083084,
+      25.330875,
+      25.235542,
+      23.684708
+    ],
+    "median_ms": 24.9582505,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-direct",
+      "search",
+      "-F",
+      "-l",
+      "SamplingParams",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-XoMaLd/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-XoMaLd/index-direct"
+    ],
+    "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "vllm",
+    "query": "SamplingParams",
+    "version": "current",
+    "files": 373,
+    "samples_ms": [
+      25.202833,
+      25.472042,
+      25.528542,
+      25.648292,
+      23.714583,
+      26.336709,
+      25.527292,
+      24.646917,
+      24.199375,
+      25.226083
+    ],
+    "median_ms": 25.3490625,
+    "command": [
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-current",
+      "search",
+      "-F",
+      "-l",
+      "SamplingParams",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-XoMaLd/source",
+      "--index-dir",
+      "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/workspace/history-XoMaLd/index-current"
+    ],
+    "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "state": "after four rollback/replay checks"
+  },
+  {
+    "repository": "vllm",
+    "query": "SamplingParams",
+    "version": "rg",
+    "files": 373,
+    "samples_ms": [
+      88.289666,
+      88.043708,
+      89.040041,
+      87.849708,
+      88.672125,
+      88.638125,
+      88.005,
+      88.772958,
+      88.177917,
+      87.879375
+    ],
+    "median_ms": 88.2337915,
+    "command": [
+      "rg",
+      "--no-config",
+      "--hidden",
+      "-g",
+      "!.git",
+      "-F",
+      "-l",
+      "SamplingParams",
+      "."
+    ],
+    "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "state": "after four rollback/replay checks"
+  }
+]

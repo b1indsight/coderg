@@ -49,22 +49,36 @@ pub fn run(
         Err(error) => return Err(error),
     };
     if !options.no_refresh {
-        match index::refresh(&disk_index, requested_index_dir, budget)? {
+        match index::refresh(&mut disk_index, requested_index_dir, budget)? {
             index::RefreshOutcome::Unchanged => {}
+            index::RefreshOutcome::Rebuilt => {
+                eprintln!("coderg: rebuilt index after incremental segments reached 8 MiB");
+                disk_index = index::load(path, requested_index_dir)?;
+            }
             index::RefreshOutcome::CommitAdvanced => {
                 eprintln!("coderg: advanced index to the current Git tree");
                 disk_index = index::load(path, requested_index_dir)?;
             }
-            index::RefreshOutcome::Incremental { changed } => {
-                eprintln!("coderg: incrementally indexed {changed} changed files");
-                disk_index = index::load(path, requested_index_dir)?;
-            }
-            index::RefreshOutcome::SwitchedToCachedTree => {
-                eprintln!("coderg: switched to cached Git tree index");
-                disk_index = index::load(path, requested_index_dir)?;
-            }
-            index::RefreshOutcome::Rebuilt => {
-                eprintln!("coderg: rebuilt index after a large change");
+            index::RefreshOutcome::Incremental {
+                changed,
+                compaction,
+            } => {
+                if changed > 0 {
+                    eprintln!("coderg: incrementally indexed {changed} changed files");
+                }
+                if !compaction.inputs.is_empty() {
+                    eprintln!(
+                        "coderg: compacted {} {} segments ({} input bytes, {} output bytes)",
+                        compaction.inputs.len(),
+                        if compaction.full {
+                            "base + middle"
+                        } else {
+                            "middle"
+                        },
+                        compaction.input_bytes,
+                        compaction.output_bytes
+                    );
+                }
                 disk_index = index::load(path, requested_index_dir)?;
             }
         }

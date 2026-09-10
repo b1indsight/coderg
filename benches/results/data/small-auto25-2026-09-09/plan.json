@@ -1,0 +1,18 @@
+{
+  "datasets": [
+    {
+      "id": "viberwhisper",
+      "kind": "rust",
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+      "source": "/Users/b1indsight/personal_work/viberwhisper",
+      "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233"
+    },
+    {
+      "id": "agentflow",
+      "kind": "python",
+      "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+      "source": "/Users/b1indsight/personal_work/agentflow",
+      "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30"
+    }
+  ]
+}

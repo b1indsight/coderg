@@ -1,0 +1,976 @@
+{
+  "source": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/vllm-history",
+  "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/rg-order-diagnosis/history-eG1IQA",
+  "base_commit": "874df9373dab532543a0229fb2f144f7c14093ae",
+  "end_commit": "d87a440f88e28e5b37f9b1e22ce214d0426d5352",
+  "os": "macos",
+  "arch": "aarch64",
+  "variants": [
+    {
+      "name": "main",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/rg-order-diagnosis/history-eG1IQA/index-main"
+    },
+    {
+      "name": "current",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/rg-order-diagnosis/history-eG1IQA/index-current"
+    },
+    {
+      "name": "no-sync",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/rg-order-diagnosis/history-eG1IQA/index-no-sync"
+    }
+  ],
+  "builds": [
+    {
+      "version": "main",
+      "wall_ms": 788.309709,
+      "peak_rss_bytes": 223756288,
+      "diagnostic": "coderg: spilled 2 build runs (413989357 temporary bytes written, 413989357 peak temporary bytes)",
+      "base_id": 1788941182384402000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 64262812,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 1231136,
+      "retained_bytes": 66725084
+    },
+    {
+      "version": "current",
+      "wall_ms": 804.3188329999999,
+      "peak_rss_bytes": 220741632,
+      "diagnostic": "coderg: spilled 2 build runs (414031645 temporary bytes written, 414031645 peak temporary bytes)",
+      "base_id": 1788941183152672000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 64262812,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 1231136,
+      "retained_bytes": 65493948
+    },
+    {
+      "version": "no-sync",
+      "wall_ms": 762.570083,
+      "peak_rss_bytes": 221331456,
+      "diagnostic": "coderg: spilled 2 build runs (413991189 temporary bytes written, 413991189 peak temporary bytes)",
+      "base_id": 1788941183947172000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 64262812,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 1231136,
+      "retained_bytes": 65493948
+    }
+  ],
+  "updates": [
+    {
+      "step": 1,
+      "from_commit": "874df9373dab532543a0229fb2f144f7c14093ae",
+      "commit": "8277c42e4c74c5dd604f29b6d938a3456658f247",
+      "subject": "[Perf] Ensure async h2d copies are pinned in more places (#55202)",
+      "changed_files": 21,
+      "added_lines": 206,
+      "deleted_lines": 73,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1467010,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 71.313292,
+          "peak_rss_bytes": 30900224,
+          "diagnostic": "coderg: incrementally indexed 21 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 0,
+          "base_bytes": 64262812,
+          "middle_bytes": 1353057,
+          "segments": 2,
+          "manifest_bytes": 1231242,
+          "retained_bytes": 66847111
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 58.6175,
+          "peak_rss_bytes": 31162368,
+          "diagnostic": "coderg: incrementally indexed 21 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 0,
+          "base_bytes": 64262812,
+          "middle_bytes": 1353057,
+          "segments": 2,
+          "manifest_bytes": 1231242,
+          "retained_bytes": 66847111
+        },
+        {
+          "version": "main",
+          "wall_ms": 86.207791,
+          "peak_rss_bytes": 32866304,
+          "diagnostic": "coderg: incrementally indexed 21 changed files",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 0,
+          "base_bytes": 64262812,
+          "middle_bytes": 1353057,
+          "segments": 2,
+          "manifest_bytes": 1231242,
+          "retained_bytes": 69309489
+        }
+      ],
+      "rg": {
+        "wall_ms": 167.3545,
+        "peak_rss_bytes": 17170432
+      }
+    },
+    {
+      "step": 2,
+      "from_commit": "8277c42e4c74c5dd604f29b6d938a3456658f247",
+      "commit": "6cbb3c154ef1449d2b3c9131a237f36faa695734",
+      "subject": "[Perf][GDN] Build cudagraph-capture metadata without a device sync (#55404)",
+      "changed_files": 3,
+      "added_lines": 67,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 78138,
+      "measurements": [
+        {
+          "version": "no-sync",
+          "wall_ms": 38.128750000000004,
+          "peak_rss_bytes": 23117824,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 1353057,
+          "base_bytes": 64262812,
+          "middle_bytes": 1460002,
+          "segments": 3,
+          "manifest_bytes": 1231348,
+          "retained_bytes": 66954162
+        },
+        {
+          "version": "main",
+          "wall_ms": 72.068208,
+          "peak_rss_bytes": 26116096,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 1353057,
+          "base_bytes": 64262812,
+          "middle_bytes": 1460002,
+          "segments": 3,
+          "manifest_bytes": 1231348,
+          "retained_bytes": 70647888
+        },
+        {
+          "version": "current",
+          "wall_ms": 65.34504100000001,
+          "peak_rss_bytes": 23429120,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 1353057,
+          "base_bytes": 64262812,
+          "middle_bytes": 1460002,
+          "segments": 3,
+          "manifest_bytes": 1231348,
+          "retained_bytes": 66954162
+        }
+      ],
+      "rg": {
+        "wall_ms": 167.90433299999998,
+        "peak_rss_bytes": 15597568
+      }
+    },
+    {
+      "step": 3,
+      "from_commit": "6cbb3c154ef1449d2b3c9131a237f36faa695734",
+      "commit": "385ba6b5b003238e559d9c1f18e0f1984320ee61",
+      "subject": "[Bugfix][Quantization] Register Quark per-block FP8 scales as weight_scale (#54770)",
+      "changed_files": 7,
+      "added_lines": 111,
+      "deleted_lines": 25,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 322545,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 76.881709,
+          "peak_rss_bytes": 28311552,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 1460002,
+          "base_bytes": 64262812,
+          "middle_bytes": 1896438,
+          "segments": 4,
+          "manifest_bytes": 1231454,
+          "retained_bytes": 72315884
+        },
+        {
+          "version": "current",
+          "wall_ms": 64.239666,
+          "peak_rss_bytes": 26411008,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 1460002,
+          "base_bytes": 64262812,
+          "middle_bytes": 1896438,
+          "segments": 4,
+          "manifest_bytes": 1231454,
+          "retained_bytes": 67390704
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 47.549208,
+          "peak_rss_bytes": 25149440,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 1460002,
+          "base_bytes": 64262812,
+          "middle_bytes": 1896438,
+          "segments": 4,
+          "manifest_bytes": 1231454,
+          "retained_bytes": 67390704
+        }
+      ],
+      "rg": {
+        "wall_ms": 92.87533400000001,
+        "peak_rss_bytes": 15695872
+      }
+    },
+    {
+      "step": 4,
+      "from_commit": "385ba6b5b003238e559d9c1f18e0f1984320ee61",
+      "commit": "16328c7a775ff20d17d9750096a094e8cf2b45f2",
+      "subject": "[Perf] Kimi K3 nvfp4 Align in_proj weights by 128 to avoid elementwise copy (#55242)",
+      "changed_files": 6,
+      "added_lines": 53,
+      "deleted_lines": 21,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 340204,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 78.455708,
+          "peak_rss_bytes": 28082176,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 1896438,
+          "base_bytes": 64262812,
+          "middle_bytes": 2344347,
+          "segments": 5,
+          "manifest_bytes": 1231560,
+          "retained_bytes": 73995459
+        },
+        {
+          "version": "current",
+          "wall_ms": 65.997917,
+          "peak_rss_bytes": 25198592,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 1896438,
+          "base_bytes": 64262812,
+          "middle_bytes": 2344347,
+          "segments": 5,
+          "manifest_bytes": 1231560,
+          "retained_bytes": 67838719
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 44.551208,
+          "peak_rss_bytes": 25821184,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 1896438,
+          "base_bytes": 64262812,
+          "middle_bytes": 2344347,
+          "segments": 5,
+          "manifest_bytes": 1231560,
+          "retained_bytes": 67838719
+        }
+      ],
+      "rg": {
+        "wall_ms": 169.980875,
+        "peak_rss_bytes": 16777216
+      }
+    },
+    {
+      "step": 5,
+      "from_commit": "16328c7a775ff20d17d9750096a094e8cf2b45f2",
+      "commit": "a7f9be9612861d6425738dd0ba1c7fd5805e6c95",
+      "subject": "[CI][ROCm] Raise AMD job and server readiness timeouts (#55308)",
+      "changed_files": 4,
+      "added_lines": 17,
+      "deleted_lines": 14,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 192055,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 59.221541,
+          "peak_rss_bytes": 23904256,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2344347,
+          "base_bytes": 64262812,
+          "middle_bytes": 2516089,
+          "segments": 6,
+          "manifest_bytes": 1231666,
+          "retained_bytes": 68010567
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 44.033375,
+          "peak_rss_bytes": 23724032,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2344347,
+          "base_bytes": 64262812,
+          "middle_bytes": 2516089,
+          "segments": 6,
+          "manifest_bytes": 1231666,
+          "retained_bytes": 68010567
+        },
+        {
+          "version": "main",
+          "wall_ms": 75.206416,
+          "peak_rss_bytes": 26198016,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2344347,
+          "base_bytes": 64262812,
+          "middle_bytes": 2516089,
+          "segments": 6,
+          "manifest_bytes": 1231666,
+          "retained_bytes": 75398973
+        }
+      ],
+      "rg": {
+        "wall_ms": 145.496917,
+        "peak_rss_bytes": 15302656
+      }
+    },
+    {
+      "step": 6,
+      "from_commit": "a7f9be9612861d6425738dd0ba1c7fd5805e6c95",
+      "commit": "ea5f41edd7f157a7c24bc86b59d8ae3b55b6dcf5",
+      "subject": "[CI][ROCm] Restore Wikitext coverage for Qwen OCP-MX (#55410)",
+      "changed_files": 5,
+      "added_lines": 38,
+      "deleted_lines": 14,
+      "added_files": 0,
+      "deleted_files": 2,
+      "renamed_files": 0,
+      "target_source_bytes": 50126,
+      "measurements": [
+        {
+          "version": "no-sync",
+          "wall_ms": 39.579667,
+          "peak_rss_bytes": 23674880,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2516089,
+          "base_bytes": 64262812,
+          "middle_bytes": 2597526,
+          "segments": 7,
+          "manifest_bytes": 1231590,
+          "retained_bytes": 68091928
+        },
+        {
+          "version": "main",
+          "wall_ms": 74.415958,
+          "peak_rss_bytes": 25919488,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2516089,
+          "base_bytes": 64262812,
+          "middle_bytes": 2597526,
+          "segments": 7,
+          "manifest_bytes": 1231590,
+          "retained_bytes": 76711924
+        },
+        {
+          "version": "current",
+          "wall_ms": 64.0925,
+          "peak_rss_bytes": 23543808,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2516089,
+          "base_bytes": 64262812,
+          "middle_bytes": 2597526,
+          "segments": 7,
+          "manifest_bytes": 1231590,
+          "retained_bytes": 68091928
+        }
+      ],
+      "rg": {
+        "wall_ms": 167.48833399999998,
+        "peak_rss_bytes": 15679488
+      }
+    },
+    {
+      "step": 7,
+      "from_commit": "ea5f41edd7f157a7c24bc86b59d8ae3b55b6dcf5",
+      "commit": "d4ef5e53fcfd5ffa47f213121c7f181468120d8b",
+      "subject": "[CI][ROCm] Disable Transformers nightly groups (#55409)",
+      "changed_files": 1,
+      "added_lines": 67,
+      "deleted_lines": 67,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 161963,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 71.67025000000001,
+          "peak_rss_bytes": 26247168,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2597526,
+          "base_bytes": 64262812,
+          "middle_bytes": 2713968,
+          "segments": 8,
+          "manifest_bytes": 1231696,
+          "retained_bytes": 78060168
+        },
+        {
+          "version": "current",
+          "wall_ms": 62.087541,
+          "peak_rss_bytes": 23085056,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2597526,
+          "base_bytes": 64262812,
+          "middle_bytes": 2713968,
+          "segments": 8,
+          "manifest_bytes": 1231696,
+          "retained_bytes": 68208476
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 45.050542,
+          "peak_rss_bytes": 23920640,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2597526,
+          "base_bytes": 64262812,
+          "middle_bytes": 2713968,
+          "segments": 8,
+          "manifest_bytes": 1231696,
+          "retained_bytes": 68208476
+        }
+      ],
+      "rg": {
+        "wall_ms": 89.514,
+        "peak_rss_bytes": 14991360
+      }
+    },
+    {
+      "step": 8,
+      "from_commit": "d4ef5e53fcfd5ffa47f213121c7f181468120d8b",
+      "commit": "d87a440f88e28e5b37f9b1e22ce214d0426d5352",
+      "subject": "[Core][MRV2] Support eagle3 spec decode with pipeline parallel (#50514)",
+      "changed_files": 27,
+      "added_lines": 582,
+      "deleted_lines": 152,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 811158,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 831.856333,
+          "peak_rss_bytes": 227557376,
+          "diagnostic": "coderg: spilled 2 build runs (414130760 temporary bytes written, 414130760 peak temporary bytes)\ncoderg: rebuilt index after a large change",
+          "base_id": 1788941189517206000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2713968,
+          "base_bytes": 64282572,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 1231276,
+          "retained_bytes": 143573596
+        },
+        {
+          "version": "current",
+          "wall_ms": 71.046209,
+          "peak_rss_bytes": 30097408,
+          "diagnostic": "coderg: incrementally indexed 27 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2713968,
+          "base_bytes": 64262812,
+          "middle_bytes": 3634427,
+          "segments": 9,
+          "manifest_bytes": 1232326,
+          "retained_bytes": 69129565
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 49.692166,
+          "peak_rss_bytes": 29245440,
+          "diagnostic": "coderg: incrementally indexed 27 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2713968,
+          "base_bytes": 64262812,
+          "middle_bytes": 3634427,
+          "segments": 9,
+          "manifest_bytes": 1232326,
+          "retained_bytes": 69129565
+        }
+      ],
+      "rg": {
+        "wall_ms": 161.638084,
+        "peak_rss_bytes": 15515648
+      }
+    }
+  ],
+  "rollbacks": [
+    {
+      "step": 7,
+      "from_commit": "d87a440f88e28e5b37f9b1e22ce214d0426d5352",
+      "commit": "d4ef5e53fcfd5ffa47f213121c7f181468120d8b",
+      "subject": "[CI][ROCm] Disable Transformers nightly groups (#55409)",
+      "changed_files": 27,
+      "added_lines": 152,
+      "deleted_lines": 582,
+      "added_files": 0,
+      "deleted_files": 3,
+      "renamed_files": 0,
+      "target_source_bytes": 796810,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 62.748374999999996,
+          "peak_rss_bytes": 24084480,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64282572,
+          "middle_bytes_before": 0,
+          "base_bytes": 64262812,
+          "middle_bytes": 2713968,
+          "segments": 8,
+          "manifest_bytes": 1231696,
+          "retained_bytes": 143574016
+        },
+        {
+          "version": "current",
+          "wall_ms": 66.87525,
+          "peak_rss_bytes": 29458432,
+          "diagnostic": "coderg: incrementally indexed 27 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 3634427,
+          "base_bytes": 64262812,
+          "middle_bytes": 3618349,
+          "segments": 9,
+          "manifest_bytes": 1232079,
+          "retained_bytes": 70033699
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 50.676249999999996,
+          "peak_rss_bytes": 29163520,
+          "diagnostic": "coderg: incrementally indexed 27 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 3634427,
+          "base_bytes": 64262812,
+          "middle_bytes": 3618349,
+          "segments": 9,
+          "manifest_bytes": 1232079,
+          "retained_bytes": 70033699
+        }
+      ],
+      "rg": {
+        "wall_ms": 166.858542,
+        "peak_rss_bytes": 15368192
+      }
+    },
+    {
+      "step": 4,
+      "from_commit": "d4ef5e53fcfd5ffa47f213121c7f181468120d8b",
+      "commit": "16328c7a775ff20d17d9750096a094e8cf2b45f2",
+      "subject": "[Perf] Kimi K3 nvfp4 Align in_proj weights by 128 to avoid elementwise copy (#55242)",
+      "changed_files": 9,
+      "added_lines": 95,
+      "deleted_lines": 122,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 241138,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 62.094833,
+          "peak_rss_bytes": 25051136,
+          "diagnostic": "coderg: incrementally indexed 9 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 3618349,
+          "base_bytes": 64262812,
+          "middle_bytes": 3488667,
+          "segments": 7,
+          "manifest_bytes": 1232251,
+          "retained_bytes": 70273810
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 45.118582999999994,
+          "peak_rss_bytes": 25051136,
+          "diagnostic": "coderg: incrementally indexed 9 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 3618349,
+          "base_bytes": 64262812,
+          "middle_bytes": 3488667,
+          "segments": 7,
+          "manifest_bytes": 1232251,
+          "retained_bytes": 70273810
+        },
+        {
+          "version": "main",
+          "wall_ms": 64.36191600000001,
+          "peak_rss_bytes": 23707648,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2713968,
+          "base_bytes": 64262812,
+          "middle_bytes": 2344347,
+          "segments": 5,
+          "manifest_bytes": 1231560,
+          "retained_bytes": 143573880
+        }
+      ],
+      "rg": {
+        "wall_ms": 174.395292,
+        "peak_rss_bytes": 16629760
+      }
+    },
+    {
+      "step": 0,
+      "from_commit": "16328c7a775ff20d17d9750096a094e8cf2b45f2",
+      "commit": "874df9373dab532543a0229fb2f144f7c14093ae",
+      "subject": "[Bugfix] Preserve Mamba state for padded prompt tails (#55178)",
+      "changed_files": 37,
+      "added_lines": 121,
+      "deleted_lines": 437,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 2195054,
+      "measurements": [
+        {
+          "version": "no-sync",
+          "wall_ms": 55.882625,
+          "peak_rss_bytes": 33685504,
+          "diagnostic": "coderg: incrementally indexed 37 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 3488667,
+          "base_bytes": 64262812,
+          "middle_bytes": 3127595,
+          "segments": 4,
+          "manifest_bytes": 1231933,
+          "retained_bytes": 72256767
+        },
+        {
+          "version": "main",
+          "wall_ms": 64.78679199999999,
+          "peak_rss_bytes": 23478272,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1788941182384402000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 2344347,
+          "base_bytes": 64262812,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 1231136,
+          "retained_bytes": 143573456
+        },
+        {
+          "version": "current",
+          "wall_ms": 78.460084,
+          "peak_rss_bytes": 34930688,
+          "diagnostic": "coderg: incrementally indexed 37 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 3488667,
+          "base_bytes": 64262812,
+          "middle_bytes": 3127595,
+          "segments": 4,
+          "manifest_bytes": 1231933,
+          "retained_bytes": 72256767
+        }
+      ],
+      "rg": {
+        "wall_ms": 172.349958,
+        "peak_rss_bytes": 15958016
+      }
+    },
+    {
+      "step": 8,
+      "from_commit": "874df9373dab532543a0229fb2f144f7c14093ae",
+      "commit": "d87a440f88e28e5b37f9b1e22ce214d0426d5352",
+      "subject": "[Core][MRV2] Support eagle3 spec decode with pipeline parallel (#50514)",
+      "changed_files": 71,
+      "added_lines": 1141,
+      "deleted_lines": 368,
+      "added_files": 3,
+      "deleted_files": 2,
+      "renamed_files": 0,
+      "target_source_bytes": 3125900,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 64.973792,
+          "peak_rss_bytes": 23429120,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1788941189517206000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 0,
+          "base_bytes": 64282572,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 1231276,
+          "retained_bytes": 143573596
+        },
+        {
+          "version": "current",
+          "wall_ms": 82.769333,
+          "peak_rss_bytes": 38338560,
+          "diagnostic": "coderg: incrementally indexed 71 changed files",
+          "base_id": 1788941183152672000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 3127595,
+          "base_bytes": 64262812,
+          "middle_bytes": 2665021,
+          "segments": 2,
+          "manifest_bytes": 1232063,
+          "retained_bytes": 74921918
+        },
+        {
+          "version": "no-sync",
+          "wall_ms": 68.307542,
+          "peak_rss_bytes": 39092224,
+          "diagnostic": "coderg: incrementally indexed 71 changed files",
+          "base_id": 1788941183947172000,
+          "base_bytes_before": 64262812,
+          "middle_bytes_before": 3127595,
+          "base_bytes": 64262812,
+          "middle_bytes": 2665021,
+          "segments": 2,
+          "manifest_bytes": 1232063,
+          "retained_bytes": 74921918
+        }
+      ],
+      "rg": {
+        "wall_ms": 90.444542,
+        "peak_rss_bytes": 15679488
+      }
+    }
+  ],
+  "queries": [
+    {
+      "step": 0,
+      "version": "main",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.8480419999999995
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.974791
+      ]
+    },
+    {
+      "step": 0,
+      "version": "no-sync",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        8.194291
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        25.856209
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        25.508416999999998
+      ]
+    },
+    {
+      "step": 0,
+      "version": "no-sync",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        26.633917
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.740792
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.484167
+      ]
+    },
+    {
+      "step": 1,
+      "version": "no-sync",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.794
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        24.997124999999997
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        25.79975
+      ]
+    },
+    {
+      "step": 1,
+      "version": "no-sync",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        24.994041000000003
+      ]
+    },
+    {
+      "step": 8,
+      "version": "main",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.572708
+      ]
+    },
+    {
+      "step": 8,
+      "version": "current",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.771583000000001
+      ]
+    },
+    {
+      "step": 8,
+      "version": "no-sync",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.684917
+      ]
+    },
+    {
+      "step": 8,
+      "version": "main",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        26.136583
+      ]
+    },
+    {
+      "step": 8,
+      "version": "current",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        26.545917
+      ]
+    },
+    {
+      "step": 8,
+      "version": "no-sync",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        26.20025
+      ]
+    }
+  ],
+  "iterations": 1,
+  "warmup": 0,
+  "verification_queries": [
+    "SamplingParams"
+  ],
+  "update_query": "SamplingParams",
+  "verified_comparisons": 75
+}

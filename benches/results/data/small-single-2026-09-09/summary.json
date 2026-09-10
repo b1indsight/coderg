@@ -1,0 +1,564 @@
+{
+  "viberwhisper": {
+    "base_commit": "d723bb05825613cd3bb825fea0eca8309925ca1a",
+    "end_commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "verified_comparisons": 148,
+    "initial_b_mib": 1.3952255249023438,
+    "groups": {
+      "incremental": {
+        "generational": {
+          "count": 15,
+          "median": 27.803042,
+          "p95": 33.361250000000005,
+          "min": 26.456,
+          "max": 33.361250000000005
+        },
+        "single": {
+          "count": 15,
+          "median": 52.18925,
+          "p95": 60.075458,
+          "min": 49.956125,
+          "max": 60.075458
+        }
+      },
+      "middle_merge": {
+        "generational": {
+          "count": 5,
+          "median": 38.269584,
+          "p95": 43.670208,
+          "min": 35.306833000000005,
+          "max": 43.670208
+        },
+        "single": {
+          "count": 5,
+          "median": 49.398709,
+          "p95": 52.578041999999996,
+          "min": 47.795292,
+          "max": 52.578041999999996
+        }
+      }
+    },
+    "all_single": {
+      "count": 20,
+      "median": 51.83625,
+      "p95": 56.754,
+      "min": 47.795292,
+      "max": 60.075458
+    }
+  },
+  "vllm": {
+    "base_commit": "28e605fb330093fee5a2b98aebc19d9c268c1822",
+    "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "verified_comparisons": 66,
+    "initial_b_mib": 61.30796718597412,
+    "groups": {
+      "incremental": {
+        "generational": {
+          "count": 10,
+          "median": 58.1168755,
+          "p95": 67.142042,
+          "min": 55.163875000000004,
+          "max": 67.142042
+        },
+        "single": {
+          "count": 10,
+          "median": 60.1300625,
+          "p95": 67.84216699999999,
+          "min": 53.663209,
+          "max": 67.84216699999999
+        }
+      },
+      "middle_merge": {
+        "generational": {
+          "count": 2,
+          "median": 70.5268955,
+          "p95": 71.69420799999999,
+          "min": 69.359583,
+          "max": 71.69420799999999
+        },
+        "single": {
+          "count": 2,
+          "median": 74.6166875,
+          "p95": 77.672333,
+          "min": 71.561042,
+          "max": 77.672333
+        }
+      }
+    },
+    "all_single": {
+      "count": 12,
+      "median": 60.324479,
+      "p95": 77.672333,
+      "min": 53.663209,
+      "max": 77.672333
+    }
+  },
+  "query": [
+    {
+      "query": "whisper",
+      "commands": {
+        "generational": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+          "search",
+          "-F",
+          "-l",
+          "whisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/index-current"
+        ],
+        "single": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-single-lovcno_6/coderg-single-final",
+          "search",
+          "-F",
+          "-l",
+          "whisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-single-lovcno_6/migrated-final-index"
+        ],
+        "rg": [
+          "rg",
+          "--no-config",
+          "--hidden",
+          "-g",
+          "!.git",
+          "-F",
+          "-l",
+          "whisper",
+          "."
+        ]
+      },
+      "runs": [
+        {
+          "tool": "generational",
+          "run": 1,
+          "wall_ms": 6.55875,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 2,
+          "wall_ms": 5.210792,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 3,
+          "wall_ms": 5.189416,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 4,
+          "wall_ms": 5.065042,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 5,
+          "wall_ms": 5.352625,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 6,
+          "wall_ms": 4.926333,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 7,
+          "wall_ms": 5.503083,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 8,
+          "wall_ms": 5.06225,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 9,
+          "wall_ms": 4.843625,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 10,
+          "wall_ms": 4.7885,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 1,
+          "wall_ms": 5.085875,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 2,
+          "wall_ms": 5.19825,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 3,
+          "wall_ms": 4.8295,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 4,
+          "wall_ms": 4.892042,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 5,
+          "wall_ms": 4.771458,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 6,
+          "wall_ms": 4.858,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 7,
+          "wall_ms": 4.713791,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 8,
+          "wall_ms": 5.058958,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 9,
+          "wall_ms": 5.120625,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 10,
+          "wall_ms": 5.116708,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 1,
+          "wall_ms": 9.598875,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 2,
+          "wall_ms": 5.7935,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 3,
+          "wall_ms": 5.627792,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 4,
+          "wall_ms": 6.462625,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 5,
+          "wall_ms": 7.006375,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 6,
+          "wall_ms": 5.783542,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 7,
+          "wall_ms": 5.744125,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 8,
+          "wall_ms": 5.686833,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 9,
+          "wall_ms": 6.024334,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 10,
+          "wall_ms": 5.651167,
+          "files": 43
+        }
+      ],
+      "summary": {
+        "generational": {
+          "median_ms": 5.127229,
+          "first_ms": 6.55875
+        },
+        "single": {
+          "median_ms": 4.9755,
+          "first_ms": 5.085875
+        },
+        "rg": {
+          "median_ms": 5.788520999999999,
+          "first_ms": 9.598875
+        }
+      },
+      "files": 43
+    },
+    {
+      "query": "viberwhisper",
+      "commands": {
+        "generational": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+          "search",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/index-current"
+        ],
+        "single": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-single-lovcno_6/coderg-single-final",
+          "search",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-single-lovcno_6/migrated-final-index"
+        ],
+        "rg": [
+          "rg",
+          "--no-config",
+          "--hidden",
+          "-g",
+          "!.git",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "."
+        ]
+      },
+      "runs": [
+        {
+          "tool": "generational",
+          "run": 1,
+          "wall_ms": 5.229416,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 2,
+          "wall_ms": 4.891667,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 3,
+          "wall_ms": 4.848666,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 4,
+          "wall_ms": 4.862458,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 5,
+          "wall_ms": 4.93625,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 6,
+          "wall_ms": 5.045208,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 7,
+          "wall_ms": 5.04775,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 8,
+          "wall_ms": 5.272208,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 9,
+          "wall_ms": 4.909834,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 10,
+          "wall_ms": 4.783083,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 1,
+          "wall_ms": 4.799875,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 2,
+          "wall_ms": 4.86425,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 3,
+          "wall_ms": 5.344917,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 4,
+          "wall_ms": 4.94275,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 5,
+          "wall_ms": 4.762541,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 6,
+          "wall_ms": 4.637375,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 7,
+          "wall_ms": 4.65975,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 8,
+          "wall_ms": 4.671167,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 9,
+          "wall_ms": 4.787583,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 10,
+          "wall_ms": 4.865708,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 1,
+          "wall_ms": 6.451791,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 2,
+          "wall_ms": 5.527958,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 3,
+          "wall_ms": 6.677208,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 4,
+          "wall_ms": 6.326584,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 5,
+          "wall_ms": 5.507208,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 6,
+          "wall_ms": 5.636667,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 7,
+          "wall_ms": 5.66875,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 8,
+          "wall_ms": 6.176375,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 9,
+          "wall_ms": 5.479417,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 10,
+          "wall_ms": 6.651709,
+          "files": 34
+        }
+      ],
+      "summary": {
+        "generational": {
+          "median_ms": 4.923042000000001,
+          "first_ms": 5.229416
+        },
+        "single": {
+          "median_ms": 4.793729,
+          "first_ms": 4.799875
+        },
+        "rg": {
+          "median_ms": 5.9225625,
+          "first_ms": 6.451791
+        }
+      },
+      "files": 34
+    }
+  ]
+}

@@ -1,0 +1,5171 @@
+{
+  "source": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/size-tiers-yj6ry5d5/whisper-cpp",
+  "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/size-tiers-yj6ry5d5/workspace/history-BlAamr",
+  "base_commit": "5271734e0e4e1761c601dc4fcf41a877e22d3a80",
+  "end_commit": "c44b60b8053bbf2a5c1e014f11323fb3f2485177",
+  "os": "macos",
+  "arch": "aarch64",
+  "variants": [
+    {
+      "name": "main",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/size-tiers-yj6ry5d5/workspace/history-BlAamr/index-main"
+    },
+    {
+      "name": "current",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/size-tiers-yj6ry5d5/coderg-current",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/size-tiers-yj6ry5d5/workspace/history-BlAamr/index-current"
+    }
+  ],
+  "builds": [
+    {
+      "version": "main",
+      "wall_ms": 200.831083,
+      "peak_rss_bytes": 108707840,
+      "diagnostic": "",
+      "base_id": 1789018908359220000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 17581400,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 308677,
+      "retained_bytes": 18198754
+    },
+    {
+      "version": "current",
+      "wall_ms": 219.882208,
+      "peak_rss_bytes": 107872256,
+      "diagnostic": "",
+      "base_id": 1789018908551132000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 17581400,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 308677,
+      "retained_bytes": 17890077
+    }
+  ],
+  "updates": [
+    {
+      "step": 1,
+      "from_commit": "5271734e0e4e1761c601dc4fcf41a877e22d3a80",
+      "commit": "3fea10db5435faa9f19d95adedbe6963b2d0b45d",
+      "subject": "hexagon: support for multi-NPU devices (IQ9, IQ10) and fully asynchronous backend (llama/26501)",
+      "changed_files": 23,
+      "added_lines": 3908,
+      "deleted_lines": 2054,
+      "added_files": 5,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 812422,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 23.688416,
+          "peak_rss_bytes": 22265856,
+          "diagnostic": "coderg: incrementally indexed 23 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 0,
+          "base_bytes": 17581400,
+          "middle_bytes": 656250,
+          "segments": 2,
+          "manifest_bytes": 309551,
+          "retained_bytes": 18547201
+        },
+        {
+          "version": "main",
+          "wall_ms": 33.733666,
+          "peak_rss_bytes": 23576576,
+          "diagnostic": "coderg: incrementally indexed 23 changed files",
+          "base_id": 1789018908359220000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 0,
+          "base_bytes": 17581400,
+          "middle_bytes": 656250,
+          "segments": 2,
+          "manifest_bytes": 309551,
+          "retained_bytes": 19165429
+        }
+      ],
+      "rg": {
+        "wall_ms": 45.692625,
+        "peak_rss_bytes": 9289728
+      }
+    },
+    {
+      "step": 2,
+      "from_commit": "3fea10db5435faa9f19d95adedbe6963b2d0b45d",
+      "commit": "a5db1d66f0d32e7b5031d51f00797573f3ac7e02",
+      "subject": "metal : fix memory leaks due to missing autoreleasepools (llama/27758)",
+      "changed_files": 2,
+      "added_lines": 276,
+      "deleted_lines": 270,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 113054,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 31.879958,
+          "peak_rss_bytes": 17809408,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018908359220000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 656250,
+          "base_bytes": 17581400,
+          "middle_bytes": 822475,
+          "segments": 3,
+          "manifest_bytes": 309657,
+          "retained_bytes": 19641417
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.181583,
+          "peak_rss_bytes": 16449536,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 656250,
+          "base_bytes": 17581400,
+          "middle_bytes": 822475,
+          "segments": 3,
+          "manifest_bytes": 309657,
+          "retained_bytes": 18713532
+        }
+      ],
+      "rg": {
+        "wall_ms": 32.196625,
+        "peak_rss_bytes": 9388032
+      }
+    },
+    {
+      "step": 3,
+      "from_commit": "a5db1d66f0d32e7b5031d51f00797573f3ac7e02",
+      "commit": "55ab1e517cf52c9441119f740bc0e9d758a4f4ec",
+      "subject": "Feature: Added LIGHTNING_INDEXER support for Deepseek V4 ops on Vulkan Backend (llama/27453)",
+      "changed_files": 5,
+      "added_lines": 365,
+      "deleted_lines": 54,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1125133,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 44.517,
+          "peak_rss_bytes": 21184512,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018908359220000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 822475,
+          "base_bytes": 17581400,
+          "middle_bytes": 1559808,
+          "segments": 4,
+          "manifest_bytes": 310125,
+          "retained_bytes": 20689343
+        },
+        {
+          "version": "current",
+          "wall_ms": 38.81075,
+          "peak_rss_bytes": 20119552,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 822475,
+          "base_bytes": 17581400,
+          "middle_bytes": 1559808,
+          "segments": 4,
+          "manifest_bytes": 310125,
+          "retained_bytes": 19451333
+        }
+      ],
+      "rg": {
+        "wall_ms": 46.160666000000006,
+        "peak_rss_bytes": 9240576
+      }
+    },
+    {
+      "step": 4,
+      "from_commit": "55ab1e517cf52c9441119f740bc0e9d758a4f4ec",
+      "commit": "852997152e4ea554922aac6540c12e112deeb4e4",
+      "subject": "opencl: add bin kernels `kernel_gemm_moe_q4_0_q8_1_dp4a_bin`, `kernel_gemm_moe_mxfp4_q8_1_dp4a_bin` (llama/27768)",
+      "changed_files": 1,
+      "added_lines": 53,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1211501,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 32.903915999999995,
+          "peak_rss_bytes": 18890752,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 1559808,
+          "base_bytes": 17581400,
+          "middle_bytes": 2059378,
+          "segments": 5,
+          "manifest_bytes": 310231,
+          "retained_bytes": 19951009
+        },
+        {
+          "version": "main",
+          "wall_ms": 44.234833,
+          "peak_rss_bytes": 20348928,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908359220000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 1559808,
+          "base_bytes": 17581400,
+          "middle_bytes": 2059378,
+          "segments": 5,
+          "manifest_bytes": 310231,
+          "retained_bytes": 21499250
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.554916999999996,
+        "peak_rss_bytes": 9125888
+      }
+    },
+    {
+      "step": 5,
+      "from_commit": "852997152e4ea554922aac6540c12e112deeb4e4",
+      "commit": "a0614d9ea446915afde48e82e0d6697773c92a18",
+      "subject": "hex-unary: fix RMS_NORM_MUL weight-offset bugs for grouped/broadcast norms (llama/27798)",
+      "changed_files": 1,
+      "added_lines": 20,
+      "deleted_lines": 12,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 66410,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 28.570083,
+          "peak_rss_bytes": 17645568,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908359220000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2059378,
+          "base_bytes": 17581400,
+          "middle_bytes": 2115391,
+          "segments": 6,
+          "manifest_bytes": 310337,
+          "retained_bytes": 21865706
+        },
+        {
+          "version": "current",
+          "wall_ms": 18.459209,
+          "peak_rss_bytes": 16695296,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2059378,
+          "base_bytes": 17581400,
+          "middle_bytes": 2115391,
+          "segments": 6,
+          "manifest_bytes": 310337,
+          "retained_bytes": 20007128
+        }
+      ],
+      "rg": {
+        "wall_ms": 31.606333,
+        "peak_rss_bytes": 9273344
+      }
+    },
+    {
+      "step": 6,
+      "from_commit": "a0614d9ea446915afde48e82e0d6697773c92a18",
+      "commit": "b6571e4a55279381fd342c4c9f9ab715f57bd217",
+      "subject": "ggml-hexagon: add HTP unary ops for ABS and LOG (llama/27786)",
+      "changed_files": 7,
+      "added_lines": 100,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 374929,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 32.332916000000004,
+          "peak_rss_bytes": 20152320,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018908359220000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2115391,
+          "base_bytes": 17581400,
+          "middle_bytes": 2483184,
+          "segments": 7,
+          "manifest_bytes": 310443,
+          "retained_bytes": 22544048
+        },
+        {
+          "version": "current",
+          "wall_ms": 23.082708,
+          "peak_rss_bytes": 19775488,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2115391,
+          "base_bytes": 17581400,
+          "middle_bytes": 2483184,
+          "segments": 7,
+          "manifest_bytes": 310443,
+          "retained_bytes": 20375027
+        }
+      ],
+      "rg": {
+        "wall_ms": 52.785332999999994,
+        "peak_rss_bytes": 9175040
+      }
+    },
+    {
+      "step": 7,
+      "from_commit": "b6571e4a55279381fd342c4c9f9ab715f57bd217",
+      "commit": "ff38b98e5af6f28329e442ebbd4810a64c780867",
+      "subject": "metal : add fa-vec tunings for M4 Pro (llama/27824)",
+      "changed_files": 1,
+      "added_lines": 60,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 83746,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 17.042125000000002,
+          "peak_rss_bytes": 17154048,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2483184,
+          "base_bytes": 17581400,
+          "middle_bytes": 2501378,
+          "segments": 8,
+          "manifest_bytes": 310549,
+          "retained_bytes": 20393327
+        },
+        {
+          "version": "main",
+          "wall_ms": 27.243125,
+          "peak_rss_bytes": 18104320,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908359220000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2483184,
+          "base_bytes": 17581400,
+          "middle_bytes": 2501378,
+          "segments": 8,
+          "manifest_bytes": 310549,
+          "retained_bytes": 22872897
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.022584,
+        "peak_rss_bytes": 9125888
+      }
+    },
+    {
+      "step": 8,
+      "from_commit": "ff38b98e5af6f28329e442ebbd4810a64c780867",
+      "commit": "530e3f4834477a267889796e3edd3bdde228ed75",
+      "subject": "metal : add fa-vec tunings for M3 Max, M5 and M5 Pro (llama/27863)",
+      "changed_files": 1,
+      "added_lines": 304,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 106874,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 222.415959,
+          "peak_rss_bytes": 111476736,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018910784585000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2501378,
+          "base_bytes": 17641878,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 309807,
+          "retained_bytes": 40823840
+        },
+        {
+          "version": "current",
+          "wall_ms": 18.211374999999997,
+          "peak_rss_bytes": 17072128,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2501378,
+          "base_bytes": 17581400,
+          "middle_bytes": 2520204,
+          "segments": 9,
+          "manifest_bytes": 310655,
+          "retained_bytes": 20412259
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.772167,
+        "peak_rss_bytes": 9256960
+      }
+    },
+    {
+      "step": 9,
+      "from_commit": "530e3f4834477a267889796e3edd3bdde228ed75",
+      "commit": "97d0da26a2e90861a7616a2e12ca4f1e2ed3cbde",
+      "subject": "sycl: bind the f16 KV cache in place for the oneDNN SDPA path (llama/27468)",
+      "changed_files": 1,
+      "added_lines": 49,
+      "deleted_lines": 13,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 20654,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 26.261833,
+          "peak_rss_bytes": 16613376,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018910784585000,
+          "base_bytes_before": 17641878,
+          "middle_bytes_before": 0,
+          "base_bytes": 17641878,
+          "middle_bytes": 62045,
+          "segments": 2,
+          "manifest_bytes": 309913,
+          "retained_bytes": 41195904
+        },
+        {
+          "version": "current",
+          "wall_ms": 18.462625,
+          "peak_rss_bytes": 16777216,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2520204,
+          "base_bytes": 17581400,
+          "middle_bytes": 2582249,
+          "segments": 10,
+          "manifest_bytes": 310761,
+          "retained_bytes": 20474410
+        }
+      ],
+      "rg": {
+        "wall_ms": 52.737417,
+        "peak_rss_bytes": 9093120
+      }
+    },
+    {
+      "step": 10,
+      "from_commit": "97d0da26a2e90861a7616a2e12ca4f1e2ed3cbde",
+      "commit": "fa4d244c939ab9f14e0ce31a08ca85a5bb16353b",
+      "subject": "sycl: use TILE for quantized KV decode on BMG (llama/26689)",
+      "changed_files": 1,
+      "added_lines": 5,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 16014,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 17.04725,
+          "peak_rss_bytes": 16842752,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2582249,
+          "base_bytes": 17581400,
+          "middle_bytes": 2623759,
+          "segments": 11,
+          "manifest_bytes": 310867,
+          "retained_bytes": 20516026
+        },
+        {
+          "version": "main",
+          "wall_ms": 28.257667,
+          "peak_rss_bytes": 16859136,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018910784585000,
+          "base_bytes_before": 17641878,
+          "middle_bytes_before": 62045,
+          "base_bytes": 17641878,
+          "middle_bytes": 103555,
+          "segments": 3,
+          "manifest_bytes": 310019,
+          "retained_bytes": 41547539
+        }
+      ],
+      "rg": {
+        "wall_ms": 42.145458,
+        "peak_rss_bytes": 9224192
+      }
+    },
+    {
+      "step": 11,
+      "from_commit": "fa4d244c939ab9f14e0ce31a08ca85a5bb16353b",
+      "commit": "7f78e1b4694bdae54e8c9101b96be14f89b76f02",
+      "subject": "OpenVINO: Update OV to 2026.3.1, whisper.cpp support, Qwen3.5 on NPU, and new ops (llama/27843)",
+      "changed_files": 20,
+      "added_lines": 1048,
+      "deleted_lines": 198,
+      "added_files": 5,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 423065,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 32.934166,
+          "peak_rss_bytes": 22429696,
+          "diagnostic": "coderg: incrementally indexed 20 changed files",
+          "base_id": 1789018910784585000,
+          "base_bytes_before": 17641878,
+          "middle_bytes_before": 103555,
+          "base_bytes": 17641878,
+          "middle_bytes": 602286,
+          "segments": 4,
+          "manifest_bytes": 310989,
+          "retained_bytes": 42358229
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.273041,
+          "peak_rss_bytes": 21921792,
+          "diagnostic": "coderg: incrementally indexed 20 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 2623759,
+          "base_bytes": 17581400,
+          "middle_bytes": 3122490,
+          "segments": 12,
+          "manifest_bytes": 311837,
+          "retained_bytes": 21015727
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.519375,
+        "peak_rss_bytes": 9142272
+      }
+    },
+    {
+      "step": 12,
+      "from_commit": "7f78e1b4694bdae54e8c9101b96be14f89b76f02",
+      "commit": "0a150873efb17f3b21e92c83d705bbfdce200bd0",
+      "subject": "metal : add fa-vec tunings for M4 (llama/27875)",
+      "changed_files": 1,
+      "added_lines": 226,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 123864,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 27.763208000000002,
+          "peak_rss_bytes": 17514496,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018910784585000,
+          "base_bytes_before": 17641878,
+          "middle_bytes_before": 602286,
+          "base_bytes": 17641878,
+          "middle_bytes": 621202,
+          "segments": 5,
+          "manifest_bytes": 311095,
+          "retained_bytes": 42688346
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.271375000000003,
+          "peak_rss_bytes": 17432576,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 3122490,
+          "base_bytes": 17581400,
+          "middle_bytes": 3141406,
+          "segments": 13,
+          "manifest_bytes": 311943,
+          "retained_bytes": 21034749
+        }
+      ],
+      "rg": {
+        "wall_ms": 52.848042,
+        "peak_rss_bytes": 9355264
+      }
+    },
+    {
+      "step": 13,
+      "from_commit": "0a150873efb17f3b21e92c83d705bbfdce200bd0",
+      "commit": "ba99c098669484ad18978f2b18557726709fba12",
+      "subject": "Vulkan: add hoisting support for row IDs and expert count in shaders (llama/26686)",
+      "changed_files": 7,
+      "added_lines": 212,
+      "deleted_lines": 42,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1175836,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 33.739290999999994,
+          "peak_rss_bytes": 21495808,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 3141406,
+          "base_bytes": 17581400,
+          "middle_bytes": 3908189,
+          "segments": 14,
+          "manifest_bytes": 312049,
+          "retained_bytes": 21801638
+        },
+        {
+          "version": "main",
+          "wall_ms": 45.987375,
+          "peak_rss_bytes": 21954560,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018910784585000,
+          "base_bytes_before": 17641878,
+          "middle_bytes_before": 621202,
+          "base_bytes": 17641878,
+          "middle_bytes": 1387985,
+          "segments": 6,
+          "manifest_bytes": 311201,
+          "retained_bytes": 43766436
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.061833,
+        "peak_rss_bytes": 9191424
+      }
+    },
+    {
+      "step": 14,
+      "from_commit": "ba99c098669484ad18978f2b18557726709fba12",
+      "commit": "caea96f6ceef38c2fe6d6e0332c83ae42436b264",
+      "subject": "ggml : fix conv_transpose_2d for multiple batches (llama/26132)",
+      "changed_files": 5,
+      "added_lines": 42,
+      "deleted_lines": 31,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 785335,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 36.470542,
+          "peak_rss_bytes": 21889024,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018910784585000,
+          "base_bytes_before": 17641878,
+          "middle_bytes_before": 1387985,
+          "base_bytes": 17641878,
+          "middle_bytes": 1948182,
+          "segments": 7,
+          "manifest_bytes": 311307,
+          "retained_bytes": 44638046
+        },
+        {
+          "version": "current",
+          "wall_ms": 27.317959,
+          "peak_rss_bytes": 21594112,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 3908189,
+          "base_bytes": 17581400,
+          "middle_bytes": 4468386,
+          "segments": 15,
+          "manifest_bytes": 312155,
+          "retained_bytes": 22361941
+        }
+      ],
+      "rg": {
+        "wall_ms": 29.73425,
+        "peak_rss_bytes": 9256960
+      }
+    },
+    {
+      "step": 15,
+      "from_commit": "caea96f6ceef38c2fe6d6e0332c83ae42436b264",
+      "commit": "4c38040fd3b3241a171bbc9ef218cf34dfdd5994",
+      "subject": "vulkan: fix missing view-alias dependencies in ggml_vk_graph_optimize (llama/27812)",
+      "changed_files": 1,
+      "added_lines": 17,
+      "deleted_lines": 5,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1037041,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 47.54625,
+          "peak_rss_bytes": 20430848,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018910784585000,
+          "base_bytes_before": 17641878,
+          "middle_bytes_before": 1948182,
+          "base_bytes": 17641878,
+          "middle_bytes": 2587485,
+          "segments": 8,
+          "manifest_bytes": 311413,
+          "retained_bytes": 45588868
+        },
+        {
+          "version": "current",
+          "wall_ms": 37.577792,
+          "peak_rss_bytes": 20463616,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 4468386,
+          "base_bytes": 17581400,
+          "middle_bytes": 5107689,
+          "segments": 16,
+          "manifest_bytes": 312261,
+          "retained_bytes": 23001350
+        }
+      ],
+      "rg": {
+        "wall_ms": 41.2765,
+        "peak_rss_bytes": 9207808
+      }
+    },
+    {
+      "step": 16,
+      "from_commit": "4c38040fd3b3241a171bbc9ef218cf34dfdd5994",
+      "commit": "d501a0a3e8a50e5fcef657e558ff95f51a91c4d5",
+      "subject": "vulkan: Change mul_mat_id to pad K rather than N (llama/27925)",
+      "changed_files": 4,
+      "added_lines": 62,
+      "deleted_lines": 51,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1092505,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 35.57475,
+          "peak_rss_bytes": 20955136,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 5107689,
+          "base_bytes": 17581400,
+          "middle_bytes": 5801593,
+          "segments": 17,
+          "manifest_bytes": 312367,
+          "retained_bytes": 23695360
+        },
+        {
+          "version": "main",
+          "wall_ms": 235.10804199999998,
+          "peak_rss_bytes": 110723072,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018912735639000,
+          "base_bytes_before": 17641878,
+          "middle_bytes_before": 2587485,
+          "base_bytes": 17682561,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 310671,
+          "retained_bytes": 63581358
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.542417,
+        "peak_rss_bytes": 9142272
+      }
+    },
+    {
+      "step": 17,
+      "from_commit": "d501a0a3e8a50e5fcef657e558ff95f51a91c4d5",
+      "commit": "590fe189021127f8a8255968e124c892293a9703",
+      "subject": "metal : add fa-vec tunings for M1 Max (llama/27932)",
+      "changed_files": 1,
+      "added_lines": 188,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 138765,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 28.773583,
+          "peak_rss_bytes": 16957440,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018912735639000,
+          "base_bytes_before": 17682561,
+          "middle_bytes_before": 0,
+          "base_bytes": 17682561,
+          "middle_bytes": 18973,
+          "segments": 2,
+          "manifest_bytes": 310777,
+          "retained_bytes": 63911214
+        },
+        {
+          "version": "current",
+          "wall_ms": 21.073917,
+          "peak_rss_bytes": 18497536,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 5801593,
+          "base_bytes": 17581400,
+          "middle_bytes": 5820566,
+          "segments": 18,
+          "manifest_bytes": 312473,
+          "retained_bytes": 23714439
+        }
+      ],
+      "rg": {
+        "wall_ms": 32.120999999999995,
+        "peak_rss_bytes": 9224192
+      }
+    },
+    {
+      "step": 18,
+      "from_commit": "590fe189021127f8a8255968e124c892293a9703",
+      "commit": "e644752070ed07294219e787cc10d2697888f96d",
+      "subject": "vulkan: combine duplicated fastdiv functions, rename the one optimizing small divs (llama/27526)",
+      "changed_files": 7,
+      "added_lines": 24,
+      "deleted_lines": 53,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 44961,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 26.391583999999998,
+          "peak_rss_bytes": 17432576,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018912735639000,
+          "base_bytes_before": 17682561,
+          "middle_bytes_before": 18973,
+          "base_bytes": 17682561,
+          "middle_bytes": 103044,
+          "segments": 3,
+          "manifest_bytes": 310883,
+          "retained_bytes": 64306274
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.814083,
+          "peak_rss_bytes": 18595840,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 5820566,
+          "base_bytes": 17581400,
+          "middle_bytes": 5904637,
+          "segments": 19,
+          "manifest_bytes": 312579,
+          "retained_bytes": 23798616
+        }
+      ],
+      "rg": {
+        "wall_ms": 49.283500000000004,
+        "peak_rss_bytes": 9175040
+      }
+    },
+    {
+      "step": 19,
+      "from_commit": "e644752070ed07294219e787cc10d2697888f96d",
+      "commit": "325c8d16c1264ae0b0f057b45bcb87be32a8f89f",
+      "subject": "sycl: make --fit respect --fit-target better (llama/27629)",
+      "changed_files": 6,
+      "added_lines": 167,
+      "deleted_lines": 41,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 364222,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 23.521250000000002,
+          "peak_rss_bytes": 20332544,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 5904637,
+          "base_bytes": 17581400,
+          "middle_bytes": 6311633,
+          "segments": 20,
+          "manifest_bytes": 312685,
+          "retained_bytes": 24205718
+        },
+        {
+          "version": "main",
+          "wall_ms": 33.696708,
+          "peak_rss_bytes": 19300352,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1789018912735639000,
+          "base_bytes_before": 17682561,
+          "middle_bytes_before": 103044,
+          "base_bytes": 17682561,
+          "middle_bytes": 510040,
+          "segments": 4,
+          "manifest_bytes": 310989,
+          "retained_bytes": 65024365
+        }
+      ],
+      "rg": {
+        "wall_ms": 49.073,
+        "peak_rss_bytes": 9240576
+      }
+    },
+    {
+      "step": 20,
+      "from_commit": "325c8d16c1264ae0b0f057b45bcb87be32a8f89f",
+      "commit": "308fa4f8a2beec1f76062727d4b1ca0a4dcbafff",
+      "subject": "metal : add remaining fa-vec tunings for M4 Pro (llama/27915)",
+      "changed_files": 1,
+      "added_lines": 150,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 150716,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.393584,
+          "peak_rss_bytes": 17416192,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018912735639000,
+          "base_bytes_before": 17682561,
+          "middle_bytes_before": 510040,
+          "base_bytes": 17682561,
+          "middle_bytes": 529013,
+          "segments": 5,
+          "manifest_bytes": 311095,
+          "retained_bytes": 65354539
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.5375,
+          "peak_rss_bytes": 18284544,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 6311633,
+          "base_bytes": 17581400,
+          "middle_bytes": 6330606,
+          "segments": 21,
+          "manifest_bytes": 312791,
+          "retained_bytes": 24224797
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.738083,
+        "peak_rss_bytes": 9093120
+      }
+    },
+    {
+      "step": 21,
+      "from_commit": "308fa4f8a2beec1f76062727d4b1ca0a4dcbafff",
+      "commit": "285f1ffd99d6b1ce97a59fc5978574140c0f7846",
+      "subject": "metal : assert shared memory padding (llama/27951)",
+      "changed_files": 3,
+      "added_lines": 6,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 353498,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 30.150084,
+          "peak_rss_bytes": 19267584,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018912735639000,
+          "base_bytes_before": 17682561,
+          "middle_bytes_before": 529013,
+          "base_bytes": 17682561,
+          "middle_bytes": 828266,
+          "segments": 6,
+          "manifest_bytes": 311201,
+          "retained_bytes": 65965099
+        },
+        {
+          "version": "current",
+          "wall_ms": 22.958958000000003,
+          "peak_rss_bytes": 20480000,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 6330606,
+          "base_bytes": 17581400,
+          "middle_bytes": 6629859,
+          "segments": 22,
+          "manifest_bytes": 312897,
+          "retained_bytes": 24524156
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.890375,
+        "peak_rss_bytes": 9191424
+      }
+    },
+    {
+      "step": 22,
+      "from_commit": "285f1ffd99d6b1ce97a59fc5978574140c0f7846",
+      "commit": "2a11026cfe3a660673e8c8c37dac18541ea3b1f6",
+      "subject": "opencl: use a better matmul path on two Adreno GPU generations (llama/27640)",
+      "changed_files": 1,
+      "added_lines": 17,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1212265,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 32.33625,
+          "peak_rss_bytes": 21233664,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 6629859,
+          "base_bytes": 17581400,
+          "middle_bytes": 7130501,
+          "segments": 23,
+          "manifest_bytes": 313003,
+          "retained_bytes": 25024904
+        },
+        {
+          "version": "main",
+          "wall_ms": 44.015167,
+          "peak_rss_bytes": 20201472,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018912735639000,
+          "base_bytes_before": 17682561,
+          "middle_bytes_before": 828266,
+          "base_bytes": 17682561,
+          "middle_bytes": 1328908,
+          "segments": 7,
+          "manifest_bytes": 311307,
+          "retained_bytes": 66777154
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.261083,
+        "peak_rss_bytes": 9158656
+      }
+    },
+    {
+      "step": 23,
+      "from_commit": "2a11026cfe3a660673e8c8c37dac18541ea3b1f6",
+      "commit": "b33bbc5c4eef7a435de6f907d6ff4547274684ed",
+      "subject": "metal : add fa-vec tunings for M2 (llama/27940)",
+      "changed_files": 1,
+      "added_lines": 82,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 156827,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 32.748959,
+          "peak_rss_bytes": 17678336,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018912735639000,
+          "base_bytes_before": 17682561,
+          "middle_bytes_before": 1328908,
+          "base_bytes": 17682561,
+          "middle_bytes": 1347935,
+          "segments": 8,
+          "manifest_bytes": 311413,
+          "retained_bytes": 67107700
+        },
+        {
+          "version": "current",
+          "wall_ms": 21.912582999999998,
+          "peak_rss_bytes": 19120128,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 7130501,
+          "base_bytes": 17581400,
+          "middle_bytes": 7149528,
+          "segments": 24,
+          "manifest_bytes": 313109,
+          "retained_bytes": 25044037
+        }
+      ],
+      "rg": {
+        "wall_ms": 31.828833,
+        "peak_rss_bytes": 9207808
+      }
+    },
+    {
+      "step": 24,
+      "from_commit": "b33bbc5c4eef7a435de6f907d6ff4547274684ed",
+      "commit": "c969c68b544cd2e90052b58647b52ce67bd93575",
+      "subject": "ggml: allow passing alloc dependencies in graph_optimize (llama/27301)",
+      "changed_files": 7,
+      "added_lines": 82,
+      "deleted_lines": 14,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1647202,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 222.056667,
+          "peak_rss_bytes": 110821376,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018914559684000,
+          "base_bytes_before": 17682561,
+          "middle_bytes_before": 1347935,
+          "base_bytes": 17690928,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 310671,
+          "retained_bytes": 85108557
+        },
+        {
+          "version": "current",
+          "wall_ms": 38.650042,
+          "peak_rss_bytes": 26968064,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018908551132000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 7149528,
+          "base_bytes": 17581400,
+          "middle_bytes": 8251263,
+          "segments": 25,
+          "manifest_bytes": 313215,
+          "retained_bytes": 26145878
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.746666,
+        "peak_rss_bytes": 9060352
+      }
+    },
+    {
+      "step": 25,
+      "from_commit": "c969c68b544cd2e90052b58647b52ce67bd93575",
+      "commit": "c68f20555aa9ff91dbec5d6c23e8a862174e4d8f",
+      "subject": "metal : fix null-pipeline crash for F16 src1 mul_mat/mul_mat_id (llama/25648)",
+      "changed_files": 4,
+      "added_lines": 59,
+      "deleted_lines": 18,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 294360,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 209.91383299999998,
+          "peak_rss_bytes": 110493696,
+          "diagnostic": "coderg: rebuilt index after incremental segments reached 8 MiB",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 8251263,
+          "base_bytes": 17691586,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 310671,
+          "retained_bytes": 44119298
+        },
+        {
+          "version": "main",
+          "wall_ms": 31.726125,
+          "peak_rss_bytes": 18219008,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018914559684000,
+          "base_bytes_before": 17690928,
+          "middle_bytes_before": 0,
+          "base_bytes": 17690928,
+          "middle_bytes": 284378,
+          "segments": 2,
+          "manifest_bytes": 310777,
+          "retained_bytes": 85703818
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.073375,
+        "peak_rss_bytes": 9142272
+      }
+    },
+    {
+      "step": 26,
+      "from_commit": "c68f20555aa9ff91dbec5d6c23e8a862174e4d8f",
+      "commit": "3d4e0e9858ffc1d4446d8b4ce7d4385d696e3cb6",
+      "subject": "sycl: split long rows in TOP_K instead of one work-group per row (llama/27847)",
+      "changed_files": 1,
+      "added_lines": 217,
+      "deleted_lines": 77,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 280809,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 35.553583,
+          "peak_rss_bytes": 18776064,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914559684000,
+          "base_bytes_before": 17690928,
+          "middle_bytes_before": 284378,
+          "base_bytes": 17690928,
+          "middle_bytes": 573640,
+          "segments": 3,
+          "manifest_bytes": 310883,
+          "retained_bytes": 86304069
+        },
+        {
+          "version": "current",
+          "wall_ms": 23.383000000000003,
+          "peak_rss_bytes": 16465920,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 0,
+          "base_bytes": 17691586,
+          "middle_bytes": 289262,
+          "segments": 2,
+          "manifest_bytes": 310777,
+          "retained_bytes": 44408666
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.244833,
+        "peak_rss_bytes": 9093120
+      }
+    },
+    {
+      "step": 27,
+      "from_commit": "3d4e0e9858ffc1d4446d8b4ce7d4385d696e3cb6",
+      "commit": "3ad8b9b217e7d0d8a829e9344dbe35bfdf19dc64",
+      "subject": "hexagon: support for device discovery and create sessions on demand (llama/27785)",
+      "changed_files": 3,
+      "added_lines": 223,
+      "deleted_lines": 106,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 255891,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 30.483,
+          "peak_rss_bytes": 18317312,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018914559684000,
+          "base_bytes_before": 17690928,
+          "middle_bytes_before": 573640,
+          "base_bytes": 17690928,
+          "middle_bytes": 846308,
+          "segments": 4,
+          "manifest_bytes": 310989,
+          "retained_bytes": 86887832
+        },
+        {
+          "version": "current",
+          "wall_ms": 22.053,
+          "peak_rss_bytes": 16515072,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 289262,
+          "base_bytes": 17691586,
+          "middle_bytes": 561930,
+          "segments": 3,
+          "manifest_bytes": 310883,
+          "retained_bytes": 44681440
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.139250000000004,
+        "peak_rss_bytes": 9322496
+      }
+    },
+    {
+      "step": 28,
+      "from_commit": "3ad8b9b217e7d0d8a829e9344dbe35bfdf19dc64",
+      "commit": "5e494599a4521878eb937765b5811f28ff314888",
+      "subject": "rpc : fix pre-rdma macOS versions (llama/27815)",
+      "changed_files": 2,
+      "added_lines": 23,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 20599,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 18.304958,
+          "peak_rss_bytes": 16121856,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 561930,
+          "base_bytes": 17691586,
+          "middle_bytes": 628225,
+          "segments": 4,
+          "manifest_bytes": 310989,
+          "retained_bytes": 44747841
+        },
+        {
+          "version": "main",
+          "wall_ms": 27.398125,
+          "peak_rss_bytes": 17252352,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018914559684000,
+          "base_bytes_before": 17690928,
+          "middle_bytes_before": 846308,
+          "base_bytes": 17690928,
+          "middle_bytes": 912603,
+          "segments": 5,
+          "manifest_bytes": 311095,
+          "retained_bytes": 87265328
+        }
+      ],
+      "rg": {
+        "wall_ms": 46.909416,
+        "peak_rss_bytes": 9191424
+      }
+    },
+    {
+      "step": 29,
+      "from_commit": "5e494599a4521878eb937765b5811f28ff314888",
+      "commit": "b66593ef1bd6971f3eafa3ab79f0c86c92a4e8e0",
+      "subject": "metal : Add fa-vec tuning for M3 Pro (llama/27963)",
+      "changed_files": 1,
+      "added_lines": 212,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 173610,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.675875,
+          "peak_rss_bytes": 17760256,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914559684000,
+          "base_bytes_before": 17690928,
+          "middle_bytes_before": 912603,
+          "base_bytes": 17690928,
+          "middle_bytes": 931658,
+          "segments": 6,
+          "manifest_bytes": 311201,
+          "retained_bytes": 87595690
+        },
+        {
+          "version": "current",
+          "wall_ms": 19.556250000000002,
+          "peak_rss_bytes": 16154624,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 628225,
+          "base_bytes": 17691586,
+          "middle_bytes": 647280,
+          "segments": 5,
+          "manifest_bytes": 311095,
+          "retained_bytes": 44767002
+        }
+      ],
+      "rg": {
+        "wall_ms": 32.041292,
+        "peak_rss_bytes": 9306112
+      }
+    },
+    {
+      "step": 30,
+      "from_commit": "b66593ef1bd6971f3eafa3ab79f0c86c92a4e8e0",
+      "commit": "1e0f38257378496e822093d61fb154f2e55c7236",
+      "subject": "metal: add fa-vec tunings for M3 Ultra (llama/27999)",
+      "changed_files": 1,
+      "added_lines": 198,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 189696,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.762833,
+          "peak_rss_bytes": 17842176,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914559684000,
+          "base_bytes_before": 17690928,
+          "middle_bytes_before": 931658,
+          "base_bytes": 17690928,
+          "middle_bytes": 950743,
+          "segments": 7,
+          "manifest_bytes": 311307,
+          "retained_bytes": 87926188
+        },
+        {
+          "version": "current",
+          "wall_ms": 18.542666999999998,
+          "peak_rss_bytes": 16138240,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 647280,
+          "base_bytes": 17691586,
+          "middle_bytes": 666365,
+          "segments": 6,
+          "manifest_bytes": 311201,
+          "retained_bytes": 44786193
+        }
+      ],
+      "rg": {
+        "wall_ms": 47.09525,
+        "peak_rss_bytes": 9191424
+      }
+    },
+    {
+      "step": 31,
+      "from_commit": "1e0f38257378496e822093d61fb154f2e55c7236",
+      "commit": "43acf3d6e84b210e72a5263f72f4d8fa97e540fd",
+      "subject": "rpc: fix apple rdma error spew on teardown (llama/27908)",
+      "changed_files": 1,
+      "added_lines": 3,
+      "deleted_lines": 10,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 18695,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 18.371333,
+          "peak_rss_bytes": 16039936,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 666365,
+          "base_bytes": 17691586,
+          "middle_bytes": 726484,
+          "segments": 7,
+          "manifest_bytes": 311307,
+          "retained_bytes": 44846418
+        },
+        {
+          "version": "main",
+          "wall_ms": 28.340209,
+          "peak_rss_bytes": 17858560,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914559684000,
+          "base_bytes_before": 17690928,
+          "middle_bytes_before": 950743,
+          "base_bytes": 17690928,
+          "middle_bytes": 1010862,
+          "segments": 8,
+          "manifest_bytes": 311413,
+          "retained_bytes": 88297826
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.630250000000004,
+        "peak_rss_bytes": 9322496
+      }
+    },
+    {
+      "step": 32,
+      "from_commit": "43acf3d6e84b210e72a5263f72f4d8fa97e540fd",
+      "commit": "4b2243a6c20c4503f42ab47eeeddc274f5a917b1",
+      "subject": "ggml : add ggml_backend_op_alloc_size_may_expand, use it in RPC (llama/27960)",
+      "changed_files": 3,
+      "added_lines": 30,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 214781,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 223.621167,
+          "peak_rss_bytes": 110510080,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018916722535000,
+          "base_bytes_before": 17690928,
+          "middle_bytes_before": 1010862,
+          "base_bytes": 17701374,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 310671,
+          "retained_bytes": 106309129
+        },
+        {
+          "version": "current",
+          "wall_ms": 21.097334,
+          "peak_rss_bytes": 18464768,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 726484,
+          "base_bytes": 17691586,
+          "middle_bytes": 961154,
+          "segments": 8,
+          "manifest_bytes": 311413,
+          "retained_bytes": 45081194
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.284583,
+        "peak_rss_bytes": 9224192
+      }
+    },
+    {
+      "step": 33,
+      "from_commit": "4b2243a6c20c4503f42ab47eeeddc274f5a917b1",
+      "commit": "e5c9e3e3e9a9c3f1763c54803229ce393f3669d1",
+      "subject": "hip : optimize Q2_0 dot-product path for gfx1201 (llama/26753)",
+      "changed_files": 2,
+      "added_lines": 16,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 130460,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.034584,
+          "peak_rss_bytes": 18333696,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018916722535000,
+          "base_bytes_before": 17701374,
+          "middle_bytes_before": 0,
+          "base_bytes": 17701374,
+          "middle_bytes": 111290,
+          "segments": 2,
+          "manifest_bytes": 310777,
+          "retained_bytes": 106731302
+        },
+        {
+          "version": "current",
+          "wall_ms": 21.332417,
+          "peak_rss_bytes": 17154048,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 961154,
+          "base_bytes": 17691586,
+          "middle_bytes": 1072444,
+          "segments": 9,
+          "manifest_bytes": 311519,
+          "retained_bytes": 45192590
+        }
+      ],
+      "rg": {
+        "wall_ms": 49.9095,
+        "peak_rss_bytes": 9175040
+      }
+    },
+    {
+      "step": 34,
+      "from_commit": "e5c9e3e3e9a9c3f1763c54803229ce393f3669d1",
+      "commit": "35d9e2237e7e8a6a716cd3d517ba46ba62bb1bed",
+      "subject": "hip: tune rdna 3 mmq config (llama/26284)",
+      "changed_files": 1,
+      "added_lines": 150,
+      "deleted_lines": 166,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 25439,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 17.781291,
+          "peak_rss_bytes": 16351232,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 1072444,
+          "base_bytes": 17691586,
+          "middle_bytes": 1076842,
+          "segments": 10,
+          "manifest_bytes": 311625,
+          "retained_bytes": 45197094
+        },
+        {
+          "version": "main",
+          "wall_ms": 27.664375,
+          "peak_rss_bytes": 16744448,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018916722535000,
+          "base_bytes_before": 17701374,
+          "middle_bytes_before": 111290,
+          "base_bytes": 17701374,
+          "middle_bytes": 115688,
+          "segments": 3,
+          "manifest_bytes": 310883,
+          "retained_bytes": 107046689
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.225792,
+        "peak_rss_bytes": 9142272
+      }
+    },
+    {
+      "step": 35,
+      "from_commit": "35d9e2237e7e8a6a716cd3d517ba46ba62bb1bed",
+      "commit": "e900a732c8908510bc4e932544daab86c8790a12",
+      "subject": "CUDA: use the fast mm_ids_helper path for any n_expert_used (llama/27978)",
+      "changed_files": 1,
+      "added_lines": 13,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 9075,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 27.326625,
+          "peak_rss_bytes": 17006592,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018916722535000,
+          "base_bytes_before": 17701374,
+          "middle_bytes_before": 115688,
+          "base_bytes": 17701374,
+          "middle_bytes": 140310,
+          "segments": 4,
+          "manifest_bytes": 310989,
+          "retained_bytes": 107382406
+        },
+        {
+          "version": "current",
+          "wall_ms": 18.790582999999998,
+          "peak_rss_bytes": 16760832,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 1076842,
+          "base_bytes": 17691586,
+          "middle_bytes": 1101464,
+          "segments": 11,
+          "manifest_bytes": 311731,
+          "retained_bytes": 45221822
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.633167,
+        "peak_rss_bytes": 9404416
+      }
+    },
+    {
+      "step": 36,
+      "from_commit": "e900a732c8908510bc4e932544daab86c8790a12",
+      "commit": "e9583f075aafaea362afd80a87fdac74a0f54256",
+      "subject": "ggml: add SWIGLU_CLAMP (llama/27930)",
+      "changed_files": 38,
+      "added_lines": 686,
+      "deleted_lines": 19,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 5547049,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 61.832,
+          "peak_rss_bytes": 37224448,
+          "diagnostic": "coderg: incrementally indexed 38 changed files",
+          "base_id": 1789018916722535000,
+          "base_bytes_before": 17701374,
+          "middle_bytes_before": 140310,
+          "base_bytes": 17701374,
+          "middle_bytes": 3093996,
+          "segments": 5,
+          "manifest_bytes": 311275,
+          "retained_bytes": 110647653
+        },
+        {
+          "version": "current",
+          "wall_ms": 55.193833,
+          "peak_rss_bytes": 36798464,
+          "diagnostic": "coderg: incrementally indexed 38 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 1101464,
+          "base_bytes": 17691586,
+          "middle_bytes": 4055150,
+          "segments": 12,
+          "manifest_bytes": 312017,
+          "retained_bytes": 48175794
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.934167,
+        "peak_rss_bytes": 9076736
+      }
+    },
+    {
+      "step": 37,
+      "from_commit": "e9583f075aafaea362afd80a87fdac74a0f54256",
+      "commit": "749683d30f40845d14f0da8d7df64f219c6db1c5",
+      "subject": "ggml : fix ggml_backend_buft_get_alloc_size() guard (llama/28038)",
+      "changed_files": 2,
+      "added_lines": 2,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 328756,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 22.899917,
+          "peak_rss_bytes": 18399232,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 4055150,
+          "base_bytes": 17691586,
+          "middle_bytes": 4400243,
+          "segments": 13,
+          "manifest_bytes": 312123,
+          "retained_bytes": 48520993
+        },
+        {
+          "version": "main",
+          "wall_ms": 33.298500000000004,
+          "peak_rss_bytes": 19087360,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018916722535000,
+          "base_bytes_before": 17701374,
+          "middle_bytes_before": 3093996,
+          "base_bytes": 17701374,
+          "middle_bytes": 3439089,
+          "segments": 6,
+          "manifest_bytes": 311381,
+          "retained_bytes": 111304233
+        }
+      ],
+      "rg": {
+        "wall_ms": 52.138999999999996,
+        "peak_rss_bytes": 9273344
+      }
+    },
+    {
+      "step": 38,
+      "from_commit": "749683d30f40845d14f0da8d7df64f219c6db1c5",
+      "commit": "4089fa628a00d026b8090616fc4d595ab36ccbd1",
+      "subject": "rpc: avoid serializing buffers from other servers (llama/26500)",
+      "changed_files": 1,
+      "added_lines": 16,
+      "deleted_lines": 10,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 89677,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.93175,
+          "peak_rss_bytes": 17596416,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018916722535000,
+          "base_bytes_before": 17701374,
+          "middle_bytes_before": 3439089,
+          "base_bytes": 17701374,
+          "middle_bytes": 3546946,
+          "segments": 7,
+          "manifest_bytes": 311487,
+          "retained_bytes": 111723683
+        },
+        {
+          "version": "current",
+          "wall_ms": 19.917834,
+          "peak_rss_bytes": 17350656,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 4400243,
+          "base_bytes": 17691586,
+          "middle_bytes": 4508100,
+          "segments": 14,
+          "manifest_bytes": 312229,
+          "retained_bytes": 48628956
+        }
+      ],
+      "rg": {
+        "wall_ms": 32.107749999999996,
+        "peak_rss_bytes": 9273344
+      }
+    },
+    {
+      "step": 39,
+      "from_commit": "4089fa628a00d026b8090616fc4d595ab36ccbd1",
+      "commit": "e5c96ca45da0d38b0d4a0967e83ec413e530b3d9",
+      "subject": "metal : add remaining Q4_1/Q5_0/Q5_1 fa-vec tunings for M2 (llama/28017)",
+      "changed_files": 1,
+      "added_lines": 113,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 198251,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.883958,
+          "peak_rss_bytes": 17629184,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018916722535000,
+          "base_bytes_before": 17701374,
+          "middle_bytes_before": 3546946,
+          "base_bytes": 17701374,
+          "middle_bytes": 3566046,
+          "segments": 8,
+          "manifest_bytes": 311593,
+          "retained_bytes": 112054482
+        },
+        {
+          "version": "current",
+          "wall_ms": 21.321832999999998,
+          "peak_rss_bytes": 17154048,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 4508100,
+          "base_bytes": 17691586,
+          "middle_bytes": 4527200,
+          "segments": 15,
+          "manifest_bytes": 312335,
+          "retained_bytes": 48648162
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.253542,
+        "peak_rss_bytes": 9158656
+      }
+    },
+    {
+      "step": 40,
+      "from_commit": "e5c96ca45da0d38b0d4a0967e83ec413e530b3d9",
+      "commit": "01ebd225a7784bfb8245b98f2ebd8a4589f32421",
+      "subject": "hexagon: fix CPY fence bug (llama/28033)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 21427,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 17.782125,
+          "peak_rss_bytes": 17268736,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 4527200,
+          "base_bytes": 17691586,
+          "middle_bytes": 4552186,
+          "segments": 16,
+          "manifest_bytes": 312441,
+          "retained_bytes": 48673254
+        },
+        {
+          "version": "main",
+          "wall_ms": 217.67624999999998,
+          "peak_rss_bytes": 111345664,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018918652450000,
+          "base_bytes_before": 17701374,
+          "middle_bytes_before": 3566046,
+          "base_bytes": 17708210,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 310851,
+          "retained_bytes": 130072801
+        }
+      ],
+      "rg": {
+        "wall_ms": 52.748416,
+        "peak_rss_bytes": 9191424
+      }
+    },
+    {
+      "step": 41,
+      "from_commit": "01ebd225a7784bfb8245b98f2ebd8a4589f32421",
+      "commit": "db00b0196b1be6af1bf184c8948a50fc3120fcb5",
+      "subject": "vulkan: top_k radix select for k >= 1024 for Qwen 3.8 Flash Next (llama/28032)",
+      "changed_files": 3,
+      "added_lines": 374,
+      "deleted_lines": 10,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1129113,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 44.062084,
+          "peak_rss_bytes": 20643840,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018918652450000,
+          "base_bytes_before": 17708210,
+          "middle_bytes_before": 0,
+          "base_bytes": 17708210,
+          "middle_bytes": 730005,
+          "segments": 2,
+          "manifest_bytes": 311147,
+          "retained_bytes": 131114249
+        },
+        {
+          "version": "current",
+          "wall_ms": 35.504958,
+          "peak_rss_bytes": 21004288,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 4552186,
+          "base_bytes": 17691586,
+          "middle_bytes": 5282191,
+          "segments": 17,
+          "manifest_bytes": 312737,
+          "retained_bytes": 49403555
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.690833,
+        "peak_rss_bytes": 9142272
+      }
+    },
+    {
+      "step": 42,
+      "from_commit": "db00b0196b1be6af1bf184c8948a50fc3120fcb5",
+      "commit": "96dddd87f20b470a721a3c2bd25aba63a045a6a8",
+      "subject": "ggml : add MUL_MAT to the list of ops that may need additional memory (for WebGPU) (llama/28071)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 100036,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.525125,
+          "peak_rss_bytes": 17760256,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018918652450000,
+          "base_bytes_before": 17708210,
+          "middle_bytes_before": 730005,
+          "base_bytes": 17708210,
+          "middle_bytes": 842183,
+          "segments": 3,
+          "manifest_bytes": 311253,
+          "retained_bytes": 131537786
+        },
+        {
+          "version": "current",
+          "wall_ms": 21.372708,
+          "peak_rss_bytes": 17743872,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 5282191,
+          "base_bytes": 17691586,
+          "middle_bytes": 5394369,
+          "segments": 18,
+          "manifest_bytes": 312843,
+          "retained_bytes": 49515839
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.860375,
+        "peak_rss_bytes": 9404416
+      }
+    },
+    {
+      "step": 43,
+      "from_commit": "96dddd87f20b470a721a3c2bd25aba63a045a6a8",
+      "commit": "6ce7b89952fd07d0db62e99fb15c231ca3979714",
+      "subject": "vulkan: tune mat-vec rows for batched inference on Strix Halo (llama/27909)",
+      "changed_files": 1,
+      "added_lines": 32,
+      "deleted_lines": 24,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1048739,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 34.236250000000005,
+          "peak_rss_bytes": 20430848,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 5394369,
+          "base_bytes": 17691586,
+          "middle_bytes": 6041928,
+          "segments": 19,
+          "manifest_bytes": 312949,
+          "retained_bytes": 50163504
+        },
+        {
+          "version": "main",
+          "wall_ms": 43.864166000000004,
+          "peak_rss_bytes": 19906560,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018918652450000,
+          "base_bytes_before": 17708210,
+          "middle_bytes_before": 842183,
+          "base_bytes": 17708210,
+          "middle_bytes": 1489742,
+          "segments": 4,
+          "manifest_bytes": 311359,
+          "retained_bytes": 132496810
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.440166,
+        "peak_rss_bytes": 9289728
+      }
+    },
+    {
+      "step": 44,
+      "from_commit": "6ce7b89952fd07d0db62e99fb15c231ca3979714",
+      "commit": "76a51e82d7cb548eecc880e108fdfc0d7040be57",
+      "subject": "sycl : Enhance to get the free memory of Intel GPU (llama/27968)",
+      "changed_files": 5,
+      "added_lines": 260,
+      "deleted_lines": 30,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 324681,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 32.365709,
+          "peak_rss_bytes": 19824640,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018918652450000,
+          "base_bytes_before": 17708210,
+          "middle_bytes_before": 1489742,
+          "base_bytes": 17708210,
+          "middle_bytes": 1851737,
+          "segments": 5,
+          "manifest_bytes": 311845,
+          "retained_bytes": 133171136
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.716792,
+          "peak_rss_bytes": 20168704,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 6041928,
+          "base_bytes": 17691586,
+          "middle_bytes": 6403923,
+          "segments": 20,
+          "manifest_bytes": 313435,
+          "retained_bytes": 50525985
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.838875,
+        "peak_rss_bytes": 9945088
+      }
+    },
+    {
+      "step": 45,
+      "from_commit": "76a51e82d7cb548eecc880e108fdfc0d7040be57",
+      "commit": "b0f4bc02ed1f15a0d63eca3cc8af7e4d6a481d59",
+      "subject": "CUDA: extend MOE fusion to specdec, earlier MOE glu fusion and topk-router fusion were restricted to 1 token (llama/27621)",
+      "changed_files": 4,
+      "added_lines": 127,
+      "deleted_lines": 26,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 317942,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 32.094791,
+          "peak_rss_bytes": 19054592,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018918652450000,
+          "base_bytes_before": 17708210,
+          "middle_bytes_before": 1851737,
+          "base_bytes": 17708210,
+          "middle_bytes": 2185008,
+          "segments": 6,
+          "manifest_bytes": 311951,
+          "retained_bytes": 133816464
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.293458,
+          "peak_rss_bytes": 20070400,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 6403923,
+          "base_bytes": 17691586,
+          "middle_bytes": 6737194,
+          "segments": 21,
+          "manifest_bytes": 313541,
+          "retained_bytes": 50859362
+        }
+      ],
+      "rg": {
+        "wall_ms": 47.81125,
+        "peak_rss_bytes": 8978432
+      }
+    },
+    {
+      "step": 46,
+      "from_commit": "b0f4bc02ed1f15a0d63eca3cc8af7e4d6a481d59",
+      "commit": "7614a4c1398708ea1a6575d0e3b659f14bb2f7e3",
+      "subject": "metal : add fa-vec tunings for M1 (llama/28078)",
+      "changed_files": 1,
+      "added_lines": 190,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 212529,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 20.468792,
+          "peak_rss_bytes": 18481152,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 6737194,
+          "base_bytes": 17691586,
+          "middle_bytes": 6756464,
+          "segments": 22,
+          "manifest_bytes": 313647,
+          "retained_bytes": 50878738
+        },
+        {
+          "version": "main",
+          "wall_ms": 29.769875000000003,
+          "peak_rss_bytes": 17989632,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018918652450000,
+          "base_bytes_before": 17708210,
+          "middle_bytes_before": 2185008,
+          "base_bytes": 17708210,
+          "middle_bytes": 2204278,
+          "segments": 7,
+          "manifest_bytes": 312057,
+          "retained_bytes": 134147897
+        }
+      ],
+      "rg": {
+        "wall_ms": 51.175542,
+        "peak_rss_bytes": 9371648
+      }
+    },
+    {
+      "step": 47,
+      "from_commit": "7614a4c1398708ea1a6575d0e3b659f14bb2f7e3",
+      "commit": "c1be45b89016bb11b1460618c97b1e077adcd9a7",
+      "subject": "ROCm: add radix TOP_K for long rows (llama/27466)",
+      "changed_files": 2,
+      "added_lines": 180,
+      "deleted_lines": 5,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 239580,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 31.807333,
+          "peak_rss_bytes": 19202048,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018918652450000,
+          "base_bytes_before": 17708210,
+          "middle_bytes_before": 2204278,
+          "base_bytes": 17708210,
+          "middle_bytes": 2481418,
+          "segments": 8,
+          "manifest_bytes": 312163,
+          "retained_bytes": 134737306
+        },
+        {
+          "version": "current",
+          "wall_ms": 23.009541000000002,
+          "peak_rss_bytes": 19136512,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 6756464,
+          "base_bytes": 17691586,
+          "middle_bytes": 7033604,
+          "segments": 23,
+          "manifest_bytes": 313753,
+          "retained_bytes": 51155984
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.077958,
+        "peak_rss_bytes": 9404416
+      }
+    },
+    {
+      "step": 48,
+      "from_commit": "c1be45b89016bb11b1460618c97b1e077adcd9a7",
+      "commit": "c648b9a4d0fbb0dd3db9d19149714f77cef43af2",
+      "subject": "webgpu : avoid crash when offset is not multiple of 4 in WebGPU ggml_backend_tensor_get() implementation (llama/28045)",
+      "changed_files": 1,
+      "added_lines": 11,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 240753,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 222.629833,
+          "peak_rss_bytes": 111443968,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018920486886000,
+          "base_bytes_before": 17708210,
+          "middle_bytes_before": 2481418,
+          "base_bytes": 17735804,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 311421,
+          "retained_bytes": 152783789
+        },
+        {
+          "version": "current",
+          "wall_ms": 23.157458,
+          "peak_rss_bytes": 19234816,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 7033604,
+          "base_bytes": 17691586,
+          "middle_bytes": 7219324,
+          "segments": 24,
+          "manifest_bytes": 313859,
+          "retained_bytes": 51341810
+        }
+      ],
+      "rg": {
+        "wall_ms": 46.4335,
+        "peak_rss_bytes": 9207808
+      }
+    },
+    {
+      "step": 49,
+      "from_commit": "c648b9a4d0fbb0dd3db9d19149714f77cef43af2",
+      "commit": "088c603e2951f3bf5b7ce59438523c541580faa1",
+      "subject": "opencl: tune the quant paths for Intel Xe-LP GPUs to improve its TG and PP performance (llama/26438)",
+      "changed_files": 5,
+      "added_lines": 27,
+      "deleted_lines": 6,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1243222,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 33.586875,
+          "peak_rss_bytes": 21266432,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 7219324,
+          "base_bytes": 17691586,
+          "middle_bytes": 7764517,
+          "segments": 25,
+          "manifest_bytes": 313965,
+          "retained_bytes": 51887109
+        },
+        {
+          "version": "main",
+          "wall_ms": 44.569875,
+          "peak_rss_bytes": 19939328,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018920486886000,
+          "base_bytes_before": 17735804,
+          "middle_bytes_before": 0,
+          "base_bytes": 17735804,
+          "middle_bytes": 545193,
+          "segments": 2,
+          "manifest_bytes": 311527,
+          "retained_bytes": 153640615
+        }
+      ],
+      "rg": {
+        "wall_ms": 51.703916,
+        "peak_rss_bytes": 9076736
+      }
+    },
+    {
+      "step": 50,
+      "from_commit": "088c603e2951f3bf5b7ce59438523c541580faa1",
+      "commit": "c6934d0fcf562ada5493208f6aa5804947f37b64",
+      "subject": "metal : add top-k radix implementation (llama/28073)",
+      "changed_files": 5,
+      "added_lines": 206,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 325527,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 32.197458,
+          "peak_rss_bytes": 19595264,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018920486886000,
+          "base_bytes_before": 17735804,
+          "middle_bytes_before": 545193,
+          "base_bytes": 17735804,
+          "middle_bytes": 797666,
+          "segments": 3,
+          "manifest_bytes": 311633,
+          "retained_bytes": 154204827
+        },
+        {
+          "version": "current",
+          "wall_ms": 23.5605,
+          "peak_rss_bytes": 21200896,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 7764517,
+          "base_bytes": 17691586,
+          "middle_bytes": 8016990,
+          "segments": 26,
+          "manifest_bytes": 314071,
+          "retained_bytes": 52139688
+        }
+      ],
+      "rg": {
+        "wall_ms": 31.946250000000003,
+        "peak_rss_bytes": 9371648
+      }
+    },
+    {
+      "step": 51,
+      "from_commit": "c6934d0fcf562ada5493208f6aa5804947f37b64",
+      "commit": "2f608ab4f8a1107f87aa372c7f3d7492e63438fe",
+      "subject": "AVX2: Speed up large batch size prompt processing of IQ models (llama/27402)",
+      "changed_files": 5,
+      "added_lines": 1329,
+      "deleted_lines": 1,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 347199,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.786958,
+          "peak_rss_bytes": 19972096,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018920486886000,
+          "base_bytes_before": 17735804,
+          "middle_bytes_before": 797666,
+          "base_bytes": 17735804,
+          "middle_bytes": 1150430,
+          "segments": 4,
+          "manifest_bytes": 311983,
+          "retained_bytes": 154869924
+        },
+        {
+          "version": "current",
+          "wall_ms": 22.493458,
+          "peak_rss_bytes": 21676032,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018914944625000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 8016990,
+          "base_bytes": 17691586,
+          "middle_bytes": 8369754,
+          "segments": 27,
+          "manifest_bytes": 314421,
+          "retained_bytes": 52492802
+        }
+      ],
+      "rg": {
+        "wall_ms": 49.278792,
+        "peak_rss_bytes": 9240576
+      }
+    },
+    {
+      "step": 52,
+      "from_commit": "2f608ab4f8a1107f87aa372c7f3d7492e63438fe",
+      "commit": "dbc40efce86f37fad93ecf211d3064f8ac79cff6",
+      "subject": "metal : add concat support for quantized types (llama/28116)",
+      "changed_files": 3,
+      "added_lines": 71,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 307679,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 201.684375,
+          "peak_rss_bytes": 110215168,
+          "diagnostic": "coderg: rebuilt index after incremental segments reached 8 MiB",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17691586,
+          "middle_bytes_before": 8369754,
+          "base_bytes": 17774804,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 311665,
+          "retained_bytes": 70547490
+        },
+        {
+          "version": "main",
+          "wall_ms": 32.4465,
+          "peak_rss_bytes": 18890752,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018920486886000,
+          "base_bytes_before": 17735804,
+          "middle_bytes_before": 1150430,
+          "base_bytes": 17735804,
+          "middle_bytes": 1433070,
+          "segments": 5,
+          "manifest_bytes": 312089,
+          "retained_bytes": 155464759
+        }
+      ],
+      "rg": {
+        "wall_ms": 47.181042,
+        "peak_rss_bytes": 9289728
+      }
+    },
+    {
+      "step": 53,
+      "from_commit": "dbc40efce86f37fad93ecf211d3064f8ac79cff6",
+      "commit": "f22bb2ea4d96da2bf8cce738805c96c0c805a203",
+      "subject": "CUDA: XOR swizzle flash attn K,V smem fp16 tiles (llama/25635)",
+      "changed_files": 2,
+      "added_lines": 176,
+      "deleted_lines": 22,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 108312,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 30.297541000000002,
+          "peak_rss_bytes": 17924096,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018920486886000,
+          "base_bytes_before": 17735804,
+          "middle_bytes_before": 1433070,
+          "base_bytes": 17735804,
+          "middle_bytes": 1550864,
+          "segments": 6,
+          "manifest_bytes": 312341,
+          "retained_bytes": 155895146
+        },
+        {
+          "version": "current",
+          "wall_ms": 19.422792,
+          "peak_rss_bytes": 16236544,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 0,
+          "base_bytes": 17774804,
+          "middle_bytes": 117794,
+          "segments": 2,
+          "manifest_bytes": 311917,
+          "retained_bytes": 70665536
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.199334,
+        "peak_rss_bytes": 9273344
+      }
+    },
+    {
+      "step": 54,
+      "from_commit": "f22bb2ea4d96da2bf8cce738805c96c0c805a203",
+      "commit": "8e54c659b583c1a159f7164f9de338844f30f779",
+      "subject": "metal : add fa-vec tunings for M1 Ultra (llama/28088)",
+      "changed_files": 1,
+      "added_lines": 177,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 226889,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 28.902875,
+          "peak_rss_bytes": 17711104,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018920486886000,
+          "base_bytes_before": 17735804,
+          "middle_bytes_before": 1550864,
+          "base_bytes": 17735804,
+          "middle_bytes": 1570169,
+          "segments": 7,
+          "manifest_bytes": 312447,
+          "retained_bytes": 156227004
+        },
+        {
+          "version": "current",
+          "wall_ms": 21.649874999999998,
+          "peak_rss_bytes": 15728640,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 117794,
+          "base_bytes": 17774804,
+          "middle_bytes": 137099,
+          "segments": 3,
+          "manifest_bytes": 312023,
+          "retained_bytes": 70684947
+        }
+      ],
+      "rg": {
+        "wall_ms": 54.284541999999995,
+        "peak_rss_bytes": 9224192
+      }
+    },
+    {
+      "step": 55,
+      "from_commit": "8e54c659b583c1a159f7164f9de338844f30f779",
+      "commit": "5032008bc86f37d62f2fc3a4cbab6131e5dc10c9",
+      "subject": "metal: enable Metal 4.0 tensor API on M5+/A19+ (llama/27461)",
+      "changed_files": 2,
+      "added_lines": 116,
+      "deleted_lines": 34,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 101077,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 19.461833000000002,
+          "peak_rss_bytes": 16269312,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 137099,
+          "base_bytes": 17774804,
+          "middle_bytes": 293125,
+          "segments": 4,
+          "manifest_bytes": 312129,
+          "retained_bytes": 70841079
+        },
+        {
+          "version": "main",
+          "wall_ms": 29.236334,
+          "peak_rss_bytes": 18300928,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018920486886000,
+          "base_bytes_before": 17735804,
+          "middle_bytes_before": 1570169,
+          "base_bytes": 17735804,
+          "middle_bytes": 1726195,
+          "segments": 8,
+          "manifest_bytes": 312553,
+          "retained_bytes": 156695689
+        }
+      ],
+      "rg": {
+        "wall_ms": 44.110707999999995,
+        "peak_rss_bytes": 9453568
+      }
+    },
+    {
+      "step": 56,
+      "from_commit": "5032008bc86f37d62f2fc3a4cbab6131e5dc10c9",
+      "commit": "4f3a2a4b79e32efae8d291cae9322689454be368",
+      "subject": "sycl : support limit max alloc memory within 2GB for host-pinned memory (llama/27559)",
+      "changed_files": 1,
+      "added_lines": 16,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 283168,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 228.267,
+          "peak_rss_bytes": 110903296,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17735804,
+          "middle_bytes_before": 1726195,
+          "base_bytes": 17783297,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 311811,
+          "retained_bytes": 174790055
+        },
+        {
+          "version": "current",
+          "wall_ms": 23.159875,
+          "peak_rss_bytes": 16711680,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 293125,
+          "base_bytes": 17774804,
+          "middle_bytes": 584601,
+          "segments": 5,
+          "manifest_bytes": 312235,
+          "retained_bytes": 71132661
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.840291999999998,
+        "peak_rss_bytes": 9289728
+      }
+    },
+    {
+      "step": 57,
+      "from_commit": "4f3a2a4b79e32efae8d291cae9322689454be368",
+      "commit": "870db2afa1a03001b941b920abb761729ba69f9a",
+      "subject": "metal : add fa-vec tuning for M2 Max (llama/28015)",
+      "changed_files": 1,
+      "added_lines": 77,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 232898,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 28.880291999999997,
+          "peak_rss_bytes": 17039360,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 0,
+          "base_bytes": 17783297,
+          "middle_bytes": 19341,
+          "segments": 2,
+          "manifest_bytes": 311917,
+          "retained_bytes": 175121419
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.510917,
+          "peak_rss_bytes": 16105472,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 584601,
+          "base_bytes": 17774804,
+          "middle_bytes": 603942,
+          "segments": 6,
+          "manifest_bytes": 312341,
+          "retained_bytes": 71152108
+        }
+      ],
+      "rg": {
+        "wall_ms": 49.720583,
+        "peak_rss_bytes": 9093120
+      }
+    },
+    {
+      "step": 58,
+      "from_commit": "870db2afa1a03001b941b920abb761729ba69f9a",
+      "commit": "a245a8f48f4c59bb8da2eaa710d053c726f37c59",
+      "subject": "metal : fix more leaks due to missing autoreleasepools (llama/27883)",
+      "changed_files": 2,
+      "added_lines": 43,
+      "deleted_lines": 19,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 117855,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 18.114291,
+          "peak_rss_bytes": 16662528,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 603942,
+          "base_bytes": 17774804,
+          "middle_bytes": 775734,
+          "segments": 7,
+          "manifest_bytes": 312447,
+          "retained_bytes": 71324006
+        },
+        {
+          "version": "main",
+          "wall_ms": 31.050792,
+          "peak_rss_bytes": 17530880,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 19341,
+          "base_bytes": 17783297,
+          "middle_bytes": 191133,
+          "segments": 3,
+          "manifest_bytes": 312023,
+          "retained_bytes": 175605340
+        }
+      ],
+      "rg": {
+        "wall_ms": 51.945541,
+        "peak_rss_bytes": 9338880
+      }
+    },
+    {
+      "step": 59,
+      "from_commit": "a245a8f48f4c59bb8da2eaa710d053c726f37c59",
+      "commit": "8cca1a3616d854200a48922966552daf6cff2433",
+      "subject": "metal : add fa-vec tunings for A18 Pro (MacBook Neo) (llama/28152)",
+      "changed_files": 3,
+      "added_lines": 235,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 362339,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.8175,
+          "peak_rss_bytes": 17858560,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 191133,
+          "base_bytes": 17783297,
+          "middle_bytes": 355638,
+          "segments": 4,
+          "manifest_bytes": 312129,
+          "retained_bytes": 176082080
+        },
+        {
+          "version": "current",
+          "wall_ms": 21.192167,
+          "peak_rss_bytes": 17711104,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 775734,
+          "base_bytes": 17774804,
+          "middle_bytes": 940239,
+          "segments": 8,
+          "manifest_bytes": 312553,
+          "retained_bytes": 71488617
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.929709,
+        "peak_rss_bytes": 9060352
+      }
+    },
+    {
+      "step": 60,
+      "from_commit": "8cca1a3616d854200a48922966552daf6cff2433",
+      "commit": "5f07f856c50c0480af1b0fa883f84068a1cd0e7f",
+      "subject": "metal : add fa-vec tuning for M2 Pro (llama/28122)",
+      "changed_files": 1,
+      "added_lines": 191,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 266689,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.147709000000003,
+          "peak_rss_bytes": 17104896,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 355638,
+          "base_bytes": 17783297,
+          "middle_bytes": 375068,
+          "segments": 5,
+          "manifest_bytes": 312235,
+          "retained_bytes": 176413851
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.772083,
+          "peak_rss_bytes": 16252928,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 940239,
+          "base_bytes": 17774804,
+          "middle_bytes": 959669,
+          "segments": 9,
+          "manifest_bytes": 312659,
+          "retained_bytes": 71508153
+        }
+      ],
+      "rg": {
+        "wall_ms": 47.960417,
+        "peak_rss_bytes": 9437184
+      }
+    },
+    {
+      "step": 61,
+      "from_commit": "5f07f856c50c0480af1b0fa883f84068a1cd0e7f",
+      "commit": "408faaafcedc643e8feb77a3b2536a855fcd6549",
+      "subject": "sycl : add Kronecker product FWHT support for sizes 384, 640, 768, 1280 (llama/28016)",
+      "changed_files": 1,
+      "added_lines": 172,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 10094,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 18.685834,
+          "peak_rss_bytes": 16367616,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 959669,
+          "base_bytes": 17774804,
+          "middle_bytes": 980054,
+          "segments": 10,
+          "manifest_bytes": 312765,
+          "retained_bytes": 71528644
+        },
+        {
+          "version": "main",
+          "wall_ms": 28.08225,
+          "peak_rss_bytes": 17072128,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 375068,
+          "base_bytes": 17783297,
+          "middle_bytes": 395453,
+          "segments": 6,
+          "manifest_bytes": 312341,
+          "retained_bytes": 176746683
+        }
+      ],
+      "rg": {
+        "wall_ms": 49.354375,
+        "peak_rss_bytes": 9289728
+      }
+    },
+    {
+      "step": 62,
+      "from_commit": "408faaafcedc643e8feb77a3b2536a855fcd6549",
+      "commit": "f162a194754838c2468d1d02600182154ba41a63",
+      "subject": "Revert \"sycl : add Kronecker product FWHT support for sizes 384, 640, 768, 12…\" (#28184)",
+      "changed_files": 1,
+      "added_lines": 0,
+      "deleted_lines": 172,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 3870,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 25.495708,
+          "peak_rss_bytes": 15876096,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 395453,
+          "base_bytes": 17783297,
+          "middle_bytes": 375068,
+          "segments": 5,
+          "manifest_bytes": 312235,
+          "retained_bytes": 176746577
+        },
+        {
+          "version": "current",
+          "wall_ms": 17.349208,
+          "peak_rss_bytes": 15876096,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 980054,
+          "base_bytes": 17774804,
+          "middle_bytes": 995959,
+          "segments": 11,
+          "manifest_bytes": 312871,
+          "retained_bytes": 71544655
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.339291,
+        "peak_rss_bytes": 9043968
+      }
+    },
+    {
+      "step": 63,
+      "from_commit": "f162a194754838c2468d1d02600182154ba41a63",
+      "commit": "2c486783abfafacdffbc661f0bba0b31e8994eb7",
+      "subject": "cuda: fuse MoE weighted expert reduction (llama/25952)",
+      "changed_files": 3,
+      "added_lines": 251,
+      "deleted_lines": 2,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 240289,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 31.269416,
+          "peak_rss_bytes": 18071552,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 375068,
+          "base_bytes": 17783297,
+          "middle_bytes": 643215,
+          "segments": 6,
+          "manifest_bytes": 312667,
+          "retained_bytes": 177327823
+        },
+        {
+          "version": "current",
+          "wall_ms": 22.75825,
+          "peak_rss_bytes": 17645568,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 995959,
+          "base_bytes": 17774804,
+          "middle_bytes": 1264106,
+          "segments": 12,
+          "manifest_bytes": 313303,
+          "retained_bytes": 71813234
+        }
+      ],
+      "rg": {
+        "wall_ms": 51.2155,
+        "peak_rss_bytes": 9306112
+      }
+    },
+    {
+      "step": 64,
+      "from_commit": "2c486783abfafacdffbc661f0bba0b31e8994eb7",
+      "commit": "fcc2feee2fee5e6df76847aeaaa5bdb1eead3352",
+      "subject": "metal : add metallib build support for xcframework (llama/28163)",
+      "changed_files": 2,
+      "added_lines": 50,
+      "deleted_lines": 20,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 32662,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 17.446584,
+          "peak_rss_bytes": 16941056,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 1264106,
+          "base_bytes": 17774804,
+          "middle_bytes": 1346643,
+          "segments": 13,
+          "manifest_bytes": 313409,
+          "retained_bytes": 71895877
+        },
+        {
+          "version": "main",
+          "wall_ms": 28.680500000000002,
+          "peak_rss_bytes": 17940480,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 643215,
+          "base_bytes": 17783297,
+          "middle_bytes": 725752,
+          "segments": 7,
+          "manifest_bytes": 312773,
+          "retained_bytes": 177723239
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.412209,
+        "peak_rss_bytes": 9191424
+      }
+    },
+    {
+      "step": 65,
+      "from_commit": "fcc2feee2fee5e6df76847aeaaa5bdb1eead3352",
+      "commit": "c94921f8c6787ee12af882672ed91af9982b91cc",
+      "subject": "hexagon: add missing FARF logs for cpy/get_rows/set_rows/gdn ops (llama/28217)",
+      "changed_files": 5,
+      "added_lines": 30,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 158408,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.406042,
+          "peak_rss_bytes": 19660800,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018922704226000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 725752,
+          "base_bytes": 17783297,
+          "middle_bytes": 876956,
+          "segments": 8,
+          "manifest_bytes": 312879,
+          "retained_bytes": 178187428
+        },
+        {
+          "version": "current",
+          "wall_ms": 19.714833000000002,
+          "peak_rss_bytes": 18579456,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 1346643,
+          "base_bytes": 17774804,
+          "middle_bytes": 1497847,
+          "segments": 14,
+          "manifest_bytes": 313515,
+          "retained_bytes": 72047187
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.856417,
+        "peak_rss_bytes": 9158656
+      }
+    },
+    {
+      "step": 66,
+      "from_commit": "c94921f8c6787ee12af882672ed91af9982b91cc",
+      "commit": "35133c94c5aa00f39ad4d79513c5e57cd6de0cb3",
+      "subject": "opencl: fix out‐of‐bound reads in the Adreno image kernels (#27632)",
+      "changed_files": 2,
+      "added_lines": 95,
+      "deleted_lines": 27,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1236505,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 224.262792,
+          "peak_rss_bytes": 111427584,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018924896517000,
+          "base_bytes_before": 17783297,
+          "middle_bytes_before": 876956,
+          "base_bytes": 17799321,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 312137,
+          "retained_bytes": 196298144
+        },
+        {
+          "version": "current",
+          "wall_ms": 36.316833,
+          "peak_rss_bytes": 19660800,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 1497847,
+          "base_bytes": 17774804,
+          "middle_bytes": 2022806,
+          "segments": 15,
+          "manifest_bytes": 313621,
+          "retained_bytes": 72572252
+        }
+      ],
+      "rg": {
+        "wall_ms": 47.837416,
+        "peak_rss_bytes": 9240576
+      }
+    },
+    {
+      "step": 67,
+      "from_commit": "35133c94c5aa00f39ad4d79513c5e57cd6de0cb3",
+      "commit": "d57ae98246c503fad649a8d715ff995b1b867ba6",
+      "subject": "ggml-cpu : conditionally add SpacemiT IME kernel sources (llama/27961)",
+      "changed_files": 1,
+      "added_lines": 6,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 30133,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 17.2285,
+          "peak_rss_bytes": 17317888,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 2022806,
+          "base_bytes": 17774804,
+          "middle_bytes": 2078627,
+          "segments": 16,
+          "manifest_bytes": 313727,
+          "retained_bytes": 72628179
+        },
+        {
+          "version": "main",
+          "wall_ms": 29.610750000000003,
+          "peak_rss_bytes": 17186816,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018924896517000,
+          "base_bytes_before": 17799321,
+          "middle_bytes_before": 0,
+          "base_bytes": 17799321,
+          "middle_bytes": 55821,
+          "segments": 2,
+          "manifest_bytes": 312243,
+          "retained_bytes": 196666314
+        }
+      ],
+      "rg": {
+        "wall_ms": 53.150000000000006,
+        "peak_rss_bytes": 9289728
+      }
+    },
+    {
+      "step": 68,
+      "from_commit": "d57ae98246c503fad649a8d715ff995b1b867ba6",
+      "commit": "a9e58612c5145ba47b101889b3f08386a7f42f23",
+      "subject": "vulkan : only request VK_KHR_shader_bfloat16 extension if supported (llama/28155)",
+      "changed_files": 1,
+      "added_lines": 4,
+      "deleted_lines": 10,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1048541,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 43.478,
+          "peak_rss_bytes": 19644416,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018924896517000,
+          "base_bytes_before": 17799321,
+          "middle_bytes_before": 55821,
+          "base_bytes": 17799321,
+          "middle_bytes": 703386,
+          "segments": 3,
+          "manifest_bytes": 312349,
+          "retained_bytes": 197626334
+        },
+        {
+          "version": "current",
+          "wall_ms": 35.178374999999996,
+          "peak_rss_bytes": 19857408,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 2078627,
+          "base_bytes": 17774804,
+          "middle_bytes": 2726192,
+          "segments": 17,
+          "manifest_bytes": 313833,
+          "retained_bytes": 73275850
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.955582999999997,
+        "peak_rss_bytes": 9175040
+      }
+    },
+    {
+      "step": 69,
+      "from_commit": "a9e58612c5145ba47b101889b3f08386a7f42f23",
+      "commit": "1c7d35e14af94778e40f92afb727fd9eb159783b",
+      "subject": "vulkan: handle larger batch sizes (>4) efficiently for IQ3_S mat-vec (llama/27449)",
+      "changed_files": 1,
+      "added_lines": 18,
+      "deleted_lines": 15,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 4132,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 27.407791,
+          "peak_rss_bytes": 16957440,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018924896517000,
+          "base_bytes_before": 17799321,
+          "middle_bytes_before": 703386,
+          "base_bytes": 17799321,
+          "middle_bytes": 719804,
+          "segments": 4,
+          "manifest_bytes": 312455,
+          "retained_bytes": 197955313
+        },
+        {
+          "version": "current",
+          "wall_ms": 18.733791,
+          "peak_rss_bytes": 17088512,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 2726192,
+          "base_bytes": 17774804,
+          "middle_bytes": 2742610,
+          "segments": 18,
+          "manifest_bytes": 313939,
+          "retained_bytes": 73292374
+        }
+      ],
+      "rg": {
+        "wall_ms": 49.678875,
+        "peak_rss_bytes": 9306112
+      }
+    },
+    {
+      "step": 70,
+      "from_commit": "1c7d35e14af94778e40f92afb727fd9eb159783b",
+      "commit": "dc70853ec28bdfc716641111f37cee0fe4bd8a91",
+      "subject": "hexagon: MUL_MAT and MUL_MAT_ID fusion and fixes (llama/28202)",
+      "changed_files": 7,
+      "added_lines": 1236,
+      "deleted_lines": 180,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 562030,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 23.054374999999997,
+          "peak_rss_bytes": 20905984,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 2742610,
+          "base_bytes": 17774804,
+          "middle_bytes": 3201905,
+          "segments": 19,
+          "manifest_bytes": 314045,
+          "retained_bytes": 73751775
+        },
+        {
+          "version": "main",
+          "wall_ms": 34.68425,
+          "peak_rss_bytes": 20774912,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018924896517000,
+          "base_bytes_before": 17799321,
+          "middle_bytes_before": 719804,
+          "base_bytes": 17799321,
+          "middle_bytes": 1179099,
+          "segments": 5,
+          "manifest_bytes": 312561,
+          "retained_bytes": 198727275
+        }
+      ],
+      "rg": {
+        "wall_ms": 55.148709,
+        "peak_rss_bytes": 9519104
+      }
+    },
+    {
+      "step": 71,
+      "from_commit": "dc70853ec28bdfc716641111f37cee0fe4bd8a91",
+      "commit": "c2b400754bac2de1f4f74bfac9eb33474daa631e",
+      "subject": "ggml: avoid KleidiAI buffer type init on dispatch (llama/27891)",
+      "changed_files": 1,
+      "added_lines": 2,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 76603,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 30.402542,
+          "peak_rss_bytes": 17694720,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018924896517000,
+          "base_bytes_before": 17799321,
+          "middle_bytes_before": 1179099,
+          "base_bytes": 17799321,
+          "middle_bytes": 1284443,
+          "segments": 6,
+          "manifest_bytes": 312667,
+          "retained_bytes": 199145392
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.858458,
+          "peak_rss_bytes": 17940480,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 3201905,
+          "base_bytes": 17774804,
+          "middle_bytes": 3307249,
+          "segments": 20,
+          "manifest_bytes": 314151,
+          "retained_bytes": 73857225
+        }
+      ],
+      "rg": {
+        "wall_ms": 31.871167,
+        "peak_rss_bytes": 9732096
+      }
+    },
+    {
+      "step": 72,
+      "from_commit": "c2b400754bac2de1f4f74bfac9eb33474daa631e",
+      "commit": "519df618df430b9288cb62de6eb4e5568965526c",
+      "subject": "CUDA + ggml: add sparse-fa for DSV4/GLM (llama/27970)",
+      "changed_files": 7,
+      "added_lines": 323,
+      "deleted_lines": 85,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 644699,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 34.093833,
+          "peak_rss_bytes": 22233088,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018924896517000,
+          "base_bytes_before": 17799321,
+          "middle_bytes_before": 1284443,
+          "base_bytes": 17799321,
+          "middle_bytes": 1861029,
+          "segments": 7,
+          "manifest_bytes": 312773,
+          "retained_bytes": 200034857
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.75425,
+          "peak_rss_bytes": 22396928,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 3307249,
+          "base_bytes": 17774804,
+          "middle_bytes": 3883835,
+          "segments": 21,
+          "manifest_bytes": 314257,
+          "retained_bytes": 74433917
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.260667000000005,
+        "peak_rss_bytes": 9289728
+      }
+    },
+    {
+      "step": 73,
+      "from_commit": "519df618df430b9288cb62de6eb4e5568965526c",
+      "commit": "4d343d7c05c36bc863536cab9d042b96acf0eb9c",
+      "subject": "ggml-cuda : remove unused vars (llama/28235)",
+      "changed_files": 2,
+      "added_lines": 0,
+      "deleted_lines": 16,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 119781,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 19.003249999999998,
+          "peak_rss_bytes": 19169280,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 3883835,
+          "base_bytes": 17774804,
+          "middle_bytes": 3994640,
+          "segments": 22,
+          "manifest_bytes": 314363,
+          "retained_bytes": 74544828
+        },
+        {
+          "version": "main",
+          "wall_ms": 29.575875,
+          "peak_rss_bytes": 18530304,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018924896517000,
+          "base_bytes_before": 17799321,
+          "middle_bytes_before": 1861029,
+          "base_bytes": 17799321,
+          "middle_bytes": 1971834,
+          "segments": 8,
+          "manifest_bytes": 312879,
+          "retained_bytes": 200458647
+        }
+      ],
+      "rg": {
+        "wall_ms": 52.612666000000004,
+        "peak_rss_bytes": 9437184
+      }
+    },
+    {
+      "step": 74,
+      "from_commit": "4d343d7c05c36bc863536cab9d042b96acf0eb9c",
+      "commit": "3a1c7d6b6f47efeb69bde410b0003129563fa9f7",
+      "subject": "metal : fix memory query under low-memory conditions (llama/27701)",
+      "changed_files": 1,
+      "added_lines": 4,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 91747,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 226.26958299999998,
+          "peak_rss_bytes": 111771648,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018926848826000,
+          "base_bytes_before": 17799321,
+          "middle_bytes_before": 1971834,
+          "base_bytes": 17811939,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 312137,
+          "retained_bytes": 218581981
+        },
+        {
+          "version": "current",
+          "wall_ms": 22.70475,
+          "peak_rss_bytes": 18284544,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 3994640,
+          "base_bytes": 17774804,
+          "middle_bytes": 4131171,
+          "segments": 23,
+          "manifest_bytes": 314469,
+          "retained_bytes": 74681465
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.522000000000002,
+        "peak_rss_bytes": 9175040
+      }
+    },
+    {
+      "step": 75,
+      "from_commit": "3a1c7d6b6f47efeb69bde410b0003129563fa9f7",
+      "commit": "1bdda1e36676acd6f18d004494ab31847a92ae00",
+      "subject": "metal : add fa-vec tunings for M3 (llama/28236)",
+      "changed_files": 1,
+      "added_lines": 101,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 274189,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.961374999999997,
+          "peak_rss_bytes": 16580608,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018926848826000,
+          "base_bytes_before": 17811939,
+          "middle_bytes_before": 0,
+          "base_bytes": 17811939,
+          "middle_bytes": 19507,
+          "segments": 2,
+          "manifest_bytes": 312243,
+          "retained_bytes": 218913837
+        },
+        {
+          "version": "current",
+          "wall_ms": 22.326542,
+          "peak_rss_bytes": 18268160,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 4131171,
+          "base_bytes": 17774804,
+          "middle_bytes": 4150678,
+          "segments": 24,
+          "manifest_bytes": 314575,
+          "retained_bytes": 74701078
+        }
+      ],
+      "rg": {
+        "wall_ms": 53.225875,
+        "peak_rss_bytes": 9224192
+      }
+    },
+    {
+      "step": 76,
+      "from_commit": "1bdda1e36676acd6f18d004494ab31847a92ae00",
+      "commit": "37f0f443d72003a83f1d95a8681ab194a254d7d6",
+      "subject": "ggml-hexagon: add F16 support for unary ops (llama/28228)",
+      "changed_files": 8,
+      "added_lines": 797,
+      "deleted_lines": 44,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 409592,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 23.196583,
+          "peak_rss_bytes": 20774912,
+          "diagnostic": "coderg: incrementally indexed 8 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 4150678,
+          "base_bytes": 17774804,
+          "middle_bytes": 4486413,
+          "segments": 25,
+          "manifest_bytes": 314681,
+          "retained_bytes": 75036919
+        },
+        {
+          "version": "main",
+          "wall_ms": 32.339332999999996,
+          "peak_rss_bytes": 19333120,
+          "diagnostic": "coderg: incrementally indexed 8 changed files",
+          "base_id": 1789018926848826000,
+          "base_bytes_before": 17811939,
+          "middle_bytes_before": 19507,
+          "base_bytes": 17811939,
+          "middle_bytes": 355242,
+          "segments": 3,
+          "manifest_bytes": 312349,
+          "retained_bytes": 219562027
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.141708,
+        "peak_rss_bytes": 9306112
+      }
+    },
+    {
+      "step": 77,
+      "from_commit": "37f0f443d72003a83f1d95a8681ab194a254d7d6",
+      "commit": "e5605697ce4dce019370afae61b7d222f2fb4bbf",
+      "subject": "finetune: fix no KV cache (llama/27199)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 258578,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 33.040917,
+          "peak_rss_bytes": 17743872,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018926848826000,
+          "base_bytes_before": 17811939,
+          "middle_bytes_before": 355242,
+          "base_bytes": 17811939,
+          "middle_bytes": 589909,
+          "segments": 4,
+          "manifest_bytes": 312455,
+          "retained_bytes": 220109255
+        },
+        {
+          "version": "current",
+          "wall_ms": 23.691125,
+          "peak_rss_bytes": 19333120,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 4486413,
+          "base_bytes": 17774804,
+          "middle_bytes": 4721080,
+          "segments": 26,
+          "manifest_bytes": 314787,
+          "retained_bytes": 75271692
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.141208,
+        "peak_rss_bytes": 9863168
+      }
+    },
+    {
+      "step": 78,
+      "from_commit": "e5605697ce4dce019370afae61b7d222f2fb4bbf",
+      "commit": "a704770e3bdcce27c61b2a7695c6885ee79b6432",
+      "subject": "sycl: reduce redundant work in Q4_K multi-column MMVQ (llama/27062)",
+      "changed_files": 2,
+      "added_lines": 237,
+      "deleted_lines": 65,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 220935,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 29.138291,
+          "peak_rss_bytes": 18530304,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018926848826000,
+          "base_bytes_before": 17811939,
+          "middle_bytes_before": 589909,
+          "base_bytes": 17811939,
+          "middle_bytes": 716838,
+          "segments": 5,
+          "manifest_bytes": 312561,
+          "retained_bytes": 220548851
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.283791,
+          "peak_rss_bytes": 19496960,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 4721080,
+          "base_bytes": 17774804,
+          "middle_bytes": 4848009,
+          "segments": 27,
+          "manifest_bytes": 314893,
+          "retained_bytes": 75398727
+        }
+      ],
+      "rg": {
+        "wall_ms": 52.342,
+        "peak_rss_bytes": 9338880
+      }
+    },
+    {
+      "step": 79,
+      "from_commit": "a704770e3bdcce27c61b2a7695c6885ee79b6432",
+      "commit": "f24a38605b729b4ab6546ccbde2d9f92d773558f",
+      "subject": "sycl : enhance the api to support peer-to-peer copy (llama/27550)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 283250,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 22.629958,
+          "peak_rss_bytes": 19841024,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 4848009,
+          "base_bytes": 17774804,
+          "middle_bytes": 5139545,
+          "segments": 28,
+          "manifest_bytes": 314999,
+          "retained_bytes": 75690369
+        },
+        {
+          "version": "main",
+          "wall_ms": 32.562542,
+          "peak_rss_bytes": 18546688,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018926848826000,
+          "base_bytes_before": 17811939,
+          "middle_bytes_before": 716838,
+          "base_bytes": 17811939,
+          "middle_bytes": 1008374,
+          "segments": 6,
+          "manifest_bytes": 312667,
+          "retained_bytes": 221153160
+        }
+      ],
+      "rg": {
+        "wall_ms": 45.771709,
+        "peak_rss_bytes": 9224192
+      }
+    },
+    {
+      "step": 80,
+      "from_commit": "f24a38605b729b4ab6546ccbde2d9f92d773558f",
+      "commit": "47d348a2780fd70c8b50906a5c12cf0cc9a1b3fa",
+      "subject": "vulkan: fix FA dequant path engagement (llama/28190)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1048560,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 44.834083,
+          "peak_rss_bytes": 20004864,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018926848826000,
+          "base_bytes_before": 17811939,
+          "middle_bytes_before": 1008374,
+          "base_bytes": 17811939,
+          "middle_bytes": 1655941,
+          "segments": 7,
+          "manifest_bytes": 312773,
+          "retained_bytes": 222113606
+        },
+        {
+          "version": "current",
+          "wall_ms": 36.21675,
+          "peak_rss_bytes": 21495808,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 5139545,
+          "base_bytes": 17774804,
+          "middle_bytes": 5787112,
+          "segments": 29,
+          "manifest_bytes": 315105,
+          "retained_bytes": 76338042
+        }
+      ],
+      "rg": {
+        "wall_ms": 32.183166,
+        "peak_rss_bytes": 9306112
+      }
+    },
+    {
+      "step": 81,
+      "from_commit": "47d348a2780fd70c8b50906a5c12cf0cc9a1b3fa",
+      "commit": "25350b579e7e957b4f005400fe72b40162082b18",
+      "subject": "CUDA: Allow concurrent streams per split for multi-GPU (llama/28198)",
+      "changed_files": 1,
+      "added_lines": 3,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 236438,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 32.798708000000005,
+          "peak_rss_bytes": 18497536,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018926848826000,
+          "base_bytes_before": 17811939,
+          "middle_bytes_before": 1655941,
+          "base_bytes": 17811939,
+          "middle_bytes": 1917639,
+          "segments": 8,
+          "manifest_bytes": 312879,
+          "retained_bytes": 222688289
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.57,
+          "peak_rss_bytes": 20332544,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 5787112,
+          "base_bytes": 17774804,
+          "middle_bytes": 6048810,
+          "segments": 30,
+          "manifest_bytes": 315211,
+          "retained_bytes": 76599846
+        }
+      ],
+      "rg": {
+        "wall_ms": 48.021,
+        "peak_rss_bytes": 9273344
+      }
+    },
+    {
+      "step": 82,
+      "from_commit": "25350b579e7e957b4f005400fe72b40162082b18",
+      "commit": "d55d345e696debc6c8be4899b60c0238e621c792",
+      "subject": "metal : fix glu dispatch with ne00 = 1 (llama/28306)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 192647,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 21.141416,
+          "peak_rss_bytes": 19628032,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 6048810,
+          "base_bytes": 17774804,
+          "middle_bytes": 6205353,
+          "segments": 31,
+          "manifest_bytes": 315317,
+          "retained_bytes": 76756495
+        },
+        {
+          "version": "main",
+          "wall_ms": 221.17279100000002,
+          "peak_rss_bytes": 111771648,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018928788785000,
+          "base_bytes_before": 17811939,
+          "middle_bytes_before": 1917639,
+          "base_bytes": 17824476,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 312137,
+          "retained_bytes": 240824160
+        }
+      ],
+      "rg": {
+        "wall_ms": 52.2245,
+        "peak_rss_bytes": 9109504
+      }
+    },
+    {
+      "step": 83,
+      "from_commit": "d55d345e696debc6c8be4899b60c0238e621c792",
+      "commit": "4dd48dde357afef5c208adad869082edf94e70b1",
+      "subject": "metal : add sparse FA (llama/28098)",
+      "changed_files": 7,
+      "added_lines": 406,
+      "deleted_lines": 32,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 554194,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 32.226709,
+          "peak_rss_bytes": 20758528,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018928788785000,
+          "base_bytes_before": 17824476,
+          "middle_bytes_before": 0,
+          "base_bytes": 17824476,
+          "middle_bytes": 346629,
+          "segments": 2,
+          "manifest_bytes": 312243,
+          "retained_bytes": 241483138
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.8495,
+          "peak_rss_bytes": 23003136,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 6205353,
+          "base_bytes": 17774804,
+          "middle_bytes": 6551982,
+          "segments": 32,
+          "manifest_bytes": 315423,
+          "retained_bytes": 77103230
+        }
+      ],
+      "rg": {
+        "wall_ms": 29.828625000000002,
+        "peak_rss_bytes": 9191424
+      }
+    },
+    {
+      "step": 84,
+      "from_commit": "4dd48dde357afef5c208adad869082edf94e70b1",
+      "commit": "0a4a95c86e592a8d2136e3316d2d6496c5033d14",
+      "subject": "tune MMVQ to MMQ crossover for SM87 (llama/28285)",
+      "changed_files": 2,
+      "added_lines": 13,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 134210,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 27.721375,
+          "peak_rss_bytes": 18186240,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018928788785000,
+          "base_bytes_before": 17824476,
+          "middle_bytes_before": 346629,
+          "base_bytes": 17824476,
+          "middle_bytes": 530669,
+          "segments": 3,
+          "manifest_bytes": 312349,
+          "retained_bytes": 241979633
+        },
+        {
+          "version": "current",
+          "wall_ms": 22.468417000000002,
+          "peak_rss_bytes": 20332544,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 6551982,
+          "base_bytes": 17774804,
+          "middle_bytes": 6736022,
+          "segments": 33,
+          "manifest_bytes": 315529,
+          "retained_bytes": 77287376
+        }
+      ],
+      "rg": {
+        "wall_ms": 51.337666,
+        "peak_rss_bytes": 9306112
+      }
+    },
+    {
+      "step": 85,
+      "from_commit": "0a4a95c86e592a8d2136e3316d2d6496c5033d14",
+      "commit": "d784add75f41c7487da2b2b5c9ebc224f3b4e289",
+      "subject": "opencl: quant lm_head / decode GEMV and medium-batch GEMM optimizations (speculative decoding/MTP) (llama/26477)",
+      "changed_files": 19,
+      "added_lines": 4829,
+      "deleted_lines": 120,
+      "added_files": 6,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1691388,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 38.280084,
+          "peak_rss_bytes": 27148288,
+          "diagnostic": "coderg: incrementally indexed 19 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 6736022,
+          "base_bytes": 17774804,
+          "middle_bytes": 7572900,
+          "segments": 34,
+          "manifest_bytes": 316779,
+          "retained_bytes": 78125504
+        },
+        {
+          "version": "main",
+          "wall_ms": 47.115958,
+          "peak_rss_bytes": 24543232,
+          "diagnostic": "coderg: incrementally indexed 19 changed files",
+          "base_id": 1789018928788785000,
+          "base_bytes_before": 17824476,
+          "middle_bytes_before": 530669,
+          "base_bytes": 17824476,
+          "middle_bytes": 1367547,
+          "segments": 4,
+          "manifest_bytes": 313599,
+          "retained_bytes": 243131360
+        }
+      ],
+      "rg": {
+        "wall_ms": 54.165625,
+        "peak_rss_bytes": 9355264
+      }
+    },
+    {
+      "step": 86,
+      "from_commit": "d784add75f41c7487da2b2b5c9ebc224f3b4e289",
+      "commit": "36f170e5fe39b566eb2afe1d2ed74b567cd54fc9",
+      "subject": "SYCL: Refactor GGML_SYCL_ENABLE_MKL_FA to global var (llama/26863)",
+      "changed_files": 3,
+      "added_lines": 5,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 336382,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 34.485875,
+          "peak_rss_bytes": 19415040,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018928788785000,
+          "base_bytes_before": 17824476,
+          "middle_bytes_before": 1367547,
+          "base_bytes": 17824476,
+          "middle_bytes": 1743271,
+          "segments": 5,
+          "manifest_bytes": 313705,
+          "retained_bytes": 243820895
+        },
+        {
+          "version": "current",
+          "wall_ms": 26.138958,
+          "peak_rss_bytes": 22216704,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 7572900,
+          "base_bytes": 17774804,
+          "middle_bytes": 7948624,
+          "segments": 35,
+          "manifest_bytes": 316885,
+          "retained_bytes": 78501334
+        }
+      ],
+      "rg": {
+        "wall_ms": 32.333958,
+        "peak_rss_bytes": 9060352
+      }
+    },
+    {
+      "step": 87,
+      "from_commit": "36f170e5fe39b566eb2afe1d2ed74b567cd54fc9",
+      "commit": "d1e0e6491ff3735a09db4b160524e0dd4488a4e4",
+      "subject": "sycl: fuse rms_norm+mul+add and add+add residual chains (llama/27610)",
+      "changed_files": 6,
+      "added_lines": 528,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 368938,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 33.029958,
+          "peak_rss_bytes": 20480000,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1789018928788785000,
+          "base_bytes_before": 17824476,
+          "middle_bytes_before": 1743271,
+          "base_bytes": 17824476,
+          "middle_bytes": 2104672,
+          "segments": 6,
+          "manifest_bytes": 313811,
+          "retained_bytes": 244496213
+        },
+        {
+          "version": "current",
+          "wall_ms": 27.115875000000003,
+          "peak_rss_bytes": 22937600,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 7948624,
+          "base_bytes": 17774804,
+          "middle_bytes": 8310025,
+          "segments": 36,
+          "manifest_bytes": 316991,
+          "retained_bytes": 78862841
+        }
+      ],
+      "rg": {
+        "wall_ms": 54.256834,
+        "peak_rss_bytes": 9289728
+      }
+    },
+    {
+      "step": 88,
+      "from_commit": "d1e0e6491ff3735a09db4b160524e0dd4488a4e4",
+      "commit": "e1bbe405209c6e6836f9416a5df4363fe44cddb0",
+      "subject": "ggml-cpu(s390x) : fix q5_1 uninitialized v_acc (llama/28332)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 54058,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 19.568708,
+          "peak_rss_bytes": 20414464,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018921647330000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 8310025,
+          "base_bytes": 17774804,
+          "middle_bytes": 8361169,
+          "segments": 37,
+          "manifest_bytes": 317097,
+          "retained_bytes": 78914091
+        },
+        {
+          "version": "main",
+          "wall_ms": 28.918625,
+          "peak_rss_bytes": 18219008,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018928788785000,
+          "base_bytes_before": 17824476,
+          "middle_bytes_before": 2104672,
+          "base_bytes": 17824476,
+          "middle_bytes": 2155816,
+          "segments": 7,
+          "manifest_bytes": 313917,
+          "retained_bytes": 244861380
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.317,
+        "peak_rss_bytes": 9240576
+      }
+    },
+    {
+      "step": 89,
+      "from_commit": "e1bbe405209c6e6836f9416a5df4363fe44cddb0",
+      "commit": "f32e6fa0c8f1a78fafe4a911821e660b76a2c02d",
+      "subject": "ggml : remove GGML_CUDA_PEER_MAX_BATCH_SIZE (llama/28177)",
+      "changed_files": 3,
+      "added_lines": 0,
+      "deleted_lines": 5,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 36905,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 28.436792,
+          "peak_rss_bytes": 18087936,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789018928788785000,
+          "base_bytes_before": 17824476,
+          "middle_bytes_before": 2155816,
+          "base_bytes": 17824476,
+          "middle_bytes": 2249209,
+          "segments": 8,
+          "manifest_bytes": 314023,
+          "retained_bytes": 245268902
+        },
+        {
+          "version": "current",
+          "wall_ms": 204.940125,
+          "peak_rss_bytes": 112574464,
+          "diagnostic": "coderg: rebuilt index after incremental segments reached 8 MiB",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17774804,
+          "middle_bytes_before": 8361169,
+          "base_bytes": 17985643,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 313281,
+          "retained_bytes": 96989311
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.553167,
+        "peak_rss_bytes": 9437184
+      }
+    },
+    {
+      "step": 90,
+      "from_commit": "f32e6fa0c8f1a78fafe4a911821e660b76a2c02d",
+      "commit": "1b37beadd76496ed4081998150c2b8a81783b7a0",
+      "subject": "ggml : don't crash when backend search path can't be read (llama/28271)",
+      "changed_files": 1,
+      "added_lines": 15,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 18555,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 227.656709,
+          "peak_rss_bytes": 113115136,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018930844365000,
+          "base_bytes_before": 17824476,
+          "middle_bytes_before": 2249209,
+          "base_bytes": 17986033,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 313281,
+          "retained_bytes": 263567474
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.251833,
+          "peak_rss_bytes": 15663104,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 0,
+          "base_bytes": 17985643,
+          "middle_bytes": 38395,
+          "segments": 2,
+          "manifest_bytes": 313387,
+          "retained_bytes": 97027812
+        }
+      ],
+      "rg": {
+        "wall_ms": 47.354583999999996,
+        "peak_rss_bytes": 9256960
+      }
+    },
+    {
+      "step": 91,
+      "from_commit": "1b37beadd76496ed4081998150c2b8a81783b7a0",
+      "commit": "e2389eb99cf5796659495c0066bb491fb52a354f",
+      "subject": "ggml : rename and make private ggml_op_alloc_size_may_expand() (ggml/0)",
+      "changed_files": 4,
+      "added_lines": 8,
+      "deleted_lines": 10,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 229647,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 19.225334,
+          "peak_rss_bytes": 17367040,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 38395,
+          "base_bytes": 17985643,
+          "middle_bytes": 288268,
+          "segments": 3,
+          "manifest_bytes": 313493,
+          "retained_bytes": 97277791
+        },
+        {
+          "version": "main",
+          "wall_ms": 30.399708,
+          "peak_rss_bytes": 18333696,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018930844365000,
+          "base_bytes_before": 17986033,
+          "middle_bytes_before": 0,
+          "base_bytes": 17986033,
+          "middle_bytes": 249873,
+          "segments": 2,
+          "manifest_bytes": 313387,
+          "retained_bytes": 264130840
+        }
+      ],
+      "rg": {
+        "wall_ms": 49.897083,
+        "peak_rss_bytes": 9256960
+      }
+    },
+    {
+      "step": 92,
+      "from_commit": "e2389eb99cf5796659495c0066bb491fb52a354f",
+      "commit": "140e57a4e20af04e8e00930798474a4707f0ee47",
+      "subject": "ggml : replace compile definitions with version.h.in (llama/28364)",
+      "changed_files": 4,
+      "added_lines": 8,
+      "deleted_lines": 5,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 307114,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 32.070375,
+          "peak_rss_bytes": 18235392,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018930844365000,
+          "base_bytes_before": 17986033,
+          "middle_bytes_before": 249873,
+          "base_bytes": 17986033,
+          "middle_bytes": 579743,
+          "segments": 3,
+          "manifest_bytes": 313619,
+          "retained_bytes": 264774561
+        },
+        {
+          "version": "current",
+          "wall_ms": 22.534834,
+          "peak_rss_bytes": 17104896,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 288268,
+          "base_bytes": 17985643,
+          "middle_bytes": 618138,
+          "segments": 4,
+          "manifest_bytes": 313725,
+          "retained_bytes": 97607893
+        }
+      ],
+      "rg": {
+        "wall_ms": 30.523958,
+        "peak_rss_bytes": 9240576
+      }
+    },
+    {
+      "step": 93,
+      "from_commit": "140e57a4e20af04e8e00930798474a4707f0ee47",
+      "commit": "11d4eec830119e58f880df52df97f63a3a26f6c5",
+      "subject": "metal : add remaining fa-vec tunings for M3 Max (llama/28373)",
+      "changed_files": 1,
+      "added_lines": 145,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 285741,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 30.74,
+          "peak_rss_bytes": 17334272,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930844365000,
+          "base_bytes_before": 17986033,
+          "middle_bytes_before": 579743,
+          "base_bytes": 17986033,
+          "middle_bytes": 599250,
+          "segments": 4,
+          "manifest_bytes": 313725,
+          "retained_bytes": 265107899
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.87125,
+          "peak_rss_bytes": 16138240,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 618138,
+          "base_bytes": 17985643,
+          "middle_bytes": 637645,
+          "segments": 5,
+          "manifest_bytes": 313831,
+          "retained_bytes": 97627506
+        }
+      ],
+      "rg": {
+        "wall_ms": 53.625916000000004,
+        "peak_rss_bytes": 9109504
+      }
+    },
+    {
+      "step": 94,
+      "from_commit": "11d4eec830119e58f880df52df97f63a3a26f6c5",
+      "commit": "a937f4e8efba28c0da4187617434676572355107",
+      "subject": "ggml : bump version to 0.23.0 (ggml/1618)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 21426,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 17.121707999999998,
+          "peak_rss_bytes": 16400384,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 637645,
+          "base_bytes": 17985643,
+          "middle_bytes": 694794,
+          "segments": 6,
+          "manifest_bytes": 313937,
+          "retained_bytes": 97684761
+        },
+        {
+          "version": "main",
+          "wall_ms": 29.989459,
+          "peak_rss_bytes": 17235968,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930844365000,
+          "base_bytes_before": 17986033,
+          "middle_bytes_before": 599250,
+          "base_bytes": 17986033,
+          "middle_bytes": 656399,
+          "segments": 5,
+          "manifest_bytes": 313831,
+          "retained_bytes": 265478985
+        }
+      ],
+      "rg": {
+        "wall_ms": 50.469834,
+        "peak_rss_bytes": 9093120
+      }
+    },
+    {
+      "step": 95,
+      "from_commit": "a937f4e8efba28c0da4187617434676572355107",
+      "commit": "52a939a2a762224e255d366c1182b2af4dd1a032",
+      "subject": "sync : ggml",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 41,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 27.812791,
+          "peak_rss_bytes": 16859136,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930844365000,
+          "base_bytes_before": 17986033,
+          "middle_bytes_before": 656399,
+          "base_bytes": 17986033,
+          "middle_bytes": 656871,
+          "segments": 6,
+          "manifest_bytes": 313937,
+          "retained_bytes": 265793500
+        },
+        {
+          "version": "current",
+          "wall_ms": 19.321416,
+          "peak_rss_bytes": 15269888,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 694794,
+          "base_bytes": 17985643,
+          "middle_bytes": 695266,
+          "segments": 7,
+          "manifest_bytes": 314043,
+          "retained_bytes": 97685339
+        }
+      ],
+      "rg": {
+        "wall_ms": 31.000957999999997,
+        "peak_rss_bytes": 9191424
+      }
+    },
+    {
+      "step": 96,
+      "from_commit": "52a939a2a762224e255d366c1182b2af4dd1a032",
+      "commit": "61e6ccade0849f0f518c6decd1f25b3f9fb77b76",
+      "subject": "server : return language in detect response (#4035)",
+      "changed_files": 1,
+      "added_lines": 3,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 60951,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 28.397208,
+          "peak_rss_bytes": 17645568,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930844365000,
+          "base_bytes_before": 17986033,
+          "middle_bytes_before": 656871,
+          "base_bytes": 17986033,
+          "middle_bytes": 762181,
+          "segments": 7,
+          "manifest_bytes": 314043,
+          "retained_bytes": 266212959
+        },
+        {
+          "version": "current",
+          "wall_ms": 20.660791,
+          "peak_rss_bytes": 16662528,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 695266,
+          "base_bytes": 17985643,
+          "middle_bytes": 800576,
+          "segments": 8,
+          "manifest_bytes": 314149,
+          "retained_bytes": 97790755
+        }
+      ],
+      "rg": {
+        "wall_ms": 51.192792000000004,
+        "peak_rss_bytes": 9519104
+      }
+    },
+    {
+      "step": 97,
+      "from_commit": "61e6ccade0849f0f518c6decd1f25b3f9fb77b76",
+      "commit": "79f2d921129284a850f654c6ff80ba6cfdeda16f",
+      "subject": "tests : load backends before init when built with GGML_BACKEND_DL (#4031)",
+      "changed_files": 4,
+      "added_lines": 8,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 10755,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 16.846875,
+          "peak_rss_bytes": 16138240,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 800576,
+          "base_bytes": 17985643,
+          "middle_bytes": 830822,
+          "segments": 9,
+          "manifest_bytes": 314255,
+          "retained_bytes": 97821107
+        },
+        {
+          "version": "main",
+          "wall_ms": 29.727041999999997,
+          "peak_rss_bytes": 17350656,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789018930844365000,
+          "base_bytes_before": 17986033,
+          "middle_bytes_before": 762181,
+          "base_bytes": 17986033,
+          "middle_bytes": 792427,
+          "segments": 8,
+          "manifest_bytes": 314149,
+          "retained_bytes": 266557460
+        }
+      ],
+      "rg": {
+        "wall_ms": 45.729042,
+        "peak_rss_bytes": 9338880
+      }
+    },
+    {
+      "step": 98,
+      "from_commit": "79f2d921129284a850f654c6ff80ba6cfdeda16f",
+      "commit": "cec4dbe5d5a18b0c1b15a7e9c526c35bd8d46a96",
+      "subject": "ci : update close-issue job to not close issues (#4045)",
+      "changed_files": 1,
+      "added_lines": 4,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 924,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 225.762833,
+          "peak_rss_bytes": 111919104,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789018932696260000,
+          "base_bytes_before": 17986033,
+          "middle_bytes_before": 792427,
+          "base_bytes": 17986659,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 313407,
+          "retained_bytes": 284856784
+        },
+        {
+          "version": "current",
+          "wall_ms": 18.634874999999997,
+          "peak_rss_bytes": 15515648,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 830822,
+          "base_bytes": 17985643,
+          "middle_bytes": 835874,
+          "segments": 10,
+          "manifest_bytes": 314361,
+          "retained_bytes": 97826265
+        }
+      ],
+      "rg": {
+        "wall_ms": 32.09625,
+        "peak_rss_bytes": 9142272
+      }
+    },
+    {
+      "step": 99,
+      "from_commit": "cec4dbe5d5a18b0c1b15a7e9c526c35bd8d46a96",
+      "commit": "6d0ed914991cac42ace012a05588880801831343",
+      "subject": "whisper : re-seed decoder 0 between calls (#4025)",
+      "changed_files": 1,
+      "added_lines": 7,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 341180,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 33.452458,
+          "peak_rss_bytes": 18186240,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018932696260000,
+          "base_bytes_before": 17986659,
+          "middle_bytes_before": 0,
+          "base_bytes": 17986659,
+          "middle_bytes": 348701,
+          "segments": 2,
+          "manifest_bytes": 313513,
+          "retained_bytes": 285519104
+        },
+        {
+          "version": "current",
+          "wall_ms": 24.883625,
+          "peak_rss_bytes": 17563648,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 835874,
+          "base_bytes": 17985643,
+          "middle_bytes": 1184575,
+          "segments": 11,
+          "manifest_bytes": 314467,
+          "retained_bytes": 98175072
+        }
+      ],
+      "rg": {
+        "wall_ms": 53.483999999999995,
+        "peak_rss_bytes": 9224192
+      }
+    },
+    {
+      "step": 100,
+      "from_commit": "6d0ed914991cac42ace012a05588880801831343",
+      "commit": "c44b60b8053bbf2a5c1e014f11323fb3f2485177",
+      "subject": "whisper : call encoder_begin_callback before language auto-detect (#3936)",
+      "changed_files": 1,
+      "added_lines": 7,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 341491,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 23.275125,
+          "peak_rss_bytes": 17694720,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 1184575,
+          "base_bytes": 17985643,
+          "middle_bytes": 1533281,
+          "segments": 12,
+          "manifest_bytes": 314573,
+          "retained_bytes": 98523884
+        },
+        {
+          "version": "main",
+          "wall_ms": 34.150417000000004,
+          "peak_rss_bytes": 18464768,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018932696260000,
+          "base_bytes_before": 17986659,
+          "middle_bytes_before": 348701,
+          "base_bytes": 17986659,
+          "middle_bytes": 697407,
+          "segments": 3,
+          "manifest_bytes": 313619,
+          "retained_bytes": 286181535
+        }
+      ],
+      "rg": {
+        "wall_ms": 53.835415999999995,
+        "peak_rss_bytes": 9289728
+      }
+    }
+  ],
+  "rollbacks": [
+    {
+      "step": 99,
+      "from_commit": "c44b60b8053bbf2a5c1e014f11323fb3f2485177",
+      "commit": "6d0ed914991cac42ace012a05588880801831343",
+      "subject": "whisper : re-seed decoder 0 between calls (#4025)",
+      "changed_files": 1,
+      "added_lines": 0,
+      "deleted_lines": 7,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 341180,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 25.866459000000003,
+          "peak_rss_bytes": 15613952,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1789018932696260000,
+          "base_bytes_before": 17986659,
+          "middle_bytes_before": 697407,
+          "base_bytes": 17986659,
+          "middle_bytes": 348701,
+          "segments": 2,
+          "manifest_bytes": 313513,
+          "retained_bytes": 286181429
+        },
+        {
+          "version": "current",
+          "wall_ms": 23.895833,
+          "peak_rss_bytes": 17825792,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 1533281,
+          "base_bytes": 17985643,
+          "middle_bytes": 1881982,
+          "segments": 13,
+          "manifest_bytes": 314679,
+          "retained_bytes": 98872691
+        }
+      ],
+      "rg": {
+        "wall_ms": 53.70975,
+        "peak_rss_bytes": 8962048
+      }
+    },
+    {
+      "step": 50,
+      "from_commit": "6d0ed914991cac42ace012a05588880801831343",
+      "commit": "c6934d0fcf562ada5493208f6aa5804947f37b64",
+      "subject": "metal : add top-k radix implementation (llama/28073)",
+      "changed_files": 101,
+      "added_lines": 718,
+      "deleted_lines": 11546,
+      "added_files": 0,
+      "deleted_files": 12,
+      "renamed_files": 0,
+      "target_source_bytes": 7014321,
+      "measurements": [
+        {
+          "version": "current",
+          "wall_ms": 60.21775,
+          "peak_rss_bytes": 40681472,
+          "diagnostic": "coderg: incrementally indexed 101 changed files",
+          "base_id": 1789018930495964000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 1881982,
+          "base_bytes": 17985643,
+          "middle_bytes": 5565132,
+          "segments": 14,
+          "manifest_bytes": 313852,
+          "retained_bytes": 102555014
+        },
+        {
+          "version": "main",
+          "wall_ms": 25.694042,
+          "peak_rss_bytes": 15646720,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1789018920486886000,
+          "base_bytes_before": 17986659,
+          "middle_bytes_before": 348701,
+          "base_bytes": 17735804,
+          "middle_bytes": 797666,
+          "segments": 3,
+          "manifest_bytes": 311633,
+          "retained_bytes": 286179549
+        }
+      ],
+      "rg": {
+        "wall_ms": 54.623083,
+        "peak_rss_bytes": 9142272
+      }
+    },
+    {
+      "step": 0,
+      "from_commit": "c6934d0fcf562ada5493208f6aa5804947f37b64",
+      "commit": "5271734e0e4e1761c601dc4fcf41a877e22d3a80",
+      "subject": "vulkan: warptiles currently assume warp sizes <= 64, clamp to work around larger warps (llama/27726)",
+      "changed_files": 132,
+      "added_lines": 3291,
+      "deleted_lines": 10754,
+      "added_files": 0,
+      "deleted_files": 17,
+      "renamed_files": 0,
+      "target_source_bytes": 7489618,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 26.492915999999997,
+          "peak_rss_bytes": 15663104,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1789018908359220000,
+          "base_bytes_before": 17735804,
+          "middle_bytes_before": 797666,
+          "base_bytes": 17581400,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 308677,
+          "retained_bytes": 286176593
+        },
+        {
+          "version": "current",
+          "wall_ms": 240.33874999999998,
+          "peak_rss_bytes": 109821952,
+          "diagnostic": "coderg: rebuilt index after incremental segments reached 8 MiB",
+          "base_id": 1789018934240216000,
+          "base_bytes_before": 17985643,
+          "middle_bytes_before": 5565132,
+          "base_bytes": 17581400,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 308677,
+          "retained_bytes": 124225406
+        }
+      ],
+      "rg": {
+        "wall_ms": 32.17625,
+        "peak_rss_bytes": 9191424
+      }
+    },
+    {
+      "step": 100,
+      "from_commit": "5271734e0e4e1761c601dc4fcf41a877e22d3a80",
+      "commit": "c44b60b8053bbf2a5c1e014f11323fb3f2485177",
+      "subject": "whisper : call encoder_begin_callback before language auto-detect (#3936)",
+      "changed_files": 195,
+      "added_lines": 22314,
+      "deleted_lines": 4016,
+      "added_files": 29,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 10386768,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 24.988584,
+          "peak_rss_bytes": 15826944,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1789018932696260000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 0,
+          "base_bytes": 17986659,
+          "middle_bytes": 697407,
+          "segments": 3,
+          "manifest_bytes": 313619,
+          "retained_bytes": 286181535
+        },
+        {
+          "version": "current",
+          "wall_ms": 76.86791699999999,
+          "peak_rss_bytes": 47955968,
+          "diagnostic": "coderg: incrementally indexed 195 changed files",
+          "base_id": 1789018934240216000,
+          "base_bytes_before": 17581400,
+          "middle_bytes_before": 0,
+          "base_bytes": 17581400,
+          "middle_bytes": 5535285,
+          "segments": 2,
+          "manifest_bytes": 313513,
+          "retained_bytes": 129765527
+        }
+      ],
+      "rg": {
+        "wall_ms": 53.361208,
+        "peak_rss_bytes": 9207808
+      }
+    }
+  ],
+  "queries": [
+    {
+      "step": 0,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        3.450625,
+        3.337167,
+        3.4909160000000004
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        3.480458,
+        3.675625,
+        3.561167
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        13.181583999999999,
+        11.39,
+        12.133042
+      ]
+    },
+    {
+      "step": 0,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        11.306167,
+        12.26525,
+        11.611165999999999
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        3.502292,
+        3.4677089999999997,
+        3.625167
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        3.465875,
+        3.469208,
+        3.915959
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        11.085667,
+        15.332666,
+        13.000209
+      ]
+    },
+    {
+      "step": 1,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        13.313708,
+        12.439917,
+        12.922333
+      ]
+    },
+    {
+      "step": 25,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        3.65375,
+        3.8111249999999997,
+        3.515709
+      ]
+    },
+    {
+      "step": 25,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        3.327375,
+        3.316875,
+        3.584542
+      ]
+    },
+    {
+      "step": 25,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        13.003292,
+        12.062083,
+        11.748084
+      ]
+    },
+    {
+      "step": 25,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        11.975166,
+        11.3225,
+        12.295499999999999
+      ]
+    },
+    {
+      "step": 50,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        3.901667,
+        3.570042,
+        3.5345
+      ]
+    },
+    {
+      "step": 50,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        4.349208,
+        4.379875,
+        4.352833
+      ]
+    },
+    {
+      "step": 50,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        12.7665,
+        11.666041,
+        12.316916
+      ]
+    },
+    {
+      "step": 50,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        13.3495,
+        14.371125000000001,
+        13.432166
+      ]
+    },
+    {
+      "step": 100,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        3.542625,
+        3.463,
+        4.033167
+      ]
+    },
+    {
+      "step": 100,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": true,
+      "samples_ms": [
+        3.813417,
+        4.015542000000001,
+        3.8801669999999997
+      ]
+    },
+    {
+      "step": 100,
+      "version": "main",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        13.615292,
+        11.536707999999999,
+        13.062582999999998
+      ]
+    },
+    {
+      "step": 100,
+      "version": "current",
+      "query": "whisper_context",
+      "no_refresh": false,
+      "samples_ms": [
+        12.586292,
+        13.323082999999999,
+        11.85775
+      ]
+    }
+  ],
+  "iterations": 3,
+  "warmup": 1,
+  "verification_queries": [
+    "whisper_context"
+  ],
+  "update_query": "whisper_context",
+  "verified_comparisons": 418
+}

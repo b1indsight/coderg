@@ -1,0 +1,153 @@
+{
+  "matched_incremental": {
+    "viberwhisper": {
+      "count": 86,
+      "median_ms": {
+        "main": 9.18125,
+        "direct": 14.082062,
+        "current": 10.230854
+      }
+    },
+    "agentflow": {
+      "count": 16,
+      "median_ms": {
+        "main": 10.68275,
+        "direct": 19.0085625,
+        "current": 10.0145835
+      }
+    }
+  },
+  "phases": {
+    "viberwhisper": {
+      "main": {
+        "incremental": {
+          "count": 87,
+          "median_ms": 9.203375,
+          "p95_ms": 12.423166
+        },
+        "metadata": {
+          "count": 1,
+          "median_ms": 5.9655000000000005,
+          "p95_ms": 5.9655000000000005
+        },
+        "rebuild": {
+          "count": 12,
+          "median_ms": 17.284604,
+          "p95_ms": 30.574541
+        }
+      },
+      "direct": {
+        "merge": {
+          "count": 99,
+          "median_ms": 14.110332999999999,
+          "p95_ms": 24.465792
+        },
+        "metadata": {
+          "count": 1,
+          "median_ms": 4.955708,
+          "p95_ms": 4.955708
+        }
+      },
+      "current": {
+        "incremental": {
+          "count": 98,
+          "median_ms": 10.230854,
+          "p95_ms": 13.967417
+        },
+        "metadata": {
+          "count": 1,
+          "median_ms": 5.464708000000001,
+          "p95_ms": 5.464708000000001
+        },
+        "rebuild": {
+          "count": 1,
+          "median_ms": 22.889583000000002,
+          "p95_ms": 22.889583000000002
+        }
+      }
+    },
+    "agentflow": {
+      "main": {
+        "incremental": {
+          "count": 17,
+          "median_ms": 11.2315,
+          "p95_ms": 22.582209
+        },
+        "rebuild": {
+          "count": 2,
+          "median_ms": 28.491917,
+          "p95_ms": 30.665834
+        }
+      },
+      "direct": {
+        "merge": {
+          "count": 19,
+          "median_ms": 19.3295,
+          "p95_ms": 33.527417
+        }
+      },
+      "current": {
+        "incremental": {
+          "count": 18,
+          "median_ms": 10.480229,
+          "p95_ms": 22.681333000000002
+        },
+        "rebuild": {
+          "count": 1,
+          "median_ms": 33.470375,
+          "p95_ms": 33.470375
+        }
+      }
+    },
+    "vllm": {
+      "direct": {
+        "incremental": {
+          "count": 10,
+          "median_ms": 59.330792,
+          "p95_ms": 67.128125
+        },
+        "merge": {
+          "count": 2,
+          "median_ms": 70.22562500000001,
+          "p95_ms": 71.103167
+        }
+      },
+      "current": {
+        "incremental": {
+          "count": 10,
+          "median_ms": 61.302563,
+          "p95_ms": 65.59774999999999
+        },
+        "merge": {
+          "count": 2,
+          "median_ms": 72.9574165,
+          "p95_ms": 77.24612499999999
+        }
+      }
+    }
+  },
+  "threshold_rebuilds": [
+    {
+      "repository": "viberwhisper",
+      "step": 78,
+      "commit": "a8795abdb1dbc28238143f5e3eae9137c86925e3",
+      "incremental_bytes_before": 8223638,
+      "new_delta_bytes": 417169,
+      "trigger_bytes": 8640807,
+      "wall_ms": 22.889583000000002,
+      "new_base_bytes": 1353126
+    },
+    {
+      "repository": "agentflow",
+      "step": 19,
+      "commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+      "incremental_bytes_before": 8044014,
+      "new_delta_bytes": 611646,
+      "trigger_bytes": 8655660,
+      "wall_ms": 33.470375,
+      "new_base_bytes": 2082642
+    }
+  ],
+  "verified_history_comparisons": 1149,
+  "vllm_same_states_and_final_bytes": true
+}

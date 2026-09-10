@@ -1,4 +1,5 @@
 mod build;
+mod compaction;
 mod git_state;
 mod index;
 mod manifest;
@@ -32,6 +33,18 @@ struct Cli {
 
 #[derive(Debug, Subcommand)]
 enum Command {
+    /// Merge existing index segments without reading source contents.
+    Compact {
+        #[arg(default_value = ".")]
+        path: PathBuf,
+        #[arg(long, value_name = "DIR")]
+        index_dir: Option<PathBuf>,
+        /// Show the selected inputs without writing the index.
+        #[arg(long)]
+        dry_run: bool,
+        #[arg(long)]
+        json: bool,
+    },
     /// Build or replace the on-disk search index.
     Index {
         #[command(flatten)]
@@ -130,6 +143,36 @@ fn run() -> Result<()> {
                 std::process::exit(1);
             }
         }
+        Command::Compact {
+            path,
+            index_dir,
+            dry_run,
+            json,
+        } => {
+            let summary = index::compact(&path, index_dir.as_deref(), dry_run)?;
+            if json {
+                println!("{}", serde_json::to_string_pretty(&summary)?);
+            } else if summary.inputs.is_empty() {
+                println!("no compaction needed");
+            } else {
+                println!(
+                    "{} {} {} segments ({} input bytes, {} output bytes)",
+                    if dry_run {
+                        "would compact"
+                    } else {
+                        "compacted"
+                    },
+                    summary.inputs.len(),
+                    if summary.full {
+                        "base + middle"
+                    } else {
+                        "middle"
+                    },
+                    summary.input_bytes,
+                    summary.output_bytes
+                );
+            }
+        }
         Command::Stats {
             path,
             index_dir,
@@ -146,6 +189,15 @@ fn run() -> Result<()> {
             println!("source bytes: {}", stats.source_bytes);
             println!("n-grams: {}", stats.ngrams);
             println!("segments: {}", stats.segments);
+            println!("middle segments: {}", stats.middle_segments);
+            println!("middle bytes: {}", stats.middle_bytes);
+            println!("base bytes: {}", stats.base_bytes);
+            println!("generational: {}", stats.generational);
+            println!(
+                "automatic base compaction threshold bytes: {}",
+                stats.full_compaction_threshold_bytes
+            );
+            println!("maintenance due: {}", stats.maintenance_due);
             println!("index bytes: {}", stats.index_bytes);
             println!(
                 "git tree: {}",

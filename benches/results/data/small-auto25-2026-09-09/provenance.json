@@ -1,0 +1,148 @@
+{
+  "baseline_commit": "0ab2294a8097f52d7ea4a8a0167de6ea2697abdb",
+  "branch": "feat/generational-index-refresh",
+  "policy": "M >= max(B*25%, 8 MiB)",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "Apple M5",
+    "memory_bytes": 25769803776,
+    "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+    "rg": "ripgrep 15.2.0 (rev e89fff89ac)\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)",
+    "environment": {
+      "RAYON_NUM_THREADS": null,
+      "LANG": "en_US.UTF-8",
+      "LC_ALL": "C.UTF-8"
+    }
+  },
+  "binary_sha256": {
+    "main": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc",
+    "auto50": "db818020ddd31e956bc4b18d1a63301af35229a6b3085ecece14da6677aa3ff1",
+    "auto25": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5"
+  },
+  "workspace_release_matches_measured_auto25": true,
+  "auto25_matches_previous_vllm_variant": true,
+  "history_experiments": {
+    "viberwhisper": {
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+      "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/history-L5MexV",
+      "base_commit": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+      "end_commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+      "variants": [
+        {
+          "name": "main",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/history-L5MexV/index-main"
+        },
+        {
+          "name": "auto50",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-auto50",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/history-L5MexV/index-auto50"
+        },
+        {
+          "name": "auto25",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-auto25",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/history-L5MexV/index-auto25"
+        }
+      ],
+      "iterations": 7,
+      "warmup": 3,
+      "verification_queries": [
+        "fn ",
+        "Transcription",
+        "self"
+      ],
+      "update_query": "fn ",
+      "verified_comparisons": 945,
+      "updates": 100,
+      "auto25_auto50_identical_maintenance": true
+    },
+    "agentflow": {
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+      "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/history-lJ7mEj",
+      "base_commit": "e65d534b0efddadfa433770621ca4340786736bf",
+      "end_commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+      "variants": [
+        {
+          "name": "main",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/history-lJ7mEj/index-main"
+        },
+        {
+          "name": "auto50",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-auto50",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/history-lJ7mEj/index-auto50"
+        },
+        {
+          "name": "auto25",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-auto25",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/history-lJ7mEj/index-auto25"
+        }
+      ],
+      "iterations": 7,
+      "warmup": 3,
+      "verification_queries": [
+        "def ",
+        "class ",
+        "review_batch"
+      ],
+      "update_query": "def ",
+      "verified_comparisons": 216,
+      "updates": 19,
+      "auto25_auto50_identical_maintenance": true
+    }
+  },
+  "frozen_command": [
+    "python3",
+    "benches/results/data/small-auto25-2026-09-09/refresh_matrix.py",
+    "--plan",
+    "benches/results/data/small-auto25-2026-09-09/plan.json",
+    "--baseline",
+    "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+    "--binary",
+    "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-auto25",
+    "--output",
+    "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/frozen-main-vs-auto25",
+    "--iterations",
+    "31",
+    "--warmup",
+    "3",
+    "--build-iterations",
+    "7",
+    "--rss-runs",
+    "3"
+  ],
+  "source_archive_sha256": "0d9be333d0b8473840db1f444b1f4e409187807775ed04cdcbc323047972c3d7",
+  "source_archive_usage": "Overlay source.tar.gz on baseline_commit to reproduce current auto25; change FULL_COMPACT_PERCENT to 50 for auto50. Build variants in separate target directories. Original measured auto50 source is ../vllm-real-commits-2026-09-09/source.tar.gz.",
+  "source_files": {
+    ".gitignore": "c4dd83bf03e6e3c50ebf628c781e04a2635d2554d1b8c0035422ef159a4a18e3",
+    "Cargo.toml": "18efd77a80ca3b937174040dde1d662312f5ff4fc9600b78e38536d208bd290d",
+    "Cargo.lock": "5d3c35a1b7544ea97f170ebde68b759c47e7a43f83fad02f9ac3cf2ecc7ba9fb",
+    "README.md": "a5fbc7721487d7e563568181e97dba503c1ce491492c7b2c2c41c8c6a9741a6c",
+    "src/compaction.rs": "299384857efcdd982800d7c424d1c2d8f23cd661b8b3c9d0a28899a0bf1a677d",
+    "src/git_state.rs": "5818ce1a65c067d38ae3761dd11935885300cbd215890084f86624ded4d4950a",
+    "src/index.rs": "4e1cc5f74dd1ca5af5752b452bc8de7dd7505e81869c9df579876808cc6982c6",
+    "src/main.rs": "5c0ea54152e0f8934d912dbb2e0a81cbf1b8ca32c22e7c7a447b1296614d344f",
+    "src/search.rs": "dc4b0a4ec237f5603dc516984bb8e85dfc5dff8928b1852642c84af2d7ebf826",
+    "src/segment.rs": "396fc1b65d8fd8d3f0897447228673054b1c3b1ed32403d286c8e66718435814",
+    "tests/git_incremental.rs": "c73717ffc66ff70bb75964b8c01f1a6ed6b6dd667e0b7a9468fd94c0272c1e26",
+    "tests/generational.rs": "66cec3be2d466cc55f6f2a2f5fd66dcd7b3a2084dddc02e30d760c0a4ed1c798",
+    "benches/commit_updates.rs": "19752dd3a0a3df43e8b5b696f6b8f9b241c30075248d9d152e264f1a74cdd43a",
+    "benches/history_updates.rs": "d124570f0dce14b3504deec322ec311379a5f3f0758b3e88c74ab9111fd0b313",
+    "benches/compare_rg.rs": "39ad09260006f9eb3e3272563208cb3a0af3d99db33654ceed2ff94daaff75a6",
+    "docs/generational-index-refresh.md": "cafd517410bb70c07873001a1da07b3c67b752a18115f9b26df708b13d90e2d3"
+  },
+  "harness_sha256": {
+    "refresh_matrix.py": "641e586a3a9a317e10d6a7458802095dca5241299ae8b33271fc8acffc5d76f6",
+    "regex_suite.py": "30a163484e2b70e5ca137c55c027edd9760cc1808e7a93e0baacbcb1cb53a461",
+    "analyze-frozen.py": "47096620f4daac47b9cfebfdf8dcbb8c82e8471425e71db775ec21c07d59d658",
+    "analyze-history.py": "430029433b3e6d268641c8507e929a66a099ddaf548ed94938ec5a42a4fbaee7"
+  },
+  "validation": {
+    "compaction_tests_passed": 3,
+    "clippy": "cargo clippy --all-targets -- -D warnings passed",
+    "format": "cargo fmt --check passed",
+    "diff": "git diff --check passed",
+    "frozen_queries_full_output_parity": 32,
+    "history_rg_file_set_checks": 1161
+  }
+}

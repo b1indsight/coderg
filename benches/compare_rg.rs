@@ -114,10 +114,10 @@ fn run() -> Result<()> {
     if args.iterations == 0 {
         bail!("--iterations must be greater than zero");
     }
-    if let Some(path) = &args.output {
-        if path.exists() {
-            bail!("report already exists: {}", path.display());
-        }
+    if let Some(path) = &args.output
+        && path.exists()
+    {
+        bail!("report already exists: {}", path.display());
     }
     if args.root.is_none() && (args.files == 0 || args.kib_per_file == 0) {
         bail!("--files and --kib-per-file must be greater than zero");
@@ -408,7 +408,7 @@ fn checked_output(mut command: Command, name: &str) -> Result<Output> {
     let output = command
         .output()
         .with_context(|| format!("cannot run {name}"))?;
-    if !output.status.success() && !(name != "coderg index" && output.status.code() == Some(1)) {
+    if !(output.status.success() || name != "coderg index" && output.status.code() == Some(1)) {
         bail!(
             "{name} failed with {}: {}",
             output.status,

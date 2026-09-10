@@ -1,0 +1,114 @@
+chrome/app/generated_resources.grd:8692:        Can't upload. File exceeds maximum supported size of <ph name="MAX_FILE_SIZE">$1<ex>100</ex></ph> MB.
+chrome/app/resources/generated_resources_af.xtb:7871:<translation id="7039697949826432881">Kan nie oplaai nie. Lêer oorskry maksimum gesteunde grootte van <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_am.xtb:7866:<translation id="7039697949826432881">መስቀል አልተቻለም። ፋይል ከ<ph name="MAX_FILE_SIZE" /> ሜባ ከፍተኛው የሚደገፍ መጠን ይበልጣል።</translation>
+chrome/app/resources/generated_resources_ar.xtb:7867:<translation id="7039697949826432881">يتعذَّر تحميل الملف بسبب تجاوُز حجمه الحدّ الأقصى المسموح به وهو <ph name="MAX_FILE_SIZE" /> ميغابايت.</translation>
+chrome/app/resources/generated_resources_as.xtb:7871:<translation id="7039697949826432881">আপল’ড কৰিব নোৱাৰি। ফাইলৰ আকাৰে সৰ্বাধিক সমৰ্থিত আকাৰ <ph name="MAX_FILE_SIZE" /> এমবি অতিক্ৰম কৰিছে।</translation>
+chrome/app/resources/generated_resources_az.xtb:7858:<translation id="7039697949826432881">Yükləmək olmur. Fayl dəstəklənən maksimum <ph name="MAX_FILE_SIZE" />MB ölçüsünü keçir.</translation>
+chrome/app/resources/generated_resources_be.xtb:7859:<translation id="7039697949826432881">Запампаваць файл не ўдалося. Памер файла перавышае максімальна дазволены (<ph name="MAX_FILE_SIZE" /> МБ).</translation>
+chrome/app/resources/generated_resources_bg.xtb:7871:<translation id="7039697949826432881">Качването не е възможно. Файлът надвишава максималния поддържан размер от <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_bn.xtb:7874:<translation id="7039697949826432881">আপলোড করা যাচ্ছে না। সর্বাধিক <ph name="MAX_FILE_SIZE" /> এমবির ফাইল কাজ করবে, এটি তার থেকে বড়।</translation>
+chrome/app/resources/generated_resources_bs.xtb:7872:<translation id="7039697949826432881">Nije moguće otpremiti. Fajl premašuje maksimalnu podržanu veličinu od <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_ca.xtb:7852:<translation id="7039697949826432881">No es pot penjar. El fitxer supera la mida màxima admesa de <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_cs.xtb:7854:<translation id="7039697949826432881">Soubor nelze nahrát. Soubor překračuje maximální podporovanou velikost <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_cy.xtb:7880:<translation id="7039697949826432881">Methu ag uwchlwytho. Mae'r ffeil yn fwy na'r maint mwyaf a gefnogir o <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_da.xtb:7874:<translation id="7039697949826432881">Det er ikke muligt at uploade. Filen overskrider den maksimalt understøttede størrelse på <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_de.xtb:7849:<translation id="7039697949826432881">Upload nicht möglich. Die Datei überschreitet die maximal unterstützte Größe von <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_el.xtb:7872:<translation id="7039697949826432881">Δεν είναι δυνατή η μεταφόρτωση. Το μέγεθος του αρχείου υπερβαίνει το μέγιστο υποστηριζόμενο μέγεθος των <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_en-GB.xtb:7871:<translation id="7039697949826432881">Can't upload. File exceeds maximum supported size of <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_es-419.xtb:7858:<translation id="7039697949826432881">No se puede subir. El archivo supera el tamaño máximo admitido de <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_es.xtb:7856:<translation id="7039697949826432881">No se puede subir. El archivo supera el tamaño máximo admitido de <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_et.xtb:7862:<translation id="7039697949826432881">Seda faili ei saa üles laadida. Fail ületab maksimaalset toetatud suurust (<ph name="MAX_FILE_SIZE" /> MB).</translation>
+chrome/app/resources/generated_resources_eu.xtb:7849:<translation id="7039697949826432881">Ezin da kargatu. Fitxategiak onartutako gehieneko tamaina gainditzen du (<ph name="MAX_FILE_SIZE" /> MB).</translation>
+chrome/app/resources/generated_resources_fa.xtb:7872:<translation id="7039697949826432881">بارگذاری نشد. حجم فایل از حداکثر اندازه پشتیبانی‌شده <ph name="MAX_FILE_SIZE" /> مگابایت بیشتر است.</translation>
+chrome/app/resources/generated_resources_fi.xtb:7867:<translation id="7039697949826432881">Ei voi ladata. Tiedosto ylittää suurimman tuetun koon (<ph name="MAX_FILE_SIZE" /> Mt).</translation>
+chrome/app/resources/generated_resources_fil.xtb:7873:<translation id="7039697949826432881">Hindi ma-upload. Lumampas ang file sa maximum na sinusuportahang laki na <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_fr-CA.xtb:7858:<translation id="7039697949826432881">Téléversement impossible. Le fichier dépasse la taille maximale prise en charge de <ph name="MAX_FILE_SIZE" /> Mo.</translation>
+chrome/app/resources/generated_resources_fr.xtb:7857:<translation id="7039697949826432881">Impossible d'importer. Le fichier dépasse la taille maximale acceptée (<ph name="MAX_FILE_SIZE" /> Mo).</translation>
+chrome/app/resources/generated_resources_gl.xtb:7857:<translation id="7039697949826432881">Non se puido cargar o ficheiro porque supera o tamaño máximo permitido (<ph name="MAX_FILE_SIZE" /> MB).</translation>
+chrome/app/resources/generated_resources_gu.xtb:7863:<translation id="7039697949826432881">અપલોડ કરી શકાતી નથી. ફાઇલનું કદ સપોર્ટેડ મહત્તમ કદ <ph name="MAX_FILE_SIZE" /> MB કરતાં વધી જાય છે.</translation>
+chrome/app/resources/generated_resources_hi.xtb:7872:<translation id="7039697949826432881">फ़ाइल अपलोड नहीं की जा सकती, क्योंकि इसका साइज़ <ph name="MAX_FILE_SIZE" /> एमबी से ज़्यादा है.</translation>
+chrome/app/resources/generated_resources_hr.xtb:7857:<translation id="7039697949826432881">Prijenos nije moguć. Datoteka premašuje maksimalnu podržanu veličinu od <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_hu.xtb:7869:<translation id="7039697949826432881">Nem sikerült a feltöltés. A fájl meghaladja a maximális támogatott méretet (<ph name="MAX_FILE_SIZE" /> MB).</translation>
+chrome/app/resources/generated_resources_hy.xtb:7851:<translation id="7039697949826432881">Չի հաջողվում վերբեռնել։ Ֆայլի առավելագույն թույլատրելի չափսը (<ph name="MAX_FILE_SIZE" /> ՄԲ) գերազանցվել է։</translation>
+chrome/app/resources/generated_resources_id.xtb:7870:<translation id="7039697949826432881">Tidak dapat mengupload. File melebihi ukuran maksimum yang didukung sebesar <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_is.xtb:7872:<translation id="7039697949826432881">Ekki tókst að hlaða upp. Skrá er umfram hámarksstærð sem studd er, <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_it.xtb:7853:<translation id="7039697949826432881">Caricamento non riuscito. Il file supera le dimensioni massime supportate (<ph name="MAX_FILE_SIZE" /> MB).</translation>
+chrome/app/resources/generated_resources_iw.xtb:7872:<translation id="7039697949826432881">‏לא ניתן להעלות את הקובץ. הקובץ חורג מהגודל המקסימלי הנתמך של ‎<ph name="MAX_FILE_SIZE" />MB.</translation>
+chrome/app/resources/generated_resources_ja.xtb:7851:<translation id="7039697949826432881">アップロードできません。ファイルのサイズがサポートされる上限（<ph name="MAX_FILE_SIZE" /> MB）を超えています。</translation>
+chrome/app/resources/generated_resources_ka.xtb:7859:<translation id="7039697949826432881">ატვირთვა ვერ ხერხდება. ფაილის ზომა აჭარბებს მაქსიმალურ დაშვებულ ზომას (<ph name="MAX_FILE_SIZE" /> მბაიტი).</translation>
+chrome/app/resources/generated_resources_kk.xtb:7850:<translation id="7039697949826432881">Жүктеп салу мүмкін емес. Файл қолдау көрсетілетін максималды өлшемнен (<ph name="MAX_FILE_SIZE" /> МБ) асып кетті.</translation>
+chrome/app/resources/generated_resources_km.xtb:7869:<translation id="7039697949826432881">មិនអាច​បង្ហោះ​បានទេ។ ឯកសារ​លើស​ទំហំ​អតិបរមា <ph name="MAX_FILE_SIZE" /> MB ដែលអាច​ប្រើបាន​ហើយ។</translation>
+chrome/app/resources/generated_resources_kn.xtb:7864:<translation id="7039697949826432881">ಅಪ್‌ಲೋಡ್‌ ಮಾಡಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ಫೈಲ್‌, ಬೆಂಬಲವಿರುವ ಗರಿಷ್ಠ ಗಾತ್ರವಾದ <ph name="MAX_FILE_SIZE" /> MB ಅನ್ನು ಮೀರಿದೆ.</translation>
+chrome/app/resources/generated_resources_ko.xtb:7870:<translation id="7039697949826432881">업로드할 수 없습니다. 파일이 지원되는 최대 크기인 <ph name="MAX_FILE_SIZE" />MB를 초과합니다.</translation>
+chrome/app/resources/generated_resources_ky.xtb:7870:<translation id="7039697949826432881">Жүктөлүп берилбей жатат. Файлдын өлчөмү чектен (<ph name="MAX_FILE_SIZE" /> Мб) ашат.</translation>
+chrome/app/resources/generated_resources_lo.xtb:7870:<translation id="7039697949826432881">ບໍ່ສາມາດອັບໂຫຼດໄດ້. ໄຟລ໌ມີຂະໜາດເກີນຂີດຈຳກັດສູງສຸດທີ່ຮອງຮັບ <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_lt.xtb:7878:<translation id="7039697949826432881">Įkelti nepavyko. Failas viršija maksimalų palaikomą <ph name="MAX_FILE_SIZE" /> MB dydį.</translation>
+chrome/app/resources/generated_resources_lv.xtb:7856:<translation id="7039697949826432881">Nevar augšupielādēt. Faila lielums pārsniedz maksimālo atbalstīto lielumu, kas ir <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_mk.xtb:7872:<translation id="7039697949826432881">Не може да се прикачи. Датотеката ја надминува максималната поддржана големина од <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_ml.xtb:7856:<translation id="7039697949826432881">അപ്‌ലോഡ് ചെയ്യാനാകില്ല. ഫയലിന്റെ വലുപ്പം, പിന്തുണയ്ക്കുന്ന പരമാവധി വലുപ്പമായ <ph name="MAX_FILE_SIZE" /> MB-യിൽ കൂടുതലാണ്.</translation>
+chrome/app/resources/generated_resources_mn.xtb:7868:<translation id="7039697949826432881">Байршуулах боломжгүй. Файл дэмжигдсэн дээд хэмжээ болох <ph name="MAX_FILE_SIZE" /> МБ-аас хэтэрсэн.</translation>
+chrome/app/resources/generated_resources_mr.xtb:7873:<translation id="7039697949826432881">अपलोड करू शकत नाही. फाइलने सपोर्ट केलेल्या कमाल आकाराची <ph name="MAX_FILE_SIZE" /> MB ची मर्यादा ओलांडली आहे.</translation>
+chrome/app/resources/generated_resources_ms.xtb:7877:<translation id="7039697949826432881">Tidak dapat dimuat naik. Fail melebihi saiz maksimum yang disokong iaitu <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_my.xtb:7868:<translation id="7039697949826432881">အပ်လုဒ်လုပ်၍ မရပါ။ ဖိုင်သည် အများဆုံးပံ့ပိုးသည့်အရွယ်အစား <ph name="MAX_FILE_SIZE" /> MB ထက် ကြီးနေသည်။</translation>
+chrome/app/resources/generated_resources_ne.xtb:7853:<translation id="7039697949826432881">अपलोड गर्न सकिएन। यो फाइलको आकार तोकिएको अधिकतम आकार अर्थात् <ph name="MAX_FILE_SIZE" /> एम.बि. भन्दा ठुलो छ।</translation>
+chrome/app/resources/generated_resources_nl.xtb:7850:<translation id="7039697949826432881">Kan niet uploaden. Bestand overschrijdt de maximale ondersteunde grootte van <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_no.xtb:7863:<translation id="7039697949826432881">Kan ikke laste opp. Filen overskrider den maksimale støttede størrelsen på <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_or.xtb:7856:<translation id="7039697949826432881">ଅପଲୋଡ କରାଯାଇପାରିବ ନାହିଁ। ଫାଇଲ ସର୍ବାଧିକ ସପୋର୍ଟ କରୁଥିବା ସାଇଜ <ph name="MAX_FILE_SIZE" /> MBକୁ ଅତିକ୍ରମ କରିଛି।</translation>
+chrome/app/resources/generated_resources_pa.xtb:7872:<translation id="7039697949826432881">ਅੱਪਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ। ਫ਼ਾਈਲ ਦਾ ਆਕਾਰ ਵੱਧੋ-ਵੱਧ ਸਮਰਥਿਤ ਆਕਾਰ <ph name="MAX_FILE_SIZE" /> MB ਤੋਂ ਜ਼ਿਆਦਾ ਹੈ।</translation>
+chrome/app/resources/generated_resources_pl.xtb:7845:<translation id="7039697949826432881">Nie udało się przesłać. Plik przekracza maksymalny obsługiwany rozmiar <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_pt-BR.xtb:7874:<translation id="7039697949826432881">Não foi possível fazer upload. O arquivo excede o tamanho máximo compatível de <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_pt-PT.xtb:7860:<translation id="7039697949826432881">Não é possível carregar. O ficheiro excede o tamanho máximo aceite de <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_ro.xtb:7857:<translation id="7039697949826432881">Încărcarea nu a reușit. Fișierul depășește dimensiunea maximă acceptată de <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_ru.xtb:7865:<translation id="7039697949826432881">Не удалось загрузить файл. Превышен допустимый размер (<ph name="MAX_FILE_SIZE" /> МБ).</translation>
+chrome/app/resources/generated_resources_si.xtb:7858:<translation id="7039697949826432881">උඩුගත කළ නොහැක. ගොනුව <ph name="MAX_FILE_SIZE" /> MB උපරිම සහය දක්වන ප්‍රමාණය ඉක්මවයි.</translation>
+chrome/app/resources/generated_resources_sk.xtb:7860:<translation id="7039697949826432881">Nedá sa nahrať. Súbor prekračuje maximálnu podporovanú veľkosť <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_sl.xtb:7877:<translation id="7039697949826432881">Nalaganje ni mogoče. Datoteka presega največjo podprto velikost <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_sq.xtb:7855:<translation id="7039697949826432881">Nuk mund të ngarkohet. Skedari e tejkalon madhësinë maksimale të mbështetur prej <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_sr-Latn.xtb:7860:<translation id="7039697949826432881">Otpremanje nije uspelo. Fajl premašuje maksimalnu podržanu veličinu od <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_sr.xtb:7860:<translation id="7039697949826432881">Отпремање није успело. Фајл премашује максималну подржану величину од <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_sv.xtb:7873:<translation id="7039697949826432881">Uppladdningen misslyckades. Filen överskrider den maximala storleken på <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_sw.xtb:7868:<translation id="7039697949826432881">Imeshindwa kupakia. Faili imezidi ukubwa wa juu zaidi unaoruhusiwa wa MB <ph name="MAX_FILE_SIZE" />.</translation>
+chrome/app/resources/generated_resources_ta.xtb:7872:<translation id="7039697949826432881">பதிவேற்ற முடியவில்லை. அனுமதிக்கப்படும் அதிகபட்ச அளவை (<ph name="MAX_FILE_SIZE" /> MB) ஃபைல் தாண்டுகிறது.</translation>
+chrome/app/resources/generated_resources_te.xtb:7868:<translation id="7039697949826432881">అప్‌లోడ్ చేయడం సాధ్యం కాదు. ఫైల్, సపోర్ట్ చేయగలిగే గరిష్ఠ సైజ్ అయిన <ph name="MAX_FILE_SIZE" /> MB కంటే ఎక్కువగా ఉంది.</translation>
+chrome/app/resources/generated_resources_th.xtb:7851:<translation id="7039697949826432881">อัปโหลดไม่ได้ ไฟล์มีขนาดเกินขีดจำกัดสูงสุดที่รองรับ นั่นคือ <ph name="MAX_FILE_SIZE" /> MB</translation>
+chrome/app/resources/generated_resources_tr.xtb:7856:<translation id="7039697949826432881">Yüklenemiyor. Dosya, desteklenen <ph name="MAX_FILE_SIZE" /> MB'lık maksimum boyutu aşıyor.</translation>
+chrome/app/resources/generated_resources_uk.xtb:7872:<translation id="7039697949826432881">Не вдалося завантажити. Розмір файлу перевищує допустимий (<ph name="MAX_FILE_SIZE" /> МБ).</translation>
+chrome/app/resources/generated_resources_ur.xtb:7852:<translation id="7039697949826432881">‏اپ لوڈ نہیں کر سکتے۔ فائل ‎<ph name="MAX_FILE_SIZE" /> MB کے زیادہ سے زیادہ تعاون یافتہ سائز سے زیادہ ہے۔</translation>
+chrome/app/resources/generated_resources_uz.xtb:7861:<translation id="7039697949826432881">Yuklash imkonsiz. Fayl hajmi ruxsat etilgan limitidan (<ph name="MAX_FILE_SIZE" /> MB) katta.</translation>
+chrome/app/resources/generated_resources_vi.xtb:7873:<translation id="7039697949826432881">Không tải lên được. Tệp vượt quá kích thước tối đa được hỗ trợ là <ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/app/resources/generated_resources_zh-CN.xtb:7850:<translation id="7039697949826432881">无法上传。文件大小超出了上限 (<ph name="MAX_FILE_SIZE" /> MB)。</translation>
+chrome/app/resources/generated_resources_zh-HK.xtb:7863:<translation id="7039697949826432881">無法上載。檔案超出支援的大小上限 (<ph name="MAX_FILE_SIZE" /> MB)。</translation>
+chrome/app/resources/generated_resources_zh-TW.xtb:7846:<translation id="7039697949826432881">無法上傳。檔案大小超過支援的上限 (<ph name="MAX_FILE_SIZE" /> MB)。</translation>
+chrome/app/resources/generated_resources_zu.xtb:7873:<translation id="7039697949826432881">Awukwazi ukulayisha. Ifayela leqa umkhawulo kasayizi osekelwayo ongu-<ph name="MAX_FILE_SIZE" /> MB.</translation>
+chrome/browser/extensions/api/passwords_private/passwords_private_delegate_impl_unittest.cc:1129:      int{password_manager::ImportResults::Status::MAX_FILE_SIZE});
+chrome/browser/resources/key_value_pair_viewer_shared/key_value_pair_viewer.ts:110:    if (!file || file.size > MAX_FILE_SIZE) {
+chrome/browser/resources/key_value_pair_viewer_shared/key_value_pair_viewer.ts:17:const MAX_FILE_SIZE = 10485760;
+chrome/browser/resources/new_tab_page/lens_form.ts:140:    if (file.size > MAX_FILE_SIZE_BYTES) {
+chrome/browser/resources/new_tab_page/lens_form.ts:36:const MAX_FILE_SIZE_BYTES: number = 20 * 1024 * 1024;  // 20MB
+chrome/browser/resources/password_manager/password_manager_proxy.ts:550:    case PrivateStatus.MAX_FILE_SIZE:
+chrome/browser/resources/pdf/controller.ts:848:    const MAX_FILE_SIZE = 100 * 1000 * 1000;
+chrome/browser/resources/pdf/controller.ts:850:        messageData.dataToSave.byteLength <= MAX_FILE_SIZE,
+chrome/browser/resources/pdf/pdf_viewer.ts:1396:      const MAX_FILE_SIZE = 100 * 1000 * 1000;
+chrome/browser/resources/pdf/pdf_viewer.ts:1399:          bufView.length <= MAX_FILE_SIZE,
+chrome/common/extensions/api/passwords_private.webidl:80:  "MAX_FILE_SIZE",
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1031:        cronetEngine.startNetLogToDisk(netLogDir.getPath(), false, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1091:        cronetEngine.startNetLogToDisk(netLogDir.getPath(), false, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1507:        cronetEngine1.startNetLogToDisk(netLogDir1.getPath(), false, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1508:        cronetEngine2.startNetLogToDisk(netLogDir2.getPath(), false, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1714:                        () -> cronetEngine.startNetLogToDisk(dirPath, false, MAX_FILE_SIZE));
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1765:        cronetEngine.startNetLogToDisk(netLogDir.getPath(), false, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1766:        cronetEngine.startNetLogToDisk(netLogDir.getPath(), false, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1767:        cronetEngine.startNetLogToDisk(netLogDir.getPath(), false, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1768:        cronetEngine.startNetLogToDisk(netLogDir.getPath(), false, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1826:        cronetEngine.startNetLogToDisk(netLogDir.getPath(), false, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:1887:        cronetEngine.startNetLogToDisk(netLogDir.getPath(), true, MAX_FILE_SIZE);
+components/cronet/android/test/javatests/src/org/chromium/net/CronetUrlRequestContextTest.java:89:    private static final int MAX_FILE_SIZE = 1000000000;
+components/password_manager/core/browser/import/import_results.h:90:    MAX_FILE_SIZE = 6,
+components/password_manager/core/browser/import/password_importer.cc:71:    return base::unexpected(ImportResults::Status::MAX_FILE_SIZE);
+components/password_manager/core/browser/import/password_importer_unittest.cc:1033:  EXPECT_EQ(ImportResults::Status::MAX_FILE_SIZE, results.status);
+components/password_manager/core/browser/import/password_importer_unittest.cc:1054:  EXPECT_EQ(ImportResults::Status::MAX_FILE_SIZE, results.status);
+components/user_data_importer/utility/safari_data_importer.cc:209:    case password_manager::ImportResults::MAX_FILE_SIZE:
+third_party/rust/chromium_crates_io/vendor/windows-sys-v0_52/src/Windows/Win32/Devices/DeviceAndDriverInstallation/mod.rs:1959:pub const INFSTR_KEY_MAX_FILE_SIZE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("MaxFileSize");
+tools/json_schema_compiler/test/converted_schemas/passwords_private.idl:83:    MAX_FILE_SIZE,
+tools/json_schema_compiler/test/converted_schemas/passwords_private.webidl:80:  "MAX_FILE_SIZE",
+tools/typescript/definitions/passwords_private.d.ts:67:        MAX_FILE_SIZE = 'MAX_FILE_SIZE',

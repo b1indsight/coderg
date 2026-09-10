@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-09-10T12:50:09.206643+08:00",
+  "branch": "feat/generational-index-refresh",
+  "binary_sha256": {
+    "main": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc",
+    "rough": "be58dc1ac9b5f1f7a7378abcd284d1b80435739ca147b95acc1214fca2fa8242",
+    "direct": "3e6dc4afcb00cd7a8b6243766334dad12eaf59ac8378bdcab81895dfd05a3c02"
+  },
+  "source_sha256": {
+    "src/build.rs": "e75853183b9027e061e91ed37e7d8de3766effaeaaac96771daad44f241798e3",
+    "src/compaction.rs": "1fc57bd7d18fb5994ef8e4e0dc7641b40275d16f126ce97601675a35f3798a82",
+    "src/git_state.rs": "5818ce1a65c067d38ae3761dd11935885300cbd215890084f86624ded4d4950a",
+    "src/index.rs": "a62b0064251f08195e9dcea2ca956e3336a54beb4dae4990f81448158b660d87",
+    "src/main.rs": "8b29e815038d45e52d5ffab23ff7fc17eeb14867d594a88b5127c171e6d84717",
+    "src/manifest.rs": "aa8a0daaed066b59137dd31aa954f9aecc6bfaa83f5c339c3a317a51014da5f4",
+    "src/ngram.rs": "af1e95510a056d81b9fb78eff29818164f0e88bc8498a44252cc020696828db6",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "b9074f903ea1e304e2d2654ef2382857f5726997af089dc869716838d9158a59",
+    "src/segment.rs": "a174f971029e4564b0961ec5ade5a8aa0bd4ac8aac3a0d3bd81ee7a13c84026e",
+    "tests/build_memory.rs": "fb66181bd1145f1b1579f013e021fed2238bcdd961c765d39dd7026439e97b22",
+    "tests/cli.rs": "149119ed9ceee49199857c24f044728cbdb1ba5cc6c9a925e9ad656118b167d9",
+    "tests/generational.rs": "11dbcc19f9a353f9bb3c34a3924cb5e72f6d22c9bccb93559a71b68cce2e23f1",
+    "tests/git_incremental.rs": "f8d244995314462d4f836bea736c31ad97fb83ba9208308edfe7758fecc50ebd",
+    "tests/manifest.rs": "a729e0cc66c87c38092aae51fe909753683167820cd647309b266d596976a2d9",
+    "Cargo.toml": "18efd77a80ca3b937174040dde1d662312f5ff4fc9600b78e38536d208bd290d",
+    "Cargo.lock": "5d3c35a1b7544ea97f170ebde68b759c47e7a43f83fad02f9ac3cf2ecc7ba9fb",
+    "benches/history_updates.rs": "39020363f0d638a4466e2c0bd3bfe79bc8b599205485fca0064bf8c26791837c"
+  },
+  "validation": {
+    "full_suite_tests": 72,
+    "final_publication_followup_tests": 10,
+    "clippy": "cargo clippy --all-targets -- -D warnings passed",
+    "history_comparisons": 781,
+    "same_b_m_bytes_and_segment_counts_every_step": true,
+    "small_indexes_always_single": true,
+    "final_active_segment_bytes_identical": {
+      "viberwhisper": [
+        {
+          "lookup": "a8e7f2bfe75875d4985f7d140cd82d80ade7f11fe1e707212419f7652df86295",
+          "postings": "35905ce7ee75f420f1834b21d0637eef8cbff139314642476f543b86dc721f19"
+        }
+      ],
+      "agentflow": [
+        {
+          "lookup": "52dcef5e409ea0b63406e6912814eb3a0a0a9183b255b400b40221897e3dd02d",
+          "postings": "b89225ffce3e6ab0fd92a859f8b7eb711d477f4a019bcaeb93f28ce56b4514a2"
+        }
+      ],
+      "vllm": [
+        {
+          "lookup": "12af1aa91fb5d65e8bf1424f4ee05a0b40a0d81ec606882c6c88eea944230096",
+          "postings": "32f85bcfbd445f25c804d9da799745109948bbc5ba3ebe2c9b3b0ea054022866"
+        },
+        {
+          "lookup": "6faf70d90bc3dc96e184a35230b4e888d80de2854e3180aba7a8f7a6487728ab",
+          "postings": "f0445ede7173c4fb3244c5dff1a54e9a12d337969bc15682aaae3093f02fd8fe"
+        }
+      ]
+    }
+  },
+  "policy": "B < 32 MiB: merge sorted changes with B without publishing an intermediate delta; flush + atomic manifest replacement for cache updates. B >= 32 MiB and outputs crossing the cutoff keep synchronized publication. Build and explicit compact retain sync calls.",
+  "timing": "History: same original /usr/bin/time -l wrapper, rotate variants and rg; compare median/p95 on matching commit groups, no means. Query: separate direct subprocess batches, 10 runs per tool/query, default refresh. Do not use mixed-order history rg as a speedup baseline."
+}

@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-09-09T16:45:37.368849+08:00",
+  "branch": "feat/generational-index-refresh",
+  "policy": "B < 32 MiB => publish one B after every content update; B >= 32 MiB => existing B+M / 25% policy. Legacy small multisegment indexes migrate on the next default search.",
+  "binary_sha256": {
+    "generational": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5",
+    "single": "be58dc1ac9b5f1f7a7378abcd284d1b80435739ca147b95acc1214fca2fa8242"
+  },
+  "source_sha256": {
+    "src/build.rs": "48a174652077b71237bd01a062d4a83b58561340b9418b184eb255da37bbb2af",
+    "src/compaction.rs": "37d3bad40350229e6e9c37e369e8f3ef52dc0afd599c06fd147cbf97227ce7cf",
+    "src/git_state.rs": "5818ce1a65c067d38ae3761dd11935885300cbd215890084f86624ded4d4950a",
+    "src/index.rs": "29cf39e4258045d18cbb8a0803f371bd311075cbe3f08f26b692aed69260cc6f",
+    "src/main.rs": "8b29e815038d45e52d5ffab23ff7fc17eeb14867d594a88b5127c171e6d84717",
+    "src/manifest.rs": "aa8a0daaed066b59137dd31aa954f9aecc6bfaa83f5c339c3a317a51014da5f4",
+    "src/ngram.rs": "af1e95510a056d81b9fb78eff29818164f0e88bc8498a44252cc020696828db6",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "b9074f903ea1e304e2d2654ef2382857f5726997af089dc869716838d9158a59",
+    "src/segment.rs": "396fc1b65d8fd8d3f0897447228673054b1c3b1ed32403d286c8e66718435814",
+    "tests/build_memory.rs": "fb66181bd1145f1b1579f013e021fed2238bcdd961c765d39dd7026439e97b22",
+    "tests/cli.rs": "149119ed9ceee49199857c24f044728cbdb1ba5cc6c9a925e9ad656118b167d9",
+    "tests/generational.rs": "09592820310433fb0a94ef23d3b786a7f26528fabade18944c77408d572d2b7b",
+    "tests/git_incremental.rs": "f8d244995314462d4f836bea736c31ad97fb83ba9208308edfe7758fecc50ebd",
+    "tests/manifest.rs": "a729e0cc66c87c38092aae51fe909753683167820cd647309b266d596976a2d9",
+    "Cargo.toml": "18efd77a80ca3b937174040dde1d662312f5ff4fc9600b78e38536d208bd290d",
+    "Cargo.lock": "5d3c35a1b7544ea97f170ebde68b759c47e7a43f83fad02f9ac3cf2ecc7ba9fb",
+    "benches/history_updates.rs": "39020363f0d638a4466e2c0bd3bfe79bc8b599205485fca0064bf8c26791837c"
+  },
+  "validation": {
+    "full_suite_tests": 70,
+    "final_compact_pruning_followup_tests": 6,
+    "clippy": "cargo clippy --all-targets -- -D warnings passed",
+    "format": "cargo fmt --check passed",
+    "diff": "git diff --check passed",
+    "history_verified_comparisons": 214,
+    "vllm_maintenance_sizes_and_diagnostics_equal": true,
+    "all_viberwhisper_updates_and_rollbacks_single_segment": true
+  },
+  "history_timing": "Original history_updates bench; /usr/bin/time -l process wall time; rotate generational/single/rg. Group by old maintenance event and compare same commit sets, median/p95 only. Do not use mixed-order history rg timings as a speedup baseline; known execution-order interference remains.",
+  "query_timing": "See migration-and-query.json; separate direct subprocess batches with default refresh checking."
+}

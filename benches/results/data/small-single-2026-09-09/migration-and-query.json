@@ -1,0 +1,483 @@
+{
+  "timestamp": "2026-09-09T16:44:39.417677+08:00",
+  "root": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source",
+  "migration": {
+    "wall_ms": 41.597,
+    "stderr": "coderg: compacted 2 base + middle segments (2235618 input bytes, 2161746 output bytes)\n"
+  },
+  "stats_before": "root: /Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source\nfiles: 123\nsource bytes: 1365002\nn-grams: 383921\nsegments: 2\nmiddle segments: 1\nmiddle bytes: 2161746\nbase bytes: 73872\nautomatic base compaction threshold bytes: 8388608\nmaintenance due: false\nindex bytes: 2270416\ngit tree: db9eff2a3dd155a13bccb5069eed1d2fe59b87bb\n",
+  "stats_after": "root: /Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source\nfiles: 123\nsource bytes: 1365002\nn-grams: 368371\nsegments: 1\nmiddle segments: 0\nmiddle bytes: 0\nbase bytes: 2161746\ngenerational: false\nautomatic base compaction threshold bytes: 8388608\nmaintenance due: false\nindex bytes: 2196438\ngit tree: db9eff2a3dd155a13bccb5069eed1d2fe59b87bb\n",
+  "method": "Separate batches of 10 direct processes; perf_counter_ns wall time; stdout/stderr captured; no warmup or cache clearing; default refresh check on already-current indexes. Migration is excluded from repeated query timing.",
+  "binary_sha256": {
+    "generational": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5",
+    "single": "be58dc1ac9b5f1f7a7378abcd284d1b80435739ca147b95acc1214fca2fa8242"
+  },
+  "queries": [
+    {
+      "query": "whisper",
+      "commands": {
+        "generational": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+          "search",
+          "-F",
+          "-l",
+          "whisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/index-current"
+        ],
+        "single": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-single-lovcno_6/coderg-single-final",
+          "search",
+          "-F",
+          "-l",
+          "whisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-single-lovcno_6/migrated-final-index"
+        ],
+        "rg": [
+          "rg",
+          "--no-config",
+          "--hidden",
+          "-g",
+          "!.git",
+          "-F",
+          "-l",
+          "whisper",
+          "."
+        ]
+      },
+      "runs": [
+        {
+          "tool": "generational",
+          "run": 1,
+          "wall_ms": 6.55875,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 2,
+          "wall_ms": 5.210792,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 3,
+          "wall_ms": 5.189416,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 4,
+          "wall_ms": 5.065042,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 5,
+          "wall_ms": 5.352625,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 6,
+          "wall_ms": 4.926333,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 7,
+          "wall_ms": 5.503083,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 8,
+          "wall_ms": 5.06225,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 9,
+          "wall_ms": 4.843625,
+          "files": 43
+        },
+        {
+          "tool": "generational",
+          "run": 10,
+          "wall_ms": 4.7885,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 1,
+          "wall_ms": 5.085875,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 2,
+          "wall_ms": 5.19825,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 3,
+          "wall_ms": 4.8295,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 4,
+          "wall_ms": 4.892042,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 5,
+          "wall_ms": 4.771458,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 6,
+          "wall_ms": 4.858,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 7,
+          "wall_ms": 4.713791,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 8,
+          "wall_ms": 5.058958,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 9,
+          "wall_ms": 5.120625,
+          "files": 43
+        },
+        {
+          "tool": "single",
+          "run": 10,
+          "wall_ms": 5.116708,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 1,
+          "wall_ms": 9.598875,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 2,
+          "wall_ms": 5.7935,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 3,
+          "wall_ms": 5.627792,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 4,
+          "wall_ms": 6.462625,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 5,
+          "wall_ms": 7.006375,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 6,
+          "wall_ms": 5.783542,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 7,
+          "wall_ms": 5.744125,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 8,
+          "wall_ms": 5.686833,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 9,
+          "wall_ms": 6.024334,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 10,
+          "wall_ms": 5.651167,
+          "files": 43
+        }
+      ],
+      "summary": {
+        "generational": {
+          "median_ms": 5.127229,
+          "first_ms": 6.55875
+        },
+        "single": {
+          "median_ms": 4.9755,
+          "first_ms": 5.085875
+        },
+        "rg": {
+          "median_ms": 5.788520999999999,
+          "first_ms": 9.598875
+        }
+      },
+      "files": 43
+    },
+    {
+      "query": "viberwhisper",
+      "commands": {
+        "generational": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+          "search",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/index-current"
+        ],
+        "single": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-single-lovcno_6/coderg-single-final",
+          "search",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-single-lovcno_6/migrated-final-index"
+        ],
+        "rg": [
+          "rg",
+          "--no-config",
+          "--hidden",
+          "-g",
+          "!.git",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "."
+        ]
+      },
+      "runs": [
+        {
+          "tool": "generational",
+          "run": 1,
+          "wall_ms": 5.229416,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 2,
+          "wall_ms": 4.891667,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 3,
+          "wall_ms": 4.848666,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 4,
+          "wall_ms": 4.862458,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 5,
+          "wall_ms": 4.93625,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 6,
+          "wall_ms": 5.045208,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 7,
+          "wall_ms": 5.04775,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 8,
+          "wall_ms": 5.272208,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 9,
+          "wall_ms": 4.909834,
+          "files": 34
+        },
+        {
+          "tool": "generational",
+          "run": 10,
+          "wall_ms": 4.783083,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 1,
+          "wall_ms": 4.799875,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 2,
+          "wall_ms": 4.86425,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 3,
+          "wall_ms": 5.344917,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 4,
+          "wall_ms": 4.94275,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 5,
+          "wall_ms": 4.762541,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 6,
+          "wall_ms": 4.637375,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 7,
+          "wall_ms": 4.65975,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 8,
+          "wall_ms": 4.671167,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 9,
+          "wall_ms": 4.787583,
+          "files": 34
+        },
+        {
+          "tool": "single",
+          "run": 10,
+          "wall_ms": 4.865708,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 1,
+          "wall_ms": 6.451791,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 2,
+          "wall_ms": 5.527958,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 3,
+          "wall_ms": 6.677208,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 4,
+          "wall_ms": 6.326584,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 5,
+          "wall_ms": 5.507208,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 6,
+          "wall_ms": 5.636667,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 7,
+          "wall_ms": 5.66875,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 8,
+          "wall_ms": 6.176375,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 9,
+          "wall_ms": 5.479417,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 10,
+          "wall_ms": 6.651709,
+          "files": 34
+        }
+      ],
+      "summary": {
+        "generational": {
+          "median_ms": 4.923042000000001,
+          "first_ms": 5.229416
+        },
+        "single": {
+          "median_ms": 4.793729,
+          "first_ms": 4.799875
+        },
+        "rg": {
+          "median_ms": 5.9225625,
+          "first_ms": 6.451791
+        }
+      },
+      "files": 34
+    }
+  ]
+}

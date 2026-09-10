@@ -1,0 +1,7 @@
+{
+  "binary_sha256": "ede68b355756a4f51e5c7e961d9b01cf432d93d6faf76156d61c12fe78e4f83b",
+  "manifest_bytes": 217973589,
+  "build_command": "cargo build --profile profiling --offline --manifest-path /private/tmp/coderg-chromium-perf-20260909/Cargo.toml --target-dir /Users/b1indsight/personal_work/coderg/target",
+  "sampling": "/usr/bin/sample coderg 5 1 -mayDie; CODERG_PERF_REPEAT=120; --no-refresh",
+  "timing": "2 warmups, 15 measured rounds; separate processes; alternating shuffled default/no-refresh; sample ran afterwards"
+}

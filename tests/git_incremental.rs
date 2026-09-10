@@ -5,7 +5,7 @@ mod manifest_format;
 use std::{fs, path::Path, process::Command};
 
 #[test]
-fn commits_promote_overlays_and_rollbacks_reuse_cached_trees() {
+fn small_index_commits_and_rollbacks_append_deltas_without_tree_cache() {
     let root = tempfile::tempdir().unwrap();
     git(root.path(), &["init"]);
     git(root.path(), &["config", "user.name", "Coderg Test"]);
@@ -24,20 +24,23 @@ fn commits_promote_overlays_and_rollbacks_reuse_cached_trees() {
     assert_eq!(manifest_a["segments"].as_array().unwrap().len(), 1);
     let tree_a = manifest_a["git_tree"].as_str().unwrap().to_owned();
 
-    // Exercise migration of both the active manifest and a legacy cached tree.
-    for binary in [
-        root.path().join(".coderg-index/manifest.bin"),
+    // Active legacy manifests remain readable. Old tree-cache files must not
+    // be selected on rollback, even if they happen to contain a valid snapshot.
+    let binary = root.path().join(".coderg-index/manifest.bin");
+    let records = manifest_format::read(&binary).unwrap();
+    fs::create_dir_all(root.path().join(".coderg-index/manifests")).unwrap();
+    fs::write(
         root.path()
             .join(format!(".coderg-index/manifests/{tree_a}.bin")),
-    ] {
-        let records = manifest_format::read(&binary).unwrap();
-        fs::write(
-            binary.with_extension("json"),
-            serde_json::to_vec_pretty(&records).unwrap(),
-        )
-        .unwrap();
-        fs::remove_file(binary).unwrap();
-    }
+        manifest_format::encode(&records).unwrap(),
+    )
+    .unwrap();
+    fs::write(
+        binary.with_extension("json"),
+        serde_json::to_vec_pretty(&records).unwrap(),
+    )
+    .unwrap();
+    fs::remove_file(binary).unwrap();
 
     git(root.path(), &["commit", "--allow-empty", "-m", "same tree"]);
     let same_tree_commit = coderg(root.path(), &["search", "-F", "old needle"]);
@@ -74,10 +77,12 @@ fn commits_promote_overlays_and_rollbacks_reuse_cached_trees() {
     git(root.path(), &["reset", "--hard", "HEAD^"]);
     let rolled_back = coderg(root.path(), &["search", "-F", "old needle"]);
     assert!(rolled_back.status.success());
-    assert!(String::from_utf8_lossy(&rolled_back.stderr).contains("cached Git tree"));
+    assert!(String::from_utf8_lossy(&rolled_back.stderr).contains("incrementally indexed 1"));
     let restored = manifest(root.path());
     assert_eq!(restored["git_tree"].as_str().unwrap(), tree_a);
-    assert_eq!(restored["segments"].as_array().unwrap().len(), 1);
+    assert_eq!(restored["segments"].as_array().unwrap().len(), 3);
+    assert_eq!(restored["segments"][0], manifest_a["segments"][0]);
+    assert_eq!(restored["segments"][0], manifest_b["segments"][0]);
     assert_eq!(
         coderg(root.path(), &["search", "-F", "new needle"])
             .status
@@ -92,14 +97,14 @@ fn commits_promote_overlays_and_rollbacks_reuse_cached_trees() {
         String::from_utf8_lossy(&dirty_after_rollback.stderr).contains("incrementally indexed 1")
     );
     let dirty_manifest = manifest(root.path());
-    assert_eq!(dirty_manifest["segments"].as_array().unwrap().len(), 2);
+    assert_eq!(dirty_manifest["segments"].as_array().unwrap().len(), 4);
     let stable = dirty_manifest["documents"]
         .as_array()
         .unwrap()
         .iter()
         .find(|document| document["path"] == "stable.txt")
         .unwrap();
-    assert_eq!(stable["segment_id"], restored["segments"][0]["id"]);
+    assert_eq!(stable["segment_id"], dirty_manifest["segments"][0]["id"]);
 }
 
 fn git(root: &Path, arguments: &[&str]) {

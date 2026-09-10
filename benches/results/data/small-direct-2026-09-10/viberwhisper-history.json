@@ -1,0 +1,1943 @@
+{
+  "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+  "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U",
+  "base_commit": "d723bb05825613cd3bb825fea0eca8309925ca1a",
+  "end_commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+  "os": "macos",
+  "arch": "aarch64",
+  "variants": [
+    {
+      "name": "main",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-main",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/index-main"
+    },
+    {
+      "name": "rough",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-rough",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/index-rough"
+    },
+    {
+      "name": "direct",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-direct-final",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/index-direct"
+    }
+  ],
+  "builds": [
+    {
+      "version": "main",
+      "wall_ms": 25.6805,
+      "peak_rss_bytes": 19906560,
+      "diagnostic": "",
+      "base_id": 1789015381620253000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 1463000,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 14039,
+      "retained_bytes": 1491078
+    },
+    {
+      "version": "rough",
+      "wall_ms": 50.255666999999995,
+      "peak_rss_bytes": 19824640,
+      "diagnostic": "",
+      "base_id": 1789015381646414000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 1463000,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 14039,
+      "retained_bytes": 1477039
+    },
+    {
+      "version": "direct",
+      "wall_ms": 778.2674579999999,
+      "peak_rss_bytes": 18874368,
+      "diagnostic": "",
+      "base_id": 1789015382417486000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 1463000,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 14039,
+      "retained_bytes": 1477039
+    }
+  ],
+  "updates": [
+    {
+      "step": 1,
+      "from_commit": "d723bb05825613cd3bb825fea0eca8309925ca1a",
+      "commit": "fc5d74271283608392878caf8f0d256451681544",
+      "subject": "feat(macos): use native text injection (#99)",
+      "changed_files": 15,
+      "added_lines": 1365,
+      "deleted_lines": 256,
+      "added_files": 4,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 250582,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 51.526958,
+          "peak_rss_bytes": 16433152,
+          "diagnostic": "coderg: incrementally indexed 15 changed files\ncoderg: compacted 2 base + middle segments (1909448 input bytes, 1532067 output bytes)",
+          "base_id": 1789015382753228000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 0,
+          "base_bytes": 1532067,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 14611,
+          "retained_bytes": 3456126
+        },
+        {
+          "version": "direct",
+          "wall_ms": 25.040041,
+          "peak_rss_bytes": 15613952,
+          "diagnostic": "coderg: incrementally indexed 15 changed files\ncoderg: compacted 1 base + middle segments (1463000 input bytes, 1532067 output bytes)",
+          "base_id": 1789015382794092000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 0,
+          "base_bytes": 1532067,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 14611,
+          "retained_bytes": 3009678
+        },
+        {
+          "version": "main",
+          "wall_ms": 12.159915999999999,
+          "peak_rss_bytes": 15138816,
+          "diagnostic": "coderg: incrementally indexed 15 changed files",
+          "base_id": 1789015381620253000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 0,
+          "base_bytes": 1463000,
+          "middle_bytes": 446448,
+          "segments": 2,
+          "manifest_bytes": 14717,
+          "retained_bytes": 1952921
+        }
+      ],
+      "rg": {
+        "wall_ms": 8.415917,
+        "peak_rss_bytes": 6144000
+      }
+    },
+    {
+      "step": 2,
+      "from_commit": "fc5d74271283608392878caf8f0d256451681544",
+      "commit": "25aa9fd3d5eec3165fe03c552c6daef1d71270b5",
+      "subject": "refactor(platform): hide native desktop details (#100)",
+      "changed_files": 18,
+      "added_lines": 1514,
+      "deleted_lines": 473,
+      "added_files": 4,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 179106,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 20.292916,
+          "peak_rss_bytes": 15106048,
+          "diagnostic": "coderg: incrementally indexed 18 changed files\ncoderg: compacted 1 base + middle segments (1532067 input bytes, 1582127 output bytes)",
+          "base_id": 1789015383100680000,
+          "base_bytes_before": 1532067,
+          "middle_bytes_before": 0,
+          "base_bytes": 1582127,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 15141,
+          "retained_bytes": 4592335
+        },
+        {
+          "version": "main",
+          "wall_ms": 10.990207999999999,
+          "peak_rss_bytes": 14663680,
+          "diagnostic": "coderg: incrementally indexed 18 changed files",
+          "base_id": 1789015381620253000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 446448,
+          "base_bytes": 1463000,
+          "middle_bytes": 777234,
+          "segments": 3,
+          "manifest_bytes": 15353,
+          "retained_bytes": 2299696
+        },
+        {
+          "version": "rough",
+          "wall_ms": 50.946292,
+          "peak_rss_bytes": 15400960,
+          "diagnostic": "coderg: incrementally indexed 18 changed files\ncoderg: compacted 2 base + middle segments (1862853 input bytes, 1582127 output bytes)",
+          "base_id": 1789015383150589000,
+          "base_bytes_before": 1532067,
+          "middle_bytes_before": 0,
+          "base_bytes": 1582127,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 15141,
+          "retained_bytes": 5369569
+        }
+      ],
+      "rg": {
+        "wall_ms": 6.790417,
+        "peak_rss_bytes": 6078464
+      }
+    },
+    {
+      "step": 3,
+      "from_commit": "25aa9fd3d5eec3165fe03c552c6daef1d71270b5",
+      "commit": "924ca3ba54e2832cb752fb03311f97425428f15e",
+      "subject": "fix(macos): support Chromium web text fields (#101)",
+      "changed_files": 12,
+      "added_lines": 594,
+      "deleted_lines": 37,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 128541,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 10.345375,
+          "peak_rss_bytes": 14417920,
+          "diagnostic": "coderg: incrementally indexed 12 changed files",
+          "base_id": 1789015381620253000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 777234,
+          "base_bytes": 1463000,
+          "middle_bytes": 1078529,
+          "segments": 4,
+          "manifest_bytes": 15763,
+          "retained_bytes": 2617164
+        },
+        {
+          "version": "rough",
+          "wall_ms": 51.051208,
+          "peak_rss_bytes": 15335424,
+          "diagnostic": "coderg: incrementally indexed 12 changed files\ncoderg: compacted 2 base + middle segments (1883422 input bytes, 1614251 output bytes)",
+          "base_id": 1789015383307900000,
+          "base_bytes_before": 1582127,
+          "middle_bytes_before": 0,
+          "base_bytes": 1614251,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 15445,
+          "retained_bytes": 7285419
+        },
+        {
+          "version": "direct",
+          "wall_ms": 20.611207999999998,
+          "peak_rss_bytes": 14925824,
+          "diagnostic": "coderg: incrementally indexed 12 changed files\ncoderg: compacted 1 base + middle segments (1582127 input bytes, 1614251 output bytes)",
+          "base_id": 1789015383349010000,
+          "base_bytes_before": 1582127,
+          "middle_bytes_before": 0,
+          "base_bytes": 1614251,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 15445,
+          "retained_bytes": 6206890
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.744083,
+        "peak_rss_bytes": 6144000
+      }
+    },
+    {
+      "step": 4,
+      "from_commit": "924ca3ba54e2832cb752fb03311f97425428f15e",
+      "commit": "a4a44916007f80106e15c34021d4b4a15904239f",
+      "subject": "feat: add transcription history (#102)",
+      "changed_files": 20,
+      "added_lines": 1185,
+      "deleted_lines": 73,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 202636,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 11.268958000000001,
+          "peak_rss_bytes": 15695872,
+          "diagnostic": "coderg: incrementally indexed 20 changed files",
+          "base_id": 1789015381620253000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 1078529,
+          "base_bytes": 1463000,
+          "middle_bytes": 1482524,
+          "segments": 5,
+          "manifest_bytes": 16259,
+          "retained_bytes": 3037914
+        },
+        {
+          "version": "rough",
+          "wall_ms": 56.450292,
+          "peak_rss_bytes": 16171008,
+          "diagnostic": "coderg: incrementally indexed 20 changed files\ncoderg: compacted 2 base + middle segments (2018246 input bytes, 1677919 output bytes)",
+          "base_id": 1789015383484620000,
+          "base_bytes_before": 1614251,
+          "middle_bytes_before": 0,
+          "base_bytes": 1677919,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 15835,
+          "retained_bytes": 9367723
+        },
+        {
+          "version": "direct",
+          "wall_ms": 21.959958,
+          "peak_rss_bytes": 16121856,
+          "diagnostic": "coderg: incrementally indexed 20 changed files\ncoderg: compacted 1 base + middle segments (1614251 input bytes, 1677919 output bytes)",
+          "base_id": 1789015383530869000,
+          "base_bytes_before": 1614251,
+          "middle_bytes_before": 0,
+          "base_bytes": 1677919,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 15835,
+          "retained_bytes": 7885199
+        }
+      ],
+      "rg": {
+        "wall_ms": 8.577791,
+        "peak_rss_bytes": 6225920
+      }
+    },
+    {
+      "step": 5,
+      "from_commit": "a4a44916007f80106e15c34021d4b4a15904239f",
+      "commit": "2c685d9d3ba933fa5e7e99e24ebd12155bc84f23",
+      "subject": "docs(plan): design STT prompt regression suite (#103)",
+      "changed_files": 25,
+      "added_lines": 5631,
+      "deleted_lines": 68,
+      "added_files": 9,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 442000,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 64.68675,
+          "peak_rss_bytes": 19709952,
+          "diagnostic": "coderg: incrementally indexed 25 changed files\ncoderg: compacted 2 base + middle segments (2336146 input bytes, 1868857 output bytes)",
+          "base_id": 1789015383684752000,
+          "base_bytes_before": 1677919,
+          "middle_bytes_before": 0,
+          "base_bytes": 1868857,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 16995,
+          "retained_bytes": 11895967
+        },
+        {
+          "version": "direct",
+          "wall_ms": 28.792875,
+          "peak_rss_bytes": 19955712,
+          "diagnostic": "coderg: incrementally indexed 25 changed files\ncoderg: compacted 1 base + middle segments (1677919 input bytes, 1868857 output bytes)",
+          "base_id": 1789015383734741000,
+          "base_bytes_before": 1677919,
+          "middle_bytes_before": 0,
+          "base_bytes": 1868857,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 16995,
+          "retained_bytes": 9755216
+        },
+        {
+          "version": "main",
+          "wall_ms": 17.600625,
+          "peak_rss_bytes": 19087360,
+          "diagnostic": "coderg: incrementally indexed 25 changed files",
+          "base_id": 1789015381620253000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 1482524,
+          "base_bytes": 1463000,
+          "middle_bytes": 2140751,
+          "segments": 6,
+          "manifest_bytes": 17525,
+          "retained_bytes": 3714932
+        }
+      ],
+      "rg": {
+        "wall_ms": 9.480250000000002,
+        "peak_rss_bytes": 6176768
+      }
+    },
+    {
+      "step": 6,
+      "from_commit": "2c685d9d3ba933fa5e7e99e24ebd12155bc84f23",
+      "commit": "426f7f7f387a03f415e753c4575e976580f0c65b",
+      "subject": "fix(prompt-lab): harden report and mixed-script scoring (#104)",
+      "changed_files": 8,
+      "added_lines": 438,
+      "deleted_lines": 24,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 151331,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 23.188708,
+          "peak_rss_bytes": 15564800,
+          "diagnostic": "coderg: incrementally indexed 8 changed files\ncoderg: compacted 1 base + middle segments (1868857 input bytes, 1891538 output bytes)",
+          "base_id": 1789015383900530000,
+          "base_bytes_before": 1868857,
+          "middle_bytes_before": 0,
+          "base_bytes": 1891538,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17157,
+          "retained_bytes": 11646916
+        },
+        {
+          "version": "main",
+          "wall_ms": 11.375167000000001,
+          "peak_rss_bytes": 15024128,
+          "diagnostic": "coderg: incrementally indexed 8 changed files",
+          "base_id": 1789015381620253000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 2140751,
+          "base_bytes": 1463000,
+          "middle_bytes": 2383362,
+          "segments": 7,
+          "manifest_bytes": 17793,
+          "retained_bytes": 3975604
+        },
+        {
+          "version": "rough",
+          "wall_ms": 56.701542,
+          "peak_rss_bytes": 15777792,
+          "diagnostic": "coderg: incrementally indexed 8 changed files\ncoderg: compacted 2 base + middle segments (2111468 input bytes, 1891538 output bytes)",
+          "base_id": 1789015383957573000,
+          "base_bytes_before": 1868857,
+          "middle_bytes_before": 0,
+          "base_bytes": 1891538,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17157,
+          "retained_bytes": 14030278
+        }
+      ],
+      "rg": {
+        "wall_ms": 9.165208,
+        "peak_rss_bytes": 6127616
+      }
+    },
+    {
+      "step": 7,
+      "from_commit": "426f7f7f387a03f415e753c4575e976580f0c65b",
+      "commit": "2fee0a2218e285a4c18a5b3503ea2849a05d2ea9",
+      "subject": "feat: suppress silent-audio hallucinations (#105)",
+      "changed_files": 11,
+      "added_lines": 482,
+      "deleted_lines": 13,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 102032,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 12.594916,
+          "peak_rss_bytes": 14532608,
+          "diagnostic": "coderg: incrementally indexed 11 changed files",
+          "base_id": 1789015381620253000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 2383362,
+          "base_bytes": 1463000,
+          "middle_bytes": 2657649,
+          "segments": 8,
+          "manifest_bytes": 18193,
+          "retained_bytes": 4268484
+        },
+        {
+          "version": "rough",
+          "wall_ms": 58.209458,
+          "peak_rss_bytes": 15155200,
+          "diagnostic": "coderg: incrementally indexed 11 changed files\ncoderg: compacted 2 base + middle segments (2165825 input bytes, 1922889 output bytes)",
+          "base_id": 1789015384136806000,
+          "base_bytes_before": 1891538,
+          "middle_bytes_before": 0,
+          "base_bytes": 1922889,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17451,
+          "retained_bytes": 16227748
+        },
+        {
+          "version": "direct",
+          "wall_ms": 24.970959,
+          "peak_rss_bytes": 14925824,
+          "diagnostic": "coderg: incrementally indexed 11 changed files\ncoderg: compacted 1 base + middle segments (1891538 input bytes, 1922889 output bytes)",
+          "base_id": 1789015384183625000,
+          "base_bytes_before": 1891538,
+          "middle_bytes_before": 0,
+          "base_bytes": 1922889,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17451,
+          "retained_bytes": 13570099
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.601625,
+        "peak_rss_bytes": 6094848
+      }
+    },
+    {
+      "step": 8,
+      "from_commit": "2fee0a2218e285a4c18a5b3503ea2849a05d2ea9",
+      "commit": "2afe57be7d9a6b88128a3f108339e75afc52c99e",
+      "subject": "fix(release): accept WiX 7 EULA in CI (#106)",
+      "changed_files": 3,
+      "added_lines": 9,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 36650,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 31.492791,
+          "peak_rss_bytes": 24641536,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789015384317205000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 2657649,
+          "base_bytes": 1895471,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17451,
+          "retained_bytes": 6180664
+        },
+        {
+          "version": "rough",
+          "wall_ms": 52.871542,
+          "peak_rss_bytes": 13467648,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 2 base + middle segments (2013951 input bytes, 1923702 output bytes)",
+          "base_id": 1789015384352676000,
+          "base_bytes_before": 1922889,
+          "middle_bytes_before": 0,
+          "base_bytes": 1923702,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17451,
+          "retained_bytes": 18242512
+        },
+        {
+          "version": "direct",
+          "wall_ms": 21.19175,
+          "peak_rss_bytes": 13647872,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 1 base + middle segments (1922889 input bytes, 1923702 output bytes)",
+          "base_id": 1789015384396356000,
+          "base_bytes_before": 1922889,
+          "middle_bytes_before": 0,
+          "base_bytes": 1923702,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17451,
+          "retained_bytes": 15493801
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.3459579999999995,
+        "peak_rss_bytes": 6176768
+      }
+    },
+    {
+      "step": 9,
+      "from_commit": "2afe57be7d9a6b88128a3f108339e75afc52c99e",
+      "commit": "a1f40ed5be5746284a79cdfd785cdc6ce7cb88f4",
+      "subject": "fix(release): install canonical fixture executable name (#107)",
+      "changed_files": 2,
+      "added_lines": 2,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 9787,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 50.035917,
+          "peak_rss_bytes": 12763136,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 2 base + middle segments (1961434 input bytes, 1923802 output bytes)",
+          "base_id": 1789015384523467000,
+          "base_bytes_before": 1923702,
+          "middle_bytes_before": 0,
+          "base_bytes": 1923802,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17451,
+          "retained_bytes": 20204046
+        },
+        {
+          "version": "direct",
+          "wall_ms": 20.819584,
+          "peak_rss_bytes": 12648448,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 1 base + middle segments (1923702 input bytes, 1923802 output bytes)",
+          "base_id": 1789015384565329000,
+          "base_bytes_before": 1923702,
+          "middle_bytes_before": 0,
+          "base_bytes": 1923802,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17451,
+          "retained_bytes": 17417603
+        },
+        {
+          "version": "main",
+          "wall_ms": 9.423625,
+          "peak_rss_bytes": 11599872,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015384317205000,
+          "base_bytes_before": 1895471,
+          "middle_bytes_before": 0,
+          "base_bytes": 1895471,
+          "middle_bytes": 37732,
+          "segments": 2,
+          "manifest_bytes": 17557,
+          "retained_bytes": 6236059
+        }
+      ],
+      "rg": {
+        "wall_ms": 8.825,
+        "peak_rss_bytes": 6127616
+      }
+    },
+    {
+      "step": 10,
+      "from_commit": "a1f40ed5be5746284a79cdfd785cdc6ce7cb88f4",
+      "commit": "c829976a2d0c8dac44309f13deaedd5c46323f05",
+      "subject": "ci(rust): enforce formatting and Windows Clippy (#108)",
+      "changed_files": 4,
+      "added_lines": 155,
+      "deleted_lines": 1,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 24460,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 20.495666999999997,
+          "peak_rss_bytes": 13172736,
+          "diagnostic": "coderg: incrementally indexed 4 changed files\ncoderg: compacted 1 base + middle segments (1923802 input bytes, 1933753 output bytes)",
+          "base_id": 1789015384689512000,
+          "base_bytes_before": 1923802,
+          "middle_bytes_before": 0,
+          "base_bytes": 1933753,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17607,
+          "retained_bytes": 19351512
+        },
+        {
+          "version": "main",
+          "wall_ms": 9.478375000000002,
+          "peak_rss_bytes": 12189696,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015384317205000,
+          "base_bytes_before": 1895471,
+          "middle_bytes_before": 37732,
+          "base_bytes": 1895471,
+          "middle_bytes": 114183,
+          "segments": 3,
+          "manifest_bytes": 17819,
+          "retained_bytes": 6330591
+        },
+        {
+          "version": "rough",
+          "wall_ms": 51.587542,
+          "peak_rss_bytes": 13221888,
+          "diagnostic": "coderg: incrementally indexed 4 changed files\ncoderg: compacted 2 base + middle segments (2000253 input bytes, 1933753 output bytes)",
+          "base_id": 1789015384738654000,
+          "base_bytes_before": 1923802,
+          "middle_bytes_before": 0,
+          "base_bytes": 1933753,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 17607,
+          "retained_bytes": 22214406
+        }
+      ],
+      "rg": {
+        "wall_ms": 8.571625,
+        "peak_rss_bytes": 6160384
+      }
+    },
+    {
+      "step": 11,
+      "from_commit": "c829976a2d0c8dac44309f13deaedd5c46323f05",
+      "commit": "f01e3331ee68a3848f8be454476c0cad579a4489",
+      "subject": "feat(release): prepend validated generated notes (#109)",
+      "changed_files": 9,
+      "added_lines": 341,
+      "deleted_lines": 4,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 63880,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 10.024167,
+          "peak_rss_bytes": 13090816,
+          "diagnostic": "coderg: incrementally indexed 9 changed files",
+          "base_id": 1789015384317205000,
+          "base_bytes_before": 1895471,
+          "middle_bytes_before": 114183,
+          "base_bytes": 1895471,
+          "middle_bytes": 272099,
+          "segments": 4,
+          "manifest_bytes": 18351,
+          "retained_bytes": 6507390
+        },
+        {
+          "version": "rough",
+          "wall_ms": 52.279417,
+          "peak_rss_bytes": 14073856,
+          "diagnostic": "coderg: incrementally indexed 9 changed files\ncoderg: compacted 2 base + middle segments (2090551 input bytes, 1956865 output bytes)",
+          "base_id": 1789015384893799000,
+          "base_bytes_before": 1933753,
+          "middle_bytes_before": 0,
+          "base_bytes": 1956865,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18033,
+          "retained_bytes": 24328495
+        },
+        {
+          "version": "direct",
+          "wall_ms": 21.689542,
+          "peak_rss_bytes": 14057472,
+          "diagnostic": "coderg: incrementally indexed 9 changed files\ncoderg: compacted 1 base + middle segments (1933753 input bytes, 1956865 output bytes)",
+          "base_id": 1789015384937508000,
+          "base_bytes_before": 1933753,
+          "middle_bytes_before": 0,
+          "base_bytes": 1956865,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18033,
+          "retained_bytes": 21308803
+        }
+      ],
+      "rg": {
+        "wall_ms": 6.7718750000000005,
+        "peak_rss_bytes": 6111232
+      }
+    },
+    {
+      "step": 12,
+      "from_commit": "f01e3331ee68a3848f8be454476c0cad579a4489",
+      "commit": "e10a53e0e3151392767d7e3a01e3a64906fd246f",
+      "subject": "feat(release): require approval before publication (#110)",
+      "changed_files": 5,
+      "added_lines": 182,
+      "deleted_lines": 1,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 53518,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 10.050125,
+          "peak_rss_bytes": 12697600,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789015384317205000,
+          "base_bytes_before": 1895471,
+          "middle_bytes_before": 272099,
+          "base_bytes": 1895471,
+          "middle_bytes": 404626,
+          "segments": 5,
+          "manifest_bytes": 18619,
+          "retained_bytes": 6658804
+        },
+        {
+          "version": "rough",
+          "wall_ms": 54.639708,
+          "peak_rss_bytes": 13959168,
+          "diagnostic": "coderg: incrementally indexed 5 changed files\ncoderg: compacted 2 base + middle segments (2089392 input bytes, 1969711 output bytes)",
+          "base_id": 1789015385065689000,
+          "base_bytes_before": 1956865,
+          "middle_bytes_before": 0,
+          "base_bytes": 1969711,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18195,
+          "retained_bytes": 26430895
+        },
+        {
+          "version": "direct",
+          "wall_ms": 21.896041,
+          "peak_rss_bytes": 14024704,
+          "diagnostic": "coderg: incrementally indexed 5 changed files\ncoderg: compacted 1 base + middle segments (1956865 input bytes, 1969711 output bytes)",
+          "base_id": 1789015385110474000,
+          "base_bytes_before": 1956865,
+          "middle_bytes_before": 0,
+          "base_bytes": 1969711,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18195,
+          "retained_bytes": 23278676
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.458792,
+        "peak_rss_bytes": 6275072
+      }
+    },
+    {
+      "step": 13,
+      "from_commit": "e10a53e0e3151392767d7e3a01e3a64906fd246f",
+      "commit": "cc620e97c0e0852830d4346ac4efc1ce1dcf5910",
+      "subject": "ci(actions): migrate workflows to Node 24-compatible pins (#111)",
+      "changed_files": 7,
+      "added_lines": 203,
+      "deleted_lines": 21,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 59315,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 52.771708000000004,
+          "peak_rss_bytes": 14155776,
+          "diagnostic": "coderg: incrementally indexed 7 changed files\ncoderg: compacted 2 base + middle segments (2113320 input bytes, 1985919 output bytes)",
+          "base_id": 1789015385242938000,
+          "base_bytes_before": 1969711,
+          "middle_bytes_before": 0,
+          "base_bytes": 1985919,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18461,
+          "retained_bytes": 28560689
+        },
+        {
+          "version": "direct",
+          "wall_ms": 22.378917,
+          "peak_rss_bytes": 13975552,
+          "diagnostic": "coderg: incrementally indexed 7 changed files\ncoderg: compacted 1 base + middle segments (1969711 input bytes, 1985919 output bytes)",
+          "base_id": 1789015385285768000,
+          "base_bytes_before": 1969711,
+          "middle_bytes_before": 0,
+          "base_bytes": 1985919,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18461,
+          "retained_bytes": 25264861
+        },
+        {
+          "version": "main",
+          "wall_ms": 10.844417,
+          "peak_rss_bytes": 13369344,
+          "diagnostic": "coderg: incrementally indexed 7 changed files",
+          "base_id": 1789015384317205000,
+          "base_bytes_before": 1895471,
+          "middle_bytes_before": 404626,
+          "base_bytes": 1895471,
+          "middle_bytes": 548235,
+          "segments": 6,
+          "manifest_bytes": 18991,
+          "retained_bytes": 6821776
+        }
+      ],
+      "rg": {
+        "wall_ms": 8.803666999999999,
+        "peak_rss_bytes": 6258688
+      }
+    },
+    {
+      "step": 14,
+      "from_commit": "cc620e97c0e0852830d4346ac4efc1ce1dcf5910",
+      "commit": "04903ca04146d6f512fd9720f14b7b206c8ae793",
+      "subject": "fix(windows): launch desktop app without console (#115)",
+      "changed_files": 17,
+      "added_lines": 451,
+      "deleted_lines": 52,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 152963,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 23.12775,
+          "peak_rss_bytes": 16187392,
+          "diagnostic": "coderg: incrementally indexed 17 changed files\ncoderg: compacted 1 base + middle segments (1985919 input bytes, 2013648 output bytes)",
+          "base_id": 1789015385420391000,
+          "base_bytes_before": 1985919,
+          "middle_bytes_before": 0,
+          "base_bytes": 2013648,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18735,
+          "retained_bytes": 27278783
+        },
+        {
+          "version": "main",
+          "wall_ms": 11.487041999999999,
+          "peak_rss_bytes": 15106048,
+          "diagnostic": "coderg: incrementally indexed 17 changed files",
+          "base_id": 1789015384317205000,
+          "base_bytes_before": 1895471,
+          "middle_bytes_before": 548235,
+          "base_bytes": 1895471,
+          "middle_bytes": 911106,
+          "segments": 7,
+          "manifest_bytes": 19371,
+          "retained_bytes": 7204398
+        },
+        {
+          "version": "rough",
+          "wall_ms": 56.988375,
+          "peak_rss_bytes": 16105472,
+          "diagnostic": "coderg: incrementally indexed 17 changed files\ncoderg: compacted 2 base + middle segments (2348659 input bytes, 2013648 output bytes)",
+          "base_id": 1789015385473924000,
+          "base_bytes_before": 1985919,
+          "middle_bytes_before": 0,
+          "base_bytes": 2013648,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18735,
+          "retained_bytes": 30937351
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.372166,
+        "peak_rss_bytes": 6209536
+      }
+    },
+    {
+      "step": 15,
+      "from_commit": "04903ca04146d6f512fd9720f14b7b206c8ae793",
+      "commit": "976e1f16c761d5975abd1faf95d5a03996794768",
+      "subject": "fix(release): default Windows MSI to current user (#116)",
+      "changed_files": 6,
+      "added_lines": 211,
+      "deleted_lines": 43,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 65603,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 10.646667,
+          "peak_rss_bytes": 13484032,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1789015384317205000,
+          "base_bytes_before": 1895471,
+          "middle_bytes_before": 911106,
+          "base_bytes": 1895471,
+          "middle_bytes": 1066371,
+          "segments": 8,
+          "manifest_bytes": 19635,
+          "retained_bytes": 7379562
+        },
+        {
+          "version": "rough",
+          "wall_ms": 53.514084000000004,
+          "peak_rss_bytes": 14401536,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 2 base + middle segments (2168656 input bytes, 2023039 output bytes)",
+          "base_id": 1789015385640892000,
+          "base_bytes_before": 2013648,
+          "middle_bytes_before": 0,
+          "base_bytes": 2023039,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18893,
+          "retained_bytes": 33115556
+        },
+        {
+          "version": "direct",
+          "wall_ms": 22.134,
+          "peak_rss_bytes": 14123008,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 1 base + middle segments (2013648 input bytes, 2023039 output bytes)",
+          "base_id": 1789015385685089000,
+          "base_bytes_before": 2013648,
+          "middle_bytes_before": 0,
+          "base_bytes": 2023039,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18893,
+          "retained_bytes": 29301980
+        }
+      ],
+      "rg": {
+        "wall_ms": 8.15475,
+        "peak_rss_bytes": 6193152
+      }
+    },
+    {
+      "step": 16,
+      "from_commit": "976e1f16c761d5975abd1faf95d5a03996794768",
+      "commit": "2c9f50091b26d41f9abf827ac9fe76a4aaaefc4d",
+      "subject": "feat: add first-run setup wizard (#117)",
+      "changed_files": 23,
+      "added_lines": 1784,
+      "deleted_lines": 83,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 381898,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 26.515957999999998,
+          "peak_rss_bytes": 24592384,
+          "diagnostic": "coderg: rebuilt index after a large change",
+          "base_id": 1789015385808541000,
+          "base_bytes_before": 1895471,
+          "middle_bytes_before": 1066371,
+          "base_bytes": 2076266,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 19301,
+          "retained_bytes": 9474795
+        },
+        {
+          "version": "rough",
+          "wall_ms": 57.568416,
+          "peak_rss_bytes": 18448384,
+          "diagnostic": "coderg: incrementally indexed 23 changed files\ncoderg: compacted 2 base + middle segments (2625865 input bytes, 2093543 output bytes)",
+          "base_id": 1789015385844958000,
+          "base_bytes_before": 2023039,
+          "middle_bytes_before": 0,
+          "base_bytes": 2093543,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 19301,
+          "retained_bytes": 35812333
+        },
+        {
+          "version": "direct",
+          "wall_ms": 26.614208,
+          "peak_rss_bytes": 17776640,
+          "diagnostic": "coderg: incrementally indexed 23 changed files\ncoderg: compacted 1 base + middle segments (2023039 input bytes, 2093543 output bytes)",
+          "base_id": 1789015385890099000,
+          "base_bytes_before": 2023039,
+          "middle_bytes_before": 0,
+          "base_bytes": 2093543,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 19301,
+          "retained_bytes": 31395931
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.43675,
+        "peak_rss_bytes": 6127616
+      }
+    },
+    {
+      "step": 17,
+      "from_commit": "2c9f50091b26d41f9abf827ac9fe76a4aaaefc4d",
+      "commit": "720255e31d06533caf1c279a9b1d1109f80b18ab",
+      "subject": "refactor: route runtime diagnostics through tracing (#118)",
+      "changed_files": 6,
+      "added_lines": 142,
+      "deleted_lines": 33,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 69706,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 55.825292,
+          "peak_rss_bytes": 14581760,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 2 base + middle segments (2236865 input bytes, 2101154 output bytes)",
+          "base_id": 1789015386022931000,
+          "base_bytes_before": 2093543,
+          "middle_bytes_before": 0,
+          "base_bytes": 2101154,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 19459,
+          "retained_bytes": 38056967
+        },
+        {
+          "version": "direct",
+          "wall_ms": 23.665334,
+          "peak_rss_bytes": 14336000,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 1 base + middle segments (2093543 input bytes, 2101154 output bytes)",
+          "base_id": 1789015386068934000,
+          "base_bytes_before": 2093543,
+          "middle_bytes_before": 0,
+          "base_bytes": 2101154,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 19459,
+          "retained_bytes": 33497243
+        },
+        {
+          "version": "main",
+          "wall_ms": 10.832167,
+          "peak_rss_bytes": 13287424,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1789015385808541000,
+          "base_bytes_before": 2076266,
+          "middle_bytes_before": 0,
+          "base_bytes": 2076266,
+          "middle_bytes": 142886,
+          "segments": 2,
+          "manifest_bytes": 19565,
+          "retained_bytes": 9637510
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.8465419999999995,
+        "peak_rss_bytes": 6176768
+      }
+    },
+    {
+      "step": 18,
+      "from_commit": "720255e31d06533caf1c279a9b1d1109f80b18ab",
+      "commit": "c267b88deeedebd52ba9e543a83918305011263f",
+      "subject": "refactor: adopt anyhow at application error boundaries (#119)",
+      "changed_files": 23,
+      "added_lines": 287,
+      "deleted_lines": 185,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 351422,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 26.410625,
+          "peak_rss_bytes": 17924096,
+          "diagnostic": "coderg: incrementally indexed 23 changed files\ncoderg: compacted 1 base + middle segments (2101154 input bytes, 2111906 output bytes)",
+          "base_id": 1789015386208807000,
+          "base_bytes_before": 2101154,
+          "middle_bytes_before": 0,
+          "base_bytes": 2111906,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 19611,
+          "retained_bytes": 35609301
+        },
+        {
+          "version": "main",
+          "wall_ms": 14.0475,
+          "peak_rss_bytes": 16564224,
+          "diagnostic": "coderg: incrementally indexed 23 changed files",
+          "base_id": 1789015385808541000,
+          "base_bytes_before": 2076266,
+          "middle_bytes_before": 142886,
+          "base_bytes": 2076266,
+          "middle_bytes": 664642,
+          "segments": 3,
+          "manifest_bytes": 19823,
+          "retained_bytes": 10179347
+        },
+        {
+          "version": "rough",
+          "wall_ms": 61.625167000000005,
+          "peak_rss_bytes": 18661376,
+          "diagnostic": "coderg: incrementally indexed 23 changed files\ncoderg: compacted 2 base + middle segments (2623262 input bytes, 2111906 output bytes)",
+          "base_id": 1789015386272783000,
+          "base_bytes_before": 2101154,
+          "middle_bytes_before": 0,
+          "base_bytes": 2111906,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 19611,
+          "retained_bytes": 40691133
+        }
+      ],
+      "rg": {
+        "wall_ms": 8.731167,
+        "peak_rss_bytes": 6242304
+      }
+    },
+    {
+      "step": 19,
+      "from_commit": "c267b88deeedebd52ba9e543a83918305011263f",
+      "commit": "65186fe565fcc21af180634a6b0684e2e18ed192",
+      "subject": "refactor: remove bundled local inference mode (#120)",
+      "changed_files": 51,
+      "added_lines": 280,
+      "deleted_lines": 3929,
+      "added_files": 1,
+      "deleted_files": 23,
+      "renamed_files": 0,
+      "target_source_bytes": 248595,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 11.735000000000001,
+          "peak_rss_bytes": 15613952,
+          "diagnostic": "coderg: incrementally indexed 51 changed files",
+          "base_id": 1789015385808541000,
+          "base_bytes_before": 2076266,
+          "middle_bytes_before": 664642,
+          "base_bytes": 2076266,
+          "middle_bytes": 1154167,
+          "segments": 4,
+          "manifest_bytes": 18819,
+          "retained_bytes": 10686687
+        },
+        {
+          "version": "rough",
+          "wall_ms": 57.223625,
+          "peak_rss_bytes": 17629184,
+          "diagnostic": "coderg: incrementally indexed 51 changed files\ncoderg: compacted 2 base + middle segments (2601085 input bytes, 1908340 output bytes)",
+          "base_id": 1789015386456771000,
+          "base_bytes_before": 2111906,
+          "middle_bytes_before": 0,
+          "base_bytes": 1908340,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18501,
+          "retained_bytes": 43087542
+        },
+        {
+          "version": "direct",
+          "wall_ms": 25.073334,
+          "peak_rss_bytes": 16777216,
+          "diagnostic": "coderg: incrementally indexed 51 changed files\ncoderg: compacted 1 base + middle segments (2111906 input bytes, 1908340 output bytes)",
+          "base_id": 1789015386502664000,
+          "base_bytes_before": 2111906,
+          "middle_bytes_before": 0,
+          "base_bytes": 1908340,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18501,
+          "retained_bytes": 37516531
+        }
+      ],
+      "rg": {
+        "wall_ms": 8.32475,
+        "peak_rss_bytes": 6176768
+      }
+    },
+    {
+      "step": 20,
+      "from_commit": "65186fe565fcc21af180634a6b0684e2e18ed192",
+      "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+      "subject": "docs: refresh repository agent guide (#121)",
+      "changed_files": 1,
+      "added_lines": 17,
+      "deleted_lines": 10,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 9725,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 9.352292,
+          "peak_rss_bytes": 11845632,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015385808541000,
+          "base_bytes_before": 2076266,
+          "middle_bytes_before": 1154167,
+          "base_bytes": 2076266,
+          "middle_bytes": 1185068,
+          "segments": 5,
+          "manifest_bytes": 18925,
+          "retained_bytes": 10736619
+        },
+        {
+          "version": "rough",
+          "wall_ms": 48.994042,
+          "peak_rss_bytes": 12632064,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 base + middle segments (1939241 input bytes, 1909015 output bytes)",
+          "base_id": 1789015386629846000,
+          "base_bytes_before": 1908340,
+          "middle_bytes_before": 0,
+          "base_bytes": 1909015,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18501,
+          "retained_bytes": 45027458
+        },
+        {
+          "version": "direct",
+          "wall_ms": 20.667292,
+          "peak_rss_bytes": 12500992,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 1 base + middle segments (1908340 input bytes, 1909015 output bytes)",
+          "base_id": 1789015386670800000,
+          "base_bytes_before": 1908340,
+          "middle_bytes_before": 0,
+          "base_bytes": 1909015,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18501,
+          "retained_bytes": 39425546
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.0025,
+        "peak_rss_bytes": 6094848
+      }
+    }
+  ],
+  "rollbacks": [
+    {
+      "step": 19,
+      "from_commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+      "commit": "65186fe565fcc21af180634a6b0684e2e18ed192",
+      "subject": "refactor: remove bundled local inference mode (#120)",
+      "changed_files": 1,
+      "added_lines": 10,
+      "deleted_lines": 17,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 9012,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 7.886708,
+          "peak_rss_bytes": 11010048,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1789015385808541000,
+          "base_bytes_before": 2076266,
+          "middle_bytes_before": 1185068,
+          "base_bytes": 2076266,
+          "middle_bytes": 1154167,
+          "segments": 4,
+          "manifest_bytes": 18819,
+          "retained_bytes": 10736513
+        },
+        {
+          "version": "rough",
+          "wall_ms": 52.785542,
+          "peak_rss_bytes": 12664832,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 base + middle segments (1938211 input bytes, 1908340 output bytes)",
+          "base_id": 1789015386975200000,
+          "base_bytes_before": 1909015,
+          "middle_bytes_before": 0,
+          "base_bytes": 1908340,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18501,
+          "retained_bytes": 46964994
+        },
+        {
+          "version": "direct",
+          "wall_ms": 20.977666999999997,
+          "peak_rss_bytes": 12926976,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 1 base + middle segments (1909015 input bytes, 1908340 output bytes)",
+          "base_id": 1789015387019672000,
+          "base_bytes_before": 1909015,
+          "middle_bytes_before": 0,
+          "base_bytes": 1908340,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18501,
+          "retained_bytes": 41333886
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.613209,
+        "peak_rss_bytes": 6111232
+      }
+    },
+    {
+      "step": 10,
+      "from_commit": "65186fe565fcc21af180634a6b0684e2e18ed192",
+      "commit": "c829976a2d0c8dac44309f13deaedd5c46323f05",
+      "subject": "ci(rust): enforce formatting and Windows Clippy (#108)",
+      "changed_files": 82,
+      "added_lines": 4077,
+      "deleted_lines": 3607,
+      "added_files": 23,
+      "deleted_files": 15,
+      "renamed_files": 0,
+      "target_source_bytes": 634934,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 63.57420799999999,
+          "peak_rss_bytes": 20529152,
+          "diagnostic": "coderg: incrementally indexed 82 changed files\ncoderg: compacted 2 base + middle segments (2908333 input bytes, 1949870 output bytes)",
+          "base_id": 1789015387172297000,
+          "base_bytes_before": 1908340,
+          "middle_bytes_before": 0,
+          "base_bytes": 1949870,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 20264,
+          "retained_bytes": 49916620
+        },
+        {
+          "version": "direct",
+          "wall_ms": 30.256124999999997,
+          "peak_rss_bytes": 19267584,
+          "diagnostic": "coderg: incrementally indexed 82 changed files\ncoderg: compacted 1 base + middle segments (1908340 input bytes, 1949870 output bytes)",
+          "base_id": 1789015387221261000,
+          "base_bytes_before": 1908340,
+          "middle_bytes_before": 0,
+          "base_bytes": 1949870,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 20264,
+          "retained_bytes": 43285519
+        },
+        {
+          "version": "main",
+          "wall_ms": 8.083875,
+          "peak_rss_bytes": 10829824,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1789015384317205000,
+          "base_bytes_before": 2076266,
+          "middle_bytes_before": 1154167,
+          "base_bytes": 1895471,
+          "middle_bytes": 114183,
+          "segments": 3,
+          "manifest_bytes": 17819,
+          "retained_bytes": 10735513
+        }
+      ],
+      "rg": {
+        "wall_ms": 6.951667,
+        "peak_rss_bytes": 6242304
+      }
+    },
+    {
+      "step": 0,
+      "from_commit": "c829976a2d0c8dac44309f13deaedd5c46323f05",
+      "commit": "d723bb05825613cd3bb825fea0eca8309925ca1a",
+      "subject": "refactor(runtime): adopt winit event loop (#98)",
+      "changed_files": 55,
+      "added_lines": 721,
+      "deleted_lines": 11150,
+      "added_files": 0,
+      "deleted_files": 26,
+      "renamed_files": 0,
+      "target_source_bytes": 333781,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 25.285249999999998,
+          "peak_rss_bytes": 17235968,
+          "diagnostic": "coderg: incrementally indexed 55 changed files\ncoderg: compacted 1 base + middle segments (1949870 input bytes, 1479462 output bytes)",
+          "base_id": 1789015387364246000,
+          "base_bytes_before": 1949870,
+          "middle_bytes_before": 0,
+          "base_bytes": 1479462,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18610,
+          "retained_bytes": 44763327
+        },
+        {
+          "version": "main",
+          "wall_ms": 8.152875,
+          "peak_rss_bytes": 10600448,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1789015381620253000,
+          "base_bytes_before": 1895471,
+          "middle_bytes_before": 114183,
+          "base_bytes": 1463000,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 14039,
+          "retained_bytes": 10731733
+        },
+        {
+          "version": "rough",
+          "wall_ms": 59.014667,
+          "peak_rss_bytes": 17661952,
+          "diagnostic": "coderg: incrementally indexed 55 changed files\ncoderg: compacted 2 base + middle segments (2513124 input bytes, 1479462 output bytes)",
+          "base_id": 1789015387418281000,
+          "base_bytes_before": 1949870,
+          "middle_bytes_before": 0,
+          "base_bytes": 1479462,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 18610,
+          "retained_bytes": 51957682
+        }
+      ],
+      "rg": {
+        "wall_ms": 6.660542,
+        "peak_rss_bytes": 6111232
+      }
+    },
+    {
+      "step": 20,
+      "from_commit": "d723bb05825613cd3bb825fea0eca8309925ca1a",
+      "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+      "subject": "docs: refresh repository agent guide (#121)",
+      "changed_files": 106,
+      "added_lines": 14678,
+      "deleted_lines": 4712,
+      "added_files": 41,
+      "deleted_files": 23,
+      "renamed_files": 0,
+      "target_source_bytes": 978714,
+      "measurements": [
+        {
+          "version": "main",
+          "wall_ms": 7.979333,
+          "peak_rss_bytes": 10944512,
+          "diagnostic": "coderg: switched to cached Git tree index",
+          "base_id": 1789015385808541000,
+          "base_bytes_before": 1463000,
+          "middle_bytes_before": 0,
+          "base_bytes": 2076266,
+          "middle_bytes": 1185068,
+          "segments": 5,
+          "manifest_bytes": 18925,
+          "retained_bytes": 10736619
+        },
+        {
+          "version": "rough",
+          "wall_ms": 68.547042,
+          "peak_rss_bytes": 23134208,
+          "diagnostic": "coderg: incrementally indexed 106 changed files\ncoderg: compacted 2 base + middle segments (2880448 input bytes, 1931933 output bytes)",
+          "base_id": 1789015387618098000,
+          "base_bytes_before": 1479462,
+          "middle_bytes_before": 0,
+          "base_bytes": 1931933,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 23072,
+          "retained_bytes": 55295063
+        },
+        {
+          "version": "direct",
+          "wall_ms": 30.685791000000002,
+          "peak_rss_bytes": 21331968,
+          "diagnostic": "coderg: incrementally indexed 106 changed files\ncoderg: compacted 1 base + middle segments (1479462 input bytes, 1931933 output bytes)",
+          "base_id": 1789015387667912000,
+          "base_bytes_before": 1479462,
+          "middle_bytes_before": 0,
+          "base_bytes": 1931933,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 23072,
+          "retained_bytes": 46699722
+        }
+      ],
+      "rg": {
+        "wall_ms": 7.934750000000001,
+        "peak_rss_bytes": 6111232
+      }
+    }
+  ],
+  "queries": [
+    {
+      "step": 0,
+      "version": "main",
+      "query": "whisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.7676250000000002,
+        3.2554160000000003,
+        3.001459
+      ]
+    },
+    {
+      "step": 0,
+      "version": "rough",
+      "query": "whisper",
+      "no_refresh": true,
+      "samples_ms": [
+        3.051958,
+        2.973917,
+        3.1175420000000003
+      ]
+    },
+    {
+      "step": 0,
+      "version": "direct",
+      "query": "whisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.893083,
+        2.815792,
+        2.797042
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "whisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.325625,
+        4.412666,
+        4.107416
+      ]
+    },
+    {
+      "step": 0,
+      "version": "rough",
+      "query": "whisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.268375,
+        4.277792,
+        4.262417
+      ]
+    },
+    {
+      "step": 0,
+      "version": "direct",
+      "query": "whisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.13575,
+        4.412708,
+        4.233333
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "viberwhisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.73375,
+        2.759375,
+        2.7447090000000003
+      ]
+    },
+    {
+      "step": 0,
+      "version": "rough",
+      "query": "viberwhisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.835833,
+        2.729417,
+        2.8297090000000003
+      ]
+    },
+    {
+      "step": 0,
+      "version": "direct",
+      "query": "viberwhisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.988667,
+        2.842542,
+        2.7738329999999998
+      ]
+    },
+    {
+      "step": 0,
+      "version": "main",
+      "query": "viberwhisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.179583,
+        4.2677499999999995,
+        4.215875
+      ]
+    },
+    {
+      "step": 0,
+      "version": "rough",
+      "query": "viberwhisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.423417,
+        4.15325,
+        4.283625
+      ]
+    },
+    {
+      "step": 0,
+      "version": "direct",
+      "query": "viberwhisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.377041,
+        4.447457999999999,
+        4.204625
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "whisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.978958,
+        2.865459,
+        2.923875
+      ]
+    },
+    {
+      "step": 1,
+      "version": "rough",
+      "query": "whisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.777542,
+        2.816375,
+        2.79575
+      ]
+    },
+    {
+      "step": 1,
+      "version": "direct",
+      "query": "whisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.8873330000000004,
+        2.899083,
+        2.849792
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "whisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.2350829999999995,
+        4.452667000000001,
+        4.335625
+      ]
+    },
+    {
+      "step": 1,
+      "version": "rough",
+      "query": "whisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.08275,
+        4.24375,
+        4.063667
+      ]
+    },
+    {
+      "step": 1,
+      "version": "direct",
+      "query": "whisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.401083,
+        4.237708,
+        4.164292
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "viberwhisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.9406660000000002,
+        2.755875,
+        2.715458
+      ]
+    },
+    {
+      "step": 1,
+      "version": "rough",
+      "query": "viberwhisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.828208,
+        2.757333,
+        2.659666
+      ]
+    },
+    {
+      "step": 1,
+      "version": "direct",
+      "query": "viberwhisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.644792,
+        2.702875,
+        2.868958
+      ]
+    },
+    {
+      "step": 1,
+      "version": "main",
+      "query": "viberwhisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.23225,
+        4.012542,
+        4.343334
+      ]
+    },
+    {
+      "step": 1,
+      "version": "rough",
+      "query": "viberwhisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.123209,
+        4.227083,
+        4.334833
+      ]
+    },
+    {
+      "step": 1,
+      "version": "direct",
+      "query": "viberwhisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.154,
+        4.362167,
+        4.044125
+      ]
+    },
+    {
+      "step": 20,
+      "version": "main",
+      "query": "whisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.839167,
+        2.87475,
+        2.944875
+      ]
+    },
+    {
+      "step": 20,
+      "version": "rough",
+      "query": "whisper",
+      "no_refresh": true,
+      "samples_ms": [
+        3.093334,
+        2.962708,
+        2.913125
+      ]
+    },
+    {
+      "step": 20,
+      "version": "direct",
+      "query": "whisper",
+      "no_refresh": true,
+      "samples_ms": [
+        3.023708,
+        2.981667,
+        3.0395000000000003
+      ]
+    },
+    {
+      "step": 20,
+      "version": "main",
+      "query": "whisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.454208,
+        4.498417,
+        4.4975
+      ]
+    },
+    {
+      "step": 20,
+      "version": "rough",
+      "query": "whisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.384583,
+        4.341625,
+        4.592916
+      ]
+    },
+    {
+      "step": 20,
+      "version": "direct",
+      "query": "whisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.377917,
+        4.3567919999999996,
+        4.367833
+      ]
+    },
+    {
+      "step": 20,
+      "version": "main",
+      "query": "viberwhisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.807416,
+        2.713416,
+        2.773625
+      ]
+    },
+    {
+      "step": 20,
+      "version": "rough",
+      "query": "viberwhisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.7430000000000003,
+        2.732958,
+        2.782583
+      ]
+    },
+    {
+      "step": 20,
+      "version": "direct",
+      "query": "viberwhisper",
+      "no_refresh": true,
+      "samples_ms": [
+        2.7889999999999997,
+        2.6957079999999998,
+        2.7629170000000003
+      ]
+    },
+    {
+      "step": 20,
+      "version": "main",
+      "query": "viberwhisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.2975840000000005,
+        4.49625,
+        4.432167
+      ]
+    },
+    {
+      "step": 20,
+      "version": "rough",
+      "query": "viberwhisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.267125,
+        4.373084,
+        4.185042
+      ]
+    },
+    {
+      "step": 20,
+      "version": "direct",
+      "query": "viberwhisper",
+      "no_refresh": false,
+      "samples_ms": [
+        4.3288329999999995,
+        4.441625,
+        4.336042
+      ]
+    }
+  ],
+  "iterations": 3,
+  "warmup": 1,
+  "verification_queries": [
+    "whisper",
+    "viberwhisper"
+  ],
+  "update_query": "whisper",
+  "verified_comparisons": 222
+}

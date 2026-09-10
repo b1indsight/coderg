@@ -1,0 +1,40 @@
+{
+  "branch": "feat/generational-index-refresh",
+  "main_commit": "0ab2294a8097f52d7ea4a8a0167de6ea2697abdb",
+  "binaries": {
+    "main": {
+      "path": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+      "sha256": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc"
+    },
+    "direct": {
+      "path": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-direct",
+      "sha256": "3e6dc4afcb00cd7a8b6243766334dad12eaf59ac8378bdcab81895dfd05a3c02"
+    },
+    "current": {
+      "path": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-8m-e1ckld84/coderg-current",
+      "sha256": "bc31914d9e73b0a1400df5ffdeb94cd4c40e002f2e57f075fb26bec3eb37a8d4"
+    }
+  },
+  "source_sha256": {
+    "Cargo.lock": "5d3c35a1b7544ea97f170ebde68b759c47e7a43f83fad02f9ac3cf2ecc7ba9fb",
+    "Cargo.toml": "18efd77a80ca3b937174040dde1d662312f5ff4fc9600b78e38536d208bd290d",
+    "benches/history_updates.rs": "39020363f0d638a4466e2c0bd3bfe79bc8b599205485fca0064bf8c26791837c",
+    "src/build.rs": "bbaaa1020edb68155e56bb3640de882ef8a36d73731161f25997fed42f9d1a75",
+    "src/compaction.rs": "57345e494f40addd5ed7c67d2943e1f7eaf926791faca1a15c817f03c7d58b82",
+    "src/git_state.rs": "5818ce1a65c067d38ae3761dd11935885300cbd215890084f86624ded4d4950a",
+    "src/index.rs": "c204684be4c0ec6543fb2fa82b5df4c5ced7f69eebb431fba8bcaf8693d30cf4",
+    "src/main.rs": "8b29e815038d45e52d5ffab23ff7fc17eeb14867d594a88b5127c171e6d84717",
+    "src/manifest.rs": "aa8a0daaed066b59137dd31aa954f9aecc6bfaa83f5c339c3a317a51014da5f4",
+    "src/ngram.rs": "af1e95510a056d81b9fb78eff29818164f0e88bc8498a44252cc020696828db6",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "0aeab408536f75b49235df76a7497b2a10529999a29bc21432f29dd0efc9d634",
+    "src/segment.rs": "9903646d7fc2146f64a62549e89f8fea49df6a44366a76aaa399ea85c8d83e21",
+    "tests/build_memory.rs": "329fa4578ec192cd8bbc3c880ca106a79bcd8b43f0733635ece4bd028e751237",
+    "tests/cli.rs": "149119ed9ceee49199857c24f044728cbdb1ba5cc6c9a925e9ad656118b167d9",
+    "tests/generational.rs": "9c3590b05c5ee544963467a59c541a8a36bc82aab6de7053efb4ec95192a7b8a",
+    "tests/git_incremental.rs": "02365fee73030462a12777f21bf48b651e8d857253cd1b85887779e48a4ca70f",
+    "tests/manifest.rs": "a729e0cc66c87c38092aae51fe909753683167820cd647309b266d596976a2d9"
+  },
+  "queries_state": "HEAD after four rollback/replay checks; separately timed, 1 warmup + 10 samples; same hidden-file policy as coderg",
+  "rebuild_bytes_method": "before delta bytes plus actual lookup/postings pair immediately preceding the new base ID; checked against retained-byte difference"
+}

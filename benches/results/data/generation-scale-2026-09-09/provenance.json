@@ -1,0 +1,75 @@
+{
+  "baseline_commit": "0ab2294a8097f52d7ea4a8a0167de6ea2697abdb",
+  "branch": "feat/generational-index-refresh",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "Apple M5",
+    "memory_bytes": 25769803776,
+    "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+    "rg": "ripgrep 15.2.0 (rev e89fff89ac)\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)",
+    "environment": {
+      "RAYON_NUM_THREADS": null,
+      "LANG": "en_US.UTF-8",
+      "LC_ALL": "C.UTF-8"
+    }
+  },
+  "product_policy": "M >= max(B*25%, 8 MiB), sync enabled",
+  "binary_sha256": {
+    "main": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc",
+    "current": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5",
+    "no-sync": "e65989786f790bd6528d6404aa733a774d438260391f59765edf5875852ae452"
+  },
+  "history": {
+    "source": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/vllm-history",
+    "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/generation-scale-0o2exwtj/history-D1dSNC",
+    "base_commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+    "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "variants": [
+      {
+        "name": "main",
+        "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+        "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/generation-scale-0o2exwtj/history-D1dSNC/index-main"
+      },
+      {
+        "name": "current",
+        "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+        "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/generation-scale-0o2exwtj/history-D1dSNC/index-current"
+      },
+      {
+        "name": "no-sync",
+        "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+        "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/generation-scale-0o2exwtj/history-D1dSNC/index-no-sync"
+      }
+    ],
+    "iterations": 5,
+    "warmup": 2,
+    "verification_queries": [
+      "AsyncMock",
+      "SamplingParams",
+      "class "
+    ],
+    "update_query": "SamplingParams",
+    "verified_comparisons": 945
+  },
+  "vllm_updates": 100,
+  "small_history_sources": [
+    "../small-sync-profile-2026-09-09/viberwhisper-history.json",
+    "../small-sync-profile-2026-09-09/agentflow-history.json"
+  ],
+  "source_archives": {
+    "current": "../small-auto25-2026-09-09/source.tar.gz",
+    "diagnostic": "../small-sync-profile-2026-09-09/profile-source.tar.gz; set probe::SKIP_SYNC to true"
+  },
+  "validation": {
+    "vllm_rg_comparisons": 945,
+    "identical_maintenance_except_sync": true,
+    "product_source_and_release_unchanged": true
+  },
+  "interpretation": "Means include periodic maintenance. Reference sizes describe terminal snapshots or nearby rebuilt B, not every historical step. B 10-20 MiB is an unvalidated sampling range estimated from rebuild amortization, not a product cutoff.",
+  "artifact_sha256": {
+    "summary.json": "2110712129aa05686da09a2a9281f6598b9f6f5bf4d5d4565ae3e2f9c276a122",
+    "comparison.csv": "aebc2ad327a45be2e77395d97c498c7589079fa02ca5376e3ca87174162fb06e",
+    "vllm-history.json": "be55c6ed8b202bece0ca8140c451766e72eae4829bf28e28226692eed0965368",
+    "analyze.py": "9215c74c49adb1e238d2e21cd1fdc01e67d35c4b915e982354a47d32b73e90fc"
+  }
+}

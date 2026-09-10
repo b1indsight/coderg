@@ -1,0 +1,1138 @@
+{
+  "viberwhisper-history.json": {
+    "base_commit": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+    "end_commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "commits": 100,
+    "verified_comparisons": 945,
+    "changes": {
+      "changed_files": {
+        "median": 6.0,
+        "p95": 23,
+        "max": 579,
+        "sum": 1378
+      },
+      "added_lines": {
+        "median": 207.0,
+        "p95": 2279,
+        "max": 5631,
+        "sum": 53312
+      },
+      "deleted_lines": {
+        "median": 40.5,
+        "p95": 826,
+        "max": 3929,
+        "sum": 21375
+      },
+      "target_source_bytes": {
+        "median": 51793.5,
+        "p95": 250582,
+        "max": 442000,
+        "sum": 7996588
+      }
+    },
+    "variants": {
+      "main": {
+        "update_ms": {
+          "median": 9.9944165,
+          "p95": 18.710167,
+          "max": 29.652375000000003,
+          "sum": 1080.821676
+        },
+        "without_base_merge_ms": {
+          "median": 9.9944165,
+          "p95": 18.710167,
+          "max": 29.652375000000003,
+          "sum": 1080.821676
+        },
+        "full_merges": [],
+        "middle_merges": 0,
+        "max_middle_mib": 2.188021659851074,
+        "max_update_rss_mib": 23.15625,
+        "final": {
+          "version": "main",
+          "wall_ms": 11.16875,
+          "peak_rss_bytes": 11714560,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1788936347133615000,
+          "base_bytes": 2083991,
+          "middle_bytes": 1042182,
+          "segments": 4,
+          "manifest_bytes": 18809,
+          "retained_bytes": 25512286
+        },
+        "queries": {
+          "Transcription|default": {
+            "checkpoint_medians_ms": {
+              "0": 3.3629160000000002,
+              "1": 3.284959,
+              "25": 3.502875,
+              "50": 3.983416,
+              "100": 4.679792
+            },
+            "all_samples_ms": {
+              "median": 3.502875,
+              "p95": 4.8103750000000005,
+              "max": 4.914292,
+              "sum": 132.338001
+            }
+          },
+          "Transcription|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.3912500000000003,
+              "1": 2.5619169999999998,
+              "25": 2.449208,
+              "50": 2.506084,
+              "100": 2.9845409999999997
+            },
+            "all_samples_ms": {
+              "median": 2.504958,
+              "p95": 5.365959,
+              "max": 6.348542,
+              "sum": 96.27058099999999
+            }
+          },
+          "fn |default": {
+            "checkpoint_medians_ms": {
+              "0": 3.412292,
+              "1": 3.6774590000000003,
+              "25": 3.623042,
+              "50": 4.080208,
+              "100": 4.772041000000001
+            },
+            "all_samples_ms": {
+              "median": 3.804375,
+              "p95": 5.008417000000001,
+              "max": 5.043916,
+              "sum": 137.274668
+            }
+          },
+          "fn |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.5174580000000004,
+              "1": 2.4205,
+              "25": 2.556792,
+              "50": 2.677709,
+              "100": 3.166959
+            },
+            "all_samples_ms": {
+              "median": 2.576292,
+              "p95": 3.2545830000000002,
+              "max": 3.365292,
+              "sum": 93.03995900000001
+            }
+          },
+          "self|default": {
+            "checkpoint_medians_ms": {
+              "0": 3.3414590000000004,
+              "1": 3.408125,
+              "25": 3.703375,
+              "50": 4.036167,
+              "100": 4.758875
+            },
+            "all_samples_ms": {
+              "median": 3.703375,
+              "p95": 4.792584,
+              "max": 4.849334000000001,
+              "sum": 135.050169
+            }
+          },
+          "self|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.380667,
+              "1": 2.338917,
+              "25": 2.4795,
+              "50": 2.676792,
+              "100": 3.061083
+            },
+            "all_samples_ms": {
+              "median": 2.4795,
+              "p95": 3.113291,
+              "max": 3.1588749999999997,
+              "sum": 90.743668
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+            "to": "65186fe565fcc21af180634a6b0684e2e18ed192",
+            "changed_files": 1,
+            "version": "main",
+            "wall_ms": 8.065625,
+            "peak_rss_bytes": 10731520,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788936347133615000,
+            "base_bytes": 2083991,
+            "middle_bytes": 1011281,
+            "segments": 3,
+            "manifest_bytes": 18703,
+            "retained_bytes": 25512180
+          },
+          {
+            "from": "65186fe565fcc21af180634a6b0684e2e18ed192",
+            "to": "56db8d28b68cc2c12237e0c97c45bd9fa2ee524e",
+            "changed_files": 157,
+            "version": "main",
+            "wall_ms": 7.826083,
+            "peak_rss_bytes": 10371072,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788936337995315000,
+            "base_bytes": 858641,
+            "middle_bytes": 147684,
+            "segments": 2,
+            "manifest_bytes": 10206,
+            "retained_bytes": 25503683
+          },
+          {
+            "from": "56db8d28b68cc2c12237e0c97c45bd9fa2ee524e",
+            "to": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+            "changed_files": 670,
+            "version": "main",
+            "wall_ms": 10.042292,
+            "peak_rss_bytes": 10240000,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788936327887120000,
+            "base_bytes": 73872,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 2033,
+            "retained_bytes": 25495510
+          },
+          {
+            "from": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+            "to": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+            "changed_files": 720,
+            "version": "main",
+            "wall_ms": 8.399083,
+            "peak_rss_bytes": 10698752,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788936347133615000,
+            "base_bytes": 2083991,
+            "middle_bytes": 1042182,
+            "segments": 4,
+            "manifest_bytes": 18809,
+            "retained_bytes": 25512286
+          }
+        ]
+      },
+      "auto50": {
+        "update_ms": {
+          "median": 27.746375,
+          "p95": 43.736167,
+          "max": 55.358125,
+          "sum": 3023.686128
+        },
+        "without_base_merge_ms": {
+          "median": 27.746375,
+          "p95": 43.736167,
+          "max": 55.358125,
+          "sum": 3023.686128
+        },
+        "full_merges": [],
+        "middle_merges": 28,
+        "max_middle_mib": 5.011152267456055,
+        "max_update_rss_mib": 17.78125,
+        "final": {
+          "version": "auto50",
+          "wall_ms": 27.110916999999997,
+          "peak_rss_bytes": 11567104,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1788936328383335000,
+          "base_bytes": 73872,
+          "middle_bytes": 4731014,
+          "segments": 8,
+          "manifest_bytes": 23226,
+          "retained_bytes": 25680065
+        },
+        "queries": {
+          "Transcription|default": {
+            "checkpoint_medians_ms": {
+              "0": 3.407542,
+              "1": 3.316,
+              "25": 3.7205,
+              "50": 4.008875000000001,
+              "100": 4.724667
+            },
+            "all_samples_ms": {
+              "median": 3.7205,
+              "p95": 4.742125,
+              "max": 4.9385829999999995,
+              "sum": 134.424167
+            }
+          },
+          "Transcription|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.334125,
+              "1": 2.483875,
+              "25": 2.565083,
+              "50": 2.761833,
+              "100": 3.069791
+            },
+            "all_samples_ms": {
+              "median": 2.6138749999999997,
+              "p95": 3.0964579999999997,
+              "max": 3.124042,
+              "sum": 92.364542
+            }
+          },
+          "fn |default": {
+            "checkpoint_medians_ms": {
+              "0": 3.397625,
+              "1": 3.787292,
+              "25": 3.86325,
+              "50": 4.144,
+              "100": 4.8455829999999995
+            },
+            "all_samples_ms": {
+              "median": 3.954209,
+              "p95": 4.979,
+              "max": 5.08925,
+              "sum": 141.373961
+            }
+          },
+          "fn |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.5037089999999997,
+              "1": 2.4402500000000003,
+              "25": 2.683375,
+              "50": 2.942709,
+              "100": 3.219708
+            },
+            "all_samples_ms": {
+              "median": 2.720292,
+              "p95": 3.3167079999999998,
+              "max": 3.324833,
+              "sum": 97.116751
+            }
+          },
+          "self|default": {
+            "checkpoint_medians_ms": {
+              "0": 3.347666,
+              "1": 3.377458,
+              "25": 3.776167,
+              "50": 4.202166,
+              "100": 4.744959
+            },
+            "all_samples_ms": {
+              "median": 3.776167,
+              "p95": 4.861583,
+              "max": 4.906416999999999,
+              "sum": 136.281625
+            }
+          },
+          "self|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.4370410000000002,
+              "1": 2.309042,
+              "25": 2.637792,
+              "50": 2.9453750000000003,
+              "100": 3.144125
+            },
+            "all_samples_ms": {
+              "median": 2.637792,
+              "p95": 3.2842919999999998,
+              "max": 3.409166,
+              "sum": 94.73612800000001
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+            "to": "65186fe565fcc21af180634a6b0684e2e18ed192",
+            "changed_files": 1,
+            "version": "auto50",
+            "wall_ms": 27.931292,
+            "peak_rss_bytes": 11599872,
+            "diagnostic": "coderg: incrementally indexed 1 changed files",
+            "base_id": 1788936328383335000,
+            "base_bytes": 73872,
+            "middle_bytes": 4728878,
+            "segments": 8,
+            "manifest_bytes": 23226,
+            "retained_bytes": 25716360
+          },
+          {
+            "from": "65186fe565fcc21af180634a6b0684e2e18ed192",
+            "to": "56db8d28b68cc2c12237e0c97c45bd9fa2ee524e",
+            "changed_files": 157,
+            "version": "auto50",
+            "wall_ms": 36.125292,
+            "peak_rss_bytes": 16908288,
+            "diagnostic": "coderg: incrementally indexed 159 changed files",
+            "base_id": 1788936328383335000,
+            "base_bytes": 73872,
+            "middle_bytes": 3041201,
+            "segments": 5,
+            "manifest_bytes": 22016,
+            "retained_bytes": 26604155
+          },
+          {
+            "from": "56db8d28b68cc2c12237e0c97c45bd9fa2ee524e",
+            "to": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+            "changed_files": 670,
+            "version": "auto50",
+            "wall_ms": 25.955333,
+            "peak_rss_bytes": 11403264,
+            "diagnostic": "coderg: incrementally indexed 93 changed files",
+            "base_id": 1788936328383335000,
+            "base_bytes": 73872,
+            "middle_bytes": 89422,
+            "segments": 2,
+            "manifest_bytes": 18935,
+            "retained_bytes": 26690496
+          },
+          {
+            "from": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+            "to": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+            "changed_files": 720,
+            "version": "auto50",
+            "wall_ms": 44.060708,
+            "peak_rss_bytes": 22413312,
+            "diagnostic": "coderg: incrementally indexed 142 changed files",
+            "base_id": 1788936328383335000,
+            "base_bytes": 73872,
+            "middle_bytes": 2161746,
+            "segments": 2,
+            "manifest_bytes": 34796,
+            "retained_bytes": 28868103
+          }
+        ]
+      },
+      "auto25": {
+        "update_ms": {
+          "median": 27.901500499999997,
+          "p95": 43.867749999999994,
+          "max": 54.801875,
+          "sum": 3024.052296
+        },
+        "without_base_merge_ms": {
+          "median": 27.901500499999997,
+          "p95": 43.867749999999994,
+          "max": 54.801875,
+          "sum": 3024.052296
+        },
+        "full_merges": [],
+        "middle_merges": 28,
+        "max_middle_mib": 5.011152267456055,
+        "max_update_rss_mib": 17.703125,
+        "final": {
+          "version": "auto25",
+          "wall_ms": 30.615416,
+          "peak_rss_bytes": 11632640,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1788936328425199000,
+          "base_bytes": 73872,
+          "middle_bytes": 4731014,
+          "segments": 8,
+          "manifest_bytes": 23226,
+          "retained_bytes": 25680065
+        },
+        "queries": {
+          "Transcription|default": {
+            "checkpoint_medians_ms": {
+              "0": 3.349042,
+              "1": 3.337417,
+              "25": 3.76025,
+              "50": 4.1745,
+              "100": 4.683459
+            },
+            "all_samples_ms": {
+              "median": 3.7976249999999996,
+              "p95": 4.7652090000000005,
+              "max": 4.83775,
+              "sum": 136.933879
+            }
+          },
+          "Transcription|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.323292,
+              "1": 2.406583,
+              "25": 2.587042,
+              "50": 2.664583,
+              "100": 2.975334
+            },
+            "all_samples_ms": {
+              "median": 2.603667,
+              "p95": 3.1180410000000003,
+              "max": 6.36075,
+              "sum": 95.251121
+            }
+          },
+          "fn |default": {
+            "checkpoint_medians_ms": {
+              "0": 3.3518749999999997,
+              "1": 3.8021249999999998,
+              "25": 3.8145000000000002,
+              "50": 4.203792,
+              "100": 4.891249999999999
+            },
+            "all_samples_ms": {
+              "median": 3.911084,
+              "p95": 5.03975,
+              "max": 5.2700000000000005,
+              "sum": 140.389669
+            }
+          },
+          "fn |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.469875,
+              "1": 2.4254580000000003,
+              "25": 2.601958,
+              "50": 2.790333,
+              "100": 3.248625
+            },
+            "all_samples_ms": {
+              "median": 2.659458,
+              "p95": 3.325958,
+              "max": 3.39575,
+              "sum": 95.680955
+            }
+          },
+          "self|default": {
+            "checkpoint_medians_ms": {
+              "0": 3.368,
+              "1": 3.390958,
+              "25": 3.85,
+              "50": 4.335,
+              "100": 4.711416000000001
+            },
+            "all_samples_ms": {
+              "median": 3.85,
+              "p95": 4.960458,
+              "max": 4.984459,
+              "sum": 138.203709
+            }
+          },
+          "self|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.3930000000000002,
+              "1": 2.376209,
+              "25": 2.700917,
+              "50": 2.8630410000000004,
+              "100": 3.251375
+            },
+            "all_samples_ms": {
+              "median": 2.700917,
+              "p95": 3.2555829999999997,
+              "max": 3.28675,
+              "sum": 95.391665
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+            "to": "65186fe565fcc21af180634a6b0684e2e18ed192",
+            "changed_files": 1,
+            "version": "auto25",
+            "wall_ms": 27.76925,
+            "peak_rss_bytes": 11517952,
+            "diagnostic": "coderg: incrementally indexed 1 changed files",
+            "base_id": 1788936328425199000,
+            "base_bytes": 73872,
+            "middle_bytes": 4728878,
+            "segments": 8,
+            "manifest_bytes": 23226,
+            "retained_bytes": 25716360
+          },
+          {
+            "from": "65186fe565fcc21af180634a6b0684e2e18ed192",
+            "to": "56db8d28b68cc2c12237e0c97c45bd9fa2ee524e",
+            "changed_files": 157,
+            "version": "auto25",
+            "wall_ms": 29.590083,
+            "peak_rss_bytes": 17104896,
+            "diagnostic": "coderg: incrementally indexed 159 changed files",
+            "base_id": 1788936328425199000,
+            "base_bytes": 73872,
+            "middle_bytes": 3041201,
+            "segments": 5,
+            "manifest_bytes": 22016,
+            "retained_bytes": 26604155
+          },
+          {
+            "from": "56db8d28b68cc2c12237e0c97c45bd9fa2ee524e",
+            "to": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+            "changed_files": 670,
+            "version": "auto25",
+            "wall_ms": 27.90575,
+            "peak_rss_bytes": 11452416,
+            "diagnostic": "coderg: incrementally indexed 93 changed files",
+            "base_id": 1788936328425199000,
+            "base_bytes": 73872,
+            "middle_bytes": 89422,
+            "segments": 2,
+            "manifest_bytes": 18935,
+            "retained_bytes": 26690496
+          },
+          {
+            "from": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+            "to": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+            "changed_files": 720,
+            "version": "auto25",
+            "wall_ms": 40.718167,
+            "peak_rss_bytes": 23052288,
+            "diagnostic": "coderg: incrementally indexed 142 changed files",
+            "base_id": 1788936328425199000,
+            "base_bytes": 73872,
+            "middle_bytes": 2161746,
+            "segments": 2,
+            "manifest_bytes": 34796,
+            "retained_bytes": 28868103
+          }
+        ]
+      }
+    }
+  },
+  "agentflow-history.json": {
+    "base_commit": "e65d534b0efddadfa433770621ca4340786736bf",
+    "end_commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+    "commits": 19,
+    "verified_comparisons": 216,
+    "changes": {
+      "changed_files": {
+        "median": 29,
+        "p95": 56,
+        "max": 56,
+        "sum": 461
+      },
+      "added_lines": {
+        "median": 962,
+        "p95": 3700,
+        "max": 3700,
+        "sum": 24383
+      },
+      "deleted_lines": {
+        "median": 194,
+        "p95": 1115,
+        "max": 1115,
+        "sum": 4970
+      },
+      "target_source_bytes": {
+        "median": 224006,
+        "p95": 919999,
+        "max": 919999,
+        "sum": 5545749
+      }
+    },
+    "variants": {
+      "main": {
+        "update_ms": {
+          "median": 11.796667000000001,
+          "p95": 28.429458,
+          "max": 28.429458,
+          "sum": 270.963503
+        },
+        "without_base_merge_ms": {
+          "median": 11.796667000000001,
+          "p95": 28.429458,
+          "max": 28.429458,
+          "sum": 270.963503
+        },
+        "full_merges": [],
+        "middle_merges": 0,
+        "max_middle_mib": 2.91818904876709,
+        "max_update_rss_mib": 21.109375,
+        "final": {
+          "version": "main",
+          "wall_ms": 13.810459,
+          "peak_rss_bytes": 16596992,
+          "diagnostic": "coderg: incrementally indexed 35 changed files",
+          "base_id": 1788936412411993000,
+          "base_bytes": 1865917,
+          "middle_bytes": 1983205,
+          "segments": 4,
+          "manifest_bytes": 14387,
+          "retained_bytes": 12252684
+        },
+        "queries": {
+          "class |default": {
+            "checkpoint_medians_ms": {
+              "0": 3.567958,
+              "1": 4.0003340000000005,
+              "19": 4.4625
+            },
+            "all_samples_ms": {
+              "median": 4.0003340000000005,
+              "p95": 4.540584,
+              "max": 4.619708,
+              "sum": 84.36783199999999
+            }
+          },
+          "class |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.450417,
+              "1": 2.627875,
+              "19": 3.054709
+            },
+            "all_samples_ms": {
+              "median": 2.629167,
+              "p95": 3.234292,
+              "max": 3.417708,
+              "sum": 57.801418999999996
+            }
+          },
+          "def |default": {
+            "checkpoint_medians_ms": {
+              "0": 3.741791,
+              "1": 3.721667,
+              "19": 4.567584
+            },
+            "all_samples_ms": {
+              "median": 3.7720000000000002,
+              "p95": 4.60475,
+              "max": 4.6225830000000006,
+              "sum": 84.109583
+            }
+          },
+          "def |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.600291,
+              "1": 2.611875,
+              "19": 3.106625
+            },
+            "all_samples_ms": {
+              "median": 2.632625,
+              "p95": 3.317291,
+              "max": 7.399959,
+              "sum": 63.722831
+            }
+          },
+          "review_batch|default": {
+            "checkpoint_medians_ms": {
+              "0": 3.26825,
+              "1": 3.293042,
+              "19": 3.739875
+            },
+            "all_samples_ms": {
+              "median": 3.352417,
+              "p95": 3.789167,
+              "max": 3.877708,
+              "sum": 72.235916
+            }
+          },
+          "review_batch|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.245333,
+              "1": 2.2235,
+              "19": 2.383417
+            },
+            "all_samples_ms": {
+              "median": 2.248084,
+              "p95": 2.4380830000000002,
+              "max": 2.473167,
+              "sum": 48.059418
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+            "to": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+            "changed_files": 35,
+            "version": "main",
+            "wall_ms": 7.141416,
+            "peak_rss_bytes": 10747904,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788936412411993000,
+            "base_bytes": 1865917,
+            "middle_bytes": 1385452,
+            "segments": 3,
+            "manifest_bytes": 13777,
+            "retained_bytes": 12252074
+          },
+          {
+            "from": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+            "to": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+            "changed_files": 86,
+            "version": "main",
+            "wall_ms": 7.489875,
+            "peak_rss_bytes": 10420224,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788936410962274000,
+            "base_bytes": 1388655,
+            "middle_bytes": 124629,
+            "segments": 2,
+            "manifest_bytes": 9095,
+            "retained_bytes": 12247392
+          },
+          {
+            "from": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+            "to": "e65d534b0efddadfa433770621ca4340786736bf",
+            "changed_files": 79,
+            "version": "main",
+            "wall_ms": 6.495459,
+            "peak_rss_bytes": 10059776,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788936408447348000,
+            "base_bytes": 857789,
+            "middle_bytes": 0,
+            "segments": 1,
+            "manifest_bytes": 3265,
+            "retained_bytes": 12241562
+          },
+          {
+            "from": "e65d534b0efddadfa433770621ca4340786736bf",
+            "to": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+            "changed_files": 120,
+            "version": "main",
+            "wall_ms": 7.382458,
+            "peak_rss_bytes": 10764288,
+            "diagnostic": "coderg: switched to cached Git tree index",
+            "base_id": 1788936412411993000,
+            "base_bytes": 1865917,
+            "middle_bytes": 1983205,
+            "segments": 4,
+            "manifest_bytes": 14387,
+            "retained_bytes": 12252684
+          }
+        ]
+      },
+      "auto50": {
+        "update_ms": {
+          "median": 29.888125000000002,
+          "p95": 58.133583,
+          "max": 58.133583,
+          "sum": 648.405792
+        },
+        "without_base_merge_ms": {
+          "median": 29.888125000000002,
+          "p95": 58.133583,
+          "max": 58.133583,
+          "sum": 648.405792
+        },
+        "full_merges": [],
+        "middle_merges": 4,
+        "max_middle_mib": 5.616218566894531,
+        "max_update_rss_mib": 18.75,
+        "final": {
+          "version": "auto50",
+          "wall_ms": 58.133583,
+          "peak_rss_bytes": 19021824,
+          "diagnostic": "coderg: incrementally indexed 35 changed files\ncoderg: compacted 4 middle segments (2583735 input bytes, 1171026 output bytes)",
+          "base_id": 1788936408467903000,
+          "base_bytes": 857789,
+          "middle_bytes": 5087969,
+          "segments": 7,
+          "manifest_bytes": 15295,
+          "retained_bytes": 11976347
+        },
+        "queries": {
+          "class |default": {
+            "checkpoint_medians_ms": {
+              "0": 3.615709,
+              "1": 4.04125,
+              "19": 4.499083
+            },
+            "all_samples_ms": {
+              "median": 4.053707999999999,
+              "p95": 4.554125,
+              "max": 4.582417,
+              "sum": 85.485122
+            }
+          },
+          "class |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.491,
+              "1": 2.670334,
+              "19": 3.1966249999999996
+            },
+            "all_samples_ms": {
+              "median": 2.7014169999999997,
+              "p95": 3.2638749999999996,
+              "max": 3.336708,
+              "sum": 58.493002
+            }
+          },
+          "def |default": {
+            "checkpoint_medians_ms": {
+              "0": 3.659792,
+              "1": 3.658667,
+              "19": 4.630292
+            },
+            "all_samples_ms": {
+              "median": 3.806709,
+              "p95": 4.6944159999999995,
+              "max": 4.859792,
+              "sum": 84.08446
+            }
+          },
+          "def |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.646541,
+              "1": 2.63725,
+              "19": 3.1470000000000002
+            },
+            "all_samples_ms": {
+              "median": 2.7876670000000003,
+              "p95": 3.2135000000000002,
+              "max": 3.312958,
+              "sum": 59.62229
+            }
+          },
+          "review_batch|default": {
+            "checkpoint_medians_ms": {
+              "0": 3.319375,
+              "1": 3.23725,
+              "19": 3.849625
+            },
+            "all_samples_ms": {
+              "median": 3.384291,
+              "p95": 3.872958,
+              "max": 3.8809579999999997,
+              "sum": 73.121874
+            }
+          },
+          "review_batch|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.293417,
+              "1": 2.247709,
+              "19": 2.442166
+            },
+            "all_samples_ms": {
+              "median": 2.3119159999999996,
+              "p95": 2.478208,
+              "max": 2.5730000000000004,
+              "sum": 48.7835
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+            "to": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+            "changed_files": 35,
+            "version": "auto50",
+            "wall_ms": 29.154415999999998,
+            "peak_rss_bytes": 16171008,
+            "diagnostic": "coderg: incrementally indexed 35 changed files",
+            "base_id": 1788936408467903000,
+            "base_bytes": 857789,
+            "middle_bytes": 5618534,
+            "segments": 8,
+            "manifest_bytes": 15169,
+            "retained_bytes": 12506786
+          },
+          {
+            "from": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+            "to": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+            "changed_files": 86,
+            "version": "auto50",
+            "wall_ms": 38.652666,
+            "peak_rss_bytes": 18235392,
+            "diagnostic": "coderg: incrementally indexed 86 changed files",
+            "base_id": 1788936408467903000,
+            "base_bytes": 857789,
+            "middle_bytes": 4655229,
+            "segments": 7,
+            "manifest_bytes": 12960,
+            "retained_bytes": 13525997
+          },
+          {
+            "from": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+            "to": "e65d534b0efddadfa433770621ca4340786736bf",
+            "changed_files": 79,
+            "version": "auto50",
+            "wall_ms": 36.181208,
+            "peak_rss_bytes": 17186816,
+            "diagnostic": "coderg: incrementally indexed 80 changed files",
+            "base_id": 1788936408467903000,
+            "base_bytes": 857789,
+            "middle_bytes": 900154,
+            "segments": 2,
+            "manifest_bytes": 10255,
+            "retained_bytes": 14423446
+          },
+          {
+            "from": "e65d534b0efddadfa433770621ca4340786736bf",
+            "to": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+            "changed_files": 120,
+            "version": "auto50",
+            "wall_ms": 47.237833,
+            "peak_rss_bytes": 23003136,
+            "diagnostic": "coderg: incrementally indexed 121 changed files",
+            "base_id": 1788936408467903000,
+            "base_bytes": 857789,
+            "middle_bytes": 2070623,
+            "segments": 2,
+            "manifest_bytes": 21521,
+            "retained_bytes": 16505335
+          }
+        ]
+      },
+      "auto25": {
+        "update_ms": {
+          "median": 28.995542,
+          "p95": 58.871874999999996,
+          "max": 58.871874999999996,
+          "sum": 635.408375
+        },
+        "without_base_merge_ms": {
+          "median": 28.995542,
+          "p95": 58.871874999999996,
+          "max": 58.871874999999996,
+          "sum": 635.408375
+        },
+        "full_merges": [],
+        "middle_merges": 4,
+        "max_middle_mib": 5.616218566894531,
+        "max_update_rss_mib": 18.4375,
+        "final": {
+          "version": "auto25",
+          "wall_ms": 58.871874999999996,
+          "peak_rss_bytes": 19267584,
+          "diagnostic": "coderg: incrementally indexed 35 changed files\ncoderg: compacted 4 middle segments (2583735 input bytes, 1171026 output bytes)",
+          "base_id": 1788936408506610000,
+          "base_bytes": 857789,
+          "middle_bytes": 5087969,
+          "segments": 7,
+          "manifest_bytes": 15295,
+          "retained_bytes": 11976347
+        },
+        "queries": {
+          "class |default": {
+            "checkpoint_medians_ms": {
+              "0": 3.6462909999999997,
+              "1": 3.90075,
+              "19": 4.6141250000000005
+            },
+            "all_samples_ms": {
+              "median": 3.90075,
+              "p95": 4.676667,
+              "max": 4.82125,
+              "sum": 85.026668
+            }
+          },
+          "class |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.521625,
+              "1": 2.755958,
+              "19": 3.167959
+            },
+            "all_samples_ms": {
+              "median": 2.755958,
+              "p95": 3.1965000000000003,
+              "max": 3.233667,
+              "sum": 58.723085
+            }
+          },
+          "def |default": {
+            "checkpoint_medians_ms": {
+              "0": 3.6502499999999998,
+              "1": 3.8158749999999997,
+              "19": 4.527291999999999
+            },
+            "all_samples_ms": {
+              "median": 3.8158749999999997,
+              "p95": 4.569833,
+              "max": 4.5755,
+              "sum": 83.98154
+            }
+          },
+          "def |no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.6111250000000004,
+              "1": 2.70825,
+              "19": 3.203166
+            },
+            "all_samples_ms": {
+              "median": 2.897709,
+              "p95": 3.372125,
+              "max": 6.621290999999999,
+              "sum": 64.470084
+            }
+          },
+          "review_batch|default": {
+            "checkpoint_medians_ms": {
+              "0": 3.317792,
+              "1": 3.277875,
+              "19": 3.7455000000000003
+            },
+            "all_samples_ms": {
+              "median": 3.348458,
+              "p95": 3.8773750000000002,
+              "max": 3.886834,
+              "sum": 72.613916
+            }
+          },
+          "review_batch|no-refresh": {
+            "checkpoint_medians_ms": {
+              "0": 2.2114589999999996,
+              "1": 2.201041,
+              "19": 2.499958
+            },
+            "all_samples_ms": {
+              "median": 2.240125,
+              "p95": 2.522125,
+              "max": 2.551666,
+              "sum": 48.454001
+            }
+          }
+        },
+        "rollbacks": [
+          {
+            "from": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+            "to": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+            "changed_files": 35,
+            "version": "auto25",
+            "wall_ms": 28.680500000000002,
+            "peak_rss_bytes": 16531456,
+            "diagnostic": "coderg: incrementally indexed 35 changed files",
+            "base_id": 1788936408506610000,
+            "base_bytes": 857789,
+            "middle_bytes": 5618534,
+            "segments": 8,
+            "manifest_bytes": 15169,
+            "retained_bytes": 12506786
+          },
+          {
+            "from": "e6ec8c6222a334628285f2d93fb5278991a5e36c",
+            "to": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+            "changed_files": 86,
+            "version": "auto25",
+            "wall_ms": 39.819250000000004,
+            "peak_rss_bytes": 18268160,
+            "diagnostic": "coderg: incrementally indexed 86 changed files",
+            "base_id": 1788936408506610000,
+            "base_bytes": 857789,
+            "middle_bytes": 4655229,
+            "segments": 7,
+            "manifest_bytes": 12960,
+            "retained_bytes": 13525997
+          },
+          {
+            "from": "bf0821e6a40ab47986432a69bfa8ee5e72bb8dd7",
+            "to": "e65d534b0efddadfa433770621ca4340786736bf",
+            "changed_files": 79,
+            "version": "auto25",
+            "wall_ms": 33.900125,
+            "peak_rss_bytes": 17219584,
+            "diagnostic": "coderg: incrementally indexed 80 changed files",
+            "base_id": 1788936408506610000,
+            "base_bytes": 857789,
+            "middle_bytes": 900154,
+            "segments": 2,
+            "manifest_bytes": 10255,
+            "retained_bytes": 14423446
+          },
+          {
+            "from": "e65d534b0efddadfa433770621ca4340786736bf",
+            "to": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+            "changed_files": 120,
+            "version": "auto25",
+            "wall_ms": 48.141042,
+            "peak_rss_bytes": 23003136,
+            "diagnostic": "coderg: incrementally indexed 121 changed files",
+            "base_id": 1788936408506610000,
+            "base_bytes": 857789,
+            "middle_bytes": 2070623,
+            "segments": 2,
+            "manifest_bytes": 21521,
+            "retained_bytes": 16505335
+          }
+        ]
+      }
+    }
+  }
+}

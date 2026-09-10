@@ -154,18 +154,57 @@ impl PostingsBuilder {
         self.peak_temporary_bytes = self.peak_temporary_bytes.max(self.live_temporary_bytes);
     }
 
-    pub fn write(mut self, id: u64) -> Result<segment::SegmentMeta> {
+    pub fn write(self, id: u64) -> Result<segment::SegmentMeta> {
+        self.write_with_durability(id, true)
+    }
+
+    pub fn write_with_durability(mut self, id: u64, durable: bool) -> Result<segment::SegmentMeta> {
         if self.runs.is_empty() {
             self.records.par_sort_unstable();
             self.records.dedup();
             let ngrams = self.records.chunk_by(|a, b| a.0 == b.0).count() as u64;
-            return segment::write_sorted(
+            return segment::write_sorted_with_durability(
                 &self.index_dir,
                 id,
                 ngrams,
                 self.records.iter().copied().map(Ok),
+                durable,
             );
         }
+        self.prepare_runs()?;
+        let meta = if self.runs.len() == 1 {
+            let run = &self.runs[0];
+            segment::write_sorted_with_durability(
+                &self.index_dir,
+                id,
+                run.ngrams,
+                RunReader::new(&run.path)?,
+                durable,
+            )?
+        } else {
+            let partitions = partition_runs(&self.runs)?;
+            let (meta, scratch_bytes) = segment::write_partitioned_with_durability(
+                &self.index_dir,
+                id,
+                partitions.len(),
+                |part| {
+                    MergedRuns::new(
+                        partitions[part]
+                            .iter()
+                            .map(|range| RunReader::range(&range.run.path, range.start, range.end))
+                            .collect::<Result<_>>()?,
+                    )
+                },
+                durable,
+            )?;
+            self.record_temporary_write(scratch_bytes);
+            meta
+        };
+        self.report_spills();
+        Ok(meta)
+    }
+
+    fn prepare_runs(&mut self) -> Result<()> {
         if !self.records.is_empty() {
             self.spill()?;
         }
@@ -193,30 +232,14 @@ impl PostingsBuilder {
                 self.runs.push(run);
             }
         }
-        let meta = if self.runs.len() == 1 {
-            let run = &self.runs[0];
-            segment::write_sorted(&self.index_dir, id, run.ngrams, RunReader::new(&run.path)?)?
-        } else {
-            let partitions = partition_runs(&self.runs)?;
-            let (meta, scratch_bytes) =
-                segment::write_partitioned(&self.index_dir, id, partitions.len(), |part| {
-                    MergedRuns::new(
-                        partitions[part]
-                            .iter()
-                            .map(|range| RunReader::range(&range.run.path, range.start, range.end))
-                            .collect::<Result<_>>()?,
-                    )
-                })?;
-            // All input runs and encoded fragments coexist before assembly.
-            // Final lookup/postings output files are excluded, as before.
-            self.record_temporary_write(scratch_bytes);
-            meta
-        };
+        Ok(())
+    }
+
+    fn report_spills(&self) {
         eprintln!(
             "coderg: spilled {} build runs ({} temporary bytes written, {} peak temporary bytes)",
             self.spilled_runs, self.temporary_bytes, self.peak_temporary_bytes,
         );
-        Ok(meta)
     }
 }
 
@@ -514,6 +537,37 @@ mod tests {
         assert_eq!(
             fs::read_dir(disk.path().join("segments")).unwrap().count(),
             2
+        );
+    }
+
+    #[test]
+    fn cached_writes_match_durable_bytes_with_and_without_spills() {
+        let directory = tempfile::tempdir().unwrap();
+        let mut outputs = Vec::new();
+        for (id, (budget, durable)) in [(MIB, true), (MIB, false), (24, false)]
+            .into_iter()
+            .enumerate()
+        {
+            let mut builder = PostingsBuilder::new(directory.path(), budget);
+            for doc in (0..5).rev().chain([0]) {
+                builder
+                    .extend(doc, &(0..259).rev().collect::<Vec<_>>())
+                    .unwrap();
+            }
+            let meta = builder.write_with_durability(id as u64, durable).unwrap();
+            outputs.push((
+                fs::read(directory.path().join(meta.lookup)).unwrap(),
+                fs::read(directory.path().join(meta.postings)).unwrap(),
+            ));
+        }
+        assert_eq!(outputs[0], outputs[1]);
+        assert_eq!(outputs[0], outputs[2]);
+        assert_eq!(fs::read_dir(directory.path()).unwrap().count(), 1);
+        assert_eq!(
+            fs::read_dir(directory.path().join("segments"))
+                .unwrap()
+                .count(),
+            6
         );
     }
 

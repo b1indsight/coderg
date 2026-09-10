@@ -1,0 +1,165 @@
+{
+  "commit": "398630472335c10b9ca610a4d1b7888a040f702a",
+  "root": "/private/tmp/coderg-chromium-3986304/src",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "cpus": 10,
+  "commands": {
+    "coderg_default": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-F",
+      "MAX_FILE_SIZE",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-chromium-3986304/index"
+    ],
+    "coderg_no_refresh": [
+      "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+      "search",
+      "-F",
+      "MAX_FILE_SIZE",
+      ".",
+      "--index-dir",
+      "/private/tmp/coderg-chromium-3986304/index",
+      "--no-refresh"
+    ],
+    "rg_hidden": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "--hidden",
+      "-g",
+      "!.git",
+      "-n",
+      "--no-heading",
+      "--color",
+      "never",
+      "-F",
+      "MAX_FILE_SIZE",
+      "."
+    ],
+    "rg_default": [
+      "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+      "--no-config",
+      "-n",
+      "--no-heading",
+      "--color",
+      "never",
+      "-F",
+      "MAX_FILE_SIZE",
+      "."
+    ]
+  },
+  "binary_sha256": "a2e45b7e0fa41af317a34a6329d66a81b2fcf971a1880991bff46cff6fd6e6ea",
+  "rg_version": "ripgrep 15.2.0 (rev e89fff89ac)\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)\n",
+  "warmup": 3,
+  "iterations": 15,
+  "seed": 20260909,
+  "build_ms": 65242.87779201404,
+  "build_stderr": "coderg: spilled 58 build runs (21873965676 temporary bytes written, 14676352952 peak temporary bytes)\nindexed 461882 files (3040624852 bytes, 133895586 n-grams) in /private/tmp/coderg-chromium-3986304/index\n",
+  "stats": "root: /private/tmp/coderg-chromium-3986304/src\nfiles: 461882\nsource bytes: 3040624852\nn-grams: 133895586\nsegments: 1\nindex bytes: 2098987148\ngit tree: not a Git worktree\n",
+  "match_lines": {
+    "coderg_default": 114,
+    "coderg_no_refresh": 114,
+    "rg_hidden": 114,
+    "rg_default": 114
+  },
+  "matches_equal": {
+    "coderg_default": true,
+    "coderg_no_refresh": true,
+    "rg_hidden": true,
+    "rg_default": true
+  },
+  "match_files": 98,
+  "samples_ms": {
+    "coderg_default": [
+      2042.8795839834493,
+      2110.5958329862915,
+      2058.9600410021376,
+      2100.568249996286,
+      2101.2964159890544,
+      2038.5321249777917,
+      2094.982832990354,
+      2054.6615839994047,
+      2016.767582972534,
+      2013.8325000007171,
+      2000.2030840259977,
+      2063.046708004549,
+      1977.4442500201985,
+      1990.827999979956,
+      2094.310708984267
+    ],
+    "coderg_no_refresh": [
+      277.85404201131314,
+      262.2424580040388,
+      269.1412910062354,
+      234.00450000190176,
+      257.14870798401535,
+      278.7485000153538,
+      254.98004199471325,
+      263.964624988148,
+      231.73829200095497,
+      266.91345899598673,
+      267.01141698868014,
+      257.29199999477714,
+      299.8582090076525,
+      273.44904199708253,
+      258.14620798337273
+    ],
+    "rg_hidden": [
+      7918.753624981036,
+      8082.384625013219,
+      7980.343292001635,
+      8044.447708991356,
+      8063.01266598166,
+      7959.2382079863455,
+      7973.6812920018565,
+      7967.591458000243,
+      7939.331416011555,
+      7984.635834000073,
+      8002.787542005535,
+      7921.967250003945,
+      16576.6536250012,
+      7878.466541995294,
+      7928.7937080080155
+    ],
+    "rg_default": [
+      7851.934582984541,
+      8129.674708994571,
+      7915.862166992156,
+      8038.216999993892,
+      7937.229041010141,
+      8036.967333988287,
+      7968.4980000020005,
+      7977.898916986305,
+      7572.131042019464,
+      7922.707292018458,
+      7888.509625016013,
+      7917.195042013191,
+      7852.447249984834,
+      7806.852083012927,
+      7931.46033299854
+    ]
+  },
+  "summary_ms": {
+    "coderg_default": {
+      "median": 2054.6615839994047,
+      "min": 1977.4442500201985,
+      "max": 2110.5958329862915
+    },
+    "coderg_no_refresh": {
+      "median": 263.964624988148,
+      "min": 231.73829200095497,
+      "max": 299.8582090076525
+    },
+    "rg_hidden": {
+      "median": 7973.6812920018565,
+      "min": 7878.466541995294,
+      "max": 16576.6536250012
+    },
+    "rg_default": {
+      "median": 7922.707292018458,
+      "min": 7572.131042019464,
+      "max": 8129.674708994571
+    }
+  }
+}

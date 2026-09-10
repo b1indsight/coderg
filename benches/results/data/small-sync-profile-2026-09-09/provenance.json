@@ -1,0 +1,139 @@
+{
+  "branch": "feat/generational-index-refresh",
+  "baseline_commit": "0ab2294a8097f52d7ea4a8a0167de6ea2697abdb",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "Apple M5",
+    "memory_bytes": 25769803776,
+    "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+    "rg": "ripgrep 15.2.0 (rev e89fff89ac)\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)",
+    "environment": {
+      "RAYON_NUM_THREADS": null,
+      "LANG": "en_US.UTF-8",
+      "LC_ALL": "C.UTF-8"
+    }
+  },
+  "product_source_unchanged_from_small_auto25": true,
+  "product_source_sha256": {
+    "Cargo.toml": "18efd77a80ca3b937174040dde1d662312f5ff4fc9600b78e38536d208bd290d",
+    "Cargo.lock": "5d3c35a1b7544ea97f170ebde68b759c47e7a43f83fad02f9ac3cf2ecc7ba9fb",
+    "src/compaction.rs": "299384857efcdd982800d7c424d1c2d8f23cd661b8b3c9d0a28899a0bf1a677d",
+    "src/git_state.rs": "5818ce1a65c067d38ae3761dd11935885300cbd215890084f86624ded4d4950a",
+    "src/index.rs": "4e1cc5f74dd1ca5af5752b452bc8de7dd7505e81869c9df579876808cc6982c6",
+    "src/main.rs": "5c0ea54152e0f8934d912dbb2e0a81cbf1b8ca32c22e7c7a447b1296614d344f",
+    "src/search.rs": "dc4b0a4ec237f5603dc516984bb8e85dfc5dff8928b1852642c84af2d7ebf826",
+    "src/segment.rs": "396fc1b65d8fd8d3f0897447228673054b1c3b1ed32403d286c8e66718435814"
+  },
+  "product_release_unchanged": true,
+  "product_release_sha256": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5",
+  "binary_sha256": {
+    "main": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc",
+    "current": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5",
+    "profile": "bdf482913aa8ad10a25a0fb365fc7082b72efc3b37c919e08b1c3d21bcc9fc6a",
+    "no-sync": "e65989786f790bd6528d6404aa733a774d438260391f59765edf5875852ae452"
+  },
+  "probe_description": "profile wraps only the five sync_all source call sites with Instant timers; no-sync changes only probe::SKIP_SYNC from false to true. File opens, locks, buffered flushes, rename/persist, pruning and merging remain.",
+  "source_archive_sha256": "e9c2533e130448f3db6bde853c0c768e137939b907b918d2f3681135c5c84f7e",
+  "profile_source_usage": "Standalone source archive. Build with a dedicated --target-dir. Preserve profile binary, change src/probe.rs SKIP_SYNC to true, rebuild and preserve no-sync binary. Product workspace is not modified.",
+  "builds": {
+    "iterations": 9,
+    "warmup": 2,
+    "random_seed": 20260909,
+    "datasets": [
+      "viberwhisper",
+      "agentflow"
+    ],
+    "segment_hashes_match_all_samples": true
+  },
+  "history": {
+    "viberwhisper": {
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+      "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-cTAEjk",
+      "base_commit": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+      "end_commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+      "variants": [
+        {
+          "name": "main",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-cTAEjk/index-main"
+        },
+        {
+          "name": "current",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-cTAEjk/index-current"
+        },
+        {
+          "name": "profile",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-cTAEjk/index-profile"
+        },
+        {
+          "name": "no-sync",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-cTAEjk/index-no-sync"
+        }
+      ],
+      "iterations": 5,
+      "warmup": 2,
+      "verification_queries": [
+        "fn ",
+        "Transcription",
+        "self"
+      ],
+      "update_query": "fn ",
+      "verified_comparisons": 1260
+    },
+    "agentflow": {
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+      "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2",
+      "base_commit": "e65d534b0efddadfa433770621ca4340786736bf",
+      "end_commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+      "variants": [
+        {
+          "name": "main",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2/index-main"
+        },
+        {
+          "name": "current",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2/index-current"
+        },
+        {
+          "name": "profile",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-profile",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2/index-profile"
+        },
+        {
+          "name": "no-sync",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/history-ZPsFC2/index-no-sync"
+        }
+      ],
+      "iterations": 5,
+      "warmup": 2,
+      "verification_queries": [
+        "def ",
+        "class ",
+        "review_batch"
+      ],
+      "update_query": "def ",
+      "verified_comparisons": 288
+    }
+  },
+  "validation": {
+    "history_rg_comparisons": 1548,
+    "identical_maintenance_except_sync": true,
+    "product_code_and_release_unchanged": true
+  },
+  "artifact_sha256": {
+    "summary.json": "799701e8a1bb42c7c925b380725c9036247785da9d79245b728e4c0ea1ddfbd5",
+    "agentflow-history.json": "e400735eda648e61a69987f21330a778330fa7b7ccbc27b5a1a994fed6997bab",
+    "profile-source.tar.gz": "e9c2533e130448f3db6bde853c0c768e137939b907b918d2f3681135c5c84f7e",
+    "build_probe.py": "5a72467b48882e3662ff56750983c20f7638db6f25b18933cf79939ffe2e1f73",
+    "builds.json": "4f637dbcbb57ca94c1522ba06af4c199d549260ec3ea9a9bfdd219bde9b04faf",
+    "probe.rs": "275a4a670523f7e5f432fe3aaa32de7d79dfc212530c7fdfa883b3d3c6405a03",
+    "viberwhisper-history.json": "f276798285b3142b50fb768a9a93ef05f6e702b6db3f726dd27bad45ca8cb290",
+    "analyze.py": "50c2b130ea6979a4af59992966768d285c5544eda9daca3c5dce18ce52edb2ef"
+  }
+}

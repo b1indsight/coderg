@@ -1,0 +1,5131 @@
+{
+  "source": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/vllm-history",
+  "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-Lzyt9y",
+  "base_commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+  "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+  "os": "macos",
+  "arch": "aarch64",
+  "variants": [
+    {
+      "name": "rough",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-rough",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-Lzyt9y/index-rough"
+    },
+    {
+      "name": "direct",
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-direct-final",
+      "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-Lzyt9y/index-direct"
+    }
+  ],
+  "builds": [
+    {
+      "version": "rough",
+      "wall_ms": 767.391959,
+      "peak_rss_bytes": 220561408,
+      "diagnostic": "coderg: spilled 2 build runs (407984224 temporary bytes written, 407984224 peak temporary bytes)",
+      "base_id": 1789015603772954000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 63384504,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 1219149,
+      "retained_bytes": 64603653
+    },
+    {
+      "version": "direct",
+      "wall_ms": 759.264709,
+      "peak_rss_bytes": 221020160,
+      "diagnostic": "coderg: spilled 2 build runs (408051688 temporary bytes written, 408051688 peak temporary bytes)",
+      "base_id": 1789015604548337000,
+      "base_bytes_before": null,
+      "middle_bytes_before": null,
+      "base_bytes": 63384504,
+      "middle_bytes": 0,
+      "segments": 1,
+      "manifest_bytes": 1219149,
+      "retained_bytes": 64603653
+    }
+  ],
+  "updates": [
+    {
+      "step": 1,
+      "from_commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+      "commit": "4ae6228284c4e9776f62d0867f543e621864176c",
+      "subject": "[Bugfix][KV Connector] Populate SimpleCPUOffload BlockStored metadata (#54325)",
+      "changed_files": 4,
+      "added_lines": 1133,
+      "deleted_lines": 29,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 91842,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 57.514291,
+          "peak_rss_bytes": 24133632,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 0,
+          "base_bytes": 63384504,
+          "middle_bytes": 154330,
+          "segments": 2,
+          "manifest_bytes": 1219617,
+          "retained_bytes": 64758451
+        },
+        {
+          "version": "rough",
+          "wall_ms": 58.992625,
+          "peak_rss_bytes": 23576576,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 0,
+          "base_bytes": 63384504,
+          "middle_bytes": 154330,
+          "segments": 2,
+          "manifest_bytes": 1219617,
+          "retained_bytes": 64758451
+        }
+      ],
+      "rg": {
+        "wall_ms": 169.288625,
+        "peak_rss_bytes": 15564800
+      }
+    },
+    {
+      "step": 2,
+      "from_commit": "4ae6228284c4e9776f62d0867f543e621864176c",
+      "commit": "da8ec2826898d47bd2fb424bc607052a6dc515c1",
+      "subject": "[Bugfix][KV Offload] Do not let a recurrent group's unhashed block truncate the load boundary (#52807)",
+      "changed_files": 2,
+      "added_lines": 81,
+      "deleted_lines": 15,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 213888,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 61.609790999999994,
+          "peak_rss_bytes": 23691264,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 154330,
+          "base_bytes": 63384504,
+          "middle_bytes": 407190,
+          "segments": 3,
+          "manifest_bytes": 1219723,
+          "retained_bytes": 65011417
+        },
+        {
+          "version": "direct",
+          "wall_ms": 60.722667,
+          "peak_rss_bytes": 23822336,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 154330,
+          "base_bytes": 63384504,
+          "middle_bytes": 407190,
+          "segments": 3,
+          "manifest_bytes": 1219723,
+          "retained_bytes": 65011417
+        }
+      ],
+      "rg": {
+        "wall_ms": 93.656084,
+        "peak_rss_bytes": 16875520
+      }
+    },
+    {
+      "step": 3,
+      "from_commit": "da8ec2826898d47bd2fb424bc607052a6dc515c1",
+      "commit": "98ed0856f31fa3aaf5e27464e2b4ef5a8ee6b2f5",
+      "subject": "[Model] add GLM-5.3-Flash support (#53906)",
+      "changed_files": 94,
+      "added_lines": 17926,
+      "deleted_lines": 265,
+      "added_files": 32,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 3917820,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 89.080875,
+          "peak_rss_bytes": 43892736,
+          "diagnostic": "coderg: incrementally indexed 94 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 407190,
+          "base_bytes": 63384504,
+          "middle_bytes": 3963633,
+          "segments": 4,
+          "manifest_bytes": 1225347,
+          "retained_bytes": 68573484
+        },
+        {
+          "version": "direct",
+          "wall_ms": 91.273875,
+          "peak_rss_bytes": 41746432,
+          "diagnostic": "coderg: incrementally indexed 94 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 407190,
+          "base_bytes": 63384504,
+          "middle_bytes": 3963633,
+          "segments": 4,
+          "manifest_bytes": 1225347,
+          "retained_bytes": 68573484
+        }
+      ],
+      "rg": {
+        "wall_ms": 148.375,
+        "peak_rss_bytes": 16842752
+      }
+    },
+    {
+      "step": 4,
+      "from_commit": "98ed0856f31fa3aaf5e27464e2b4ef5a8ee6b2f5",
+      "commit": "d410fc12f30b4224fca71a2faca75dcd4a5c3557",
+      "subject": "[Kernel] Enable Kimi-K3 SiTU on the CuteDSL MoE backend and the SM107 low-latency GEMM plan (#54606)",
+      "changed_files": 2,
+      "added_lines": 30,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 41827,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 57.688708,
+          "peak_rss_bytes": 23330816,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 3963633,
+          "base_bytes": 63384504,
+          "middle_bytes": 4050850,
+          "segments": 5,
+          "manifest_bytes": 1225453,
+          "retained_bytes": 68660807
+        },
+        {
+          "version": "rough",
+          "wall_ms": 58.276583,
+          "peak_rss_bytes": 23511040,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 3963633,
+          "base_bytes": 63384504,
+          "middle_bytes": 4050850,
+          "segments": 5,
+          "manifest_bytes": 1225453,
+          "retained_bytes": 68660807
+        }
+      ],
+      "rg": {
+        "wall_ms": 170.34829100000002,
+        "peak_rss_bytes": 15794176
+      }
+    },
+    {
+      "step": 5,
+      "from_commit": "d410fc12f30b4224fca71a2faca75dcd4a5c3557",
+      "commit": "d4d703caf908786416585ceb1f369e2e0363358b",
+      "subject": "[Bugfix][Model] Fix FP8 PLE loading in mixed ModelOpt checkpoints (#54882)",
+      "changed_files": 2,
+      "added_lines": 42,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 83977,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 59.956583,
+          "peak_rss_bytes": 23642112,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4050850,
+          "base_bytes": 63384504,
+          "middle_bytes": 4199136,
+          "segments": 6,
+          "manifest_bytes": 1225559,
+          "retained_bytes": 68809199
+        },
+        {
+          "version": "direct",
+          "wall_ms": 60.619666,
+          "peak_rss_bytes": 23494656,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4050850,
+          "base_bytes": 63384504,
+          "middle_bytes": 4199136,
+          "segments": 6,
+          "manifest_bytes": 1225559,
+          "retained_bytes": 68809199
+        }
+      ],
+      "rg": {
+        "wall_ms": 176.59575,
+        "peak_rss_bytes": 16728064
+      }
+    },
+    {
+      "step": 6,
+      "from_commit": "d4d703caf908786416585ceb1f369e2e0363358b",
+      "commit": "b7624069ff023043b39ba4ea67ae5f6045556819",
+      "subject": "[Fusion] Manual `ActivationQuantFusionPass` initial application (#51415)",
+      "changed_files": 10,
+      "added_lines": 740,
+      "deleted_lines": 19,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 92375,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 64.184667,
+          "peak_rss_bytes": 23838720,
+          "diagnostic": "coderg: incrementally indexed 10 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4199136,
+          "base_bytes": 63384504,
+          "middle_bytes": 4376698,
+          "segments": 7,
+          "manifest_bytes": 1226031,
+          "retained_bytes": 68987233
+        },
+        {
+          "version": "direct",
+          "wall_ms": 62.324167,
+          "peak_rss_bytes": 24215552,
+          "diagnostic": "coderg: incrementally indexed 10 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4199136,
+          "base_bytes": 63384504,
+          "middle_bytes": 4376698,
+          "segments": 7,
+          "manifest_bytes": 1226031,
+          "retained_bytes": 68987233
+        }
+      ],
+      "rg": {
+        "wall_ms": 172.03058399999998,
+        "peak_rss_bytes": 15351808
+      }
+    },
+    {
+      "step": 7,
+      "from_commit": "b7624069ff023043b39ba4ea67ae5f6045556819",
+      "commit": "8bf39632b86df21fa9bfbb470ce8305bf67a5838",
+      "subject": "[ROCm][Perf] Add low-M FP32 router GEMM for gfx950 (#54845)",
+      "changed_files": 5,
+      "added_lines": 499,
+      "deleted_lines": 18,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 191024,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 62.073166,
+          "peak_rss_bytes": 24444928,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4376698,
+          "base_bytes": 63384504,
+          "middle_bytes": 4556945,
+          "segments": 8,
+          "manifest_bytes": 1226507,
+          "retained_bytes": 69167956
+        },
+        {
+          "version": "rough",
+          "wall_ms": 59.875167,
+          "peak_rss_bytes": 23330816,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4376698,
+          "base_bytes": 63384504,
+          "middle_bytes": 4556945,
+          "segments": 8,
+          "manifest_bytes": 1226507,
+          "retained_bytes": 69167956
+        }
+      ],
+      "rg": {
+        "wall_ms": 168.698291,
+        "peak_rss_bytes": 15810560
+      }
+    },
+    {
+      "step": 8,
+      "from_commit": "8bf39632b86df21fa9bfbb470ce8305bf67a5838",
+      "commit": "21a22110404d98dcab5f51cd90e9acb0acc15e47",
+      "subject": "[Rust Frontend] Use token-attributed text in reasoning and unified parsers (#54884)",
+      "changed_files": 22,
+      "added_lines": 1012,
+      "deleted_lines": 350,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 258183,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 62.199625000000005,
+          "peak_rss_bytes": 25608192,
+          "diagnostic": "coderg: incrementally indexed 22 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4556945,
+          "base_bytes": 63384504,
+          "middle_bytes": 4885810,
+          "segments": 9,
+          "manifest_bytes": 1226613,
+          "retained_bytes": 69496927
+        },
+        {
+          "version": "direct",
+          "wall_ms": 63.590042,
+          "peak_rss_bytes": 25575424,
+          "diagnostic": "coderg: incrementally indexed 22 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4556945,
+          "base_bytes": 63384504,
+          "middle_bytes": 4885810,
+          "segments": 9,
+          "manifest_bytes": 1226613,
+          "retained_bytes": 69496927
+        }
+      ],
+      "rg": {
+        "wall_ms": 185.720666,
+        "peak_rss_bytes": 16924672
+      }
+    },
+    {
+      "step": 9,
+      "from_commit": "21a22110404d98dcab5f51cd90e9acb0acc15e47",
+      "commit": "2db1c4dc31c58bc4fd1f5fc48dbfceebc598e502",
+      "subject": "[Rust Frontend] Support `--lora-modules` for static adapter loading (#54837)",
+      "changed_files": 12,
+      "added_lines": 497,
+      "deleted_lines": 99,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 444143,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 72.995166,
+          "peak_rss_bytes": 25772032,
+          "diagnostic": "coderg: incrementally indexed 12 changed files\ncoderg: compacted 4 middle segments (567395 input bytes, 484793 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4885810,
+          "base_bytes": 63384504,
+          "middle_bytes": 5226976,
+          "segments": 7,
+          "manifest_bytes": 1226401,
+          "retained_bytes": 70405276
+        },
+        {
+          "version": "direct",
+          "wall_ms": 75.487292,
+          "peak_rss_bytes": 25182208,
+          "diagnostic": "coderg: incrementally indexed 12 changed files\ncoderg: compacted 4 middle segments (567395 input bytes, 484793 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 4885810,
+          "base_bytes": 63384504,
+          "middle_bytes": 5226976,
+          "segments": 7,
+          "manifest_bytes": 1226401,
+          "retained_bytes": 70405276
+        }
+      ],
+      "rg": {
+        "wall_ms": 159.458,
+        "peak_rss_bytes": 15695872
+      }
+    },
+    {
+      "step": 10,
+      "from_commit": "2db1c4dc31c58bc4fd1f5fc48dbfceebc598e502",
+      "commit": "fc8f10792c59011447b56b41d4c8b1048673e939",
+      "subject": "Fix DeepSeek V4 FlashMLA auto KV cache dtype (#45091)",
+      "changed_files": 1,
+      "added_lines": 9,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 41065,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 58.251208,
+          "peak_rss_bytes": 23920640,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 5226976,
+          "base_bytes": 63384504,
+          "middle_bytes": 5310521,
+          "segments": 8,
+          "manifest_bytes": 1226507,
+          "retained_bytes": 70488927
+        },
+        {
+          "version": "rough",
+          "wall_ms": 56.854334,
+          "peak_rss_bytes": 23150592,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 5226976,
+          "base_bytes": 63384504,
+          "middle_bytes": 5310521,
+          "segments": 8,
+          "manifest_bytes": 1226507,
+          "retained_bytes": 70488927
+        }
+      ],
+      "rg": {
+        "wall_ms": 168.219625,
+        "peak_rss_bytes": 15269888
+      }
+    },
+    {
+      "step": 11,
+      "from_commit": "fc8f10792c59011447b56b41d4c8b1048673e939",
+      "commit": "2a336d8239d00565a99752cfa248f2326e2ac8aa",
+      "subject": "[warmup] overlap renderer warmup and engine core initialization (#54557)",
+      "changed_files": 5,
+      "added_lines": 561,
+      "deleted_lines": 33,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 216898,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 62.884083,
+          "peak_rss_bytes": 24903680,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 5310521,
+          "base_bytes": 63384504,
+          "middle_bytes": 5602591,
+          "segments": 9,
+          "manifest_bytes": 1226613,
+          "retained_bytes": 70781103
+        },
+        {
+          "version": "direct",
+          "wall_ms": 67.23750000000001,
+          "peak_rss_bytes": 24870912,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 5310521,
+          "base_bytes": 63384504,
+          "middle_bytes": 5602591,
+          "segments": 9,
+          "manifest_bytes": 1226613,
+          "retained_bytes": 70781103
+        }
+      ],
+      "rg": {
+        "wall_ms": 96.766,
+        "peak_rss_bytes": 15810560
+      }
+    },
+    {
+      "step": 12,
+      "from_commit": "2a336d8239d00565a99752cfa248f2326e2ac8aa",
+      "commit": "cee0f92c02112ace7120da45896d27e0fe95ea1e",
+      "subject": "[ROCm][Perf] Optimize MiniMax-M3 decode indexer and top-k (#54682)",
+      "changed_files": 6,
+      "added_lines": 2010,
+      "deleted_lines": 327,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 251646,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 73.705584,
+          "peak_rss_bytes": 23986176,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 4 middle segments (808722 input bytes, 700344 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 5602591,
+          "base_bytes": 63384504,
+          "middle_bytes": 5846679,
+          "segments": 7,
+          "manifest_bytes": 1226401,
+          "retained_bytes": 71833701
+        },
+        {
+          "version": "direct",
+          "wall_ms": 73.34995900000001,
+          "peak_rss_bytes": 24641536,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 4 middle segments (808722 input bytes, 700344 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 5602591,
+          "base_bytes": 63384504,
+          "middle_bytes": 5846679,
+          "segments": 7,
+          "manifest_bytes": 1226401,
+          "retained_bytes": 71833701
+        }
+      ],
+      "rg": {
+        "wall_ms": 172.918084,
+        "peak_rss_bytes": 16564224
+      }
+    },
+    {
+      "step": 13,
+      "from_commit": "cee0f92c02112ace7120da45896d27e0fe95ea1e",
+      "commit": "e41011129bd54c9e8e12b645ea9b964027d2363f",
+      "subject": "[CI] Avoid logging test server environment values (#54379)",
+      "changed_files": 2,
+      "added_lines": 91,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 87713,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 63.380583,
+          "peak_rss_bytes": 23707648,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 5846679,
+          "base_bytes": 63384504,
+          "middle_bytes": 6020926,
+          "segments": 8,
+          "manifest_bytes": 1226507,
+          "retained_bytes": 72008054
+        },
+        {
+          "version": "rough",
+          "wall_ms": 55.765457999999995,
+          "peak_rss_bytes": 23560192,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 5846679,
+          "base_bytes": 63384504,
+          "middle_bytes": 6020926,
+          "segments": 8,
+          "manifest_bytes": 1226507,
+          "retained_bytes": 72008054
+        }
+      ],
+      "rg": {
+        "wall_ms": 165.27145800000002,
+        "peak_rss_bytes": 15564800
+      }
+    },
+    {
+      "step": 14,
+      "from_commit": "e41011129bd54c9e8e12b645ea9b964027d2363f",
+      "commit": "6fdee17f849b1aad5b4d88ff13b475d2e73d8c1a",
+      "subject": "[CI] Zen5 image build (#50314)",
+      "changed_files": 2,
+      "added_lines": 98,
+      "deleted_lines": 17,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 22770,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 60.0245,
+          "peak_rss_bytes": 23314432,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6020926,
+          "base_bytes": 63384504,
+          "middle_bytes": 6088415,
+          "segments": 9,
+          "manifest_bytes": 1226729,
+          "retained_bytes": 72075765
+        },
+        {
+          "version": "direct",
+          "wall_ms": 63.292874999999995,
+          "peak_rss_bytes": 22937600,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6020926,
+          "base_bytes": 63384504,
+          "middle_bytes": 6088415,
+          "segments": 9,
+          "manifest_bytes": 1226729,
+          "retained_bytes": 72075765
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.285208,
+        "peak_rss_bytes": 15286272
+      }
+    },
+    {
+      "step": 15,
+      "from_commit": "6fdee17f849b1aad5b4d88ff13b475d2e73d8c1a",
+      "commit": "c7e6e36fa93a5b8cb95b74fa96e4abdf2f0be51d",
+      "subject": "[Rust Frontend] Add support for TLS in render server (#54999)",
+      "changed_files": 5,
+      "added_lines": 215,
+      "deleted_lines": 64,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 103950,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 71.813416,
+          "peak_rss_bytes": 23642112,
+          "diagnostic": "coderg: incrementally indexed 5 changed files\ncoderg: compacted 3 middle segments (399008 input bytes, 364488 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6088415,
+          "base_bytes": 63384504,
+          "middle_bytes": 6211167,
+          "segments": 8,
+          "manifest_bytes": 1226751,
+          "retained_bytes": 72597547
+        },
+        {
+          "version": "direct",
+          "wall_ms": 73.82016700000001,
+          "peak_rss_bytes": 23478272,
+          "diagnostic": "coderg: incrementally indexed 5 changed files\ncoderg: compacted 3 middle segments (399008 input bytes, 364488 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6088415,
+          "base_bytes": 63384504,
+          "middle_bytes": 6211167,
+          "segments": 8,
+          "manifest_bytes": 1226751,
+          "retained_bytes": 72597547
+        }
+      ],
+      "rg": {
+        "wall_ms": 157.57575,
+        "peak_rss_bytes": 16793600
+      }
+    },
+    {
+      "step": 16,
+      "from_commit": "c7e6e36fa93a5b8cb95b74fa96e4abdf2f0be51d",
+      "commit": "9509fc8ae61a8eb871a984e759a6d228c930df80",
+      "subject": "[Perf][Kimi-K3] Cut MLA decode concat/cache epilogue latency (#54896)",
+      "changed_files": 2,
+      "added_lines": 121,
+      "deleted_lines": 36,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 90291,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 59.784875,
+          "peak_rss_bytes": 23707648,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6211167,
+          "base_bytes": 63384504,
+          "middle_bytes": 6327374,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 72713860
+        },
+        {
+          "version": "rough",
+          "wall_ms": 60.232167000000004,
+          "peak_rss_bytes": 23789568,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6211167,
+          "base_bytes": 63384504,
+          "middle_bytes": 6327374,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 72713860
+        }
+      ],
+      "rg": {
+        "wall_ms": 159.62316700000002,
+        "peak_rss_bytes": 16957440
+      }
+    },
+    {
+      "step": 17,
+      "from_commit": "9509fc8ae61a8eb871a984e759a6d228c930df80",
+      "commit": "bc2ee480738d7dcc558262a0c6d81956b515b050",
+      "subject": "[Perf] Prefetch the weight before the PDL wait in fused_q_kv_rmsnorm (#55020)",
+      "changed_files": 1,
+      "added_lines": 12,
+      "deleted_lines": 5,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 4167,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 72.833042,
+          "peak_rss_bytes": 23363584,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 4 middle segments (1162026 input bytes, 1002012 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6327374,
+          "base_bytes": 63384504,
+          "middle_bytes": 6188117,
+          "segments": 7,
+          "manifest_bytes": 1226645,
+          "retained_bytes": 73736417
+        },
+        {
+          "version": "direct",
+          "wall_ms": 74.267042,
+          "peak_rss_bytes": 23527424,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 4 middle segments (1162026 input bytes, 1002012 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6327374,
+          "base_bytes": 63384504,
+          "middle_bytes": 6188117,
+          "segments": 7,
+          "manifest_bytes": 1226645,
+          "retained_bytes": 73736417
+        }
+      ],
+      "rg": {
+        "wall_ms": 94.578541,
+        "peak_rss_bytes": 17121280
+      }
+    },
+    {
+      "step": 18,
+      "from_commit": "bc2ee480738d7dcc558262a0c6d81956b515b050",
+      "commit": "579aef4e8dfa2c9d498a702dd04c5ec5db333266",
+      "subject": "[ROCm] Bump AITER to 0.1.21.post1 (#52826)",
+      "changed_files": 3,
+      "added_lines": 128,
+      "deleted_lines": 140,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 53657,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 57.959666999999996,
+          "peak_rss_bytes": 23642112,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6188117,
+          "base_bytes": 63384504,
+          "middle_bytes": 6317179,
+          "segments": 8,
+          "manifest_bytes": 1226751,
+          "retained_bytes": 73865585
+        },
+        {
+          "version": "direct",
+          "wall_ms": 62.79920799999999,
+          "peak_rss_bytes": 23953408,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6188117,
+          "base_bytes": 63384504,
+          "middle_bytes": 6317179,
+          "segments": 8,
+          "manifest_bytes": 1226751,
+          "retained_bytes": 73865585
+        }
+      ],
+      "rg": {
+        "wall_ms": 168.359459,
+        "peak_rss_bytes": 16351232
+      }
+    },
+    {
+      "step": 19,
+      "from_commit": "579aef4e8dfa2c9d498a702dd04c5ec5db333266",
+      "commit": "d6bce42983bc0b2095ad6422dbf1399e219ae572",
+      "subject": "[Rust Frontend] Report reasoning tokens in chat completion usage (#54883)",
+      "changed_files": 15,
+      "added_lines": 735,
+      "deleted_lines": 88,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 353927,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 61.199083,
+          "peak_rss_bytes": 26722304,
+          "diagnostic": "coderg: incrementally indexed 15 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6317179,
+          "base_bytes": 63384504,
+          "middle_bytes": 6712345,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 74260857
+        },
+        {
+          "version": "rough",
+          "wall_ms": 61.264167,
+          "peak_rss_bytes": 26296320,
+          "diagnostic": "coderg: incrementally indexed 15 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6317179,
+          "base_bytes": 63384504,
+          "middle_bytes": 6712345,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 74260857
+        }
+      ],
+      "rg": {
+        "wall_ms": 169.183333,
+        "peak_rss_bytes": 15548416
+      }
+    },
+    {
+      "step": 20,
+      "from_commit": "d6bce42983bc0b2095ad6422dbf1399e219ae572",
+      "commit": "560ef78bfe734ea894f8a866e50406574021b9f5",
+      "subject": "[Perf][Model Runner V2] Compact sampling masks on GPU instead of unpacking the full-vocab bitmask on CPU (#54901)",
+      "changed_files": 10,
+      "added_lines": 187,
+      "deleted_lines": 107,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 574356,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 85.943916,
+          "peak_rss_bytes": 25542656,
+          "diagnostic": "coderg: incrementally indexed 10 changed files\ncoderg: compacted 4 middle segments (1432789 input bytes, 1152825 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6712345,
+          "base_bytes": 63384504,
+          "middle_bytes": 7100267,
+          "segments": 7,
+          "manifest_bytes": 1226645,
+          "retained_bytes": 76081356
+        },
+        {
+          "version": "direct",
+          "wall_ms": 86.93495800000001,
+          "peak_rss_bytes": 26853376,
+          "diagnostic": "coderg: incrementally indexed 10 changed files\ncoderg: compacted 4 middle segments (1432789 input bytes, 1152825 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 6712345,
+          "base_bytes": 63384504,
+          "middle_bytes": 7100267,
+          "segments": 7,
+          "manifest_bytes": 1226645,
+          "retained_bytes": 76081356
+        }
+      ],
+      "rg": {
+        "wall_ms": 96.34908300000001,
+        "peak_rss_bytes": 16826368
+      }
+    },
+    {
+      "step": 21,
+      "from_commit": "560ef78bfe734ea894f8a866e50406574021b9f5",
+      "commit": "19c018ec05a3be91e2246be6b6f98971e00d6a1c",
+      "subject": "[Bugfix][DCP] Materialize prefill keys on non-owner ranks (#54908)",
+      "changed_files": 2,
+      "added_lines": 20,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 66628,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 59.821167,
+          "peak_rss_bytes": 22495232,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7100267,
+          "base_bytes": 63384504,
+          "middle_bytes": 7217499,
+          "segments": 8,
+          "manifest_bytes": 1226751,
+          "retained_bytes": 76198694
+        },
+        {
+          "version": "direct",
+          "wall_ms": 62.694250000000004,
+          "peak_rss_bytes": 23674880,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7100267,
+          "base_bytes": 63384504,
+          "middle_bytes": 7217499,
+          "segments": 8,
+          "manifest_bytes": 1226751,
+          "retained_bytes": 76198694
+        }
+      ],
+      "rg": {
+        "wall_ms": 169.579417,
+        "peak_rss_bytes": 16859136
+      }
+    },
+    {
+      "step": 22,
+      "from_commit": "19c018ec05a3be91e2246be6b6f98971e00d6a1c",
+      "commit": "d9e2b5238d4a42341db3374226890a801357c646",
+      "subject": "[Core][KV Events] Echo session_id on GPU BlockStored events (#51381)",
+      "changed_files": 6,
+      "added_lines": 148,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 240682,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 65.490042,
+          "peak_rss_bytes": 25034752,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7217499,
+          "base_bytes": 63384504,
+          "middle_bytes": 7507017,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 76488318
+        },
+        {
+          "version": "rough",
+          "wall_ms": 62.179167,
+          "peak_rss_bytes": 24510464,
+          "diagnostic": "coderg: incrementally indexed 6 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7217499,
+          "base_bytes": 63384504,
+          "middle_bytes": 7507017,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 76488318
+        }
+      ],
+      "rg": {
+        "wall_ms": 166.133416,
+        "peak_rss_bytes": 15515648
+      }
+    },
+    {
+      "step": 23,
+      "from_commit": "d9e2b5238d4a42341db3374226890a801357c646",
+      "commit": "7dc30f5a663d1d3fcadf73ffd297682b56a69197",
+      "subject": "[ROCm][CI] Build and publish TheRock nightly docker images (#55014)",
+      "changed_files": 2,
+      "added_lines": 219,
+      "deleted_lines": 34,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 61361,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 69.99766699999999,
+          "peak_rss_bytes": 23511040,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 2 middle segments (93203 input bytes, 89520 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7507017,
+          "base_bytes": 63384504,
+          "middle_bytes": 7575780,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 76650284
+        },
+        {
+          "version": "direct",
+          "wall_ms": 68.64975,
+          "peak_rss_bytes": 23969792,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 2 middle segments (93203 input bytes, 89520 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7507017,
+          "base_bytes": 63384504,
+          "middle_bytes": 7575780,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 76650284
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.348375,
+        "peak_rss_bytes": 16908288
+      }
+    },
+    {
+      "step": 24,
+      "from_commit": "7dc30f5a663d1d3fcadf73ffd297682b56a69197",
+      "commit": "25268f0c9c173aa6557a3eebf7d7a87fa91fec3a",
+      "subject": "[KVConnector] Add retention interval to OffloadingConnector (#51886)",
+      "changed_files": 9,
+      "added_lines": 543,
+      "deleted_lines": 139,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 605210,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 81.94512499999999,
+          "peak_rss_bytes": 27508736,
+          "diagnostic": "coderg: incrementally indexed 9 changed files\ncoderg: compacted 3 middle segments (496270 input bytes, 319558 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7575780,
+          "base_bytes": 63384504,
+          "middle_bytes": 8020497,
+          "segments": 8,
+          "manifest_bytes": 1226751,
+          "retained_bytes": 77591165
+        },
+        {
+          "version": "direct",
+          "wall_ms": 80.523542,
+          "peak_rss_bytes": 27508736,
+          "diagnostic": "coderg: incrementally indexed 9 changed files\ncoderg: compacted 3 middle segments (496270 input bytes, 319558 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7575780,
+          "base_bytes": 63384504,
+          "middle_bytes": 8020497,
+          "segments": 8,
+          "manifest_bytes": 1226751,
+          "retained_bytes": 77591165
+        }
+      ],
+      "rg": {
+        "wall_ms": 178.27633400000002,
+        "peak_rss_bytes": 17121280
+      }
+    },
+    {
+      "step": 25,
+      "from_commit": "25268f0c9c173aa6557a3eebf7d7a87fa91fec3a",
+      "commit": "a26b71d868102dea759d469eaf6f08be0765d831",
+      "subject": "[Bugfix][PD] Pad resumed speculative decode requests (#55126)",
+      "changed_files": 2,
+      "added_lines": 18,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 385742,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 61.645709,
+          "peak_rss_bytes": 24903680,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8020497,
+          "base_bytes": 63384504,
+          "middle_bytes": 8418989,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 77989763
+        },
+        {
+          "version": "rough",
+          "wall_ms": 62.573249999999994,
+          "peak_rss_bytes": 24969216,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8020497,
+          "base_bytes": 63384504,
+          "middle_bytes": 8418989,
+          "segments": 9,
+          "manifest_bytes": 1226857,
+          "retained_bytes": 77989763
+        }
+      ],
+      "rg": {
+        "wall_ms": 169.007292,
+        "peak_rss_bytes": 15155200
+      }
+    },
+    {
+      "step": 26,
+      "from_commit": "a26b71d868102dea759d469eaf6f08be0765d831",
+      "commit": "69cf055936066779cbd54c237739e9ac657ed86b",
+      "subject": "[Performance][DSv4] Size dequant gather launch grid by rows (#55061)",
+      "changed_files": 1,
+      "added_lines": 6,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 12135,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 77.961209,
+          "peak_rss_bytes": 23986176,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 4 middle segments (2007365 input bytes, 1462644 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8418989,
+          "base_bytes": 63384504,
+          "middle_bytes": 7906200,
+          "segments": 7,
+          "manifest_bytes": 1226645,
+          "retained_bytes": 79484127
+        },
+        {
+          "version": "direct",
+          "wall_ms": 81.796291,
+          "peak_rss_bytes": 23560192,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 4 middle segments (2007365 input bytes, 1462644 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8418989,
+          "base_bytes": 63384504,
+          "middle_bytes": 7906200,
+          "segments": 7,
+          "manifest_bytes": 1226645,
+          "retained_bytes": 79484127
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.401209,
+        "peak_rss_bytes": 15253504
+      }
+    },
+    {
+      "step": 27,
+      "from_commit": "69cf055936066779cbd54c237739e9ac657ed86b",
+      "commit": "8a0a7ee40a5915dd7330c8f6e6c58ca565566471",
+      "subject": "[EC Connector] P2P NIXL + CPU EC Connector (#47941)",
+      "changed_files": 28,
+      "added_lines": 3521,
+      "deleted_lines": 72,
+      "added_files": 17,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 248676,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 55.629333,
+          "peak_rss_bytes": 26247168,
+          "diagnostic": "coderg: incrementally indexed 28 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7906200,
+          "base_bytes": 63384504,
+          "middle_bytes": 8344138,
+          "segments": 8,
+          "manifest_bytes": 1229823,
+          "retained_bytes": 79925243
+        },
+        {
+          "version": "direct",
+          "wall_ms": 65.954125,
+          "peak_rss_bytes": 25395200,
+          "diagnostic": "coderg: incrementally indexed 28 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 7906200,
+          "base_bytes": 63384504,
+          "middle_bytes": 8344138,
+          "segments": 8,
+          "manifest_bytes": 1229823,
+          "retained_bytes": 79925243
+        }
+      ],
+      "rg": {
+        "wall_ms": 170.040625,
+        "peak_rss_bytes": 16859136
+      }
+    },
+    {
+      "step": 28,
+      "from_commit": "8a0a7ee40a5915dd7330c8f6e6c58ca565566471",
+      "commit": "156050598eea0bb1124b9c106b22ba4a8c56f82a",
+      "subject": "[ROCm][CI] Bump ROCk base to ROCm 10.0 (#55246)",
+      "changed_files": 2,
+      "added_lines": 26,
+      "deleted_lines": 53,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 71862,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 57.887125,
+          "peak_rss_bytes": 24641536,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8344138,
+          "base_bytes": 63384504,
+          "middle_bytes": 8446335,
+          "segments": 9,
+          "manifest_bytes": 1229929,
+          "retained_bytes": 80027546
+        },
+        {
+          "version": "rough",
+          "wall_ms": 60.367292000000006,
+          "peak_rss_bytes": 23887872,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8344138,
+          "base_bytes": 63384504,
+          "middle_bytes": 8446335,
+          "segments": 9,
+          "manifest_bytes": 1229929,
+          "retained_bytes": 80027546
+        }
+      ],
+      "rg": {
+        "wall_ms": 165.50462499999998,
+        "peak_rss_bytes": 15777792
+      }
+    },
+    {
+      "step": 29,
+      "from_commit": "156050598eea0bb1124b9c106b22ba4a8c56f82a",
+      "commit": "e35298628fceb490d4ca2a21c0a6e8f63d3c6740",
+      "subject": "[Bugfix][KV Connector] Fix DecodeBenchConnector prefix block selection (#54878)",
+      "changed_files": 2,
+      "added_lines": 230,
+      "deleted_lines": 28,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 47024,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 70.52725,
+          "peak_rss_bytes": 23871488,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 3 middle segments (220441 input bytes, 204229 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8446335,
+          "base_bytes": 63384504,
+          "middle_bytes": 8516435,
+          "segments": 8,
+          "manifest_bytes": 1229823,
+          "retained_bytes": 80317981
+        },
+        {
+          "version": "direct",
+          "wall_ms": 70.59325,
+          "peak_rss_bytes": 23576576,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 3 middle segments (220441 input bytes, 204229 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8446335,
+          "base_bytes": 63384504,
+          "middle_bytes": 8516435,
+          "segments": 8,
+          "manifest_bytes": 1229823,
+          "retained_bytes": 80317981
+        }
+      ],
+      "rg": {
+        "wall_ms": 91.585459,
+        "peak_rss_bytes": 16613376
+      }
+    },
+    {
+      "step": 30,
+      "from_commit": "e35298628fceb490d4ca2a21c0a6e8f63d3c6740",
+      "commit": "78300cdabffbaaffe7625ed34412ec2aec75535c",
+      "subject": "[Bugfix][Docs] Package glm5next nvidia subtree and fix its docstrings (#55214)",
+      "changed_files": 4,
+      "added_lines": 12,
+      "deleted_lines": 4,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 63796,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 59.969292,
+          "peak_rss_bytes": 23920640,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8516435,
+          "base_bytes": 63384504,
+          "middle_bytes": 8623786,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 80425750
+        },
+        {
+          "version": "direct",
+          "wall_ms": 64.35429199999999,
+          "peak_rss_bytes": 23560192,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8516435,
+          "base_bytes": 63384504,
+          "middle_bytes": 8623786,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 80425750
+        }
+      ],
+      "rg": {
+        "wall_ms": 165.882375,
+        "peak_rss_bytes": 17137664
+      }
+    },
+    {
+      "step": 31,
+      "from_commit": "78300cdabffbaaffe7625ed34412ec2aec75535c",
+      "commit": "da55494a125979ffc9d4c1f17d593175cb076bf4",
+      "subject": "docs: note that enforce_eager also disables torch.compile (#55271)",
+      "changed_files": 1,
+      "added_lines": 4,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 105961,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 69.632625,
+          "peak_rss_bytes": 24100864,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 3 middle segments (488459 input bytes, 436397 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8623786,
+          "base_bytes": 63384504,
+          "middle_bytes": 8748603,
+          "segments": 8,
+          "manifest_bytes": 1230135,
+          "retained_bytes": 81038920
+        },
+        {
+          "version": "rough",
+          "wall_ms": 73.232333,
+          "peak_rss_bytes": 23674880,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 3 middle segments (488459 input bytes, 436397 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8623786,
+          "base_bytes": 63384504,
+          "middle_bytes": 8748603,
+          "segments": 8,
+          "manifest_bytes": 1230135,
+          "retained_bytes": 81038920
+        }
+      ],
+      "rg": {
+        "wall_ms": 167.153833,
+        "peak_rss_bytes": 15384576
+      }
+    },
+    {
+      "step": 32,
+      "from_commit": "da55494a125979ffc9d4c1f17d593175cb076bf4",
+      "commit": "8a728663c1c3eeace834a95f5654fa653cc1998c",
+      "subject": "[Bugfix] Reject tokenizer-less Qwen VL processor init (#54886)",
+      "changed_files": 3,
+      "added_lines": 14,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 84745,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 56.934917,
+          "peak_rss_bytes": 24264704,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8748603,
+          "base_bytes": 63384504,
+          "middle_bytes": 8900647,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 81191070
+        },
+        {
+          "version": "direct",
+          "wall_ms": 64.959709,
+          "peak_rss_bytes": 23756800,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8748603,
+          "base_bytes": 63384504,
+          "middle_bytes": 8900647,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 81191070
+        }
+      ],
+      "rg": {
+        "wall_ms": 94.361875,
+        "peak_rss_bytes": 17072128
+      }
+    },
+    {
+      "step": 33,
+      "from_commit": "8a728663c1c3eeace834a95f5654fa653cc1998c",
+      "commit": "ae2d1ca96fa2a98f92c775acfe8a154748495a27",
+      "subject": "[Rust Frontend] Record Mooncake/NIXL KV-connector metrics (#52755)",
+      "changed_files": 10,
+      "added_lines": 600,
+      "deleted_lines": 62,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 538668,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 82.253042,
+          "peak_rss_bytes": 26673152,
+          "diagnostic": "coderg: incrementally indexed 10 changed files\ncoderg: compacted 4 middle segments (1625432 input bytes, 1351631 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8900647,
+          "base_bytes": 63384504,
+          "middle_bytes": 9225899,
+          "segments": 7,
+          "manifest_bytes": 1230029,
+          "retained_bytes": 83141542
+        },
+        {
+          "version": "direct",
+          "wall_ms": 81.577708,
+          "peak_rss_bytes": 26624000,
+          "diagnostic": "coderg: incrementally indexed 10 changed files\ncoderg: compacted 4 middle segments (1625432 input bytes, 1351631 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 8900647,
+          "base_bytes": 63384504,
+          "middle_bytes": 9225899,
+          "segments": 7,
+          "manifest_bytes": 1230029,
+          "retained_bytes": 83141542
+        }
+      ],
+      "rg": {
+        "wall_ms": 171.784292,
+        "peak_rss_bytes": 16695296
+      }
+    },
+    {
+      "step": 34,
+      "from_commit": "ae2d1ca96fa2a98f92c775acfe8a154748495a27",
+      "commit": "e862c2f45bc81c72bb84f3807d88d60cfb93d694",
+      "subject": "[Docs] Add example for Renderer.render_cmpl() usage (#54265)",
+      "changed_files": 1,
+      "added_lines": 11,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 51226,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 57.813125,
+          "peak_rss_bytes": 24117248,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9225899,
+          "base_bytes": 63384504,
+          "middle_bytes": 9321074,
+          "segments": 8,
+          "manifest_bytes": 1230135,
+          "retained_bytes": 83236823
+        },
+        {
+          "version": "rough",
+          "wall_ms": 58.066458000000004,
+          "peak_rss_bytes": 23674880,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9225899,
+          "base_bytes": 63384504,
+          "middle_bytes": 9321074,
+          "segments": 8,
+          "manifest_bytes": 1230135,
+          "retained_bytes": 83236823
+        }
+      ],
+      "rg": {
+        "wall_ms": 166.14958299999998,
+        "peak_rss_bytes": 16547840
+      }
+    },
+    {
+      "step": 35,
+      "from_commit": "e862c2f45bc81c72bb84f3807d88d60cfb93d694",
+      "commit": "29af8bd672d5a780abd7399c0cc624078202e89d",
+      "subject": "[XPU][UT] skip GLM-5.3-Flash test on XPU (#55266)",
+      "changed_files": 1,
+      "added_lines": 3,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 9712,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 60.466417,
+          "peak_rss_bytes": 24018944,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9321074,
+          "base_bytes": 63384504,
+          "middle_bytes": 9355957,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 83271812
+        },
+        {
+          "version": "direct",
+          "wall_ms": 60.504875,
+          "peak_rss_bytes": 23511040,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9321074,
+          "base_bytes": 63384504,
+          "middle_bytes": 9355957,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 83271812
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.929208,
+        "peak_rss_bytes": 15826944
+      }
+    },
+    {
+      "step": 36,
+      "from_commit": "29af8bd672d5a780abd7399c0cc624078202e89d",
+      "commit": "8f816a3f665489d7f0d222115d4f72ebab01076b",
+      "subject": "[MRV2][Metrics] Support `CUDAGraphStat` in MRV2 (#52358)",
+      "changed_files": 3,
+      "added_lines": 22,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 144116,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 67.27575,
+          "peak_rss_bytes": 24035328,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 2 middle segments (130058 input bytes, 124239 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9355957,
+          "base_bytes": 63384504,
+          "middle_bytes": 9563427,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 83609340
+        },
+        {
+          "version": "direct",
+          "wall_ms": 73.160667,
+          "peak_rss_bytes": 24051712,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 2 middle segments (130058 input bytes, 124239 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9355957,
+          "base_bytes": 63384504,
+          "middle_bytes": 9563427,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 83609340
+        }
+      ],
+      "rg": {
+        "wall_ms": 168.413875,
+        "peak_rss_bytes": 16842752
+      }
+    },
+    {
+      "step": 37,
+      "from_commit": "8f816a3f665489d7f0d222115d4f72ebab01076b",
+      "commit": "a5c9179e731e8d2ec7e03485a3ab0754a5a27182",
+      "subject": "[Qwen3.8-Flash-Next] Compact indexer logits workspace to improve prefill efficiency (#54915)",
+      "changed_files": 4,
+      "added_lines": 46,
+      "deleted_lines": 16,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 110991,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 70.03108399999999,
+          "peak_rss_bytes": 23707648,
+          "diagnostic": "coderg: incrementally indexed 4 changed files\ncoderg: compacted 3 middle segments (514010 input bytes, 451088 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9563427,
+          "base_bytes": 63384504,
+          "middle_bytes": 9676987,
+          "segments": 8,
+          "manifest_bytes": 1230135,
+          "retained_bytes": 84236804
+        },
+        {
+          "version": "rough",
+          "wall_ms": 74.11987500000001,
+          "peak_rss_bytes": 24002560,
+          "diagnostic": "coderg: incrementally indexed 4 changed files\ncoderg: compacted 3 middle segments (514010 input bytes, 451088 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9563427,
+          "base_bytes": 63384504,
+          "middle_bytes": 9676987,
+          "segments": 8,
+          "manifest_bytes": 1230135,
+          "retained_bytes": 84236804
+        }
+      ],
+      "rg": {
+        "wall_ms": 173.737583,
+        "peak_rss_bytes": 15433728
+      }
+    },
+    {
+      "step": 38,
+      "from_commit": "a5c9179e731e8d2ec7e03485a3ab0754a5a27182",
+      "commit": "a8693df504404ea0288e480165143d8a216f4220",
+      "subject": "[SpecDecode]Fix spec decode warmup device selection (#55245)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 4208,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 59.723084,
+          "peak_rss_bytes": 23576576,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9676987,
+          "base_bytes": 63384504,
+          "middle_bytes": 9693754,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 84253677
+        },
+        {
+          "version": "direct",
+          "wall_ms": 61.735875,
+          "peak_rss_bytes": 24002560,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9676987,
+          "base_bytes": 63384504,
+          "middle_bytes": 9693754,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 84253677
+        }
+      ],
+      "rg": {
+        "wall_ms": 94.629541,
+        "peak_rss_bytes": 17252352
+      }
+    },
+    {
+      "step": 39,
+      "from_commit": "a8693df504404ea0288e480165143d8a216f4220",
+      "commit": "605ca45b917ac0614958c63851c31a3f1c82e20d",
+      "subject": "[XPU] Fix device assignment for DP external LB (#53037)",
+      "changed_files": 1,
+      "added_lines": 63,
+      "deleted_lines": 7,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 10645,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 69.39654200000001,
+          "peak_rss_bytes": 23527424,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (48336 input bytes, 44145 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9693754,
+          "base_bytes": 63384504,
+          "middle_bytes": 9721132,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 84329391
+        },
+        {
+          "version": "direct",
+          "wall_ms": 72.521,
+          "peak_rss_bytes": 23609344,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (48336 input bytes, 44145 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9693754,
+          "base_bytes": 63384504,
+          "middle_bytes": 9721132,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 84329391
+        }
+      ],
+      "rg": {
+        "wall_ms": 156.901542,
+        "peak_rss_bytes": 15581184
+      }
+    },
+    {
+      "step": 40,
+      "from_commit": "605ca45b917ac0614958c63851c31a3f1c82e20d",
+      "commit": "9cd956c7e6cf54efa366b803cafa15ec6c2df827",
+      "subject": "[CI/Test] Add expert parallelism coverage to external LB tests (#53497)",
+      "changed_files": 1,
+      "added_lines": 22,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 13238,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 62.66179199999999,
+          "peak_rss_bytes": 23986176,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (80558 input bytes, 75502 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9721132,
+          "base_bytes": 63384504,
+          "middle_bytes": 9752489,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 84441306
+        },
+        {
+          "version": "rough",
+          "wall_ms": 69.569334,
+          "peak_rss_bytes": 23920640,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (80558 input bytes, 75502 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9721132,
+          "base_bytes": 63384504,
+          "middle_bytes": 9752489,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 84441306
+        }
+      ],
+      "rg": {
+        "wall_ms": 156.942917,
+        "peak_rss_bytes": 16711680
+      }
+    },
+    {
+      "step": 41,
+      "from_commit": "9cd956c7e6cf54efa366b803cafa15ec6c2df827",
+      "commit": "fd4a1512628ad17944095263c1fe89598710a3ce",
+      "subject": "[Kernel] Reuse Qwen4Exp HC combine-norm for MTP input (#54687)",
+      "changed_files": 5,
+      "added_lines": 93,
+      "deleted_lines": 40,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 84883,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 66.390542,
+          "peak_rss_bytes": 24281088,
+          "diagnostic": "coderg: incrementally indexed 5 changed files\ncoderg: compacted 2 middle segments (216624 input bytes, 201992 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9752489,
+          "base_bytes": 63384504,
+          "middle_bytes": 9878979,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 84784420
+        },
+        {
+          "version": "direct",
+          "wall_ms": 74.224791,
+          "peak_rss_bytes": 24215552,
+          "diagnostic": "coderg: incrementally indexed 5 changed files\ncoderg: compacted 2 middle segments (216624 input bytes, 201992 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9752489,
+          "base_bytes": 63384504,
+          "middle_bytes": 9878979,
+          "segments": 9,
+          "manifest_bytes": 1230241,
+          "retained_bytes": 84784420
+        }
+      ],
+      "rg": {
+        "wall_ms": 93.834167,
+        "peak_rss_bytes": 15646720
+      }
+    },
+    {
+      "step": 42,
+      "from_commit": "fd4a1512628ad17944095263c1fe89598710a3ce",
+      "commit": "3ff4f02dfe69abc1a0375d1ea8d8d5cb25609fcc",
+      "subject": "[AMD][kimik3][ROCm][Perf] Fuse MLA q/kv RMSNorm in AMD Kimi-K3 MLA wrapper (#52494)",
+      "changed_files": 2,
+      "added_lines": 123,
+      "deleted_lines": 2,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 45690,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 72.587334,
+          "peak_rss_bytes": 24002560,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 2 middle segments (275623 input bytes, 247439 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9878979,
+          "base_bytes": 63384504,
+          "middle_bytes": 9924426,
+          "segments": 9,
+          "manifest_bytes": 1230375,
+          "retained_bytes": 85105624
+        },
+        {
+          "version": "direct",
+          "wall_ms": 70.53941699999999,
+          "peak_rss_bytes": 24510464,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 2 middle segments (275623 input bytes, 247439 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9878979,
+          "base_bytes": 63384504,
+          "middle_bytes": 9924426,
+          "segments": 9,
+          "manifest_bytes": 1230375,
+          "retained_bytes": 85105624
+        }
+      ],
+      "rg": {
+        "wall_ms": 157.99279199999998,
+        "peak_rss_bytes": 16531456
+      }
+    },
+    {
+      "step": 43,
+      "from_commit": "3ff4f02dfe69abc1a0375d1ea8d8d5cb25609fcc",
+      "commit": "c615b1fd67f5b149c75aea592de8e563cb0c2da9",
+      "subject": "[Mypy] Fix mypy typing for L models (#54177)",
+      "changed_files": 19,
+      "added_lines": 255,
+      "deleted_lines": 89,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 471595,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 83.209667,
+          "peak_rss_bytes": 28065792,
+          "diagnostic": "coderg: incrementally indexed 19 changed files\ncoderg: compacted 4 middle segments (1952846 input bytes, 1392232 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9924426,
+          "base_bytes": 63384504,
+          "middle_bytes": 9917787,
+          "segments": 7,
+          "manifest_bytes": 1230163,
+          "retained_bytes": 87051619
+        },
+        {
+          "version": "rough",
+          "wall_ms": 83.424875,
+          "peak_rss_bytes": 26951680,
+          "diagnostic": "coderg: incrementally indexed 19 changed files\ncoderg: compacted 4 middle segments (1952846 input bytes, 1392232 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9924426,
+          "base_bytes": 63384504,
+          "middle_bytes": 9917787,
+          "segments": 7,
+          "manifest_bytes": 1230163,
+          "retained_bytes": 87051619
+        }
+      ],
+      "rg": {
+        "wall_ms": 166.375375,
+        "peak_rss_bytes": 15564800
+      }
+    },
+    {
+      "step": 44,
+      "from_commit": "c615b1fd67f5b149c75aea592de8e563cb0c2da9",
+      "commit": "8b6de0eb9a09ef53f20cf06bd4d17ee264b9c2a7",
+      "subject": "[Security] Cap GLMGA video sampling to prevent request-driven resource exhaustion (#54935)",
+      "changed_files": 2,
+      "added_lines": 60,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 106076,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 60.063792,
+          "peak_rss_bytes": 23822336,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9917787,
+          "base_bytes": 63384504,
+          "middle_bytes": 10092122,
+          "segments": 8,
+          "manifest_bytes": 1230269,
+          "retained_bytes": 87226060
+        },
+        {
+          "version": "direct",
+          "wall_ms": 61.9735,
+          "peak_rss_bytes": 24166400,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 9917787,
+          "base_bytes": 63384504,
+          "middle_bytes": 10092122,
+          "segments": 8,
+          "manifest_bytes": 1230269,
+          "retained_bytes": 87226060
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.443375,
+        "peak_rss_bytes": 16596992
+      }
+    },
+    {
+      "step": 45,
+      "from_commit": "8b6de0eb9a09ef53f20cf06bd4d17ee264b9c2a7",
+      "commit": "8340fe1bb99c187ebec08ad03bbe0d06b45d1d40",
+      "subject": "[CI/Build] Fix flaky failures in CPU CI image building (#55317)",
+      "changed_files": 4,
+      "added_lines": 67,
+      "deleted_lines": 13,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 36817,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 58.867958,
+          "peak_rss_bytes": 23789568,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10092122,
+          "base_bytes": 63384504,
+          "middle_bytes": 10202474,
+          "segments": 9,
+          "manifest_bytes": 1230375,
+          "retained_bytes": 87336518
+        },
+        {
+          "version": "direct",
+          "wall_ms": 64.813,
+          "peak_rss_bytes": 24199168,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10092122,
+          "base_bytes": 63384504,
+          "middle_bytes": 10202474,
+          "segments": 9,
+          "manifest_bytes": 1230375,
+          "retained_bytes": 87336518
+        }
+      ],
+      "rg": {
+        "wall_ms": 159.767,
+        "peak_rss_bytes": 17006592
+      }
+    },
+    {
+      "step": 46,
+      "from_commit": "8340fe1bb99c187ebec08ad03bbe0d06b45d1d40",
+      "commit": "31a8a266622781917cef482d01db415cfa3cbd92",
+      "subject": "[Qwen3.8-Flash-Next] Improve QSA sparse GQA for prefill and short-ctx decode (#54873)",
+      "changed_files": 6,
+      "added_lines": 366,
+      "deleted_lines": 107,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 132539,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 69.25070799999999,
+          "peak_rss_bytes": 24264704,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 3 middle segments (497456 input bytes, 441651 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10202474,
+          "base_bytes": 63384504,
+          "middle_bytes": 10359438,
+          "segments": 8,
+          "manifest_bytes": 1230269,
+          "retained_bytes": 87990832
+        },
+        {
+          "version": "rough",
+          "wall_ms": 68.410958,
+          "peak_rss_bytes": 23658496,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 3 middle segments (497456 input bytes, 441651 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10202474,
+          "base_bytes": 63384504,
+          "middle_bytes": 10359438,
+          "segments": 8,
+          "manifest_bytes": 1230269,
+          "retained_bytes": 87990832
+        }
+      ],
+      "rg": {
+        "wall_ms": 162.393667,
+        "peak_rss_bytes": 17154048
+      }
+    },
+    {
+      "step": 47,
+      "from_commit": "31a8a266622781917cef482d01db415cfa3cbd92",
+      "commit": "07ee97e0230e0ff8759cdc95a1bb09ba2e462720",
+      "subject": "[Test] Split test_sampling_mask_preserves_top_k_boundary_ties to remove Triton-kernel-specific assumption Description (#55315)",
+      "changed_files": 1,
+      "added_lines": 25,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 9325,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 58.211459,
+          "peak_rss_bytes": 23216128,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10359438,
+          "base_bytes": 63384504,
+          "middle_bytes": 10386098,
+          "segments": 9,
+          "manifest_bytes": 1230375,
+          "retained_bytes": 88017598
+        },
+        {
+          "version": "direct",
+          "wall_ms": 60.848416,
+          "peak_rss_bytes": 24264704,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10359438,
+          "base_bytes": 63384504,
+          "middle_bytes": 10386098,
+          "segments": 9,
+          "manifest_bytes": 1230375,
+          "retained_bytes": 88017598
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.8535,
+        "peak_rss_bytes": 17121280
+      }
+    },
+    {
+      "step": 48,
+      "from_commit": "07ee97e0230e0ff8759cdc95a1bb09ba2e462720",
+      "commit": "a69e75b9b6d6a26d90b6790e2eb75b3419a47c16",
+      "subject": "Fast Start (#54921)",
+      "changed_files": 16,
+      "added_lines": 1529,
+      "deleted_lines": 13,
+      "added_files": 5,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 258203,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 91.129125,
+          "peak_rss_bytes": 26591232,
+          "diagnostic": "coderg: incrementally indexed 16 changed files\ncoderg: compacted 4 middle segments (3016289 input bytes, 2426327 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10386098,
+          "base_bytes": 63384504,
+          "middle_bytes": 10215937,
+          "segments": 7,
+          "manifest_bytes": 1231097,
+          "retained_bytes": 90864448
+        },
+        {
+          "version": "direct",
+          "wall_ms": 94.50687500000001,
+          "peak_rss_bytes": 26804224,
+          "diagnostic": "coderg: incrementally indexed 16 changed files\ncoderg: compacted 4 middle segments (3016289 input bytes, 2426327 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10386098,
+          "base_bytes": 63384504,
+          "middle_bytes": 10215937,
+          "segments": 7,
+          "manifest_bytes": 1231097,
+          "retained_bytes": 90864448
+        }
+      ],
+      "rg": {
+        "wall_ms": 161.385625,
+        "peak_rss_bytes": 15106048
+      }
+    },
+    {
+      "step": 49,
+      "from_commit": "a69e75b9b6d6a26d90b6790e2eb75b3419a47c16",
+      "commit": "a85d0738da311ce4ad5814787e61a12826e232df",
+      "subject": "[Bugfix] Fix double BOS in LLM.chat() for multimodal models (#55288)",
+      "changed_files": 2,
+      "added_lines": 140,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 38065,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 57.140417,
+          "peak_rss_bytes": 23920640,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10215937,
+          "base_bytes": 63384504,
+          "middle_bytes": 10285412,
+          "segments": 8,
+          "manifest_bytes": 1231203,
+          "retained_bytes": 90934029
+        },
+        {
+          "version": "rough",
+          "wall_ms": 57.6655,
+          "peak_rss_bytes": 23527424,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10215937,
+          "base_bytes": 63384504,
+          "middle_bytes": 10285412,
+          "segments": 8,
+          "manifest_bytes": 1231203,
+          "retained_bytes": 90934029
+        }
+      ],
+      "rg": {
+        "wall_ms": 170.782084,
+        "peak_rss_bytes": 15433728
+      }
+    },
+    {
+      "step": 50,
+      "from_commit": "a85d0738da311ce4ad5814787e61a12826e232df",
+      "commit": "f19431e5c8634cd0d1641d3f7f4a01043f0eddab",
+      "subject": "[Bugfix][MoE] Allow TRTLLM FP8 block-scale MoE with SwiGLU clamp (#55069)",
+      "changed_files": 2,
+      "added_lines": 84,
+      "deleted_lines": 6,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 39494,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 57.403957999999996,
+          "peak_rss_bytes": 23920640,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10285412,
+          "base_bytes": 63384504,
+          "middle_bytes": 10359311,
+          "segments": 9,
+          "manifest_bytes": 1231309,
+          "retained_bytes": 91008034
+        },
+        {
+          "version": "direct",
+          "wall_ms": 61.362041,
+          "peak_rss_bytes": 23887872,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10285412,
+          "base_bytes": 63384504,
+          "middle_bytes": 10359311,
+          "segments": 9,
+          "manifest_bytes": 1231309,
+          "retained_bytes": 91008034
+        }
+      ],
+      "rg": {
+        "wall_ms": 96.640708,
+        "peak_rss_bytes": 15466496
+      }
+    },
+    {
+      "step": 51,
+      "from_commit": "f19431e5c8634cd0d1641d3f7f4a01043f0eddab",
+      "commit": "5e729d84eb4c91411172f2245c37cf05579ea5b9",
+      "subject": "[CI] Only run GitHub Actions on the main repo (#55349)",
+      "changed_files": 10,
+      "added_lines": 14,
+      "deleted_lines": 5,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 54131,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 69.270708,
+          "peak_rss_bytes": 23986176,
+          "diagnostic": "coderg: incrementally indexed 10 changed files\ncoderg: compacted 3 middle segments (170034 input bytes, 155430 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10359311,
+          "base_bytes": 63384504,
+          "middle_bytes": 10461689,
+          "segments": 8,
+          "manifest_bytes": 1231203,
+          "retained_bytes": 91280340
+        },
+        {
+          "version": "direct",
+          "wall_ms": 69.058875,
+          "peak_rss_bytes": 24117248,
+          "diagnostic": "coderg: incrementally indexed 10 changed files\ncoderg: compacted 3 middle segments (170034 input bytes, 155430 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10359311,
+          "base_bytes": 63384504,
+          "middle_bytes": 10461689,
+          "segments": 8,
+          "manifest_bytes": 1231203,
+          "retained_bytes": 91280340
+        }
+      ],
+      "rg": {
+        "wall_ms": 173.32975000000002,
+        "peak_rss_bytes": 15466496
+      }
+    },
+    {
+      "step": 52,
+      "from_commit": "5e729d84eb4c91411172f2245c37cf05579ea5b9",
+      "commit": "131e0285f60faad78a13ae79573b7b38ddb52a85",
+      "subject": "[Frontend] Warn when removed guided-decoding fields are present in a request (#54285)",
+      "changed_files": 1,
+      "added_lines": 27,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 4477,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 55.49675,
+          "peak_rss_bytes": 23855104,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10461689,
+          "base_bytes": 63384504,
+          "middle_bytes": 10482721,
+          "segments": 9,
+          "manifest_bytes": 1231309,
+          "retained_bytes": 91301478
+        },
+        {
+          "version": "rough",
+          "wall_ms": 68.723709,
+          "peak_rss_bytes": 23314432,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10461689,
+          "base_bytes": 63384504,
+          "middle_bytes": 10482721,
+          "segments": 9,
+          "manifest_bytes": 1231309,
+          "retained_bytes": 91301478
+        }
+      ],
+      "rg": {
+        "wall_ms": 156.38425,
+        "peak_rss_bytes": 15941632
+      }
+    },
+    {
+      "step": 53,
+      "from_commit": "131e0285f60faad78a13ae79573b7b38ddb52a85",
+      "commit": "6a039f465e3770192085e551f642c7a218797d2d",
+      "subject": "[feat] add torchcodec as audio loader and implement selective audio backend (#51826)",
+      "changed_files": 4,
+      "added_lines": 446,
+      "deleted_lines": 67,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 97949,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 74.321708,
+          "peak_rss_bytes": 24068096,
+          "diagnostic": "coderg: incrementally indexed 4 changed files\ncoderg: compacted 3 middle segments (486574 input bytes, 438993 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10482721,
+          "base_bytes": 63384504,
+          "middle_bytes": 10649302,
+          "segments": 8,
+          "manifest_bytes": 1231203,
+          "retained_bytes": 91954527
+        },
+        {
+          "version": "direct",
+          "wall_ms": 75.406917,
+          "peak_rss_bytes": 24772608,
+          "diagnostic": "coderg: incrementally indexed 4 changed files\ncoderg: compacted 3 middle segments (486574 input bytes, 438993 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10482721,
+          "base_bytes": 63384504,
+          "middle_bytes": 10649302,
+          "segments": 8,
+          "manifest_bytes": 1231203,
+          "retained_bytes": 91954527
+        }
+      ],
+      "rg": {
+        "wall_ms": 96.613791,
+        "peak_rss_bytes": 15515648
+      }
+    },
+    {
+      "step": 54,
+      "from_commit": "6a039f465e3770192085e551f642c7a218797d2d",
+      "commit": "99a1ab8e4c9fa21cafdd460ac826a445052ac1eb",
+      "subject": "[ROCm][CI] Bump ROCk release image build timeout to 3h (#55354)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 56991,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 61.520375,
+          "peak_rss_bytes": 24133632,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10649302,
+          "base_bytes": 63384504,
+          "middle_bytes": 10709561,
+          "segments": 9,
+          "manifest_bytes": 1231309,
+          "retained_bytes": 92014892
+        },
+        {
+          "version": "direct",
+          "wall_ms": 60.710542,
+          "peak_rss_bytes": 24297472,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10649302,
+          "base_bytes": 63384504,
+          "middle_bytes": 10709561,
+          "segments": 9,
+          "manifest_bytes": 1231309,
+          "retained_bytes": 92014892
+        }
+      ],
+      "rg": {
+        "wall_ms": 157.46991599999998,
+        "peak_rss_bytes": 16826368
+      }
+    },
+    {
+      "step": 55,
+      "from_commit": "99a1ab8e4c9fa21cafdd460ac826a445052ac1eb",
+      "commit": "8ad2076c4a0e2a7e5ccf5b11455f737430ad12db",
+      "subject": "[Transformers backend] Find attention with a fuser and attach vLLM's layer to it (#54941)",
+      "changed_files": 14,
+      "added_lines": 522,
+      "deleted_lines": 151,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 287276,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 71.152666,
+          "peak_rss_bytes": 26181632,
+          "diagnostic": "coderg: incrementally indexed 14 changed files\ncoderg: compacted 2 middle segments (81291 input bytes, 77664 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10709561,
+          "base_bytes": 63384504,
+          "middle_bytes": 11216252,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 92603066
+        },
+        {
+          "version": "rough",
+          "wall_ms": 67.464334,
+          "peak_rss_bytes": 25853952,
+          "diagnostic": "coderg: incrementally indexed 14 changed files\ncoderg: compacted 2 middle segments (81291 input bytes, 77664 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 10709561,
+          "base_bytes": 63384504,
+          "middle_bytes": 11216252,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 92603066
+        }
+      ],
+      "rg": {
+        "wall_ms": 163.27666699999997,
+        "peak_rss_bytes": 16449536
+      }
+    },
+    {
+      "step": 56,
+      "from_commit": "8ad2076c4a0e2a7e5ccf5b11455f737430ad12db",
+      "commit": "761c5861e34edb52c290e3171feb3763732ba8ca",
+      "subject": "[Rust Frontend][gRPC] Preserve multimodal metadata for remote-prefill decode (#54814)",
+      "changed_files": 3,
+      "added_lines": 154,
+      "deleted_lines": 25,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 118644,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 75.575166,
+          "peak_rss_bytes": 24772608,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 2 middle segments (259429 input bytes, 246550 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11216252,
+          "base_bytes": 63384504,
+          "middle_bytes": 11385138,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 93031381
+        },
+        {
+          "version": "direct",
+          "wall_ms": 75.960417,
+          "peak_rss_bytes": 24576000,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 2 middle segments (259429 input bytes, 246550 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11216252,
+          "base_bytes": 63384504,
+          "middle_bytes": 11385138,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 93031381
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.655708,
+        "peak_rss_bytes": 15646720
+      }
+    },
+    {
+      "step": 57,
+      "from_commit": "761c5861e34edb52c290e3171feb3763732ba8ca",
+      "commit": "1ff5edb02327583cd9c88f6bda3c485dbd504938",
+      "subject": "[Bug-fix] Fix MoE fused sum row offsets (#50220)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 6714,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 76.77449999999999,
+          "peak_rss_bytes": 23691264,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 3 middle segments (1195861 input bytes, 1047283 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11385138,
+          "base_bytes": 63384504,
+          "middle_bytes": 11261490,
+          "segments": 8,
+          "manifest_bytes": 1231395,
+          "retained_bytes": 94103488
+        },
+        {
+          "version": "direct",
+          "wall_ms": 75.67483299999999,
+          "peak_rss_bytes": 24150016,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 3 middle segments (1195861 input bytes, 1047283 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11385138,
+          "base_bytes": 63384504,
+          "middle_bytes": 11261490,
+          "segments": 8,
+          "manifest_bytes": 1231395,
+          "retained_bytes": 94103488
+        }
+      ],
+      "rg": {
+        "wall_ms": 169.222667,
+        "peak_rss_bytes": 17121280
+      }
+    },
+    {
+      "step": 58,
+      "from_commit": "1ff5edb02327583cd9c88f6bda3c485dbd504938",
+      "commit": "8cd95f7de70df6ff15002168a048891c708428fd",
+      "subject": "[Bugfix][MLA] Restore DSpark cache-group capability under optimized Python (#55234)",
+      "changed_files": 3,
+      "added_lines": 53,
+      "deleted_lines": 17,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 205368,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 59.120375,
+          "peak_rss_bytes": 24723456,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11261490,
+          "base_bytes": 63384504,
+          "middle_bytes": 11524837,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 94366941
+        },
+        {
+          "version": "rough",
+          "wall_ms": 61.917125000000006,
+          "peak_rss_bytes": 24494080,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11261490,
+          "base_bytes": 63384504,
+          "middle_bytes": 11524837,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 94366941
+        }
+      ],
+      "rg": {
+        "wall_ms": 168.73254200000002,
+        "peak_rss_bytes": 15368192
+      }
+    },
+    {
+      "step": 59,
+      "from_commit": "8cd95f7de70df6ff15002168a048891c708428fd",
+      "commit": "701a7444909d1ef1521f71abca56ed3448cc89fb",
+      "subject": "[CI] Raise AMD Spec Decode Eagle 1 job timeout to 35min (#55136)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 12116,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 65.619625,
+          "peak_rss_bytes": 23953408,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (42843 input bytes, 41068 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11524837,
+          "base_bytes": 63384504,
+          "middle_bytes": 11540975,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 94425922
+        },
+        {
+          "version": "direct",
+          "wall_ms": 68.119875,
+          "peak_rss_bytes": 23789568,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (42843 input bytes, 41068 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11524837,
+          "base_bytes": 63384504,
+          "middle_bytes": 11540975,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 94425922
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.62116599999999,
+        "peak_rss_bytes": 15450112
+      }
+    },
+    {
+      "step": 60,
+      "from_commit": "701a7444909d1ef1521f71abca56ed3448cc89fb",
+      "commit": "a11dfcff8921247c119b9356ae1c4bbd3a7f7f57",
+      "subject": "[CI] Surface why the CRCR nightly report cannot read its Buildkite secret (#54860)",
+      "changed_files": 1,
+      "added_lines": 28,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 4914,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 66.914416,
+          "peak_rss_bytes": 23445504,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (65979 input bytes, 62702 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11540975,
+          "base_bytes": 63384504,
+          "middle_bytes": 11562609,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 94513535
+        },
+        {
+          "version": "direct",
+          "wall_ms": 71.836917,
+          "peak_rss_bytes": 23805952,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (65979 input bytes, 62702 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11540975,
+          "base_bytes": 63384504,
+          "middle_bytes": 11562609,
+          "segments": 9,
+          "manifest_bytes": 1231501,
+          "retained_bytes": 94513535
+        }
+      ],
+      "rg": {
+        "wall_ms": 172.777041,
+        "peak_rss_bytes": 17170432
+      }
+    },
+    {
+      "step": 61,
+      "from_commit": "a11dfcff8921247c119b9356ae1c4bbd3a7f7f57",
+      "commit": "5690b02c03832a4ac3af231d3ecebe649c188095",
+      "subject": "[Quantization] Support online quantization with partially pre-quantized checkpoints (#51392)",
+      "changed_files": 25,
+      "added_lines": 847,
+      "deleted_lines": 176,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 658124,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 87.493,
+          "peak_rss_bytes": 28393472,
+          "diagnostic": "coderg: incrementally indexed 25 changed files\ncoderg: compacted 3 middle segments (2135004 input bytes, 1882729 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11562609,
+          "base_bytes": 63384504,
+          "middle_bytes": 12134708,
+          "segments": 8,
+          "manifest_bytes": 1231395,
+          "retained_bytes": 97220532
+        },
+        {
+          "version": "rough",
+          "wall_ms": 88.288541,
+          "peak_rss_bytes": 28819456,
+          "diagnostic": "coderg: incrementally indexed 25 changed files\ncoderg: compacted 3 middle segments (2135004 input bytes, 1882729 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 11562609,
+          "base_bytes": 63384504,
+          "middle_bytes": 12134708,
+          "segments": 8,
+          "manifest_bytes": 1231395,
+          "retained_bytes": 97220532
+        }
+      ],
+      "rg": {
+        "wall_ms": 165.628666,
+        "peak_rss_bytes": 16842752
+      }
+    },
+    {
+      "step": 62,
+      "from_commit": "5690b02c03832a4ac3af231d3ecebe649c188095",
+      "commit": "25240513856e9aca9b07e9381f2a4513b6954bd8",
+      "subject": "[Bugfix][Spec Decode] Honour the draft's attention_backend on Model Runner V2 (#54826)",
+      "changed_files": 2,
+      "added_lines": 100,
+      "deleted_lines": 0,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 7851,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 57.588,
+          "peak_rss_bytes": 23511040,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12134708,
+          "base_bytes": 63384504,
+          "middle_bytes": 12162729,
+          "segments": 9,
+          "manifest_bytes": 1231697,
+          "retained_bytes": 97248855
+        },
+        {
+          "version": "direct",
+          "wall_ms": 59.519959,
+          "peak_rss_bytes": 24428544,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12134708,
+          "base_bytes": 63384504,
+          "middle_bytes": 12162729,
+          "segments": 9,
+          "manifest_bytes": 1231697,
+          "retained_bytes": 97248855
+        }
+      ],
+      "rg": {
+        "wall_ms": 93.777917,
+        "peak_rss_bytes": 17809408
+      }
+    },
+    {
+      "step": 63,
+      "from_commit": "25240513856e9aca9b07e9381f2a4513b6954bd8",
+      "commit": "3284af6bf1be8429c332bd5fafba579c2d7557da",
+      "subject": "[Bugfix] Reject 0 or non-positive max concurrency (#54887)",
+      "changed_files": 1,
+      "added_lines": 3,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 92189,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 64.574792,
+          "peak_rss_bytes": 24510464,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (90723 input bytes, 85953 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12162729,
+          "base_bytes": 63384504,
+          "middle_bytes": 12306889,
+          "segments": 9,
+          "manifest_bytes": 1231697,
+          "retained_bytes": 97483738
+        },
+        {
+          "version": "direct",
+          "wall_ms": 71.805041,
+          "peak_rss_bytes": 24690688,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 2 middle segments (90723 input bytes, 85953 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12162729,
+          "base_bytes": 63384504,
+          "middle_bytes": 12306889,
+          "segments": 9,
+          "manifest_bytes": 1231697,
+          "retained_bytes": 97483738
+        }
+      ],
+      "rg": {
+        "wall_ms": 167.049208,
+        "peak_rss_bytes": 17104896
+      }
+    },
+    {
+      "step": 64,
+      "from_commit": "3284af6bf1be8429c332bd5fafba579c2d7557da",
+      "commit": "c81ace18596f75660bbc04efc2075a5f17a76791",
+      "subject": "[Perf] Read VidCom2 frame budgets once (#55331)",
+      "changed_files": 2,
+      "added_lines": 24,
+      "deleted_lines": 5,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 10525,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 67.215,
+          "peak_rss_bytes": 23609344,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 3 middle segments (274818 input bytes, 252921 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12306889,
+          "base_bytes": 63384504,
+          "middle_bytes": 12324927,
+          "segments": 8,
+          "manifest_bytes": 1231591,
+          "retained_bytes": 97776488
+        },
+        {
+          "version": "rough",
+          "wall_ms": 68.39345800000001,
+          "peak_rss_bytes": 23724032,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 3 middle segments (274818 input bytes, 252921 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12306889,
+          "base_bytes": 63384504,
+          "middle_bytes": 12324927,
+          "segments": 8,
+          "manifest_bytes": 1231591,
+          "retained_bytes": 97776488
+        }
+      ],
+      "rg": {
+        "wall_ms": 159.071708,
+        "peak_rss_bytes": 16744448
+      }
+    },
+    {
+      "step": 65,
+      "from_commit": "c81ace18596f75660bbc04efc2075a5f17a76791",
+      "commit": "5093e4844a75f279d1921d7e34ccd23d68529f27",
+      "subject": "[Bugfix][Spec Decode] Drop FlashAttention's AOT schedule for a sliding-window DFlash drafter (#54374)",
+      "changed_files": 1,
+      "added_lines": 17,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 32018,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 60.013125,
+          "peak_rss_bytes": 23937024,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12324927,
+          "base_bytes": 63384504,
+          "middle_bytes": 12392849,
+          "segments": 9,
+          "manifest_bytes": 1231697,
+          "retained_bytes": 97844516
+        },
+        {
+          "version": "direct",
+          "wall_ms": 62.658125,
+          "peak_rss_bytes": 24576000,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12324927,
+          "base_bytes": 63384504,
+          "middle_bytes": 12392849,
+          "segments": 9,
+          "manifest_bytes": 1231697,
+          "retained_bytes": 97844516
+        }
+      ],
+      "rg": {
+        "wall_ms": 94.421167,
+        "peak_rss_bytes": 16482304
+      }
+    },
+    {
+      "step": 66,
+      "from_commit": "5093e4844a75f279d1921d7e34ccd23d68529f27",
+      "commit": "784cac7c424db2f2fdc879b672abad7e231f5698",
+      "subject": "[Mypy] Fix mypy typing for P models (#54169)",
+      "changed_files": 9,
+      "added_lines": 126,
+      "deleted_lines": 45,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 296546,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 69.697833,
+          "peak_rss_bytes": 26542080,
+          "diagnostic": "coderg: incrementally indexed 9 changed files\ncoderg: compacted 2 middle segments (320843 input bytes, 302445 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12392849,
+          "base_bytes": 63384504,
+          "middle_bytes": 12760309,
+          "segments": 9,
+          "manifest_bytes": 1231697,
+          "retained_bytes": 98532819
+        },
+        {
+          "version": "direct",
+          "wall_ms": 79.344375,
+          "peak_rss_bytes": 26558464,
+          "diagnostic": "coderg: incrementally indexed 9 changed files\ncoderg: compacted 2 middle segments (320843 input bytes, 302445 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12392849,
+          "base_bytes": 63384504,
+          "middle_bytes": 12760309,
+          "segments": 9,
+          "manifest_bytes": 1231697,
+          "retained_bytes": 98532819
+        }
+      ],
+      "rg": {
+        "wall_ms": 160.097833,
+        "peak_rss_bytes": 16629760
+      }
+    },
+    {
+      "step": 67,
+      "from_commit": "784cac7c424db2f2fdc879b672abad7e231f5698",
+      "commit": "3f41d102c5b8636f7206a5fd5949dd8ae0b30a0d",
+      "subject": "[1/2][Model Runner V2] DBO support, eager mode (#50945)",
+      "changed_files": 17,
+      "added_lines": 1346,
+      "deleted_lines": 111,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 555415,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 78.66337499999999,
+          "peak_rss_bytes": 28246016,
+          "diagnostic": "coderg: incrementally indexed 17 changed files\ncoderg: compacted 3 middle segments (1422960 input bytes, 1226531 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12760309,
+          "base_bytes": 63384504,
+          "middle_bytes": 13298537,
+          "segments": 8,
+          "manifest_bytes": 1231891,
+          "retained_bytes": 100494201
+        },
+        {
+          "version": "rough",
+          "wall_ms": 78.018583,
+          "peak_rss_bytes": 29114368,
+          "diagnostic": "coderg: incrementally indexed 17 changed files\ncoderg: compacted 3 middle segments (1422960 input bytes, 1226531 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 12760309,
+          "base_bytes": 63384504,
+          "middle_bytes": 13298537,
+          "segments": 8,
+          "manifest_bytes": 1231891,
+          "retained_bytes": 100494201
+        }
+      ],
+      "rg": {
+        "wall_ms": 168.36812500000002,
+        "peak_rss_bytes": 15581184
+      }
+    },
+    {
+      "step": 68,
+      "from_commit": "3f41d102c5b8636f7206a5fd5949dd8ae0b30a0d",
+      "commit": "8f269a93bbcca6e2737616d76365a5ac771c4d27",
+      "subject": "Revert \"[CI] Remove deleted nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16 and its arch aliases\" (#55392)",
+      "changed_files": 3,
+      "added_lines": 40,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 220527,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 61.715166,
+          "peak_rss_bytes": 24379392,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13298537,
+          "base_bytes": 63384504,
+          "middle_bytes": 13603251,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 100799021
+        },
+        {
+          "version": "direct",
+          "wall_ms": 64.089291,
+          "peak_rss_bytes": 24641536,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13298537,
+          "base_bytes": 63384504,
+          "middle_bytes": 13603251,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 100799021
+        }
+      ],
+      "rg": {
+        "wall_ms": 88.98595800000001,
+        "peak_rss_bytes": 16465920
+      }
+    },
+    {
+      "step": 69,
+      "from_commit": "8f269a93bbcca6e2737616d76365a5ac771c4d27",
+      "commit": "685074cd61d6b8432575d11b38341559992cf9dd",
+      "subject": "[Bugfix][V2] Warm up kernels before capturing CUDA graphs (#55341)",
+      "changed_files": 7,
+      "added_lines": 129,
+      "deleted_lines": 16,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 238887,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 73.166167,
+          "peak_rss_bytes": 26050560,
+          "diagnostic": "coderg: incrementally indexed 7 changed files\ncoderg: compacted 2 middle segments (649227 input bytes, 600209 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13603251,
+          "base_bytes": 63384504,
+          "middle_bytes": 13898746,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 101743743
+        },
+        {
+          "version": "direct",
+          "wall_ms": 76.042708,
+          "peak_rss_bytes": 26050560,
+          "diagnostic": "coderg: incrementally indexed 7 changed files\ncoderg: compacted 2 middle segments (649227 input bytes, 600209 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13603251,
+          "base_bytes": 63384504,
+          "middle_bytes": 13898746,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 101743743
+        }
+      ],
+      "rg": {
+        "wall_ms": 177.198417,
+        "peak_rss_bytes": 17006592
+      }
+    },
+    {
+      "step": 70,
+      "from_commit": "685074cd61d6b8432575d11b38341559992cf9dd",
+      "commit": "eb74fbb3e7f0a917e93fff90ef68da23dbd2b34b",
+      "subject": "[Bugfix][NIXL] Don't assert when a failed transfer is cleaned up twice (#54518)",
+      "changed_files": 2,
+      "added_lines": 94,
+      "deleted_lines": 5,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 269380,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 96.61254199999999,
+          "peak_rss_bytes": 25264128,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 4 middle segments (3544784 input bytes, 2673894 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13898746,
+          "base_bytes": 63384504,
+          "middle_bytes": 13394269,
+          "segments": 7,
+          "manifest_bytes": 1231785,
+          "retained_bytes": 104783838
+        },
+        {
+          "version": "rough",
+          "wall_ms": 94.638666,
+          "peak_rss_bytes": 24920064,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 4 middle segments (3544784 input bytes, 2673894 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13898746,
+          "base_bytes": 63384504,
+          "middle_bytes": 13394269,
+          "segments": 7,
+          "manifest_bytes": 1231785,
+          "retained_bytes": 104783838
+        }
+      ],
+      "rg": {
+        "wall_ms": 170.489417,
+        "peak_rss_bytes": 16990208
+      }
+    },
+    {
+      "step": 71,
+      "from_commit": "eb74fbb3e7f0a917e93fff90ef68da23dbd2b34b",
+      "commit": "874df9373dab532543a0229fb2f144f7c14093ae",
+      "subject": "[Bugfix] Preserve Mamba state for padded prompt tails (#55178)",
+      "changed_files": 2,
+      "added_lines": 26,
+      "deleted_lines": 4,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 45128,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 57.045917,
+          "peak_rss_bytes": 23756800,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13394269,
+          "base_bytes": 63384504,
+          "middle_bytes": 13471543,
+          "segments": 8,
+          "manifest_bytes": 1231891,
+          "retained_bytes": 104861218
+        },
+        {
+          "version": "direct",
+          "wall_ms": 64.414875,
+          "peak_rss_bytes": 23937024,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13394269,
+          "base_bytes": 63384504,
+          "middle_bytes": 13471543,
+          "segments": 8,
+          "manifest_bytes": 1231891,
+          "retained_bytes": 104861218
+        }
+      ],
+      "rg": {
+        "wall_ms": 96.449459,
+        "peak_rss_bytes": 15663104
+      }
+    },
+    {
+      "step": 72,
+      "from_commit": "874df9373dab532543a0229fb2f144f7c14093ae",
+      "commit": "8277c42e4c74c5dd604f29b6d938a3456658f247",
+      "subject": "[Perf] Ensure async h2d copies are pinned in more places (#55202)",
+      "changed_files": 21,
+      "added_lines": 206,
+      "deleted_lines": 73,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 1467010,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 72.396958,
+          "peak_rss_bytes": 34045952,
+          "diagnostic": "coderg: incrementally indexed 21 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13471543,
+          "base_bytes": 63384504,
+          "middle_bytes": 14824600,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 106214381
+        },
+        {
+          "version": "direct",
+          "wall_ms": 79.59741700000001,
+          "peak_rss_bytes": 32145408,
+          "diagnostic": "coderg: incrementally indexed 21 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 13471543,
+          "base_bytes": 63384504,
+          "middle_bytes": 14824600,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 106214381
+        }
+      ],
+      "rg": {
+        "wall_ms": 170.583291,
+        "peak_rss_bytes": 16973824
+      }
+    },
+    {
+      "step": 73,
+      "from_commit": "8277c42e4c74c5dd604f29b6d938a3456658f247",
+      "commit": "6cbb3c154ef1449d2b3c9131a237f36faa695734",
+      "subject": "[Perf][GDN] Build cudagraph-capture metadata without a device sync (#55404)",
+      "changed_files": 3,
+      "added_lines": 67,
+      "deleted_lines": 2,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 78138,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 67.091083,
+          "peak_rss_bytes": 24592384,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 2 middle segments (184219 input bytes, 158813 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 14824600,
+          "base_bytes": 63384504,
+          "middle_bytes": 14906139,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 106480139
+        },
+        {
+          "version": "rough",
+          "wall_ms": 69.020083,
+          "peak_rss_bytes": 23756800,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 2 middle segments (184219 input bytes, 158813 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 14824600,
+          "base_bytes": 63384504,
+          "middle_bytes": 14906139,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 106480139
+        }
+      ],
+      "rg": {
+        "wall_ms": 168.071042,
+        "peak_rss_bytes": 15564800
+      }
+    },
+    {
+      "step": 74,
+      "from_commit": "6cbb3c154ef1449d2b3c9131a237f36faa695734",
+      "commit": "385ba6b5b003238e559d9c1f18e0f1984320ee61",
+      "subject": "[Bugfix][Quantization] Register Quark per-block FP8 scales as weight_scale (#54770)",
+      "changed_files": 7,
+      "added_lines": 111,
+      "deleted_lines": 25,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 322545,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 74.183291,
+          "peak_rss_bytes": 26214400,
+          "diagnostic": "coderg: incrementally indexed 7 changed files\ncoderg: compacted 2 middle segments (595249 input bytes, 552064 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 14906139,
+          "base_bytes": 63384504,
+          "middle_bytes": 15299390,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 107468639
+        },
+        {
+          "version": "direct",
+          "wall_ms": 79.282916,
+          "peak_rss_bytes": 26771456,
+          "diagnostic": "coderg: incrementally indexed 7 changed files\ncoderg: compacted 2 middle segments (595249 input bytes, 552064 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 14906139,
+          "base_bytes": 63384504,
+          "middle_bytes": 15299390,
+          "segments": 9,
+          "manifest_bytes": 1231997,
+          "retained_bytes": 107468639
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.519458,
+        "peak_rss_bytes": 16891904
+      }
+    },
+    {
+      "step": 75,
+      "from_commit": "385ba6b5b003238e559d9c1f18e0f1984320ee61",
+      "commit": "16328c7a775ff20d17d9750096a094e8cf2b45f2",
+      "subject": "[Perf] Kimi K3 nvfp4 Align in_proj weights by 128 to avoid elementwise copy (#55242)",
+      "changed_files": 6,
+      "added_lines": 53,
+      "deleted_lines": 21,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 340204,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 93.45908299999999,
+          "peak_rss_bytes": 28082176,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 4 middle segments (3745262 input bytes, 2860093 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 15299390,
+          "base_bytes": 63384504,
+          "middle_bytes": 14862130,
+          "segments": 7,
+          "manifest_bytes": 1231785,
+          "retained_bytes": 110776429
+        },
+        {
+          "version": "direct",
+          "wall_ms": 104.38779199999999,
+          "peak_rss_bytes": 27656192,
+          "diagnostic": "coderg: incrementally indexed 6 changed files\ncoderg: compacted 4 middle segments (3745262 input bytes, 2860093 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 15299390,
+          "base_bytes": 63384504,
+          "middle_bytes": 14862130,
+          "segments": 7,
+          "manifest_bytes": 1231785,
+          "retained_bytes": 110776429
+        }
+      ],
+      "rg": {
+        "wall_ms": 166.66500000000002,
+        "peak_rss_bytes": 16793600
+      }
+    },
+    {
+      "step": 76,
+      "from_commit": "16328c7a775ff20d17d9750096a094e8cf2b45f2",
+      "commit": "a7f9be9612861d6425738dd0ba1c7fd5805e6c95",
+      "subject": "[CI][ROCm] Raise AMD job and server readiness timeouts (#55308)",
+      "changed_files": 4,
+      "added_lines": 17,
+      "deleted_lines": 14,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 192055,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 60.487333,
+          "peak_rss_bytes": 24395776,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 14862130,
+          "base_bytes": 63384504,
+          "middle_bytes": 15033872,
+          "segments": 8,
+          "manifest_bytes": 1231891,
+          "retained_bytes": 110948277
+        },
+        {
+          "version": "rough",
+          "wall_ms": 66.419792,
+          "peak_rss_bytes": 24117248,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 14862130,
+          "base_bytes": 63384504,
+          "middle_bytes": 15033872,
+          "segments": 8,
+          "manifest_bytes": 1231891,
+          "retained_bytes": 110948277
+        }
+      ],
+      "rg": {
+        "wall_ms": 162.1845,
+        "peak_rss_bytes": 16908288
+      }
+    },
+    {
+      "step": 77,
+      "from_commit": "a7f9be9612861d6425738dd0ba1c7fd5805e6c95",
+      "commit": "ea5f41edd7f157a7c24bc86b59d8ae3b55b6dcf5",
+      "subject": "[CI][ROCm] Restore Wikitext coverage for Qwen OCP-MX (#55410)",
+      "changed_files": 5,
+      "added_lines": 38,
+      "deleted_lines": 14,
+      "added_files": 0,
+      "deleted_files": 2,
+      "renamed_files": 0,
+      "target_source_bytes": 50126,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 59.993792,
+          "peak_rss_bytes": 24150016,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 15033872,
+          "base_bytes": 63384504,
+          "middle_bytes": 15115309,
+          "segments": 9,
+          "manifest_bytes": 1231815,
+          "retained_bytes": 111029638
+        },
+        {
+          "version": "direct",
+          "wall_ms": 63.960792000000005,
+          "peak_rss_bytes": 24084480,
+          "diagnostic": "coderg: incrementally indexed 5 changed files",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 15033872,
+          "base_bytes": 63384504,
+          "middle_bytes": 15115309,
+          "segments": 9,
+          "manifest_bytes": 1231815,
+          "retained_bytes": 111029638
+        }
+      ],
+      "rg": {
+        "wall_ms": 96.726625,
+        "peak_rss_bytes": 15482880
+      }
+    },
+    {
+      "step": 78,
+      "from_commit": "ea5f41edd7f157a7c24bc86b59d8ae3b55b6dcf5",
+      "commit": "d4ef5e53fcfd5ffa47f213121c7f181468120d8b",
+      "subject": "[CI][ROCm] Disable Transformers nightly groups (#55409)",
+      "changed_files": 1,
+      "added_lines": 67,
+      "deleted_lines": 67,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 161963,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 68.79025,
+          "peak_rss_bytes": 24100864,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 3 middle segments (369621 input bytes, 240865 output bytes)",
+          "base_id": 1789015603772954000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 15115309,
+          "base_bytes": 63384504,
+          "middle_bytes": 15102995,
+          "segments": 8,
+          "manifest_bytes": 1231709,
+          "retained_bytes": 111386839
+        },
+        {
+          "version": "direct",
+          "wall_ms": 72.963375,
+          "peak_rss_bytes": 24412160,
+          "diagnostic": "coderg: incrementally indexed 1 changed files\ncoderg: compacted 3 middle segments (369621 input bytes, 240865 output bytes)",
+          "base_id": 1789015604548337000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 15115309,
+          "base_bytes": 63384504,
+          "middle_bytes": 15102995,
+          "segments": 8,
+          "manifest_bytes": 1231709,
+          "retained_bytes": 111386839
+        }
+      ],
+      "rg": {
+        "wall_ms": 166.07675,
+        "peak_rss_bytes": 15466496
+      }
+    },
+    {
+      "step": 79,
+      "from_commit": "d4ef5e53fcfd5ffa47f213121c7f181468120d8b",
+      "commit": "d87a440f88e28e5b37f9b1e22ce214d0426d5352",
+      "subject": "[Core][MRV2] Support eagle3 spec decode with pipeline parallel (#50514)",
+      "changed_files": 27,
+      "added_lines": 582,
+      "deleted_lines": 152,
+      "added_files": 3,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 811158,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 875.404042,
+          "peak_rss_bytes": 107413504,
+          "diagnostic": "coderg: incrementally indexed 27 changed files\ncoderg: compacted 9 base + middle segments (79397360 input bytes, 64303679 output bytes)",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 15102995,
+          "base_bytes": 64303679,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 1231491,
+          "retained_bytes": 176600161
+        },
+        {
+          "version": "rough",
+          "wall_ms": 786.6329159999999,
+          "peak_rss_bytes": 109297664,
+          "diagnostic": "coderg: incrementally indexed 27 changed files\ncoderg: compacted 9 base + middle segments (79397360 input bytes, 64303679 output bytes)",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 63384504,
+          "middle_bytes_before": 15102995,
+          "base_bytes": 64303679,
+          "middle_bytes": 0,
+          "segments": 1,
+          "manifest_bytes": 1231491,
+          "retained_bytes": 176600161
+        }
+      ],
+      "rg": {
+        "wall_ms": 162.679667,
+        "peak_rss_bytes": 16908288
+      }
+    },
+    {
+      "step": 80,
+      "from_commit": "d87a440f88e28e5b37f9b1e22ce214d0426d5352",
+      "commit": "4ee2595512c830b2a0566bbaa9815cf617694171",
+      "subject": "[Attention] Sync FA with upstream (#54819)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 5321,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 59.749541,
+          "peak_rss_bytes": 22872064,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 0,
+          "base_bytes": 64303679,
+          "middle_bytes": 22857,
+          "segments": 2,
+          "manifest_bytes": 1231597,
+          "retained_bytes": 176623124
+        },
+        {
+          "version": "direct",
+          "wall_ms": 58.690208,
+          "peak_rss_bytes": 23166976,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 0,
+          "base_bytes": 64303679,
+          "middle_bytes": 22857,
+          "segments": 2,
+          "manifest_bytes": 1231597,
+          "retained_bytes": 176623124
+        }
+      ],
+      "rg": {
+        "wall_ms": 97.13129199999999,
+        "peak_rss_bytes": 15515648
+      }
+    },
+    {
+      "step": 81,
+      "from_commit": "4ee2595512c830b2a0566bbaa9815cf617694171",
+      "commit": "e962733e08d10f7ca65dac4df99e116460b8b174",
+      "subject": "[Security] Validate cache salts before they reach LMCache (#51444)",
+      "changed_files": 8,
+      "added_lines": 101,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 158355,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 58.584875000000004,
+          "peak_rss_bytes": 24117248,
+          "diagnostic": "coderg: incrementally indexed 8 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 22857,
+          "base_bytes": 64303679,
+          "middle_bytes": 257431,
+          "segments": 3,
+          "manifest_bytes": 1231703,
+          "retained_bytes": 176857804
+        },
+        {
+          "version": "direct",
+          "wall_ms": 61.751458,
+          "peak_rss_bytes": 24444928,
+          "diagnostic": "coderg: incrementally indexed 8 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 22857,
+          "base_bytes": 64303679,
+          "middle_bytes": 257431,
+          "segments": 3,
+          "manifest_bytes": 1231703,
+          "retained_bytes": 176857804
+        }
+      ],
+      "rg": {
+        "wall_ms": 170.25658299999998,
+        "peak_rss_bytes": 15548416
+      }
+    },
+    {
+      "step": 82,
+      "from_commit": "e962733e08d10f7ca65dac4df99e116460b8b174",
+      "commit": "8369affa5428ca29a30f378d660fbffbad12e240",
+      "subject": "[Feat] Add EPLB support for GLM-5.3-Flash (#55119)",
+      "changed_files": 2,
+      "added_lines": 69,
+      "deleted_lines": 9,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 66237,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 58.078916,
+          "peak_rss_bytes": 23379968,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 257431,
+          "base_bytes": 64303679,
+          "middle_bytes": 375601,
+          "segments": 4,
+          "manifest_bytes": 1231809,
+          "retained_bytes": 176976080
+        },
+        {
+          "version": "rough",
+          "wall_ms": 60.365458,
+          "peak_rss_bytes": 23314432,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 257431,
+          "base_bytes": 64303679,
+          "middle_bytes": 375601,
+          "segments": 4,
+          "manifest_bytes": 1231809,
+          "retained_bytes": 176976080
+        }
+      ],
+      "rg": {
+        "wall_ms": 170.727417,
+        "peak_rss_bytes": 16482304
+      }
+    },
+    {
+      "step": 83,
+      "from_commit": "8369affa5428ca29a30f378d660fbffbad12e240",
+      "commit": "32601ef7a1ce8aaa6d777778435ec499248906fb",
+      "subject": "[Perf][Multimodal] Avoid duplicate text embedding in Qwen2.5-Omni (#55415)",
+      "changed_files": 1,
+      "added_lines": 5,
+      "deleted_lines": 7,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 60106,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 59.211459,
+          "peak_rss_bytes": 23379968,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 375601,
+          "base_bytes": 64303679,
+          "middle_bytes": 478438,
+          "segments": 5,
+          "manifest_bytes": 1231915,
+          "retained_bytes": 177079023
+        },
+        {
+          "version": "direct",
+          "wall_ms": 60.791584,
+          "peak_rss_bytes": 23527424,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 375601,
+          "base_bytes": 64303679,
+          "middle_bytes": 478438,
+          "segments": 5,
+          "manifest_bytes": 1231915,
+          "retained_bytes": 177079023
+        }
+      ],
+      "rg": {
+        "wall_ms": 96.495625,
+        "peak_rss_bytes": 16941056
+      }
+    },
+    {
+      "step": 84,
+      "from_commit": "32601ef7a1ce8aaa6d777778435ec499248906fb",
+      "commit": "e473e9036f979d546830aece9855027049faf0ba",
+      "subject": "[Docs][Models] Use the official FunASR Nano vLLM checkpoint (#54944)",
+      "changed_files": 2,
+      "added_lines": 6,
+      "deleted_lines": 5,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 133597,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 57.973667,
+          "peak_rss_bytes": 23609344,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 478438,
+          "base_bytes": 64303679,
+          "middle_bytes": 725066,
+          "segments": 6,
+          "manifest_bytes": 1232021,
+          "retained_bytes": 177325757
+        },
+        {
+          "version": "direct",
+          "wall_ms": 63.185334,
+          "peak_rss_bytes": 23363584,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 478438,
+          "base_bytes": 64303679,
+          "middle_bytes": 725066,
+          "segments": 6,
+          "manifest_bytes": 1232021,
+          "retained_bytes": 177325757
+        }
+      ],
+      "rg": {
+        "wall_ms": 170.046041,
+        "peak_rss_bytes": 16695296
+      }
+    },
+    {
+      "step": 85,
+      "from_commit": "e473e9036f979d546830aece9855027049faf0ba",
+      "commit": "2902ca17e335457a0fa214638936d154907a2e18",
+      "subject": "[Bugfix] complete VLLMValidationError migration in chat_utils.py (#50254)",
+      "changed_files": 3,
+      "added_lines": 12,
+      "deleted_lines": 7,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 125995,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 62.298125000000006,
+          "peak_rss_bytes": 23101440,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 725066,
+          "base_bytes": 64303679,
+          "middle_bytes": 911409,
+          "segments": 7,
+          "manifest_bytes": 1232127,
+          "retained_bytes": 177512206
+        },
+        {
+          "version": "rough",
+          "wall_ms": 61.636416,
+          "peak_rss_bytes": 23576576,
+          "diagnostic": "coderg: incrementally indexed 3 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 725066,
+          "base_bytes": 64303679,
+          "middle_bytes": 911409,
+          "segments": 7,
+          "manifest_bytes": 1232127,
+          "retained_bytes": 177512206
+        }
+      ],
+      "rg": {
+        "wall_ms": 174.500792,
+        "peak_rss_bytes": 17137664
+      }
+    },
+    {
+      "step": 86,
+      "from_commit": "2902ca17e335457a0fa214638936d154907a2e18",
+      "commit": "7fbd44cbe0a90b9c8fd3a94a0f0401ac4b1bc719",
+      "subject": "[Bugfix][DSv4] Seed the -1 sentinel in the prefill sparse index workspace (#55299)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 0,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 45606,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 61.284209,
+          "peak_rss_bytes": 23330816,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 911409,
+          "base_bytes": 64303679,
+          "middle_bytes": 995692,
+          "segments": 8,
+          "manifest_bytes": 1232233,
+          "retained_bytes": 177596595
+        },
+        {
+          "version": "direct",
+          "wall_ms": 61.703041,
+          "peak_rss_bytes": 23314432,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 911409,
+          "base_bytes": 64303679,
+          "middle_bytes": 995692,
+          "segments": 8,
+          "manifest_bytes": 1232233,
+          "retained_bytes": 177596595
+        }
+      ],
+      "rg": {
+        "wall_ms": 97.458625,
+        "peak_rss_bytes": 16531456
+      }
+    },
+    {
+      "step": 87,
+      "from_commit": "7fbd44cbe0a90b9c8fd3a94a0f0401ac4b1bc719",
+      "commit": "bc96d76aa9946f3af81fabe508ae396088974b98",
+      "subject": "[Kernel] Fall back from persistent top-k on low-shared-memory GPUs (#54110)",
+      "changed_files": 1,
+      "added_lines": 9,
+      "deleted_lines": 10,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 12360,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 56.497749999999996,
+          "peak_rss_bytes": 23625728,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 995692,
+          "base_bytes": 64303679,
+          "middle_bytes": 1033298,
+          "segments": 9,
+          "manifest_bytes": 1232339,
+          "retained_bytes": 177634307
+        },
+        {
+          "version": "direct",
+          "wall_ms": 61.190291,
+          "peak_rss_bytes": 23543808,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 995692,
+          "base_bytes": 64303679,
+          "middle_bytes": 1033298,
+          "segments": 9,
+          "manifest_bytes": 1232339,
+          "retained_bytes": 177634307
+        }
+      ],
+      "rg": {
+        "wall_ms": 172.504708,
+        "peak_rss_bytes": 15810560
+      }
+    },
+    {
+      "step": 88,
+      "from_commit": "bc96d76aa9946f3af81fabe508ae396088974b98",
+      "commit": "28e605fb330093fee5a2b98aebc19d9c268c1822",
+      "subject": "[Bugfix][Qwen4Exp] fix state index strides in fused PLE conv (#55375)",
+      "changed_files": 2,
+      "added_lines": 31,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 71560,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 67.385625,
+          "peak_rss_bytes": 23625728,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 3 middle segments (144746 input bytes, 136464 output bytes)",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1033298,
+          "base_bytes": 64303679,
+          "middle_bytes": 1158574,
+          "segments": 8,
+          "manifest_bytes": 1232233,
+          "retained_bytes": 177904223
+        },
+        {
+          "version": "rough",
+          "wall_ms": 66.702416,
+          "peak_rss_bytes": 23560192,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 3 middle segments (144746 input bytes, 136464 output bytes)",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1033298,
+          "base_bytes": 64303679,
+          "middle_bytes": 1158574,
+          "segments": 8,
+          "manifest_bytes": 1232233,
+          "retained_bytes": 177904223
+        }
+      ],
+      "rg": {
+        "wall_ms": 186.632208,
+        "peak_rss_bytes": 16613376
+      }
+    },
+    {
+      "step": 89,
+      "from_commit": "28e605fb330093fee5a2b98aebc19d9c268c1822",
+      "commit": "52bc900d930c279743ef62a27b65c6ff42f1453a",
+      "subject": "[Bugfix][Kernel] Build fused GDN MTP decode for SM110 (#53835)",
+      "changed_files": 1,
+      "added_lines": 1,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 69038,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 58.226583,
+          "peak_rss_bytes": 23019520,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1158574,
+          "base_bytes": 64303679,
+          "middle_bytes": 1271531,
+          "segments": 9,
+          "manifest_bytes": 1232339,
+          "retained_bytes": 178017286
+        },
+        {
+          "version": "direct",
+          "wall_ms": 62.539666,
+          "peak_rss_bytes": 23740416,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1158574,
+          "base_bytes": 64303679,
+          "middle_bytes": 1271531,
+          "segments": 9,
+          "manifest_bytes": 1232339,
+          "retained_bytes": 178017286
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.963833,
+        "peak_rss_bytes": 15302656
+      }
+    },
+    {
+      "step": 90,
+      "from_commit": "52bc900d930c279743ef62a27b65c6ff42f1453a",
+      "commit": "7985444339e2ad7e249b88a50081e16e34637dfd",
+      "subject": "[Kernel][HY V4] Add Triton iHC pre/post fallback (#55059)",
+      "changed_files": 3,
+      "added_lines": 531,
+      "deleted_lines": 3,
+      "added_files": 2,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 29841,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 71.939042,
+          "peak_rss_bytes": 23068672,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 4 middle segments (405408 input bytes, 354644 output bytes)",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1271531,
+          "base_bytes": 64303679,
+          "middle_bytes": 1292211,
+          "segments": 7,
+          "manifest_bytes": 1232433,
+          "retained_bytes": 178443468
+        },
+        {
+          "version": "direct",
+          "wall_ms": 71.8935,
+          "peak_rss_bytes": 23412736,
+          "diagnostic": "coderg: incrementally indexed 3 changed files\ncoderg: compacted 4 middle segments (405408 input bytes, 354644 output bytes)",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1271531,
+          "base_bytes": 64303679,
+          "middle_bytes": 1292211,
+          "segments": 7,
+          "manifest_bytes": 1232433,
+          "retained_bytes": 178443468
+        }
+      ],
+      "rg": {
+        "wall_ms": 159.519042,
+        "peak_rss_bytes": 16941056
+      }
+    },
+    {
+      "step": 91,
+      "from_commit": "7985444339e2ad7e249b88a50081e16e34637dfd",
+      "commit": "f4eccdadefc6501fafeb1a0bf7f171ff24f984b0",
+      "subject": "[Bugfix][Multimodal] Bound renderer warmup to the prefill token budget (#55448)",
+      "changed_files": 4,
+      "added_lines": 59,
+      "deleted_lines": 8,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 83886,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 58.170417,
+          "peak_rss_bytes": 23379968,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1292211,
+          "base_bytes": 64303679,
+          "middle_bytes": 1434592,
+          "segments": 8,
+          "manifest_bytes": 1232539,
+          "retained_bytes": 178585955
+        },
+        {
+          "version": "rough",
+          "wall_ms": 58.735,
+          "peak_rss_bytes": 23658496,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1292211,
+          "base_bytes": 64303679,
+          "middle_bytes": 1434592,
+          "segments": 8,
+          "manifest_bytes": 1232539,
+          "retained_bytes": 178585955
+        }
+      ],
+      "rg": {
+        "wall_ms": 166.557209,
+        "peak_rss_bytes": 17612800
+      }
+    },
+    {
+      "step": 92,
+      "from_commit": "f4eccdadefc6501fafeb1a0bf7f171ff24f984b0",
+      "commit": "039ea82660621a9668c7d7e81c7144b6f2f75011",
+      "subject": "[Core] Sync DP state on the first step of a wave (#52957)",
+      "changed_files": 4,
+      "added_lines": 65,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 307697,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 59.603583,
+          "peak_rss_bytes": 24936448,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1434592,
+          "base_bytes": 64303679,
+          "middle_bytes": 1880867,
+          "segments": 9,
+          "manifest_bytes": 1232645,
+          "retained_bytes": 179032336
+        },
+        {
+          "version": "direct",
+          "wall_ms": 63.159583000000005,
+          "peak_rss_bytes": 25444352,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1434592,
+          "base_bytes": 64303679,
+          "middle_bytes": 1880867,
+          "segments": 9,
+          "manifest_bytes": 1232645,
+          "retained_bytes": 179032336
+        }
+      ],
+      "rg": {
+        "wall_ms": 97.72937499999999,
+        "peak_rss_bytes": 16105472
+      }
+    },
+    {
+      "step": 93,
+      "from_commit": "039ea82660621a9668c7d7e81c7144b6f2f75011",
+      "commit": "1c344ed41e1e3bd44d5836fbcf5ddceb56ef5ab9",
+      "subject": "[CPU] [Feat]  Add native AMX-FP8 attention impl for Diamond Rapids (#49410)",
+      "changed_files": 10,
+      "added_lines": 1211,
+      "deleted_lines": 61,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 284904,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 75.10183400000001,
+          "peak_rss_bytes": 26050560,
+          "diagnostic": "coderg: incrementally indexed 10 changed files\ncoderg: compacted 4 middle segments (598746 input bytes, 510311 output bytes)",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1880867,
+          "base_bytes": 64303679,
+          "middle_bytes": 2205072,
+          "segments": 7,
+          "manifest_bytes": 1232565,
+          "retained_bytes": 179955207
+        },
+        {
+          "version": "direct",
+          "wall_ms": 74.781042,
+          "peak_rss_bytes": 26542080,
+          "diagnostic": "coderg: incrementally indexed 10 changed files\ncoderg: compacted 4 middle segments (598746 input bytes, 510311 output bytes)",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 1880867,
+          "base_bytes": 64303679,
+          "middle_bytes": 2205072,
+          "segments": 7,
+          "manifest_bytes": 1232565,
+          "retained_bytes": 179955207
+        }
+      ],
+      "rg": {
+        "wall_ms": 161.12116600000002,
+        "peak_rss_bytes": 16695296
+      }
+    },
+    {
+      "step": 94,
+      "from_commit": "1c344ed41e1e3bd44d5836fbcf5ddceb56ef5ab9",
+      "commit": "f2e2936f91a794513af74d009286c69e3fb2592b",
+      "subject": "[Kernel] Add fused MoE tuned config for E=256,N=512 on NVIDIA A100 80GB PCIe (#55511)",
+      "changed_files": 1,
+      "added_lines": 147,
+      "deleted_lines": 0,
+      "added_files": 1,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 3285,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 56.772625,
+          "peak_rss_bytes": 23232512,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2205072,
+          "base_bytes": 64303679,
+          "middle_bytes": 2207676,
+          "segments": 8,
+          "manifest_bytes": 1232935,
+          "retained_bytes": 179958181
+        },
+        {
+          "version": "rough",
+          "wall_ms": 60.308875,
+          "peak_rss_bytes": 23068672,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2205072,
+          "base_bytes": 64303679,
+          "middle_bytes": 2207676,
+          "segments": 8,
+          "manifest_bytes": 1232935,
+          "retained_bytes": 179958181
+        }
+      ],
+      "rg": {
+        "wall_ms": 169.472375,
+        "peak_rss_bytes": 15777792
+      }
+    },
+    {
+      "step": 95,
+      "from_commit": "f2e2936f91a794513af74d009286c69e3fb2592b",
+      "commit": "1970f3ed4be7fa8620e4ddc4a12c36a8384cfc27",
+      "subject": "Validate scale-out multimodal data before engine handoff (#51898)",
+      "changed_files": 2,
+      "added_lines": 100,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 26041,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 59.921457999999994,
+          "peak_rss_bytes": 23134208,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2207676,
+          "base_bytes": 64303679,
+          "middle_bytes": 2278358,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 180028969
+        },
+        {
+          "version": "direct",
+          "wall_ms": 62.740667,
+          "peak_rss_bytes": 23592960,
+          "diagnostic": "coderg: incrementally indexed 2 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2207676,
+          "base_bytes": 64303679,
+          "middle_bytes": 2278358,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 180028969
+        }
+      ],
+      "rg": {
+        "wall_ms": 95.507291,
+        "peak_rss_bytes": 15400960
+      }
+    },
+    {
+      "step": 96,
+      "from_commit": "1970f3ed4be7fa8620e4ddc4a12c36a8384cfc27",
+      "commit": "144e79c8106da23141ac010394b782f730cc7fe8",
+      "subject": "[Kimi K3] Support internal prefix checkpoints with partial prefix caching and spec-decoding (#53614)",
+      "changed_files": 11,
+      "added_lines": 481,
+      "deleted_lines": 106,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 747740,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 76.922917,
+          "peak_rss_bytes": 28098560,
+          "diagnostic": "coderg: incrementally indexed 11 changed files\ncoderg: compacted 3 middle segments (551884 input bytes, 461534 output bytes)",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2278358,
+          "base_bytes": 64303679,
+          "middle_bytes": 2912564,
+          "segments": 8,
+          "manifest_bytes": 1232935,
+          "retained_bytes": 181214953
+        },
+        {
+          "version": "direct",
+          "wall_ms": 75.412,
+          "peak_rss_bytes": 27836416,
+          "diagnostic": "coderg: incrementally indexed 11 changed files\ncoderg: compacted 3 middle segments (551884 input bytes, 461534 output bytes)",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2278358,
+          "base_bytes": 64303679,
+          "middle_bytes": 2912564,
+          "segments": 8,
+          "manifest_bytes": 1232935,
+          "retained_bytes": 181214953
+        }
+      ],
+      "rg": {
+        "wall_ms": 157.857542,
+        "peak_rss_bytes": 15237120
+      }
+    },
+    {
+      "step": 97,
+      "from_commit": "144e79c8106da23141ac010394b782f730cc7fe8",
+      "commit": "a1541f5742a29864a80087af313ad460066a1524",
+      "subject": "[Perf] Use SDPA for BLIP-2 Q-Former attention (#55285)",
+      "changed_files": 1,
+      "added_lines": 8,
+      "deleted_lines": 8,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 24111,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 60.347708,
+          "peak_rss_bytes": 23707648,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2912564,
+          "base_bytes": 64303679,
+          "middle_bytes": 2961250,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 181263745
+        },
+        {
+          "version": "rough",
+          "wall_ms": 62.871459,
+          "peak_rss_bytes": 23691264,
+          "diagnostic": "coderg: incrementally indexed 1 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2912564,
+          "base_bytes": 64303679,
+          "middle_bytes": 2961250,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 181263745
+        }
+      ],
+      "rg": {
+        "wall_ms": 164.08925,
+        "peak_rss_bytes": 17055744
+      }
+    },
+    {
+      "step": 98,
+      "from_commit": "a1541f5742a29864a80087af313ad460066a1524",
+      "commit": "9afb878a55eb08fd064dfaab56afd8447e97101e",
+      "subject": "[Bugfix][KV Offload] Skip cleaned-up async lookup batches (#55075)",
+      "changed_files": 2,
+      "added_lines": 21,
+      "deleted_lines": 3,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 19803,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 68.860333,
+          "peak_rss_bytes": 23216128,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 2 middle segments (101172 input bytes, 95788 output bytes)",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2961250,
+          "base_bytes": 64303679,
+          "middle_bytes": 3008352,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 181412019
+        },
+        {
+          "version": "direct",
+          "wall_ms": 71.730583,
+          "peak_rss_bytes": 23674880,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 2 middle segments (101172 input bytes, 95788 output bytes)",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 2961250,
+          "base_bytes": 64303679,
+          "middle_bytes": 3008352,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 181412019
+        }
+      ],
+      "rg": {
+        "wall_ms": 96.355083,
+        "peak_rss_bytes": 15106048
+      }
+    },
+    {
+      "step": 99,
+      "from_commit": "9afb878a55eb08fd064dfaab56afd8447e97101e",
+      "commit": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+      "subject": "[Bugfix] Fall back to T1 when ARC cannot reclaim enough entries from T2 (#55461)",
+      "changed_files": 2,
+      "added_lines": 62,
+      "deleted_lines": 1,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 51286,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 75.624167,
+          "peak_rss_bytes": 23494656,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 3 middle segments (539219 input bytes, 484409 output bytes)",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 3008352,
+          "base_bytes": 64303679,
+          "middle_bytes": 3042329,
+          "segments": 8,
+          "manifest_bytes": 1232935,
+          "retained_bytes": 181985109
+        },
+        {
+          "version": "direct",
+          "wall_ms": 74.678959,
+          "peak_rss_bytes": 23773184,
+          "diagnostic": "coderg: incrementally indexed 2 changed files\ncoderg: compacted 3 middle segments (539219 input bytes, 484409 output bytes)",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 3008352,
+          "base_bytes": 64303679,
+          "middle_bytes": 3042329,
+          "segments": 8,
+          "manifest_bytes": 1232935,
+          "retained_bytes": 181985109
+        }
+      ],
+      "rg": {
+        "wall_ms": 163.62675,
+        "peak_rss_bytes": 16580608
+      }
+    },
+    {
+      "step": 100,
+      "from_commit": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+      "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+      "subject": "[Bugfix][KV Offload] Fix SWA store reachability during chunked prefill (#54362)",
+      "changed_files": 4,
+      "added_lines": 385,
+      "deleted_lines": 15,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 498560,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 62.75641699999999,
+          "peak_rss_bytes": 25198592,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 3042329,
+          "base_bytes": 64303679,
+          "middle_bytes": 3542546,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 182485432
+        },
+        {
+          "version": "rough",
+          "wall_ms": 62.486332999999995,
+          "peak_rss_bytes": 25509888,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 3042329,
+          "base_bytes": 64303679,
+          "middle_bytes": 3542546,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 182485432
+        }
+      ],
+      "rg": {
+        "wall_ms": 155.493666,
+        "peak_rss_bytes": 15351808
+      }
+    }
+  ],
+  "rollbacks": [
+    {
+      "step": 99,
+      "from_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+      "commit": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+      "subject": "[Bugfix] Fall back to T1 when ARC cannot reclaim enough entries from T2 (#55461)",
+      "changed_files": 4,
+      "added_lines": 15,
+      "deleted_lines": 385,
+      "added_files": 0,
+      "deleted_files": 0,
+      "renamed_files": 0,
+      "target_source_bytes": 483433,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 60.850583,
+          "peak_rss_bytes": 25509888,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 3542546,
+          "base_bytes": 64303679,
+          "middle_bytes": 3533886,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 182976989
+        },
+        {
+          "version": "direct",
+          "wall_ms": 67.452791,
+          "peak_rss_bytes": 25182208,
+          "diagnostic": "coderg: incrementally indexed 4 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 3542546,
+          "base_bytes": 64303679,
+          "middle_bytes": 3533886,
+          "segments": 9,
+          "manifest_bytes": 1233041,
+          "retained_bytes": 182976989
+        }
+      ],
+      "rg": {
+        "wall_ms": 155.503958,
+        "peak_rss_bytes": 15368192
+      }
+    },
+    {
+      "step": 50,
+      "from_commit": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+      "commit": "f19431e5c8634cd0d1641d3f7f4a01043f0eddab",
+      "subject": "[Bugfix][MoE] Allow TRTLLM FP8 block-scale MoE with SwiGLU clamp (#55069)",
+      "changed_files": 224,
+      "added_lines": 1245,
+      "deleted_lines": 8061,
+      "added_files": 2,
+      "deleted_files": 11,
+      "renamed_files": 0,
+      "target_source_bytes": 7288783,
+      "measurements": [
+        {
+          "version": "direct",
+          "wall_ms": 119.958417,
+          "peak_rss_bytes": 53739520,
+          "diagnostic": "coderg: incrementally indexed 224 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 3533886,
+          "base_bytes": 64303679,
+          "middle_bytes": 6592216,
+          "segments": 3,
+          "manifest_bytes": 1231887,
+          "retained_bytes": 189076494
+        },
+        {
+          "version": "rough",
+          "wall_ms": 110.006459,
+          "peak_rss_bytes": 53313536,
+          "diagnostic": "coderg: incrementally indexed 224 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 3533886,
+          "base_bytes": 64303679,
+          "middle_bytes": 6592216,
+          "segments": 3,
+          "manifest_bytes": 1231887,
+          "retained_bytes": 189076494
+        }
+      ],
+      "rg": {
+        "wall_ms": 158.084709,
+        "peak_rss_bytes": 15532032
+      }
+    },
+    {
+      "step": 0,
+      "from_commit": "f19431e5c8634cd0d1641d3f7f4a01043f0eddab",
+      "commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+      "subject": "[Core] Deprecate \"all\" mamba cache mode (#55041)",
+      "changed_files": 322,
+      "added_lines": 2313,
+      "deleted_lines": 34382,
+      "added_files": 0,
+      "deleted_files": 65,
+      "renamed_files": 0,
+      "target_source_bytes": 8351338,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 124.974167,
+          "peak_rss_bytes": 56541184,
+          "diagnostic": "coderg: incrementally indexed 322 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 6592216,
+          "base_bytes": 64303679,
+          "middle_bytes": 12886932,
+          "segments": 3,
+          "manifest_bytes": 1226556,
+          "retained_bytes": 195857436
+        },
+        {
+          "version": "direct",
+          "wall_ms": 122.339792,
+          "peak_rss_bytes": 55787520,
+          "diagnostic": "coderg: incrementally indexed 322 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 6592216,
+          "base_bytes": 64303679,
+          "middle_bytes": 12886932,
+          "segments": 3,
+          "manifest_bytes": 1226556,
+          "retained_bytes": 195857436
+        }
+      ],
+      "rg": {
+        "wall_ms": 168.21229100000002,
+        "peak_rss_bytes": 16629760
+      }
+    },
+    {
+      "step": 100,
+      "from_commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+      "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+      "subject": "[Bugfix][KV Offload] Fix SWA store reachability during chunked prefill (#54362)",
+      "changed_files": 506,
+      "added_lines": 42808,
+      "deleted_lines": 3553,
+      "added_files": 76,
+      "deleted_files": 2,
+      "renamed_files": 0,
+      "target_source_bytes": 14189727,
+      "measurements": [
+        {
+          "version": "rough",
+          "wall_ms": 171.592084,
+          "peak_rss_bytes": 78217216,
+          "diagnostic": "coderg: incrementally indexed 506 changed files",
+          "base_id": 1789015647268878000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 12886932,
+          "base_bytes": 64303679,
+          "middle_bytes": 11225591,
+          "segments": 2,
+          "manifest_bytes": 1239494,
+          "retained_bytes": 207095965
+        },
+        {
+          "version": "direct",
+          "wall_ms": 161.867167,
+          "peak_rss_bytes": 77660160,
+          "diagnostic": "coderg: incrementally indexed 506 changed files",
+          "base_id": 1789015646229238000,
+          "base_bytes_before": 64303679,
+          "middle_bytes_before": 12886932,
+          "base_bytes": 64303679,
+          "middle_bytes": 11225591,
+          "segments": 2,
+          "manifest_bytes": 1239494,
+          "retained_bytes": 207095965
+        }
+      ],
+      "rg": {
+        "wall_ms": 161.853833,
+        "peak_rss_bytes": 15400960
+      }
+    }
+  ],
+  "queries": [
+    {
+      "step": 0,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.6780420000000005
+      ]
+    },
+    {
+      "step": 0,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.6908330000000005
+      ]
+    },
+    {
+      "step": 0,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        26.811999999999998
+      ]
+    },
+    {
+      "step": 0,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        25.258416
+      ]
+    },
+    {
+      "step": 1,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.852042
+      ]
+    },
+    {
+      "step": 1,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        7.6900830000000004
+      ]
+    },
+    {
+      "step": 1,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        26.861875
+      ]
+    },
+    {
+      "step": 1,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        26.959584000000003
+      ]
+    },
+    {
+      "step": 25,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        8.083834
+      ]
+    },
+    {
+      "step": 25,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        8.307500000000001
+      ]
+    },
+    {
+      "step": 25,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        27.957708
+      ]
+    },
+    {
+      "step": 25,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        27.294542
+      ]
+    },
+    {
+      "step": 50,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        8.580333000000001
+      ]
+    },
+    {
+      "step": 50,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        8.186542
+      ]
+    },
+    {
+      "step": 50,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        27.63
+      ]
+    },
+    {
+      "step": 50,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        28.564875
+      ]
+    },
+    {
+      "step": 100,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        8.503083
+      ]
+    },
+    {
+      "step": 100,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": true,
+      "samples_ms": [
+        8.490084
+      ]
+    },
+    {
+      "step": 100,
+      "version": "rough",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        27.415958
+      ]
+    },
+    {
+      "step": 100,
+      "version": "direct",
+      "query": "SamplingParams",
+      "no_refresh": false,
+      "samples_ms": [
+        26.471791000000003
+      ]
+    }
+  ],
+  "iterations": 1,
+  "warmup": 0,
+  "verification_queries": [
+    "SamplingParams"
+  ],
+  "update_query": "SamplingParams",
+  "verified_comparisons": 418
+}

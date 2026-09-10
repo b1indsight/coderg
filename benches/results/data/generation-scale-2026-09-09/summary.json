@@ -1,0 +1,316 @@
+{
+  "viberwhisper": {
+    "history_source": "small-sync-profile-2026-09-09/viberwhisper-history.json",
+    "base_commit": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+    "end_commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+    "commits": 100,
+    "terminal_files": 123,
+    "terminal_source_mib": 1.301767349243164,
+    "verified_comparisons": 1260,
+    "variants": {
+      "main": {
+        "mean_ms": 10.75224995,
+        "median_ms": 9.8761255,
+        "p95_ms": 20.68025,
+        "max_ms": 31.602249999999998,
+        "total_ms": 1075.224995,
+        "base_changes": [
+          {
+            "step": 9,
+            "commit": "d18872f89c5c990af2186129b617f93843a2b734",
+            "wall_ms": 10.641207999999999,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 17,
+            "commit": "bde010333b5ba28a4641bad0da77624c1b4d290a",
+            "wall_ms": 11.995875,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 25,
+            "commit": "ca0c6265d36398ac7d9cb209b3abbd71cec126a6",
+            "wall_ms": 13.117084,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 33,
+            "commit": "85c0a03404aafa681eeaecbe9b6031ea23e870a9",
+            "wall_ms": 13.479625,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 41,
+            "commit": "42ca56baa5fa6d860b6c9ba1799da2ac7c398fbf",
+            "wall_ms": 13.90625,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 49,
+            "commit": "7b5bc5196b60521a341c315b92d7c022d395f995",
+            "wall_ms": 18.382083,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 57,
+            "commit": "bbfe83629f435a263a4b632554ce761e9baf690b",
+            "wall_ms": 20.808875,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 65,
+            "commit": "4e086f46b2302c960ea6c69a6032a6f15ffe7977",
+            "wall_ms": 21.001167000000002,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 73,
+            "commit": "5d7d70b0fef11cc1cc6f1d18b400508af48372f0",
+            "wall_ms": 20.68025,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 81,
+            "commit": "fc5d74271283608392878caf8f0d256451681544",
+            "wall_ms": 25.074625,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 89,
+            "commit": "a1f40ed5be5746284a79cdfd785cdc6ce7cb88f4",
+            "wall_ms": 26.915000000000003,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 97,
+            "commit": "720255e31d06533caf1c279a9b1d1109f80b18ab",
+            "wall_ms": 31.602249999999998,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          }
+        ],
+        "initial_base_mib": 0.0704498291015625,
+        "final_base_mib": 1.9874486923217773,
+        "final_middle_mib": 0.9939022064208984
+      },
+      "current": {
+        "mean_ms": 30.40814129,
+        "median_ms": 28.246104,
+        "p95_ms": 44.796208,
+        "max_ms": 53.997166,
+        "total_ms": 3040.814129,
+        "base_changes": [],
+        "initial_base_mib": 0.0704498291015625,
+        "final_base_mib": 0.0704498291015625,
+        "final_middle_mib": 4.511846542358398
+      },
+      "no-sync": {
+        "mean_ms": 10.32125462,
+        "median_ms": 9.246042,
+        "p95_ms": 17.872125,
+        "max_ms": 28.148041,
+        "total_ms": 1032.125462,
+        "base_changes": [],
+        "initial_base_mib": 0.0704498291015625,
+        "final_base_mib": 0.0704498291015625,
+        "final_middle_mib": 4.511846542358398
+      }
+    },
+    "reference_base_mib": 1.7876806259155273,
+    "reference_base_note": "Fresh build of the terminal frozen snapshot.",
+    "current_vs_main_mean_change_pct": 182.80723970707174
+  },
+  "agentflow": {
+    "history_source": "small-sync-profile-2026-09-09/agentflow-history.json",
+    "base_commit": "e65d534b0efddadfa433770621ca4340786736bf",
+    "end_commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+    "commits": 19,
+    "terminal_files": 114,
+    "terminal_source_mib": 1.3813295364379883,
+    "verified_comparisons": 288,
+    "variants": {
+      "main": {
+        "mean_ms": 14.15058547368421,
+        "median_ms": 10.810833,
+        "p95_ms": 28.226291,
+        "max_ms": 28.226291,
+        "total_ms": 268.861124,
+        "base_changes": [
+          {
+            "step": 8,
+            "commit": "5ec17f27e93d7a63506dfe00a2f57dee2923fb6a",
+            "wall_ms": 24.904958,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          },
+          {
+            "step": 16,
+            "commit": "78b8bc384df3f5dad06a3df622d870ee5a89853a",
+            "wall_ms": 28.226291,
+            "diagnostic": "coderg: rebuilt index after a large change"
+          }
+        ],
+        "initial_base_mib": 0.8180513381958008,
+        "final_base_mib": 1.7794771194458008,
+        "final_middle_mib": 1.891331672668457
+      },
+      "current": {
+        "mean_ms": 34.75032242105263,
+        "median_ms": 31.313541999999998,
+        "p95_ms": 58.583875,
+        "max_ms": 58.583875,
+        "total_ms": 660.256126,
+        "base_changes": [],
+        "initial_base_mib": 0.8180513381958008,
+        "final_base_mib": 0.8180513381958008,
+        "final_middle_mib": 4.852265357971191
+      },
+      "no-sync": {
+        "mean_ms": 14.30645405263158,
+        "median_ms": 11.133709,
+        "p95_ms": 30.532083,
+        "max_ms": 30.532083,
+        "total_ms": 271.822627,
+        "base_changes": [],
+        "initial_base_mib": 0.8180513381958008,
+        "final_base_mib": 0.8180513381958008,
+        "final_middle_mib": 4.852265357971191
+      }
+    },
+    "reference_base_mib": 1.9861621856689453,
+    "reference_base_note": "Fresh build of the terminal frozen snapshot.",
+    "current_vs_main_mean_change_pct": 145.57515648859672
+  },
+  "vllm": {
+    "history_source": "generation-scale-2026-09-09/vllm-history.json",
+    "base_commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+    "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+    "commits": 100,
+    "terminal_files": 6835,
+    "terminal_source_mib": 82.38237380981445,
+    "verified_comparisons": 945,
+    "variants": {
+      "main": {
+        "mean_ms": 169.99441333,
+        "median_ms": 77.286667,
+        "p95_ms": 851.001708,
+        "max_ms": 866.9538329999999,
+        "total_ms": 16999.441333,
+        "base_changes": [
+          {
+            "step": 8,
+            "commit": "21a22110404d98dcab5f51cd90e9acb0acc15e47",
+            "wall_ms": 840.286791,
+            "diagnostic": "coderg: spilled 2 build runs (411265216 temporary bytes written, 411265216 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 16,
+            "commit": "9509fc8ae61a8eb871a984e759a6d228c930df80",
+            "wall_ms": 844.326917,
+            "diagnostic": "coderg: spilled 2 build runs (411690376 temporary bytes written, 411690376 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 24,
+            "commit": "25268f0c9c173aa6557a3eebf7d7a87fa91fec3a",
+            "wall_ms": 832.4805,
+            "diagnostic": "coderg: spilled 2 build runs (411781533 temporary bytes written, 411781533 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 32,
+            "commit": "8a728663c1c3eeace834a95f5654fa653cc1998c",
+            "wall_ms": 846.644166,
+            "diagnostic": "coderg: spilled 2 build runs (412647726 temporary bytes written, 412647726 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 40,
+            "commit": "9cd956c7e6cf54efa366b803cafa15ec6c2df827",
+            "wall_ms": 846.333583,
+            "diagnostic": "coderg: spilled 2 build runs (412749943 temporary bytes written, 412749943 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 48,
+            "commit": "a69e75b9b6d6a26d90b6790e2eb75b3419a47c16",
+            "wall_ms": 841.560791,
+            "diagnostic": "coderg: spilled 2 build runs (413284017 temporary bytes written, 413284017 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 56,
+            "commit": "761c5861e34edb52c290e3171feb3763732ba8ca",
+            "wall_ms": 857.314333,
+            "diagnostic": "coderg: spilled 2 build runs (413578568 temporary bytes written, 413578568 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 64,
+            "commit": "c81ace18596f75660bbc04efc2075a5f17a76791",
+            "wall_ms": 857.878666,
+            "diagnostic": "coderg: spilled 2 build runs (413659663 temporary bytes written, 413659663 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 72,
+            "commit": "8277c42e4c74c5dd604f29b6d938a3456658f247",
+            "wall_ms": 851.001708,
+            "diagnostic": "coderg: spilled 2 build runs (414045314 temporary bytes written, 414045314 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 80,
+            "commit": "4ee2595512c830b2a0566bbaa9815cf617694171",
+            "wall_ms": 852.997958,
+            "diagnostic": "coderg: spilled 2 build runs (414119451 temporary bytes written, 414119451 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 88,
+            "commit": "28e605fb330093fee5a2b98aebc19d9c268c1822",
+            "wall_ms": 866.9538329999999,
+            "diagnostic": "coderg: spilled 2 build runs (414137293 temporary bytes written, 414137293 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          },
+          {
+            "step": 96,
+            "commit": "144e79c8106da23141ac010394b782f730cc7fe8",
+            "wall_ms": 853.5883749999999,
+            "diagnostic": "coderg: spilled 2 build runs (414570513 temporary bytes written, 414570513 peak temporary bytes)\ncoderg: rebuilt index after a large change"
+          }
+        ],
+        "initial_base_mib": 60.44817352294922,
+        "final_base_mib": 61.3615779876709,
+        "final_middle_mib": 0.658203125
+      },
+      "current": {
+        "mean_ms": 77.43424073,
+        "median_ms": 65.36349999999999,
+        "p95_ms": 88.949291,
+        "max_ms": 913.821291,
+        "total_ms": 7743.424073,
+        "base_changes": [
+          {
+            "step": 79,
+            "commit": "d87a440f88e28e5b37f9b1e22ce214d0426d5352",
+            "wall_ms": 913.821291,
+            "diagnostic": "coderg: incrementally indexed 27 changed files\ncoderg: compacted 9 base + middle segments (79397360 input bytes, 64303679 output bytes)"
+          }
+        ],
+        "initial_base_mib": 60.44817352294922,
+        "final_base_mib": 61.324767112731934,
+        "final_middle_mib": 3.3784351348876953
+      },
+      "no-sync": {
+        "mean_ms": 54.93290801,
+        "median_ms": 44.830396,
+        "p95_ms": 66.160625,
+        "max_ms": 885.06975,
+        "total_ms": 5493.290801,
+        "base_changes": [
+          {
+            "step": 79,
+            "commit": "d87a440f88e28e5b37f9b1e22ce214d0426d5352",
+            "wall_ms": 885.06975,
+            "diagnostic": "coderg: incrementally indexed 27 changed files\ncoderg: compacted 9 base + middle segments (79397360 input bytes, 64303679 output bytes)"
+          }
+        ],
+        "initial_base_mib": 60.44817352294922,
+        "final_base_mib": 61.324767112731934,
+        "final_middle_mib": 3.3784351348876953
+      }
+    },
+    "reference_base_mib": 61.3615779876709,
+    "reference_base_note": "Main last rebuilt at step 96; approximate terminal base size.",
+    "current_vs_main_mean_change_pct": -54.44894969596352
+  }
+}

@@ -1,0 +1,1516 @@
+{
+  "viberwhisper": {
+    "pattern": "^impl",
+    "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+    "index": "/private/tmp/coderg-small-profile-20260909-_jpl5e34/viberwhisper",
+    "commands": {
+      "release": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "search",
+        "^impl",
+        ".",
+        "--index-dir",
+        "/private/tmp/coderg-small-profile-20260909-_jpl5e34/viberwhisper",
+        "--no-refresh"
+      ],
+      "instrumented": [
+        "/Users/b1indsight/personal_work/coderg/target/profiling/coderg",
+        "search",
+        "^impl",
+        ".",
+        "--index-dir",
+        "/private/tmp/coderg-small-profile-20260909-_jpl5e34/viberwhisper",
+        "--no-refresh"
+      ],
+      "rg": [
+        "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+        "--no-config",
+        "--hidden",
+        "-g",
+        "!.git",
+        "-n",
+        "--no-heading",
+        "--color",
+        "never",
+        "^impl",
+        "."
+      ]
+    },
+    "warmup": 5,
+    "iterations": 31,
+    "manifest_bytes": 43390,
+    "match_lines": 154,
+    "match_files": 41,
+    "samples": {
+      "release": [
+        {
+          "process_total": 3.835209
+        },
+        {
+          "process_total": 4.133458
+        },
+        {
+          "process_total": 3.770583
+        },
+        {
+          "process_total": 3.860208
+        },
+        {
+          "process_total": 4.157333
+        },
+        {
+          "process_total": 3.724708
+        },
+        {
+          "process_total": 3.755709
+        },
+        {
+          "process_total": 3.944667
+        },
+        {
+          "process_total": 3.816209
+        },
+        {
+          "process_total": 4.26125
+        },
+        {
+          "process_total": 3.820042
+        },
+        {
+          "process_total": 3.985125
+        },
+        {
+          "process_total": 3.750625
+        },
+        {
+          "process_total": 3.766042
+        },
+        {
+          "process_total": 3.842125
+        },
+        {
+          "process_total": 3.822583
+        },
+        {
+          "process_total": 3.833625
+        },
+        {
+          "process_total": 3.836334
+        },
+        {
+          "process_total": 3.652667
+        },
+        {
+          "process_total": 3.675416
+        },
+        {
+          "process_total": 4.020209
+        },
+        {
+          "process_total": 3.714
+        },
+        {
+          "process_total": 3.714
+        },
+        {
+          "process_total": 3.77325
+        },
+        {
+          "process_total": 4.255916
+        },
+        {
+          "process_total": 4.247792
+        },
+        {
+          "process_total": 3.99675
+        },
+        {
+          "process_total": 3.937958
+        },
+        {
+          "process_total": 3.831792
+        },
+        {
+          "process_total": 3.8
+        },
+        {
+          "process_total": 3.571041
+        }
+      ],
+      "instrumented": [
+        {
+          "process_total": 3.798875,
+          "regex_compile": 0.039875,
+          "manifest_buffer_drop": 0.000125,
+          "manifest_read": 0.0135,
+          "manifest_parse": 0.07037500000000001,
+          "segment_load": 0.022542,
+          "load_total": 0.12929200000000002,
+          "refresh": 8.3e-05,
+          "query_plan": 0.00675,
+          "candidates": 0.008957999999999999,
+          "candidate_count": 75.0,
+          "read_and_match": 0.727,
+          "sort_and_output": 0.069083,
+          "drop_index_and_results": 0.014834
+        },
+        {
+          "process_total": 3.821167,
+          "regex_compile": 0.035207999999999996,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.016833,
+          "manifest_parse": 0.072083,
+          "segment_load": 0.028249999999999997,
+          "load_total": 0.14775000000000002,
+          "refresh": 4.1e-05,
+          "query_plan": 0.010125,
+          "candidates": 0.009417,
+          "candidate_count": 75.0,
+          "read_and_match": 0.720458,
+          "sort_and_output": 0.06674999999999999,
+          "drop_index_and_results": 0.010416
+        },
+        {
+          "process_total": 4.116042,
+          "regex_compile": 0.0425,
+          "manifest_buffer_drop": 0.000334,
+          "manifest_read": 0.019875,
+          "manifest_parse": 0.076333,
+          "segment_load": 0.030000000000000002,
+          "load_total": 0.15725,
+          "refresh": 0.0,
+          "query_plan": 0.010665999999999998,
+          "candidates": 0.011334,
+          "candidate_count": 75.0,
+          "read_and_match": 0.8155420000000001,
+          "sort_and_output": 0.067333,
+          "drop_index_and_results": 0.012958
+        },
+        {
+          "process_total": 3.691875,
+          "regex_compile": 0.038292,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.013,
+          "manifest_parse": 0.072709,
+          "segment_load": 0.022500000000000003,
+          "load_total": 0.131417,
+          "refresh": 0.000125,
+          "query_plan": 0.008834,
+          "candidates": 0.008957999999999999,
+          "candidate_count": 75.0,
+          "read_and_match": 0.685667,
+          "sort_and_output": 0.064583,
+          "drop_index_and_results": 0.015958
+        },
+        {
+          "process_total": 3.982042,
+          "regex_compile": 0.038375,
+          "manifest_buffer_drop": 0.000209,
+          "manifest_read": 0.013917,
+          "manifest_parse": 0.074958,
+          "segment_load": 0.022041,
+          "load_total": 0.135084,
+          "refresh": 0.0,
+          "query_plan": 0.017124999999999998,
+          "candidates": 0.008291000000000001,
+          "candidate_count": 75.0,
+          "read_and_match": 0.735,
+          "sort_and_output": 0.06695899999999999,
+          "drop_index_and_results": 0.016625
+        },
+        {
+          "process_total": 3.853083,
+          "regex_compile": 0.04125,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.01325,
+          "manifest_parse": 0.06979199999999999,
+          "segment_load": 0.021583,
+          "load_total": 0.1275,
+          "refresh": 4.2e-05,
+          "query_plan": 0.008166,
+          "candidates": 0.008459,
+          "candidate_count": 75.0,
+          "read_and_match": 0.74625,
+          "sort_and_output": 0.066083,
+          "drop_index_and_results": 0.01025
+        },
+        {
+          "process_total": 3.7745,
+          "regex_compile": 0.035083,
+          "manifest_buffer_drop": 0.000292,
+          "manifest_read": 0.015209,
+          "manifest_parse": 0.0725,
+          "segment_load": 0.028458999999999998,
+          "load_total": 0.14675,
+          "refresh": 0.0,
+          "query_plan": 0.006917,
+          "candidates": 0.008624999999999999,
+          "candidate_count": 75.0,
+          "read_and_match": 0.7222500000000001,
+          "sort_and_output": 0.069416,
+          "drop_index_and_results": 0.013958
+        },
+        {
+          "process_total": 3.834167,
+          "regex_compile": 0.046792,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.020375,
+          "manifest_parse": 0.07179100000000001,
+          "segment_load": 0.020458999999999998,
+          "load_total": 0.136333,
+          "refresh": 8.3e-05,
+          "query_plan": 0.007625,
+          "candidates": 0.008624999999999999,
+          "candidate_count": 75.0,
+          "read_and_match": 0.7712910000000001,
+          "sort_and_output": 0.067542,
+          "drop_index_and_results": 0.011666
+        },
+        {
+          "process_total": 3.827125,
+          "regex_compile": 0.040540999999999994,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.013791999999999999,
+          "manifest_parse": 0.07125,
+          "segment_load": 0.021583,
+          "load_total": 0.133208,
+          "refresh": 4.1e-05,
+          "query_plan": 0.007375,
+          "candidates": 0.008459,
+          "candidate_count": 75.0,
+          "read_and_match": 0.706666,
+          "sort_and_output": 0.06774999999999999,
+          "drop_index_and_results": 0.014083
+        },
+        {
+          "process_total": 3.746083,
+          "regex_compile": 0.036416,
+          "manifest_buffer_drop": 0.00025,
+          "manifest_read": 0.018000000000000002,
+          "manifest_parse": 0.076917,
+          "segment_load": 0.021083,
+          "load_total": 0.145,
+          "refresh": 4.1e-05,
+          "query_plan": 0.006625,
+          "candidates": 0.008541,
+          "candidate_count": 75.0,
+          "read_and_match": 0.7268749999999999,
+          "sort_and_output": 0.067834,
+          "drop_index_and_results": 0.015708
+        },
+        {
+          "process_total": 3.866208,
+          "regex_compile": 0.040625,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.013833,
+          "manifest_parse": 0.06849999999999999,
+          "segment_load": 0.020832999999999997,
+          "load_total": 0.127417,
+          "refresh": 4.1e-05,
+          "query_plan": 0.007791,
+          "candidates": 0.008624999999999999,
+          "candidate_count": 75.0,
+          "read_and_match": 0.741,
+          "sort_and_output": 0.067125,
+          "drop_index_and_results": 0.011792
+        },
+        {
+          "process_total": 3.83325,
+          "regex_compile": 0.04075,
+          "manifest_buffer_drop": 0.00020800000000000001,
+          "manifest_read": 0.013417,
+          "manifest_parse": 0.07145800000000001,
+          "segment_load": 0.021542000000000002,
+          "load_total": 0.133041,
+          "refresh": 0.0,
+          "query_plan": 0.006792,
+          "candidates": 0.007958000000000002,
+          "candidate_count": 75.0,
+          "read_and_match": 0.7249580000000001,
+          "sort_and_output": 0.07029099999999999,
+          "drop_index_and_results": 0.012916
+        },
+        {
+          "process_total": 3.879542,
+          "regex_compile": 0.041458,
+          "manifest_buffer_drop": 0.00025,
+          "manifest_read": 0.014457999999999999,
+          "manifest_parse": 0.072209,
+          "segment_load": 0.022167,
+          "load_total": 0.132333,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007542,
+          "candidates": 0.00925,
+          "candidate_count": 75.0,
+          "read_and_match": 0.682125,
+          "sort_and_output": 0.06691599999999999,
+          "drop_index_and_results": 0.013
+        },
+        {
+          "process_total": 3.82725,
+          "regex_compile": 0.034666999999999996,
+          "manifest_buffer_drop": 0.000209,
+          "manifest_read": 0.012584,
+          "manifest_parse": 0.072875,
+          "segment_load": 0.021542000000000002,
+          "load_total": 0.13175,
+          "refresh": 4.2e-05,
+          "query_plan": 0.008624999999999999,
+          "candidates": 0.008416,
+          "candidate_count": 75.0,
+          "read_and_match": 0.66875,
+          "sort_and_output": 0.06770799999999999,
+          "drop_index_and_results": 0.012374999999999999
+        },
+        {
+          "process_total": 3.807583,
+          "regex_compile": 0.038042,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.01425,
+          "manifest_parse": 0.08745800000000001,
+          "segment_load": 0.029292,
+          "load_total": 0.154583,
+          "refresh": 0.0,
+          "query_plan": 0.007333,
+          "candidates": 0.008624999999999999,
+          "candidate_count": 75.0,
+          "read_and_match": 0.741916,
+          "sort_and_output": 0.072375,
+          "drop_index_and_results": 0.014457999999999999
+        },
+        {
+          "process_total": 3.734125,
+          "regex_compile": 0.042292,
+          "manifest_buffer_drop": 0.00041600000000000003,
+          "manifest_read": 0.013583,
+          "manifest_parse": 0.072375,
+          "segment_load": 0.02125,
+          "load_total": 0.134292,
+          "refresh": 0.000125,
+          "query_plan": 0.007958999999999999,
+          "candidates": 0.008708,
+          "candidate_count": 75.0,
+          "read_and_match": 0.722625,
+          "sort_and_output": 0.06983299999999999,
+          "drop_index_and_results": 0.011666
+        },
+        {
+          "process_total": 3.845125,
+          "regex_compile": 0.041999999999999996,
+          "manifest_buffer_drop": 0.000209,
+          "manifest_read": 0.013584,
+          "manifest_parse": 0.072584,
+          "segment_load": 0.023167,
+          "load_total": 0.133542,
+          "refresh": 0.0,
+          "query_plan": 0.007791,
+          "candidates": 0.008209000000000001,
+          "candidate_count": 75.0,
+          "read_and_match": 0.766125,
+          "sort_and_output": 0.065458,
+          "drop_index_and_results": 0.013292
+        },
+        {
+          "process_total": 4.078083,
+          "regex_compile": 0.0455,
+          "manifest_buffer_drop": 0.00033299999999999996,
+          "manifest_read": 0.01475,
+          "manifest_parse": 0.074667,
+          "segment_load": 0.023958999999999998,
+          "load_total": 0.140625,
+          "refresh": 0.0,
+          "query_plan": 0.007292,
+          "candidates": 0.009167,
+          "candidate_count": 75.0,
+          "read_and_match": 0.813917,
+          "sort_and_output": 0.070041,
+          "drop_index_and_results": 0.012834
+        },
+        {
+          "process_total": 3.990625,
+          "regex_compile": 0.040375,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.014583,
+          "manifest_parse": 0.068791,
+          "segment_load": 0.024708,
+          "load_total": 0.131875,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007708,
+          "candidates": 0.009208000000000001,
+          "candidate_count": 75.0,
+          "read_and_match": 0.687083,
+          "sort_and_output": 0.067375,
+          "drop_index_and_results": 0.01375
+        },
+        {
+          "process_total": 4.042708,
+          "regex_compile": 0.044292000000000005,
+          "manifest_buffer_drop": 0.00029099999999999997,
+          "manifest_read": 0.0145,
+          "manifest_parse": 0.07245900000000001,
+          "segment_load": 0.028915999999999997,
+          "load_total": 0.141875,
+          "refresh": 0.0,
+          "query_plan": 0.008957999999999999,
+          "candidates": 0.010125,
+          "candidate_count": 75.0,
+          "read_and_match": 0.785709,
+          "sort_and_output": 0.06625,
+          "drop_index_and_results": 0.011250000000000001
+        },
+        {
+          "process_total": 3.716958,
+          "regex_compile": 0.040583,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.013084,
+          "manifest_parse": 0.06966699999999999,
+          "segment_load": 0.022417,
+          "load_total": 0.129167,
+          "refresh": 4.2e-05,
+          "query_plan": 0.00725,
+          "candidates": 0.009459,
+          "candidate_count": 75.0,
+          "read_and_match": 0.6982079999999999,
+          "sort_and_output": 0.065875,
+          "drop_index_and_results": 0.013417
+        },
+        {
+          "process_total": 3.817541,
+          "regex_compile": 0.032833999999999995,
+          "manifest_buffer_drop": 4.2e-05,
+          "manifest_read": 0.012834,
+          "manifest_parse": 0.070333,
+          "segment_load": 0.022875,
+          "load_total": 0.129333,
+          "refresh": 4.2e-05,
+          "query_plan": 0.00625,
+          "candidates": 0.008124999999999999,
+          "candidate_count": 75.0,
+          "read_and_match": 0.804833,
+          "sort_and_output": 0.06583399999999999,
+          "drop_index_and_results": 0.013625000000000002
+        },
+        {
+          "process_total": 3.68775,
+          "regex_compile": 0.042666,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.014334,
+          "manifest_parse": 0.077459,
+          "segment_load": 0.021875,
+          "load_total": 0.137291,
+          "refresh": 0.0,
+          "query_plan": 0.007084,
+          "candidates": 0.008667,
+          "candidate_count": 75.0,
+          "read_and_match": 0.711875,
+          "sort_and_output": 0.067958,
+          "drop_index_and_results": 0.013167
+        },
+        {
+          "process_total": 3.930458,
+          "regex_compile": 0.039458,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.013917,
+          "manifest_parse": 0.073,
+          "segment_load": 0.024457999999999997,
+          "load_total": 0.136333,
+          "refresh": 4.1e-05,
+          "query_plan": 0.007417,
+          "candidates": 0.008333,
+          "candidate_count": 75.0,
+          "read_and_match": 0.757166,
+          "sort_and_output": 0.06375,
+          "drop_index_and_results": 0.014959
+        },
+        {
+          "process_total": 4.5555,
+          "regex_compile": 0.043791000000000004,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.018042000000000002,
+          "manifest_parse": 0.075583,
+          "segment_load": 0.036083,
+          "load_total": 0.16075,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007500000000000001,
+          "candidates": 0.010875,
+          "candidate_count": 75.0,
+          "read_and_match": 0.728083,
+          "sort_and_output": 0.066333,
+          "drop_index_and_results": 0.013625000000000002
+        },
+        {
+          "process_total": 3.877542,
+          "regex_compile": 0.04025,
+          "manifest_buffer_drop": 0.000209,
+          "manifest_read": 0.013625000000000002,
+          "manifest_parse": 0.068,
+          "segment_load": 0.023083,
+          "load_total": 0.128917,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007459,
+          "candidates": 0.008459,
+          "candidate_count": 75.0,
+          "read_and_match": 0.7402500000000001,
+          "sort_and_output": 0.066084,
+          "drop_index_and_results": 0.011916999999999999
+        },
+        {
+          "process_total": 4.038125,
+          "regex_compile": 0.041916999999999996,
+          "manifest_buffer_drop": 0.00025,
+          "manifest_read": 0.013791999999999999,
+          "manifest_parse": 0.07358300000000001,
+          "segment_load": 0.022417,
+          "load_total": 0.135292,
+          "refresh": 4.1e-05,
+          "query_plan": 0.006833,
+          "candidates": 0.009042000000000001,
+          "candidate_count": 75.0,
+          "read_and_match": 0.7198330000000001,
+          "sort_and_output": 0.06758399999999999,
+          "drop_index_and_results": 0.013040999999999999
+        },
+        {
+          "process_total": 3.703,
+          "regex_compile": 0.037917000000000006,
+          "manifest_buffer_drop": 0.000209,
+          "manifest_read": 0.013667,
+          "manifest_parse": 0.06899999999999999,
+          "segment_load": 0.020709,
+          "load_total": 0.126417,
+          "refresh": 4.2e-05,
+          "query_plan": 0.006458,
+          "candidates": 0.008042,
+          "candidate_count": 75.0,
+          "read_and_match": 0.731917,
+          "sort_and_output": 0.06975,
+          "drop_index_and_results": 0.012292
+        },
+        {
+          "process_total": 3.642083,
+          "regex_compile": 0.037375,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.014,
+          "manifest_parse": 0.068583,
+          "segment_load": 0.025625,
+          "load_total": 0.13012500000000002,
+          "refresh": 0.0,
+          "query_plan": 0.0067079999999999996,
+          "candidates": 0.007666999999999999,
+          "candidate_count": 75.0,
+          "read_and_match": 0.6547499999999999,
+          "sort_and_output": 0.067292,
+          "drop_index_and_results": 0.012125
+        },
+        {
+          "process_total": 3.959917,
+          "regex_compile": 0.040791,
+          "manifest_buffer_drop": 0.000375,
+          "manifest_read": 0.014624999999999999,
+          "manifest_parse": 0.076375,
+          "segment_load": 0.023458,
+          "load_total": 0.138083,
+          "refresh": 4.1e-05,
+          "query_plan": 0.009458,
+          "candidates": 0.009625,
+          "candidate_count": 75.0,
+          "read_and_match": 0.71275,
+          "sort_and_output": 0.066333,
+          "drop_index_and_results": 0.011708
+        },
+        {
+          "process_total": 3.813208,
+          "regex_compile": 0.04125,
+          "manifest_buffer_drop": 0.00020800000000000001,
+          "manifest_read": 0.017124999999999998,
+          "manifest_parse": 0.074459,
+          "segment_load": 0.020625,
+          "load_total": 0.143125,
+          "refresh": 4.1e-05,
+          "query_plan": 0.0077919999999999994,
+          "candidates": 0.009290999999999999,
+          "candidate_count": 75.0,
+          "read_and_match": 0.6675,
+          "sort_and_output": 0.06825,
+          "drop_index_and_results": 0.015167
+        }
+      ],
+      "rg": [
+        {
+          "process_total": 5.606208
+        },
+        {
+          "process_total": 6.500625
+        },
+        {
+          "process_total": 6.443333
+        },
+        {
+          "process_total": 6.500792
+        },
+        {
+          "process_total": 7.053917
+        },
+        {
+          "process_total": 6.429167
+        },
+        {
+          "process_total": 5.518292
+        },
+        {
+          "process_total": 6.308417
+        },
+        {
+          "process_total": 6.405458
+        },
+        {
+          "process_total": 5.8345
+        },
+        {
+          "process_total": 6.419166
+        },
+        {
+          "process_total": 6.3425
+        },
+        {
+          "process_total": 5.487541
+        },
+        {
+          "process_total": 6.843209
+        },
+        {
+          "process_total": 6.898
+        },
+        {
+          "process_total": 6.866834
+        },
+        {
+          "process_total": 5.564292
+        },
+        {
+          "process_total": 5.720167
+        },
+        {
+          "process_total": 6.538708
+        },
+        {
+          "process_total": 6.477042
+        },
+        {
+          "process_total": 5.411083
+        },
+        {
+          "process_total": 5.553708
+        },
+        {
+          "process_total": 5.505625
+        },
+        {
+          "process_total": 5.6375
+        },
+        {
+          "process_total": 5.659625
+        },
+        {
+          "process_total": 6.578417
+        },
+        {
+          "process_total": 6.268667
+        },
+        {
+          "process_total": 5.197334
+        },
+        {
+          "process_total": 6.064125
+        },
+        {
+          "process_total": 5.57625
+        },
+        {
+          "process_total": 5.565667
+        }
+      ]
+    },
+    "median": {
+      "release": {
+        "process_total": 3.831792
+      },
+      "instrumented": {
+        "process_total": 3.83325,
+        "regex_compile": 0.040583,
+        "manifest_buffer_drop": 0.00020800000000000001,
+        "manifest_read": 0.013917,
+        "manifest_parse": 0.07245900000000001,
+        "segment_load": 0.022500000000000003,
+        "load_total": 0.134292,
+        "refresh": 4.1e-05,
+        "query_plan": 0.007500000000000001,
+        "candidates": 0.008624999999999999,
+        "candidate_count": 75.0,
+        "read_and_match": 0.7268749999999999,
+        "sort_and_output": 0.067333,
+        "drop_index_and_results": 0.013040999999999999
+      },
+      "rg": {
+        "process_total": 6.268667
+      }
+    }
+  },
+  "agentflow": {
+    "pattern": "^class",
+    "root": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+    "index": "/private/tmp/coderg-small-profile-20260909-_jpl5e34/agentflow",
+    "commands": {
+      "release": [
+        "/Users/b1indsight/personal_work/coderg/target/release/coderg",
+        "search",
+        "^class",
+        ".",
+        "--index-dir",
+        "/private/tmp/coderg-small-profile-20260909-_jpl5e34/agentflow",
+        "--no-refresh"
+      ],
+      "instrumented": [
+        "/Users/b1indsight/personal_work/coderg/target/profiling/coderg",
+        "search",
+        "^class",
+        ".",
+        "--index-dir",
+        "/private/tmp/coderg-small-profile-20260909-_jpl5e34/agentflow",
+        "--no-refresh"
+      ],
+      "rg": [
+        "/opt/homebrew/Caskroom/codex/0.153.4/codex-path/rg",
+        "--no-config",
+        "--hidden",
+        "-g",
+        "!.git",
+        "-n",
+        "--no-heading",
+        "--color",
+        "never",
+        "^class",
+        "."
+      ]
+    },
+    "warmup": 5,
+    "iterations": 31,
+    "manifest_bytes": 37412,
+    "match_lines": 198,
+    "match_files": 52,
+    "samples": {
+      "release": [
+        {
+          "process_total": 3.607416
+        },
+        {
+          "process_total": 3.513833
+        },
+        {
+          "process_total": 3.575333
+        },
+        {
+          "process_total": 3.682625
+        },
+        {
+          "process_total": 3.858875
+        },
+        {
+          "process_total": 3.604208
+        },
+        {
+          "process_total": 7.018792
+        },
+        {
+          "process_total": 5.374667
+        },
+        {
+          "process_total": 3.860875
+        },
+        {
+          "process_total": 3.738125
+        },
+        {
+          "process_total": 3.924459
+        },
+        {
+          "process_total": 4.247625
+        },
+        {
+          "process_total": 3.610625
+        },
+        {
+          "process_total": 3.666209
+        },
+        {
+          "process_total": 3.790375
+        },
+        {
+          "process_total": 3.488917
+        },
+        {
+          "process_total": 3.77925
+        },
+        {
+          "process_total": 3.839625
+        },
+        {
+          "process_total": 3.448542
+        },
+        {
+          "process_total": 3.707125
+        },
+        {
+          "process_total": 3.675417
+        },
+        {
+          "process_total": 3.644209
+        },
+        {
+          "process_total": 3.662792
+        },
+        {
+          "process_total": 3.866167
+        },
+        {
+          "process_total": 3.641791
+        },
+        {
+          "process_total": 3.525292
+        },
+        {
+          "process_total": 3.610792
+        },
+        {
+          "process_total": 3.766042
+        },
+        {
+          "process_total": 3.622083
+        },
+        {
+          "process_total": 3.679417
+        },
+        {
+          "process_total": 4.036542
+        }
+      ],
+      "instrumented": [
+        {
+          "process_total": 3.6735,
+          "regex_compile": 0.039166,
+          "manifest_buffer_drop": 0.000292,
+          "manifest_read": 0.01375,
+          "manifest_parse": 0.064291,
+          "segment_load": 0.022667000000000003,
+          "load_total": 0.122708,
+          "refresh": 4.1e-05,
+          "query_plan": 0.007666999999999999,
+          "candidates": 0.022333000000000002,
+          "candidate_count": 63.0,
+          "read_and_match": 0.634833,
+          "sort_and_output": 0.086584,
+          "drop_index_and_results": 0.016583
+        },
+        {
+          "process_total": 3.5465,
+          "regex_compile": 0.034291,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.015875,
+          "manifest_parse": 0.072875,
+          "segment_load": 0.021667000000000002,
+          "load_total": 0.133334,
+          "refresh": 4.2e-05,
+          "query_plan": 0.006833,
+          "candidates": 0.01475,
+          "candidate_count": 63.0,
+          "read_and_match": 0.5825,
+          "sort_and_output": 0.08666700000000001,
+          "drop_index_and_results": 0.01375
+        },
+        {
+          "process_total": 3.985625,
+          "regex_compile": 0.041875,
+          "manifest_buffer_drop": 0.00020800000000000001,
+          "manifest_read": 0.017875000000000002,
+          "manifest_parse": 0.059833000000000004,
+          "segment_load": 0.025541,
+          "load_total": 0.125958,
+          "refresh": 4.2e-05,
+          "query_plan": 0.008166,
+          "candidates": 0.016834,
+          "candidate_count": 63.0,
+          "read_and_match": 0.637,
+          "sort_and_output": 0.082666,
+          "drop_index_and_results": 0.016583
+        },
+        {
+          "process_total": 3.715084,
+          "regex_compile": 0.040166999999999994,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.013333,
+          "manifest_parse": 0.06145799999999999,
+          "segment_load": 0.02125,
+          "load_total": 0.12012500000000001,
+          "refresh": 0.0,
+          "query_plan": 0.008416,
+          "candidates": 0.015333999999999999,
+          "candidate_count": 63.0,
+          "read_and_match": 0.6100829999999999,
+          "sort_and_output": 0.082958,
+          "drop_index_and_results": 0.011542
+        },
+        {
+          "process_total": 3.811791,
+          "regex_compile": 0.040583,
+          "manifest_buffer_drop": 0.00020800000000000001,
+          "manifest_read": 0.013083,
+          "manifest_parse": 0.064208,
+          "segment_load": 0.021917,
+          "load_total": 0.122583,
+          "refresh": 8.3e-05,
+          "query_plan": 0.007875,
+          "candidates": 0.016583,
+          "candidate_count": 63.0,
+          "read_and_match": 0.681917,
+          "sort_and_output": 0.08208399999999999,
+          "drop_index_and_results": 0.011333
+        },
+        {
+          "process_total": 3.6425,
+          "regex_compile": 0.034832999999999996,
+          "manifest_buffer_drop": 8.3e-05,
+          "manifest_read": 0.01225,
+          "manifest_parse": 0.074625,
+          "segment_load": 0.020208,
+          "load_total": 0.129917,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007042,
+          "candidates": 0.014791,
+          "candidate_count": 63.0,
+          "read_and_match": 0.664,
+          "sort_and_output": 0.095833,
+          "drop_index_and_results": 0.011958
+        },
+        {
+          "process_total": 4.600584,
+          "regex_compile": 0.043458000000000004,
+          "manifest_buffer_drop": 0.000292,
+          "manifest_read": 0.016082999999999997,
+          "manifest_parse": 0.064084,
+          "segment_load": 0.027167,
+          "load_total": 0.132416,
+          "refresh": 4.2e-05,
+          "query_plan": 0.008417,
+          "candidates": 0.017625000000000002,
+          "candidate_count": 63.0,
+          "read_and_match": 0.5605,
+          "sort_and_output": 0.080958,
+          "drop_index_and_results": 0.014292
+        },
+        {
+          "process_total": 7.630708,
+          "regex_compile": 0.048042,
+          "manifest_buffer_drop": 0.000417,
+          "manifest_read": 0.022833,
+          "manifest_parse": 0.06612499999999999,
+          "segment_load": 0.037292,
+          "load_total": 0.165875,
+          "refresh": 4.2e-05,
+          "query_plan": 0.009708999999999999,
+          "candidates": 0.021208,
+          "candidate_count": 63.0,
+          "read_and_match": 1.1904590000000002,
+          "sort_and_output": 0.143917,
+          "drop_index_and_results": 0.030833000000000003
+        },
+        {
+          "process_total": 4.261333,
+          "regex_compile": 0.04125,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.016082999999999997,
+          "manifest_parse": 0.06229200000000001,
+          "segment_load": 0.027125,
+          "load_total": 0.129333,
+          "refresh": 8.4e-05,
+          "query_plan": 0.006792,
+          "candidates": 0.019834,
+          "candidate_count": 63.0,
+          "read_and_match": 0.8208329999999999,
+          "sort_and_output": 0.08529199999999999,
+          "drop_index_and_results": 0.016334
+        },
+        {
+          "process_total": 3.87075,
+          "regex_compile": 0.041667,
+          "manifest_buffer_drop": 0.00020800000000000001,
+          "manifest_read": 0.013791999999999999,
+          "manifest_parse": 0.064166,
+          "segment_load": 0.023958999999999998,
+          "load_total": 0.126625,
+          "refresh": 0.0,
+          "query_plan": 0.008708,
+          "candidates": 0.016249999999999997,
+          "candidate_count": 63.0,
+          "read_and_match": 0.630458,
+          "sort_and_output": 0.085833,
+          "drop_index_and_results": 0.013541
+        },
+        {
+          "process_total": 3.625417,
+          "regex_compile": 0.035083,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.01275,
+          "manifest_parse": 0.059500000000000004,
+          "segment_load": 0.021792000000000002,
+          "load_total": 0.11641699999999999,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007875,
+          "candidates": 0.017666,
+          "candidate_count": 63.0,
+          "read_and_match": 0.687125,
+          "sort_and_output": 0.0885,
+          "drop_index_and_results": 0.014917
+        },
+        {
+          "process_total": 3.834416,
+          "regex_compile": 0.042624999999999996,
+          "manifest_buffer_drop": 0.00025,
+          "manifest_read": 0.013583,
+          "manifest_parse": 0.063084,
+          "segment_load": 0.022958,
+          "load_total": 0.123667,
+          "refresh": 0.0,
+          "query_plan": 0.008083,
+          "candidates": 0.016625,
+          "candidate_count": 63.0,
+          "read_and_match": 0.615625,
+          "sort_and_output": 0.08508299999999999,
+          "drop_index_and_results": 0.014957999999999999
+        },
+        {
+          "process_total": 3.891584,
+          "regex_compile": 0.037875,
+          "manifest_buffer_drop": 0.00020800000000000001,
+          "manifest_read": 0.014042,
+          "manifest_parse": 0.060459,
+          "segment_load": 0.023291000000000003,
+          "load_total": 0.120833,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007208,
+          "candidates": 0.01575,
+          "candidate_count": 63.0,
+          "read_and_match": 0.645416,
+          "sort_and_output": 0.087,
+          "drop_index_and_results": 0.014166
+        },
+        {
+          "process_total": 4.088708,
+          "regex_compile": 0.049499999999999995,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.015958,
+          "manifest_parse": 0.063041,
+          "segment_load": 0.028458,
+          "load_total": 0.134125,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007333999999999999,
+          "candidates": 0.017667,
+          "candidate_count": 63.0,
+          "read_and_match": 0.650875,
+          "sort_and_output": 0.088375,
+          "drop_index_and_results": 0.015833
+        },
+        {
+          "process_total": 4.014208,
+          "regex_compile": 0.040625,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.015666,
+          "manifest_parse": 0.06183400000000001,
+          "segment_load": 0.024125,
+          "load_total": 0.12562500000000001,
+          "refresh": 4.2e-05,
+          "query_plan": 0.00675,
+          "candidates": 0.017124999999999998,
+          "candidate_count": 63.0,
+          "read_and_match": 0.6580410000000001,
+          "sort_and_output": 0.090209,
+          "drop_index_and_results": 0.012791
+        },
+        {
+          "process_total": 3.628333,
+          "regex_compile": 0.0335,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.013125000000000001,
+          "manifest_parse": 0.06025,
+          "segment_load": 0.022291000000000002,
+          "load_total": 0.11870800000000001,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007417,
+          "candidates": 0.017124999999999998,
+          "candidate_count": 63.0,
+          "read_and_match": 0.627083,
+          "sort_and_output": 0.08029099999999999,
+          "drop_index_and_results": 0.01375
+        },
+        {
+          "process_total": 3.767458,
+          "regex_compile": 0.048959,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.020458999999999998,
+          "manifest_parse": 0.065625,
+          "segment_load": 0.023958999999999998,
+          "load_total": 0.133541,
+          "refresh": 4.1e-05,
+          "query_plan": 0.00675,
+          "candidates": 0.0165,
+          "candidate_count": 63.0,
+          "read_and_match": 0.6469159999999999,
+          "sort_and_output": 0.084833,
+          "drop_index_and_results": 0.015458
+        },
+        {
+          "process_total": 3.670292,
+          "regex_compile": 0.041417,
+          "manifest_buffer_drop": 0.00020800000000000001,
+          "manifest_read": 0.014208,
+          "manifest_parse": 0.063208,
+          "segment_load": 0.020832999999999997,
+          "load_total": 0.121166,
+          "refresh": 4.1e-05,
+          "query_plan": 0.006875,
+          "candidates": 0.017124999999999998,
+          "candidate_count": 63.0,
+          "read_and_match": 0.6220829999999999,
+          "sort_and_output": 0.08729200000000001,
+          "drop_index_and_results": 0.013791000000000001
+        },
+        {
+          "process_total": 3.961875,
+          "regex_compile": 0.042082999999999995,
+          "manifest_buffer_drop": 0.00020800000000000001,
+          "manifest_read": 0.023958999999999998,
+          "manifest_parse": 0.06525,
+          "segment_load": 0.024208,
+          "load_total": 0.1385,
+          "refresh": 4.2e-05,
+          "query_plan": 0.007375,
+          "candidates": 0.017792,
+          "candidate_count": 63.0,
+          "read_and_match": 0.6040000000000001,
+          "sort_and_output": 0.082167,
+          "drop_index_and_results": 0.013417
+        },
+        {
+          "process_total": 3.777292,
+          "regex_compile": 0.036875000000000005,
+          "manifest_buffer_drop": 0.00033299999999999996,
+          "manifest_read": 0.013834,
+          "manifest_parse": 0.061875,
+          "segment_load": 0.02225,
+          "load_total": 0.12229100000000001,
+          "refresh": 0.0,
+          "query_plan": 0.008375,
+          "candidates": 0.016625,
+          "candidate_count": 63.0,
+          "read_and_match": 0.658916,
+          "sort_and_output": 0.085875,
+          "drop_index_and_results": 0.012458
+        },
+        {
+          "process_total": 3.702,
+          "regex_compile": 0.047791,
+          "manifest_buffer_drop": 0.000167,
+          "manifest_read": 0.013125000000000001,
+          "manifest_parse": 0.060583,
+          "segment_load": 0.022667000000000003,
+          "load_total": 0.119625,
+          "refresh": 4.1e-05,
+          "query_plan": 0.008291000000000001,
+          "candidates": 0.017124999999999998,
+          "candidate_count": 63.0,
+          "read_and_match": 0.613625,
+          "sort_and_output": 0.089667,
+          "drop_index_and_results": 0.017917000000000002
+        },
+        {
+          "process_total": 3.712458,
+          "regex_compile": 0.042125,
+          "manifest_buffer_drop": 0.000209,
+          "manifest_read": 0.014667,
+          "manifest_parse": 0.064583,
+          "segment_load": 0.023708,
+          "load_total": 0.1275,
+          "refresh": 0.0,
+          "query_plan": 0.007709000000000001,
+          "candidates": 0.016958,
+          "candidate_count": 63.0,
+          "read_and_match": 0.583959,
+          "sort_and_output": 0.08416699999999999,
+          "drop_index_and_results": 0.015417000000000002
+        },
+        {
+          "process_total": 3.866041,
+          "regex_compile": 0.042375,
+          "manifest_buffer_drop": 0.000292,
+          "manifest_read": 0.014957999999999999,
+          "manifest_parse": 0.064125,
+          "segment_load": 0.023083,
+          "load_total": 0.133917,
+          "refresh": 0.0,
+          "query_plan": 0.007208,
+          "candidates": 0.016625,
+          "candidate_count": 63.0,
+          "read_and_match": 0.632,
+          "sort_and_output": 0.085917,
+          "drop_index_and_results": 0.013042
+        },
+        {
+          "process_total": 3.749541,
+          "regex_compile": 0.040958999999999995,
+          "manifest_buffer_drop": 0.00020800000000000001,
+          "manifest_read": 0.013583,
+          "manifest_parse": 0.06499999999999999,
+          "segment_load": 0.021041999999999998,
+          "load_total": 0.12425000000000001,
+          "refresh": 0.0,
+          "query_plan": 0.007583,
+          "candidates": 0.017,
+          "candidate_count": 63.0,
+          "read_and_match": 0.650375,
+          "sort_and_output": 0.088333,
+          "drop_index_and_results": 0.012417
+        },
+        {
+          "process_total": 3.807459,
+          "regex_compile": 0.040625,
+          "manifest_buffer_drop": 0.00025,
+          "manifest_read": 0.013791999999999999,
+          "manifest_parse": 0.07566700000000001,
+          "segment_load": 0.023542,
+          "load_total": 0.13725,
+          "refresh": 4.1e-05,
+          "query_plan": 0.010584000000000001,
+          "candidates": 0.016875,
+          "candidate_count": 63.0,
+          "read_and_match": 0.604208,
+          "sort_and_output": 0.08629200000000001,
+          "drop_index_and_results": 0.015042
+        },
+        {
+          "process_total": 3.503291,
+          "regex_compile": 0.035750000000000004,
+          "manifest_buffer_drop": 0.000209,
+          "manifest_read": 0.012083,
+          "manifest_parse": 0.063959,
+          "segment_load": 0.021124999999999998,
+          "load_total": 0.120708,
+          "refresh": 4.1e-05,
+          "query_plan": 0.00675,
+          "candidates": 0.016416999999999998,
+          "candidate_count": 63.0,
+          "read_and_match": 0.6042919999999999,
+          "sort_and_output": 0.081667,
+          "drop_index_and_results": 0.015833
+        },
+        {
+          "process_total": 3.911875,
+          "regex_compile": 0.041208,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.014333,
+          "manifest_parse": 0.065292,
+          "segment_load": 0.025084,
+          "load_total": 0.128166,
+          "refresh": 0.0,
+          "query_plan": 0.006792,
+          "candidates": 0.016666,
+          "candidate_count": 63.0,
+          "read_and_match": 0.669166,
+          "sort_and_output": 0.08366699999999999,
+          "drop_index_and_results": 0.012417
+        },
+        {
+          "process_total": 3.553291,
+          "regex_compile": 0.038708,
+          "manifest_buffer_drop": 0.000166,
+          "manifest_read": 0.0135,
+          "manifest_parse": 0.064208,
+          "segment_load": 0.020375,
+          "load_total": 0.121833,
+          "refresh": 4.1e-05,
+          "query_plan": 0.007625,
+          "candidates": 0.017791,
+          "candidate_count": 63.0,
+          "read_and_match": 0.589666,
+          "sort_and_output": 0.08712500000000001,
+          "drop_index_and_results": 0.013584
+        },
+        {
+          "process_total": 4.011333,
+          "regex_compile": 0.043875000000000004,
+          "manifest_buffer_drop": 0.00029099999999999997,
+          "manifest_read": 0.015583,
+          "manifest_parse": 0.06575,
+          "segment_load": 0.025042,
+          "load_total": 0.129792,
+          "refresh": 0.000125,
+          "query_plan": 0.007833,
+          "candidates": 0.016458,
+          "candidate_count": 63.0,
+          "read_and_match": 0.6379159999999999,
+          "sort_and_output": 0.082583,
+          "drop_index_and_results": 0.014124999999999999
+        },
+        {
+          "process_total": 3.691333,
+          "regex_compile": 0.040917,
+          "manifest_buffer_drop": 0.00025,
+          "manifest_read": 0.014334,
+          "manifest_parse": 0.061875,
+          "segment_load": 0.022959,
+          "load_total": 0.122583,
+          "refresh": 0.0,
+          "query_plan": 0.007375,
+          "candidates": 0.015333000000000001,
+          "candidate_count": 63.0,
+          "read_and_match": 0.595875,
+          "sort_and_output": 0.08662500000000001,
+          "drop_index_and_results": 0.017542
+        },
+        {
+          "process_total": 4.053625,
+          "regex_compile": 0.044417,
+          "manifest_buffer_drop": 0.00029099999999999997,
+          "manifest_read": 0.016875,
+          "manifest_parse": 0.062833,
+          "segment_load": 0.02425,
+          "load_total": 0.129583,
+          "refresh": 0.0,
+          "query_plan": 0.008957999999999999,
+          "candidates": 0.016458,
+          "candidate_count": 63.0,
+          "read_and_match": 0.680375,
+          "sort_and_output": 0.08254199999999999,
+          "drop_index_and_results": 0.010458
+        }
+      ],
+      "rg": [
+        {
+          "process_total": 5.578042
+        },
+        {
+          "process_total": 6.034625
+        },
+        {
+          "process_total": 6.701292
+        },
+        {
+          "process_total": 6.667792
+        },
+        {
+          "process_total": 6.922375
+        },
+        {
+          "process_total": 5.506708
+        },
+        {
+          "process_total": 5.547625
+        },
+        {
+          "process_total": 6.608291
+        },
+        {
+          "process_total": 5.666375
+        },
+        {
+          "process_total": 6.952875
+        },
+        {
+          "process_total": 6.71525
+        },
+        {
+          "process_total": 6.914083
+        },
+        {
+          "process_total": 5.589958
+        },
+        {
+          "process_total": 6.832042
+        },
+        {
+          "process_total": 5.7675
+        },
+        {
+          "process_total": 6.750458
+        },
+        {
+          "process_total": 6.743417
+        },
+        {
+          "process_total": 6.723416
+        },
+        {
+          "process_total": 6.814917
+        },
+        {
+          "process_total": 5.638375
+        },
+        {
+          "process_total": 5.449791
+        },
+        {
+          "process_total": 5.432208
+        },
+        {
+          "process_total": 6.703333
+        },
+        {
+          "process_total": 6.711459
+        },
+        {
+          "process_total": 6.368917
+        },
+        {
+          "process_total": 6.192416
+        },
+        {
+          "process_total": 6.322375
+        },
+        {
+          "process_total": 5.760833
+        },
+        {
+          "process_total": 6.773416
+        },
+        {
+          "process_total": 5.375792
+        },
+        {
+          "process_total": 5.432792
+        }
+      ]
+    },
+    "median": {
+      "release": {
+        "process_total": 3.679417
+      },
+      "instrumented": {
+        "process_total": 3.807459,
+        "regex_compile": 0.041208,
+        "manifest_buffer_drop": 0.00020800000000000001,
+        "manifest_read": 0.014208,
+        "manifest_parse": 0.064084,
+        "segment_load": 0.023083,
+        "load_total": 0.125958,
+        "refresh": 4.1e-05,
+        "query_plan": 0.007625,
+        "candidates": 0.016834,
+        "candidate_count": 63.0,
+        "read_and_match": 0.634833,
+        "sort_and_output": 0.085875,
+        "drop_index_and_results": 0.014124999999999999
+      },
+      "rg": {
+        "process_total": 6.368917
+      }
+    }
+  }
+}

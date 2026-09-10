@@ -1,0 +1,151 @@
+{
+  "branch": "feat/generational-index-refresh",
+  "baseline_commit": "0ab2294a8097f52d7ea4a8a0167de6ea2697abdb",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "cpu": "Apple M5",
+    "memory_bytes": 25769803776,
+    "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+    "rg": "ripgrep 15.2.0 (rev e89fff89ac)\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)",
+    "environment": {
+      "RAYON_NUM_THREADS": null,
+      "LANG": "en_US.UTF-8",
+      "LC_ALL": "C.UTF-8"
+    }
+  },
+  "product_policy": "M >= max(B*25%, 8 MiB), sync enabled",
+  "product_code_and_release_unchanged": true,
+  "product_release_sha256": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5",
+  "binary_sha256": {
+    "main": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc",
+    "current": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5",
+    "no-sync": "e65989786f790bd6528d6404aa733a774d438260391f59765edf5875852ae452"
+  },
+  "history": {
+    "viberwhisper": {
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+      "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU",
+      "base_commit": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+      "end_commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+      "variants": [
+        {
+          "name": "main",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/index-main"
+        },
+        {
+          "name": "current",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/index-current"
+        },
+        {
+          "name": "no-sync",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-ltewTU/index-no-sync"
+        }
+      ],
+      "iterations": 5,
+      "warmup": 2,
+      "verification_queries": [
+        "fn ",
+        "Transcription",
+        "self"
+      ],
+      "update_query": "fn ",
+      "verified_comparisons": 1257
+    },
+    "agentflow": {
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/agentflow",
+      "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-r9aEXH",
+      "base_commit": "e65d534b0efddadfa433770621ca4340786736bf",
+      "end_commit": "40efd5bcc760bc1aa05029515d2eb46d3dff3c30",
+      "variants": [
+        {
+          "name": "main",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-r9aEXH/index-main"
+        },
+        {
+          "name": "current",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-r9aEXH/index-current"
+        },
+        {
+          "name": "no-sync",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-r9aEXH/index-no-sync"
+        }
+      ],
+      "iterations": 5,
+      "warmup": 2,
+      "verification_queries": [
+        "def ",
+        "class ",
+        "review_batch"
+      ],
+      "update_query": "def ",
+      "verified_comparisons": 285
+    },
+    "vllm": {
+      "source": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/vllm-history",
+      "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-51zyym",
+      "base_commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+      "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+      "variants": [
+        {
+          "name": "main",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-auto25-rvsx7ez5/coderg-main",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-51zyym/index-main"
+        },
+        {
+          "name": "current",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-current",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-51zyym/index-current"
+        },
+        {
+          "name": "no-sync",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-sync-probe-davc98_n/coderg-no-sync",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/maintenance-rg-dy0_a3p1/history-51zyym/index-no-sync"
+        }
+      ],
+      "iterations": 5,
+      "warmup": 2,
+      "verification_queries": [
+        "AsyncMock",
+        "SamplingParams",
+        "class "
+      ],
+      "update_query": "SamplingParams",
+      "verified_comparisons": 1257
+    }
+  },
+  "timing_method": "One first-search sample per actual update state. Rotate main/current/no-sync/rg. Same /usr/bin/time -l wrapper preserves cwd and environment modifications for every participant. All commands capture stdout/stderr.",
+  "timed_rg_verification": "Compare actual timed rg output file set and exit code against every coderg variant after each update and rollback, in addition to three-query verification.",
+  "middle_bytes_method": {
+    "before_update": "Read currently referenced segment files before timing.",
+    "before_merge": "For B+M use merge input bytes minus previous B bytes; for M-only use post-update M plus merge input bytes minus merge output bytes.",
+    "after_update": "Sum currently referenced M lookup/postings lengths; exclude manifest and unreferenced files."
+  },
+  "group_statistics": "Median, nearest-rank p95, min, max; group rg by exactly the same commit subset. No aggregate update means.",
+  "source_archives": {
+    "current": "../small-auto25-2026-09-09/source.tar.gz",
+    "diagnostic": "../small-sync-profile-2026-09-09/profile-source.tar.gz; set probe::SKIP_SYNC=true",
+    "harness": "Copy archived history_updates.rs to benches/history_updates.rs in the current source."
+  },
+  "validation": {
+    "result_comparisons": 2799,
+    "same_maintenance_and_sizes_except_sync": true,
+    "clippy": "cargo clippy --all-targets -- -D warnings passed",
+    "format": "cargo fmt --check passed",
+    "diff": "git diff --check passed"
+  },
+  "artifact_sha256": {
+    "summary.json": "2bfd72e4f27638d0fe24f5e357312fc4af8ee6c6c6d4527a9ed3b8e4d459b067",
+    "agentflow-history.json": "77ebad69089f66230285b7a9f29b8915b9efd915db9022cd8d8e25ece33dc0d4",
+    "per-commit.csv": "392841adeb734717ad066431cd55cc985dfb50051cdf9bf98abb611ea6c4e7b2",
+    "history_updates.rs": "39020363f0d638a4466e2c0bd3bfe79bc8b599205485fca0064bf8c26791837c",
+    "vllm-history.json": "3d2651ab68cff48b655358ef925255ebf0e00ba3c28537614645aec6eafe104d",
+    "viberwhisper-history.json": "08db03ca9ed9ff12f6fa3b132dba4b8126a1f6c298496447398a1a010865301e",
+    "analyze.py": "5b093bcfb21ea196b59848af5712bfc16607d36d7eb7b0931000021829a7a693"
+  }
+}

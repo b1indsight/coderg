@@ -1,0 +1,896 @@
+{
+  "method": "Direct subprocess batches, 10 per tool/query; perf_counter_ns wall time; stdout/stderr captured; default refresh checks; already-updated indexes after rollback tests; no warmup or cache clearing. Each tool runs separately, not mixed-order history rg timings.",
+  "queries": [
+    {
+      "repo": "viberwhisper",
+      "query": "whisper",
+      "root": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/source",
+      "commands": {
+        "main": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-main",
+          "search",
+          "-F",
+          "-l",
+          "whisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/index-main"
+        ],
+        "rough": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-rough",
+          "search",
+          "-F",
+          "-l",
+          "whisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/index-rough"
+        ],
+        "direct": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-direct-final",
+          "search",
+          "-F",
+          "-l",
+          "whisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/index-direct"
+        ],
+        "rg": [
+          "rg",
+          "--no-config",
+          "--hidden",
+          "-g",
+          "!.git",
+          "-F",
+          "-l",
+          "whisper",
+          "."
+        ]
+      },
+      "rows": [
+        {
+          "tool": "main",
+          "run": 1,
+          "wall_ms": 7.95025,
+          "files": 43
+        },
+        {
+          "tool": "main",
+          "run": 2,
+          "wall_ms": 7.359709,
+          "files": 43
+        },
+        {
+          "tool": "main",
+          "run": 3,
+          "wall_ms": 7.637209,
+          "files": 43
+        },
+        {
+          "tool": "main",
+          "run": 4,
+          "wall_ms": 6.703417,
+          "files": 43
+        },
+        {
+          "tool": "main",
+          "run": 5,
+          "wall_ms": 5.979333,
+          "files": 43
+        },
+        {
+          "tool": "main",
+          "run": 6,
+          "wall_ms": 5.287125,
+          "files": 43
+        },
+        {
+          "tool": "main",
+          "run": 7,
+          "wall_ms": 5.488667,
+          "files": 43
+        },
+        {
+          "tool": "main",
+          "run": 8,
+          "wall_ms": 6.3205,
+          "files": 43
+        },
+        {
+          "tool": "main",
+          "run": 9,
+          "wall_ms": 6.969541,
+          "files": 43
+        },
+        {
+          "tool": "main",
+          "run": 10,
+          "wall_ms": 6.973833,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 1,
+          "wall_ms": 5.83075,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 2,
+          "wall_ms": 5.064041,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 3,
+          "wall_ms": 4.886333,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 4,
+          "wall_ms": 4.923041,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 5,
+          "wall_ms": 4.888916,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 6,
+          "wall_ms": 5.901209,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 7,
+          "wall_ms": 5.586458,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 8,
+          "wall_ms": 5.149916,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 9,
+          "wall_ms": 4.829959,
+          "files": 43
+        },
+        {
+          "tool": "rough",
+          "run": 10,
+          "wall_ms": 4.917959,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 1,
+          "wall_ms": 5.159042,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 2,
+          "wall_ms": 5.82625,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 3,
+          "wall_ms": 5.674458,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 4,
+          "wall_ms": 5.280292,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 5,
+          "wall_ms": 4.890334,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 6,
+          "wall_ms": 4.696542,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 7,
+          "wall_ms": 4.826375,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 8,
+          "wall_ms": 4.728208,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 9,
+          "wall_ms": 5.84725,
+          "files": 43
+        },
+        {
+          "tool": "direct",
+          "run": 10,
+          "wall_ms": 6.214125,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 1,
+          "wall_ms": 6.219542,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 2,
+          "wall_ms": 5.781625,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 3,
+          "wall_ms": 6.817875,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 4,
+          "wall_ms": 7.328,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 5,
+          "wall_ms": 7.036041,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 6,
+          "wall_ms": 7.048125,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 7,
+          "wall_ms": 7.350625,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 8,
+          "wall_ms": 6.908292,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 9,
+          "wall_ms": 7.145375,
+          "files": 43
+        },
+        {
+          "tool": "rg",
+          "run": 10,
+          "wall_ms": 7.681667,
+          "files": 43
+        }
+      ],
+      "median_ms": {
+        "main": 6.836479000000001,
+        "rough": 4.993541,
+        "direct": 5.219667,
+        "rg": 7.042083
+      },
+      "files": 43
+    },
+    {
+      "repo": "viberwhisper",
+      "query": "viberwhisper",
+      "root": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/source",
+      "commands": {
+        "main": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-main",
+          "search",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/index-main"
+        ],
+        "rough": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-rough",
+          "search",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/index-rough"
+        ],
+        "direct": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-direct-final",
+          "search",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-tOi37U/index-direct"
+        ],
+        "rg": [
+          "rg",
+          "--no-config",
+          "--hidden",
+          "-g",
+          "!.git",
+          "-F",
+          "-l",
+          "viberwhisper",
+          "."
+        ]
+      },
+      "rows": [
+        {
+          "tool": "main",
+          "run": 1,
+          "wall_ms": 6.024333,
+          "files": 34
+        },
+        {
+          "tool": "main",
+          "run": 2,
+          "wall_ms": 5.171291,
+          "files": 34
+        },
+        {
+          "tool": "main",
+          "run": 3,
+          "wall_ms": 4.889583,
+          "files": 34
+        },
+        {
+          "tool": "main",
+          "run": 4,
+          "wall_ms": 5.091417,
+          "files": 34
+        },
+        {
+          "tool": "main",
+          "run": 5,
+          "wall_ms": 5.737375,
+          "files": 34
+        },
+        {
+          "tool": "main",
+          "run": 6,
+          "wall_ms": 5.255667,
+          "files": 34
+        },
+        {
+          "tool": "main",
+          "run": 7,
+          "wall_ms": 4.950708,
+          "files": 34
+        },
+        {
+          "tool": "main",
+          "run": 8,
+          "wall_ms": 4.6425,
+          "files": 34
+        },
+        {
+          "tool": "main",
+          "run": 9,
+          "wall_ms": 4.745292,
+          "files": 34
+        },
+        {
+          "tool": "main",
+          "run": 10,
+          "wall_ms": 4.688125,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 1,
+          "wall_ms": 5.376542,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 2,
+          "wall_ms": 4.766625,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 3,
+          "wall_ms": 5.027333,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 4,
+          "wall_ms": 5.231084,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 5,
+          "wall_ms": 4.721667,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 6,
+          "wall_ms": 4.605292,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 7,
+          "wall_ms": 4.586583,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 8,
+          "wall_ms": 5.299,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 9,
+          "wall_ms": 4.93325,
+          "files": 34
+        },
+        {
+          "tool": "rough",
+          "run": 10,
+          "wall_ms": 4.928416,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 1,
+          "wall_ms": 4.830667,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 2,
+          "wall_ms": 4.84825,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 3,
+          "wall_ms": 4.625125,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 4,
+          "wall_ms": 4.570875,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 5,
+          "wall_ms": 5.302834,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 6,
+          "wall_ms": 4.828791,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 7,
+          "wall_ms": 4.789333,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 8,
+          "wall_ms": 4.651083,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 9,
+          "wall_ms": 4.65975,
+          "files": 34
+        },
+        {
+          "tool": "direct",
+          "run": 10,
+          "wall_ms": 4.456584,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 1,
+          "wall_ms": 5.662417,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 2,
+          "wall_ms": 5.96275,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 3,
+          "wall_ms": 5.79275,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 4,
+          "wall_ms": 6.709584,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 5,
+          "wall_ms": 5.461416,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 6,
+          "wall_ms": 6.527375,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 7,
+          "wall_ms": 5.460208,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 8,
+          "wall_ms": 5.595333,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 9,
+          "wall_ms": 6.87075,
+          "files": 34
+        },
+        {
+          "tool": "rg",
+          "run": 10,
+          "wall_ms": 6.184625,
+          "files": 34
+        }
+      ],
+      "median_ms": {
+        "main": 5.021062499999999,
+        "rough": 4.930833,
+        "direct": 4.7245415,
+        "rg": 5.87775
+      },
+      "files": 34
+    },
+    {
+      "repo": "agentflow",
+      "query": "def ",
+      "root": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-NYOIQR/source",
+      "commands": {
+        "main": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-main",
+          "search",
+          "-F",
+          "-l",
+          "def ",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-NYOIQR/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-NYOIQR/index-main"
+        ],
+        "rough": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-rough",
+          "search",
+          "-F",
+          "-l",
+          "def ",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-NYOIQR/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-NYOIQR/index-rough"
+        ],
+        "direct": [
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/coderg-direct-final",
+          "search",
+          "-F",
+          "-l",
+          "def ",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-NYOIQR/source",
+          "--index-dir",
+          "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/small-direct-aufh6xzt/workspace/history-NYOIQR/index-direct"
+        ],
+        "rg": [
+          "rg",
+          "--no-config",
+          "--hidden",
+          "-g",
+          "!.git",
+          "-F",
+          "-l",
+          "def ",
+          "."
+        ]
+      },
+      "rows": [
+        {
+          "tool": "main",
+          "run": 1,
+          "wall_ms": 6.658333,
+          "files": 73
+        },
+        {
+          "tool": "main",
+          "run": 2,
+          "wall_ms": 5.137333,
+          "files": 73
+        },
+        {
+          "tool": "main",
+          "run": 3,
+          "wall_ms": 5.35925,
+          "files": 73
+        },
+        {
+          "tool": "main",
+          "run": 4,
+          "wall_ms": 5.278917,
+          "files": 73
+        },
+        {
+          "tool": "main",
+          "run": 5,
+          "wall_ms": 4.947125,
+          "files": 73
+        },
+        {
+          "tool": "main",
+          "run": 6,
+          "wall_ms": 4.860167,
+          "files": 73
+        },
+        {
+          "tool": "main",
+          "run": 7,
+          "wall_ms": 4.773958,
+          "files": 73
+        },
+        {
+          "tool": "main",
+          "run": 8,
+          "wall_ms": 4.887333,
+          "files": 73
+        },
+        {
+          "tool": "main",
+          "run": 9,
+          "wall_ms": 5.487958,
+          "files": 73
+        },
+        {
+          "tool": "main",
+          "run": 10,
+          "wall_ms": 5.3615,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 1,
+          "wall_ms": 5.068375,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 2,
+          "wall_ms": 4.898542,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 3,
+          "wall_ms": 4.774,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 4,
+          "wall_ms": 4.812125,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 5,
+          "wall_ms": 4.737125,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 6,
+          "wall_ms": 5.273791,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 7,
+          "wall_ms": 5.026916,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 8,
+          "wall_ms": 5.022375,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 9,
+          "wall_ms": 4.865875,
+          "files": 73
+        },
+        {
+          "tool": "rough",
+          "run": 10,
+          "wall_ms": 4.809917,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 1,
+          "wall_ms": 4.904583,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 2,
+          "wall_ms": 4.829333,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 3,
+          "wall_ms": 5.31925,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 4,
+          "wall_ms": 5.105291,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 5,
+          "wall_ms": 4.955083,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 6,
+          "wall_ms": 4.802208,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 7,
+          "wall_ms": 4.949,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 8,
+          "wall_ms": 4.875167,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 9,
+          "wall_ms": 4.775583,
+          "files": 73
+        },
+        {
+          "tool": "direct",
+          "run": 10,
+          "wall_ms": 5.372709,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 1,
+          "wall_ms": 6.635042,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 2,
+          "wall_ms": 6.637458,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 3,
+          "wall_ms": 6.284125,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 4,
+          "wall_ms": 5.918625,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 5,
+          "wall_ms": 5.865583,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 6,
+          "wall_ms": 6.322167,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 7,
+          "wall_ms": 6.2865,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 8,
+          "wall_ms": 5.630084,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 9,
+          "wall_ms": 6.223584,
+          "files": 73
+        },
+        {
+          "tool": "rg",
+          "run": 10,
+          "wall_ms": 5.913042,
+          "files": 73
+        }
+      ],
+      "median_ms": {
+        "main": 5.208125,
+        "rough": 4.8822085,
+        "direct": 4.9267915,
+        "rg": 6.2538545
+      },
+      "files": 73
+    }
+  ]
+}

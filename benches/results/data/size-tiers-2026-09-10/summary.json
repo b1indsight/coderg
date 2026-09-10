@@ -1,0 +1,444 @@
+{
+  "repositories": {
+    "small": {
+      "name": "viberwhisper",
+      "source": "/private/tmp/coderg-refresh-wide-79u03ttz/corpora/viberwhisper",
+      "base_commit": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+      "end_commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+      "variants": {
+        "main": {
+          "phases": {
+            "incremental": {
+              "count": 87,
+              "median_ms": 8.980500000000001,
+              "p95_ms": 12.043708,
+              "min_ms": 6.480874999999999,
+              "max_ms": 15.393749999999999
+            },
+            "metadata": {
+              "count": 1,
+              "median_ms": 5.916416,
+              "p95_ms": 5.916416,
+              "min_ms": 5.916416,
+              "max_ms": 5.916416
+            },
+            "rebuild": {
+              "count": 12,
+              "median_ms": 17.378291500000003,
+              "p95_ms": 29.484541999999998,
+              "min_ms": 10.531708,
+              "max_ms": 29.484541999999998
+            }
+          },
+          "base_initial_bytes": 73872,
+          "base_final_bytes": 2083991,
+          "middle_final_bytes": 1042182,
+          "middle_peak_bytes": 2294307,
+          "peak_segments": 8,
+          "final_segments": 4
+        },
+        "current": {
+          "phases": {
+            "incremental": {
+              "count": 98,
+              "median_ms": 9.7623125,
+              "p95_ms": 13.470166,
+              "min_ms": 5.766917,
+              "max_ms": 15.111583
+            },
+            "metadata": {
+              "count": 1,
+              "median_ms": 6.0399579999999995,
+              "p95_ms": 6.0399579999999995,
+              "min_ms": 6.0399579999999995,
+              "max_ms": 6.0399579999999995
+            },
+            "rebuild": {
+              "count": 1,
+              "median_ms": 23.476917,
+              "p95_ms": 23.476917,
+              "min_ms": 23.476917,
+              "max_ms": 23.476917
+            }
+          },
+          "base_initial_bytes": 73872,
+          "base_final_bytes": 1353126,
+          "middle_final_bytes": 6397576,
+          "middle_peak_bytes": 8223638,
+          "peak_segments": 77,
+          "final_segments": 23
+        }
+      },
+      "maintenance": [
+        {
+          "step": 78,
+          "commit": "a8795abdb1dbc28238143f5e3eae9137c86925e3",
+          "subject": "docs(plan): harden packaging and release path (#97)",
+          "phase": "rebuild",
+          "wall_ms": 23.476917,
+          "middle_bytes_before": 8223638,
+          "middle_bytes": 0,
+          "base_bytes": 1353126,
+          "new_delta_bytes": 417169,
+          "trigger_bytes": 8640807
+        }
+      ],
+      "rollbacks": [
+        {
+          "step": 99,
+          "commit": "65186fe565fcc21af180634a6b0684e2e18ed192",
+          "subject": "refactor: remove bundled local inference mode (#120)",
+          "phase": "incremental",
+          "wall_ms": 9.377042000000001,
+          "middle_bytes_before": 6397576,
+          "middle_bytes": 6426772,
+          "base_bytes": 1353126
+        },
+        {
+          "step": 50,
+          "commit": "56db8d28b68cc2c12237e0c97c45bd9fa2ee524e",
+          "subject": "fix(transcriber): fail release builds without transcription config (#60)",
+          "phase": "incremental",
+          "wall_ms": 14.315833,
+          "middle_bytes_before": 6426772,
+          "middle_bytes": 7280929,
+          "base_bytes": 1353126
+        },
+        {
+          "step": 0,
+          "commit": "30460fe0b07f7cb6f18b19ee2b18d2b0dde7cdb6",
+          "subject": "Add mic_gain config and audio amplification support",
+          "phase": "incremental",
+          "wall_ms": 8.255125,
+          "middle_bytes_before": 7280929,
+          "middle_bytes": 7370351,
+          "base_bytes": 1353126
+        },
+        {
+          "step": 100,
+          "commit": "ab1f117d922fe06da6fc2f1f72605ba227ba4233",
+          "subject": "docs: refresh repository agent guide (#121)",
+          "phase": "rebuild",
+          "wall_ms": 35.476333,
+          "middle_bytes_before": 7370351,
+          "middle_bytes": 0,
+          "base_bytes": 1874519,
+          "new_delta_bytes": 2161746,
+          "trigger_bytes": 9532097
+        }
+      ],
+      "matched_incremental": {
+        "main": {
+          "count": 86,
+          "median_ms": 8.9472295,
+          "p95_ms": 12.043708,
+          "min_ms": 6.480874999999999,
+          "max_ms": 15.393749999999999
+        },
+        "current": {
+          "count": 86,
+          "median_ms": 9.821208,
+          "p95_ms": 13.470166,
+          "min_ms": 5.766917,
+          "max_ms": 15.111583
+        }
+      }
+    },
+    "medium": {
+      "name": "whisper.cpp",
+      "source": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/size-tiers-yj6ry5d5/whisper-cpp",
+      "base_commit": "5271734e0e4e1761c601dc4fcf41a877e22d3a80",
+      "end_commit": "c44b60b8053bbf2a5c1e014f11323fb3f2485177",
+      "variants": {
+        "main": {
+          "phases": {
+            "incremental": {
+              "count": 87,
+              "median_ms": 30.402542,
+              "p95_ms": 44.834083,
+              "min_ms": 26.261833,
+              "max_ms": 61.832
+            },
+            "rebuild": {
+              "count": 12,
+              "median_ms": 223.9419795,
+              "p95_ms": 235.10804199999998,
+              "min_ms": 217.67624999999998,
+              "max_ms": 235.10804199999998
+            },
+            "metadata": {
+              "count": 1,
+              "median_ms": 25.495708,
+              "p95_ms": 25.495708,
+              "min_ms": 25.495708,
+              "max_ms": 25.495708
+            }
+          },
+          "base_initial_bytes": 17581400,
+          "base_final_bytes": 17986659,
+          "middle_final_bytes": 697407,
+          "middle_peak_bytes": 3566046,
+          "peak_segments": 8,
+          "final_segments": 3
+        },
+        "current": {
+          "phases": {
+            "incremental": {
+              "count": 97,
+              "median_ms": 21.912582999999998,
+              "p95_ms": 37.577792,
+              "min_ms": 16.846875,
+              "max_ms": 55.193833
+            },
+            "rebuild": {
+              "count": 3,
+              "median_ms": 204.940125,
+              "p95_ms": 209.91383299999998,
+              "min_ms": 201.684375,
+              "max_ms": 209.91383299999998
+            }
+          },
+          "base_initial_bytes": 17581400,
+          "base_final_bytes": 17985643,
+          "middle_final_bytes": 1533281,
+          "middle_peak_bytes": 8369754,
+          "peak_segments": 37,
+          "final_segments": 12
+        }
+      },
+      "maintenance": [
+        {
+          "step": 25,
+          "commit": "c68f20555aa9ff91dbec5d6c23e8a862174e4d8f",
+          "subject": "metal : fix null-pipeline crash for F16 src1 mul_mat/mul_mat_id (llama/25648)",
+          "phase": "rebuild",
+          "wall_ms": 209.91383299999998,
+          "middle_bytes_before": 8251263,
+          "middle_bytes": 0,
+          "base_bytes": 17691586,
+          "new_delta_bytes": 284378,
+          "trigger_bytes": 8535641
+        },
+        {
+          "step": 52,
+          "commit": "dbc40efce86f37fad93ecf211d3064f8ac79cff6",
+          "subject": "metal : add concat support for quantized types (llama/28116)",
+          "phase": "rebuild",
+          "wall_ms": 201.684375,
+          "middle_bytes_before": 8369754,
+          "middle_bytes": 0,
+          "base_bytes": 17774804,
+          "new_delta_bytes": 282640,
+          "trigger_bytes": 8652394
+        },
+        {
+          "step": 89,
+          "commit": "f32e6fa0c8f1a78fafe4a911821e660b76a2c02d",
+          "subject": "ggml : remove GGML_CUDA_PEER_MAX_BATCH_SIZE (llama/28177)",
+          "phase": "rebuild",
+          "wall_ms": 204.940125,
+          "middle_bytes_before": 8361169,
+          "middle_bytes": 0,
+          "base_bytes": 17985643,
+          "new_delta_bytes": 93393,
+          "trigger_bytes": 8454562
+        }
+      ],
+      "rollbacks": [
+        {
+          "step": 99,
+          "commit": "6d0ed914991cac42ace012a05588880801831343",
+          "subject": "whisper : re-seed decoder 0 between calls (#4025)",
+          "phase": "incremental",
+          "wall_ms": 23.895833,
+          "middle_bytes_before": 1533281,
+          "middle_bytes": 1881982,
+          "base_bytes": 17985643
+        },
+        {
+          "step": 50,
+          "commit": "c6934d0fcf562ada5493208f6aa5804947f37b64",
+          "subject": "metal : add top-k radix implementation (llama/28073)",
+          "phase": "incremental",
+          "wall_ms": 60.21775,
+          "middle_bytes_before": 1881982,
+          "middle_bytes": 5565132,
+          "base_bytes": 17985643
+        },
+        {
+          "step": 0,
+          "commit": "5271734e0e4e1761c601dc4fcf41a877e22d3a80",
+          "subject": "vulkan: warptiles currently assume warp sizes <= 64, clamp to work around larger warps (llama/27726)",
+          "phase": "rebuild",
+          "wall_ms": 240.33874999999998,
+          "middle_bytes_before": 5565132,
+          "middle_bytes": 0,
+          "base_bytes": 17581400,
+          "new_delta_bytes": 4094167,
+          "trigger_bytes": 9659299
+        },
+        {
+          "step": 100,
+          "commit": "c44b60b8053bbf2a5c1e014f11323fb3f2485177",
+          "subject": "whisper : call encoder_begin_callback before language auto-detect (#3936)",
+          "phase": "incremental",
+          "wall_ms": 76.86791699999999,
+          "middle_bytes_before": 0,
+          "middle_bytes": 5535285,
+          "base_bytes": 17581400
+        }
+      ],
+      "matched_incremental": {
+        "main": {
+          "count": 84,
+          "median_ms": 30.401125,
+          "p95_ms": 44.834083,
+          "min_ms": 26.261833,
+          "max_ms": 61.832
+        },
+        "current": {
+          "count": 84,
+          "median_ms": 21.982791499999998,
+          "p95_ms": 36.21675,
+          "min_ms": 16.846875,
+          "max_ms": 55.193833
+        }
+      }
+    },
+    "large": {
+      "name": "vLLM",
+      "source": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/vllm-history",
+      "base_commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+      "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+      "variants": {
+        "main": {
+          "phases": {
+            "incremental": {
+              "count": 88,
+              "median_ms": 76.233479,
+              "p95_ms": 80.40558300000001,
+              "min_ms": 72.86520900000001,
+              "max_ms": 105.359583
+            },
+            "rebuild": {
+              "count": 12,
+              "median_ms": 847.7971665,
+              "p95_ms": 867.763083,
+              "min_ms": 836.308166,
+              "max_ms": 867.763083
+            }
+          },
+          "base_initial_bytes": 63384504,
+          "base_final_bytes": 64342278,
+          "middle_final_bytes": 690176,
+          "middle_peak_bytes": 4556945,
+          "peak_segments": 8,
+          "final_segments": 5
+        },
+        "current": {
+          "phases": {
+            "incremental": {
+              "count": 55,
+              "median_ms": 62.595665999999994,
+              "p95_ms": 70.894584,
+              "min_ms": 55.31875,
+              "max_ms": 96.40112500000001
+            },
+            "middle_merge": {
+              "count": 44,
+              "median_ms": 75.7387705,
+              "p95_ms": 96.250083,
+              "min_ms": 66.570542,
+              "max_ms": 105.692042
+            },
+            "base_merge": {
+              "count": 1,
+              "median_ms": 885.153542,
+              "p95_ms": 885.153542,
+              "min_ms": 885.153542,
+              "max_ms": 885.153542
+            }
+          },
+          "base_initial_bytes": 63384504,
+          "base_final_bytes": 64303679,
+          "middle_final_bytes": 3542546,
+          "middle_peak_bytes": 15299390,
+          "peak_segments": 9,
+          "final_segments": 9
+        }
+      },
+      "maintenance": [
+        {
+          "step": 79,
+          "commit": "d87a440f88e28e5b37f9b1e22ce214d0426d5352",
+          "subject": "[Core][MRV2] Support eagle3 spec decode with pipeline parallel (#50514)",
+          "phase": "base_merge",
+          "wall_ms": 885.153542,
+          "middle_bytes_before": 15102995,
+          "middle_bytes": 0,
+          "base_bytes": 64303679,
+          "trigger_bytes": 16012856
+        }
+      ],
+      "rollbacks": [
+        {
+          "step": 99,
+          "commit": "dd0760165c17fdf750b1aa8e2a26ac885eafd598",
+          "subject": "[Bugfix] Fall back to T1 when ARC cannot reclaim enough entries from T2 (#55461)",
+          "phase": "incremental",
+          "wall_ms": 61.524667,
+          "middle_bytes_before": 3542546,
+          "middle_bytes": 3533886,
+          "base_bytes": 64303679
+        },
+        {
+          "step": 50,
+          "commit": "f19431e5c8634cd0d1641d3f7f4a01043f0eddab",
+          "subject": "[Bugfix][MoE] Allow TRTLLM FP8 block-scale MoE with SwiGLU clamp (#55069)",
+          "phase": "incremental",
+          "wall_ms": 119.99808300000001,
+          "middle_bytes_before": 3533886,
+          "middle_bytes": 6592216,
+          "base_bytes": 64303679
+        },
+        {
+          "step": 0,
+          "commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+          "subject": "[Core] Deprecate \"all\" mamba cache mode (#55041)",
+          "phase": "incremental",
+          "wall_ms": 124.113,
+          "middle_bytes_before": 6592216,
+          "middle_bytes": 12886932,
+          "base_bytes": 64303679
+        },
+        {
+          "step": 100,
+          "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+          "subject": "[Bugfix][KV Offload] Fix SWA store reachability during chunked prefill (#54362)",
+          "phase": "incremental",
+          "wall_ms": 166.28575,
+          "middle_bytes_before": 12886932,
+          "middle_bytes": 11225591,
+          "base_bytes": 64303679
+        }
+      ],
+      "matched_incremental": {
+        "main": {
+          "count": 50,
+          "median_ms": 75.64333350000001,
+          "p95_ms": 80.077333,
+          "min_ms": 72.86520900000001,
+          "max_ms": 105.359583
+        },
+        "current": {
+          "count": 50,
+          "median_ms": 62.5553955,
+          "p95_ms": 70.3505,
+          "min_ms": 55.31875,
+          "max_ms": 96.40112500000001
+        }
+      }
+    }
+  },
+  "verified_history_comparisons": 1464
+}

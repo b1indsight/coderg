@@ -1,0 +1,21 @@
+{
+  "baseline_commit": "0ab2294a8097f52d7ea4a8a0167de6ea2697abdb",
+  "branch": "feat/generational-index-refresh",
+  "source_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+  "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "binary_sha256": {
+    "before": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc",
+    "after": "88ab09a2f521a9c23ec5e6ced41b7f69f0e5fdf2faad1544d66fab65bd8b37bd"
+  },
+  "workspace_release_matches_measured_after": true,
+  "source_archive_sha256": "0e48244d2a013f799545fb720fa8193462a9d7c396f76787b5781b86f95753f9",
+  "first_round_note": "results-initial.json predates manifest-aware scan reuse; rollback changed_source_bytes was not collected.",
+  "source_archive_usage": "Check out baseline_commit, overlay source.tar.gz at repository root, and build --release.",
+  "benchmark_command": "cargo bench --bench commit_updates -- --root VLLM_ROOT --baseline BEFORE_BINARY --binary AFTER_BINARY --commits 100 --iterations 7 --warmup 3 --keep --output REPORT.json",
+  "validation": {
+    "rust_tests": 66,
+    "rg_file_set_and_exit_code_comparisons": 1284,
+    "clippy": "--all-targets -- -D warnings"
+  }
+}

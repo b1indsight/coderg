@@ -1,0 +1,103 @@
+{
+  "baseline_commit": "0ab2294a8097f52d7ea4a8a0167de6ea2697abdb",
+  "branch": "feat/generational-index-refresh",
+  "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "source_repository": "https://github.com/vllm-project/vllm.git",
+  "source_history_count": 501,
+  "source_history_command": [
+    "git",
+    "fetch",
+    "--deepen=500",
+    "https://github.com/vllm-project/vllm.git",
+    "569adb5a9780f9c02d22a6b29826acf711512356"
+  ],
+  "experiments": {
+    "baseline-100.json": {
+      "base_commit": "e55b93f2969d76b854eae158b6d17baea757d3e8",
+      "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+      "iterations": 3,
+      "warmup": 1,
+      "verified_comparisons": 630,
+      "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/history-v1fAjQ",
+      "variants": [
+        {
+          "name": "main",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/coderg-main",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/history-v1fAjQ/index-main"
+        },
+        {
+          "name": "manual",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/coderg-manual",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/history-v1fAjQ/index-manual"
+        }
+      ]
+    },
+    "thresholds-500.json": {
+      "base_commit": "a5f82882a6afa08e65260704011de3321a3aa4a4",
+      "end_commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+      "iterations": 5,
+      "warmup": 2,
+      "verified_comparisons": 4545,
+      "workspace": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/history-REYTAF",
+      "variants": [
+        {
+          "name": "manual",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/coderg-manual",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/history-REYTAF/index-manual"
+        },
+        {
+          "name": "auto25",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/coderg-auto25",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/history-REYTAF/index-auto25"
+        },
+        {
+          "name": "auto50",
+          "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/coderg-auto50",
+          "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-09/vllm-real-qjEMUc/history-REYTAF/index-auto50"
+        }
+      ]
+    }
+  },
+  "binary_sha256": {
+    "main": "e730784cfd349f1375b1fa4438caff6509626e6faa55bea2057adc6ed93898fc",
+    "manual": "88ab09a2f521a9c23ec5e6ced41b7f69f0e5fdf2faad1544d66fab65bd8b37bd",
+    "auto25": "9f82ccd57469c7d51e6137e9fdb805d54c951cefbecd9a6d671e8c24e34c72e5",
+    "auto50": "db818020ddd31e956bc4b18d1a63301af35229a6b3085ecece14da6677aa3ff1"
+  },
+  "workspace_release_sha256": "db818020ddd31e956bc4b18d1a63301af35229a6b3085ecece14da6677aa3ff1",
+  "workspace_release_matches_measured_auto50": true,
+  "variant_policy": {
+    "manual": "B+M with bounded M merges; explicit full compaction only (not invoked during these runs)",
+    "auto25": "max(B*25%, 8 MiB)",
+    "auto50": "max(B*50%, 8 MiB); chosen default"
+  },
+  "source_archive_sha256": "9f5a63cd0c22d33a24e7b17b44f1638360faa386db85a10912f21080781bd039",
+  "source_files": {
+    ".gitignore": "c4dd83bf03e6e3c50ebf628c781e04a2635d2554d1b8c0035422ef159a4a18e3",
+    "Cargo.toml": "18efd77a80ca3b937174040dde1d662312f5ff4fc9600b78e38536d208bd290d",
+    "Cargo.lock": "5d3c35a1b7544ea97f170ebde68b759c47e7a43f83fad02f9ac3cf2ecc7ba9fb",
+    "README.md": "39cafd6f3a854a7ab8bb6fcac403751c22918a94d2c8d46ec83af24266b09c68",
+    "src/compaction.rs": "b8763688974c7ca99bf61ee65f2c8642fc2c521c8e55237288950a55e0e45b10",
+    "src/git_state.rs": "5818ce1a65c067d38ae3761dd11935885300cbd215890084f86624ded4d4950a",
+    "src/index.rs": "4e1cc5f74dd1ca5af5752b452bc8de7dd7505e81869c9df579876808cc6982c6",
+    "src/main.rs": "5c0ea54152e0f8934d912dbb2e0a81cbf1b8ca32c22e7c7a447b1296614d344f",
+    "src/search.rs": "dc4b0a4ec237f5603dc516984bb8e85dfc5dff8928b1852642c84af2d7ebf826",
+    "src/segment.rs": "396fc1b65d8fd8d3f0897447228673054b1c3b1ed32403d286c8e66718435814",
+    "tests/git_incremental.rs": "c73717ffc66ff70bb75964b8c01f1a6ed6b6dd667e0b7a9468fd94c0272c1e26",
+    "tests/generational.rs": "66cec3be2d466cc55f6f2a2f5fd66dcd7b3a2084dddc02e30d760c0a4ed1c798",
+    "benches/commit_updates.rs": "19752dd3a0a3df43e8b5b696f6b8f9b241c30075248d9d152e264f1a74cdd43a",
+    "benches/history_updates.rs": "b0cfeb50172a1ef113772ac6963108aa8ff06bf90ebb15007d176a394b0bde06",
+    "benches/compare_rg.rs": "39ad09260006f9eb3e3272563208cb3a0af3d99db33654ceed2ff94daaff75a6",
+    "docs/generational-index-refresh.md": "f4dc11fe352c454be1bbfe7df1e920d489356de1ace224b6e7771d25c3fc1bfc"
+  },
+  "source_archive_usage": "Overlay source.tar.gz on baseline_commit to reproduce auto50. Change only FULL_COMPACT_PERCENT from 50 to 25 to build auto25. Source paths may affect binary hashes. Use separate target directories or force recompilation when comparing copies.",
+  "manual_source_archive": "../generational-updates-2026-09-09/source.tar.gz",
+  "validation": {
+    "rust_tests_passed": 69,
+    "clippy": "cargo clippy --all-targets -- -D warnings passed",
+    "format": "cargo fmt --check passed",
+    "diff": "git diff --check passed",
+    "rg_comparisons": 5175
+  }
+}

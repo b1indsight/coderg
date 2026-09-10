@@ -1,0 +1,106 @@
+{
+  "repeated": {
+    "eligible_files": 1205,
+    "selected_files": 10,
+    "versions": {
+      "before": {
+        "refresh_ms": {
+          "median": 78.0197915,
+          "p95": 859.290708,
+          "max": 889.4778749999999,
+          "mean": 171.50216835999998,
+          "total": 17150.216836
+        },
+        "rss_bytes": {
+          "median": 29802496.0,
+          "p95": 227622912,
+          "max": 229294080,
+          "mean": 53441658.88,
+          "total": 5344165888
+        },
+        "rebuilds": 12,
+        "small_merges": 0,
+        "max_segments": 8,
+        "final_segments": 5,
+        "active_mib": 64.26410388946533,
+        "middle_mib": 1.6944551467895508,
+        "retained_mib": 954.7078008651733
+      },
+      "after": {
+        "refresh_ms": {
+          "median": 62.4031465,
+          "p95": 70.51566600000001,
+          "max": 75.424375,
+          "mean": 62.18240789,
+          "total": 6218.240789
+        },
+        "rss_bytes": {
+          "median": 27574272.0,
+          "p95": 28868608,
+          "max": 29310976,
+          "mean": 27607859.2,
+          "total": 2760785920
+        },
+        "rebuilds": 0,
+        "small_merges": 0,
+        "max_segments": 2,
+        "final_segments": 2,
+        "active_mib": 62.96577835083008,
+        "middle_mib": 0.4238109588623047,
+        "retained_mib": 104.34504795074463
+      }
+    }
+  },
+  "rotating": {
+    "eligible_files": 1205,
+    "selected_files": 1000,
+    "versions": {
+      "before": {
+        "refresh_ms": {
+          "median": 91.8351245,
+          "p95": 927.642417,
+          "max": 1013.4125410000001,
+          "mean": 191.65428500000002,
+          "total": 19165.4285
+        },
+        "rss_bytes": {
+          "median": 27918336.0,
+          "p95": 228278272,
+          "max": 229179392,
+          "mean": 51833241.6,
+          "total": 5183324160
+        },
+        "rebuilds": 12,
+        "small_merges": 0,
+        "max_segments": 8,
+        "final_segments": 5,
+        "active_mib": 65.13070869445801,
+        "middle_mib": 1.7372560501098633,
+        "retained_mib": 958.7724523544312
+      },
+      "after": {
+        "refresh_ms": {
+          "median": 76.79804150000001,
+          "p95": 114.35695899999999,
+          "max": 143.0515,
+          "mean": 81.43584955,
+          "total": 8143.584955
+        },
+        "rss_bytes": {
+          "median": 26419200.0,
+          "p95": 28000256,
+          "max": 31391744,
+          "mean": 26550927.36,
+          "total": 2655092736
+        },
+        "rebuilds": 0,
+        "small_merges": 44,
+        "max_segments": 9,
+        "final_segments": 9,
+        "active_mib": 86.92533302307129,
+        "middle_mib": 24.382658004760742,
+        "retained_mib": 173.24192905426025
+      }
+    }
+  }
+}
