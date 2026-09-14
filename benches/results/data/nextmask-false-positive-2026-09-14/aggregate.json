@@ -1,0 +1,74 @@
+{
+  "vllm": {
+    "all": {
+      "queries": 34,
+      "candidates": 56741,
+      "false_positives": 15561,
+      "false_positive_pct": 27.424613595107594,
+      "false_positive_match_worker_ms": 195.9541960000001,
+      "false_positive_match_work_pct": 20.126225511831688,
+      "match_work_pct": 20.163727228530316,
+      "scan_wall_ms": 497.827084,
+      "scan_phase_pct": 92.33920509603367,
+      "removed_candidates": 1089,
+      "removed_candidates_pct": 1.9192471052677957,
+      "removed_false_positives_pct": 6.9982648930017355,
+      "improved_queries": 13,
+      "nextmask_scan_wall_ms": 489.817208,
+      "nextmask_scan_change_pct": -1.6089675024591465
+    },
+    "indexed_only": {
+      "queries": 31,
+      "candidates": 36236,
+      "false_positives": 9431,
+      "false_positive_pct": 26.026603377856276,
+      "false_positive_match_worker_ms": 164.997843,
+      "false_positive_match_work_pct": 23.92687449587592,
+      "match_work_pct": 22.503239770914682,
+      "scan_wall_ms": 318.359917,
+      "scan_phase_pct": 88.94509541540381,
+      "removed_candidates": 1089,
+      "removed_candidates_pct": 3.0052985980792584,
+      "removed_false_positives_pct": 11.547025766090552,
+      "improved_queries": 13,
+      "nextmask_scan_wall_ms": 310.34475000000003,
+      "nextmask_scan_change_pct": -2.5176432622326494
+    }
+  },
+  "chromium": {
+    "all": {
+      "queries": 14,
+      "candidates": 1243225,
+      "false_positives": 465368,
+      "false_positive_pct": 37.432323191699005,
+      "false_positive_match_worker_ms": 2109.361083000173,
+      "false_positive_match_work_pct": 25.661472112282848,
+      "match_work_pct": 3.789886001766487,
+      "scan_wall_ms": 21791.136792999998,
+      "scan_phase_pct": 97.0664387305666,
+      "removed_candidates": 39033,
+      "removed_candidates_pct": 3.1396569406181505,
+      "removed_false_positives_pct": 8.387555654879579,
+      "improved_queries": 5,
+      "nextmask_scan_wall_ms": 21408.593585,
+      "nextmask_scan_change_pct": -1.7554990895329747
+    },
+    "indexed_only": {
+      "queries": 13,
+      "candidates": 781676,
+      "false_positives": 168785,
+      "false_positive_pct": 21.592705929310867,
+      "false_positive_match_worker_ms": 1478.740120999998,
+      "false_positive_match_work_pct": 23.41176000771414,
+      "match_work_pct": 4.24424165210821,
+      "scan_wall_ms": 14956.054209999998,
+      "scan_phase_pct": 96.04807144470774,
+      "removed_candidates": 39033,
+      "removed_candidates_pct": 4.993501143696365,
+      "removed_false_positives_pct": 23.12587018988654,
+      "improved_queries": 5,
+      "nextmask_scan_wall_ms": 14425.182043,
+      "nextmask_scan_change_pct": -3.549546956342553
+    }
+  }
+}

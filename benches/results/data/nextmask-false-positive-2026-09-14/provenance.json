@@ -1,0 +1,26 @@
+{
+  "corpora": {
+    "vllm": {
+      "commit": "569adb5a9780f9c02d22a6b29826acf711512356",
+      "archive": "git archive from local preserved repository",
+      "archive_sha256": "8d1ac078cf43657e08a1e32b6b5043e437673c7483a2f227ebbfcf1661d63d36"
+    },
+    "chromium": {
+      "commit": "398630472335c10b9ca610a4d1b7888a040f702a",
+      "archive_url": "https://chromium.googlesource.com/chromium/src/+archive/398630472335c10b9ca610a4d1b7888a040f702a.tar.gz",
+      "archive_sha256": "c4964f154cb0755e3ac4e8ea362c9550db36086673297bd48b6f9044c2b03e0b"
+    }
+  },
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "cache_date": "2026-09-10",
+  "measurement_date": "2026-09-14",
+  "cpu": "Apple M5",
+  "memory_bytes": 25769803776,
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "driver_sha256": "cd3991a805aa163d5ebdf1b53f03d53613e2f7f5fb4612232fbfacb0db35ed0d",
+  "validation": {
+    "cargo_test_locked_passed": 77,
+    "cargo_fmt_check": "passed",
+    "git_diff_check": "passed"
+  }
+}

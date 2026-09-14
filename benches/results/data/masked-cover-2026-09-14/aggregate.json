@@ -1,0 +1,74 @@
+{
+  "vllm": {
+    "modes": {
+      "Baseline": {
+        "posting_reads": 583,
+        "decoded_ids": 386300,
+        "candidates": 56741,
+        "false_positive_files": 15561,
+        "query_ms": 18.452662
+      },
+      "OldCoverMask": {
+        "posting_reads": 580,
+        "decoded_ids": 386160,
+        "candidates": 55681,
+        "false_positive_files": 14501,
+        "query_ms": 22.095625
+      },
+      "MaskedCover": {
+        "posting_reads": 531,
+        "decoded_ids": 316988,
+        "candidates": 59499,
+        "false_positive_files": 18319,
+        "query_ms": 18.645834
+      }
+    },
+    "queries": 34,
+    "fewer_posting_queries": 20,
+    "more_posting_queries": 1,
+    "more_candidate_queries": 7,
+    "change_pct": {
+      "posting_reads": -8.919382504288166,
+      "decoded_ids": -17.94253171110536,
+      "candidates": 4.860682751449574,
+      "false_positive_files": 17.723796671165083,
+      "query_ms": 1.0468516683392437
+    }
+  },
+  "chromium": {
+    "modes": {
+      "Baseline": {
+        "posting_reads": 116,
+        "decoded_ids": 3227819,
+        "candidates": 1243225,
+        "false_positive_files": 465368,
+        "query_ms": 205.190916
+      },
+      "OldCoverMask": {
+        "posting_reads": 118,
+        "decoded_ids": 3227899,
+        "candidates": 1204184,
+        "false_positive_files": 426327,
+        "query_ms": 239.873041
+      },
+      "MaskedCover": {
+        "posting_reads": 103,
+        "decoded_ids": 2733929,
+        "candidates": 1212609,
+        "false_positive_files": 434752,
+        "query_ms": 191.401292
+      }
+    },
+    "queries": 14,
+    "fewer_posting_queries": 7,
+    "more_posting_queries": 0,
+    "more_candidate_queries": 2,
+    "change_pct": {
+      "posting_reads": -11.206896551724132,
+      "decoded_ids": -15.301043831763806,
+      "candidates": -2.4626274407287485,
+      "false_positive_files": -6.578879510408964,
+      "query_ms": -6.720387173475051
+    }
+  }
+}

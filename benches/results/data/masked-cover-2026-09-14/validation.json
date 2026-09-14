@@ -1,0 +1,10 @@
+{
+  "queries": 48,
+  "adaptive_queries": 4,
+  "new_tests_passed": 7,
+  "source_hashes": "passed",
+  "baseline_equivalence": "passed",
+  "match_preservation": "passed",
+  "query_counters": "passed",
+  "source_archive_sha256": "ae7c01d79849ea52580c6fc3677fa9d5b933c0036cce8b88349832d30eb7ae85"
+}

@@ -1,0 +1,714 @@
+{
+  "pattern": "rocm",
+  "ignore_case": false,
+  "fixed_strings": true,
+  "indexed_files": 6835,
+  "matched_files": 560,
+  "matched_lines": 4049,
+  "index_load_ms": 1.66175,
+  "plan_ms": [
+    0.003167,
+    0.0005,
+    0.000833
+  ],
+  "plans": [
+    [
+      [
+        [
+          {
+            "hash": 1296091335,
+            "next": null
+          },
+          {
+            "hash": 1782955636,
+            "next": null
+          }
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          {
+            "hash": 1296091335,
+            "next": null
+          },
+          {
+            "hash": 1782955636,
+            "next": [
+              114,
+              111,
+              99,
+              109
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          {
+            "hash": 1782955636,
+            "next": [
+              114,
+              111,
+              99,
+              109
+            ]
+          }
+        ]
+      ]
+    ]
+  ],
+  "mask_prepare_ms": 50.05525,
+  "mask_source_bytes": 56057535,
+  "mask_documents": 2405,
+  "mask_entries": 2405,
+  "summaries": [
+    {
+      "mode": "Baseline",
+      "candidates": 561,
+      "false_positive_files": 1,
+      "candidate_bytes": 12169710,
+      "false_positive_bytes": 3303,
+      "added_vs_baseline": 0,
+      "removed_vs_baseline": 0,
+      "added_vs_old_cover_mask": 0,
+      "removed_vs_old_cover_mask": 0,
+      "planned_keys": 2,
+      "planned_predicates": 2
+    },
+    {
+      "mode": "OldCoverMask",
+      "candidates": 561,
+      "false_positive_files": 1,
+      "candidate_bytes": 12169710,
+      "false_positive_bytes": 3303,
+      "added_vs_baseline": 0,
+      "removed_vs_baseline": 0,
+      "added_vs_old_cover_mask": 0,
+      "removed_vs_old_cover_mask": 0,
+      "planned_keys": 2,
+      "planned_predicates": 2
+    },
+    {
+      "mode": "MaskedCover",
+      "candidates": 2360,
+      "false_positive_files": 1800,
+      "candidate_bytes": 54963826,
+      "false_positive_bytes": 42797419,
+      "added_vs_baseline": 1799,
+      "removed_vs_baseline": 0,
+      "added_vs_old_cover_mask": 1799,
+      "removed_vs_old_cover_mask": 0,
+      "planned_keys": 1,
+      "planned_predicates": 1
+    }
+  ],
+  "query_samples": [
+    {
+      "mode": "MaskedCover",
+      "query_ms": 0.10291600000000001,
+      "candidates": 2360,
+      "stats": {
+        "posting_reads": 1,
+        "decoded_ids": 2405,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.058459,
+        "mask_filter_ms": 0.033541999999999995,
+        "loaded_keys": [
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.09475,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.066251,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 0.127292,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.064875,
+        "mask_filter_ms": 0.032542,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.091209,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.066709,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 0.12245800000000001,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.063125,
+        "mask_filter_ms": 0.031875,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 0.097292,
+      "candidates": 2360,
+      "stats": {
+        "posting_reads": 1,
+        "decoded_ids": 2405,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.052791000000000005,
+        "mask_filter_ms": 0.033459,
+        "loaded_keys": [
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 0.12300000000000001,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.062083,
+        "mask_filter_ms": 0.033833,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 0.096666,
+      "candidates": 2360,
+      "stats": {
+        "posting_reads": 1,
+        "decoded_ids": 2405,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.052167,
+        "mask_filter_ms": 0.0335,
+        "loaded_keys": [
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.08445799999999999,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.061417,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 0.095709,
+      "candidates": 2360,
+      "stats": {
+        "posting_reads": 1,
+        "decoded_ids": 2405,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.05125,
+        "mask_filter_ms": 0.033624999999999995,
+        "loaded_keys": [
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.08383299999999999,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.060917000000000006,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 0.120166,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.060667000000000006,
+        "mask_filter_ms": 0.033292,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.08325,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.060625000000000005,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 0.11904200000000001,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.060375,
+        "mask_filter_ms": 0.032417,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 0.099667,
+      "candidates": 2360,
+      "stats": {
+        "posting_reads": 1,
+        "decoded_ids": 2405,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.05075,
+        "mask_filter_ms": 0.037917000000000006,
+        "loaded_keys": [
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 0.125833,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.066334,
+        "mask_filter_ms": 0.033624999999999995,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 0.095125,
+      "candidates": 2360,
+      "stats": {
+        "posting_reads": 1,
+        "decoded_ids": 2405,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.051167,
+        "mask_filter_ms": 0.03275,
+        "loaded_keys": [
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.088959,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.064416,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 0.117125,
+      "candidates": 2360,
+      "stats": {
+        "posting_reads": 1,
+        "decoded_ids": 2405,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.070292,
+        "mask_filter_ms": 0.034375,
+        "loaded_keys": [
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.09737499999999999,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.072126,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 0.1305,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.06825,
+        "mask_filter_ms": 0.034125,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.088916,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.065333,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 0.1265,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.064667,
+        "mask_filter_ms": 0.033917,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 0.097417,
+      "candidates": 2360,
+      "stats": {
+        "posting_reads": 1,
+        "decoded_ids": 2405,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.053458000000000006,
+        "mask_filter_ms": 0.032792,
+        "loaded_keys": [
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 0.12308299999999998,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.062417,
+        "mask_filter_ms": 0.034499999999999996,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 0.100208,
+      "candidates": 2360,
+      "stats": {
+        "posting_reads": 1,
+        "decoded_ids": 2405,
+        "masked_predicates": 1,
+        "mask_checks": 2405,
+        "mask_rejected_ids": 45,
+        "posting_load_ms": 0.055,
+        "mask_filter_ms": 0.034249999999999996,
+        "loaded_keys": [
+          1782955636
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.08349999999999999,
+      "candidates": 561,
+      "stats": {
+        "posting_reads": 2,
+        "decoded_ids": 2968,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.061209000000000006,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          1296091335,
+          1782955636
+        ]
+      }
+    }
+  ],
+  "scan_samples": [
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 19.9925,
+      "read_worker_ms": 171.5757800000002,
+      "match_worker_ms": 24.909375,
+      "false_positive_read_worker_ms": 133.03433400000014,
+      "false_positive_match_worker_ms": 18.507113000000018
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 4.911417,
+      "read_worker_ms": 40.53124999999998,
+      "match_worker_ms": 6.402275999999998,
+      "false_positive_read_worker_ms": 0.07454100000000001,
+      "false_positive_match_worker_ms": 0.001625
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 4.771875,
+      "read_worker_ms": 38.61213600000002,
+      "match_worker_ms": 6.648355000000002,
+      "false_positive_read_worker_ms": 0.043084000000000004,
+      "false_positive_match_worker_ms": 0.002792
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 4.777082999999999,
+      "read_worker_ms": 38.07941300000002,
+      "match_worker_ms": 6.568737,
+      "false_positive_read_worker_ms": 0.06966699999999999,
+      "false_positive_match_worker_ms": 0.001458
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 4.852958,
+      "read_worker_ms": 39.113149999999976,
+      "match_worker_ms": 6.885503999999993,
+      "false_positive_read_worker_ms": 0.049249999999999995,
+      "false_positive_match_worker_ms": 0.001583
+    },
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 20.032334,
+      "read_worker_ms": 170.19592500000027,
+      "match_worker_ms": 26.48156399999997,
+      "false_positive_read_worker_ms": 125.40593400000006,
+      "false_positive_match_worker_ms": 18.302342000000035
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 4.901167,
+      "read_worker_ms": 39.76020999999999,
+      "match_worker_ms": 6.403868000000003,
+      "false_positive_read_worker_ms": 0.037792,
+      "false_positive_match_worker_ms": 0.001917
+    },
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 20.124333,
+      "read_worker_ms": 168.54091799999966,
+      "match_worker_ms": 25.39544899999999,
+      "false_positive_read_worker_ms": 130.90488199999982,
+      "false_positive_match_worker_ms": 18.706707000000037
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 4.499833,
+      "read_worker_ms": 34.72221600000003,
+      "match_worker_ms": 7.636799000000001,
+      "false_positive_read_worker_ms": 0.06245900000000001,
+      "false_positive_match_worker_ms": 0.00175
+    },
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 18.805249999999997,
+      "read_worker_ms": 152.11112899999983,
+      "match_worker_ms": 30.154177999999924,
+      "false_positive_read_worker_ms": 118.32125899999998,
+      "false_positive_match_worker_ms": 20.16092400000001
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 4.740625,
+      "read_worker_ms": 36.10032899999999,
+      "match_worker_ms": 6.774594000000005,
+      "false_positive_read_worker_ms": 0.030292,
+      "false_positive_match_worker_ms": 0.001833
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 4.688458000000001,
+      "read_worker_ms": 37.36908600000004,
+      "match_worker_ms": 7.5437109999999965,
+      "false_positive_read_worker_ms": 0.052708,
+      "false_positive_match_worker_ms": 0.002833
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 4.508375,
+      "read_worker_ms": 35.46999100000001,
+      "match_worker_ms": 7.112467000000001,
+      "false_positive_read_worker_ms": 0.072333,
+      "false_positive_match_worker_ms": 0.0027080000000000003
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 4.776791,
+      "read_worker_ms": 35.41541399999994,
+      "match_worker_ms": 8.550866000000003,
+      "false_positive_read_worker_ms": 0.053958,
+      "false_positive_match_worker_ms": 0.002042
+    },
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 19.199042,
+      "read_worker_ms": 156.7286530000001,
+      "match_worker_ms": 31.65678599999999,
+      "false_positive_read_worker_ms": 122.78905000000003,
+      "false_positive_match_worker_ms": 24.683073999999987
+    }
+  ],
+  "validation_union_candidates": 2360,
+  "validation_scan_ms": 20.439292000000002,
+  "production_baseline_equivalent": true,
+  "expected_counts_verified": true
+}

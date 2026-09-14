@@ -1,6 +1,6 @@
 # Benchmark 结果索引
 
-截至 2026-09-10，主分支采用固定英文字母频率权重 v5，维护策略沿用 `413d14a` 的分代更新实现。
+截至 2026-09-14，主分支采用固定英文字母频率权重 v5，维护策略沿用 `413d14a` 的分代更新实现。
 规则以[最终设计](../../docs/generational-index-refresh.md)为准：B < 32 MiB 追加增量、
 累计 8 MiB 重建；大库采用 25% 分代合并。不同报告的“current”指各自记录的二进制。
 
@@ -33,6 +33,20 @@ B/M 的前进终点、峰值和独立查询状态分别标注；小库累计增�
 `compare_rg` 创建模拟更新。没有 Git 历史的 Chromium 源码压缩包只用于构建/查询剖析。
 rg 与 coderg 对齐隐藏文件范围，索引放在源码外；rg 独立查询基线与逐提交循环计时分开，
 避免[已观察到的顺序偏差](data/maintenance-rg-2026-09-09/rg-order-diagnosis/README.md)。
+
+## nextMask 实验：暂不采用
+
+[方案与决定](../../docs/decisions/2026-09-14-nextmask.md)：保留
+`experiment/nextmask-false-positive-profile` 分支，主分支只归档文档和证据，不启用 mask。
+新 covering 少读 posting，但部分查询误报和耗时明显增加；搜索收益尚不稳定。
+批量持久化原型的真实 commit 更新配对增幅中位数为 14.5%，完整 mask 合并和回收成本尚未测量。
+
+| 报告 | 范围与限制 |
+|---|---|
+| [候选误报与后置 mask](nextmask-false-positive-2026-09-14.md) | 48 项查询；常驻 mask，不含持久化成本 |
+| [masked covering](masked-cover-2026-09-14.md) | 48 项查询、7 项新增测试；允许省略 posting，候选不保证只减不增 |
+| [指定 OR 正则](search-or-2026-09-14.md) | 单条查询核心阶段约降低 16%，不是普遍或完整 CLI 收益 |
+| [真实 commit 更新](mask-update-2026-09-14.md) | 30 个 commit、每组 3 轮；批量与逐文件同步 sidecar 原型 |
 
 ## 维护策略的历史试验
 

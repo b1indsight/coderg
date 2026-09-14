@@ -1,0 +1,47 @@
+{
+  "started_utc": "2026-09-14T09:08:46.653367+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "corpus": "chromium",
+  "root": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/nextmask-profile/chromium",
+  "index": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-10/nextmask-profile/chromium-index",
+  "manifest_sha256": "42812eb0660ccbbbe7db369a78f35d88283ba0f0559f1e4948450fa150eaa4b3",
+  "previous_summary_sha256": "ba868308cd27ce4634e5d66b829e357b661409a63f4b188106d0d8b4958bf442",
+  "profiler_sha256": "7c28458175b0028e290676e00a02050656e21f5e28061b3013b6f6cae74a9c6d",
+  "source_sha256": {
+    "Cargo.toml": "cbb6d2bcb25fb9554c54baf42955621179dcab48b5033fee2d964341e89de934",
+    "Cargo.lock": "5d3c35a1b7544ea97f170ebde68b759c47e7a43f83fad02f9ac3cf2ecc7ba9fb",
+    "src/build.rs": "bbaaa1020edb68155e56bb3640de882ef8a36d73731161f25997fed42f9d1a75",
+    "src/compaction.rs": "57345e494f40addd5ed7c67d2943e1f7eaf926791faca1a15c817f03c7d58b82",
+    "src/git_state.rs": "5818ce1a65c067d38ae3761dd11935885300cbd215890084f86624ded4d4950a",
+    "src/index.rs": "5d03e65002b4d113ed207c359edd69eee177d2f30600e3de4980d0c161f76785",
+    "src/main.rs": "8b29e815038d45e52d5ffab23ff7fc17eeb14867d594a88b5127c171e6d84717",
+    "src/manifest.rs": "aa8a0daaed066b59137dd31aa954f9aecc6bfaa83f5c339c3a317a51014da5f4",
+    "src/ngram.rs": "4c396df051cfb3406b308743787f9f39f41872851531f3248a57aebe384b0d47",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "0aeab408536f75b49235df76a7497b2a10529999a29bc21432f29dd0efc9d634",
+    "src/segment.rs": "9903646d7fc2146f64a62549e89f8fea49df6a44366a76aaa399ea85c8d83e21",
+    "benches/masked_cover_profile.rs": "c4df9b1efbc07d9020def31dd5072baa15ab2077c410d5b409372657df3de78c",
+    "benches/masked_cover_profile.py": "22b6a162222ea54df796e40550257512f4854151e59a9e504f9276d805268e3a",
+    "benches/support/gram_source.rs": "27d8b1c4763f36e76cc581322b6c21bea359b17983c7648735908e8d89237725",
+    "benches/support/literal_source.rs": "94d6134707e2558fbda3857fca303cd59795492a7c6dcad6a6245bdef71914bb",
+    "benches/support/masked_cover.rs": "b36242f71e9bca23dbd0a6c92b4e007694ecbe5f375f9a9f3e7299e35402124b",
+    "tests/masked_cover.rs": "11ab7892f5580d91bddea8d66c116ea4d450d5c62d66e5ad8ad95a91b24fd51c"
+  },
+  "iterations": 9,
+  "scan_iterations": 3,
+  "warmup": 2,
+  "scan_queries": [
+    "class_decl",
+    "icase_weak_ptr_factory",
+    "literal_test",
+    "max_file_size",
+    "word_test"
+  ],
+  "logical_cpus": 10,
+  "environment": {
+    "RAYON_NUM_THREADS": null,
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "C.UTF-8"
+  },
+  "finished_utc": "2026-09-14T09:12:16.185640+00:00"
+}

@@ -1,0 +1,1644 @@
+{
+  "pattern": "\\bmax_(model_len|num_seqs)[ \\t]*=",
+  "ignore_case": false,
+  "fixed_strings": false,
+  "indexed_files": 6835,
+  "matched_files": 438,
+  "matched_lines": 1547,
+  "index_load_ms": 0.65025,
+  "plan_ms": [
+    0.039208,
+    0.026875,
+    0.021417
+  ],
+  "plans": [
+    [
+      [
+        [
+          {
+            "hash": 3151029273,
+            "next": null
+          },
+          {
+            "hash": 1560137748,
+            "next": null
+          },
+          {
+            "hash": 3900348637,
+            "next": null
+          },
+          {
+            "hash": 8887967,
+            "next": null
+          },
+          {
+            "hash": 3392184794,
+            "next": null
+          },
+          {
+            "hash": 3895388862,
+            "next": null
+          },
+          {
+            "hash": 2874604706,
+            "next": null
+          },
+          {
+            "hash": 2524673106,
+            "next": null
+          },
+          {
+            "hash": 3461688050,
+            "next": null
+          }
+        ],
+        [
+          {
+            "hash": 3151029273,
+            "next": null
+          },
+          {
+            "hash": 1560137748,
+            "next": null
+          },
+          {
+            "hash": 3900348637,
+            "next": null
+          },
+          {
+            "hash": 2976436919,
+            "next": null
+          },
+          {
+            "hash": 3392184794,
+            "next": null
+          },
+          {
+            "hash": 3895388862,
+            "next": null
+          },
+          {
+            "hash": 2874604706,
+            "next": null
+          },
+          {
+            "hash": 2524673106,
+            "next": null
+          },
+          {
+            "hash": 3461688050,
+            "next": null
+          }
+        ],
+        [
+          {
+            "hash": 3151029273,
+            "next": null
+          },
+          {
+            "hash": 1560137748,
+            "next": null
+          },
+          {
+            "hash": 3900348637,
+            "next": null
+          },
+          {
+            "hash": 695543481,
+            "next": null
+          },
+          {
+            "hash": 3392184794,
+            "next": null
+          },
+          {
+            "hash": 3895388862,
+            "next": null
+          },
+          {
+            "hash": 2874604706,
+            "next": null
+          },
+          {
+            "hash": 2524673106,
+            "next": null
+          },
+          {
+            "hash": 3461688050,
+            "next": null
+          }
+        ],
+        [
+          {
+            "hash": 3366812334,
+            "next": null
+          },
+          {
+            "hash": 3074963104,
+            "next": null
+          },
+          {
+            "hash": 3816824613,
+            "next": null
+          },
+          {
+            "hash": 3461688050,
+            "next": null
+          }
+        ],
+        [
+          {
+            "hash": 3366812334,
+            "next": null
+          },
+          {
+            "hash": 1389816366,
+            "next": null
+          },
+          {
+            "hash": 3816824613,
+            "next": null
+          },
+          {
+            "hash": 3461688050,
+            "next": null
+          }
+        ],
+        [
+          {
+            "hash": 3366812334,
+            "next": null
+          },
+          {
+            "hash": 579294506,
+            "next": null
+          },
+          {
+            "hash": 3816824613,
+            "next": null
+          },
+          {
+            "hash": 3461688050,
+            "next": null
+          }
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          {
+            "hash": 3151029273,
+            "next": null
+          },
+          {
+            "hash": 1560137748,
+            "next": null
+          },
+          {
+            "hash": 3900348637,
+            "next": null
+          },
+          {
+            "hash": 8887967,
+            "next": null
+          },
+          {
+            "hash": 3392184794,
+            "next": [
+              108,
+              101,
+              110,
+              9
+            ]
+          },
+          {
+            "hash": 3895388862,
+            "next": [
+              101,
+              108,
+              95,
+              108
+            ]
+          },
+          {
+            "hash": 2874604706,
+            "next": [
+              109,
+              111,
+              100,
+              101
+            ]
+          },
+          {
+            "hash": 2524673106,
+            "next": [
+              97,
+              120,
+              95,
+              109
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3151029273,
+            "next": null
+          },
+          {
+            "hash": 1560137748,
+            "next": null
+          },
+          {
+            "hash": 3900348637,
+            "next": null
+          },
+          {
+            "hash": 2976436919,
+            "next": null
+          },
+          {
+            "hash": 3392184794,
+            "next": [
+              108,
+              101,
+              110,
+              32
+            ]
+          },
+          {
+            "hash": 3895388862,
+            "next": [
+              101,
+              108,
+              95,
+              108
+            ]
+          },
+          {
+            "hash": 2874604706,
+            "next": [
+              109,
+              111,
+              100,
+              101
+            ]
+          },
+          {
+            "hash": 2524673106,
+            "next": [
+              97,
+              120,
+              95,
+              109
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3151029273,
+            "next": null
+          },
+          {
+            "hash": 1560137748,
+            "next": null
+          },
+          {
+            "hash": 3900348637,
+            "next": null
+          },
+          {
+            "hash": 695543481,
+            "next": null
+          },
+          {
+            "hash": 3392184794,
+            "next": [
+              108,
+              101,
+              110,
+              61
+            ]
+          },
+          {
+            "hash": 3895388862,
+            "next": [
+              101,
+              108,
+              95,
+              108
+            ]
+          },
+          {
+            "hash": 2874604706,
+            "next": [
+              109,
+              111,
+              100,
+              101
+            ]
+          },
+          {
+            "hash": 2524673106,
+            "next": [
+              97,
+              120,
+              95,
+              109
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3366812334,
+            "next": null
+          },
+          {
+            "hash": 3074963104,
+            "next": null
+          },
+          {
+            "hash": 3816824613,
+            "next": [
+              101,
+              113,
+              115,
+              9
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3366812334,
+            "next": null
+          },
+          {
+            "hash": 1389816366,
+            "next": null
+          },
+          {
+            "hash": 3816824613,
+            "next": [
+              101,
+              113,
+              115,
+              32
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3366812334,
+            "next": null
+          },
+          {
+            "hash": 579294506,
+            "next": null
+          },
+          {
+            "hash": 3816824613,
+            "next": [
+              101,
+              113,
+              115,
+              61
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          {
+            "hash": 3151029273,
+            "next": null
+          },
+          {
+            "hash": 3900348637,
+            "next": null
+          },
+          {
+            "hash": 3392184794,
+            "next": [
+              108,
+              101,
+              110,
+              9
+            ]
+          },
+          {
+            "hash": 3389001442,
+            "next": [
+              100,
+              101,
+              108,
+              95
+            ]
+          },
+          {
+            "hash": 2874604706,
+            "next": [
+              109,
+              111,
+              100,
+              101
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3151029273,
+            "next": null
+          },
+          {
+            "hash": 3900348637,
+            "next": null
+          },
+          {
+            "hash": 3392184794,
+            "next": [
+              108,
+              101,
+              110,
+              32
+            ]
+          },
+          {
+            "hash": 3389001442,
+            "next": [
+              100,
+              101,
+              108,
+              95
+            ]
+          },
+          {
+            "hash": 2874604706,
+            "next": [
+              109,
+              111,
+              100,
+              101
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3151029273,
+            "next": null
+          },
+          {
+            "hash": 3900348637,
+            "next": null
+          },
+          {
+            "hash": 3392184794,
+            "next": [
+              108,
+              101,
+              110,
+              61
+            ]
+          },
+          {
+            "hash": 3389001442,
+            "next": [
+              100,
+              101,
+              108,
+              95
+            ]
+          },
+          {
+            "hash": 2874604706,
+            "next": [
+              109,
+              111,
+              100,
+              101
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3366812334,
+            "next": null
+          },
+          {
+            "hash": 3816824613,
+            "next": [
+              101,
+              113,
+              115,
+              9
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3366812334,
+            "next": null
+          },
+          {
+            "hash": 3816824613,
+            "next": [
+              101,
+              113,
+              115,
+              32
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ],
+        [
+          {
+            "hash": 3366812334,
+            "next": null
+          },
+          {
+            "hash": 3816824613,
+            "next": [
+              101,
+              113,
+              115,
+              61
+            ]
+          },
+          {
+            "hash": 3461688050,
+            "next": [
+              109,
+              97,
+              120,
+              95
+            ]
+          }
+        ]
+      ]
+    ]
+  ],
+  "mask_prepare_ms": 55.645666000000006,
+  "mask_source_bytes": 80133717,
+  "mask_documents": 5165,
+  "mask_entries": 21167,
+  "summaries": [
+    {
+      "mode": "Baseline",
+      "candidates": 623,
+      "false_positive_files": 185,
+      "candidate_bytes": 14123717,
+      "false_positive_bytes": 5119748,
+      "added_vs_baseline": 0,
+      "removed_vs_baseline": 0,
+      "added_vs_old_cover_mask": 17,
+      "removed_vs_old_cover_mask": 0,
+      "planned_keys": 16,
+      "planned_predicates": 16
+    },
+    {
+      "mode": "OldCoverMask",
+      "candidates": 606,
+      "false_positive_files": 168,
+      "candidate_bytes": 13910703,
+      "false_positive_bytes": 4906734,
+      "added_vs_baseline": 0,
+      "removed_vs_baseline": 17,
+      "added_vs_old_cover_mask": 0,
+      "removed_vs_old_cover_mask": 0,
+      "planned_keys": 16,
+      "planned_predicates": 20
+    },
+    {
+      "mode": "MaskedCover",
+      "candidates": 659,
+      "false_positive_files": 221,
+      "candidate_bytes": 14581976,
+      "false_positive_bytes": 5578007,
+      "added_vs_baseline": 44,
+      "removed_vs_baseline": 8,
+      "added_vs_old_cover_mask": 53,
+      "removed_vs_old_cover_mask": 0,
+      "planned_keys": 8,
+      "planned_predicates": 12
+    }
+  ],
+  "query_samples": [
+    {
+      "mode": "MaskedCover",
+      "query_ms": 1.062333,
+      "candidates": 659,
+      "stats": {
+        "posting_reads": 8,
+        "decoded_ids": 16970,
+        "masked_predicates": 9,
+        "mask_checks": 23232,
+        "mask_rejected_ids": 7435,
+        "posting_load_ms": 0.391169,
+        "mask_filter_ms": 0.440331,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3816824613,
+          3461688050,
+          3900348637,
+          3392184794,
+          3389001442,
+          2874604706
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.820458,
+      "candidates": 623,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.608876,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 1.202667,
+      "candidates": 606,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 8,
+        "mask_checks": 20904,
+        "mask_rejected_ids": 6921,
+        "posting_load_ms": 0.6041250000000001,
+        "mask_filter_ms": 0.371752,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 1.0055,
+      "candidates": 623,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.774457,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 1.376541,
+      "candidates": 606,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 8,
+        "mask_checks": 20904,
+        "mask_rejected_ids": 6921,
+        "posting_load_ms": 0.716167,
+        "mask_filter_ms": 0.40025,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 1.049959,
+      "candidates": 659,
+      "stats": {
+        "posting_reads": 8,
+        "decoded_ids": 16970,
+        "masked_predicates": 9,
+        "mask_checks": 23232,
+        "mask_rejected_ids": 7435,
+        "posting_load_ms": 0.404915,
+        "mask_filter_ms": 0.39721,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3816824613,
+          3461688050,
+          3900348637,
+          3392184794,
+          3389001442,
+          2874604706
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 1.270875,
+      "candidates": 606,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 8,
+        "mask_checks": 20904,
+        "mask_rejected_ids": 6921,
+        "posting_load_ms": 0.6290430000000001,
+        "mask_filter_ms": 0.390957,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 1.0699159999999999,
+      "candidates": 659,
+      "stats": {
+        "posting_reads": 8,
+        "decoded_ids": 16970,
+        "masked_predicates": 9,
+        "mask_checks": 23232,
+        "mask_rejected_ids": 7435,
+        "posting_load_ms": 0.408707,
+        "mask_filter_ms": 0.4185,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3816824613,
+          3461688050,
+          3900348637,
+          3392184794,
+          3389001442,
+          2874604706
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.830375,
+      "candidates": 623,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.612336,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 1.026833,
+      "candidates": 659,
+      "stats": {
+        "posting_reads": 8,
+        "decoded_ids": 16970,
+        "masked_predicates": 9,
+        "mask_checks": 23232,
+        "mask_rejected_ids": 7435,
+        "posting_load_ms": 0.38675,
+        "mask_filter_ms": 0.407335,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3816824613,
+          3461688050,
+          3900348637,
+          3392184794,
+          3389001442,
+          2874604706
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.833209,
+      "candidates": 623,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.620294,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 1.2035,
+      "candidates": 606,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 8,
+        "mask_checks": 20904,
+        "mask_rejected_ids": 6921,
+        "posting_load_ms": 0.6018340000000001,
+        "mask_filter_ms": 0.37533400000000006,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.8100409999999999,
+      "candidates": 623,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.613749,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 1.305583,
+      "candidates": 606,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 8,
+        "mask_checks": 20904,
+        "mask_rejected_ids": 6921,
+        "posting_load_ms": 0.6577919999999998,
+        "mask_filter_ms": 0.40683400000000003,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 1.154125,
+      "candidates": 659,
+      "stats": {
+        "posting_reads": 8,
+        "decoded_ids": 16970,
+        "masked_predicates": 9,
+        "mask_checks": 23232,
+        "mask_rejected_ids": 7435,
+        "posting_load_ms": 0.478377,
+        "mask_filter_ms": 0.42733199999999993,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3816824613,
+          3461688050,
+          3900348637,
+          3392184794,
+          3389001442,
+          2874604706
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 1.439708,
+      "candidates": 606,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 8,
+        "mask_checks": 20904,
+        "mask_rejected_ids": 6921,
+        "posting_load_ms": 0.7780390000000001,
+        "mask_filter_ms": 0.392459,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 1.10175,
+      "candidates": 659,
+      "stats": {
+        "posting_reads": 8,
+        "decoded_ids": 16970,
+        "masked_predicates": 9,
+        "mask_checks": 23232,
+        "mask_rejected_ids": 7435,
+        "posting_load_ms": 0.445582,
+        "mask_filter_ms": 0.404582,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3816824613,
+          3461688050,
+          3900348637,
+          3392184794,
+          3389001442,
+          2874604706
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.889417,
+      "candidates": 623,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.6549990000000001,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 1.0466659999999999,
+      "candidates": 659,
+      "stats": {
+        "posting_reads": 8,
+        "decoded_ids": 16970,
+        "masked_predicates": 9,
+        "mask_checks": 23232,
+        "mask_rejected_ids": 7435,
+        "posting_load_ms": 0.40237599999999996,
+        "mask_filter_ms": 0.40591700000000003,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3816824613,
+          3461688050,
+          3900348637,
+          3392184794,
+          3389001442,
+          2874604706
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.852417,
+      "candidates": 623,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.6340420000000001,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 1.233708,
+      "candidates": 606,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 8,
+        "mask_checks": 20904,
+        "mask_rejected_ids": 6921,
+        "posting_load_ms": 0.620958,
+        "mask_filter_ms": 0.384042,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.816,
+      "candidates": 623,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.619252,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 1.216666,
+      "candidates": 606,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 8,
+        "mask_checks": 20904,
+        "mask_rejected_ids": 6921,
+        "posting_load_ms": 0.610292,
+        "mask_filter_ms": 0.390249,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 1.026541,
+      "candidates": 659,
+      "stats": {
+        "posting_reads": 8,
+        "decoded_ids": 16970,
+        "masked_predicates": 9,
+        "mask_checks": 23232,
+        "mask_rejected_ids": 7435,
+        "posting_load_ms": 0.388958,
+        "mask_filter_ms": 0.39821,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3816824613,
+          3461688050,
+          3900348637,
+          3392184794,
+          3389001442,
+          2874604706
+        ]
+      }
+    },
+    {
+      "mode": "OldCoverMask",
+      "query_ms": 1.205792,
+      "candidates": 606,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 8,
+        "mask_checks": 20904,
+        "mask_rejected_ids": 6921,
+        "posting_load_ms": 0.606294,
+        "mask_filter_ms": 0.37400100000000003,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    },
+    {
+      "mode": "MaskedCover",
+      "query_ms": 1.0110830000000002,
+      "candidates": 659,
+      "stats": {
+        "posting_reads": 8,
+        "decoded_ids": 16970,
+        "masked_predicates": 9,
+        "mask_checks": 23232,
+        "mask_rejected_ids": 7435,
+        "posting_load_ms": 0.38620999999999994,
+        "mask_filter_ms": 0.39383399999999996,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3816824613,
+          3461688050,
+          3900348637,
+          3392184794,
+          3389001442,
+          2874604706
+        ]
+      }
+    },
+    {
+      "mode": "Baseline",
+      "query_ms": 0.811792,
+      "candidates": 623,
+      "stats": {
+        "posting_reads": 16,
+        "decoded_ids": 27545,
+        "masked_predicates": 0,
+        "mask_checks": 0,
+        "mask_rejected_ids": 0,
+        "posting_load_ms": 0.6039180000000001,
+        "mask_filter_ms": 0.0,
+        "loaded_keys": [
+          3151029273,
+          3366812334,
+          3074963104,
+          1389816366,
+          3816824613,
+          3461688050,
+          579294506,
+          1560137748,
+          3900348637,
+          8887967,
+          2976436919,
+          3392184794,
+          3895388862,
+          2874604706,
+          2524673106,
+          695543481
+        ]
+      }
+    }
+  ],
+  "scan_samples": [
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 6.198042,
+      "read_worker_ms": 33.705621000000015,
+      "match_worker_ms": 18.94945700000001,
+      "false_positive_read_worker_ms": 12.493749999999997,
+      "false_positive_match_worker_ms": 7.079375000000001
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 5.718667,
+      "read_worker_ms": 32.550869999999996,
+      "match_worker_ms": 18.659626000000024,
+      "false_positive_read_worker_ms": 10.958494000000004,
+      "false_positive_match_worker_ms": 6.043289
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 5.710667,
+      "read_worker_ms": 36.239166999999966,
+      "match_worker_ms": 15.945178000000015,
+      "false_positive_read_worker_ms": 11.467038000000002,
+      "false_positive_match_worker_ms": 5.529958
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 5.705125,
+      "read_worker_ms": 35.048494999999996,
+      "match_worker_ms": 17.109212000000007,
+      "false_positive_read_worker_ms": 10.774164999999993,
+      "false_positive_match_worker_ms": 4.938166999999997
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 5.580125,
+      "read_worker_ms": 34.29968700000005,
+      "match_worker_ms": 18.667665999999997,
+      "false_positive_read_worker_ms": 9.571741000000003,
+      "false_positive_match_worker_ms": 5.797923000000002
+    },
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 6.150792,
+      "read_worker_ms": 41.12096400000003,
+      "match_worker_ms": 17.467820999999983,
+      "false_positive_read_worker_ms": 11.642586999999997,
+      "false_positive_match_worker_ms": 6.445120000000002
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 5.527833,
+      "read_worker_ms": 34.83694899999997,
+      "match_worker_ms": 17.401419999999984,
+      "false_positive_read_worker_ms": 9.377458000000004,
+      "false_positive_match_worker_ms": 5.638380999999999
+    },
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 5.7267079999999995,
+      "read_worker_ms": 35.782386999999986,
+      "match_worker_ms": 17.71884499999999,
+      "false_positive_read_worker_ms": 13.959500999999994,
+      "false_positive_match_worker_ms": 6.631340000000003
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 5.435833000000001,
+      "read_worker_ms": 35.61092800000001,
+      "match_worker_ms": 16.395449000000006,
+      "false_positive_read_worker_ms": 9.909084999999996,
+      "false_positive_match_worker_ms": 5.372829000000001
+    },
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 5.959041,
+      "read_worker_ms": 40.666612,
+      "match_worker_ms": 15.785527000000002,
+      "false_positive_read_worker_ms": 12.195876999999996,
+      "false_positive_match_worker_ms": 5.484866999999999
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 5.509625,
+      "read_worker_ms": 33.48445299999999,
+      "match_worker_ms": 18.671817000000004,
+      "false_positive_read_worker_ms": 9.207213000000001,
+      "false_positive_match_worker_ms": 6.545912000000003
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 5.308249999999999,
+      "read_worker_ms": 33.202754999999996,
+      "match_worker_ms": 17.367298000000016,
+      "false_positive_read_worker_ms": 8.550462,
+      "false_positive_match_worker_ms": 5.078703999999997
+    },
+    {
+      "mode": "Baseline",
+      "scan_wall_ms": 5.307875,
+      "read_worker_ms": 32.05077999999999,
+      "match_worker_ms": 17.851257000000007,
+      "false_positive_read_worker_ms": 9.748583000000004,
+      "false_positive_match_worker_ms": 5.995496999999999
+    },
+    {
+      "mode": "OldCoverMask",
+      "scan_wall_ms": 5.3852079999999996,
+      "read_worker_ms": 31.43795199999998,
+      "match_worker_ms": 17.393972999999992,
+      "false_positive_read_worker_ms": 8.740664000000004,
+      "false_positive_match_worker_ms": 5.4316320000000005
+    },
+    {
+      "mode": "MaskedCover",
+      "scan_wall_ms": 6.137042,
+      "read_worker_ms": 36.911872000000024,
+      "match_worker_ms": 19.044869,
+      "false_positive_read_worker_ms": 9.715079000000001,
+      "false_positive_match_worker_ms": 6.593750999999999
+    }
+  ],
+  "validation_union_candidates": 667,
+  "validation_scan_ms": 6.054708,
+  "production_baseline_equivalent": true,
+  "expected_counts_verified": true
+}

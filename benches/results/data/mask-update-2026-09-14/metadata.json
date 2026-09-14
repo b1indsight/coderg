@@ -1,0 +1,49 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "main_commit": "a517489ba3c14d58154944b46a8fceea1d444c64",
+  "variants": {
+    "per_document": {
+      "baseline": {
+        "binary_sha256": "e3eb99d4c0b6366524339f21df57477b45d3aa9bcd21e093adadc8b6a468dd71",
+        "mode": 0
+      },
+      "compute": {
+        "binary_sha256": "e4a602f6dfc142e273237ab4c51598efbd3265853dcc9c1974482f91d93046c8",
+        "mode": 1
+      },
+      "persist": {
+        "binary_sha256": "e4a602f6dfc142e273237ab4c51598efbd3265853dcc9c1974482f91d93046c8",
+        "mode": 3
+      }
+    },
+    "batch": {
+      "baseline": {
+        "binary_sha256": "e3eb99d4c0b6366524339f21df57477b45d3aa9bcd21e093adadc8b6a468dd71",
+        "mode": 0
+      },
+      "compute": {
+        "binary_sha256": "e4a602f6dfc142e273237ab4c51598efbd3265853dcc9c1974482f91d93046c8",
+        "mode": 1
+      },
+      "persist": {
+        "binary_sha256": "adc8238315e5a22402c578beeb04beaa28890540f7cdf487a6475197de05a5aa",
+        "mode": 4
+      }
+    }
+  },
+  "source_sha256": {
+    "src/index_mask.rs": "298f4115c66b0167b9a41613670b40331797398e1809b54df0c7e5353d92e0d9",
+    "src/manifest.rs": "aa8a0daaed066b59137dd31aa954f9aecc6bfaa83f5c339c3a317a51014da5f4",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/index.rs": "5d03e65002b4d113ed207c359edd69eee177d2f30600e3de4980d0c161f76785",
+    "src/build.rs": "bbaaa1020edb68155e56bb3640de882ef8a36d73731161f25997fed42f9d1a75",
+    "src/ngram.rs": "4c396df051cfb3406b308743787f9f39f41872851531f3248a57aebe384b0d47",
+    "src/segment.rs": "9903646d7fc2146f64a62549e89f8fea49df6a44366a76aaa399ea85c8d83e21",
+    "src/main.rs": "8b29e815038d45e52d5ffab23ff7fc17eeb14867d594a88b5127c171e6d84717",
+    "src/update_masks.rs": "67de6a2e4b33b9d20b288286ffc4817718145d66ebe5da6ab8cdcc093e1a6fa0",
+    "src/update_probe.rs": "a897ba904cf4960abf37508838ff40a1703fcbd379c3b3ec02c2e9d6cca2cce8",
+    "src/search.rs": "0aeab408536f75b49235df76a7497b2a10529999a29bc21432f29dd0efc9d634",
+    "src/compaction.rs": "57345e494f40addd5ed7c67d2943e1f7eaf926791faca1a15c817f03c7d58b82",
+    "src/git_state.rs": "5818ce1a65c067d38ae3761dd11935885300cbd215890084f86624ded4d4950a"
+  }
+}
