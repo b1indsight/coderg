@@ -307,3 +307,7 @@ bias in the historical update loop.
 
 `commit_updates` and generated-corpus `compare_rg` runs create synthetic updates;
 they are useful diagnostics, but are not measurements of upstream commit history.
+
+Search maps binary manifest records and decodes only the header and segment directory.
+Full metadata decoding is deferred until an update or maintenance operation.
+Legacy manifests remain readable; see [manifest format](docs/manifest-format.md).

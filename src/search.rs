@@ -39,12 +39,12 @@ pub fn run(
         .build()
         .with_context(|| format!("invalid regular expression {pattern:?}"))?;
 
-    let mut disk_index = match index::load(path, requested_index_dir) {
+    let mut disk_index = match index::load_for_search(path, requested_index_dir) {
         Ok(index) => index,
         Err(error) if !options.no_refresh => {
             eprintln!("coderg: building index ({error})");
             index::build(path, requested_index_dir, budget)?;
-            index::load(path, requested_index_dir)?
+            index::load_for_search(path, requested_index_dir)?
         }
         Err(error) => return Err(error),
     };
@@ -53,11 +53,11 @@ pub fn run(
             index::RefreshOutcome::Unchanged => {}
             index::RefreshOutcome::Rebuilt => {
                 eprintln!("coderg: rebuilt index after incremental segments reached 8 MiB");
-                disk_index = index::load(path, requested_index_dir)?;
+                disk_index = index::load_for_search(path, requested_index_dir)?;
             }
             index::RefreshOutcome::CommitAdvanced => {
                 eprintln!("coderg: advanced index to the current Git tree");
-                disk_index = index::load(path, requested_index_dir)?;
+                disk_index = index::load_for_search(path, requested_index_dir)?;
             }
             index::RefreshOutcome::Incremental {
                 changed,
@@ -79,7 +79,7 @@ pub fn run(
                         compaction.output_bytes
                     );
                 }
-                disk_index = index::load(path, requested_index_dir)?;
+                disk_index = index::load_for_search(path, requested_index_dir)?;
             }
         }
     }
@@ -96,15 +96,11 @@ pub fn run(
         .map_init(
             || regex.clone(),
             |regex, &id| -> Result<_> {
-                let document = disk_index
-                    .manifest
-                    .documents
-                    .get(id as usize)
-                    .with_context(|| "index contains an invalid document ID; rebuild it")?;
-                let full_path = root.join(&document.path);
+                let path = disk_index.document_path(id)?;
+                let full_path = root.join(path);
                 let bytes = fs::read(&full_path)
                     .with_context(|| format!("cannot read {}", full_path.display()))?;
-                let (output, matches) = match_file(regex, &bytes, &document.path, options);
+                let (output, matches) = match_file(regex, &bytes, path, options);
                 Ok((matches > 0).then_some(FileResult {
                     id,
                     output,
@@ -117,7 +113,7 @@ pub fn run(
     results.sort_by_key(|result| result.id);
 
     for result in &results {
-        let path = &disk_index.manifest.documents[result.id as usize].path;
+        let path = disk_index.document_path(result.id)?;
         if options.files_with_matches {
             println!("{}", path.display());
         } else if options.count {

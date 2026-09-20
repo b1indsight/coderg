@@ -102,6 +102,7 @@ pub enum RefreshOutcome {
 pub struct DiskIndex {
     pub manifest: Manifest,
     segments: Vec<segment::Segment>,
+    mapped: Option<manifest::view::View>,
 }
 
 struct IndexedFile {
@@ -135,6 +136,8 @@ pub fn build(
     let source_state = collect_files(&root, &index_dir, None)?;
     let repository_state = git_state::identity(&root)?;
     let mut manifest = Manifest {
+        registry: None,
+        publication: None,
         version: VERSION,
         root,
         generation: 1,
@@ -212,20 +215,21 @@ pub fn refresh(
     let root = index.manifest.root.clone();
     let index_dir = resolve_index_dir(&root, requested_index_dir);
     let mut identity = git_state::identity(&root)?;
-    let mut current_state =
-        collect_files(&root, &index_dir, Some(index.manifest.source_state.len()))?;
-    if current_state == index.manifest.source_state && same_identity(&index.manifest, &identity) {
+    let mut current_state = collect_files(&root, &index_dir, Some(index.source_len()))?;
+    if index.same_source(&current_state)? && same_identity(&index.manifest, &identity) {
         return Ok(RefreshOutcome::Unchanged);
     }
+
+    index.materialize()?;
 
     // Only writers lock. If the published snapshot has not changed, the first
     // scan is still relative to the correct indexed state. Like any worktree
     // scan, it does not freeze source edits made after that scan.
     let _writer = writer_lock(&index_dir)?;
-    if read_manifest(&index_dir.join(manifest::FILE_NAME))? != index.manifest {
+    if !same_publication(&index_dir, &index.manifest)? {
         *index = load(&root, requested_index_dir)?;
         identity = git_state::identity(&root)?;
-        current_state = collect_files(&root, &index_dir, Some(index.manifest.source_state.len()))?;
+        current_state = collect_files(&root, &index_dir, Some(index.source_len()))?;
     }
     if current_state == index.manifest.source_state {
         if same_identity(&index.manifest, &identity) {
@@ -244,6 +248,19 @@ pub fn refresh(
     // Always compare with the complete indexed worktree, including dirty
     // content. Git status against the new HEAD cannot describe that diff.
     write_incremental(index, &index_dir, current_state, identity, budget)
+}
+
+fn same_publication(directory: &Path, loaded: &Manifest) -> Result<bool> {
+    let path = directory.join(manifest::FILE_NAME);
+    if let Some(identity) = loaded.publication {
+        // The loaded payload was checksum-verified. Writers replace manifests
+        // atomically, never in place: the same content identity can reuse that
+        // validated in-memory object. A changed identity triggers a full load.
+        let mut header = [0; 28];
+        File::open(path)?.read_exact(&mut header)?;
+        return Ok(manifest::publication(&header) == Some(identity));
+    }
+    Ok(read_manifest(&path)? == *loaded)
 }
 
 fn same_identity(manifest: &Manifest, identity: &Option<git_state::GitIdentity>) -> bool {
@@ -300,7 +317,7 @@ pub fn compact(
         compaction::merge(&index_dir, &mut manifest, &inputs, id)?
     };
     manifest.generation += 1;
-    write_manifest(&index_dir, &manifest)?;
+    write_manifest_file(&index_dir.join(manifest::FILE_NAME), &manifest, true)?;
     Ok(summary)
 }
 
@@ -480,7 +497,14 @@ fn hash_file_chunks(
     path: &Path,
     mut emit: impl FnMut(Vec<ngram::GramHash>) -> Result<()>,
 ) -> Result<()> {
-    let mut file = File::open(path).with_context(|| format!("cannot read {}", path.display()))?;
+    let file = File::open(path).with_context(|| format!("cannot read {}", path.display()))?;
+    hash_reader_chunks(file, &mut emit).with_context(|| format!("cannot read {}", path.display()))
+}
+
+fn hash_reader_chunks(
+    mut file: impl Read,
+    mut emit: impl FnMut(Vec<ngram::GramHash>) -> Result<()>,
+) -> Result<()> {
     let mut bytes = [0; CHUNK_BYTES];
     let mut retained = 0;
     loop {
@@ -491,7 +515,7 @@ fn hash_file_chunks(
                 Ok(count) => len += count,
                 Err(error) if error.kind() == std::io::ErrorKind::Interrupted => continue,
                 Err(error) => {
-                    return Err(error).with_context(|| format!("cannot read {}", path.display()));
+                    return Err(error.into());
                 }
             }
         }
@@ -516,6 +540,10 @@ fn hash_file_chunks(
 pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
     let root = resolve_root(path)?;
     let index_dir = resolve_index_dir(&root, requested_index_dir);
+    load_full(&root, &index_dir)
+}
+
+fn load_full(root: &Path, index_dir: &Path) -> Result<DiskIndex> {
     let manifest = read_manifest(&index_dir.join(manifest::FILE_NAME))
         .with_context(|| "index not found; run `coderg index` or omit --no-refresh")?;
     if manifest.version != VERSION || manifest.root != root {
@@ -524,21 +552,90 @@ pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex
     let segments = manifest
         .segments
         .iter()
-        .map(|meta| segment::load(&index_dir, meta))
+        .map(|meta| segment::load(index_dir, meta))
         .collect::<Result<_>>()?;
-    Ok(DiskIndex { manifest, segments })
+    Ok(DiskIndex {
+        manifest,
+        segments,
+        mapped: None,
+    })
+}
+
+/// Search-only loader: header and segment directory are owned, file records
+/// remain mapped. Maintenance/statistics continue to use the full loader.
+pub fn load_for_search(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
+    let root = resolve_root(path)?;
+    let directory = resolve_index_dir(&root, requested_index_dir);
+    let Some((manifest, mapped)) =
+        manifest::view::View::open(&directory.join(manifest::FILE_NAME))?
+    else {
+        return load_full(&root, &directory);
+    };
+    if manifest.version != VERSION || manifest.root != root {
+        bail!("index format or root mismatch; rebuild the index");
+    }
+    let segments = manifest
+        .segments
+        .iter()
+        .map(|meta| segment::load(&directory, meta))
+        .collect::<Result<_>>()?;
+    Ok(DiskIndex {
+        manifest,
+        segments,
+        mapped: Some(mapped),
+    })
 }
 
 impl DiskIndex {
+    fn source_len(&self) -> usize {
+        self.mapped
+            .as_ref()
+            .map_or(self.manifest.source_state.len(), |v| v.source_len())
+    }
+
+    fn same_source(&self, current: &[FileState]) -> Result<bool> {
+        self.mapped.as_ref().map_or_else(
+            || Ok(current == self.manifest.source_state),
+            |v| v.same_source(current),
+        )
+    }
+
+    fn materialize(&mut self) -> Result<()> {
+        if let Some(mapped) = &self.mapped {
+            self.manifest = mapped.materialize()?;
+            self.mapped = None;
+        }
+        Ok(())
+    }
+
+    pub fn document_path(&self, id: u32) -> Result<&Path> {
+        if let Some(mapped) = &self.mapped {
+            return mapped.document_path(id);
+        }
+        self.manifest
+            .documents
+            .get(id as usize)
+            .map(|d| d.path.as_path())
+            .context("invalid document ID; rebuild the index")
+    }
+
+    fn is_live(&self, id: u32, segment: Option<u64>) -> Result<bool> {
+        if let Some(mapped) = &self.mapped {
+            return mapped.is_live(id, segment);
+        }
+        let doc = self
+            .manifest
+            .documents
+            .get(id as usize)
+            .context("invalid document ID; rebuild the index")?;
+        Ok(doc.active && doc.searchable && segment.is_none_or(|id| id == doc.segment_id))
+    }
+
     pub fn postings(&self, hash: ngram::GramHash) -> Result<Vec<u32>> {
         let mut current = BTreeSet::new();
         for segment in &self.segments {
             for id in segment.postings(hash)? {
-                let Some(document) = self.manifest.documents.get(id as usize) else {
-                    bail!("segment contains an invalid document ID; rebuild the index");
-                };
-                if document.active && document.searchable && document.segment_id == segment.meta.id
-                {
+                if self.is_live(id, Some(segment.meta.id))? {
                     current.insert(id);
                 }
             }
@@ -547,11 +644,14 @@ impl DiskIndex {
     }
 
     pub fn all_document_ids(&self) -> Vec<u32> {
+        if let Some(mapped) = &self.mapped {
+            return mapped.active_document_ids();
+        }
         self.manifest
             .documents
             .iter()
             .enumerate()
-            .filter(|(_, document)| document.active && document.searchable)
+            .filter(|(_, d)| d.active && d.searchable)
             .map(|(id, _)| id as u32)
             .collect()
     }
@@ -561,11 +661,11 @@ fn read_manifest(path: &Path) -> Result<Manifest> {
     manifest::read(path)
 }
 
-fn write_manifest(index_dir: &Path, manifest: &Manifest) -> Result<()> {
-    write_manifest_file(&index_dir.join(manifest::FILE_NAME), manifest, true)
+fn write_manifest_file(path: &Path, manifest: &Manifest, durable: bool) -> Result<()> {
+    write_manifest_bytes(path, &manifest::encode(manifest)?, durable)
 }
 
-fn write_manifest_file(path: &Path, manifest: &Manifest, durable: bool) -> Result<()> {
+fn write_manifest_bytes(path: &Path, bytes: &[u8], durable: bool) -> Result<()> {
     // NamedTempFile::persist replaces atomically on supported platforms,
     // including Windows. An interrupted publication leaves the old root valid.
     let parent = path.parent().context("manifest has no parent directory")?;
@@ -576,7 +676,7 @@ fn write_manifest_file(path: &Path, manifest: &Manifest, durable: bool) -> Resul
     let mut temporary = tempfile::NamedTempFile::new_in(parent)?;
     {
         let mut writer = BufWriter::new(temporary.as_file_mut());
-        writer.write_all(&manifest::encode(manifest)?)?;
+        writer.write_all(bytes)?;
         writer.flush()?;
     }
     if durable {

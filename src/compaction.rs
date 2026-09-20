@@ -286,6 +286,8 @@ mod tests {
 
     fn manifest(root: &Path, segments: Vec<SegmentMeta>) -> Manifest {
         Manifest {
+            registry: None,
+            publication: None,
             version: 4,
             root: root.to_owned(),
             generation: 1,
