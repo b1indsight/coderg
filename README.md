@@ -146,6 +146,9 @@ metadata on the calling thread to avoid parallel walker startup and shutdown
 costs. Larger snapshots and initial builds use the parallel walker; candidate
 matching continues to use Rayon. The previous file count is only a scheduling
 hint, so newly added files are still discovered by a complete walk.
+The CLI defaults to 4 Rayon workers, also used as the parallel walker thread
+count. Set `RAYON_NUM_THREADS` to override scanning, sorting, extraction and
+candidate matching. See the [2–10 thread benchmark](benches/results/thread-scaling-2026-09-20.md).
 The [small-repository thread benchmark](benches/results/small-repo-threads-2026-09-07.md)
 measures this policy: default searches improved by about 23–25% on the two
 small real repositories, while large-repository aggregates remained within

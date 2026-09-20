@@ -97,7 +97,13 @@ fn main() {
 }
 
 fn run() -> Result<()> {
-    match Cli::parse().command {
+    let cli = Cli::parse();
+    let mut pool = rayon::ThreadPoolBuilder::new();
+    if std::env::var_os("RAYON_NUM_THREADS").is_none() {
+        pool = pool.num_threads(4);
+    }
+    pool.build_global()?;
+    match cli.command {
         Command::Index {
             path,
             index_dir,
