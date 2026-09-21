@@ -110,6 +110,44 @@ pub fn full_compaction_threshold(base_bytes: u64) -> u64 {
         .max(MIN_FULL_COMPACT_BYTES)
 }
 
+/// Snapshot segment order follows IDs, not size: protect the largest segment
+/// rather than assuming that the oldest segment is still the main baseline.
+pub fn snapshot_plan(directory: &Path, segments: &[SegmentMeta]) -> Result<Vec<u64>> {
+    let sizes = segments
+        .iter()
+        .enumerate()
+        .map(|(order, meta)| Ok((bytes(directory, meta)?, order, meta.id)))
+        .collect::<Result<Vec<_>>>()?;
+    Ok(snapshot_plan_sizes(sizes))
+}
+
+fn snapshot_plan_sizes(mut sizes: Vec<(u64, usize, u64)>) -> Vec<u64> {
+    sizes.sort_unstable();
+    let Some((base_bytes, _, base_id)) = sizes.pop() else {
+        return Vec::new();
+    };
+    let delta_bytes = sizes.iter().map(|(bytes, _, _)| bytes).sum::<u64>();
+    if base_bytes < MIN_GENERATIONAL_BYTES {
+        // Small snapshots accumulate bytes, not merge work on every few
+        // commits. The caller batches a full consolidation if fan-in is high.
+        return if delta_bytes >= SMALL_REBUILD_BYTES {
+            std::iter::once(base_id)
+                .chain(sizes.into_iter().map(|(_, _, id)| id))
+                .collect()
+        } else {
+            Vec::new()
+        };
+    }
+    // Commit baselines accumulate bytes, regardless of segment count. The
+    // caller performs bounded fan-in batches when consolidation is due.
+    if delta_bytes < full_compaction_threshold(base_bytes) {
+        return Vec::new();
+    }
+    std::iter::once(base_id)
+        .chain(sizes.into_iter().map(|(_, _, id)| id))
+        .collect()
+}
+
 fn plan_sizes(mut sizes: Vec<(u64, usize, u64)>) -> Vec<u64> {
     sizes.sort_unstable();
     // Merge similarly sized inputs. Small new segments do not repeatedly drag a
@@ -283,6 +321,72 @@ impl Iterator for Merged<'_> {
 mod tests {
     use super::*;
     use crate::manifest::Document;
+
+    #[test]
+    fn small_snapshots_wait_for_eight_mib_even_with_many_segments() {
+        let mut sizes = vec![(4 << 20, 0, 1)];
+        sizes.extend((2..66).map(|id| (128 * 1024, id as usize, id)));
+        let mut below = sizes.clone();
+        below.last_mut().unwrap().0 -= 1;
+        assert!(snapshot_plan_sizes(below).is_empty());
+        let plan = snapshot_plan_sizes(sizes);
+        assert_eq!(plan.len(), 65);
+        assert!(plan.contains(&1));
+    }
+
+    #[test]
+    fn snapshot_small_mode_uses_largest_segment_and_exact_boundary() {
+        // Below 32 MiB the byte threshold applies even to a two-segment view.
+        assert_eq!(
+            snapshot_plan_sizes(vec![(8 << 20, 0, 2), ((32 << 20) - 1, 1, 1)]),
+            vec![1, 2]
+        );
+        // At 32 MiB the large-index threshold is exactly 8 MiB as well.
+        assert!(snapshot_plan_sizes(vec![((8 << 20) - 1, 0, 2), (32 << 20, 1, 1)]).is_empty());
+        assert_eq!(
+            snapshot_plan_sizes(vec![(8 << 20, 0, 2), (32 << 20, 1, 1)]),
+            vec![1, 2]
+        );
+    }
+
+    #[test]
+    fn snapshot_large_base_waits_for_bytes_even_with_many_segments() {
+        let mut sizes = vec![(1024, 0, 1), (64 << 20, 1, 2)];
+        sizes.extend((3..12).map(|id| (1024, id as usize, id)));
+        let plan = snapshot_plan_sizes(sizes);
+        assert!(plan.is_empty());
+    }
+
+    #[test]
+    fn snapshot_full_merge_requires_bytes_not_segment_count() {
+        assert!(snapshot_plan_sizes(vec![(64 << 20, 0, 1), ((16 << 20) - 1, 1, 2)]).is_empty());
+        assert_eq!(
+            snapshot_plan_sizes(vec![(64 << 20, 0, 1), (16 << 20, 1, 2)]),
+            vec![1, 2]
+        );
+        let many_tiny = std::iter::once((64 << 20, 0, 1))
+            .chain((2..102).map(|id| (1024, id as usize, id)))
+            .collect();
+        assert!(snapshot_plan_sizes(many_tiny).is_empty());
+        let mut sizes = vec![(64 << 20, 0, 1)];
+        sizes.extend((2..11).map(|id| (2 << 20, id as usize, id)));
+        let plan = snapshot_plan_sizes(sizes);
+        assert_eq!(plan.len(), 10);
+        assert!(plan.contains(&1));
+        // A small baseline still needs at least 8 MiB of accumulated deltas.
+        assert!(snapshot_plan_sizes(vec![(4 << 20, 0, 1), (2 << 20, 1, 2)]).is_empty());
+        assert!(snapshot_plan_sizes(Vec::new()).is_empty());
+        assert!(snapshot_plan_sizes(vec![(64 << 20, 0, 1)]).is_empty());
+    }
+
+    #[test]
+    fn snapshot_byte_threshold_selects_all_inputs_for_batched_merge() {
+        let mut sizes = vec![(64 << 20, 0, 1)];
+        sizes.extend((2..42).map(|id| (1 << 20, id as usize, id)));
+        let plan = snapshot_plan_sizes(sizes);
+        assert_eq!(plan.len(), 41);
+        assert!(plan.contains(&1));
+    }
 
     fn manifest(root: &Path, segments: Vec<SegmentMeta>) -> Manifest {
         Manifest {

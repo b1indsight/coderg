@@ -311,3 +311,9 @@ they are useful diagnostics, but are not measurements of upstream commit history
 Search maps binary manifest records and decodes only the header and segment directory.
 Full metadata decoding is deferred until an update or maintenance operation.
 Legacy manifests remain readable; see [manifest format](docs/manifest-format.md).
+
+Git repositories with a committed HEAD use a committed baseline plus a worktree
+overlay. Committing already indexed bytes publishes snapshot references without
+re-extraction or automatic segment rewriting. The last 8 distinct trees are
+retained; older unreferenced segments are collected. See
+[commit snapshots](docs/commit-snapshots.md) for update, validation and retention rules.

@@ -22,6 +22,9 @@ use crate::{
     compaction, git_state, ngram, segment,
 };
 
+#[path = "index/snapshots.rs"]
+mod snapshots;
+
 // v5 changes sparse-gram selection to the fixed letter-frequency prior.
 const VERSION: u32 = 5;
 // Small snapshots do not amortize the parallel walker's worker startup and
@@ -74,6 +77,7 @@ pub struct BuildSummary {
 }
 
 pub struct Stats {
+    pub snapshot_cache: Option<snapshots::Stats>,
     pub root: PathBuf,
     pub files: usize,
     pub source_bytes: u64,
@@ -91,10 +95,18 @@ pub struct Stats {
 
 pub enum RefreshOutcome {
     Unchanged,
-    CommitAdvanced,
+    CommitAdvanced {
+        loaded: bool,
+    },
     Rebuilt,
     Incremental {
         changed: usize,
+        compaction: compaction::Summary,
+    },
+    Snapshot {
+        changed: usize,
+        indexed: usize,
+        reused: usize,
         compaction: compaction::Summary,
     },
 }
@@ -149,6 +161,9 @@ pub fn build(
         segments: Vec::new(),
     };
     update_identity(&mut manifest, repository_state);
+    if manifest.git_tree.is_some() {
+        return snapshots::build(&index_dir, budget, manifest);
+    }
     rebuild(&index_dir, budget, manifest, true)
 }
 
@@ -231,6 +246,12 @@ pub fn refresh(
         identity = git_state::identity(&root)?;
         current_state = collect_files(&root, &index_dir, Some(index.source_len()))?;
     }
+    if identity
+        .as_ref()
+        .is_some_and(|identity| identity.tree.is_some())
+    {
+        return snapshots::refresh(index, &index_dir, current_state, identity, budget);
+    }
     if current_state == index.manifest.source_state {
         if same_identity(&index.manifest, &identity) {
             return Ok(RefreshOutcome::Unchanged);
@@ -243,7 +264,7 @@ pub fn refresh(
             &manifest,
             !compaction::small_base(&index_dir, &manifest)?,
         )?;
-        return Ok(RefreshOutcome::CommitAdvanced);
+        return Ok(RefreshOutcome::CommitAdvanced { loaded: false });
     }
     // Always compare with the complete indexed worktree, including dirty
     // content. Git status against the new HEAD cannot describe that diff.
@@ -317,7 +338,9 @@ pub fn compact(
         compaction::merge(&index_dir, &mut manifest, &inputs, id)?
     };
     manifest.generation += 1;
-    write_manifest_file(&index_dir.join(manifest::FILE_NAME), &manifest, true)?;
+    let encoded = snapshots::compacted(&index_dir, &mut manifest)?;
+    write_manifest_bytes(&index_dir.join(manifest::FILE_NAME), &encoded, true)?;
+    snapshots::collect_garbage(&index_dir, &manifest)?;
     Ok(summary)
 }
 
@@ -540,10 +563,13 @@ fn hash_reader_chunks(
 pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
     let root = resolve_root(path)?;
     let index_dir = resolve_index_dir(&root, requested_index_dir);
-    load_full(&root, &index_dir)
+    // Protect the manifest-to-mmap opening window from snapshot garbage collection.
+    // Once mapped, immutable files may be unlinked safely on Unix.
+    let _reader = snapshots::reader_lock(&index_dir)?;
+    load_under_reader_lock(&root, &index_dir)
 }
 
-fn load_full(root: &Path, index_dir: &Path) -> Result<DiskIndex> {
+fn load_under_reader_lock(root: &Path, index_dir: &Path) -> Result<DiskIndex> {
     let manifest = read_manifest(&index_dir.join(manifest::FILE_NAME))
         .with_context(|| "index not found; run `coderg index` or omit --no-refresh")?;
     if manifest.version != VERSION || manifest.root != root {
@@ -566,10 +592,11 @@ fn load_full(root: &Path, index_dir: &Path) -> Result<DiskIndex> {
 pub fn load_for_search(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
     let root = resolve_root(path)?;
     let directory = resolve_index_dir(&root, requested_index_dir);
+    let _reader = snapshots::reader_lock(&directory)?;
     let Some((manifest, mapped)) =
         manifest::view::View::open(&directory.join(manifest::FILE_NAME))?
     else {
-        return load_full(&root, &directory);
+        return load_under_reader_lock(&root, &directory);
     };
     if manifest.version != VERSION || manifest.root != root {
         bail!("index format or root mismatch; rebuild the index");
@@ -828,8 +855,11 @@ fn searchable_bytes(manifest: &Manifest) -> u64 {
 }
 
 pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
-    let index = load(path, requested_index_dir)?;
-    let index_dir = resolve_index_dir(&index.manifest.root, requested_index_dir);
+    let root = resolve_root(path)?;
+    let directory = resolve_index_dir(&root, requested_index_dir);
+    let _reader = snapshots::reader_lock(&directory)?;
+    let index = load_under_reader_lock(&root, &directory)?;
+    let index_dir = directory;
     let mut index_bytes = fs::metadata(manifest::resolve_path(
         &index_dir.join(manifest::FILE_NAME),
     )?)?
@@ -838,6 +868,7 @@ pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
         index_bytes += fs::metadata(index_dir.join(&segment.lookup))?.len();
         index_bytes += fs::metadata(index_dir.join(&segment.postings))?.len();
     }
+    let snapshot_cache = snapshots::stats(&index_dir, &index.manifest)?;
     let middle_bytes = index
         .manifest
         .segments
@@ -853,6 +884,27 @@ pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
         .transpose()?
         .unwrap_or(0);
     let middle_segments = index.manifest.segments.len().saturating_sub(1);
+    let (base_bytes, middle_bytes, middle_segments) =
+        snapshot_cache
+            .as_ref()
+            .map_or((base_bytes, middle_bytes, middle_segments), |cache| {
+                (
+                    cache.base_bytes,
+                    cache.overlay_bytes,
+                    cache.overlay_segments,
+                )
+            });
+    let maintenance_due = snapshot_cache.as_ref().map_or_else(
+        || {
+            if base_bytes < compaction::MIN_GENERATIONAL_BYTES {
+                middle_bytes >= compaction::SMALL_REBUILD_BYTES
+            } else {
+                middle_segments > compaction::MAX_MIDDLE_SEGMENTS
+                    || middle_bytes >= compaction::full_compaction_threshold(base_bytes)
+            }
+        },
+        |cache| cache.base_segments > 8 || cache.overlay_segments > 8,
+    );
     Ok(Stats {
         root: index.manifest.root.clone(),
         files: index
@@ -874,14 +926,10 @@ pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
         middle_segments,
         middle_bytes,
         base_bytes,
-        generational: base_bytes >= compaction::MIN_GENERATIONAL_BYTES,
+        generational: snapshot_cache.is_some() || base_bytes >= compaction::MIN_GENERATIONAL_BYTES,
         full_compaction_threshold_bytes: compaction::full_compaction_threshold(base_bytes),
-        maintenance_due: if base_bytes < compaction::MIN_GENERATIONAL_BYTES {
-            middle_bytes >= compaction::SMALL_REBUILD_BYTES
-        } else {
-            middle_segments > compaction::MAX_MIDDLE_SEGMENTS
-                || middle_bytes >= compaction::full_compaction_threshold(base_bytes)
-        },
+        maintenance_due,
+        snapshot_cache,
     })
 }
 

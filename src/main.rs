@@ -199,10 +199,17 @@ fn run() -> Result<()> {
             println!("middle bytes: {}", stats.middle_bytes);
             println!("base bytes: {}", stats.base_bytes);
             println!("generational: {}", stats.generational);
-            println!(
-                "automatic base compaction threshold bytes: {}",
-                stats.full_compaction_threshold_bytes
-            );
+            if let Some(cache) = &stats.snapshot_cache {
+                println!("retained Git snapshots: {}", cache.retained_trees);
+                println!("snapshot cache + segment bytes: {}", cache.retained_bytes);
+                println!("baseline segments: {}", cache.base_segments);
+                println!("automatic overlay segment limit: 8; commit snapshots merge by bytes");
+            } else {
+                println!(
+                    "automatic base compaction threshold bytes: {}",
+                    stats.full_compaction_threshold_bytes
+                );
+            }
             println!("maintenance due: {}", stats.maintenance_due);
             println!("index bytes: {}", stats.index_bytes);
             println!(

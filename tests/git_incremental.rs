@@ -5,7 +5,7 @@ mod manifest_format;
 use std::{fs, path::Path, process::Command};
 
 #[test]
-fn small_index_commits_and_rollbacks_append_deltas_without_tree_cache() {
+fn small_index_commits_promote_and_rollbacks_reuse_snapshot_segments() {
     let root = tempfile::tempdir().unwrap();
     git(root.path(), &["init"]);
     git(root.path(), &["config", "user.name", "Coderg Test"]);
@@ -24,8 +24,8 @@ fn small_index_commits_and_rollbacks_append_deltas_without_tree_cache() {
     assert_eq!(manifest_a["segments"].as_array().unwrap().len(), 1);
     let tree_a = manifest_a["git_tree"].as_str().unwrap().to_owned();
 
-    // Active legacy manifests remain readable. Old tree-cache files must not
-    // be selected on rollback, even if they happen to contain a valid snapshot.
+    // Active legacy manifests remain readable. The old unverified tree-cache
+    // directory is unrelated to the new content-verified snapshot cache.
     let binary = root.path().join(".coderg-index/manifest.bin");
     let records = manifest_format::read(&binary).unwrap();
     fs::create_dir_all(root.path().join(".coderg-index/manifests")).unwrap();
@@ -80,7 +80,8 @@ fn small_index_commits_and_rollbacks_append_deltas_without_tree_cache() {
     assert!(String::from_utf8_lossy(&rolled_back.stderr).contains("incrementally indexed 1"));
     let restored = manifest(root.path());
     assert_eq!(restored["git_tree"].as_str().unwrap(), tree_a);
-    assert_eq!(restored["segments"].as_array().unwrap().len(), 3);
+    assert!(String::from_utf8_lossy(&rolled_back.stderr).contains("0 extracted"));
+    assert_eq!(restored["segments"].as_array().unwrap().len(), 1);
     assert_eq!(restored["segments"][0], manifest_a["segments"][0]);
     assert_eq!(restored["segments"][0], manifest_b["segments"][0]);
     assert_eq!(
@@ -97,7 +98,7 @@ fn small_index_commits_and_rollbacks_append_deltas_without_tree_cache() {
         String::from_utf8_lossy(&dirty_after_rollback.stderr).contains("incrementally indexed 1")
     );
     let dirty_manifest = manifest(root.path());
-    assert_eq!(dirty_manifest["segments"].as_array().unwrap().len(), 4);
+    assert_eq!(dirty_manifest["segments"].as_array().unwrap().len(), 2);
     let stable = dirty_manifest["documents"]
         .as_array()
         .unwrap()

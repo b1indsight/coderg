@@ -1,5 +1,8 @@
 # 按规模选择增量重建或两代合并
 
+2026-09-18 更新：有 HEAD commit 的 Git 工作区改用 [commit 快照与工作区覆盖层](commit-snapshots.md)。
+本文保留为原策略说明，继续适用于非 Git 目录及 unborn HEAD；其中 Git 回退策略已被替代。
+
 实现状态：2026-09-10，分支 `feat/generational-index-refresh`，基于 main `0ab2294`。
 本文描述最终实现；[三档真实提交 benchmark](../benches/results/size-tiers-2026-09-10.md)
 记录同一 release 的验证结果。早期单段和 50% 试验仅作为历史证据。
@@ -139,7 +142,8 @@ M 段引用，再计算剩余 M 的字节数。段内仍可能包含旧版本；
 替换。正常完成或返回错误时清理本次构建和编码临时目录；强制退出可能留下临时文件。
 旧段不立即删除，以保护持有旧 mmap 的读者。GC、锁外合并及发布时重试尚未实现。
 
-[manifest 编码](manifest-format.md) 保持 `CDRGMF01`，段格式仍为 v4。可继续读取
+[manifest 编码](manifest-format.md) 的分代基线为 `CDRGMF01`；后续 Git 快照路径使用
+带校验和及注册表身份的 `CDRGMF02`，仍兼容读取 v1。段格式仍为 v4。可继续读取
 活动旧 JSON 索引，下一次写 manifest 时升级为二进制。历史 `manifests/<tree>.*`
 不再写入或使用，已有文件暂留；段文件暂留是延迟回收，不是 Git 回退缓存。
 

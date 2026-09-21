@@ -55,9 +55,11 @@ pub fn run(
                 eprintln!("coderg: rebuilt index after incremental segments reached 8 MiB");
                 disk_index = index::load_for_search(path, requested_index_dir)?;
             }
-            index::RefreshOutcome::CommitAdvanced => {
+            index::RefreshOutcome::CommitAdvanced { loaded } => {
                 eprintln!("coderg: advanced index to the current Git tree");
-                disk_index = index::load_for_search(path, requested_index_dir)?;
+                if !loaded {
+                    disk_index = index::load_for_search(path, requested_index_dir)?;
+                }
             }
             index::RefreshOutcome::Incremental {
                 changed,
@@ -80,6 +82,24 @@ pub fn run(
                     );
                 }
                 disk_index = index::load_for_search(path, requested_index_dir)?;
+            }
+            index::RefreshOutcome::Snapshot {
+                changed,
+                indexed,
+                reused,
+                compaction,
+            } => {
+                eprintln!(
+                    "coderg: incrementally indexed {changed} changed files (snapshot: {indexed} extracted, {reused} reused)"
+                );
+                if !compaction.inputs.is_empty() {
+                    eprintln!(
+                        "coderg: compacted {} snapshot overlay segments",
+                        compaction.inputs.len()
+                    );
+                }
+                // Snapshot refresh installs the verified manifest and mmaps
+                // before releasing its writer lock.
             }
         }
     }
