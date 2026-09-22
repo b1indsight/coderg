@@ -39,12 +39,12 @@ pub fn run(
         .build()
         .with_context(|| format!("invalid regular expression {pattern:?}"))?;
 
-    let mut disk_index = match index::load(path, requested_index_dir) {
+    let mut disk_index = match index::load_for_search(path, requested_index_dir) {
         Ok(index) => index,
         Err(error) if !options.no_refresh => {
             eprintln!("coderg: building index ({error})");
             index::build(path, requested_index_dir, budget)?;
-            index::load(path, requested_index_dir)?
+            index::load_for_search(path, requested_index_dir)?
         }
         Err(error) => return Err(error),
     };
@@ -53,11 +53,13 @@ pub fn run(
             index::RefreshOutcome::Unchanged => {}
             index::RefreshOutcome::Rebuilt => {
                 eprintln!("coderg: rebuilt index after incremental segments reached 8 MiB");
-                disk_index = index::load(path, requested_index_dir)?;
+                disk_index = index::load_for_search(path, requested_index_dir)?;
             }
-            index::RefreshOutcome::CommitAdvanced => {
+            index::RefreshOutcome::CommitAdvanced { loaded } => {
                 eprintln!("coderg: advanced index to the current Git tree");
-                disk_index = index::load(path, requested_index_dir)?;
+                if !loaded {
+                    disk_index = index::load_for_search(path, requested_index_dir)?;
+                }
             }
             index::RefreshOutcome::Incremental {
                 changed,
@@ -79,7 +81,25 @@ pub fn run(
                         compaction.output_bytes
                     );
                 }
-                disk_index = index::load(path, requested_index_dir)?;
+                disk_index = index::load_for_search(path, requested_index_dir)?;
+            }
+            index::RefreshOutcome::Snapshot {
+                changed,
+                indexed,
+                reused,
+                compaction,
+            } => {
+                eprintln!(
+                    "coderg: incrementally indexed {changed} changed files (snapshot: {indexed} extracted, {reused} reused)"
+                );
+                if !compaction.inputs.is_empty() {
+                    eprintln!(
+                        "coderg: compacted {} snapshot overlay segments",
+                        compaction.inputs.len()
+                    );
+                }
+                // Snapshot refresh installs the verified manifest and mmaps
+                // before releasing its writer lock.
             }
         }
     }
@@ -90,21 +110,17 @@ pub fn run(
         query::literal_strategies(&regex_pattern, options.ignore_case)?
     };
     let candidates = choose_candidates(&disk_index, &strategies)?;
-    let root = &disk_index.manifest.root;
+    let root = disk_index.root();
     let results: Vec<Option<FileResult>> = candidates
         .par_iter()
         .map_init(
             || regex.clone(),
             |regex, &id| -> Result<_> {
-                let document = disk_index
-                    .manifest
-                    .documents
-                    .get(id as usize)
-                    .with_context(|| "index contains an invalid document ID; rebuild it")?;
-                let full_path = root.join(&document.path);
+                let path = disk_index.document_path(id)?;
+                let full_path = root.join(path);
                 let bytes = fs::read(&full_path)
                     .with_context(|| format!("cannot read {}", full_path.display()))?;
-                let (output, matches) = match_file(regex, &bytes, &document.path, options);
+                let (output, matches) = match_file(regex, &bytes, path, options);
                 Ok((matches > 0).then_some(FileResult {
                     id,
                     output,
@@ -117,7 +133,7 @@ pub fn run(
     results.sort_by_key(|result| result.id);
 
     for result in &results {
-        let path = &disk_index.manifest.documents[result.id as usize].path;
+        let path = disk_index.document_path(result.id)?;
         if options.files_with_matches {
             println!("{}", path.display());
         } else if options.count {

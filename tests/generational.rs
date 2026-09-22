@@ -110,8 +110,20 @@ fn changed_head_with_dirty_worktree_updates_both_committed_and_uncommitted_files
     run(root.path(), &["search", "unique needle"]);
     matched(root.path(), "committed unique", &["x.txt"]);
     matched(root.path(), "dirty unique", &["y.txt"]);
-    assert_eq!(manifest(root.path()).segments[0], base);
     assert_eq!(manifest(root.path()).segments.len(), 2);
+    // Both active files changed, so the old segment is held by the commit
+    // snapshot rather than searched as part of the active workspace view.
+    assert!(
+        root.path()
+            .join(".coderg-index")
+            .join(&base.lookup)
+            .exists()
+    );
+    assert!(
+        root.path()
+            .join(".coderg-index/snapshots/state.bin")
+            .exists()
+    );
     assert!(!root.path().join(".coderg-index/manifests").exists());
 }
 

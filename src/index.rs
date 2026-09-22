@@ -3,11 +3,7 @@ use std::{
     fs::{self, File},
     io::{BufWriter, Read, Write},
     path::{Path, PathBuf},
-    sync::{
-        Mutex,
-        atomic::{AtomicUsize, Ordering},
-        mpsc,
-    },
+    sync::Mutex,
     time::{SystemTime, UNIX_EPOCH},
 };
 
@@ -21,6 +17,12 @@ use crate::{
     build::{CHUNK_BYTES, MemoryBudget, PostingsBuilder},
     compaction, git_state, ngram, segment,
 };
+
+#[path = "index/extraction.rs"]
+mod extraction;
+
+#[path = "index/snapshots.rs"]
+mod snapshots;
 
 // v5 changes sparse-gram selection to the fixed letter-frequency prior.
 const VERSION: u32 = 5;
@@ -74,6 +76,7 @@ pub struct BuildSummary {
 }
 
 pub struct Stats {
+    pub snapshot_cache: Option<snapshots::Stats>,
     pub root: PathBuf,
     pub files: usize,
     pub source_bytes: u64,
@@ -91,17 +94,31 @@ pub struct Stats {
 
 pub enum RefreshOutcome {
     Unchanged,
-    CommitAdvanced,
+    CommitAdvanced {
+        loaded: bool,
+    },
     Rebuilt,
     Incremental {
         changed: usize,
         compaction: compaction::Summary,
     },
+    Snapshot {
+        changed: usize,
+        indexed: usize,
+        reused: usize,
+        compaction: compaction::Summary,
+    },
 }
 
 pub struct DiskIndex {
-    pub manifest: Manifest,
+    storage: ManifestStorage,
     segments: Vec<segment::Segment>,
+}
+
+/// Exactly one authoritative representation of the document records.
+enum ManifestStorage {
+    Owned(Manifest),
+    Mapped(manifest::view::View),
 }
 
 struct IndexedFile {
@@ -135,6 +152,8 @@ pub fn build(
     let source_state = collect_files(&root, &index_dir, None)?;
     let repository_state = git_state::identity(&root)?;
     let mut manifest = Manifest {
+        registry: None,
+        publication: None,
         version: VERSION,
         root,
         generation: 1,
@@ -146,6 +165,9 @@ pub fn build(
         segments: Vec::new(),
     };
     update_identity(&mut manifest, repository_state);
+    if manifest.git_tree.is_some() {
+        return snapshots::build(&index_dir, budget, manifest);
+    }
     rebuild(&index_dir, budget, manifest, true)
 }
 
@@ -209,29 +231,36 @@ pub fn refresh(
     requested_index_dir: Option<&Path>,
     budget: MemoryBudget,
 ) -> Result<RefreshOutcome> {
-    let root = index.manifest.root.clone();
+    let root = index.root().to_path_buf();
     let index_dir = resolve_index_dir(&root, requested_index_dir);
     let mut identity = git_state::identity(&root)?;
-    let mut current_state =
-        collect_files(&root, &index_dir, Some(index.manifest.source_state.len()))?;
-    if current_state == index.manifest.source_state && same_identity(&index.manifest, &identity) {
+    let mut current_state = collect_files(&root, &index_dir, Some(index.source_len()))?;
+    if index.same_source(&current_state)? && index.same_identity(&identity) {
         return Ok(RefreshOutcome::Unchanged);
     }
+
+    index.materialize()?;
 
     // Only writers lock. If the published snapshot has not changed, the first
     // scan is still relative to the correct indexed state. Like any worktree
     // scan, it does not freeze source edits made after that scan.
     let _writer = writer_lock(&index_dir)?;
-    if read_manifest(&index_dir.join(manifest::FILE_NAME))? != index.manifest {
+    if !same_publication(&index_dir, index.full_manifest()?.as_ref())? {
         *index = load(&root, requested_index_dir)?;
         identity = git_state::identity(&root)?;
-        current_state = collect_files(&root, &index_dir, Some(index.manifest.source_state.len()))?;
+        current_state = collect_files(&root, &index_dir, Some(index.source_len()))?;
     }
-    if current_state == index.manifest.source_state {
-        if same_identity(&index.manifest, &identity) {
+    if identity
+        .as_ref()
+        .is_some_and(|identity| identity.tree.is_some())
+    {
+        return snapshots::refresh(index, &index_dir, current_state, identity, budget);
+    }
+    if current_state == index.full_manifest()?.source_state {
+        if index.same_identity(&identity) {
             return Ok(RefreshOutcome::Unchanged);
         }
-        let mut manifest = index.manifest.clone();
+        let mut manifest = index.full_manifest()?.into_owned();
         manifest.generation += 1;
         update_identity(&mut manifest, identity);
         write_manifest_file(
@@ -239,17 +268,24 @@ pub fn refresh(
             &manifest,
             !compaction::small_base(&index_dir, &manifest)?,
         )?;
-        return Ok(RefreshOutcome::CommitAdvanced);
+        return Ok(RefreshOutcome::CommitAdvanced { loaded: false });
     }
     // Always compare with the complete indexed worktree, including dirty
     // content. Git status against the new HEAD cannot describe that diff.
     write_incremental(index, &index_dir, current_state, identity, budget)
 }
 
-fn same_identity(manifest: &Manifest, identity: &Option<git_state::GitIdentity>) -> bool {
-    manifest.git_repository == identity.is_some()
-        && manifest.git_head.as_ref() == identity.as_ref().and_then(|state| state.head.as_ref())
-        && manifest.git_tree.as_ref() == identity.as_ref().and_then(|state| state.tree.as_ref())
+fn same_publication(directory: &Path, loaded: &Manifest) -> Result<bool> {
+    let path = directory.join(manifest::FILE_NAME);
+    if let Some(identity) = loaded.publication {
+        // The loaded payload was checksum-verified. Writers replace manifests
+        // atomically, never in place: the same content identity can reuse that
+        // validated in-memory object. A changed identity triggers a full load.
+        let mut header = [0; 28];
+        File::open(path)?.read_exact(&mut header)?;
+        return Ok(manifest::publication(&header) == Some(identity));
+    }
+    Ok(read_manifest(&path)? == *loaded)
 }
 
 fn update_identity(manifest: &mut Manifest, identity: Option<git_state::GitIdentity>) {
@@ -272,7 +308,7 @@ pub fn compact(
     } else {
         Some(writer_lock(&index_dir)?)
     };
-    let mut manifest = load(&root, requested_index_dir)?.manifest;
+    let mut manifest = load(&root, requested_index_dir)?.into_manifest()?;
     let had_multiple_segments = manifest.segments.len() > 1;
     compaction::prune(&mut manifest);
     let single_segment = compaction::small_base(&index_dir, &manifest)?;
@@ -300,8 +336,17 @@ pub fn compact(
         compaction::merge(&index_dir, &mut manifest, &inputs, id)?
     };
     manifest.generation += 1;
-    write_manifest(&index_dir, &manifest)?;
+    let encoded = snapshots::compacted(&index_dir, &mut manifest)?;
+    write_manifest_bytes(&index_dir.join(manifest::FILE_NAME), &encoded, true)?;
+    snapshots::collect_garbage(&index_dir, &manifest)?;
     Ok(summary)
+}
+
+pub fn compact_history(
+    path: &Path,
+    requested_index_dir: Option<&Path>,
+) -> Result<snapshots::HistorySummary> {
+    snapshots::compact_oldest(path, requested_index_dir)
 }
 
 fn write_incremental(
@@ -311,7 +356,7 @@ fn write_incremental(
     identity: Option<git_state::GitIdentity>,
     budget: MemoryBudget,
 ) -> Result<RefreshOutcome> {
-    let mut manifest = index.manifest.clone();
+    let mut manifest = index.full_manifest()?.into_owned();
     let changed = changed_file_count(&manifest.source_state, &current_state);
     let small = compaction::small_base(index_dir, &manifest)?;
     let old_states: HashMap<&Path, &FileState> = manifest
@@ -427,43 +472,14 @@ where
     if files.is_empty() {
         return Ok((Vec::new(), postings));
     }
-    let mut searchable = vec![false; files.len()];
-    let next_file = AtomicUsize::new(0);
-    std::thread::scope(|scope| -> Result<()> {
-        let (sender, receiver) = mpsc::sync_channel(workers);
-        for _ in 0..workers {
-            let sender = sender.clone();
-            let files = &files;
-            let next_file = &next_file;
-            // Separate producers let the collector use Rayon's parallel sort
-            // without blocking Rayon workers on a full channel or a mutex.
-            scope.spawn(move || {
-                loop {
-                    let position = next_file.fetch_add(1, Ordering::Relaxed);
-                    let Some((_, state)) = files.get(position) else {
-                        break;
-                    };
-                    let path = root.join(&state.path);
-                    let result = hash_file_chunks(&path, |hashes| {
-                        sender
-                            .send(Ok((position, hashes)))
-                            .map_err(|_| anyhow::anyhow!("index build cancelled"))
-                    });
-                    if let Err(error) = result {
-                        let _ = sender.send(Err(error));
-                        break;
-                    }
-                }
-            });
-        }
-        drop(sender);
-        for batch in receiver {
-            let (position, hashes) = batch?;
-            searchable[position] = true;
-            postings.extend(files[position].0, &hashes)?;
-        }
-        Ok(())
-    })?;
+    let searchable = extraction::collect(
+        &files,
+        workers,
+        &mut postings,
+        |(id, _)| *id,
+        || (),
+        |_, (_, state), emit| hash_file_chunks(&root.join(&state.path), emit),
+    )?;
     let indexed = files
         .into_iter()
         .zip(searchable)
@@ -480,7 +496,14 @@ fn hash_file_chunks(
     path: &Path,
     mut emit: impl FnMut(Vec<ngram::GramHash>) -> Result<()>,
 ) -> Result<()> {
-    let mut file = File::open(path).with_context(|| format!("cannot read {}", path.display()))?;
+    let file = File::open(path).with_context(|| format!("cannot read {}", path.display()))?;
+    hash_reader_chunks(file, &mut emit).with_context(|| format!("cannot read {}", path.display()))
+}
+
+fn hash_reader_chunks(
+    mut file: impl Read,
+    mut emit: impl FnMut(Vec<ngram::GramHash>) -> Result<()>,
+) -> Result<()> {
     let mut bytes = [0; CHUNK_BYTES];
     let mut retained = 0;
     loop {
@@ -491,7 +514,7 @@ fn hash_file_chunks(
                 Ok(count) => len += count,
                 Err(error) if error.kind() == std::io::ErrorKind::Interrupted => continue,
                 Err(error) => {
-                    return Err(error).with_context(|| format!("cannot read {}", path.display()));
+                    return Err(error.into());
                 }
             }
         }
@@ -516,6 +539,13 @@ fn hash_file_chunks(
 pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
     let root = resolve_root(path)?;
     let index_dir = resolve_index_dir(&root, requested_index_dir);
+    // Protect the manifest-to-mmap opening window from snapshot garbage collection.
+    // Once mapped, immutable files may be unlinked safely on Unix.
+    let _reader = snapshots::reader_lock(&index_dir)?;
+    load_under_reader_lock(&root, &index_dir)
+}
+
+fn load_under_reader_lock(root: &Path, index_dir: &Path) -> Result<DiskIndex> {
     let manifest = read_manifest(&index_dir.join(manifest::FILE_NAME))
         .with_context(|| "index not found; run `coderg index` or omit --no-refresh")?;
     if manifest.version != VERSION || manifest.root != root {
@@ -524,21 +554,132 @@ pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex
     let segments = manifest
         .segments
         .iter()
-        .map(|meta| segment::load(&index_dir, meta))
+        .map(|meta| segment::load(index_dir, meta))
         .collect::<Result<_>>()?;
-    Ok(DiskIndex { manifest, segments })
+    Ok(DiskIndex {
+        storage: ManifestStorage::Owned(manifest),
+        segments,
+    })
+}
+
+/// Search-only loader: header and segment directory are owned, file records
+/// remain mapped. Maintenance/statistics continue to use the full loader.
+pub fn load_for_search(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex> {
+    let root = resolve_root(path)?;
+    let directory = resolve_index_dir(&root, requested_index_dir);
+    let _reader = snapshots::reader_lock(&directory)?;
+    let Some(mapped) = manifest::view::View::open(&directory.join(manifest::FILE_NAME))? else {
+        return load_under_reader_lock(&root, &directory);
+    };
+    if mapped.header.version != VERSION || mapped.header.root != root {
+        bail!("index format or root mismatch; rebuild the index");
+    }
+    let segments = mapped
+        .segments
+        .iter()
+        .map(|meta| segment::load(&directory, meta))
+        .collect::<Result<_>>()?;
+    Ok(DiskIndex {
+        storage: ManifestStorage::Mapped(mapped),
+        segments,
+    })
 }
 
 impl DiskIndex {
+    /// Source root, available without materializing mapped file records.
+    pub fn root(&self) -> &Path {
+        match &self.storage {
+            ManifestStorage::Owned(manifest) => &manifest.root,
+            ManifestStorage::Mapped(view) => &view.header.root,
+        }
+    }
+
+    /// Obtain complete, verified records. Owned indexes borrow their manifest;
+    /// mapped search indexes decode only when a caller explicitly requests it.
+    pub fn full_manifest(&self) -> Result<std::borrow::Cow<'_, Manifest>> {
+        match &self.storage {
+            ManifestStorage::Owned(manifest) => Ok(std::borrow::Cow::Borrowed(manifest)),
+            ManifestStorage::Mapped(view) => Ok(std::borrow::Cow::Owned(view.materialize()?)),
+        }
+    }
+
+    /// Consume an index for maintenance without cloning its owned manifest.
+    pub fn into_manifest(self) -> Result<Manifest> {
+        match self.storage {
+            ManifestStorage::Owned(manifest) => Ok(manifest),
+            ManifestStorage::Mapped(view) => view.materialize(),
+        }
+    }
+
+    fn source_len(&self) -> usize {
+        match &self.storage {
+            ManifestStorage::Owned(manifest) => manifest.source_state.len(),
+            ManifestStorage::Mapped(view) => view.source_len(),
+        }
+    }
+
+    fn same_source(&self, current: &[FileState]) -> Result<bool> {
+        match &self.storage {
+            ManifestStorage::Owned(manifest) => Ok(current == manifest.source_state),
+            ManifestStorage::Mapped(view) => view.same_source(current),
+        }
+    }
+
+    fn same_identity(&self, identity: &Option<git_state::GitIdentity>) -> bool {
+        let (repository, head, tree) = match &self.storage {
+            ManifestStorage::Owned(manifest) => (
+                manifest.git_repository,
+                &manifest.git_head,
+                &manifest.git_tree,
+            ),
+            ManifestStorage::Mapped(view) => (
+                view.header.git_repository,
+                &view.header.git_head,
+                &view.header.git_tree,
+            ),
+        };
+        repository == identity.is_some()
+            && head.as_ref() == identity.as_ref().and_then(|state| state.head.as_ref())
+            && tree.as_ref() == identity.as_ref().and_then(|state| state.tree.as_ref())
+    }
+
+    fn materialize(&mut self) -> Result<()> {
+        if let ManifestStorage::Mapped(view) = &self.storage {
+            // Decode before replacing storage: failure leaves the mapped index intact.
+            self.storage = ManifestStorage::Owned(view.materialize()?);
+        }
+        Ok(())
+    }
+
+    pub fn document_path(&self, id: u32) -> Result<&Path> {
+        match &self.storage {
+            ManifestStorage::Mapped(view) => view.document_path(id),
+            ManifestStorage::Owned(manifest) => manifest
+                .documents
+                .get(id as usize)
+                .map(|d| d.path.as_path())
+                .context("invalid document ID; rebuild the index"),
+        }
+    }
+
+    fn is_live(&self, id: u32, segment: Option<u64>) -> Result<bool> {
+        match &self.storage {
+            ManifestStorage::Mapped(view) => view.is_live(id, segment),
+            ManifestStorage::Owned(manifest) => {
+                let doc = manifest
+                    .documents
+                    .get(id as usize)
+                    .context("invalid document ID; rebuild the index")?;
+                Ok(doc.active && doc.searchable && segment.is_none_or(|id| id == doc.segment_id))
+            }
+        }
+    }
+
     pub fn postings(&self, hash: ngram::GramHash) -> Result<Vec<u32>> {
         let mut current = BTreeSet::new();
         for segment in &self.segments {
             for id in segment.postings(hash)? {
-                let Some(document) = self.manifest.documents.get(id as usize) else {
-                    bail!("segment contains an invalid document ID; rebuild the index");
-                };
-                if document.active && document.searchable && document.segment_id == segment.meta.id
-                {
+                if self.is_live(id, Some(segment.meta.id))? {
                     current.insert(id);
                 }
             }
@@ -547,13 +688,16 @@ impl DiskIndex {
     }
 
     pub fn all_document_ids(&self) -> Vec<u32> {
-        self.manifest
-            .documents
-            .iter()
-            .enumerate()
-            .filter(|(_, document)| document.active && document.searchable)
-            .map(|(id, _)| id as u32)
-            .collect()
+        match &self.storage {
+            ManifestStorage::Mapped(view) => view.active_document_ids(),
+            ManifestStorage::Owned(manifest) => manifest
+                .documents
+                .iter()
+                .enumerate()
+                .filter(|(_, d)| d.active && d.searchable)
+                .map(|(id, _)| id as u32)
+                .collect(),
+        }
     }
 }
 
@@ -561,11 +705,11 @@ fn read_manifest(path: &Path) -> Result<Manifest> {
     manifest::read(path)
 }
 
-fn write_manifest(index_dir: &Path, manifest: &Manifest) -> Result<()> {
-    write_manifest_file(&index_dir.join(manifest::FILE_NAME), manifest, true)
+fn write_manifest_file(path: &Path, manifest: &Manifest, durable: bool) -> Result<()> {
+    write_manifest_bytes(path, &manifest::encode(manifest)?, durable)
 }
 
-fn write_manifest_file(path: &Path, manifest: &Manifest, durable: bool) -> Result<()> {
+fn write_manifest_bytes(path: &Path, bytes: &[u8], durable: bool) -> Result<()> {
     // NamedTempFile::persist replaces atomically on supported platforms,
     // including Windows. An interrupted publication leaves the old root valid.
     let parent = path.parent().context("manifest has no parent directory")?;
@@ -576,7 +720,7 @@ fn write_manifest_file(path: &Path, manifest: &Manifest, durable: bool) -> Resul
     let mut temporary = tempfile::NamedTempFile::new_in(parent)?;
     {
         let mut writer = BufWriter::new(temporary.as_file_mut());
-        writer.write_all(&manifest::encode(manifest)?)?;
+        writer.write_all(bytes)?;
         writer.flush()?;
     }
     if durable {
@@ -728,60 +872,73 @@ fn searchable_bytes(manifest: &Manifest) -> u64 {
 }
 
 pub fn stats(path: &Path, requested_index_dir: Option<&Path>) -> Result<Stats> {
-    let index = load(path, requested_index_dir)?;
-    let index_dir = resolve_index_dir(&index.manifest.root, requested_index_dir);
+    let root = resolve_root(path)?;
+    let directory = resolve_index_dir(&root, requested_index_dir);
+    let _reader = snapshots::reader_lock(&directory)?;
+    let manifest = load_under_reader_lock(&root, &directory)?.into_manifest()?;
+    let index_dir = directory;
     let mut index_bytes = fs::metadata(manifest::resolve_path(
         &index_dir.join(manifest::FILE_NAME),
     )?)?
     .len();
-    for segment in &index.manifest.segments {
+    for segment in &manifest.segments {
         index_bytes += fs::metadata(index_dir.join(&segment.lookup))?.len();
         index_bytes += fs::metadata(index_dir.join(&segment.postings))?.len();
     }
-    let middle_bytes = index
-        .manifest
+    let snapshot_cache = snapshots::stats(&index_dir, &manifest)?;
+    let middle_bytes = manifest
         .segments
         .iter()
         .skip(1)
         .map(|meta| compaction::bytes(&index_dir, meta))
         .sum::<Result<u64>>()?;
-    let base_bytes = index
-        .manifest
+    let base_bytes = manifest
         .segments
         .first()
         .map(|meta| compaction::bytes(&index_dir, meta))
         .transpose()?
         .unwrap_or(0);
-    let middle_segments = index.manifest.segments.len().saturating_sub(1);
+    let middle_segments = manifest.segments.len().saturating_sub(1);
+    let (base_bytes, middle_bytes, middle_segments) =
+        snapshot_cache
+            .as_ref()
+            .map_or((base_bytes, middle_bytes, middle_segments), |cache| {
+                (
+                    cache.base_bytes,
+                    cache.overlay_bytes,
+                    cache.overlay_segments,
+                )
+            });
+    let maintenance_due = snapshot_cache.as_ref().map_or_else(
+        || {
+            if base_bytes < compaction::MIN_GENERATIONAL_BYTES {
+                middle_bytes >= compaction::SMALL_REBUILD_BYTES
+            } else {
+                middle_segments > compaction::MAX_MIDDLE_SEGMENTS
+                    || middle_bytes >= compaction::full_compaction_threshold(base_bytes)
+            }
+        },
+        |cache| cache.base_segments > 8 || cache.overlay_segments > 8,
+    );
     Ok(Stats {
-        root: index.manifest.root.clone(),
-        files: index
-            .manifest
+        root: manifest.root.clone(),
+        files: manifest
             .documents
             .iter()
             .filter(|document| document.active && document.searchable)
             .count(),
-        source_bytes: searchable_bytes(&index.manifest),
-        ngrams: index
-            .manifest
-            .segments
-            .iter()
-            .map(|segment| segment.ngrams)
-            .sum(),
+        source_bytes: searchable_bytes(&manifest),
+        ngrams: manifest.segments.iter().map(|segment| segment.ngrams).sum(),
         index_bytes,
-        segments: index.manifest.segments.len(),
-        git_tree: index.manifest.git_tree.clone(),
+        segments: manifest.segments.len(),
+        git_tree: manifest.git_tree.clone(),
         middle_segments,
         middle_bytes,
         base_bytes,
-        generational: base_bytes >= compaction::MIN_GENERATIONAL_BYTES,
+        generational: snapshot_cache.is_some() || base_bytes >= compaction::MIN_GENERATIONAL_BYTES,
         full_compaction_threshold_bytes: compaction::full_compaction_threshold(base_bytes),
-        maintenance_due: if base_bytes < compaction::MIN_GENERATIONAL_BYTES {
-            middle_bytes >= compaction::SMALL_REBUILD_BYTES
-        } else {
-            middle_segments > compaction::MAX_MIDDLE_SEGMENTS
-                || middle_bytes >= compaction::full_compaction_threshold(base_bytes)
-        },
+        maintenance_due,
+        snapshot_cache,
     })
 }
 

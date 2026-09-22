@@ -33,6 +33,13 @@ struct Cli {
 
 #[derive(Debug, Subcommand)]
 enum Command {
+    /// Experiment: advance the oldest cached baseline by one commit. Can run as a separate maintenance process.
+    CompactHistory {
+        #[arg(default_value = ".")]
+        path: PathBuf,
+        #[arg(long, value_name = "DIR")]
+        index_dir: Option<PathBuf>,
+    },
     /// Merge existing index segments without reading source contents.
     Compact {
         #[arg(default_value = ".")]
@@ -97,7 +104,22 @@ fn main() {
 }
 
 fn run() -> Result<()> {
-    match Cli::parse().command {
+    let cli = Cli::parse();
+    let mut pool = rayon::ThreadPoolBuilder::new();
+    if std::env::var_os("RAYON_NUM_THREADS").is_none() {
+        pool = pool.num_threads(4);
+    }
+    pool.build_global()?;
+    match cli.command {
+        Command::CompactHistory { path, index_dir } => {
+            println!(
+                "{}",
+                serde_json::to_string_pretty(&index::compact_history(
+                    &path,
+                    index_dir.as_deref()
+                )?)?
+            );
+        }
         Command::Index {
             path,
             index_dir,
@@ -180,7 +202,10 @@ fn run() -> Result<()> {
         } => {
             if json {
                 let index = index::load(&path, index_dir.as_deref())?;
-                println!("{}", serde_json::to_string_pretty(&index.manifest)?);
+                println!(
+                    "{}",
+                    serde_json::to_string_pretty(index.full_manifest()?.as_ref())?
+                );
                 return Ok(());
             }
             let stats = index::stats(&path, index_dir.as_deref())?;
@@ -193,10 +218,17 @@ fn run() -> Result<()> {
             println!("middle bytes: {}", stats.middle_bytes);
             println!("base bytes: {}", stats.base_bytes);
             println!("generational: {}", stats.generational);
-            println!(
-                "automatic base compaction threshold bytes: {}",
-                stats.full_compaction_threshold_bytes
-            );
+            if let Some(cache) = &stats.snapshot_cache {
+                println!("retained Git snapshots: {}", cache.retained_trees);
+                println!("snapshot cache + segment bytes: {}", cache.retained_bytes);
+                println!("baseline segments: {}", cache.base_segments);
+                println!("automatic overlay segment limit: 8; commit snapshots merge by bytes");
+            } else {
+                println!(
+                    "automatic base compaction threshold bytes: {}",
+                    stats.full_compaction_threshold_bytes
+                );
+            }
             println!("maintenance due: {}", stats.maintenance_due);
             println!("index bytes: {}", stats.index_bytes);
             println!(

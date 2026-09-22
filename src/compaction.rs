@@ -219,7 +219,7 @@ pub fn merge_to_base(
 struct Merged<'a> {
     cursors: Vec<Records<'a>>,
     ids: Vec<u64>,
-    manifest: &'a Manifest,
+    manifest: Option<&'a Manifest>,
     heap: BinaryHeap<Reverse<(u32, u32, usize)>>,
     previous: Option<(u32, u32)>,
     failed: bool,
@@ -230,7 +230,7 @@ impl<'a> Merged<'a> {
         let mut merged = Self {
             cursors: segments.iter().map(Segment::records).collect(),
             ids: segments.iter().map(|segment| segment.meta.id).collect(),
-            manifest,
+            manifest: Some(manifest),
             heap: BinaryHeap::new(),
             previous: None,
             failed: false,
@@ -244,12 +244,16 @@ impl<'a> Merged<'a> {
     fn advance(&mut self, cursor: usize) -> Result<()> {
         for record in &mut self.cursors[cursor] {
             let (key, id) = record?;
-            let doc = self
-                .manifest
-                .documents
-                .get(id as usize)
-                .context("invalid document ID in compaction input")?;
-            if doc.active && doc.searchable && doc.segment_id == self.ids[cursor] {
+            let live = if let Some(manifest) = self.manifest {
+                let doc = manifest
+                    .documents
+                    .get(id as usize)
+                    .context("invalid document ID in compaction input")?;
+                doc.active && doc.searchable && doc.segment_id == self.ids[cursor]
+            } else {
+                true
+            };
+            if live {
                 self.heap.push(Reverse((key, id, cursor)));
                 break;
             }
@@ -286,6 +290,8 @@ mod tests {
 
     fn manifest(root: &Path, segments: Vec<SegmentMeta>) -> Manifest {
         Manifest {
+            registry: None,
+            publication: None,
             version: 4,
             root: root.to_owned(),
             generation: 1,
