@@ -4,7 +4,7 @@
 本文保留为原策略说明，继续适用于非 Git 目录及 unborn HEAD；其中 Git 回退策略已被替代。
 
 实现状态：2026-09-10，分支 `feat/generational-index-refresh`，基于 main `0ab2294`。
-本文描述最终实现；[三档真实提交 benchmark](../benches/results/size-tiers-2026-09-10.md)
+本文描述最终实现；[三档真实提交 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/size-tiers-2026-09-10.md)
 记录同一 release 的验证结果。早期单段和 50% 试验仅作为历史证据。
 
 ## 1. 最终策略与分支改动
@@ -171,7 +171,7 @@ dry-run 的输出段及输出字节尚未生成。
 
 ## 8. 性能与验证
 
-[三档真实提交测试](../benches/results/size-tiers-2026-09-10.md) 各重放 100 次前进，
+[三档真实提交测试](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/size-tiers-2026-09-10.md) 各重放 100 次前进，
 再各做 4 次回退/再前进；共 1464 项历史输出对照通过，独立查询也逐次核对 rg。
 下面仅汇总前进阶段的中位耗时，单位 ms；单次维护按实测值列出。
 
@@ -194,10 +194,10 @@ HEAD 改变且工作区仍脏、并发只发布一次、合并编码失败保留
 
 | 记录 | 当前解释 |
 |---|---|
-| [早期模拟更新](../benches/results/vllm-generational-updates-2026-09-09.md) | 用于初步观察，不能代替真实 commit |
-| [500 个真实 vLLM 提交](../benches/results/vllm-real-commits-2026-09-09.md) | 比较 25%/50%；最终选择 25%，归档的 50% 不是当前默认 |
-| [同步开销定位](../benches/results/small-sync-profile-2026-09-09.md) | 解释早期小库负收益；最终只对小库更新恢复缓存发布语义 |
-| [单段试验](../benches/results/small-single-2026-09-09.md)、[直接合并](../benches/results/small-direct-2026-09-10.md) | 每次重写 B 和无变化时迁移单段均已替代 |
-| [8 MiB 重建初测](../benches/results/small-8m-2026-09-10.md) | 与当前实现一致；三档测试补齐中档及大库 B+M 事件 |
-| [批量元数据](../benches/results/vllm-bulk-metadata-2026-09-09.md) | 接入后变慢，未保留该原型；仍沿用原目录遍历 |
-| [Chromium 剖析](../benches/results/chromium-search-profile-2026-09-09.md) | 当时定位 JSON 加载；二进制 manifest 已在基线落地，源码快照没有 Git 历史 |
+| [早期模拟更新](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-generational-updates-2026-09-09.md) | 用于初步观察，不能代替真实 commit |
+| [500 个真实 vLLM 提交](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-real-commits-2026-09-09.md) | 比较 25%/50%；最终选择 25%，归档的 50% 不是当前默认 |
+| [同步开销定位](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-sync-profile-2026-09-09.md) | 解释早期小库负收益；最终只对小库更新恢复缓存发布语义 |
+| [单段试验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-single-2026-09-09.md)、[直接合并](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-direct-2026-09-10.md) | 每次重写 B 和无变化时迁移单段均已替代 |
+| [8 MiB 重建初测](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-8m-2026-09-10.md) | 与当前实现一致；三档测试补齐中档及大库 B+M 事件 |
+| [批量元数据](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-bulk-metadata-2026-09-09.md) | 接入后变慢，未保留该原型；仍沿用原目录遍历 |
+| [Chromium 剖析](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chromium-search-profile-2026-09-09.md) | 当时定位 JSON 加载；二进制 manifest 已在基线落地，源码快照没有 Git 历史 |

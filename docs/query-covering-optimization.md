@@ -2,7 +2,7 @@
 
 coderg 先用倒排索引筛选候选文件，再读取候选执行完整正则。当前优化为字面量选择多个覆盖片段，保留各个可选分支内部的求交关系，并根据已缓存的 postings 和当前候选停止无效查表。相对上一版 16 / 16 提取策略，原有 102 项查询的耗时中位数总和从 3274.51 ms 降到 3107.12 ms，减少 5.11%；`--no-refresh` 减少 6.89%。
 
-本文描述 2026-09-08 已实现的行为。索引格式、字节对权重和索引侧 gram 生成规则沿用原实现，现有索引可直接使用。未知 key 的成本预测暂缓，不属于本轮实现。行为摘要见[查询覆盖说明](query-covering.md)，完整数据见[分支覆盖 benchmark](../benches/results/branch-covering-2026-09-08.md)。
+本文描述 2026-09-08 已实现的行为。索引格式、字节对权重和索引侧 gram 生成规则沿用原实现，现有索引可直接使用。未知 key 的成本预测暂缓，不属于本轮实现。行为摘要见[查询覆盖说明](query-covering.md)，完整数据见[分支覆盖 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/branch-covering-2026-09-08.md)。
 
 ## 1. 片段数量不能代表过滤强度
 
@@ -172,7 +172,7 @@ flowchart TD
 
 本轮同时恢复了组合预算并修改分支处理，因此另建了只恢复 `limit_total(128)` 的对照。相对这个对照，最终版本在 vLLM 38 项查询中有 19 项候选减少、19 项不变、0 项增加。`wide_icase_class_attention` 的候选变化为 1851 → 1105 → 942，分别对应 16 / 16 基线、仅恢复预算、最终版本。这个单轮诊断对照只用于解释确定性计数，不用于推断耗时收益。
 
-诊断字段也需要区分：`keys` 是实际读取的不同 key 数；`decoded_ids` 是 `DiskIndex::postings` 返回的有效 ID 数，不包括多段场景下已被版本过滤的旧 ID，也不代表压缩字节读取量。`filter_ns` 包含集合与缓存管理，插桩时间不能代替完整 CLI 延迟。原始样本及对照见[benchmark 报告](../benches/results/branch-covering-2026-09-08.md)。
+诊断字段也需要区分：`keys` 是实际读取的不同 key 数；`decoded_ids` 是 `DiskIndex::postings` 返回的有效 ID 数，不包括多段场景下已被版本过滤的旧 ID，也不代表压缩字节读取量。`filter_ns` 包含集合与缓存管理，插桩时间不能代替完整 CLI 延迟。原始样本及对照见[benchmark 报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/branch-covering-2026-09-08.md)。
 
 ## 9. 正确性、兼容性与适用边界
 
@@ -190,5 +190,5 @@ flowchart TD
 - [query.rs](../src/query.rs)：字面量提取、独立预算和三层查询计划。
 - [search.rs](../src/search.rs)：完整初筛、分支细化、缓存与安全停止。
 - [覆盖行为摘要](query-covering.md)：当前规则与测试入口。
-- [分支覆盖 benchmark](../benches/results/branch-covering-2026-09-08.md)：完整延迟、诊断、单独预算对照和复现命令。
-- [原始逐项汇总](../benches/results/data/branch-covering-2026-09-08/per-query.csv)、[机器与源码信息](../benches/results/data/branch-covering-2026-09-08/metadata.json)、[证据校验表](../benches/results/data/branch-covering-2026-09-08/manifest.json)。
+- [分支覆盖 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/branch-covering-2026-09-08.md)：完整延迟、诊断、单独预算对照和复现命令。
+- [原始逐项汇总](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/branch-covering-2026-09-08/per-query.csv)、[机器与源码信息](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/branch-covering-2026-09-08/metadata.json)、[证据校验表](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/branch-covering-2026-09-08/manifest.json)。

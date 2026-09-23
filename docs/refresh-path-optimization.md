@@ -3,7 +3,7 @@
 > 本文保留 2026-09-07 的遍历与 JSON 解析优化过程和当时的测量口径。
 > 截至 2026-09-10，活动 manifest 已改为二进制，Git 树缓存与 status 路径已移除，
 > 更新按 32 MiB / 8 MiB / 25% 规则维护。当前行为见[最终更新设计](generational-index-refresh.md)，
-> 最新性能见[三档真实提交测试](../benches/results/size-tiers-2026-09-10.md)。
+> 最新性能见[三档真实提交测试](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/size-tiers-2026-09-10.md)。
 
 
 coderg 用索引跳过不可能匹配的文件，但默认搜索仍要检查工作区是否发生变化。这轮先减少大仓库文件收集和 manifest 加载的开销，再根据历史快照大小选择遍历方式。小仓库策略启用后，viberwhisper 的默认搜索平均耗时从 8.30 ms 降到 6.40 ms，agentflow 从 8.56 ms 降到 6.42 ms，分别减少 22.8% 和 25.0%。
@@ -65,7 +65,7 @@ serde_json::from_slice(&fs::read(path)?)
 
 代价是解析时多保留一份原始 JSON。第一阶段广泛 benchmark 中，vLLM 默认搜索的峰值 RSS 汇总从 23.48 MiB 增至 26.06 MiB；16,384 文件语料从 16.74 MiB 增至 22.26 MiB。这是批次收集、排序和解析组合改动后的进程级实测，不能全部归因于 JSON 缓冲区。
 
-`--no-refresh` 也需要加载 manifest，因此同样能从解析改动中受益。当前默认路径已改为 [manifest 二进制解码](manifest-format.md)，历史数据见[第一阶段广泛 benchmark](../benches/results/refresh-matrix-2026-09-07.md)。
+`--no-refresh` 也需要加载 manifest，因此同样能从解析改动中受益。当前默认路径已改为 [manifest 二进制解码](manifest-format.md)，历史数据见[第一阶段广泛 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/refresh-matrix-2026-09-07.md)。
 
 ## 4. 用分阶段计时确定小仓库的主要成本
 
@@ -87,7 +87,7 @@ serde_json::from_slice(&fs::read(path)?)
 
 遍历阶段包含 ignore 规则处理、工作线程创建与同步，不能解释为纯 `stat` 调用耗时。程序内部总耗时中位数约 4.40 ms，而无插桩版本的完整进程耗时约 7.10 ms；两种计时口径不同，不能把差额全部称为启动时间。
 
-插桩结果用于定位阶段，正式性能对照使用无插桩二进制。完整样本、插桩开销及可展开的墙钟时间线见[小仓库搜索分阶段计时](../benches/results/small-repo-profile-2026-09-07.md)。
+插桩结果用于定位阶段，正式性能对照使用无插桩二进制。完整样本、插桩开销及可展开的墙钟时间线见[小仓库搜索分阶段计时](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-repo-profile-2026-09-07.md)。
 
 ## 5. 分开选择遍历与匹配的并行程度
 
@@ -162,8 +162,8 @@ serde_json::from_slice(&fs::read(path)?)
 
 - [文件收集、刷新和 manifest 加载实现](../src/index.rs)
 - [CLI 刷新回归测试](../tests/cli.rs)、[Git 增量集成测试](../tests/git_incremental.rs)
-- [第一阶段 vLLM 查询与 Git 状态转换](../benches/results/vllm-refresh-2026-09-07.md)
-- [第一阶段七组语料 benchmark 与内存数据](../benches/results/refresh-matrix-2026-09-07.md)
-- [小仓库分阶段计时与交互时间线](../benches/results/small-repo-profile-2026-09-07.md)
-- [小仓库线程策略、阈值校准及完整复测](../benches/results/small-repo-threads-2026-09-07.md)
-- [当前版本逐查询 CSV](../benches/results/data/small-repo-threads-2026-09-07/per-query.csv)
+- [第一阶段 vLLM 查询与 Git 状态转换](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-refresh-2026-09-07.md)
+- [第一阶段七组语料 benchmark 与内存数据](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/refresh-matrix-2026-09-07.md)
+- [小仓库分阶段计时与交互时间线](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-repo-profile-2026-09-07.md)
+- [小仓库线程策略、阈值校准及完整复测](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-repo-threads-2026-09-07.md)
+- [当前版本逐查询 CSV](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/small-repo-threads-2026-09-07/per-query.csv)

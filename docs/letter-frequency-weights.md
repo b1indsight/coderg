@@ -28,24 +28,24 @@ manifest 二进制封装和段的字节格式不变。默认搜索遇到旧版�
 全部 65536 个字符对的缓存与直接计算一致性、查询覆盖与构建一致性，
 以及旧索引拒绝和自动重建。
 
-[三项目 benchmark](../benches/results/letter-frequency-2026-09-10.md) 已完成：
+[三项目 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/letter-frequency-2026-09-10.md) 已完成：
 70 项查询均与旧版及 rg 一致，平均搜索延迟没有可辨别的整体收益，
 索引体积增加 7.8%–16.8%，vLLM 构建耗时增加 9.5%。
 个别查询有明显收益和回退，不能据此声称普遍加速。
 
-后续[Chromium 分布实验](../benches/results/chromium-letter-distributions-2026-09-10.md)
+后续[Chromium 分布实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chromium-letter-distributions-2026-09-10.md)
 统计了全部 ASCII 字母及连续字母片段的首字母，分别替换频率表进行四组对照。
 两种策略在 Chromium 自身及三个独立项目上，均未显示相对英文表的稳定整体优势；
 首字母策略还出现约 17% 的单项查询回退。频率表与变体已归档，当前实现仍使用英文表。
 
-[实际字母对实验](../benches/results/chromium-letter-pairs-2026-09-10.md) 进一步统计
+[实际字母对实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chromium-letter-pairs-2026-09-10.md) 进一步统计
 Chromium 的 14.83 亿个相邻 ASCII 字母对，使用实际联合频率替换字母对的乘积估计。
 相对 Chromium 单字母乘积，四份语料索引缩小 2.23%–6.08%，整体搜索没有稳定改善；
 76 项查询结果一致。含非字母的字符对仍使用 Chromium 单字母乘积回退，实验未替换当前英文表实现。
 
 ## 最新 benchmark 与默认方案
 
-[vLLM 标识符、单词与 OR 扩展实验](../benches/results/identifier-word-or-2026-09-10.md)
+[vLLM 标识符、单词与 OR 扩展实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/identifier-word-or-2026-09-10.md)
 覆盖 12 个完整标识符、49 个组成词、12 个首尾两词 OR 和 12 个全部组成词 OR。
 所有查询区分大小写，每项 3 轮预热、31 轮随机交错计时，共 10540 个计时样本；
 85 项完整输出均与 rg 一致。下表为类别内查询中位数的算术平均，单位 ms。

@@ -116,7 +116,7 @@ flowchart LR
 
 旧索引可以直接使用，无需迁移。内存优化也适用于索引刷新时写入的新 delta 段。
 
-提交优化后，又在 vLLM 临时克隆中模拟了未提交修改、提交已索引内容、直接提交 32 个文件的修改、同树空提交和缓存回退。32 文件提交后的首次默认搜索，峰值 RSS 中位数从 48.31 MiB 降到 27.98 MiB，耗时从 98.84 ms 降到 86.85 ms；提交推进、空提交和回退均未新增索引段。所有阶段的完整搜索输出和段内容一致。详见 [Git 状态转换 benchmark](../benches/results/vllm-git-transitions-2026-09-07.md)。
+提交优化后，又在 vLLM 临时克隆中模拟了未提交修改、提交已索引内容、直接提交 32 个文件的修改、同树空提交和缓存回退。32 文件提交后的首次默认搜索，峰值 RSS 中位数从 48.31 MiB 降到 27.98 MiB，耗时从 98.84 ms 降到 86.85 ms；提交推进、空提交和回退均未新增索引段。所有阶段的完整搜索输出和段内容一致。详见 [Git 状态转换 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-git-transitions-2026-09-07.md)。
 
 ## 7. 适用边界
 
@@ -127,6 +127,6 @@ flowchart LR
 ## 实现与证据
 
 - [文件处理与记录汇总](../src/index.rs)、[排序与段编码](../src/segment.rs)、[按需获取权重](../src/ngram.rs)
-- [优化前 benchmark](../benches/results/vllm-performance-2026-09-07.md)
-- [优化后 benchmark、复现命令及原始数据](../benches/results/vllm-memory-2026-09-07.md)
+- [优化前 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-performance-2026-09-07.md)
+- [优化后 benchmark、复现命令及原始数据](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-memory-2026-09-07.md)
 - [已实现的优化与搜索策略](implemented-optimizations.md)

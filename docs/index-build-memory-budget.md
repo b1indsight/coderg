@@ -13,17 +13,17 @@ coderg search 'pattern' /path/to/repo --build-memory-mib 256
 
 这是**构建主要缓冲区的预算，不是操作系统强制的进程 RSS 上限**。它包括并行读取的内容块、gram 集合和待消费键数组、关联记录排序数组、归并读写缓冲区和段编码缓冲区。文件快照、manifest、Git 库内部状态、临时文件路径清单、线程栈、分配器保留页面和映射驻留页不受这个参数直接约束。文件数量极多时，元数据仍可能占用明显内存；实际进程峰值要另测 RSS。
 
-此前 vLLM 内存优化的峰值 RSS 约 518–524 MiB，后续刷新矩阵约 523 MiB。本轮采用用户指定的 256 MiB，因此该语料会走磁盘外排路径。[历史内存 bench](../benches/results/vllm-memory-2026-09-07.md)、[历史构建矩阵](../benches/results/refresh-matrix-2026-09-07.md)
+此前 vLLM 内存优化的峰值 RSS 约 518–524 MiB，后续刷新矩阵约 523 MiB。本轮采用用户指定的 256 MiB，因此该语料会走磁盘外排路径。[历史内存 bench](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-memory-2026-09-07.md)、[历史构建矩阵](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/refresh-matrix-2026-09-07.md)
 
 ## 内存分配与文件边界
 
 - 每个提取线程用 32 KiB 输入块，保留前一块末尾 23 字节。最长 gram 为 24 字节，其选择谓词只依赖片段内部，因此覆盖跨块 gram；重复的 `(gram, doc_id)` 在排序、归并时去重。
 - 二进制判定仍只检查文件前 8 KiB 的 NUL；空文本文件保持可搜索，二进制文件保留元数据但没有 postings。大文件持续分块读取，不以文件总长度分配输入数组或 hash table。
-- 每个提取线程预留 8 MiB，包含生成哈希集合和紧凑数组时的峰值、有限队列中的结果及收集端当前结果。块内用 `u64` 哈希去重，首次出现后才压缩为 `u32` 输出。对整个块计数，生成 gram 数小于输入字节数的三倍：每个较长 gram 可归属到权重较小的端点（相等时任选一端），以及该方向最近的不小于它的端点；每个字节对最多对应左右各一个，再加全部 trigram。因此 32 KiB 块产生少于 98,304 个键，集合扩容、输出数组及队列结果仍能由该预留覆盖。[后置压缩内存实测](../benches/results/deferred-gram-compaction-2026-09-08.md)、[16/32 KiB 对照](../benches/results/chunk-32k-2026-09-08.md)
+- 每个提取线程预留 8 MiB，包含生成哈希集合和紧凑数组时的峰值、有限队列中的结果及收集端当前结果。块内用 `u64` 哈希去重，首次出现后才压缩为 `u32` 输出。对整个块计数，生成 gram 数小于输入字节数的三倍：每个较长 gram 可归属到权重较小的端点（相等时任选一端），以及该方向最近的不小于它的端点；每个字节对最多对应左右各一个，再加全部 trigram。因此 32 KiB 块产生少于 98,304 个键，集合扩容、输出数组及队列结果仍能由该预留覆盖。[后置压缩内存实测](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/deferred-gram-compaction-2026-09-08.md)、[16/32 KiB 对照](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chunk-32k-2026-09-08.md)
 - 提取线程数为 Rayon 线程数、待处理文件数和 `max(1, budget / 32 MiB)` 三者的最小值。线程通过容量等于线程数的通道发布结果；收集端执行 Rayon 并行排序，避免生产线程占满 Rayon 池而阻塞排序。
 - 另外预留 4 MiB 用于共享权重表和读写缓冲区。其余空间用于 8 字节关联记录，首次需要时一次性预留容量，之后不扩容。在 10 个逻辑 CPU、文件数充足的情况下，256 MiB 配置使用 8 个提取线程及 **188 MiB** 记录容量。
 
-这里的 8 个线程仅指提取线程。当前提取和排序阶段还存在默认 10 个线程的 Rayon 池，另有主线程；目录遍历也有自己的临时 walker 线程。内存预算没有统一限制整个进程的线程数。[4–6 个工作线程实验](../benches/results/build-thread-count-2026-09-08.md)比较了直接缩池和共用池原型，当前默认实现尚未据此替换。
+这里的 8 个线程仅指提取线程。当前提取和排序阶段还存在默认 10 个线程的 Rayon 池，另有主线程；目录遍历也有自己的临时 walker 线程。内存预算没有统一限制整个进程的线程数。[4–6 个工作线程实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/build-thread-count-2026-09-08.md)比较了直接缩池和共用池原型，当前默认实现尚未据此替换。
 
 ## 外排、归并与段发布
 
@@ -42,13 +42,13 @@ OS 写锁；历史段 GC 尚未实现。小库增量及阈值重建使用 flush 
 显式 index 和 compact 保留同步；重建跨过 32 MiB 时同步最终 B。详见
 [发布语义](generational-index-refresh.md#6-写锁发布与兼容)。
 
-外排会增加磁盘写入和构建时间。诊断信息记录初始 run 数、累计临时写入字节及临时文件逻辑大小的峰值；当前口径包含原始 run、压缩 postings 分片和键元数据，不包含最终索引、文件系统元数据或分配块取整，不等于进程 RSS。峰值计入输入 run 与分片同时存在的阶段。[4 路归并实测与分项耗时](../benches/results/parallel-merge-2026-09-08.md)
+外排会增加磁盘写入和构建时间。诊断信息记录初始 run 数、累计临时写入字节及临时文件逻辑大小的峰值；当前口径包含原始 run、压缩 postings 分片和键元数据，不包含最终索引、文件系统元数据或分配块取整，不等于进程 RSS。峰值计入输入 run 与分片同时存在的阶段。[4 路归并实测与分项耗时](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/parallel-merge-2026-09-08.md)
 
 ## 验证与证据
 
 - 跨块提取与原整文件提取的 gram 集合比较，覆盖空文件、短文件、块边界、随机非 UTF-8 字节及前 8 KiB 内外的 NUL。
 - 外排多轮归并与内存排序的索引逐字节比较，覆盖跨 run 重复、极值 ID、部分 lookup 块；分区测试覆盖 4 路与单个重键无法拆分的情况。两种流式编码还与保留为测试 oracle 的原编码器比较，包含超过 64 KiB 的单个 posting、空分片、127/128/129 个键以及未对齐 lookup 块的分片边界，并验证任务失败时所有分片清理。
 - CLI 以 16 MiB 强制外排，与默认预算比较段字节，并检查跨块字面量查询、增量刷新、参数校验和临时目录清理。注入读取及编码失败，检查线程结束和旧 manifest 保留。
-- 实测结果、原始数据和复现方式见[构建预算 benchmark](../benches/results/build-memory-budget-2026-09-08.md)。本轮测量从已有查询覆盖改动的工作区构建基线，不能将构建耗时变化归因于查询算法。
+- 实测结果、原始数据和复现方式见[构建预算 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/build-memory-budget-2026-09-08.md)。本轮测量从已有查询覆盖改动的工作区构建基线，不能将构建耗时变化归因于查询算法。
 
 实现：[构建预算与外排](../src/build.rs)、[文件分块与增量接入](../src/index.rs)、[流式段编码](../src/segment.rs)、[CLI 验证](../tests/build_memory.rs)。

@@ -68,10 +68,10 @@ state, allocator overhead, and resident mappings are outside this buffer budget;
 it is not a hard process RSS limit. See the [design and benchmark](docs/index-build-memory-budget.md).
 The [build optimization overview](docs/index-build-evolution.md) compares the
 original implementation with the current pipeline and summarizes measured gains.
-The [project benchmark](benches/results/main-projects-2026-09-09.md) measures
+The [project benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/main-projects-2026-09-09.md) measures
 build time, peak memory, and query latency against the previous main branch on
 frozen vLLM, viberwhisper, and agentflow snapshots.
-The [latest weighting benchmark](benches/results/identifier-word-or-2026-09-10.md)
+The [latest weighting benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/identifier-word-or-2026-09-10.md)
 compares 85 case-sensitive identifier, word, and OR queries over 31 rounds.
 The default English prior performs about the same overall as measured Chromium
 letter-pair weights, with gains and regressions on individual queries. On vLLM,
@@ -131,13 +131,13 @@ and the threshold field means the 8 MiB rebuild threshold. `index bytes` counts
 only the current manifest and its referenced segments. `stats --json` exports
 the full manifest; `compact --json` exports the selected/merged inputs.
 
-The latest [three-size benchmark](benches/results/size-tiers-2026-09-10.md)
+The latest [three-size benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/size-tiers-2026-09-10.md)
 replays 100 real commits each from viberwhisper, whisper.cpp, and vLLM. It reports
 ordinary updates, rebuilds, M merges, and B+M merges separately, with medians,
 p95, B/M sizes, and independent rg query comparisons. Earlier experiments are
 indexed in the design document; the per-update single-base trials are superseded.
 
-The [refresh-path benchmark](benches/results/vllm-refresh-2026-09-07.md)
+The [refresh-path benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-refresh-2026-09-07.md)
 measures per-worker snapshot batches, parallel path sorting, and faster manifest
 parsing, including repeated searches and Git state transitions. Refresh still
 checks the complete file tree on every default search.
@@ -148,12 +148,12 @@ matching continues to use Rayon. The previous file count is only a scheduling
 hint, so newly added files are still discovered by a complete walk.
 The CLI defaults to 4 Rayon workers, also used as the parallel walker thread
 count. Set `RAYON_NUM_THREADS` to override scanning, sorting, extraction and
-candidate matching. See the [2–10 thread benchmark](benches/results/thread-scaling-2026-09-20.md).
-The [small-repository thread benchmark](benches/results/small-repo-threads-2026-09-07.md)
+candidate matching. See the [2–10 thread benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/thread-scaling-2026-09-20.md).
+The [small-repository thread benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-repo-threads-2026-09-07.md)
 measures this policy: default searches improved by about 23–25% on the two
 small real repositories, while large-repository aggregates remained within
 the measured uncertainty intervals.
-The [broader benchmark](benches/results/refresh-matrix-2026-09-07.md) covers
+The [broader benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/refresh-matrix-2026-09-07.md) covers
 three real repositories and four generated corpora, with per-query comparisons
 against the previous build and rg, memory measurements, and regression checks.
 
@@ -176,26 +176,26 @@ Patterns such as `foo\s+bar` and `(?s)foo.*bar` cannot span lines. Empty files a
 the position after a final newline do not produce matching lines. CR bytes are
 preserved, and each matching line is reported or counted once. `-l` stops at the
 first matching line in each file. Multiline search is not currently supported.
-The [line matching benchmark](benches/results/line-matching-2026-09-09.md)
+The [line matching benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/line-matching-2026-09-09.md)
 records vLLM output parity and the performance impact of this search path.
 
 The [decision record](docs/decisions/2026-09-07-case-insensitive-index-budget.md)
 documents the budget definitions, rationale, measurements, and limitations.
-The [vLLM experiment report](benches/results/vllm-case-budget-2026-09-07.md)
+The [vLLM experiment report](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-case-budget-2026-09-07.md)
 includes the detailed comparisons and archived evidence.
 
 ## Benchmark against ripgrep
 
-See the [benchmark index](benches/results/README.md) for current results and the
+See the [benchmark index](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/README.md) for current results and the
 status of earlier experiments. Historical measurements refer to their archived binaries.
 
-The [binary manifest benchmark](benches/results/chromium-binary-manifest-2026-09-09.md)
+The [binary manifest benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chromium-binary-manifest-2026-09-09.md)
 reduces Chromium manifest read and decode time from 205.08 ms to 30.76 ms, and
 the binary file occupies 110.23 MiB. In that binary-manifest baseline, no-refresh search for
 `MAX_FILE_SIZE` took 59.96 ms; default search took 1.86 s because it still
 checks the full source snapshot.
 
-The earlier [JSON-manifest Chromium benchmark](benches/results/chromium-max-file-size-2026-09-09.md)
+The earlier [JSON-manifest Chromium benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chromium-max-file-size-2026-09-09.md)
 searched `MAX_FILE_SIZE` across 461,882 indexed text files (2.83 GiB).
 After warmup, 15 measured runs gave these median process times:
 
@@ -212,7 +212,7 @@ costs are separate from search timing. These are warmed repeated searches,
 not cold-start measurements.
 
 Before the binary manifest change,
-[search profiling](benches/results/chromium-search-profile-2026-09-09.md)
+[search profiling](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chromium-search-profile-2026-09-09.md)
 attributed about 231 ms to loading the 208 MiB JSON manifest, including 197 ms
 of deserialization. Candidate filtering takes 0.54 ms; reading and matching
 the 102 candidates takes 4.95 ms. These internal stage times do not measure
@@ -229,8 +229,8 @@ Earlier JSON manifest profiles show how costs depend on repository size and quer
 
 These follow-up measurements use 5 warmup rounds and 31 measured rounds,
 with identical matching output verified against rg. See the
-[vLLM profile](benches/results/vllm-no-refresh-profile-2026-09-09.md) and
-[small-repository profiles](benches/results/small-no-refresh-profile-2026-09-09.md)
+[vLLM profile](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-no-refresh-profile-2026-09-09.md) and
+[small-repository profiles](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-no-refresh-profile-2026-09-09.md)
 for stage timings, commands, and raw samples. Each row measures one query,
 not an aggregate across a query suite.
 
@@ -240,73 +240,32 @@ The [refresh-path optimization](docs/refresh-path-optimization.md) explains
 snapshot batching, manifest parsing, and the small-repository traversal policy,
 including profiling evidence, threshold selection, and comparisons with rg.
 
-The repository includes a process-level benchmark that compares the release
-build of `coderg` with `rg`. It checks that both tools return the same files,
-then reports minimum, median, p95, and mean wall-clock latency.
+The unified Rust suite runs through `cargo bench`. Configure the five local
+corpora in `benches/sources.local.json` using
+[the example map](benches/sources.example.json), then run:
 
 ```sh
-# Generate a deterministic 4 MiB source corpus and run 30 timed iterations.
-cargo bench --bench compare_rg
-
-# Change generated corpus size and sample count.
-cargo bench --bench compare_rg -- \
-  --files 1000 --kib-per-file 32 --iterations 50
-
-# Benchmark an existing repository and fixed-string query.
-cargo bench --bench compare_rg -- \
-  --root /path/to/repository --query AsyncMock --iterations 50
-
-# Machine-readable output for CI or plotting.
-cargo bench --bench compare_rg -- --iterations 50 --json
+cargo bench --bench suite -- --preflight
+cargo bench
 ```
 
-The benchmark measures index construction separately, then compares indexed
-search without refresh, indexed search with the normal metadata/Git freshness
-check, and ripgrep. Generated-corpus runs use a temporary Git repository and
-also report single-file incremental refresh, commit promotion without
-reindexing, and rollback latency. Its legacy `cached_rollback_ms` field and
-printed label retain the old name; the current binary performs snapshot-diff
-updates on rollback. Set `CODERG_BIN` to benchmark a specific binary.
-
-For matching-line comparisons and a persistent JSON report:
+The default is the full real-corpus suite: viberwhisper, agentflow, whisper.cpp,
+vLLM, and Chromium, comparing the current Cargo-built coderg with rg. Chromium
+uses deterministic simulated commits on its pinned source archive. The suite
+covers construction, query/output modes, Git workflows, history replay,
+and manifest loading, using main-supported workflows. Only the current implementation is measured,
+using its default threads, memory budget and search behavior, with rg as reference.
+The harness runs up to two corpora concurrently; use `--jobs 1` for isolated timing.
 
 ```sh
-cargo bench --bench compare_rg -- \
-  --root /path/to/repository --query MAX_FILE_SIZE --lines \
-  --iterations 15 --warmup 3 --output /tmp/coderg-bench-001.json
+# Small generated-corpus validation of all scenarios.
+cargo bench --bench suite -- --config benches/smoke.json
 ```
 
-The report includes the query, output mode, warmup count, individual samples,
-index build time, and minimum/median/p95/mean search latency. Choose a new output
-file with an existing parent directory. The benchmark uses a temporary index
-and compares against `rg --hidden --no-config`; keep the source tree unchanged
-throughout the run. Searches measure warm-cache process latency.
-
-For update performance on real Git history, use the history harness:
-
-```sh
-mkdir -p .cache/bench
-cargo bench --bench history_updates -- \
-  --root /absolute/path/to/repository \
-  --variant main=/absolute/path/to/coderg-main \
-  --variant current=/absolute/path/to/coderg-current \
-  --commits 100 --iterations 3 --warmup 1 \
-  --query SamplingParams --update-query SamplingParams \
-  --workspace .cache/bench/workspace --output .cache/bench/history.json --keep
-```
-
-The repository must have at least 101 first-parent commits for this example;
-choose a query relevant to the repository and a new output filename. The harness
-clones into the workspace, places indexes outside the source, replays commits,
-and checks four historical switches. Checkout, initial build, and verification
-are outside update timing. macOS also records RSS with `/usr/bin/time -l`.
-The [archived query script](benches/results/data/size-tiers-2026-09-10/query_bench.py)
-uses the recorded history reports and retained workspace paths to measure
-default/no-refresh/rg separately, recording that query state's B/M sizes. Use separate query batches to avoid the observed rg ordering
-bias in the historical update loop.
-
-`commit_updates` and generated-corpus `compare_rg` runs create synthetic updates;
-they are useful diagnostics, but are not measurements of upstream commit history.
+Raw samples, provenance, JSON summaries and Markdown reports are written to a new
+`target/benchmarks/<suite>-<timestamp>` directory. See the
+[benchmark guide](benches/README.md) for configuration, measurement contracts,
+report regeneration and local output management.
 
 Search maps binary manifest records and decodes only the header and segment directory.
 Full metadata decoding is deferred until an update or maintenance operation.

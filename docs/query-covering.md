@@ -2,7 +2,7 @@
 
 本文汇总当前行为与验证入口。设计动机、完整执行流程、装饰器与大小写示例见[查询覆盖与分支执行优化设计](query-covering-optimization.md)。
 
-2026-09-08 实现；最初覆盖实验的对照基线为 `7438754`。随后尝试了[固定字面量优先提取](../benches/results/fixed-literal-extraction-2026-09-08.md)和[统一限制组合数量](../benches/results/small-variant-extraction-2026-09-08.md)。当前改为保留分支内部覆盖，并按已知候选停止无效查表，见[本轮实验](../benches/results/branch-covering-2026-09-08.md)。字节对权重、gram 生成规则、索引格式版本 4 和刷新路径保持不变。
+2026-09-08 实现；最初覆盖实验的对照基线为 `7438754`。随后尝试了[固定字面量优先提取](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/fixed-literal-extraction-2026-09-08.md)和[统一限制组合数量](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-variant-extraction-2026-09-08.md)。当前改为保留分支内部覆盖，并按已知候选停止无效查表，见[本轮实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/branch-covering-2026-09-08.md)。字节对权重、gram 生成规则、索引格式版本 4 和刷新路径保持不变。
 
 ## 行为
 
@@ -50,6 +50,6 @@
 
 `decoded_ids` 是 `DiskIndex::postings` 返回的有效文档 ID 数，单基础段语料中可直接用于比较列表解码规模；它不代表压缩字节读取量，也不计算多段查询中被版本过滤掉的旧 ID。`set_and_cache_ns` 包含集合运算、预算检查和查询缓存管理，不是纯集合操作微基准。
 
-最初覆盖版本的[性能报告](../benches/results/query-covering-2026-09-08.md)记录了 110 项新旧输出一致、8 组语料索引段字节一致，以及全部候选/查表诊断。定向共享片段查询的默认延迟下降 41.3%，但原有矩阵没有显示普遍加速；候选不变而新增大量 postings 的查询存在回退。这些数字不能用来判断后续提取修正的收益。
+最初覆盖版本的[性能报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/query-covering-2026-09-08.md)记录了 110 项新旧输出一致、8 组语料索引段字节一致，以及全部候选/查表诊断。定向共享片段查询的默认延迟下降 41.3%，但原有矩阵没有显示普遍加速；候选不变而新增大量 postings 的查询存在回退。这些数字不能用来判断后续提取修正的收益。
 
-中间版本“第一遍禁止字符类”的[报告](../benches/results/fixed-literal-extraction-2026-09-08.md)中，装饰器 key 数从 122 降到 3，候选保持 1,348 个，默认延迟下降 8.6%。原有 102 项查询整体基本持平。小字符类停止展开以及冗余字面量组被删除，都可能放宽实际 gram 过滤：110 项中 26 项候选增加，带引号设备名和张量创建查询出现明显回退。后续的 [16 / 16 实验](../benches/results/small-variant-extraction-2026-09-08.md)恢复引号过滤，但影响了大小写查询；当前结果见[分支覆盖报告](../benches/results/branch-covering-2026-09-08.md)。
+中间版本“第一遍禁止字符类”的[报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/fixed-literal-extraction-2026-09-08.md)中，装饰器 key 数从 122 降到 3，候选保持 1,348 个，默认延迟下降 8.6%。原有 102 项查询整体基本持平。小字符类停止展开以及冗余字面量组被删除，都可能放宽实际 gram 过滤：110 项中 26 项候选增加，带引号设备名和张量创建查询出现明显回退。后续的 [16 / 16 实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-variant-extraction-2026-09-08.md)恢复引号过滤，但影响了大小写查询；当前结果见[分支覆盖报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/branch-covering-2026-09-08.md)。

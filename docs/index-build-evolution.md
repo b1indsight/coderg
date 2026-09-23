@@ -4,7 +4,7 @@
 
 本文依据仓库中已有设计、源码和 benchmark 整理构建流程的完整演进，覆盖原始数据结构优化及随后这轮预算、提取、分块和归并优化。查询覆盖和刷新策略的独立收益见[查询专项文档](query-covering-optimization.md)及[已实现优化](implemented-optimizations.md)。本文未新增性能实验。
 
-后续更新：2026-09-09 已将这些改动提交到 `main`，并对三个真实项目快照做了提交前后的同轮对照。该轮干净旧主分支的 vLLM 构建为 762 → 800 ms（+5.0%），RSS 为 522 → 213 MiB（−59.2%）；基线不含下文预算实验开始前已有的未提交查询改动。最新完整结果见[主分支项目 benchmark](../benches/results/main-projects-2026-09-09.md)，下文继续保留历史各轮的原始口径。
+后续更新：2026-09-09 已将这些改动提交到 `main`，并对三个真实项目快照做了提交前后的同轮对照。该轮干净旧主分支的 vLLM 构建为 762 → 800 ms（+5.0%），RSS 为 522 → 213 MiB（−59.2%）；基线不含下文预算实验开始前已有的未提交查询改动。最新完整结果见[主分支项目 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/main-projects-2026-09-09.md)，下文继续保留历史各轮的原始口径。
 
 ## 1. “最初版本”与比较口径
 
@@ -12,8 +12,8 @@
 
 | 比较起点 | 实现状态 | 用途与证据 |
 |---|---|---|
-| 最早原版，2026-09-07 | 保存所有文件的 HashSet，再构造全局 `HashMap<gram, Vec<doc_id>>`；有整文件权重数组 | 观察整条优化路线；基线提交 `18c9cc78c332c38d95d70dfade3ca50d9455f23c`，[原始内存报告](../benches/results/vllm-memory-2026-09-07.md) |
-| 本轮开始前，2026-09-08 | 已改为紧凑数组、连续关联记录和共享权重表；仍保存全语料记录，无构建预算 | 评估本轮 256 MiB 预算及后续优化；基线为 `74387541f37851bd8df570b9663a507912178909` 加当时已有工作区改动，[预算对照](../benches/results/build-memory-budget-2026-09-08.md) |
+| 最早原版，2026-09-07 | 保存所有文件的 HashSet，再构造全局 `HashMap<gram, Vec<doc_id>>`；有整文件权重数组 | 观察整条优化路线；基线提交 `18c9cc78c332c38d95d70dfade3ca50d9455f23c`，[原始内存报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-memory-2026-09-07.md) |
+| 本轮开始前，2026-09-08 | 已改为紧凑数组、连续关联记录和共享权重表；仍保存全语料记录，无构建预算 | 评估本轮 256 MiB 预算及后续优化；基线为 `74387541f37851bd8df570b9663a507912178909` 加当时已有工作区改动，[预算对照](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/build-memory-budget-2026-09-08.md) |
 
 本文的累计变化取历史中位数与最新中位数作算术比较，**不是重新交错运行最早版和最新版的同轮实验**。相同机器、语料和热缓存条件有利于观察趋势，但软件状态、测量轮次和样本数存在差别。后文“单轮收益”只使用对应报告内部的前后对照，各轮百分比不相加或相乘成累计加速。
 
@@ -34,7 +34,7 @@
 | 初次加入 256 MiB 预算 | 1312.78 | 208.08 | 分块、有界队列、外排及串行最终归并 |
 | 当前实现 | **792.44** | **212.89** | 后置压缩、32 KiB 块、4 路归并并编码 |
 
-前三行来自[早期内存优化](../benches/results/vllm-memory-2026-09-07.md)，中间两行来自[预算实验](../benches/results/build-memory-budget-2026-09-08.md)，最后一行来自[最终归并实验](../benches/results/parallel-merge-2026-09-08.md)。743 ms 与后来重新测得的 845 ms 不应视为单个改动的回退证据。
+前三行来自[早期内存优化](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-memory-2026-09-07.md)，中间两行来自[预算实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/build-memory-budget-2026-09-08.md)，最后一行来自[最终归并实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/parallel-merge-2026-09-08.md)。743 ms 与后来重新测得的 845 ms 不应视为单个改动的回退证据。
 
 按历史中位数比较，最早原版到当前版本的 vLLM 峰值 RSS 减少约 **89.8%**，构建耗时减少约 **68.0%**。这描述整条构建优化路线的观测结果，不能全部归因于最后一次并行归并。
 
@@ -47,7 +47,7 @@
 | vLLM | 845.10 | 792.44 | **−6.2%** | 512.84 | 212.89 | **58.5%** |
 | vLLM × 4 | 2741.30 | 2899.00 | **+5.8%** | 1735.53 | 217.13 | **87.5%** |
 
-这一跨轮汇总说明，当前已在显著降低内存的同时，收回大部分初次外排带来的延迟成本。初次启用预算时，两组耗时分别增加 **55.3% / 94.6%**；从初次预算版到当前版，历史中位数分别下降 **39.6% / 45.7%**。四倍语料相对无预算基线仍有约 158 ms 的额外耗时。[初次预算原始汇总](../benches/results/data/build-memory-budget-2026-09-08/summary.json)、[当前原始汇总](../benches/results/data/parallel-merge-2026-09-08/summary.json)
+这一跨轮汇总说明，当前已在显著降低内存的同时，收回大部分初次外排带来的延迟成本。初次启用预算时，两组耗时分别增加 **55.3% / 94.6%**；从初次预算版到当前版，历史中位数分别下降 **39.6% / 45.7%**。四倍语料相对无预算基线仍有约 158 ms 的额外耗时。[初次预算原始汇总](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/build-memory-budget-2026-09-08/summary.json)、[当前原始汇总](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/parallel-merge-2026-09-08/summary.json)
 
 源码规模从 vLLM 增至四倍时，当前 RSS 中位数仅从 212.89 增至 217.13 MiB，而无预算版本从 512.84 增至 1735.53 MiB。这是这轮改造最主要的规模收益：关联记录的工作区受预算控制，超出的部分通过磁盘处理。
 
@@ -96,13 +96,13 @@ flowchart TD
 
 内容、块内集合、通道结果和关联记录都有有限容量。记录数组满时原地排序去重、顺序写 run，再清空复用。处理完所有文件后，释放提取及排序工作区，再进入归并编码阶段。大文件和大语料都不再要求完整放进这些缓冲区。
 
-代价来自更小范围的去重：同一文件跨块重复的 gram 会再次输出，在排序或归并时才被消除；初次实现还增加了原始 run 写读、串行堆归并及最终合并 run 的再次写读。它解释了“内存下降但耗时上升”的初始结果，不能只把额外耗时归给磁盘带宽。[预算设计](index-build-memory-budget.md)、[瓶颈测量](../benches/results/build-bottlenecks-2026-09-08.md)
+代价来自更小范围的去重：同一文件跨块重复的 gram 会再次输出，在排序或归并时才被消除；初次实现还增加了原始 run 写读、串行堆归并及最终合并 run 的再次写读。它解释了“内存下降但耗时上升”的初始结果，不能只把额外耗时归给磁盘带宽。[预算设计](index-build-memory-budget.md)、[瓶颈测量](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/build-bottlenecks-2026-09-08.md)
 
 ### 4.3 提取路径：哈希分布、直接输出和后置压缩
 
 第一步把内部 `u32` 哈希从直接扩展成 `u64`，改为乘以 `0x9e37_79b9_7f4a_7c15`。这让用于桶筛选的高位具有分布，不改变保存的 gram 键，也不减少压缩成 `u32` 后的键碰撞。仅改哈希分布时，vLLM 和四倍语料耗时分别减少约 5.7% / 5.8%。
 
-第二步在去重成功时立即追加 Vec，省去块结束后的 HashSet 遍历，同时增加提取期间的 Vec 写入。独立增益较小：相对“仅改哈希”版本，vLLM / 四倍语料约减少 0.7% / 0.4%，8 MiB 组反而约增加 1.2%；两项合并的明确收益主要来自哈希分布。[三版本对照](../benches/results/gram-extraction-2026-09-08.md)
+第二步在去重成功时立即追加 Vec，省去块结束后的 HashSet 遍历，同时增加提取期间的 Vec 写入。独立增益较小：相对“仅改哈希”版本，vLLM / 四倍语料约减少 0.7% / 0.4%，8 MiB 组反而约增加 1.2%；两项合并的明确收益主要来自哈希分布。[三版本对照](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/gram-extraction-2026-09-08.md)
 
 随后将压缩放到块内去重之后。当前流程为：
 
@@ -116,13 +116,13 @@ flowchart TD
 
 因此，当前构建集合已不再对每个候选 gram 执行 `u32 → u64` 乘法扩散，重复 gram 也不再先做压缩。`write_u32` 的扩散逻辑仍用于其他使用 `u32` 键的集合或映射，不能把它与后置压缩当成当前热路径上叠加执行的两项操作。[当前 gram 实现](../src/ngram.rs)
 
-后置压缩单轮实测让 8 × 8 MiB 完整构建快 11.4%，vLLM / 四倍语料快 1.6% / 1.3%。块内键从 `u32` 变为 `u64`，该轮 RSS 中位数分别增加约 1.27 / 2.13 / 0.20 MiB。不同 `u64` 压缩成相同 `u32` 时可能多输出记录，随后仍被排序归并消除；实测 8 MiB 组多 1 条、vLLM 多 28 条，最终索引不变。[后置压缩报告](../benches/results/deferred-gram-compaction-2026-09-08.md)
+后置压缩单轮实测让 8 × 8 MiB 完整构建快 11.4%，vLLM / 四倍语料快 1.6% / 1.3%。块内键从 `u32` 变为 `u64`，该轮 RSS 中位数分别增加约 1.27 / 2.13 / 0.20 MiB。不同 `u64` 压缩成相同 `u32` 时可能多输出记录，随后仍被排序归并消除；实测 8 MiB 组多 1 条、vLLM 多 28 条，最终索引不变。[后置压缩报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/deferred-gram-compaction-2026-09-08.md)
 
 ### 4.4 16 → 32 KiB：扩大块内去重范围
 
 较大的块让更多同文件重复 gram 在提取时消失，减少传递及排序的记录数。8 MiB 组的输出记录从 7,324,101 降至 5,953,743（−18.7%），vLLM 从 45,120,809 降至 40,961,298（−9.2%）。
 
-该轮完整构建耗时分别下降 4.4% / 3.0% / 5.0%（8 MiB 组 / vLLM / 四倍语料）。vLLM 的 gram 生成与输出线程累计耗时基本持平，排序和排序后去重下降更明显；不能把这一收益解释为 gram 扫描本身更快。每线程 8 MiB 预留仍覆盖 32 KiB 块的集合、输出和队列峰值。[32 KiB 对照](../benches/results/chunk-32k-2026-09-08.md)
+该轮完整构建耗时分别下降 4.4% / 3.0% / 5.0%（8 MiB 组 / vLLM / 四倍语料）。vLLM 的 gram 生成与输出线程累计耗时基本持平，排序和排序后去重下降更明显；不能把这一收益解释为 gram 扫描本身更快。每线程 8 MiB 预留仍覆盖 32 KiB 块的集合、输出和队列峰值。[32 KiB 对照](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chunk-32k-2026-09-08.md)
 
 ### 4.5 4 路最终归并：同时减少串行工作和原始临时写读
 
@@ -151,7 +151,7 @@ flowchart TD
 
 归并与编码合计下降约 62.9% / 71.5%。新版 vLLM 其中约 2.83 ms 用于分区、101.25 ms 用于并行归并编码、5.45 ms 用于 postings 拼接、77.10 ms 用于 lookup。合计先对每次构建求和再取中位数，不必等于各项中位数之和。提取、排序等部分计时嵌套，不能把整表相加；线程累计时间也不是用户等待时间。
 
-这一轮融合编码和并行同时落地，未测量两者各自的独立贡献。完整延迟和 RSS 结论取无插桩 release 结果。[4 路归并报告与原始数据](../benches/results/parallel-merge-2026-09-08.md)
+这一轮融合编码和并行同时落地，未测量两者各自的独立贡献。完整延迟和 RSS 结论取无插桩 release 结果。[4 路归并报告与原始数据](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/parallel-merge-2026-09-08.md)
 
 ## 5. 当前线程、内存和兼容性边界
 
@@ -163,7 +163,7 @@ flowchart TD
 
 本文构建预算试验的 RSS 测量中，最高值为 217.97 MiB。这只能证明已测语料的峰值表现，不表示任意文件数量和运行环境下 RSS 都不超过 256 MiB。[预算边界及失败清理](index-build-memory-budget.md)
 
-未采用的方向也应与正式实现区分：4–6 个提取/排序工作线程及共用池原型未替换当前调度，相关实验仍有延迟增加；Bloom filter、小型精确缓存和集合复用没有在本轮落地。[线程实验](../benches/results/build-thread-count-2026-09-08.md)
+未采用的方向也应与正式实现区分：4–6 个提取/排序工作线程及共用池原型未替换当前调度，相关实验仍有延迟增加；Bloom filter、小型精确缓存和集合复用没有在本轮落地。[线程实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/build-thread-count-2026-09-08.md)
 
 段格式继续保留单文档内联 ID、差分 varint、每 128 键分块和 40 位偏移。跨块的 23 字节重叠覆盖最长 24 字节 gram，重复最终按 `(gram, doc_id)` 去除。段文件在临时目录完成后发布，再更新 manifest；正常返回和错误返回都清理本次临时目录。
 2026-09-10 已补充 OS 写锁和按索引规模选择发布同步；小库 8 MiB 阈值重建复用
@@ -173,6 +173,6 @@ flowchart TD
 
 最近一次代码变更已通过 52 项测试、`cargo fmt --check` 和严格 Clippy 检查。测试覆盖跨块 gram、16 MiB 强制外排、超过 32 个 run 的中间归并、4 个分区和不可拆分重键、未对齐 lookup 块的分区边界、超长 posting、失败清理及增量刷新。
 
-该轮 72 次 release 构建和 54 次插桩构建共 **126 次**通过 lookup/postings 完整文件哈希与文档元数据一致性检查，**30 次查询**完整输出和退出码一致。各历史阶段还有对应版本的独立等价性验证；不能把这些记录改写成“本次重新直接比较了最早版和最新版”。[最新版本与验证清单](../benches/results/data/parallel-merge-2026-09-08/manifest.json)
+该轮 72 次 release 构建和 54 次插桩构建共 **126 次**通过 lookup/postings 完整文件哈希与文档元数据一致性检查，**30 次查询**完整输出和退出码一致。各历史阶段还有对应版本的独立等价性验证；不能把这些记录改写成“本次重新直接比较了最早版和最新版”。[最新版本与验证清单](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/parallel-merge-2026-09-08/manifest.json)
 
 本文用于解释当前构建架构及累计成果；具体配置和内存口径以[工作预算文档](index-build-memory-budget.md)为准，单项收益以其同轮 benchmark 为准。若要进一步量化最早版本到当前版本的严格端到端差值，应使用归档源码/二进制在同一轮重新交错测量；现有文档已足以确认主要工作区显著缩小，以及最近并行归并的延迟收益。

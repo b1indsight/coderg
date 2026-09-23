@@ -54,4 +54,4 @@ checkout filters, linked worktrees, cache corruption and eviction, mmap reader l
 and dirty worktree changes. snapshot_workflow.py checks segment identity across promotion
 and cached revisits, including alternating commits on two branches.
 
-Final merge validation: [two repositories, 3 × 100 history updates and alternating branches](../benches/results/retained-merge-2026-09-21.md).
+Final merge validation: [two repositories, 3 × 100 history updates and alternating branches](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/retained-merge-2026-09-21.md).

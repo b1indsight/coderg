@@ -3,7 +3,7 @@
 查询覆盖与分支执行的设计、案例和性能取舍见[专项设计文档](query-covering-optimization.md)。
 
 本文按 2026-09-10 的 `feat/generational-index-refresh` 最终实现更新，基于 main `0ab2294`。
-当前 release 通过 74 项 Rust 测试；[三档真实提交测试](../benches/results/size-tiers-2026-09-10.md)
+当前 release 通过 74 项 Rust 测试；[三档真实提交测试](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/size-tiers-2026-09-10.md)
 完成 300 次前进、12 次历史切换及 1464 项输出对照。历史报告按各自版本解读，
 不能把早期单段、50% 阈值或 Git tree 缓存说明当成当前行为。源码是行为依据。
 两字节查询扩展仍暂缓采用。
@@ -50,9 +50,9 @@ flowchart TD
 
 每个普通文件记录相对路径、长度和纳秒修改时间。并行路径中，每个遍历 visitor 独立收集结果，退出时只获取一次锁发布整批结果；主线程检查所有批次的错误、按总文件数预分配快照，再使用 Rayon 按路径并行排序。串行路径直接收集结果并传播错误。两条路径都完整遍历、按同一条路径比较规则排序；历史文件数只是性能提示，仓库突然增长超过阈值时也不会提前结束或漏掉新增文件。这个有序快照用于比较工作区变化；全量构建也按它分配 `u32` 文档 ID。增量修改现有文件时复用 ID，新增文件追加 ID，删除文件标记失效；全量重建会重新编号。
 
-文件内容读取及 gram 生成由数量受预算限制的生产线程并行处理，使用 32 KiB 块并保留 23 字节重叠。根据文件前 8 KiB 是否含 NUL 判定二进制文件；二进制文件保留元数据，但 `searchable = false`，不生成 postings，也不进入正常搜索候选。[index_files](../src/index.rs)、[16/32 KiB 对照](../benches/results/chunk-32k-2026-09-08.md)
+文件内容读取及 gram 生成由数量受预算限制的生产线程并行处理，使用 32 KiB 块并保留 23 字节重叠。根据文件前 8 KiB 是否含 NUL 判定二进制文件；二进制文件保留元数据，但 `searchable = false`，不生成 postings，也不进入正常搜索候选。[index_files](../src/index.rs)、[16/32 KiB 对照](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chunk-32k-2026-09-08.md)
 
-每块用 `HashSet<u64>` 去重已混合的 gram 哈希，首次插入成功后才压缩为 `u32` 并追加到 `Vec<u32>`，省掉重复 gram 的压缩以及提取结束后遍历集合收集结果的步骤；数组通过有界通道交给收集端。不同 `u64` 哈希压缩后可能成为同一个键，由后续排序或归并去重消除。连续的 `(gram, document_id)` 记录每条 8 字节；排序数组满时原地排序、去重并写临时 run。中间归并每组最多 32 个 run；最终按 gram 范围最多 4 个任务并行归并，直接编码 postings 分片及有界键元数据，再拼接 postings 并按全局每 128 键生成 lookup，省去最终原始有序 run 的写读。默认 `--build-memory-mib 256` 为提取、记录、归并和编码的主要缓冲区分配预算，全量和增量共用；文件元数据、Git 内部状态和分配器开销等不在该预算内，因此不是硬性进程 RSS 限制。索引仍只保存文件集合，不记录位置或次数。[构建预算与验证](index-build-memory-budget.md)、[4 路归并实测](../benches/results/parallel-merge-2026-09-08.md)
+每块用 `HashSet<u64>` 去重已混合的 gram 哈希，首次插入成功后才压缩为 `u32` 并追加到 `Vec<u32>`，省掉重复 gram 的压缩以及提取结束后遍历集合收集结果的步骤；数组通过有界通道交给收集端。不同 `u64` 哈希压缩后可能成为同一个键，由后续排序或归并去重消除。连续的 `(gram, document_id)` 记录每条 8 字节；排序数组满时原地排序、去重并写临时 run。中间归并每组最多 32 个 run；最终按 gram 范围最多 4 个任务并行归并，直接编码 postings 分片及有界键元数据，再拼接 postings 并按全局每 128 键生成 lookup，省去最终原始有序 run 的写读。默认 `--build-memory-mib 256` 为提取、记录、归并和编码的主要缓冲区分配预算，全量和增量共用；文件元数据、Git 内部状态和分配器开销等不在该预算内，因此不是硬性进程 RSS 限制。索引仍只保存文件集合，不记录位置或次数。[构建预算与验证](index-build-memory-budget.md)、[4 路归并实测](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/parallel-merge-2026-09-08.md)
 
 ## 3. 字节 gram 的生成和选择
 
@@ -84,7 +84,7 @@ flowchart TD
 | 专用整数哈希器 | 块内 `u64` 集合通过 `GramHasher::write_u64` 直接使用已混合的哈希定位桶；其他 `u32` 集合/映射仍通过一次 64 位乘法扩散键的高位筛选标记 |
 | 去重时直接输出 | 块内 HashSet 首次插入成功时立即压缩并追加到 Vec，避免随后遍历哈希表生成结果数组 |
 
-实现见 [ngram.rs](../src/ngram.rs)、[哈希分布与直接输出对照实验](../benches/results/gram-extraction-2026-09-08.md)和[后置压缩对照实验](../benches/results/deferred-gram-compaction-2026-09-08.md)。32 位键可能碰撞；碰撞会合并额外文件候选，最终是否匹配仍由原正则决定。
+实现见 [ngram.rs](../src/ngram.rs)、[哈希分布与直接输出对照实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/gram-extraction-2026-09-08.md)和[后置压缩对照实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/deferred-gram-compaction-2026-09-08.md)。32 位键可能碰撞；碰撞会合并额外文件候选，最终是否匹配仍由原正则决定。
 
 ## 4. 紧凑、不可变的索引段
 
@@ -248,7 +248,7 @@ M 小合并最多选 4 个同量级输入，总计不超过 32 MiB；自动维�
 
 这一路径的成本随着候选文件大小、匹配次数及输出行数增加。索引有效时减少的是进入这条路径的文件，已经确认需要输出的匹配行仍要处理。
 
-[按行匹配的 vLLM 对照](../benches/results/line-matching-2026-09-09.md)中，30 项查询全部与 rg 输出一致；TODO 注释查询的 no-refresh 延迟由 90.75 降到 14.22 ms，数字查询减少约 29%，普通固定字符串基本持平。大量输出的数字和空行查询在 no-refresh 模式下仍慢于 rg。
+[按行匹配的 vLLM 对照](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/line-matching-2026-09-09.md)中，30 项查询全部与 rg 输出一致；TODO 注释查询的 no-refresh 延迟由 90.75 降到 14.22 ms，数字查询减少约 29%，普通固定字符串基本持平。大量输出的数字和空行查询在 no-refresh 模式下仍慢于 rg。
 
 ## 8. 当前边界、回退与暂缓策略
 
@@ -263,9 +263,9 @@ M 小合并最多选 4 个同量级输入，总计不超过 32 MiB；自动维�
 | `\s`、锚点和空匹配 | 最终正则作用于每个实际文本行，不跨 LF，不产生空文件或末尾换行后的虚拟行 |
 | 两字节向三字节扩展 | **已实验、暂缓采用**。用户认为候选仍多，当前正式代码未加入扩展路径、相应环境变量或额外预算 |
 
-此前 vLLM 校验记录的两处差异已由按行验证修正：`async\s+def\s+\w+` 不再跨越换行；`^[ \t]*$` 不再匹配文件末尾换行后的虚拟行及空文件位置。即使模式包含 `(?s)`，也只能匹配当前行；目前不提供跨行搜索选项。历史报告中的[复核证据](../benches/results/data/vllm-regex-suite-2026-09-07/parity-diagnostics.json)保留为修改前的记录。
+此前 vLLM 校验记录的两处差异已由按行验证修正：`async\s+def\s+\w+` 不再跨越换行；`^[ \t]*$` 不再匹配文件末尾换行后的虚拟行及空文件位置。即使模式包含 `(?s)`，也只能匹配当前行；目前不提供跨行搜索选项。历史报告中的[复核证据](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-regex-suite-2026-09-07/parity-diagnostics.json)保留为修改前的记录。
 
-两字节扩展的[实验报告](../benches/results/vllm-short-expansion-2026-09-07.md)及原型继续保留作为研究记录。该方案枚举相邻字节、取多个三字节 posting 的并集，实验收益不改变“暂缓采用”的当前决策。
+两字节扩展的[实验报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-short-expansion-2026-09-07.md)及原型继续保留作为研究记录。该方案枚举相邻字节、取多个三字节 posting 的并集，实验收益不改变“暂缓采用”的当前决策。
 
 ## 9. 构建配置、测试与测量依据
 
@@ -281,9 +281,9 @@ release profile 使用 thin LTO、`codegen-units = 1` 和 strip。profiling prof
 | [tests/cli.rs](../tests/cli.rs) | 构建、更新、删除、无字面量查询、大小写查询与直接正则匹配一致；跨目录新增、重命名、忽略规则变更及无变化时不写 manifest |
 | [tests/git_incremental.rs](../tests/git_incremental.rs) | 增量追加、身份推进、无树缓存的回退差异更新，以及回退后的继续修改 |
 | [tests/generational.rs](../tests/generational.rs) | 8 MiB 当次重建、超过旧段数/文件数阈值不重建、删除/恢复/二进制转换、并发与合并失败 |
-| [history_updates.rs](../benches/history_updates.rs) | 真实 first-parent 历史、回退、每步维护日志/B/M/耗时及 rg 输出对照 |
-| [compare_rg.rs](../benches/compare_rg.rs) | 固定字符串、文件列表输出的进程级对比；生成语料时另测增量、提交推进和回退 |
-| [regex_suite.py](../benches/regex_suite.py) | 常见正则的完整输出校验、默认/no-refresh/rg 随机交错计时及可选 RSS 测量 |
+| [history_updates.rs](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/legacy-harness-2026-09-22/history_updates.rs) | 真实 first-parent 历史、回退、每步维护日志/B/M/耗时及 rg 输出对照 |
+| [compare_rg.rs](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/legacy-harness-2026-09-22/compare_rg.rs) | 固定字符串、文件列表输出的进程级对比；生成语料时另测增量、提交推进和回退 |
+| [regex_suite.py](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/legacy-harness-2026-09-22/regex_suite.py) | 常见正则的完整输出校验、默认/no-refresh/rg 随机交错计时及可选 RSS 测量 |
 
 最终维护实现通过 74 项测试、`cargo fmt --check` 与 clippy（`-D warnings`）。
 当前三档真实提交数据如下，单位 ms，为各类事件中位数；单次事件按实测值列出。
@@ -294,13 +294,13 @@ release profile 使用 thin LTO、`codegen-units = 1` 和 strip。profiling prof
 | whisper.cpp | 21.91（97 次） | 重建 204.94（3 次） |
 | vLLM | 62.60（55 次） | M 合并 75.74（44 次）；B+M 合并 885.15（1 次） |
 
-[完整报告](../benches/results/size-tiers-2026-09-10.md) 分别列出相同普通提交的旧版对照、
+[完整报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/size-tiers-2026-09-10.md) 分别列出相同普通提交的旧版对照、
 P95、B/M 体积、段数、触发提交及独立 rg 查询。回退数据未混入前进样本。
 下面的正则和构建数字是历史版本证据，不是本次维护改动的独立收益。
 
-2026-09-07 的历史正则 benchmark 使用 vLLM 6,835 个文本文件、82.38 MiB，Apple M5 / 24 GiB，release、热缓存、每项 3 次预热和 31 次计时。30 个查询中 28 个与 rg 输出一致；这些查询的中位数等权平均为默认 47.75 ms、no-refresh 31.07 ms、rg 71.55 ms。全部 30 项输出与修改前相同，两项既有语义差异未计入性能汇总。[完整报告与原始样本](../benches/results/vllm-memory-2026-09-07.md)
+2026-09-07 的历史正则 benchmark 使用 vLLM 6,835 个文本文件、82.38 MiB，Apple M5 / 24 GiB，release、热缓存、每项 3 次预热和 31 次计时。30 个查询中 28 个与 rg 输出一致；这些查询的中位数等权平均为默认 47.75 ms、no-refresh 31.07 ms、rg 71.55 ms。全部 30 项输出与修改前相同，两项既有语义差异未计入性能汇总。[完整报告与原始样本](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-memory-2026-09-07.md)
 
-2026-09-07 的数据结构优化将同一语料的全量建索引峰值 RSS 中位数从 2,082.70 MiB 降至 517.70 MiB（减少 75.1%），耗时中位数从 2.478 秒降至 0.743 秒。整个索引目录仍为 66.40 MiB，lookup 和 postings 字节内容与原版一致。耗时各测 5 次，RSS 各另测 3 次；当时仍保存全语料关联记录。[历史构建内存优化与证据](../benches/results/vllm-memory-2026-09-07.md)。2026-09-08 加入的默认 256 MiB 预算与外排结果见[新 bench](../benches/results/build-memory-budget-2026-09-08.md)。
+2026-09-07 的数据结构优化将同一语料的全量建索引峰值 RSS 中位数从 2,082.70 MiB 降至 517.70 MiB（减少 75.1%），耗时中位数从 2.478 秒降至 0.743 秒。整个索引目录仍为 66.40 MiB，lookup 和 postings 字节内容与原版一致。耗时各测 5 次，RSS 各另测 3 次；当时仍保存全语料关联记录。[历史构建内存优化与证据](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-memory-2026-09-07.md)。2026-09-08 加入的默认 256 MiB 预算与外排结果见[新 bench](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/build-memory-budget-2026-09-08.md)。
 
 这些历史数据是当时整条处理路径的测量，不是本文各项优化的独立消融结果。索引构建成本单独记录；`stats` 的 `index bytes` 只包含当前 manifest 和它引用的段，不包含所有历史段及树缓存文件，也不同于进程 RSS。[stats](../src/index.rs)
 
@@ -308,7 +308,7 @@ P95、B/M 体积、段数、触发提交及独立 rg 查询。回退数据未混
 
 ```sh
 cargo test --locked
-cargo bench --bench compare_rg
+cargo bench --bench suite
 ```
 
-查询预算的详细比较见[128 / 128 决策记录](decisions/2026-09-07-case-insensitive-index-budget.md)；需要完整匹配行输出及正则覆盖时使用 `benches/regex_suite.py`，具体参数见[测试报告](../benches/results/vllm-regex-suite-2026-09-07.md)。
+查询预算的详细比较见[128 / 128 决策记录](decisions/2026-09-07-case-insensitive-index-budget.md)；需要完整匹配行输出及正则覆盖时使用 [统一 Rust benchmark](../benches/README.md)，具体参数见[测试报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-regex-suite-2026-09-07.md)。

@@ -30,7 +30,7 @@ coderg 已具备本地倒排索引、稀疏 gram、哈希键、不可变索引�
 
 原基线的 `best_hash` 枚举字面量中的可用 gram，选择最长的一个；同长度时由后遇到的替换。这里的“最长”是启发式，并不代表倒排列表最短。固定字符串搜索只生成一个这样的过滤条件；正则搜索可以从多个必要片段得到多个条件，因此也不能说整个正则查询永远只查一个 gram。
 
-本轮 `covering_hashes` 保留每个字面量的最长键并补充覆盖片段。后续提取规则经历了[固定字面量优先](../benches/results/fixed-literal-extraction-2026-09-08.md)和[统一组合预算](../benches/results/small-variant-extraction-2026-09-08.md)两轮实验。当前第一遍的单字符类上限为 16，整体组合上限恢复为 128；没有可用条件时以 128 / 128 重试。最新的[分支覆盖实验](../benches/results/branch-covering-2026-09-08.md)保留分支内部求交，先做完整初筛，再按当前候选细化并安全停止无效查表。具体实现见[覆盖设计与验证](query-covering.md)。
+本轮 `covering_hashes` 保留每个字面量的最长键并补充覆盖片段。后续提取规则经历了[固定字面量优先](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/fixed-literal-extraction-2026-09-08.md)和[统一组合预算](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-variant-extraction-2026-09-08.md)两轮实验。当前第一遍的单字符类上限为 16，整体组合上限恢复为 128；没有可用条件时以 128 / 128 重试。最新的[分支覆盖实验](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/branch-covering-2026-09-08.md)保留分支内部求交，先做完整初筛，再按当前候选细化并安全停止无效查表。具体实现见[覆盖设计与验证](query-covering.md)。
 
 单个 gram 无法约束字面量其余部分。若很多文件共享选中的片段，即使完整字符串罕见，也会读入较多候选文件。覆盖算法的目标是用少量互补片段约束更多查询内容；增加的查表和求交成本是否值得，需要由候选读取的节省来证明。
 
@@ -62,9 +62,9 @@ coderg 已具备本地倒排索引、稀疏 gram、哈希键、不可变索引�
 
 ## 4. 状态复用：减少重复加载，并设计增量变化来源
 
-2026-09-09 的 [Chromium 分阶段测试](../benches/results/chromium-search-profile-2026-09-09.md)补充了量化依据：`MAX_FILE_SIZE` 的 no-refresh 插桩进程耗时约 256 ms，其中加载 208 MiB manifest 约 231 ms（JSON 解析约 197 ms），倒排筛选约 0.54 ms，读取并匹配候选约 4.95 ms。索引筛出 102 个候选，完整匹配后命中 98 个文件；候选是可能匹配的文件，不等于最终命中。独立调用栈采样确认主要热点在 JSON 解析、UTF-8 校验及内存分配。
+2026-09-09 的 [Chromium 分阶段测试](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/chromium-search-profile-2026-09-09.md)补充了量化依据：`MAX_FILE_SIZE` 的 no-refresh 插桩进程耗时约 256 ms，其中加载 208 MiB manifest 约 231 ms（JSON 解析约 197 ms），倒排筛选约 0.54 ms，读取并匹配候选约 4.95 ms。索引筛出 102 个候选，完整匹配后命中 98 个文件；候选是可能匹配的文件，不等于最终命中。独立调用栈采样确认主要热点在 JSON 解析、UTF-8 校验及内存分配。
 
-该成本并非所有仓库都同样显著：[vLLM `^class`](../benches/results/vllm-no-refresh-profile-2026-09-09.md) 的 manifest 读取与解析约 3.18 ms，占约 31 ms 插桩总耗时的 10%；[两个小仓库](../benches/results/small-no-refresh-profile-2026-09-09.md)仅约 0.08 ms，占约 2%。这些是各自单项查询的结果，不能直接作为查询套件平均值。
+该成本并非所有仓库都同样显著：[vLLM `^class`](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-no-refresh-profile-2026-09-09.md) 的 manifest 读取与解析约 3.18 ms，占约 31 ms 插桩总耗时的 10%；[两个小仓库](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-no-refresh-profile-2026-09-09.md)仅约 0.08 ms，占约 2%。这些是各自单项查询的结果，不能直接作为查询套件平均值。
 
 Chromium 默认 refresh 另耗时约 1.75 秒，其中遍历和元数据收集约 1.66 秒。复用已解析索引和减少刷新扫描是两个独立优化方向。核心筛选与匹配约 5.6 ms 不代表常驻请求总延迟；本轮未实现或测量常驻服务，也没有进行与 Cursor 的同机同语料对照。
 
@@ -80,11 +80,11 @@ Chromium 默认 refresh 另耗时约 1.75 秒，其中遍历和元数据收集�
 
 ## 5. 构建内存：已加入 256 MiB 工作缓冲区预算
 
-原基线先逐文件提取 gram，再整体排序关联记录，仍需保存全语料记录。2026-09-08 已改为 32 KiB 分块提取、有限并行队列、预算内记录排序及超预算外排。中间归并每组最多 32 个 run，最终按 gram 范围最多 4 个任务并行归并并编码 postings，再生成 lookup，省去最终原始有序 run 的写读，仍输出同格式索引段。[4 路归并实测](../benches/results/parallel-merge-2026-09-08.md)。全量构建和增量刷新默认使用 `--build-memory-mib 256`，可按命令调整。
+原基线先逐文件提取 gram，再整体排序关联记录，仍需保存全语料记录。2026-09-08 已改为 32 KiB 分块提取、有限并行队列、预算内记录排序及超预算外排。中间归并每组最多 32 个 run，最终按 gram 范围最多 4 个任务并行归并并编码 postings，再生成 lookup，省去最终原始有序 run 的写读，仍输出同格式索引段。[4 路归并实测](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/parallel-merge-2026-09-08.md)。全量构建和增量刷新默认使用 `--build-memory-mib 256`，可按命令调整。
 
 预算覆盖内容块、gram 临时集合、排序记录、归并和流式段编码缓冲；不直接限制文件元数据、Git 库状态、分配器保留页面及 mmap 驻留页，因此不能称为进程 RSS 硬上限。Cursor 未公开完整构建预算策略，不能据此比较双方峰值内存。
 
-设计、边界及失败清理见[构建预算文档](index-build-memory-budget.md)；峰值 RSS、构建耗时、临时写入量及更大语料结果见[本轮 benchmark](../benches/results/build-memory-budget-2026-09-08.md)。
+设计、边界及失败清理见[构建预算文档](index-build-memory-budget.md)；峰值 RSS、构建耗时、临时写入量及更大语料结果见[本轮 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/build-memory-budget-2026-09-08.md)。
 
 ## 6. 索引维护：已实现合并和写锁，回收仍待实现
 
@@ -101,7 +101,7 @@ Chromium 默认 refresh 另耗时约 1.75 秒，其中遍历和元数据收集�
 仍未实现的是旧段 GC、锁外或后台合并及事件驱动刷新。历史 Git tree 缓存不再使用，
 旧段暂留是为了保护仍持有 mmap 的读者。回收需要协调活动快照、在途维护和读者，
 不能简单删除当前 manifest 未引用的文件。需要刷新的查询会等待当前维护完成，
-[三档 benchmark](../benches/results/size-tiers-2026-09-10.md) 分开报告这些维护停顿。
+[三档 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/size-tiers-2026-09-10.md) 分开报告这些维护停顿。
 
 ## 7. 其他边界与不能确认的结论
 
@@ -118,18 +118,18 @@ Chromium 默认 refresh 另耗时约 1.75 秒，其中遍历和元数据收集�
 
 ## 8. 下一轮实验与已有证据
 
-第一轮已只改变查询覆盖，保持权重、索引格式和刷新策略不变。对照组使用本文基线，在相同索引上比较默认搜索与 `--no-refresh`，分别观察完整使用成本和查询阶段收益。110 项新旧输出一致；共享最长片段的定向查询有明显收益，原有矩阵没有显示普遍加速，详情及回退见[覆盖性能报告](../benches/results/query-covering-2026-09-08.md)。第二轮再评估固定频率表，并将重建成本计入结果。
+第一轮已只改变查询覆盖，保持权重、索引格式和刷新策略不变。对照组使用本文基线，在相同索引上比较默认搜索与 `--no-refresh`，分别观察完整使用成本和查询阶段收益。110 项新旧输出一致；共享最长片段的定向查询有明显收益，原有矩阵没有显示普遍加速，详情及回退见[覆盖性能报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/query-covering-2026-09-08.md)。第二轮再评估固定频率表，并将重建成本计入结果。
 
 沿用现有真实仓库与合成语料矩阵，覆盖长短字面量、常见与罕见片段、正则分支、大小写、无匹配和大量输出。计时继续随机交错运行，在计时外校验完整输出；同时报告中位数、p95 和波动区间。若增加常驻服务实验，应单列连续调用结果，避免与新 CLI 进程的计时混合。
 
-现有[小仓库线程策略 benchmark](../benches/results/small-repo-threads-2026-09-07.md)中，100 项与 rg 输出一致的查询有 90 项中位数低于 rg；总计 102 项中另外两项存在已知语义差异。64 个大文件的语料汇总仍慢于 rg。这些数据支持继续按工作负载定位成本，不能推算与 Cursor 的性能差距，也不是尚未实现的覆盖或频率方案的收益证据。
+现有[小仓库线程策略 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-repo-threads-2026-09-07.md)中，100 项与 rg 输出一致的查询有 90 项中位数低于 rg；总计 102 项中另外两项存在已知语义差异。64 个大文件的语料汇总仍慢于 rg。这些数据支持继续按工作负载定位成本，不能推算与 Cursor 的性能差距，也不是尚未实现的覆盖或频率方案的收益证据。
 
 相关记录：
 
 - [按规模维护与并发发布](generational-index-refresh.md)：最终规则及已实现和未采用项。
-- [三档真实提交测试](../benches/results/size-tiers-2026-09-10.md)：分开记录更新、重建、合并与 rg 查询。
+- [三档真实提交测试](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/size-tiers-2026-09-10.md)：分开记录更新、重建、合并与 rg 查询。
 - [已实现的优化与策略](implemented-optimizations.md)：当前行为、代码入口和正确性边界。
 - [刷新路径优化](refresh-path-optimization.md)：两阶段刷新改动及测量依据。
-- [小仓库分阶段分析](../benches/results/small-repo-profile-2026-09-07.md)：线程策略调整前的阶段计时。
-- [小仓库线程策略 benchmark](../benches/results/small-repo-threads-2026-09-07.md)：历史基线的广泛搜索对比。
+- [小仓库分阶段分析](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-repo-profile-2026-09-07.md)：线程策略调整前的阶段计时。
+- [小仓库线程策略 benchmark](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/small-repo-threads-2026-09-07.md)：历史基线的广泛搜索对比。
 - [构建内存优化](index-build-memory-optimization.md)：已完成的内存下降与仍存在的工作集限制。

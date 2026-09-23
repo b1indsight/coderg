@@ -1,0 +1,664 @@
+{
+  "name": "full",
+  "seed": 20260922,
+  "warmup": 2,
+  "samples": 16,
+  "rounds": 3,
+  "history_rounds": 2,
+  "rss_runs": 2,
+  "scenarios": [
+    "build",
+    "search",
+    "workflow",
+    "branches",
+    "history",
+    "manifest"
+  ],
+  "corpora": [
+    {
+      "name": "viberwhisper",
+      "source": {
+        "kind": "git",
+        "path": "corpora/viberwhisper",
+        "commit": "bc73d1c54089dad53a3f5585ed5210b188542817"
+      },
+      "updates": 100,
+      "extension": ".rs",
+      "queries": [
+        {
+          "name": "absent",
+          "pattern": "CODERG_BENCH_ABSENT_92be7",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "literal",
+          "pattern": "fn main",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "broad",
+          "pattern": "use ",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "word",
+          "pattern": "\\breturn\\b",
+          "flags": []
+        },
+        {
+          "name": "or",
+          "pattern": "\\b(Error|Result|Exception|ValueError)\\b",
+          "flags": [
+            "-l"
+          ]
+        },
+        {
+          "name": "icase",
+          "pattern": "\\b(TODO|FIXME)\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "short",
+          "pattern": "if",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "count",
+          "pattern": "\\b[0-9]{2,4}\\b",
+          "flags": [
+            "-c"
+          ]
+        },
+        {
+          "name": "blank",
+          "pattern": "^[ \\t]*$",
+          "flags": []
+        },
+        {
+          "name": "anchor",
+          "pattern": "^[ \\t]*(def|fn|class)\\s+\\w+",
+          "flags": []
+        },
+        {
+          "name": "literal_lines",
+          "pattern": "return",
+          "flags": [
+            "-F"
+          ]
+        },
+        {
+          "name": "icase_literal",
+          "pattern": "todo",
+          "flags": [
+            "-i",
+            "-F",
+            "-l"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "agentflow",
+      "source": {
+        "kind": "git",
+        "path": "corpora/agentflow",
+        "commit": "911ea1ee5ae444c466e568edf2402b6fd15d8aea"
+      },
+      "updates": 56,
+      "extension": ".py",
+      "queries": [
+        {
+          "name": "absent",
+          "pattern": "CODERG_BENCH_ABSENT_92be7",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "literal",
+          "pattern": "async def",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "broad",
+          "pattern": "import ",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "word",
+          "pattern": "\\breturn\\b",
+          "flags": []
+        },
+        {
+          "name": "or",
+          "pattern": "\\b(Error|Result|Exception|ValueError)\\b",
+          "flags": [
+            "-l"
+          ]
+        },
+        {
+          "name": "icase",
+          "pattern": "\\b(TODO|FIXME)\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "short",
+          "pattern": "if",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "count",
+          "pattern": "\\b[0-9]{2,4}\\b",
+          "flags": [
+            "-c"
+          ]
+        },
+        {
+          "name": "blank",
+          "pattern": "^[ \\t]*$",
+          "flags": []
+        },
+        {
+          "name": "anchor",
+          "pattern": "^[ \\t]*(def|fn|class)\\s+\\w+",
+          "flags": []
+        },
+        {
+          "name": "literal_lines",
+          "pattern": "return",
+          "flags": [
+            "-F"
+          ]
+        },
+        {
+          "name": "icase_literal",
+          "pattern": "todo",
+          "flags": [
+            "-i",
+            "-F",
+            "-l"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "whisper_cpp",
+      "source": {
+        "kind": "git",
+        "path": "corpora/whisper_cpp",
+        "commit": "c44b60b8053bbf2a5c1e014f11323fb3f2485177"
+      },
+      "updates": 100,
+      "extension": ".cpp",
+      "queries": [
+        {
+          "name": "absent",
+          "pattern": "CODERG_BENCH_ABSENT_92be7",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "literal",
+          "pattern": "whisper_context",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "broad",
+          "pattern": "return",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "word",
+          "pattern": "\\breturn\\b",
+          "flags": []
+        },
+        {
+          "name": "or",
+          "pattern": "\\b(Error|Result|Exception|ValueError)\\b",
+          "flags": [
+            "-l"
+          ]
+        },
+        {
+          "name": "icase",
+          "pattern": "\\b(TODO|FIXME)\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "short",
+          "pattern": "if",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "count",
+          "pattern": "\\b[0-9]{2,4}\\b",
+          "flags": [
+            "-c"
+          ]
+        },
+        {
+          "name": "blank",
+          "pattern": "^[ \\t]*$",
+          "flags": []
+        },
+        {
+          "name": "anchor",
+          "pattern": "^[ \\t]*(def|fn|class)\\s+\\w+",
+          "flags": []
+        },
+        {
+          "name": "literal_lines",
+          "pattern": "return",
+          "flags": [
+            "-F"
+          ]
+        },
+        {
+          "name": "icase_literal",
+          "pattern": "todo",
+          "flags": [
+            "-i",
+            "-F",
+            "-l"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vllm",
+      "source": {
+        "kind": "git",
+        "path": "corpora/vllm",
+        "commit": "569adb5a9780f9c02d22a6b29826acf711512356"
+      },
+      "updates": 100,
+      "extension": ".py",
+      "queries": [
+        {
+          "name": "absent",
+          "pattern": "CODERG_BENCH_ABSENT_92be7",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "literal",
+          "pattern": "SamplingParams",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "broad",
+          "pattern": "import ",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "word",
+          "pattern": "\\breturn\\b",
+          "flags": []
+        },
+        {
+          "name": "or",
+          "pattern": "\\b(Error|Result|Exception|ValueError)\\b",
+          "flags": [
+            "-l"
+          ]
+        },
+        {
+          "name": "icase",
+          "pattern": "\\b(TODO|FIXME)\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "short",
+          "pattern": "if",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "count",
+          "pattern": "\\b[0-9]{2,4}\\b",
+          "flags": [
+            "-c"
+          ]
+        },
+        {
+          "name": "blank",
+          "pattern": "^[ \\t]*$",
+          "flags": []
+        },
+        {
+          "name": "anchor",
+          "pattern": "^[ \\t]*(def|fn|class)\\s+\\w+",
+          "flags": []
+        },
+        {
+          "name": "literal_lines",
+          "pattern": "return",
+          "flags": [
+            "-F"
+          ]
+        },
+        {
+          "name": "icase_literal",
+          "pattern": "todo",
+          "flags": [
+            "-i",
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "regex_literal_parallel",
+          "pattern": "get_tensor_model_parallel_world_size",
+          "flags": [
+            "-F"
+          ]
+        },
+        {
+          "name": "regex_word_sampling",
+          "pattern": "\\bSamplingParams\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_word_asyncmock",
+          "pattern": "\\bAsyncMock\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_def_forward",
+          "pattern": "def\\s+forward\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_async_def",
+          "pattern": "async\\s+def\\s+\\w+",
+          "flags": []
+        },
+        {
+          "name": "regex_class_attention",
+          "pattern": "^class[ \\t]+\\w*Attention\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_python_import",
+          "pattern": "^from[ \\t]+vllm(?:\\.[\\w.]+)?[ \\t]+import\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_decorator",
+          "pattern": "^[ \\t]*@(?:torch|pytest)\\.[A-Za-z_]+",
+          "flags": []
+        },
+        {
+          "name": "regex_logger",
+          "pattern": "logger\\.(warning|error)\\(",
+          "flags": []
+        },
+        {
+          "name": "regex_exceptions",
+          "pattern": "\\b(ValueError|RuntimeError|NotImplementedError)\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_cache",
+          "pattern": "\\b(kv_cache|block_size)\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_tensor_creation",
+          "pattern": "\\b(torch|numpy)\\.(empty|zeros|ones)\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_env_vars",
+          "pattern": "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_cuda_call",
+          "pattern": "\\btorch\\.cuda\\.[a-z_]+\\(",
+          "flags": []
+        },
+        {
+          "name": "regex_config_assignment",
+          "pattern": "\\bmax_(model_len|num_seqs)[ \\t]*=",
+          "flags": []
+        },
+        {
+          "name": "regex_raise_error",
+          "pattern": "raise[ \\t]+\\w*Error\\(",
+          "flags": []
+        },
+        {
+          "name": "regex_todo_comment",
+          "pattern": "^[ \\t]*#.*\\b(TODO|FIXME)\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_return_none",
+          "pattern": "^[ \\t]*return[ \\t]+None[ \\t]*$",
+          "flags": []
+        },
+        {
+          "name": "regex_quoted_device",
+          "pattern": "[\\\"'](?:cuda|cpu|rocm)[\\\"']",
+          "flags": []
+        },
+        {
+          "name": "regex_icase_sampling",
+          "pattern": "\\bSamplingParams\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "regex_icase_platform",
+          "pattern": "\\b(cuda|rocm)\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "regex_icase_todo",
+          "pattern": "\\b(TODO|FIXME)\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "regex_icase_env",
+          "pattern": "\\b(VLLM|CUDA)_[A-Z0-9_]+\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "regex_icase_logger",
+          "pattern": "logger\\.(warning|error)\\(",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "regex_icase_literal",
+          "pattern": "get_tensor_model_parallel_world_size",
+          "flags": [
+            "-i",
+            "-F"
+          ]
+        },
+        {
+          "name": "regex_digits",
+          "pattern": "\\b[0-9]{2,4}\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_hex_number",
+          "pattern": "\\b0x[0-9A-Fa-f]+\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_short_word",
+          "pattern": "\\bif\\b",
+          "flags": []
+        },
+        {
+          "name": "regex_blank_lines",
+          "pattern": "^[ \\t]*$",
+          "flags": []
+        },
+        {
+          "name": "regex_absent_regex",
+          "pattern": "\\bCODERG_BENCH_ABSENT_[0-9]{8}\\b",
+          "flags": []
+        }
+      ]
+    },
+    {
+      "name": "chromium",
+      "source": {
+        "kind": "archive",
+        "path": "corpora/chromium",
+        "revision": "398630472335c10b9ca610a4d1b7888a040f702a"
+      },
+      "updates": 100,
+      "extension": ".cc",
+      "queries": [
+        {
+          "name": "absent",
+          "pattern": "CODERG_BENCH_ABSENT_92be7",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "literal",
+          "pattern": "WeakPtrFactory",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "broad",
+          "pattern": "void",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "word",
+          "pattern": "\\breturn\\b",
+          "flags": []
+        },
+        {
+          "name": "or",
+          "pattern": "\\b(Error|Result|Exception|ValueError)\\b",
+          "flags": [
+            "-l"
+          ]
+        },
+        {
+          "name": "icase",
+          "pattern": "\\b(TODO|FIXME)\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "short",
+          "pattern": "if",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "count",
+          "pattern": "\\b[0-9]{2,4}\\b",
+          "flags": [
+            "-c"
+          ]
+        },
+        {
+          "name": "blank",
+          "pattern": "^[ \\t]*$",
+          "flags": []
+        },
+        {
+          "name": "anchor",
+          "pattern": "^[ \\t]*(def|fn|class)\\s+\\w+",
+          "flags": []
+        },
+        {
+          "name": "literal_lines",
+          "pattern": "return",
+          "flags": [
+            "-F"
+          ]
+        },
+        {
+          "name": "icase_literal",
+          "pattern": "todo",
+          "flags": [
+            "-i",
+            "-F",
+            "-l"
+          ]
+        }
+      ]
+    }
+  ]
+}

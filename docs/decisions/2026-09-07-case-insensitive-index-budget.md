@@ -5,7 +5,7 @@
 - 适用范围：coderg 使用现有索引规划、过滤正则搜索候选文件的预算。
 - 当前配置：`MAX_LITERAL_VARIANTS = 128`，`MAX_INDEX_LOOKUPS = 128`。
 - 实现位置：[query.rs](../../src/query.rs)、[search.rs](../../src/search.rs)。
-- 证据入口：[实验报告](../../benches/results/vllm-case-budget-2026-09-07.md)、[归档清单](../../benches/results/data/vllm-case-budget-2026-09-07/manifest.json)。
+- 证据入口：[实验报告](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/vllm-case-budget-2026-09-07.md)、[归档清单](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/manifest.json)。
 
 本次选择是在当前 vLLM 工作负载下保留一个表现较好的默认值。实验没有证明
 128 / 128 是所有仓库、所有查询的唯一最优点；64 / 128 也很接近。
@@ -146,7 +146,7 @@ macOS 峰值 RSS 用 `/usr/bin/time -l` 采集，该阶段需要在沙箱外执�
 
 该 A/B 共八个查询，另有三个大小写敏感对照；默认、no-refresh 模式均完成
 完整输出验证。索引文件哈希保持不变。
-原始数据见 [case-index-results.json](../../benches/results/data/vllm-case-budget-2026-09-07/baseline/case-index-results.json)。
+原始数据见 [case-index-results.json](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/baseline/case-index-results.json)。
 
 ## 6. 参数实验如何进行
 
@@ -215,8 +215,8 @@ no-refresh 中位数均值。七个样本的最近秩 p95 就是最大值，不�
 因此 32 / 128、48 / 128 在选择集上看起来接近，并不足以支持设为默认。
 最终选择参考了额外查询，这六个查询不再是最终配置的完全独立测试集。
 
-原始数据见 [完整复测](../../benches/results/data/vllm-case-budget-2026-09-07/tuning/confirmation-results.json)
-和[汇总及区间](../../benches/results/data/vllm-case-budget-2026-09-07/tuning/summary.json)。
+原始数据见 [完整复测](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/tuning/confirmation-results.json)
+和[汇总及区间](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/tuning/summary.json)。
 
 ### 6.3 128 / 256 的直接补测
 
@@ -251,8 +251,8 @@ no-refresh 中位数均值。七个样本的最近秩 p95 就是最大值，不�
 14 个查询中有十个的实际键数和候选文件数都没有变化；主要变化来自
 AsyncMock、SamplingParams、Attention 类定义和长固定标识符。
 
-原始数据见 [101 轮补测](../../benches/results/data/vllm-case-budget-2026-09-07/key256/results.json)
-和[汇总及区间](../../benches/results/data/vllm-case-budget-2026-09-07/key256/summary.json)。
+原始数据见 [101 轮补测](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/key256/results.json)
+和[汇总及区间](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/key256/summary.json)。
 
 ### 6.4 对先前 p95 结论的澄清
 
@@ -268,7 +268,7 @@ AsyncMock、SamplingParams、Attention 类定义和长固定标识符。
 43.161 → 42.686 ms（no-refresh）。这与各查询 p95 均值是不同统计量，
 也不代表真实用户的请求分布。
 
-旧样本重分析见 [previous-p95.json](../../benches/results/data/vllm-case-budget-2026-09-07/key256/previous-p95.json)。
+旧样本重分析见 [previous-p95.json](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/key256/previous-p95.json)。
 
 ## 7. 内存差距：实测与估算分开
 
@@ -337,7 +337,7 @@ git diff --check
 比对；128 / 256 补测完成 14 个查询 × 两种配置 × 两种模式的 56 次比对，
 全部与 `rg` 的参考输出一致。各阶段均校验索引哈希未变化。
 
-验证记录：[final-validation.json](../../benches/results/data/vllm-case-budget-2026-09-07/tuning/final-validation.json)。
+验证记录：[final-validation.json](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/tuning/final-validation.json)。
 本次撰写决策文档没有再次改变搜索实现或重新运行这些性能实验。
 
 ## 10. 局限与重新评估的条件
@@ -395,17 +395,17 @@ async[ \t]+def[ \t]+\w+
 ## 12. 证据保存与复核方式
 
 证据保存在仓库内的
-[benches/results/data/vllm-case-budget-2026-09-07](../../benches/results/data/vllm-case-budget-2026-09-07/manifest.json)，
+[benches/results/data/vllm-case-budget-2026-09-07](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/manifest.json)，
 共归档 30 个载荷文件、1,103,793 字节，另有清单。每个文件都有大小、原路径和
 SHA-256，可独立于机器临时目录复核。
 
 | 归档位置 | 内容 |
 |---|---|
-| [baseline/](../../benches/results/data/vllm-case-budget-2026-09-07/baseline/results.json) | 原始构建、索引大小、固定字符串、正则、慢例、常见查询和引入 -i 索引的 A/B 数据 |
-| [tuning/](../../benches/results/data/vllm-case-budget-2026-09-07/tuning/confirmation-results.json) | 粗筛、细扫、正式复测的逐次计时、RSS 采样、诊断、协议、汇总和最终验证 |
-| [key256/](../../benches/results/data/vllm-case-budget-2026-09-07/key256/results.json) | 101 轮补测、二进制哈希、统计区间和旧 p95 重分析 |
-| [scripts/](../../benches/results/data/vllm-case-budget-2026-09-07/scripts/sweep.py) | 执行和分析实验时的 Python 脚本原样归档 |
-| [source/](../../benches/results/data/vllm-case-budget-2026-09-07/source/decision-source.diff) | 相对 coderg 起始提交的初始索引改造差异，以及采用 128 / 128 时的实现、测试差异 |
+| [baseline/](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/baseline/results.json) | 原始构建、索引大小、固定字符串、正则、慢例、常见查询和引入 -i 索引的 A/B 数据 |
+| [tuning/](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/tuning/confirmation-results.json) | 粗筛、细扫、正式复测的逐次计时、RSS 采样、诊断、协议、汇总和最终验证 |
+| [key256/](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/key256/results.json) | 101 轮补测、二进制哈希、统计区间和旧 p95 重分析 |
+| [scripts/](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/scripts/sweep.py) | 执行和分析实验时的 Python 脚本原样归档 |
+| [source/](https://github.com/b1indsight/coderg/blob/5ca67a2470ac9e9e3b7cc08ad3f2b8115f68a170/benches/results/data/vllm-case-budget-2026-09-07/source/decision-source.diff) | 相对 coderg 起始提交的初始索引改造差异，以及采用 128 / 128 时的实现、测试差异 |
 
 JSON 中保存了逐次延迟和资源测量值。语料、索引和编译后二进制没有复制进仓库，
 其提交、文件或二进制哈希保留在协议及清单中。原始临时目录仅用于追溯：

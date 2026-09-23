@@ -1,0 +1,7 @@
+{
+  "viberwhisper": "corpora/viberwhisper",
+  "agentflow": "corpora/agentflow",
+  "whisper_cpp": "corpora/whisper_cpp",
+  "vllm": "corpora/vllm",
+  "chromium": "corpora/chromium"
+}

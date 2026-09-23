@@ -1,0 +1,84 @@
+{
+  "name": "smoke",
+  "seed": 20260922,
+  "warmup": 1,
+  "samples": 2,
+  "rounds": 1,
+  "history_rounds": 1,
+  "rss_runs": 1,
+  "scenarios": [
+    "build",
+    "search",
+    "workflow",
+    "branches",
+    "history",
+    "manifest"
+  ],
+  "corpora": [
+    {
+      "name": "generated",
+      "source": {
+        "kind": "generated",
+        "files": 16,
+        "bytes_per_file": 1024
+      },
+      "updates": 5,
+      "extension": ".rs",
+      "queries": [
+        {
+          "name": "absent",
+          "pattern": "CODERG_BENCH_ABSENT_92be7",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "literal",
+          "pattern": "SamplingParams",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "broad",
+          "pattern": "import ",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "or",
+          "pattern": "\\b(Error|Result|Exception|ValueError)\\b",
+          "flags": [
+            "-l"
+          ]
+        },
+        {
+          "name": "icase",
+          "pattern": "\\b(TODO|FIXME)\\b",
+          "flags": [
+            "-i"
+          ]
+        },
+        {
+          "name": "short",
+          "pattern": "if",
+          "flags": [
+            "-F",
+            "-l"
+          ]
+        },
+        {
+          "name": "count",
+          "pattern": "\\b[0-9]{2,4}\\b",
+          "flags": [
+            "-c"
+          ]
+        }
+      ]
+    }
+  ]
+}

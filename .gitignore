@@ -1,3 +1,5 @@
 /target/
 /.coderg-index/
 /.cache/
+/benches/sources.local.json
+/benches/results/
