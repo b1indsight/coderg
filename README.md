@@ -237,70 +237,29 @@ The [refresh-path optimization](docs/refresh-path-optimization.md) explains
 snapshot batching, manifest parsing, and the small-repository traversal policy,
 including profiling evidence, threshold selection, and comparisons with rg.
 
-The repository includes a process-level benchmark that compares the release
-build of `coderg` with `rg`. It checks that both tools return the same files,
-then reports minimum, median, p95, and mean wall-clock latency.
+The unified Rust suite runs through `cargo bench`. Configure the five local
+corpora in `benches/sources.local.json` using
+[the example map](benches/sources.example.json), then run:
 
 ```sh
-# Generate a deterministic 4 MiB source corpus and run 30 timed iterations.
-cargo bench --bench compare_rg
-
-# Change generated corpus size and sample count.
-cargo bench --bench compare_rg -- \
-  --files 1000 --kib-per-file 32 --iterations 50
-
-# Benchmark an existing repository and fixed-string query.
-cargo bench --bench compare_rg -- \
-  --root /path/to/repository --query AsyncMock --iterations 50
-
-# Machine-readable output for CI or plotting.
-cargo bench --bench compare_rg -- --iterations 50 --json
+cargo bench --bench suite -- --preflight
+cargo bench
 ```
 
-The benchmark measures index construction separately, then compares indexed
-search without refresh, indexed search with the normal metadata/Git freshness
-check, and ripgrep. Generated-corpus runs use a temporary Git repository and
-also report single-file incremental refresh, commit promotion without
-reindexing, and rollback latency. Its legacy `cached_rollback_ms` field and
-printed label retain the old name; the current binary performs snapshot-diff
-updates on rollback. Set `CODERG_BIN` to benchmark a specific binary.
-
-For matching-line comparisons and a persistent JSON report:
+The default is the full real-corpus suite: viberwhisper, agentflow, whisper.cpp,
+vLLM, and Chromium, comparing the current Cargo-built coderg with rg. Chromium
+uses deterministic simulated commits on its pinned source archive. The suite
+covers construction, query/output modes, Git workflows, history replay,
+and manifest loading, using main-supported workflows. Only the current implementation is measured,
+using its default threads, memory budget and search behavior, with rg as reference.
+The harness runs up to two corpora concurrently; use `--jobs 1` for isolated timing.
 
 ```sh
-cargo bench --bench compare_rg -- \
-  --root /path/to/repository --query MAX_FILE_SIZE --lines \
-  --iterations 15 --warmup 3 --output /tmp/coderg-bench-001.json
+# Small generated-corpus validation of all scenarios.
+cargo bench --bench suite -- --config benches/smoke.json
 ```
 
-The report includes the query, output mode, warmup count, individual samples,
-index build time, and minimum/median/p95/mean search latency. Choose a new output
-file with an existing parent directory. The benchmark uses a temporary index
-and compares against `rg --hidden --no-config`; keep the source tree unchanged
-throughout the run. Searches measure warm-cache process latency.
-
-For update performance on real Git history, use the history harness:
-
-```sh
-mkdir -p .cache/bench
-cargo bench --bench history_updates -- \
-  --root /absolute/path/to/repository \
-  --variant main=/absolute/path/to/coderg-main \
-  --variant current=/absolute/path/to/coderg-current \
-  --commits 100 --iterations 3 --warmup 1 \
-  --query SamplingParams --update-query SamplingParams \
-  --workspace .cache/bench/workspace --output .cache/bench/history.json --keep
-```
-
-The repository must have at least 101 first-parent commits for this example;
-choose a query relevant to the repository and a new output filename. The harness
-clones into the workspace, places indexes outside the source, replays commits,
-and checks four historical switches. Checkout, initial build, and verification
-are outside update timing. macOS also records RSS with `/usr/bin/time -l`.
-The [archived query script](benches/results/data/size-tiers-2026-09-10/query_bench.py)
-uses the recorded history reports and retained workspace paths to measure
-default/no-refresh/rg separately, recording that query state's B/M sizes. Use separate query batches to avoid the observed rg ordering
-bias in the historical update loop.
-
-`commit_updates` and generated-corpus `compare_rg` runs create synthetic updates;
-they are useful diagnostics, but are not measurements of upstream commit history.
+Raw samples, provenance, JSON summaries and Markdown reports are written to a new
+`target/benchmarks/<suite>-<timestamp>` directory. See the
+[benchmark guide](benches/README.md) for configuration, measurement contracts,
+report regeneration and the archived legacy scripts.

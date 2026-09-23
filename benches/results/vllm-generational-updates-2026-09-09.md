@@ -170,7 +170,7 @@ python3 benches/results/data/generational-updates-2026-09-09/analyze.py
 [汇总 JSON](data/generational-updates-2026-09-09/summary.json)、
 [逐次 CSV](data/generational-updates-2026-09-09/updates.csv)、
 [可重新生成的表格](data/generational-updates-2026-09-09/tables.md)、
-[Rust bench](../commit_updates.rs)及[分析脚本](data/generational-updates-2026-09-09/analyze.py)
+[Rust bench](data/legacy-harness-2026-09-22/commit_updates.rs)及[分析脚本](data/generational-updates-2026-09-09/analyze.py)
 均已保留。
 
 [首轮数据](data/generational-updates-2026-09-09/results-initial.json)使用了发布前总是

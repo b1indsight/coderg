@@ -153,7 +153,7 @@ vLLM 的双代优势包含把 12 次旧版重建变成 1 次大合并；单次�
 - 100 / 19 / 100 次正向更新及各四次历史切换，共 **2,799 次结果对照通过**
   （1,257 + 285 + 1,257）。当前版与诊断版的 B/M 字节数、段数和维护日志一致。
 - 严格 clippy、格式和 diff 检查通过；产品源码与 release 保持不变。新增内容
-  是 [历史 bench](../history_updates.rs) 的逐步 rg 计时、大小记录和计时输出验证。
+  是 [历史 bench](data/legacy-harness-2026-09-22/history_updates.rs) 的逐步 rg 计时、大小记录和计时输出验证。
 
 [分组汇总](data/maintenance-rg-2026-09-09/summary.json)、
 [逐提交 CSV](data/maintenance-rg-2026-09-09/per-commit.csv)、

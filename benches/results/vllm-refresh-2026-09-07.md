@@ -50,7 +50,7 @@
 
 ## 修改、提交与回退后的首次搜索
 
-使用现有 [vllm_git_transitions.py](../vllm_git_transitions.py)，在临时本地克隆中运行完整流程：预热 1 轮，计时 11 轮，另测 RSS 3 轮。每轮分别为两个版本建立索引；每个状态随机交错两个版本，计时包括刷新、更新、manifest 发布/重载和最终搜索。原始 vLLM 工作区保持不变。
+使用现有 [vllm_git_transitions.py](data/legacy-harness-2026-09-22/vllm_git_transitions.py)，在临时本地克隆中运行完整流程：预热 1 轮，计时 11 轮，另测 RSS 3 轮。每轮分别为两个版本建立索引；每个状态随机交错两个版本，计时包括刷新、更新、manifest 发布/重载和最终搜索。原始 vLLM 工作区保持不变。
 
 | 阶段 | 基线 ms | 优化 ms | 降幅 | 基线 RSS MiB | 优化 RSS MiB |
 |---|---:|---:|---:|---:|---:|

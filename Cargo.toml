@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2024"
 description = "Fast indexed regular-expression search for source trees"
 license = "MIT"
+autobenches = false
 
 [dependencies]
 anyhow = "1.0"
@@ -20,20 +21,16 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tempfile = "3.23"
 
-[[bench]]
-name = "compare_rg"
-harness = false
+[dev-dependencies]
+sha2 = "0.10"
+
+[[bin]]
+name = "coderg"
+path = "src/main.rs"
+bench = false
 
 [[bench]]
-name = "manifest_load"
-harness = false
-
-[[bench]]
-name = "commit_updates"
-harness = false
-
-[[bench]]
-name = "history_updates"
+name = "suite"
 harness = false
 
 [profile.release]

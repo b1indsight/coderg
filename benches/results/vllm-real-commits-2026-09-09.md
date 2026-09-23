@@ -164,7 +164,7 @@ M 为 24.11 MiB，区别于第 500 步正向更新结束时的 20.87 MiB。回�
 [逐步 CSV](data/vllm-real-commits-2026-09-09/updates.csv)、
 [二进制及源码身份](data/vllm-real-commits-2026-09-09/provenance.json)。
 
-使用 [history_updates.rs](../history_updates.rs) 复现；`--root` 需包含至少 501 个
+使用 [history_updates.rs](data/legacy-harness-2026-09-22/history_updates.rs) 复现；`--root` 需包含至少 501 个
 真实 first-parent 提交，版本二进制必须是绝对路径，报告目标文件不能已存在：
 
 ```sh

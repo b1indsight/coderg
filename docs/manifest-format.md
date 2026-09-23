@@ -36,21 +36,19 @@ coderg stats /path/to/repository --json
 
 `stats --json` 输出完整 manifest 记录，包含文档、文件元数据及段信息。
 默认 `stats` 输出统计摘要，另含 B/M 大小、段数、`generational` 和维护提示；
-小库 M 字段指累计增量。摘要与完整 manifest JSON 是不同接口。现有 Rust bench 和三个使用 manifest 的
-Python bench 已适配新旧格式；历史实验目录内保存的脚本快照不变。
+小库 M 字段指累计增量。摘要与完整 manifest JSON 是不同接口。
+统一 Rust benchmark 读取新旧格式；历史实验目录内保存的脚本快照不变。
 
 以下是二进制格式引入时的历史测量，不是分代更新分支的新增收益。
 独立加载 benchmark 在同一组记录上比较 JSON 与二进制，每轮交替先后顺序，
 分别记录读取、解析及合计耗时，反序列化对象的释放在计时外：
 
 ```sh
-mkdir -p .cache/bench
-cargo bench --bench manifest_load -- \
-  --path /path/to/index/manifest.bin --iterations 100 --warmup 10 \
-  --output .cache/bench/manifest-load.json
+# 默认完整套件包含 manifest 场景；也可在自定义配置中仅选择 "manifest"。
+cargo bench --bench suite
 ```
 
-也支持把旧 `manifest.json` 作为输入。测试使用热文件缓存，结果不包含进程
+新入口从配置语料构建索引，测量生产搜索路径的 View::open 加载，旧格式回退完整读取；详见 [benchmark 指南](../benches/README.md)。测试使用热文件缓存，结果不包含进程
 启动、索引段映射和工作区刷新。
 
 [vLLM 实测](../benches/results/vllm-binary-manifest-2026-09-09.md)：读取加解析

@@ -1,0 +1,265 @@
+{
+  "arch": "aarch64",
+  "cache": "warm filesystem cache; CLI process per sample",
+  "config": {
+    "corpora": [
+      {
+        "extension": ".rs",
+        "name": "viberwhisper",
+        "queries": [
+          {
+            "flags": [
+              "-F",
+              "-l"
+            ],
+            "name": "absent",
+            "pattern": "CODERG_BENCH_ABSENT_92be7"
+          },
+          {
+            "flags": [
+              "-F",
+              "-l"
+            ],
+            "name": "literal",
+            "pattern": "fn main"
+          },
+          {
+            "flags": [
+              "-F",
+              "-l"
+            ],
+            "name": "broad",
+            "pattern": "use "
+          },
+          {
+            "flags": [],
+            "name": "word",
+            "pattern": "\\breturn\\b"
+          },
+          {
+            "flags": [
+              "-l"
+            ],
+            "name": "or",
+            "pattern": "\\b(Error|Result|Exception|ValueError)\\b"
+          },
+          {
+            "flags": [
+              "-i"
+            ],
+            "name": "icase",
+            "pattern": "\\b(TODO|FIXME)\\b"
+          },
+          {
+            "flags": [
+              "-F",
+              "-l"
+            ],
+            "name": "short",
+            "pattern": "if"
+          },
+          {
+            "flags": [
+              "-c"
+            ],
+            "name": "count",
+            "pattern": "\\b[0-9]{2,4}\\b"
+          },
+          {
+            "flags": [],
+            "name": "blank",
+            "pattern": "^[ \\t]*$"
+          },
+          {
+            "flags": [],
+            "name": "anchor",
+            "pattern": "^[ \\t]*(def|fn|class)\\s+\\w+"
+          },
+          {
+            "flags": [
+              "-F"
+            ],
+            "name": "literal_lines",
+            "pattern": "return"
+          },
+          {
+            "flags": [
+              "-i",
+              "-F",
+              "-l"
+            ],
+            "name": "icase_literal",
+            "pattern": "todo"
+          }
+        ],
+        "source": {
+          "commit": "bc73d1c54089dad53a3f5585ed5210b188542817",
+          "kind": "git",
+          "path": "/Users/b1indsight/personal_work/viberwhisper"
+        },
+        "updates": 100
+      },
+      {
+        "extension": ".py",
+        "name": "agentflow",
+        "queries": [
+          {
+            "flags": [
+              "-F",
+              "-l"
+            ],
+            "name": "absent",
+            "pattern": "CODERG_BENCH_ABSENT_92be7"
+          },
+          {
+            "flags": [
+              "-F",
+              "-l"
+            ],
+            "name": "literal",
+            "pattern": "async def"
+          },
+          {
+            "flags": [
+              "-F",
+              "-l"
+            ],
+            "name": "broad",
+            "pattern": "import "
+          },
+          {
+            "flags": [],
+            "name": "word",
+            "pattern": "\\breturn\\b"
+          },
+          {
+            "flags": [
+              "-l"
+            ],
+            "name": "or",
+            "pattern": "\\b(Error|Result|Exception|ValueError)\\b"
+          },
+          {
+            "flags": [
+              "-i"
+            ],
+            "name": "icase",
+            "pattern": "\\b(TODO|FIXME)\\b"
+          },
+          {
+            "flags": [
+              "-F",
+              "-l"
+            ],
+            "name": "short",
+            "pattern": "if"
+          },
+          {
+            "flags": [
+              "-c"
+            ],
+            "name": "count",
+            "pattern": "\\b[0-9]{2,4}\\b"
+          },
+          {
+            "flags": [],
+            "name": "blank",
+            "pattern": "^[ \\t]*$"
+          },
+          {
+            "flags": [],
+            "name": "anchor",
+            "pattern": "^[ \\t]*(def|fn|class)\\s+\\w+"
+          },
+          {
+            "flags": [
+              "-F"
+            ],
+            "name": "literal_lines",
+            "pattern": "return"
+          },
+          {
+            "flags": [
+              "-i",
+              "-F",
+              "-l"
+            ],
+            "name": "icase_literal",
+            "pattern": "todo"
+          }
+        ],
+        "source": {
+          "commit": "911ea1ee5ae444c466e568edf2402b6fd15d8aea",
+          "kind": "git",
+          "path": "/Users/b1indsight/personal_work/agentflow"
+        },
+        "updates": 56
+      }
+    ],
+    "history_rounds": 2,
+    "name": "two-real-parallel",
+    "rounds": 3,
+    "rss_runs": 2,
+    "samples": 16,
+    "scenarios": [
+      "build",
+      "search",
+      "workflow",
+      "branches",
+      "history",
+      "manifest"
+    ],
+    "seed": 20260922,
+    "warmup": 2
+  },
+  "finished_unix_ms": 1790146224537,
+  "git": "git version 2.50.1 (Apple Git-155)",
+  "git_status": "M Cargo.lock\n M Cargo.toml\n?? benches/full.json\n?? benches/harness/\n?? benches/smoke.json\n?? benches/sources.local.json\n?? benches/suite.rs\n?? tests/benchmark_harness.rs",
+  "harness_debug_assertions": false,
+  "jobs": 2,
+  "logical_cpus": 10,
+  "machine": {
+    "sysctl": "machdep.cpu.brand_string: Apple M5\nhw.memsize: 25769803776\nhw.logicalcpu: 10\nkern.osproductversion: 26.6.2\n"
+  },
+  "os": "macos",
+  "rg": "ripgrep 15.1.0\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)\nbinary: rustc\ncommit-hash: 4a4ef493e3a1488c6e321570238084b38948f6db\ncommit-date: 2026-03-02\nhost: aarch64-apple-darwin\nrelease: 1.94.0\nLLVM version: 21.1.8",
+  "schema_version": 1,
+  "source_branch": "HEAD",
+  "source_commit": "4cad6faa38e4ff8563040e709e0b57d5bdeaabfc",
+  "source_sha256": {
+    "/Users/b1indsight/personal_work/coderg/.cache/2026-09-22/two-real-parallel.json": "c7887768a5ab559be860fc735735c78510149cc20fc4184c35902cc019b30bb5",
+    "Cargo.lock": "f851eb4e96f26772959e4adeb98d28d96ea1407dfe954fc783adc69e8d774bad",
+    "Cargo.toml": "b319e8ecef34dae5ac7a40996112361001e9500bd171f65cbe84f8fe6bfd8b51",
+    "benches/harness/config.rs": "14ee30fa48fc5de9af5b7cdf817d9d13a311b2410099fb576725a0bf74e6a201",
+    "benches/harness/corpus.rs": "764875f0050fb6f94ac1b129c1db40ad5fece27c6d07868c1ab93ee7b62910da",
+    "benches/harness/history.rs": "a1cc495074dac9b49732c4be5ca7ce6fd491f81b43a3837c9871bf9a95078299",
+    "benches/harness/process.rs": "0e63b85c79d3de57a2470e52b35acaab055438a33461acd7c2a367bab204b9dc",
+    "benches/harness/report.rs": "ab4d2c36f9ff7efea3e1bb1deeb0d1029a23ddaa09012febc918a89e04349161",
+    "benches/harness/search.rs": "f1797143e6aef8683af110ffa14f67839abdec97cacffd469376ea09078e3292",
+    "benches/harness/session.rs": "be9ae7927e95a2712351a567df7b1f6c543e659df637fcbf18366bab62559a60",
+    "benches/suite.rs": "aa8394d557983e51b195581d8007d42c4905d4d64c997d85727c9d85946cf295",
+    "src/build.rs": "bbaaa1020edb68155e56bb3640de882ef8a36d73731161f25997fed42f9d1a75",
+    "src/compaction.rs": "bd6cb0f3cfe50d5b261d88fcfc461a54990346dd71cea0534f0f37a3441cc139",
+    "src/git_state.rs": "5818ce1a65c067d38ae3761dd11935885300cbd215890084f86624ded4d4950a",
+    "src/index.rs": "0ef0908ae667f86dd4ea09ecdc1583b95483f431d524576d719f5d1a6ef0cf37",
+    "src/index/snapshots.rs": "731846002ffd1c3f6f2df4ceae783f2f34438d3b38e8d4ad94e6736e85b14f68",
+    "src/main.rs": "87689dbbcf7847591c78add5f920951bd7b7416c26e987976b1a5554f6a6004f",
+    "src/manifest.rs": "2c12a90333156dfad0ae8a560d12dfbfbbb165a2e7d2215b4b5888c19ad4da0a",
+    "src/manifest/view.rs": "c76c28dca333251879de8c9c2b236cadedd1bcecd676ab9d57ffd7d5db6326dd",
+    "src/ngram.rs": "4c396df051cfb3406b308743787f9f39f41872851531f3248a57aebe384b0d47",
+    "src/query.rs": "892ac987cb67981f001eeb747fdcc157674f324fd41f3ff3a5e2ff7932ec3916",
+    "src/search.rs": "be0d45bd0487ed23f3870cf7140a1b5dc4617ce99b8ad03bf7ae27e81d040410",
+    "src/segment.rs": "9903646d7fc2146f64a62549e89f8fea49df6a44366a76aaa399ea85c8d83e21"
+  },
+  "started_unix_ms": 1790146094423,
+  "status": "complete",
+  "timing": "CLI launch, output to null, exit; excludes Git operations, preparation and verification; RSS independent",
+  "variants": [
+    {
+      "binary": "/Users/b1indsight/personal_work/coderg/.cache/2026-09-22/main-benchmark-validation/target/release/coderg",
+      "name": "current",
+      "sha256": "2f647dd32a3127be19aa80656869b962e907b42a743de2f005e15fa6a7bacfbf"
+    }
+  ]
+}

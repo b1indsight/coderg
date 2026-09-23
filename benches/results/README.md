@@ -1,5 +1,7 @@
 # Benchmark 结果索引
 
+并发验证：[缩减轮数后的两个真实仓库试跑（2026-09-23）](two-real-parallel-2026-09-23.md)。`--jobs 2`，六场景完成，9,680 次 rg 比较通过。默认入口为 [Rust benchmark 套件](../README.md)。
+
 截至 2026-09-14，主分支采用固定英文字母频率权重 v5，维护策略沿用 `413d14a` 的分代更新实现。
 规则以[最终设计](../../docs/generational-index-refresh.md)为准：B < 32 MiB 追加增量、
 累计 8 MiB 重建；大库采用 25% 分代合并。不同报告的“current”指各自记录的二进制。

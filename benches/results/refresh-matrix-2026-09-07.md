@@ -145,7 +145,7 @@ many_small_16384 的 `short_files` 默认 p95 从 205.36 ms 升至 412.23 ms，�
 
 Git 状态变化复用同一对二进制已完成的 [7 种场景、11 次计时及 3 次 RSS 测量](vllm-refresh-2026-09-07.md)：单文件修改、提交推进、32 文件直接提交、同树提交、缓存回退及前后的干净搜索。该证据未重新计入本轮矩阵样本。原有 22 项 Rust 测试与上一轮 Clippy 结果仍适用于相同的搜索实现；新基准脚本先经过两组语料的小样本试跑，再执行完整矩阵。
 
-执行入口为 [refresh_matrix.py](../refresh_matrix.py)。`plan.json` 指定冻结语料路径和类型，索引与输出目录必须在语料外；脚本会清理自己创建的索引，保留测量和日志：
+执行入口为 [refresh_matrix.py](data/legacy-harness-2026-09-22/refresh_matrix.py)。`plan.json` 指定冻结语料路径和类型，索引与输出目录必须在语料外；脚本会清理自己创建的索引，保留测量和日志：
 
 ```sh
 python3 -B benches/refresh_matrix.py \

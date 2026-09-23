@@ -281,9 +281,9 @@ release profile 使用 thin LTO、`codegen-units = 1` 和 strip。profiling prof
 | [tests/cli.rs](../tests/cli.rs) | 构建、更新、删除、无字面量查询、大小写查询与直接正则匹配一致；跨目录新增、重命名、忽略规则变更及无变化时不写 manifest |
 | [tests/git_incremental.rs](../tests/git_incremental.rs) | 增量追加、身份推进、无树缓存的回退差异更新，以及回退后的继续修改 |
 | [tests/generational.rs](../tests/generational.rs) | 8 MiB 当次重建、超过旧段数/文件数阈值不重建、删除/恢复/二进制转换、并发与合并失败 |
-| [history_updates.rs](../benches/history_updates.rs) | 真实 first-parent 历史、回退、每步维护日志/B/M/耗时及 rg 输出对照 |
-| [compare_rg.rs](../benches/compare_rg.rs) | 固定字符串、文件列表输出的进程级对比；生成语料时另测增量、提交推进和回退 |
-| [regex_suite.py](../benches/regex_suite.py) | 常见正则的完整输出校验、默认/no-refresh/rg 随机交错计时及可选 RSS 测量 |
+| [history_updates.rs](../benches/results/data/legacy-harness-2026-09-22/history_updates.rs) | 真实 first-parent 历史、回退、每步维护日志/B/M/耗时及 rg 输出对照 |
+| [compare_rg.rs](../benches/results/data/legacy-harness-2026-09-22/compare_rg.rs) | 固定字符串、文件列表输出的进程级对比；生成语料时另测增量、提交推进和回退 |
+| [regex_suite.py](../benches/results/data/legacy-harness-2026-09-22/regex_suite.py) | 常见正则的完整输出校验、默认/no-refresh/rg 随机交错计时及可选 RSS 测量 |
 
 最终维护实现通过 74 项测试、`cargo fmt --check` 与 clippy（`-D warnings`）。
 当前三档真实提交数据如下，单位 ms，为各类事件中位数；单次事件按实测值列出。
@@ -308,7 +308,7 @@ P95、B/M 体积、段数、触发提交及独立 rg 查询。回退数据未混
 
 ```sh
 cargo test --locked
-cargo bench --bench compare_rg
+cargo bench --bench suite
 ```
 
-查询预算的详细比较见[128 / 128 决策记录](decisions/2026-09-07-case-insensitive-index-budget.md)；需要完整匹配行输出及正则覆盖时使用 `benches/regex_suite.py`，具体参数见[测试报告](../benches/results/vllm-regex-suite-2026-09-07.md)。
+查询预算的详细比较见[128 / 128 决策记录](decisions/2026-09-07-case-insensitive-index-budget.md)；需要完整匹配行输出及正则覆盖时使用 [统一 Rust benchmark](../benches/README.md)，具体参数见[测试报告](../benches/results/vllm-regex-suite-2026-09-07.md)。

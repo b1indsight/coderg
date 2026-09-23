@@ -74,7 +74,7 @@
 - 每阶段核对新增段文件数量和活跃段数；既有段的文件元数据保持一致，两个版本各阶段全部段文件的大小和 SHA-256 集合相同。
 - 原始 vLLM commit、工作区状态、两个二进制和 coderg 源码在运行前后保持一致；临时克隆及索引在运行结束后清理。
 - [完整原始数据](data/vllm-git-transitions-2026-09-07/results.json)、[汇总与样本](data/vllm-git-transitions-2026-09-07/summary.json)、[42 份 RSS 日志](data/vllm-git-transitions-2026-09-07/rss-logs.tar.gz)、[归档 SHA-256 清单](data/vllm-git-transitions-2026-09-07/manifest.json)
-- [通用入口](../vllm_git_transitions.py)、[本次脚本快照](data/vllm-git-transitions-2026-09-07/harness.py)
+- [通用入口](data/legacy-harness-2026-09-22/vllm_git_transitions.py)、[本次脚本快照](data/vllm-git-transitions-2026-09-07/harness.py)
 
 ## 复现
 

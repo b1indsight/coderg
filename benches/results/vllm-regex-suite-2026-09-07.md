@@ -117,6 +117,6 @@ python3 benches/regex_suite.py \
   --iterations 31 --warmup 3 --rss-runs 3
 ```
 
-`--rss-runs` 依赖 macOS；其他平台可省略该参数。通用入口是 [benches/regex_suite.py](../regex_suite.py)，[harness.py](data/vllm-regex-suite-2026-09-07/harness.py) 保存实际执行版本的原始字节，供核对 SHA-256。若需直接使用归档版本，应把它放回 `benches/regex_suite.py` 的位置，因为它根据脚本位置定位源码。
+`--rss-runs` 依赖 macOS；其他平台可省略该参数。通用入口是 [benches/regex_suite.py](data/legacy-harness-2026-09-22/regex_suite.py)，[harness.py](data/vllm-regex-suite-2026-09-07/harness.py) 保存实际执行版本的原始字节，供核对 SHA-256。若需直接使用归档版本，应把它放回 `benches/regex_suite.py` 的位置，因为它根据脚本位置定位源码。
 
 完整证据：[results.json](data/vllm-regex-suite-2026-09-07/results.json) 保存所有原始计时样本、min/median/p95/mean、输出校验、RSS 样本和环境；[commands.json](data/vllm-regex-suite-2026-09-07/commands.json) 保存搜索命令；[rss-logs.tar.gz](data/vllm-regex-suite-2026-09-07/rss-logs.tar.gz) 保存 252 份 `/usr/bin/time -l` 原始日志；[source.diff](data/vllm-regex-suite-2026-09-07/source.diff) 保存测量版本相对 HEAD 的源码差异。
