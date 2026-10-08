@@ -1,4 +1,6 @@
 /target/
 /.coderg-index/
 /.cache/
+/.agent
+/.agents
 /benches/sources.local.json
