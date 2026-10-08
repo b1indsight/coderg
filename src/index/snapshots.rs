@@ -1027,7 +1027,7 @@ fn update(
 }
 
 pub(super) fn compacted(directory: &Path, manifest: &mut Manifest) -> Result<Vec<u8>> {
-    let old = read_manifest(&directory.join(manifest::FILE_NAME))?;
+    let old = manifest::read(&directory.join(manifest::FILE_NAME))?;
     let encoded = manifest::encode(manifest)?;
     manifest.publication = manifest::publication(&encoded);
     if let Some(mut state) = state_for(directory, &old)?
@@ -1148,7 +1148,7 @@ mod tests {
         super::super::refresh(&mut index, Some(&directory), "32".parse().unwrap()).unwrap();
         assert_eq!(
             index.manifest,
-            read_manifest(&directory.join(manifest::FILE_NAME)).unwrap()
+            manifest::read(&directory.join(manifest::FILE_NAME)).unwrap()
         );
         assert_eq!(index.all_document_ids(), vec![0, 1]);
         let gram = ngram::covering_hashes(b"distinctive quasar token", 1)[0];

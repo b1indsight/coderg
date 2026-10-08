@@ -281,7 +281,7 @@ fn same_publication(directory: &Path, loaded: &Manifest) -> Result<bool> {
         File::open(path)?.read_exact(&mut header)?;
         return Ok(manifest::publication(&header) == Some(identity));
     }
-    Ok(read_manifest(&path)? == *loaded)
+    Ok(manifest::read(&path)? == *loaded)
 }
 
 fn same_identity(manifest: &Manifest, identity: &Option<git_state::GitIdentity>) -> bool {
@@ -570,7 +570,7 @@ pub fn load(path: &Path, requested_index_dir: Option<&Path>) -> Result<DiskIndex
 }
 
 fn load_under_reader_lock(root: &Path, index_dir: &Path) -> Result<DiskIndex> {
-    let manifest = read_manifest(&index_dir.join(manifest::FILE_NAME))
+    let manifest = manifest::read(&index_dir.join(manifest::FILE_NAME))
         .with_context(|| "index not found; run `coderg index` or omit --no-refresh")?;
     if manifest.version != VERSION || manifest.root != root {
         bail!("index format or root mismatch; rebuild the index");
@@ -682,10 +682,6 @@ impl DiskIndex {
             .map(|(id, _)| id as u32)
             .collect()
     }
-}
-
-fn read_manifest(path: &Path) -> Result<Manifest> {
-    manifest::read(path)
 }
 
 fn write_manifest_file(path: &Path, manifest: &Manifest, durable: bool) -> Result<()> {
